@@ -1,0 +1,45 @@
+{
+  "acquired_at": "2026-10-23T14:06:15.642630Z",
+  "counts": {
+    "markdown_documents": 0,
+    "original_documents": 0,
+    "outlink_documents": 0,
+    "outlinks": 0
+  },
+  "documents": [],
+  "downstream": {
+    "chunks": "not_applicable_quarantined",
+    "vectors": "not_applicable_quarantined"
+  },
+  "license": "MIT",
+  "quarantine": {
+    "detail": "tree contains no admissible documentation blob",
+    "evidence": [
+      {
+        "body_bytes": 218,
+        "body_sha256": "f4c5ef08112717344dcafc4898422ae40875a36513f2d2634592fe1df5790fed",
+        "bytes": 168,
+        "compression": "gzip",
+        "sha256": "e6998731f5c06e7d57f9a1b26f1c5b57b7b9af98042b4568eec93c5f1264d2cb",
+        "uri": "artifact://original/api/f4/f4c5ef08112717344dcafc4898422ae40875a36513f2d2634592fe1df5790fed.json.gz"
+      },
+      {
+        "body_bytes": 364,
+        "body_sha256": "8c21b29be2476ab18d6c7e606c32e6cafee8caba1ebed4a99abaed8c044debb3",
+        "bytes": 295,
+        "compression": "gzip",
+        "sha256": "1903097739fde0c83c9db9c1c9f26658b979416be02872da93216feb0ee5d1a3",
+        "uri": "artifact://original/api/8c/8c21b29be2476ab18d6c7e606c32e6cafee8caba1ebed4a99abaed8c044debb3.json.gz"
+      }
+    ],
+    "reason": "no_eligible_documentation"
+  },
+  "repository": "acme/nodocs",
+  "requested_branch": "main",
+  "resolved_branch": "main",
+  "revision": "cccccccccccccccccccccccccccccccccccccccc",
+  "route": "documented_source_api",
+  "schema": "aw.github-doc-acquisition.v1",
+  "source_profile": "software_docs",
+  "status": "quarantined"
+}

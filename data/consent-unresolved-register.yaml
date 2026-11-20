@@ -1,0 +1,181 @@
+# Consent-UNRESOLVED register - ADR-024 amendment 3
+# (RATIFIED by Tim 2026-08-19, PR #61; option (c), the sub-class split, in force).
+#
+# DISTINCT FROM data/consent-unclear-register.yaml. Do not conflate them:
+#   * consent-unclear-register.yaml = consent RESOLVED. The host blocks only
+#     vendor-specific AI-TRAINING tokens; we read its policy and it was
+#     permissive for search (ADR-024 amendment 1).
+#   * THIS register = consent UNRESOLVED. robots.txt is readable and permissive,
+#     but /.well-known/tdmrep.json returns no readable policy answer (persistent
+#     5xx on an absent well-known path), so the TDM leg can never resolve. A 404
+#     would resolve cleanly as "no reservation"; a permanent 500 is a livelock.
+#     Amendment 3 treats a definitively-unreadable endpoint as ABSENT after
+#     rechecks with proven-live egress, admitting SEARCH ONLY, train_ok=false.
+#
+# MANDATORY GUARDRAIL (ratified): every host here carries a sealed witness with
+# the per-attempt HTTP status for BOTH probes AND the egress-liveness proof for
+# that attempt, so "unreadable" can never be recorded from an outage on our side.
+#
+# Explicit refusals are NEVER overridden. A readable tdm-reservation=1, a
+# wildcard disallow, noai, or any explicit opt-out still declines, unchanged.
+# If a host's tdmrep later becomes readable, the LIVE evidence wins and the host
+# leaves this register - the resolver re-derives this on every resolve.
+#
+# Admission is host-scoped and revocable: remove the host to revoke, and record
+# the purge in log.md (same discipline as the unclear register).
+#
+# declined_residue = sub-class (b): hosts that do not answer our policy probes at
+# all. NOT admitted and NOT retryable - recorded so the decision is auditable and
+# is not silently re-litigated by a later wave.
+adr: 'ADR-024 amendment 3 (RATIFIED 2026-08-19, PR #61, option (c))'
+witness_namespace: artifact://_work/next-waves/wave5-cc/acquisition/remainder-incremental-000100-002099-v1/receipts/adr024-amdt3-witness/attempt-0032-v2/
+witness_rollup: artifact://_work/next-waves/wave5-cc/acquisition/remainder-incremental-000100-002099-v1/receipts/adr024-amdt3-witness/attempt-0032-v2/WITNESS.json
+witness_rollup_sha256: 822dcbe337e08b3649f3a0f6006774f4b220d89bdef81904c2141ee80782a0d0
+hosts:
+- host: inscriptions.s2.rpn.ch
+  search_ok: true
+  train_ok: false
+  status_stamped: ok_search_only
+  observed_at: '2026-08-19T16:06:44Z'
+  evidence:
+    robots_http_status: 200
+    robots_sha256: 9311bab30d8b5d05f5fa5563a251b8c96b8470873bb77c62d3d17c146d7acab7
+    robots_permissive: true
+    tdmrep_http_status: 503
+    tdmrep_readable_policy_answer: false
+    tdmrep_sha256: fb2d9f058c2010c57f86a05ae33d282f33e3825290c66b8b120cd177416c6bdf
+  witness: artifact://_work/next-waves/wave5-cc/acquisition/remainder-incremental-000100-002099-v1/receipts/adr024-amdt3-witness/attempt-0032-v2/hosts/inscriptions.s2.rpn.ch.json
+  witness_sha256: fc0716100d4937e1b02c4025fea84e397b05ad545f054ef79613c715bc5bf0c2
+  egress_liveness: artifact://_work/next-waves/wave5-cc/acquisition/remainder-incremental-000100-002099-v1/receipts/adr024-amdt3-witness/attempt-0032-v2/EGRESS-LIVENESS.json
+  egress_liveness_sha256: 25f62ea6b128ede72d1489511355f7c99c99dfb66ebf45b778a88029dba1c299
+  rationale: 'robots readable and permissive (status=200, no opt-out signal); tdmrep returned no readable
+    policy answer (status=503) — sub-class (a): admit search-only, train_ok=false, registered with this
+    witness'
+  added_by: task 421 (Wave28 attempt-0032, ADR-024 amdt-3 execution)
+- host: www.color.com
+  search_ok: true
+  train_ok: false
+  status_stamped: ok_search_only
+  observed_at: '2026-08-19T16:06:41Z'
+  evidence:
+    robots_http_status: 200
+    robots_sha256: 6b29a15aa187b46dc7e4dbac4fdd4f2fc359d85f5f2d566a0928fd056a92db51
+    robots_permissive: true
+    tdmrep_http_status: 502
+    tdmrep_readable_policy_answer: false
+    tdmrep_sha256: 07800b0af6b3983580d05f06a3aa4c6410ca8eeffff8b687bf6f22ada9b2633d
+  witness: artifact://_work/next-waves/wave5-cc/acquisition/remainder-incremental-000100-002099-v1/receipts/adr024-amdt3-witness/attempt-0032-v2/hosts/www.color.com.json
+  witness_sha256: a30f0c1ab5413315a978547022367d7b3c4d06d07786a18a4b264276ee398bfd
+  egress_liveness: artifact://_work/next-waves/wave5-cc/acquisition/remainder-incremental-000100-002099-v1/receipts/adr024-amdt3-witness/attempt-0032-v2/EGRESS-LIVENESS.json
+  egress_liveness_sha256: 25f62ea6b128ede72d1489511355f7c99c99dfb66ebf45b778a88029dba1c299
+  rationale: 'robots readable and permissive (status=200, no opt-out signal); tdmrep returned no readable
+    policy answer (status=502) — sub-class (a): admit search-only, train_ok=false, registered with this
+    witness'
+  added_by: task 421 (Wave28 attempt-0032, ADR-024 amdt-3 execution)
+- host: www.creditkarma.com
+  search_ok: true
+  train_ok: false
+  status_stamped: ok_search_only
+  observed_at: '2026-08-19T16:06:45Z'
+  evidence:
+    robots_http_status: 200
+    robots_sha256: a2cfa5238f93c93e4d72db420063f19c06c7408acedfce94e1715b132f9b6bd3
+    robots_permissive: true
+    tdmrep_http_status: 500
+    tdmrep_readable_policy_answer: false
+    tdmrep_sha256: 153e341002582255ea82365f6917d879678ac960fcbba8ddfd2f686fb4874e65
+  witness: artifact://_work/next-waves/wave5-cc/acquisition/remainder-incremental-000100-002099-v1/receipts/adr024-amdt3-witness/attempt-0032-v2/hosts/www.creditkarma.com.json
+  witness_sha256: 9175ad984f472be1c654618e6a73dfa75e88248871c41c44fff1fb5765c802b4
+  egress_liveness: artifact://_work/next-waves/wave5-cc/acquisition/remainder-incremental-000100-002099-v1/receipts/adr024-amdt3-witness/attempt-0032-v2/EGRESS-LIVENESS.json
+  egress_liveness_sha256: 25f62ea6b128ede72d1489511355f7c99c99dfb66ebf45b778a88029dba1c299
+  rationale: 'robots readable and permissive (status=200, no opt-out signal); tdmrep returned no readable
+    policy answer (status=500) — sub-class (a): admit search-only, train_ok=false, registered with this
+    witness'
+  added_by: task 421 (Wave28 attempt-0032, ADR-024 amdt-3 execution)
+- host: www.ekws.ch
+  search_ok: true
+  train_ok: false
+  status_stamped: ok_search_only
+  observed_at: '2026-08-19T16:06:43Z'
+  evidence:
+    robots_http_status: 200
+    robots_sha256: e1f21c9aa28d50ca112ed357f34b67c550597effd4d42fd55b4e27300dd8f9c1
+    robots_permissive: true
+    tdmrep_http_status: 500
+    tdmrep_readable_policy_answer: false
+    tdmrep_sha256: d4f40df0fe908e44885b54dada840bd4187489ad62025e654bc1bf61db1a389e
+  witness: artifact://_work/next-waves/wave5-cc/acquisition/remainder-incremental-000100-002099-v1/receipts/adr024-amdt3-witness/attempt-0032-v2/hosts/www.ekws.ch.json
+  witness_sha256: ee1426a3a856be188f87dac1fb5d02f58f93715c728b179bb0d210b6fcb1e857
+  egress_liveness: artifact://_work/next-waves/wave5-cc/acquisition/remainder-incremental-000100-002099-v1/receipts/adr024-amdt3-witness/attempt-0032-v2/EGRESS-LIVENESS.json
+  egress_liveness_sha256: 25f62ea6b128ede72d1489511355f7c99c99dfb66ebf45b778a88029dba1c299
+  rationale: 'robots readable and permissive (status=200, no opt-out signal); tdmrep returned no readable
+    policy answer (status=500) — sub-class (a): admit search-only, train_ok=false, registered with this
+    witness'
+  added_by: task 421 (Wave28 attempt-0032, ADR-024 amdt-3 execution)
+- host: www.ikss.ch
+  search_ok: true
+  train_ok: false
+  status_stamped: ok_search_only
+  observed_at: '2026-08-19T16:06:42Z'
+  evidence:
+    robots_http_status: 200
+    robots_sha256: 8385eca4d60db4002d1f272cc1439ac8ac4223990d9f663015d6b1b06bb162ff
+    robots_permissive: true
+    tdmrep_http_status: 502
+    tdmrep_readable_policy_answer: false
+    tdmrep_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+  witness: artifact://_work/next-waves/wave5-cc/acquisition/remainder-incremental-000100-002099-v1/receipts/adr024-amdt3-witness/attempt-0032-v2/hosts/www.ikss.ch.json
+  witness_sha256: 7e13b2793ac6fd1f030a1d08c9190e1772e91ce8e68efe4ccc65fa35dd9d917a
+  egress_liveness: artifact://_work/next-waves/wave5-cc/acquisition/remainder-incremental-000100-002099-v1/receipts/adr024-amdt3-witness/attempt-0032-v2/EGRESS-LIVENESS.json
+  egress_liveness_sha256: 25f62ea6b128ede72d1489511355f7c99c99dfb66ebf45b778a88029dba1c299
+  rationale: 'robots readable and permissive (status=200, no opt-out signal); tdmrep returned no readable
+    policy answer (status=502) — sub-class (a): admit search-only, train_ok=false, registered with this
+    witness'
+  added_by: task 421 (Wave28 attempt-0032, ADR-024 amdt-3 execution)
+declined_residue:
+- host: documents-dds-ny.un.org
+  search_ok: false
+  observed_at: '2026-08-19T16:06:53Z'
+  evidence:
+    robots_http_status: 200
+    tdmrep_http_status: 301
+    tdmrep_effective_url: https://documents-dds-ny.un.org/.well-known/tdmrep.json
+  witness: artifact://_work/next-waves/wave5-cc/acquisition/remainder-incremental-000100-002099-v1/receipts/adr024-amdt3-witness/attempt-0032-v2/hosts/documents-dds-ny.un.org.json
+  witness_sha256: 8c8fb11f8bc93618704f8fa2e48d66206cca51e8e8e44ba4f39ab09163bc8448
+  rationale: 'tdmrep returned a status but no policy answer (status=301, effective_url=https://documents-dds-ny.un.org/.well-known/tdmrep.json)
+    — unresolvable from outside the host''s network. Sub-class (b): permanent explained residue.'
+  added_by: task 421 (Wave28 attempt-0032, ADR-024 amdt-3 execution)
+- host: www.euipo.europa.eu
+  search_ok: false
+  observed_at: '2026-08-19T16:06:53Z'
+  evidence:
+    robots_http_status: 403
+    tdmrep_http_status: 403
+    tdmrep_effective_url: https://www.euipo.europa.eu/.well-known/tdmrep.json
+  witness: artifact://_work/next-waves/wave5-cc/acquisition/remainder-incremental-000100-002099-v1/receipts/adr024-amdt3-witness/attempt-0032-v2/hosts/www.euipo.europa.eu.json
+  witness_sha256: 677d3d1be78ea9073227daea27246643ed787697c9bdd8ec32414a33d940a1ed
+  rationale: 'robots.txt itself is NOT readable (status=403) — we cannot establish that the host permits
+    us at all, so the amendment-3 admission premise (readable, permissive robots) does not hold. Sub-class
+    (b): permanent explained residue.'
+  added_by: task 421 (Wave28 attempt-0032, ADR-024 amdt-3 execution)
+- host: economie.gouv.fr
+  search_ok: false
+  observed_at: '2026-09-08T14:01:09Z'
+  evidence:
+    robots_http_status: 403
+    tdmrep_http_status: 403
+    cf_mitigated_header: challenge
+    reproduced_with_browser_ua: true
+    prior_observations: ['2026-08 sealed rollout', 'task545 2026-09-08', 'task547 2026-09-08']
+  witness: artifact://554-artifacts/economie-cloudflare-challenge-evidence.txt
+  witness_sha256: 95d11db9d5297652edb81e182597cee323777eef12dc4e9b650fa57e69d3e3ac
+  rationale: 'robots.txt itself is NOT readable (status=403) — the euipo.europa.eu shape exactly:
+    tdmrep also 403, and here independently confirmed as a Cloudflare bot-management JS challenge
+    (cf-mitigated: challenge, "Just a moment..." interstitial) that answers identically to our
+    declared crawler UA and to a full desktop-Chrome UA — a mechanism that structurally cannot be
+    passed by any plain-HTTP probe, ours or anyone else''s, unlike a UA/IP WAF rule (which fda.gov/
+    ameli.fr/ilo.org show CAN and did lift, task 521 §3.1). Observed identically four times across
+    3+ weeks (Aug sealed rollout, task545, task547, this task), all from the crawl host. PROPOSED sub-class
+    (b) by the same rationale PR #61 already ratified for euipo — Tim''s merge of this PR is the
+    ratification, per that precedent; not self-sealed.'
+  added_by: task 554 (re-adjudication of the ho-fr-001 hold, 2026-09-08)

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dokumente builddate="20260101000000" doknr="BJNR000000000">
+<norm doknr="BJNR000010001"><metadaten><jurabk>TestG</jurabk><langue>Testgesetz zur Erprobung</langue><gliederungseinheit><gliederungsbez>Abschnitt 1</gliederungsbez><gliederungstitel>Allgemeines</gliederungstitel></gliederungseinheit></metadaten><textdaten><text format="XML"><Content><P>Dieses Gesetz regelt die Erprobung von Testfällen im Bundesrecht und gilt für alle Beteiligten.</P></Content></text></textdaten></norm>
+<norm doknr="BJNR000010002"><metadaten><jurabk>TestG</jurabk><enbez>Inhaltsübersicht</enbez></metadaten><textdaten><text format="XML"><Content><P>Abschnitt 1 Allgemeines, Abschnitt 2 Besonderes und weitere Überschriften der Übersicht.</P></Content></text></textdaten></norm>
+<norm doknr="BJNR000010003"><metadaten><jurabk>TestG</jurabk><enbez>§ 1</enbez><titel format="parat">Geltungsbereich</titel></metadaten><textdaten><text format="XML"><Content><P>(1) Dieses Gesetz gilt für Verfahren vor Bundesbehörden.</P><P>(2) Es gilt nicht für Landesbehörden.</P></Content></text></textdaten></norm>
+<norm doknr="BJNR000010004"><metadaten><jurabk>TestG</jurabk><enbez>§ 2</enbez></metadaten><textdaten><text format="XML"><Content><P>(weggefallen)</P></Content></text></textdaten></norm>
+<norm doknr="BJNR000010005"><metadaten><jurabk>TestG</jurabk><enbez>Art 31</enbez></metadaten><textdaten><text format="XML"><Content><P>Bundesrecht bricht Landesrecht.</P></Content></text></textdaten></norm>
+<norm doknr="BJNR000010006"><metadaten><jurabk>TestG</jurabk><enbez>(XXXX)</enbez></metadaten><textdaten><text format="XML"><Content><P>Dieser reservierte Platzhalter hat keine eigene Seite und liefert nur einen Fehler beim Abruf.</P></Content></text></textdaten></norm>
+<norm doknr="BJNR000010007"><metadaten><jurabk>TestG</jurabk><enbez>§ 3</enbez></metadaten><textdaten><text format="XML"><Content><P>Zu kurz</P></Content></text></textdaten></norm>
+<norm doknr="BJNR000010008"><metadaten><jurabk>TestG</jurabk><enbez>§ 1</enbez></metadaten><textdaten><text format="XML"><Content><P>Die Bundesregierung erlässt die zur Ausführung dieses Gesetzes erforderlichen Rechtsverordnungen.</P></Content></text></textdaten></norm>
+</dokumente>

@@ -1,0 +1,286 @@
+{
+ "schema": "aw.representation-contract.v1",
+ "task": 527,
+ "note": "What each producer family MUST embed and MUST tokenise, checkable at stage time before a GPU minute is spent. specs/chunk-vector-provenance.md invariant I-P5 already requires `channels.dense`/`channels.sparse` to name a surface from a closed vocabulary; this file is the enforceable half of that -- the surface plus the identity fields the surface has to carry. Keyed by family; the row-level key is `prov_id`, and `prov_id_note` records how a family maps to the ids in `_provenance/legend.json`.",
+ "prov_id_note": "A family entry governs every prov_id whose `producer` block names the module in `producers`. Until ADR-089 is ratified and the legend is complete, the binder resolves a family by set_id (`data/assembly/sealed-populations.v1.json`) and a pack source resolves by its `source=` dir; both are recorded per check run so a verdict is attributable.",
+ "surfaces": {
+  "body_only": "the chunk body, verbatim",
+  "title_body": "aw_common.compose_index_text: \"<title>. <site_name>. <body>\", dedup-guarded (ADR-061)",
+  "title_only_body": "compose_index_text with title and no site_name (tasks/417-scripts/stage_atomic_embeddings.py)",
+  "card_prose": "ADR-060 dense channel: natural-language prose",
+  "card_hooks": "ADR-060 sparse channel: name + aliases + domain token + UID + discriminative multilingual terms; never sentences",
+  "record_native": "the source's own record text, no AW composition"
+ },
+ "families": {
+  "wikipedia_413a": {
+   "dense": "title_body",
+   "sparse": "title_body",
+   "identity_fields": [
+    "title"
+   ],
+   "producers": [],
+   "evidence": "task 527 family-wikipedia_413a.json -- build 40/40 and TWIN 40/40 reconstruct at cos 1.0000 from this surface"
+  },
+  "chunk_lane_body_only": {
+   "dense": "body_only",
+   "sparse": "title_body",
+   "identity_fields": [],
+   "max_provenance_share": 0.34,
+   "producers": [],
+   "applies_to": [
+    "task472_cc_materializer_1024_embed",
+    "task492_crawl30_cc_chunks",
+    "task494_4crawl_supplement_cc_chunks",
+    "task495_r7_stale_supplement_cc_chunks",
+    "task482_cc_consent_supplement_chunks"
+   ],
+   "evidence": "task 527 twinoverlap-task472_cc_materializer_1024_embed.json -- on 20 shared identities BOTH the twin and the build reconstruct from the raw body; this is production's rule for these lanes, not a deviation"
+  },
+  "f2_html": {
+   "dense": "title_body",
+   "sparse": "title_body",
+   "identity_fields": [
+    "title"
+   ],
+   "producers": [],
+   "applies_to": [
+    "task472_f2_html_1024_embed",
+    "task482_f2_consent_supplement_chunks"
+   ],
+   "evidence": "task 527 twinoverlap-task472_f2_html_1024_embed.json -- on 40 shared identities production reconstructs from the COMPOSED surface 29/34 while the build reconstructs from the raw body 40/40. The build VIOLATES this entry today; the entry states what production shipped."
+  },
+  "law_article_pack": {
+   "dense": "title_body",
+   "sparse": "hierarchy_body",
+   "identity_fields": [
+    "title"
+   ],
+   "max_provenance_share": 0.2,
+   "refused_index_markup": [
+    "akn_anchor_id"
+   ],
+   "producers": [
+    "adapt_pack_to_413a_stage.py",
+    "cytir/corpus/law_sparse_surface.py"
+   ],
+   "applies_to": [
+    "gesetze-official-current-v1",
+    "legifrance-dila-exact-production-v4",
+    "dila-loda-exact-production-v1",
+    "fedlex-r0-exact-current-v1",
+    "justice-canada-current-official-xml-residual-v1",
+    "routec-justice-canada-current-official-xml-v1",
+    "dila-jorf-exact-production-article-bound-v1",
+    "dila-jade-ce-unique-terminal-v1",
+    "dila-kali-exact-production-v2"
+   ],
+   "sparse_surface_field": "sparse_text",
+   "evidence": "task 527 pack-gesetze-official-current-v1.json -- 68.8% of the embedded surface's lines (median 75%) are the materializer's own identity block, and every row carries a distinct `sparse_text` that assembly_binder.py:1389 never reads. The build VIOLATES both halves. CORRECTION (task 537): `dense` was `title_only_body`, which drops `site_name` unconditionally. Task 526 proved (cos 0.999999, 26/26 golds) that production's ACTUAL fedlex surface is `compose_index_text(title, \"Fedlex\", body)` -- the site name IS part of this family's true representation for the one source that declares one (`pack-surface-contract.v1.json :: fedlex-r0-exact-current-v1.site_name == \"Fedlex\"`); the other five `applies_to` sources all have `site_name: null` (probe_twin_site_names.py, task 528b), so `title_body` renders identically to the old `title_only_body` for them -- a no-op there and a bug fix for fedlex. `title_only_body` stays declared for whichever OTHER family still needs a hard no-site rule. CORRECTION (task 538): dila-jorf/dila-jade/dila-kali (task 537's roster, same `adapt_pack_to_413a_stage.py` producer, same `Official/Decision/Convention identity` machine-identity-block shape as the other DILA members) are the same defect and the same fix -- `site_name: null` (same legifrance.gouv.fr host as legifrance-dila-exact-production-v4, task 528b's own probe). Dense-only delta applied by task 538 (DENSE-ONLY, --no-sparse; `sparse: card_hooks` above is untouched and its own conformance is not asserted by this correction). CORRECTION (task 564): `sparse` was `card_hooks`, which for a law pack made the check VACUOUS -- `card_hooks` renders `rec[\"sparse_text\"]`, which is exactly what `binder_sparse_surface` returns for a family declaring `sparse_surface_field`, so `conformance.sparse` could never fail whatever the producer sealed. It is now `hierarchy_body`, the surface `fedlex_dump.parse_akn` has always composed for this family (`\"; \".join(ancestor_heading_path(article)) + \". \" + body`, with task 358b's reason in the comment beside it: the FULL ancestor path is a sparse-only retrieval hook and truncating it cuts OR art. 257's \"Die Miete\"). MEASURED, not assumed: the epoch-4 materializer emits that breadcrumb as FLAT sibling `## <label> {#anchor}` headings, so `generic_chunking`'s hierarchy channel never attaches it to the article's own chunk, and the pack's `sparse_text` is the law title repeated per section -- 40-100% more characters than `text` and EXACTLY the same distinct BM25 terms on all 7 golds probed. `refused_index_markup` is added for the second half of the same defect: 22,927 of 22,927 pack rows carry `{#art_N}` in BOTH channels against 0 of 299 matched twin rows. SCOPE, stated rather than implied: only `fedlex-r0-exact-current-v1` has been re-surfaced to this declaration (`resurface_law_pack_sparse.py`, task 564) and A/B'd; the other eight `applies_to` sources are DECLARED-BUT-UNMEASURED on the sparse axis and will report `conformance.sparse` until each is re-surfaced or ruled out on its own evidence -- the same posture task 538 took for `document_pack_538.sparse`."
+  },
+  "document_pack_538": {
+   "dense": "title_body",
+   "sparse": "record_native",
+   "identity_fields": [
+    "title"
+   ],
+   "producers": [],
+   "applies_to": [
+    "ca-canadaca-current-preserved-html-v2",
+    "ca-canadaca-current-direct-after-cc-miss-v1",
+    "astra-current-retained-pdf-v1",
+    "astra-current-retained-html-v1",
+    "routec-w3c-technical-reports-current-v1",
+    "swissmedic-current-retained-pdf-v1",
+    "swissmedic-current-retained-html-v1",
+    "cochrane-current-consent-direct-v1",
+    "cochrane-current-preserved-retained-and-cc-v1",
+    "routec-ietf-datatracker-internet-draft-records-current-v1",
+    "routec-ietf-datatracker-review-records-current-v1",
+    "routec-ietf-datatracker-minutes-records-current-v1",
+    "routec-ietf-datatracker-agenda-records-current-v1",
+    "routec-ietf-datatracker-charter-records-current-v1",
+    "routec-ietf-datatracker-bof-request-records-current-v1",
+    "routec-ietf-datatracker-narrative-minutes-records-current-v1",
+    "routec-ietf-datatracker-conflict-review-records-current-v1",
+    "routec-phase2-all-direct-generic-web-current-v2"
+   ],
+   "not_applies_to_note": "rfc-editor-production-current-v2 and finma-production-current-exact-retained-pdfs-v1 are document_pack_538-SHAPED (same producer, same defect) but task 538's own A/B SEALED THEM UNAPPLIED: rfc-editor cost 3 h@1 on the 629 v2 instrument standalone (247->244, a real RFC-number query's own gold falling from rank 1, no compensating h@1 gain) and lost a gold off the 1,418 top-10 (sw-spec-004, rank 9->None, its OWN rfc6749 gold); finma reached 0 golds on either instrument and also lost a gold off the 1,418 top-10 (ecg-xl-02, an unrelated entity-card gold at rank 10->None, isolated to finma alone by bisection). bfs-dam-current-exact-key-reconstruction-v1 and who-iris-current-metadata-v1 are excluded for a DIFFERENT reason -- measured 100% no-op (the title already appears in the body), so composing changes zero bytes. CORRECTION (task 538, close): the 17 `context7-github-production-current-*` sources are REMOVED from applies_to and their partial apply was REVERTED (tasks/538-artifacts/apply/context7.revert.json). The delta could address only 31,139 of the pack's 84,961 rows: `aw_common.mint_passage_point_id` keys on canonical_text, and the pack's canonical_text has drifted from what aw_e8 was built with, so 53,822 staged rows address no point in the collection while the collection's own points for the SAME URLs sit under different ids (40/40 sampled missing-id URLs found present under another id; over 200 sampled URLs, 206 collection-only and 212 staged-only points, 112 shared). Applying it left the family with two embedding surfaces at once -- the exact representation-contract break this declaration exists to prevent -- in a state no cold rebuild from L0/L1/L2 reproduces. The A/B was an exact tie on both instruments and could not have seen it (the instrument keys family membership on point_id, so the unaddressable rows stayed in the competitor pool unrescored), so no measured gain was given up by reverting. context7 needs a rebuild-time re-materialisation against the collection's own canonical_text, not a vector delta. rfc-editor carries a milder 16.5% version of the same drift; it was sealed unapplied for its own A/B reasons above, so nothing needed reverting there. The other 13 in-scope families join EXACTLY in both directions -- 2,000/2,000 sampled staged ids present, and 0 collection-only / 0 staged-only points over 200 sampled URLs each (tasks/538-artifacts/family-join.json, family-join-reverse.json).",
+   "evidence": "task 538 -- the wider precomposed class (task 528b sec.8), the 61-source/2,344,034-row roster task 537 sealed as PENDING-present. Same `structured-embedding-pack.v1` producer and machine-identity-block shape as law_article_pack (Official/Record/Decision/Source identity headings ahead of the actual content), same defect (task 526's mechanism: `source_metadata.title` held separately from `text` and never composed in), same minimal fix (`compose_index_text`, dense-only, no heading-stripping). Declared as its OWN family rather than folded into `law_article_pack` because its members are not law content (rfc-editor/w3c/ietf = standards, canada.ca/astra/swissmedic/finma = civic/regulatory, who-iris/cochrane = health research, context7 = coding docs) -- `applies_to` is populated per source only after that source's own A/B has run and PROCEEDed (task 538 families.json + scope-decision.md name the full candidate list and the ones this task found to be a genuine, non-no-op defect). `sparse: record_native` is stated, not measured -- this task is DENSE-ONLY (--no-sparse on every apply) and asserts nothing about the sparse channel's conformance; a family whose sparse surface differs from the shipped `sparse_text` field needs its own future ruling. `census_title_coverage.py`/`scope-decision.md` also found 19 sibling `atomic-embedding-pack.v1` sources (1,191,393 rows) carrying NO separate title field at all (`source_metadata` is `None` on every sampled row) -- those are explicitly NOT `document_pack_538` members; their identity already lives at the head of `text`, and composing task 526's fix over them is a proven no-op, not merely an untested one."
+  },
+  "entity_card": {
+   "dense": "card_prose",
+   "sparse": "card_hooks",
+   "identity_fields": [
+    "title",
+    "register_purpose"
+   ],
+   "identity_fields_each": [
+    "register_officers"
+   ],
+   "declared_payload_fields": [
+    "register_id",
+    "register_scheme",
+    "country",
+    "resolve_confidence",
+    "legal_form",
+    "legal_form_code",
+    "register_role"
+   ],
+   "declared_payload_fields_reason": "PROPOSED, task 621 -- ratified on merge. The fields a re-gate, a cross-store subtraction and a per-country census all need, and the fields the 1024 rebuild dropped with no check able to see it go. MEASURED on aw_e8 2026-09-19 over all 337,702 source_type=entity_card points: legal_form 0, legal_form_code 0, resolve_confidence 0, canton 0, names 0 -- against the July generation (aw_v4_sat), which carried legal_form non-null on 5,696 of the 6,172 rows of one batch and resolve_confidence on all 6,172. ADR-041 SS5 ratified 'store the surviving score in each card payload (resolve_confidence) so we can also re-gate live if needed': unmet for 100% of the live population, so a threshold change today means re-resolving 194,255 entities. register_id + register_scheme are already ratified in specs/entity-cards-phase2-companies.md and are named here so the declaration has one home. Presence is not enough -- the check refuses a field that is present and empty, because legal_form_code survived as a key on all 6,172 July rows with 0 non-null values. Enforced by pipeline/register_first_cards.assert_payload_contract; the producer writes legal_form only once this declaration lands (AW_CARD_LEGAL_FORM). PROPOSED ADDITION, task 623 (2026-09-20) -- ratified on the same merge: `register_role`, enum {locator, enrichment, self-declared-verified}, the field that says which of the two register uses POLICY SS4.9.4 permitted for this card. `locator`: the register bulk product was consulted only internally to find and verify a site (ADR-041 SS4); nothing register-derived is published -- BE's viable reading (specs/register-first-cards-all-countries.md SS4.6). `enrichment`: the register's licence additionally permits publishing register-sourced fields -- the current CH/UK/FR/CA shape. `self-declared-verified`: no register was consulted at all; identity comes from a statutory on-page disclosure duty (e.g. a German Impressum) corroborated by an independent per-check service (VIES) rather than by the register itself -- DE's PENDING mode-A-prime reading (SS4.7a). Mandatory on every entity_card regardless of country from ratification forward.",
+   "declared_payload_fields_applies_to": "cards emitted by pipeline/register_first_cards.py from this ratification forward. NOT retroactive: the 337,702 live cards do not acquire the fields by this merge, and backfilling them is a separate, measured lane. `register_role` gates the OTHER declared fields at write time: the producer refuses register_id/register_scheme/legal_form/legal_form_code and the identity_fields_each register_officers facet on any card whose country's register_role is `locator` or `self-declared-verified` -- those populate only under `enrichment`.",
+   "refused_dense_class": [
+    "website_content"
+   ],
+   "max_fail_rate_by_check": {
+    "identity.dense_each": 0.001,
+    "identity.dense": 0.0001,
+    "identity.sparse_unassertable": 1.0
+   },
+   "max_fail_rate_reason": "identity.dense_each 0.001 -- task 363's own register composition CAPS the officer list, so a card with a large board (Allvisa Services AG: 44 signatories in the evidence, 27 in the composition) legitimately cannot name every officer. MEASURED at 267 of 339,307 rows = 0.00079 (tasks/528a-artifacts/RESTAGE-REPORT.json). This is a task-363 producer cap to raise under the ADR-060 amendment, not a licence for a truncated surface: the Vector8 class (4 officers, none optional) still fails. identity.dense 0.0001 -- 4 task241_canonical legacy rows whose title is a parenthesised variant of the dense head ('Open LLM Leaderboard (Hugging Face)' vs 'Open LLM Leaderboard — the Hugging Face …'); the contiguous test is kept for dense on purpose (a scattered title is the F2-HTML failure mode). identity.sparse_unassertable 1.0 -- never a failure by construction: it names the cards whose title is made entirely of terms the hook channel's own _STOP list removes ('L.E.S.S. SA', 'AM ET SA', 'NO FUR', 'And and and'), where demanding the tokens back measures the filter and not the surface. MEASURED at 26 of 339,307 = 0.000077. It is a COUNT, not a waiver: identity.sparse itself stays at 0.",
+   "sparse_identity_fields": [
+    "title",
+    "uid"
+   ],
+   "sparse_surface_field": "sparse_text",
+   "producers": [
+    "cytir/corpus/card_channels.py"
+   ],
+   "applies_to": [
+    "task467_entity_card_1024_reembed"
+   ],
+   "rule": "REGISTER-FIRST, THEN A BOUNDED WEBSITE DESCRIPTION (ADR-060a, Tim 2026-09-06): a card's dense surface is the commercial-register composition -- `Name -- <register purpose>. Registered signatories/officers (commercial register): <officers>.` -- and the entity's own website contributes nothing to identity or officers. Officers trace to the register evidence unit (ADR-094 6a), never to website prose. A website-derived dense surface (`dense_class: website_content`) is a REFUSAL while any register-, description- or synth-class surface exists. The sparse channel is the register hook bag (name + UID + people tokens), ADR-060 (b): hooks, never sentences. The ruled composition is `<Name> -- <register purpose>. Registered signatories/officers (commercial register): <officers>. <bounded website description>` -- Tim's own words allow \"at most a bounded description sentence after the register text\", and both halves of his ruling hold BECAUSE OF THE ORDER: the name, the purpose and every officer are the head and come only from the register evidence unit; the website supplies a trailing description, bounded by entity_card_website.normalized_content_tokens (the ratified ADR-060 budget), and can never displace, truncate or contribute a name. A website-FIRST surface (`dense_class: website_content`) stays a refusal. Priced on one variable over the 13 card golds: register-only 0 h@1 / 2 h@10, this composition 6 / 7, pre-528a website-only 7 / 10 -- and all six wins are intent-paraphrase queries, not the one site-verbatim tautology (tasks/528a-artifacts/hybrid-price.json). PROPOSED as ADR-060a; see tasks/528a-surface-delta.md §6.8 and tasks/528a2-ruled-composition.md.",
+   "evidence": "task 527 cards-people-363.json -- production's posting reconstructs from new_sparse_text (25/40 exact, jaccard 0.907); the build's posting is the dense prose and matches production's sparse surface at jaccard 0.168, 0/40. task 528a RESTAGE-REPORT.json -- 8,959 of 339,307 cards' dense surface moved under the ruling, 8,375 of them off a task-393 website surface. Replayed on the sealed Vector8 rows by test_aw_corpus_card_channels.py."
+  },
+  "news": {
+   "dense": "title_body",
+   "sparse": "title_body",
+   "identity_fields": [
+    "title"
+   ],
+   "producers": [],
+   "applies_to": [
+    "task500_news_1024_in_place",
+    "task500_news_1024_add",
+    "task501_news_1024_add"
+   ],
+   "evidence": "task 527 family-task500_news_1024_in_place.json -- on the 22 in-place rows production reconstructs from the composed surface (10/22 at >=0.99, composed wins 14 of 22 paired) and the build from the raw body (22/22 at 1.0000)."
+  },
+  "source_native": {
+   "dense": "record_native",
+   "sparse": "title_body",
+   "identity_fields": [],
+   "producers": [],
+   "applies_to": [
+    "task472_rii_courts_1024_embed",
+    "task505_narrow_d_1024_reembed"
+   ],
+   "evidence": "task 527 family-task472_rii_courts_1024_embed.json (40/40 cos 1.0000) and family-task505_narrow_d_1024_reembed.json (twin reconstructs from the raw retained bytes at cos 1.0 on the 12 rows whose text survived unchanged, including 7 where the composed surface differs and loses)"
+  },
+  "postconsent_html": {
+   "dense": "title_body",
+   "sparse": "title_body",
+   "identity_fields": [
+    "title"
+   ],
+   "site_name_identity": {
+    "source_types": [
+     "official",
+     "reference",
+     "entity-self"
+    ],
+    "channels": [
+     "dense",
+     "sparse"
+    ],
+    "why": "ADR-061 bug #1, recurring. A family whose pages are named by their SITE -- a foundation, a commune, a small owned org -- is queried by that name, and trafilatura's cleaned title drops it as if it were an outlet suffix. When declared, every row of the family must carry `aw_common.site_entity_label(url)` in the named channels; the checker and the composer read the SAME function, so the guard can never pass a row the composer could not build."
+   },
+   "producers": [
+    "(post-consent embedding stage)"
+   ],
+   "applies_to": [
+    "task427_postconsent"
+   ],
+   "evidence": "task 548, task 548 site-name-audit.json, measured on this lane's own 20 sealed impactia.org rows (record payload + the exact text it handed the embedder). `site_name` is null on 20 of 20; 13 of 20 titles no longer name the site; and on 5 of 20 the SEALED SURFACE carries no `impactia` token anywhere -- the other 8 stripped titles are rescued by their own body text, which is why the audit reports the two populations separately and this task's delta touches 5 rows and not 13. `impactia.org/la-fondation/` is one of the 5: no `impactia` posting at any weight, rank 1 -> 40, while siblings whose titles kept the suffix score 22-27 on the same query (task 544 sec.4.3); the `names` gold class went 5 -> 2 h@1. OPEN, NOT WAIVED: the same audit reports `conformance.dense`/`conformance.sparse` on 5 of 20 rows. Every one is a whitespace normalisation -- the lane collapsed the body's blank lines when it composed, so the sealed surface differs from `compose_index_text`'s render by `\\n` vs `\\n\\n` and by nothing else (diffed per row). It is stated here rather than tolerated with a `max_fail_rate_by_check`, because a number with no ruling behind it is a waiver and waivers are Tim's. The family had NO entry in this registry before task 548, though it is the largest lossy claim set in the rebuild (351,156 rows) -- nothing here governed its surface."
+  },
+  "site_ingest_html": {
+   "dense": "title_body",
+   "sparse": "title_body",
+   "identity_fields": [
+    "title"
+   ],
+   "site_name_identity": {
+    "source_types": [
+     "official",
+     "reference",
+     "entity-self"
+    ],
+    "channels": [
+     "dense",
+     "sparse"
+    ],
+    "why": "ADR-061 bug #1, recurring. A family whose pages are named by their SITE -- a foundation, a commune, a small owned org -- is queried by that name, and trafilatura's cleaned title drops it as if it were an outlet suffix. When declared, every row of the family must carry `aw_common.site_entity_label(url)` in the named channels; the checker and the composer read the SAME function, so the guard can never pass a row the composer could not build."
+   },
+   "producers": [
+    "cytir/acquire/sitemap_ingest.py"
+   ],
+   "applies_to": [
+    "task548_impactia_restore"
+   ],
+   "evidence": "task 548. `ingest_site.py` (retired, #1207; now `cytir/core/common.py`) was the route this family's own coverage was re-acquired through, and it carried the same defect at the source: it took `trafilatura.extract_metadata(...).title` verbatim, never set `site_name`, and hand-rolled its embedding surface as f'{title}\\n{text}' instead of calling `aw_common.compose_index_text`. Whether a page kept its suffix was left to trafilatura: task 547's single `impactia.org/robotme/` row kept 'robotMe - impactIA' while task 427's `la-fondation/` row did not. The retired ingester resolved `site_name` through `aw_common` and REFUSED a row that violates this entry. Task 1433 retired `ingest_site.py` (its `resolve_stamps` moved to `cytir.core.common`); the historic producer string stays as the match key for the served rows, `cytir/acquire/sitemap_ingest.py` is the re-acquisition route."
+  },
+  "pool_a_body_only_clean": {
+   "dense": "body_only",
+   "sparse": "body_only",
+   "identity_fields": [],
+   "applies_to": [
+    "technical-manufacturer-admitted-products-v2",
+    "news-current-articles-v5b",
+    "canada-news-exact-current-v1",
+    "statcan-wds-v4",
+    "stackoverflow-qa-score-cells-pilot-v1",
+    "stackoverflow-qa-score10-production-tranche-000000-009999-v1",
+    "stackoverflow-qa-score10-production-tranche-010000-019999-v1",
+    "stackoverflow-qa-score10-production-tranche-020000-029999-v1",
+    "eric-official-pdf-complete-sorted-000000-000249-v1",
+    "eric-official-pdf-tranche-010000-first-000250-v1",
+    "eric-official-pdf-tranche-030000-first-000250-v1",
+    "eric-official-pdf-tranche-040000-first-000250-v1",
+    "eric-official-pdf-tranche-050000-first-000250-v1",
+    "eric-official-pdf-tranche-070000-first-000250-v1",
+    "eric-official-pdf-tranche-080000-first-000250-v1",
+    "openalex-academic-whole-part-pilot-target-250-v1",
+    "openalex-academic-whole-part-min10000-excluding-pilot-v1",
+    "openalex-academic-whole-parts-min100000-excluding-prior-v1",
+    "openalex-academic-whole-parts-min250000-excluding-prior-v1",
+    "openalex-academic-whole-parts-min1000000-excluding-prior-v1",
+    "openalex-academic-whole-parts-min2500000-excluding-prior-v1",
+    "openalex-academic-whole-parts-min2500000-excluding-prior253-v1-partition-00",
+    "openalex-academic-whole-parts-min2500000-excluding-prior253-v1-partition-01",
+    "openalex-academic-whole-parts-min2500000-excluding-prior253-v1-partition-02",
+    "openalex-academic-whole-parts-min2500000-excluding-prior253-v1-partition-03"
+   ],
+   "producers": [
+    "(task 629 Pool A packs, aw.413a.stage.v1 / aw.atomic-embedding-pack.v1 schema)"
+   ],
+   "evidence": "task 629 P2: sampled a real row from each family's own chunks/shard-0000.texts.jsonl.gz on heimdall -- `text` is the pack's own materializer composition (document heading + a source_metadata-derived KV block + chunk body, no AW governance/provenance fields), and `render_surface('body_only', rec)` returns `rec['text']` verbatim, matching it by construction (no further recomposition happens). `canonical_text`/`sparse_text` differ from `text` only by a whitespace normalisation (single vs. double `\\n` after the heading, the same cosmetic delta already recorded for `postconsent_html`); no family here declares `sparse_surface_field`, so assembly_binder.py's default (rec['text']) governs the actual BM25 posting for both channels, per representation_contract.py:binder_sparse_surface. `identity_fields` is empty because `title` is `null` on every sampled row of every family in this group -- there is no separate title field to assert into the surface (it is already inside `text`'s own heading). statcan_wds is a distinct SHAPE within this group (no `sparse_text`/`canonical_text` field exists on its rows at all, per task 629 §12.2), but declares the identical (dense=body_only, sparse=body_only) surface -- both channels already share the one `text` field by construction, so there is nothing further to bind. See data/source-family-contracts.v1.json#families for the per-family narrative (kind/class, sample URL, licence/consent)."
+  },
+  "pool_a_provenance_head_restaged": {
+   "dense": "body_only",
+   "sparse": "body_only",
+   "identity_fields": [],
+   "max_provenance_share": 0.05,
+   "applies_to": [
+    "github-p1-agent-resources",
+    "service-public-dila-fiche-v4b",
+    "context7-github-production-current-preserved-tree-000000-000099-v1",
+    "context7-github-production-current-smart-http-000000-000374-v1",
+    "context7-github-production-current-smart-http-000375-000624-v1",
+    "rfc-editor-net-new-heading-v5-profile"
+   ],
+   "producers": [
+    "(task 629 Pool A packs, aw.413a.stage.v1 schema)"
+   ],
+   "evidence": "task 629 provenance-head-tail.v1.json + task 629 §12.1: AS SEALED TODAY these 4 families' packs carry an AW-authored YAML frontmatter head (aw_repository/aw_revision/aw_source_path/aw_parent_sha256 for github_agent_resources and context7_pinned_docs; aw_fiche_id/aw_archive_member/aw_archive_sha256/aw_member_sha256 for service_public_fiche; aw_rfc_number/aw_source_path/aw_source_sha256/aw_source_encoding for rfc_editor_net_new) inside `text`, `sparse_text` AND `canonical_text` on 18,002 of 90,219 rows (20.0%), 1,443 (1.60%) over a 0.20 provenance share, worst 0.908. RULED (coordinator, 2026-09-22, §12.1): restage and re-embed HEAD-FREE for the whole family (not a cap on the head-bearing rows) -- 'a cap cannot be argued for the tail' and 're-embedding the whole family, not the subset, is the cheap option and the correct one' (10-22 GPU-minutes on one A6000). This entry declares the POST-RESTAGE target: once head-free, these families are shaped identically to `pool_a_body_only_clean` (same materializer, same KV-block-plus-body composition), so `max_provenance_share: 0.05` is carried forward as a regression GUARD (tighter than `law_article_pack`'s 0.20 or `chunk_lane_body_only`'s 0.34, because this specific defect class is now known and measured for this family) rather than `refused_index_markup`, which the task brief suggested but which does NOT fit: representation_contract.py's INDEX_MARKUP dict only registers 'akn_anchor_id' (law_article_pack's unrelated inline `{#art_N}` anchor-token problem); using `refused_index_markup` for a YAML-frontmatter BLOCK would need a new INDEX_MARKUP pattern added to that module, which is outside this task's file scope. `max_provenance_share` is the mechanism ALREADY wired for exactly this defect shape (a leading materializer-identity block) -- it is what law_article_pack and chunk_lane_body_only both use for their own version of the same problem. THE RESTAGE HAS NOT RUN as of this entry; it re-embeds the rows sealed under the OLD (head-bearing) surface, which will fail this cap until the restage completes."
+  }
+ }
+}

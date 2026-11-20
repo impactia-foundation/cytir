@@ -1,0 +1,75 @@
+# CI dependency pins for the pytest suite (task 530).
+#
+# SUPERSEDED AS CI'S INSTALL SOURCE (task 646 S1): `.github/workflows/ci.yml`
+# now runs `pip install -e .[dev]`, and `pyproject.toml`'s `dev` extra is a
+# pin-for-pin mirror of this file. This file stays as the record of task
+# 530's measured baseline (see notes/ci-baseline-task530.md, which cites it
+# throughout) and as the thing to re-verify a version bump against -- edit
+# BOTH together, or the two drift (engineering-doctrine #1, one truth).
+#
+# Derived from the build requirements file + server/requirements.txt: every
+# package a currently-collected pipeline, server, task-script or webapp test imports
+# (directly or via the module under test), pinned to the exact version
+# verified against the task-530 baseline run on 2026-09-06 (Python 3.12).
+# Config is data, not prose (engineering-doctrine #2) -- this file, not a
+# comment in the workflow YAML, is the one place CI's Python deps are named.
+#
+# Deliberately EXCLUDED (heavy ML stack -- torch/transformers/
+# sentence-transformers/FlagEmbedding/sklearn/docling): every test that
+# needs them already gates itself with `pytest.importorskip(...)` (or an
+# equivalent skipif), so leaving them uninstalled makes those ~27 tests
+# skip deterministically instead of downloading multi-GB models or hitting
+# HF hub from the runner. See notes/ci-baseline-task530.md for the full
+# roster of skip reasons. Installing them is a real option for a slower,
+# opt-in job later -- not for the fast/full pytest jobs this file serves.
+
+pytest==9.1.1
+pytest-timeout==2.4.0
+pytest-xdist==3.8.0
+
+# the build requirements file (pinned to floors there; exact versions here
+# are what task 530 verified the suite against)
+qdrant-client==1.18.0
+trafilatura==2.1.0
+lxml_html_clean
+httpx==0.28.1
+mcp==2.2.0
+beautifulsoup4==4.15.0
+# trafilatura's own dependency is `lxml[html_clean]>=4.4.2` (lxml split
+# `lxml.html.clean` into the separate `lxml_html_clean` package at 5.2+);
+# pinning the bare `lxml==6.1.1` here left it to the resolver/pip-version
+# whether that extra actually got installed -- task 611 found a resolver
+# that skipped it, breaking every test importing trafilatura. Pin the
+# extra explicitly so this can never depend on resolver behaviour again.
+# NOTE the extra's real name is `html-clean` (hyphen) -- pip warns "lxml
+# 6.1.1 does not provide the extra 'html_clean'" (underscore) and silently
+# drops it if you use the underscore spelling; only the hyphen form works.
+lxml[html-clean]==6.1.1
+duckdb==1.5.5
+PyYAML==6.0.1
+pyarrow==25.0.1
+charsplit @ https://github.com/dtuggener/CharSplit/archive/9710624ef0b0df0edd12a721c33533ff1d07b557.tar.gz  # dtuggener/CharSplit (MIT) 9710624e, NOT the PyPI charsplit; table via fetch_models
+jsonschema==4.26.0
+htmldate==1.10.0
+zstandard==0.25.0
+
+# `surt` (AGPL-3.0) is NOT here any more (ADR-121): the CC key comes from
+# cytir/core/surtkey.py, and tests/test_surtkey.py proves parity from a sealed
+# fixture. The package is only an optional oracle for
+# tests/test_surtkey_oracle.py, which skips when it is absent
+# (`pip install surt==0.3.1` locally to run it; never a declared dependency).
+
+# the build requirements file lists boto3 as optional
+# ("signed-S3 fast path for Common Crawl (falls back to public HTTPS)"),
+# and cc_columnar.py's own `import boto3` calls are all lazy (inside
+# functions) -- but the CC S3-selection test does
+# `mock.patch("boto3.client", ...)`, and mock.patch's dotted-path resolver
+# imports the real module to patch an attribute on it, regardless of
+# whether the module under test would ever call it lazily. Also masked
+# locally by a pre-existing orchestrator-host install; see notes/ci-baseline-task530.md.
+boto3==1.34.46
+
+# server/requirements.txt -- only test_privacy_route.py needs the real
+# fastapi.testclient.TestClient; the other 6 server tests import
+# aw_server submodules directly and need nothing beyond the pins above.
+fastapi==0.141.1

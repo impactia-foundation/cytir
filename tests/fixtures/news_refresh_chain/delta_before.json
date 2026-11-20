@@ -1,0 +1,181 @@
+{
+ "calls": [
+  {
+   "argv": [
+    "-m",
+    "cytir.index.dump_netnew",
+    "--staging-url",
+    "http://localhost:6398",
+    "--staging-collection",
+    "news_chmedia_x",
+    "--base-url",
+    "<TWIN>",
+    "--base-collection",
+    "twin_c",
+    "--digest-field",
+    "content_digest",
+    "--out",
+    "<TMP>/delta/news_chmedia_x.netnew.jsonl.gz"
+   ],
+   "env": {
+    "AW_FOLD_ACCENTS": null,
+    "AW_INPROC_EXTRACT": null,
+    "AW_PIPE": "<REPO>/pipeline",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "PYTHONPATH": "<REPO>"
+   },
+   "tool": "qpy"
+  },
+  {
+   "argv": [
+    "-m",
+    "cytir.index.dump_netnew",
+    "--staging-url",
+    "http://localhost:6398",
+    "--staging-collection",
+    "news_hn_x",
+    "--base-url",
+    "<TWIN>",
+    "--base-collection",
+    "twin_c",
+    "--digest-field",
+    "content_digest",
+    "--out",
+    "<TMP>/delta/news_hn_x.netnew.jsonl.gz"
+   ],
+   "env": {
+    "AW_FOLD_ACCENTS": null,
+    "AW_INPROC_EXTRACT": null,
+    "AW_PIPE": "<REPO>/pipeline",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "PYTHONPATH": "<REPO>"
+   },
+   "tool": "qpy"
+  },
+  {
+   "argv": [
+    "-m",
+    "cytir.news.dump_points",
+    "--qdrant-url",
+    "<TWIN>",
+    "--collection",
+    "twin_c",
+    "--staging-url",
+    "http://localhost:6398",
+    "--candidate-registry",
+    "<TMP>/cand.jsonl",
+    "--expected-candidate-registry-sha256",
+    "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+    "--out",
+    "<TMP>/delta/twin_news_points.jsonl",
+    "--successor-candidates-out",
+    "<TMP>/delta/news_point_candidates.next.jsonl",
+    "--receipt-out",
+    "<TMP>/delta/twin_news_points.receipt.json",
+    "--staging-collection",
+    "news_chmedia_x",
+    "--staging-collection",
+    "news_hn_x"
+   ],
+   "env": {
+    "AW_FOLD_ACCENTS": null,
+    "AW_INPROC_EXTRACT": null,
+    "AW_PIPE": "<REPO>/pipeline",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "PYTHONPATH": "<REPO>"
+   },
+   "tool": "qpy"
+  },
+  {
+   "argv": [
+    "-m",
+    "cytir.index.news_window_filter",
+    "--in",
+    "<TMP>/delta/twin_news_points.jsonl",
+    "--now",
+    "2026-01-02",
+    "--months",
+    "36",
+    "--delete-ids-out",
+    "<TMP>/delta/aged_out.delete-ids.txt"
+   ],
+   "env": {
+    "AW_FOLD_ACCENTS": null,
+    "AW_INPROC_EXTRACT": null,
+    "AW_PIPE": "<REPO>/pipeline",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "PYTHONPATH": "<REPO>"
+   },
+   "tool": "qpy"
+  }
+ ],
+ "digests": {
+  "CHANGED_COUNT": "a1fb50e6c86fae1679ef3351296fd6713411a08cf8dd1790a4fd05fae8688164",
+  "aged_out.delete-ids.txt": "6040a79e32f7d7381ffc7acfb89a81f12f42a894ffd0134b5006bc80442ac4cf",
+  "baseline.json": "858da515528c3d17b52279d90a1d1312c85a27ae0948d6158d1551a5b626cd68",
+  "news_chmedia_x.netnew.jsonl.gz": "41eca6e5d9f147cb88489592c93d333419fac04f18885402d62f82c12a98ce02",
+  "news_chmedia_x.netnew.jsonl.gz.count": "920c6fba9acfb9b73c4e2513c420e47cef567857e12ed900a90e80bf6fbaa0c0",
+  "news_hn_x.netnew.jsonl.gz": "ce53f672b1077c3458e3597a624ab7b2a75d7d340dd05c0c570490eb235c596c",
+  "news_hn_x.netnew.jsonl.gz.count": "920c6fba9acfb9b73c4e2513c420e47cef567857e12ed900a90e80bf6fbaa0c0",
+  "news_point_candidates.next.jsonl": "a2ab20489b5953fff5e86603069adbd611e27ef006e8ed1e31eb1d3620b7d400",
+  "promote_plan.json": "618f8dfae2b5cc0bf6ada0bb8865aa683ee858dbb9ec920b73efda923f96e640",
+  "source_status.json": "9b96e9d7696e15a12c11c86b59a8f7b1f7205fdedd7e8c808af0c66052843a45",
+  "twin_news_points.jsonl": "2465a48661ad85a442557ba3b34528751ff9fe33e0b2ac96954c4caefe96aa96",
+  "twin_news_points.receipt.json": "729c176136145e50272b4ba99fa51ac74d252d86da20af33bd75b5b3cdb9ef04"
+ },
+ "final_line": "[delta] add_modify=10 delete=2 changed=12 -> <TMP>/delta",
+ "inline": [
+  {
+   "argv": [
+    "-",
+    "<TWIN>",
+    "twin_c",
+    "<TMP>/delta/baseline.json"
+   ],
+   "tool": "qpy"
+  },
+  {
+   "argv": [
+    "-",
+    "<TMP>/work/stage-2026-01-02/stage_manifest.json"
+   ],
+   "tool": "qpy"
+  },
+  {
+   "argv": [
+    "-",
+    "<TMP>/work/stage-2026-01-02/stage_manifest.json",
+    "<TMP>/delta/source_status.json"
+   ],
+   "tool": "qpy"
+  },
+  {
+   "argv": [
+    "-c",
+    "import json,sys;print(json.load(open(sys.argv[1]))[\"changed\"])",
+    "<TMP>/delta/news_chmedia_x.netnew.jsonl.gz.count"
+   ],
+   "tool": "qpy"
+  },
+  {
+   "argv": [
+    "-c",
+    "import json,sys;print(json.load(open(sys.argv[1]))[\"changed\"])",
+    "<TMP>/delta/news_hn_x.netnew.jsonl.gz.count"
+   ],
+   "tool": "qpy"
+  },
+  {
+   "argv": [
+    "-",
+    "<TMP>/delta",
+    "10",
+    "2",
+    "2026-01-02",
+    "36"
+   ],
+   "tool": "qpy"
+  }
+ ],
+ "recorded_from": "news_refresh_delta.sh (before the port, task 1989)"
+}

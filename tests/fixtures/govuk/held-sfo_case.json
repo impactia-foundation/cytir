@@ -1,0 +1,74 @@
+{
+ "base_path": "/sfo-cases/operation-hazel",
+ "title": "Operation Hazel",
+ "description": "The SFO is investigating Self-Invested Personal Pensions (SIPPS) sold through Sycamore Crown Ltd, Jackson Francis Ltd, TPS Land, CLP Brokers or PFR Services, which were invested into storage pods.",
+ "document_type": "sfo_case",
+ "schema_name": "specialist_document",
+ "locale": "en",
+ "public_updated_at": "2026-08-27T10:20:28+01:00",
+ "details": {
+  "body": "<p>In July 2025, the SFO issued charges against six individuals, following an investigation into the transfer of £75 million in pension funds. In August 2025, six individuals charged with fraud and other offences appeared at Westminster Magistrates’ Court.  In a hearing at Southwark Crown Court on 30 September 2025 a provisional trial date was set for 5 June 2028. In December 2025, the parties were informed that, due to court scheduling, the trial date was set for 4 September 2028.</p>\n\n<h2 id=\"case-timeline\">Case timeline</h2>\n\n<p>27 Aug 2026 – Although there are no specific updates we can publish at the present time the SFO case team are working with counsel (trial lawyers) and Witness Care to prepare for the trial in September 2028</p>\n\n<p>17 Dec 2025 – Parties informed that due to court scheduling the trial date was set for 4 September 2028</p>\n\n<p>30 Sept 2025 – In a hearing at Southwark Crown Court a provisional trial date was set for 5 June 2028.</p>\n\n<p>21 Aug 2025 – Six defendants charged with fraud and other offences appear at Westminster Magistrates’ Court.</p>\n\n<p>24 Jul 2025 – SFO announces charges against six individuals. See <a href=\"https://www.gov.uk/government/news/sfo-charges-six-in-complex-pension-fraud-investigation\">our press release</a> for more information.</p>\n\n<p>24 Jul 2025 – SFO closes parts of its investigation concerning the Capita Oak Pension scheme, Henley Retirement Benefit scheme and Trafalgar Multi Asset Fund.</p>\n\n<p>30 Jun 2024 – Second in",
+  "change_history": [
+   {
+    "note": "Although there are no specific updates we can publish at the present time the SFO case team are working with counsel (trial lawyers) and Witness Care to prepare for the trial in September 2028.",
+    "public_timestamp": "2026-08-27T09:20:28Z"
+   },
+   {
+    "note": "In December 2025, the parties were informed that, due to court scheduling, the trial date was set for 4 September 2028.",
+    "public_timestamp": "2025-12-19T14:11:35Z"
+   },
+   {
+    "note": "In a hearing at Southwark Crown Court on 30 September 2025 a provisional trial date was set for 5 June 2028.",
+    "public_timestamp": "2025-10-01T13:46:09Z"
+   },
+   {
+    "note": "On 24 July 2025, company names were amended to reflect the changed scope of our investigation.",
+    "public_timestamp": "2025-07-24T12:03:18Z"
+   },
+   {
+    "note": "First published.",
+    "public_timestamp": "2024-11-29T15:05:25Z"
+   }
+  ],
+  "headers": [
+   {
+    "id": "case-timeline",
+    "level": 2,
+    "text": "Case timeline"
+   },
+   {
+    "headers": [
+     {
+      "id": "questionnaire",
+      "level": 3,
+      "text": "Questionnaire"
+     },
+     {
+      "id": "contact-by-companies-offering-compensation-or-redress",
+      "level": 3,
+      "text": "Contact by companies offering compensation or redress"
+     }
+    ],
+    "id": "information-for-investors",
+    "level": 2,
+    "text": "Information for investors"
+   },
+   {
+    "id": "support-for-victims-and-witnesses",
+    "level": 2,
+    "text": "Support for victims and witnesses"
+   },
+   {
+    "id": "frequently-asked-questions",
+    "level": 2,
+    "text": "Frequently asked questions"
+   }
+  ],
+  "max_cache_time": 10,
+  "metadata": {
+   "sfo_case_date_announced": "2017-05-22",
+   "sfo_case_state": "open"
+  },
+  "temporary_update_type": false
+ }
+}

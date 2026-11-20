@@ -1,0 +1,93 @@
+{
+  "acquired_at": "2026-10-23T14:06:15.651534Z",
+  "counts": {
+    "markdown_documents": 1,
+    "original_documents": 1,
+    "outlink_documents": 1,
+    "outlinks": 0
+  },
+  "documents": [
+    {
+      "git_blob_sha1": "b8fd875762f23308082210cc2e78268de9ee141d",
+      "markdown": {
+        "body_bytes": 54,
+        "body_sha256": "b398405f2e0b0307cc6e55212395f71135fe5facf1e395db1031cf3e3a31e1f2",
+        "bytes": 74,
+        "compression": "gzip",
+        "sha256": "69fb8dc5d2809b8a19a8ec47cc17fb33f6588ff4b11b207b59374784848cc376",
+        "uri": "artifact://markdown/b3/b398405f2e0b0307cc6e55212395f71135fe5facf1e395db1031cf3e3a31e1f2.md.gz"
+      },
+      "media_type": "application/octet-stream",
+      "original": {
+        "body_bytes": 54,
+        "body_sha256": "b398405f2e0b0307cc6e55212395f71135fe5facf1e395db1031cf3e3a31e1f2",
+        "bytes": 74,
+        "compression": "gzip",
+        "sha256": "69fb8dc5d2809b8a19a8ec47cc17fb33f6588ff4b11b207b59374784848cc376",
+        "uri": "artifact://original/blobs/b3/b398405f2e0b0307cc6e55212395f71135fe5facf1e395db1031cf3e3a31e1f2.raw.gz"
+      },
+      "outlinks": {
+        "body_bytes": 280,
+        "body_sha256": "6c2784f1fb04f6163b753d89f3eaba93c1799d668f92b54c8e741aa7dbcd222a",
+        "bytes": 175,
+        "compression": "gzip",
+        "records": 0,
+        "sha256": "16d6981fdb6d029b098cdea825a5f0ee4f3ac4e5b520d42da2d7df29bcf340f3",
+        "uri": "artifact://outlinks/6c/6c2784f1fb04f6163b753d89f3eaba93c1799d668f92b54c8e741aa7dbcd222a.json.gz"
+      },
+      "provenance": {
+        "parent_sha256": "b398405f2e0b0307cc6e55212395f71135fe5facf1e395db1031cf3e3a31e1f2",
+        "repository": "acme/pointer",
+        "revision": "dddddddddddddddddddddddddddddddddddddddd",
+        "source_path": "README.md"
+      },
+      "source_path": "README.md",
+      "source_url": "https://github.com/acme/pointer/blob/dddddddddddddddddddddddddddddddddddddddd/README.md",
+      "title": "Pointer"
+    }
+  ],
+  "downstream": {
+    "chunks": "pending",
+    "vectors": "pending"
+  },
+  "license": "GPL-3.0",
+  "posture": "pointer",
+  "repository": "acme/pointer",
+  "requested_branch": "main",
+  "revision": "dddddddddddddddddddddddddddddddddddddddd",
+  "route": "documented_source_api",
+  "route_receipt": {
+    "consent_and_robots_result": "GitHub documented API/raw content route",
+    "fetch_vantage": "fetch-host",
+    "higher_priority_routes_checked": [
+      "source_owned_incremental_feed:not_applicable",
+      "source_owned_bulk_dump:not_selected_repository_tree_is_canonical"
+    ],
+    "reason_selected_route_is_needed": "pin repository tree and exact source blobs"
+  },
+  "schema": "aw.github-doc-acquisition.v1",
+  "skipped_empty": [],
+  "source_profile": "software_docs",
+  "status": "complete",
+  "tree": {
+    "commit_response": {
+      "body_bytes": 219,
+      "body_sha256": "c35515980fa1618888420c2971ea041f3c2432f3b9f9f306fc3118a8669ebef1",
+      "bytes": 169,
+      "compression": "gzip",
+      "sha256": "92d7d6c6016a2cf80be55d768922ad56a76a41b63b0e89e2889a9b74fbf9a237",
+      "uri": "artifact://original/api/c3/c35515980fa1618888420c2971ea041f3c2432f3b9f9f306fc3118a8669ebef1.json.gz"
+    },
+    "node_count": 2,
+    "tree_response": {
+      "body_bytes": 493,
+      "body_sha256": "4bb492bfccd099fe9b7608938a81b356c5e7e92c8797a579197cd4e27b11083d",
+      "bytes": 386,
+      "compression": "gzip",
+      "sha256": "b39781dfc5b414a0b9e8810bbb4e5a3f7179719c36ec5d614cda090aefa7b8e6",
+      "uri": "artifact://original/api/4b/4bb492bfccd099fe9b7608938a81b356c5e7e92c8797a579197cd4e27b11083d.json.gz"
+    },
+    "truncated": false
+  },
+  "unparsable_links": 0
+}

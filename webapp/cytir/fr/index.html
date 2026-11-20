@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cytir — le web est notre terre commune</title>
+<meta name="description" content="Cytir est un index de recherche web open source conçu pour les agents IA. Téléchargez-le, faites-le tourner sur votre propre terrain, enrichissez-le de vos propres sources.">
+<meta property="og:title" content="Cytir — le web est notre terre commune">
+<meta property="og:description" content="Un index de recherche web open source conçu pour les agents IA. 100 millions de pages aujourd’hui, un milliard comme objectif, assez compact pour être téléchargé en une journée.">
+<meta property="og:url" content="https://cytir.org/fr/">
+<meta property="og:locale" content="fr_CH">
+<link rel="canonical" href="https://cytir.org/fr/">
+<link rel="alternate" hreflang="en" href="https://cytir.org/">
+<link rel="alternate" hreflang="fr" href="https://cytir.org/fr/">
+<link rel="alternate" hreflang="de" href="https://cytir.org/de/">
+<link rel="alternate" hreflang="it" href="https://cytir.org/it/">
+<link rel="alternate" hreflang="x-default" href="https://cytir.org/">
+<meta property="og:type" content="website">
+<link rel="icon" href="/assets/cytir-mark.svg" type="image/svg+xml">
+<style>
+/* Layout: one reading column; a painted hillside opens the page; full-bleed bands where the register changes. */
+:root {
+  --paper:#FBF6EA; --ink:#1E2A22; --mute:#5E6E63; --line:#E3DED0; --field:#EEF3E4;
+  --green:#2F7D4F; --green-deep:#1F5A39; --green-soft:#9CCB9F; --green-pale:#D4E8CF;
+  --red:#C8372D; --sun:#E8B040; --on-green:#FFFFFF; --code:#F3EFE3;
+  --cytir-green:var(--green); --cytir-red:var(--red);
+  --font:-apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, "Helvetica Neue", Arial, sans-serif;
+  --mono:ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  --w:68rem; --text:42rem; --r:14px;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --paper:#101915; --ink:#F1ECE0; --mute:#A9B5AA; --line:#25312A; --field:#172219;
+    --green:#6FBE8B; --green-deep:#2E6B4A; --green-soft:#3E8A5E; --green-pale:#1E3A2A; --red:#E8655B; --sun:#F0C25A;
+    --on-green:#0F1A14; --code:#141F18; color-scheme:dark; }
+}
+:root[data-theme="dark"] { --paper:#101915; --ink:#F1ECE0; --mute:#A9B5AA; --line:#25312A; --field:#172219;
+  --green:#6FBE8B; --green-deep:#2E6B4A; --green-soft:#3E8A5E; --green-pale:#1E3A2A; --red:#E8655B; --sun:#F0C25A;
+  --on-green:#0F1A14; --code:#141F18; color-scheme:dark; }
+
+* { box-sizing:border-box; }
+html { -webkit-text-size-adjust:100%; scroll-behavior:smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } *, *::before, *::after { transition:none !important; animation:none !important; } }
+body { margin:0; background:var(--paper); color:var(--ink); font:17px/1.65 var(--font); }
+a { color:inherit; text-decoration-color:var(--green); text-decoration-thickness:2px; text-underline-offset:.2em; }
+a:hover { color:var(--green); }
+:focus-visible { outline:2px solid var(--green); outline-offset:3px; border-radius:6px; }
+img, svg { max-width:100%; }
+.wrap { max-width:var(--w); margin:0 auto; padding-left:max(20px, env(safe-area-inset-left,0px)); padding-right:max(20px, env(safe-area-inset-right,0px)); }
+.text { max-width:var(--text); }
+h1,h2,h3 { margin:0; text-wrap:balance; letter-spacing:-.02em; line-height:1.1; }
+h2 { font-size:clamp(1.8rem, 1.15rem + 2.6vw, 2.8rem); font-weight:800; }
+h3 { font-size:1.2rem; font-weight:800; letter-spacing:-.01em; }
+p { margin:0; }
+.lead { font-size:clamp(1.15rem, 1rem + .75vw, 1.45rem); line-height:1.5; }
+.mute { color:var(--mute); }
+.eyebrow { font-size:.82rem; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:var(--red); }
+.stack { display:grid; gap:1.1rem; }
+
+/* header */
+header { position:sticky; top:env(safe-area-inset-top,0px); z-index:10; background:color-mix(in srgb, var(--paper) 90%, transparent); backdrop-filter:blur(10px); }
+.bar { display:flex; align-items:center; justify-content:space-between; gap:1rem; height:68px; }
+.logo { display:inline-flex; align-items:center; color:var(--ink); }
+.logo svg { height:34px; width:auto; display:block; }
+.right { display:flex; align-items:center; gap:1.4rem; }
+nav { display:flex; gap:1.3rem; font-size:.95rem; font-weight:700; }
+nav a { text-decoration:none; color:var(--mute); }
+nav a:hover { color:var(--ink); }
+nav .demo { color:var(--on-green); background:var(--green); padding:.45rem .9rem; border-radius:999px; }
+nav .demo:hover { color:var(--on-green); filter:brightness(1.07); }
+.lang-switch { display:inline-flex; align-items:center; gap:2px; font-size:.82rem; font-weight:700; }
+.lang-switch a { padding:.25rem .42rem; border-radius:6px; text-decoration:none; color:var(--mute); }
+.lang-switch a:hover { color:var(--green); }
+.lang-switch a[aria-current="page"] { color:var(--ink); background:var(--green-pale); }
+.lang-switch .sep { color:var(--line); }
+@media (max-width:720px) { nav:not(.lang-switch) a:not(.demo) { display:none; } .right { gap:.6rem; } .lang-switch .sep { display:none; } .lang-switch a { padding:.25rem .3rem; } }
+
+.made-by { display:flex; flex-wrap:wrap; align-items:center; gap:1.25rem; margin:.1rem 0 .4rem; color:var(--mute); font-size:.85rem; letter-spacing:.02em; }
+.made-by a { display:inline-flex; align-items:center; color:inherit; opacity:.9; transition:opacity .15s, color .15s; }
+.made-by a:hover { opacity:1; color:var(--ink); }
+.made-by img { height:22px; width:auto; }
+.made-by svg { height:16px; width:auto; }
+/* hero with a hillside */
+.hero { position:relative; padding-block:clamp(3rem, 6vw, 6rem) 0; }
+.hero .stack { gap:1.5rem; padding-bottom:clamp(2.5rem, 6vw, 5rem); }
+.hero h1 { font-size:clamp(2.8rem, 1.6rem + 6vw, 5.8rem); font-weight:900; letter-spacing:-.04em; line-height:1; }
+.hero h1 em { font-style:normal; color:var(--green); }
+.cta { display:flex; flex-wrap:wrap; gap:.75rem; margin-top:.4rem; }
+.btn { display:inline-flex; align-items:center; gap:.5rem; padding:.9rem 1.3rem; border-radius:999px; font-weight:800; text-decoration:none; border:2px solid var(--green); color:var(--green); transition:transform .15s, filter .15s; }
+.btn:hover { transform:translateY(-1px); color:var(--green); }
+.btn.primary { background:var(--green); color:var(--on-green); }
+.btn.primary:hover { color:var(--on-green); filter:brightness(1.07); }
+.hills { display:block; width:100%; height:clamp(120px, 22vw, 240px); }
+.hills .h1 { fill:var(--green-pale); } .hills .h2 { fill:var(--green-soft); } .hills .h3 { fill:var(--green); } .hills .h4 { fill:var(--green-deep); } .hills .sun { fill:var(--sun); }
+
+/* facts strip: the index in its own units */
+.facts { background:var(--green-deep); color:#F4F1E6; }
+.facts .wrap { display:grid; grid-template-columns:repeat(2, 1fr); gap:1.25rem 2rem; padding-block:1.8rem; }
+@media (min-width:760px) { .facts .wrap { grid-template-columns:repeat(4, 1fr); } }
+.fact b { display:block; font-size:clamp(1.7rem, 1.2rem + 1.8vw, 2.4rem); font-weight:900; letter-spacing:-.03em; font-variant-numeric:tabular-nums; line-height:1.1; color:#FFFFFF; }
+.fact span { font-size:.92rem; opacity:.85; }
+
+/* sections */
+section { padding-block:clamp(3.2rem, 6vw, 6rem); }
+.band { background:var(--field); }
+.cols { display:grid; gap:2rem; margin-top:2.2rem; }
+@media (min-width:760px) { .cols { grid-template-columns:1fr 1fr; gap:2.6rem 3rem; } }
+.cols h3::before { content:""; display:block; width:28px; height:6px; border-radius:3px; background:var(--green); margin-bottom:.8rem; }
+.cols p { color:var(--mute); margin-top:.55rem; }
+
+/* sizes */
+.sizes { width:100%; border-collapse:collapse; margin-top:2rem; font-variant-numeric:tabular-nums; }
+.sizes th, .sizes td { text-align:left; padding:1rem .7rem; border-bottom:1px solid var(--line); vertical-align:top; }
+.sizes th { font-size:.78rem; letter-spacing:.08em; text-transform:uppercase; color:var(--mute); font-weight:800; }
+.sizes td:first-child { font-weight:800; white-space:nowrap; }
+@media (min-width:760px) { .sizes td:nth-child(-n+4) { white-space:nowrap; } }
+.sizes tr.now td:first-child::after { content:"déjà là"; margin-left:.6rem; font-size:.68rem; font-weight:800; letter-spacing:.06em; text-transform:uppercase; color:var(--on-green); background:var(--green); padding:.2rem .5rem; border-radius:999px; vertical-align:middle; }
+.tablewrap { overflow-x:auto; }
+.aside { margin-top:1.2rem; color:var(--mute); font-size:.95rem; }
+
+/* mcp */
+pre { margin:0; background:var(--code); border-radius:var(--r); padding:1.1rem 1.2rem; font:.92rem/1.5 var(--mono); overflow-x:auto; }
+.mcpbox { display:grid; gap:1.2rem; margin-top:1.8rem; }
+@media (min-width:760px) { .mcpbox { grid-template-columns:1fr 1fr; align-items:start; } }
+.mcpbox .stack { gap:.6rem; }
+
+/* who */
+.partners { display:grid; gap:2.5rem; margin-top:2.2rem; }
+@media (min-width:760px) { .partners { grid-template-columns:1fr 1fr; gap:3rem; } }
+.partner .mark { height:44px; display:flex; align-items:center; color:var(--ink); }
+.partner .mark svg { height:30px; width:auto; }
+.partner .mark img { height:36px; width:auto; }
+.partner p { color:var(--mute); margin-top:.9rem; }
+.only-dark { display:none; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .only-dark { display:block; } :root:not([data-theme="light"]) .only-light { display:none; } }
+:root[data-theme="dark"] .only-dark { display:block; } :root[data-theme="dark"] .only-light { display:none; }
+
+footer { background:var(--green-deep); color:#E9EEE4; padding-block:2.2rem 3rem; font-size:.92rem; }
+footer .wrap { display:flex; flex-wrap:wrap; gap:.8rem 1.5rem; align-items:center; justify-content:space-between; }
+footer a { color:#FFFFFF; text-decoration-color:rgba(255,255,255,.5); }
+footer a:hover { color:#FFFFFF; text-decoration-color:#FFFFFF; }
+footer .logo { color:#FFFFFF; --cytir-green:#9CCB9F; --cytir-red:#F0A59E; }
+footer .logo svg { height:30px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="#top" aria-label="Cytir, accueil"><svg viewBox="0 0 190 64" role="img" aria-label="cytir"><defs><mask id="kv0" maskUnits="userSpaceOnUse" x="-50" y="-50" width="100" height="100"><rect x="-50" y="-50" width="100" height="100" fill="#fff"/><path d="M-13.2 0.0H-1.2000000000000002" fill="none" stroke="#000" stroke-width="9"/></mask><mask id="kv1" maskUnits="userSpaceOnUse" x="-50" y="-50" width="100" height="100"><rect x="-50" y="-50" width="100" height="100" fill="#fff"/><path d="M-6.0 -7.2H6.0" fill="none" stroke="#000" stroke-width="9"/><path d="M-6.0 7.2H6.0" fill="none" stroke="#000" stroke-width="9"/></mask><mask id="kv2" maskUnits="userSpaceOnUse" x="-50" y="-50" width="100" height="100"><rect x="-50" y="-50" width="100" height="100" fill="#fff"/><path d="M1.2000000000000002 0.0H13.2" fill="none" stroke="#000" stroke-width="9"/></mask><mask id="kh0" maskUnits="userSpaceOnUse" x="-50" y="-50" width="100" height="100"><rect x="-50" y="-50" width="100" height="100" fill="#fff"/><path d="M-7.2 -13.2V-1.2000000000000002" fill="none" stroke="#000" stroke-width="9"/><path d="M7.2 -13.2V-1.2000000000000002" fill="none" stroke="#000" stroke-width="9"/></mask><mask id="kh1" maskUnits="userSpaceOnUse" x="-50" y="-50" width="100" height="100"><rect x="-50" y="-50" width="100" height="100" fill="#fff"/><path d="M0.0 -6.0V6.0" fill="none" stroke="#000" stroke-width="9"/></mask><mask id="kh2" maskUnits="userSpaceOnUse" x="-50" y="-50" width="100" height="100"><rect x="-50" y="-50" width="100" height="100" fill="#fff"/><path d="M-7.2 1.2000000000000002V13.2" fill="none" stroke="#000" stroke-width="9"/><path d="M7.2 1.2000000000000002V13.2" fill="none" stroke="#000" stroke-width="9"/></mask></defs><g transform="translate(25 36) scale(0.92) rotate(45)" fill="none" stroke-width="5" stroke-linecap="round"><path d="M-7.2 -17.0V17.0" stroke="var(--cytir-red,#C8372D)" mask="url(#kv0)"/><path d="M0.0 -17.0V17.0" stroke="var(--cytir-green,#2F7D4F)" mask="url(#kv1)"/><path d="M7.2 -17.0V17.0" stroke="var(--cytir-green,#2F7D4F)" mask="url(#kv2)"/><path d="M-17.0 -7.2H17.0" stroke="var(--cytir-green,#2F7D4F)" mask="url(#kh0)"/><path d="M-17.0 0.0H17.0" stroke="var(--cytir-green,#2F7D4F)" mask="url(#kh1)"/><path d="M-17.0 7.2H17.0" stroke="var(--cytir-green,#2F7D4F)" mask="url(#kh2)"/></g><g fill="none" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke="currentColor"><path d="M84 29A12 12 0 1 0 84 43"/><path d="M96 24L106 47M118 24L106.5 47Q102 57 95 56"/><path d="M131 24V43Q131 48 136 48H140M122 24H141"/><path d="M152 24V48"/><path d="M166 24V48M166 34Q169 24 179 26"/></g><circle cx="152" cy="13" r="4.2" fill="var(--cytir-red,#C8372D)"/></svg></a>
+    <div class="right">
+      <nav aria-label="Sections">
+        <a href="#why">Pourquoi</a>
+        <a href="#sizes">Tailles</a>
+        <a href="#mcp">Connecter</a>
+        <a class="demo" href="https://websear.ch" rel="noopener">Essayer</a>
+      </nav>
+      <nav class="lang-switch" aria-label="Langue"><a href="/" lang="en" hreflang="en">EN</a><span class="sep" aria-hidden="true">·</span><a href="/fr/" lang="fr" hreflang="fr" aria-current="page">FR</a><span class="sep" aria-hidden="true">·</span><a href="/de/" lang="de" hreflang="de">DE</a><span class="sep" aria-hidden="true">·</span><a href="/it/" lang="it" hreflang="it">IT</a></nav>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap">
+      <div class="stack text">
+        <h1>Le web est notre <em>terre commune.</em></h1>
+        <p class="lead"><strong>Cytir</strong>, «&nbsp;terre commune&nbsp;» en gallois&nbsp;: une terre qui appartient à tous ceux qui la travaillent. C’est dans cet esprit que nous construisons un index de recherche web. Il est conçu pour les agents IA. Téléchargez-le, faites-le tourner sur votre propre terrain, enrichissez-le de vos propres sources. Ce que vous cherchez reste chez vous.</p>
+        <div class="made-by" aria-label="Réalisé par">
+          <span>Réalisé par</span>
+          <a href="#who" title="Fondation impactIA — qui est derrière Cytir"><img class="only-light" src="/assets/impactia-logo-black.png" alt="impactIA" width="872" height="280"><img class="only-dark" src="/assets/impactia-logo-white.png" alt="impactIA" width="872" height="280"></a>
+                  <a href="#who" title="Vector8 — qui est derrière Cytir"><svg aria-label="Vector8" role="img" viewBox="0 0 217 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g clip-path="url(#clipv8top)">
+              <path d="M36.2467 15.7327L41.9132 21.401L42.8918 22.3777C43.7319 23.2183 44.7293 23.8851 45.8272 24.34C46.9251 24.795 48.1019 25.0291 49.2903 25.0291C50.4787 25.0291 51.6554 24.795 52.7533 24.34C53.8512 23.8851 54.8487 23.2183 55.6888 22.3777C56.0512 22.0174 56.3818 21.6264 56.6768 21.2091C57.7621 19.683 58.3431 17.8557 58.3385 15.983C59.0146 17.4817 59.322 19.1204 59.235 20.7622C59.1479 22.404 58.669 24.0011 57.8382 25.4199C57.0074 26.8386 55.8489 28.0378 54.4596 28.9171C53.0704 29.7963 51.4908 30.3301 49.8529 30.4737C49.6779 30.4737 49.4954 30.485 49.2884 30.485C48.5218 30.4828 47.7566 30.4199 47 30.2968C46.8758 30.278 46.7534 30.2554 46.633 30.2347L46.4448 30.1971C43.6309 29.6421 41.0466 28.2602 39.0226 26.2281L32.3813 19.6L36.2449 15.7346M51.8195 8.8054C52.8748 9.20574 53.8295 9.83273 54.6161 10.6421C56.0083 12.0607 56.7841 13.9715 56.7749 15.9591C56.7657 17.9467 55.9721 19.8502 54.5668 21.2558C53.1615 22.6613 51.2581 23.4552 49.2705 23.4648C47.2829 23.4744 45.372 22.6989 43.9532 21.3069L42.9746 20.3283L36.243 13.5968L35.1759 14.6638L30.251 19.6L37.9668 27.3159C40.2016 29.56 43.0553 31.0862 46.1625 31.6988C46.362 31.739 46.5634 31.7747 46.7666 31.8061C47.6012 31.9392 48.4451 32.0059 49.2903 32.0056C49.501 32.0056 49.7118 32.0056 49.9226 31.9924H49.9339C52.6453 31.7707 55.1968 30.619 57.1565 28.7321C59.1163 26.8451 60.3638 24.339 60.6879 21.6379C61.012 18.9369 60.3929 16.2067 58.9352 13.9098C57.4776 11.6128 55.271 9.89001 52.689 9.03312C52.4011 8.97102 52.1131 8.84492 51.8233 8.80164L51.8195 8.8054Z" fill="CurrentColor" />
+              <path d="M15.7723 1.50557C16.5382 1.50861 17.3027 1.57153 18.0589 1.69376L18.4352 1.75773L18.6234 1.79349C21.4279 2.34854 24.0038 3.72557 26.0231 5.74927L32.6587 12.3849L28.8008 16.2447L23.14 10.5858L22.1633 9.60907C21.3244 8.76948 20.3283 8.10344 19.2318 7.64902C18.1354 7.1946 16.9601 6.9607 15.7733 6.9607C14.5864 6.9607 13.4112 7.1946 12.3147 7.64902C11.2183 8.10344 10.2222 8.76948 9.38325 9.60907C9.02081 9.96939 8.69024 10.3604 8.39525 10.7777C7.31203 12.2998 6.73169 14.1224 6.7354 15.9906C6.05997 14.4941 5.75263 12.8577 5.83908 11.2181C5.92553 9.57855 6.40326 7.98351 7.23233 6.56636C8.0614 5.14921 9.2177 3.95113 10.6046 3.07233C11.9914 2.19352 13.5685 1.65952 15.204 1.51497C15.379 1.51497 15.5616 1.50368 15.7686 1.50368M15.7686 -0.00184675C15.5578 -0.00184675 15.347 -0.00184537 15.1362 0.011328H15.125C12.4205 0.237164 9.87679 1.38939 7.92342 3.27342C5.97006 5.15745 4.72671 7.65785 4.40333 10.3524C4.07995 13.047 4.69635 15.7706 6.14845 18.0633C7.60055 20.356 9.79937 22.0774 12.3736 22.9368C12.6615 22.9989 13.0605 23.1532 13.3503 23.2002C12.2582 22.7871 11.2669 22.1455 10.4428 21.3183C9.03027 19.9058 8.23674 17.9901 8.23674 15.9925C8.23674 13.9949 9.03027 12.0792 10.4428 10.6667C11.8553 9.25421 13.771 8.46068 15.7686 8.46068C17.7661 8.46068 19.6819 9.25421 21.0944 10.6667L22.0711 11.6434L28.797 18.3675L29.8622 17.3023L34.7834 12.3792L27.0826 4.67846C24.8497 2.4379 21.9996 0.913886 18.8963 0.301138C18.6968 0.261618 18.4955 0.22586 18.2941 0.193868C17.4601 0.060791 16.6169 -0.00591195 15.7723 -0.00561424L15.7686 -0.00184675Z" fill="CurrentColor" />
+              <path d="M1.63691e-07 16C-0.00057423 11.9826 1.51054 8.11202 4.23299 5.1577C6.95544 2.20339 10.6899 0.381637 14.6939 0.0545713C15.1287 0.0169331 15.5653 1.61155e-08 16.0019 1.61155e-08H16.0979C13.1079 -0.00015649 10.2304 1.13963 8.05161 3.18714C5.87278 5.23465 4.55656 8.03585 4.3711 11.02C4.18564 14.0042 5.1449 16.9468 7.05344 19.2483C8.96198 21.5498 11.6762 23.0371 14.6431 23.4072C14.7843 23.4335 14.9273 23.4561 15.0703 23.4731C15.3788 23.5109 15.6892 23.5298 16 23.5295C16.3342 23.5297 16.6681 23.5071 16.9993 23.4618H17.0162H17.0896L17.1668 23.4392C18.555 23.2254 19.8549 22.6247 20.9174 21.7059C21.0567 21.5836 21.1922 21.4575 21.3239 21.3296L22.2988 20.3529L26.6497 16.0038L26.6366 15.9906L27.2802 15.347C29.0717 13.5554 30.8558 11.76 32.6248 10.0023L32.638 10.0155L37.9657 4.68972C40.6431 2.00366 44.1913 0.361366 47.9718 0.0583388C48.4065 0.0207006 48.8431 0.00375603 49.2797 0.00375603C49.53 0.00375603 49.7803 0.00376292 50.0325 0.022582C51.3733 0.0840663 52.7011 0.314219 53.9845 0.7076C57.4435 1.76531 60.4419 3.96411 62.4904 6.94521C64.539 9.9263 65.5167 13.5137 65.264 17.122C65.0114 20.7302 63.5433 24.1464 61.0993 26.8129C58.6553 29.4794 55.3798 31.2389 51.8071 31.8043C51.1841 31.9047 50.5557 31.9675 49.9252 31.9925C52.6324 31.7699 55.1797 30.6191 57.1361 28.7346C59.0925 26.8501 60.338 24.3478 60.6618 21.6508C60.9856 18.9537 60.3679 16.2277 58.9132 13.9336C57.4585 11.6396 55.256 9.91849 52.6784 9.06139C51.8946 8.80013 51.0852 8.62286 50.2639 8.53257L50.119 8.51564C49.9384 8.49557 49.7558 8.48239 49.5714 8.47612H49.5563C49.466 8.47612 49.3681 8.47612 49.2835 8.47612C48.4226 8.47533 47.568 8.62107 46.7561 8.90708C45.9428 9.1973 45.1859 9.62577 44.5185 10.1736L37.593 17.099L32.67 22.0221L32.6417 21.9939L27.3159 27.3216C25.2605 29.3723 22.6869 30.8265 19.8697 31.5292C17.0525 32.2318 14.0974 32.1565 11.3197 31.3112C10.868 31.1738 10.4201 31.0158 9.97976 30.837C7.03022 29.6384 4.50544 27.5869 2.72859 24.9451C0.951729 22.3032 0.00363359 19.1913 0.00563992 16.0075L1.63691e-07 16Z" fill="CurrentColor" />
+            </g>
+            <path d="M205.382 30.5074C203.226 30.5074 201.329 30.1625 199.691 29.4727C198.081 28.7542 196.831 27.7626 195.94 26.4979C195.049 25.2333 194.604 23.7387 194.604 22.0142C194.604 20.3472 195.049 18.9245 195.94 17.7461C196.86 16.5676 198.124 15.6623 199.734 15.03C201.372 14.3976 203.255 14.0815 205.382 14.0815C207.566 14.0815 209.449 14.4264 211.029 15.1162C212.639 15.7772 213.889 16.697 214.78 17.8754C215.7 19.0538 216.16 20.419 216.16 21.9711C216.16 23.7244 215.714 25.2477 214.823 26.5411C213.932 27.8057 212.682 28.7829 211.073 29.4727C209.463 30.1625 207.566 30.5074 205.382 30.5074ZM205.382 26.0237C206.963 26.0237 208.227 25.6501 209.176 24.9028C210.124 24.1555 210.598 23.092 210.598 21.7124C210.598 20.7927 210.383 20.0167 209.952 19.3843C209.521 18.7233 208.917 18.2203 208.141 17.8754C207.365 17.5305 206.445 17.358 205.382 17.358C203.801 17.358 202.536 17.7461 201.588 18.5221C200.639 19.2694 200.165 20.3472 200.165 21.7555C200.165 23.0777 200.639 24.1267 201.588 24.9028C202.536 25.6501 203.801 26.0237 205.382 26.0237ZM205.382 1.49255C207.365 1.49255 209.089 1.82308 210.555 2.48415C212.05 3.11647 213.199 4.03621 214.004 5.24336C214.838 6.45052 215.255 7.87324 215.255 9.51152C215.255 11.0348 214.838 12.357 214.004 13.4779C213.171 14.5701 212.021 15.4323 210.555 16.0647C209.089 16.6682 207.365 16.97 205.382 16.97C203.427 16.97 201.703 16.6682 200.208 16.0647C198.742 15.4611 197.593 14.6132 196.759 13.521C195.954 12.4001 195.552 11.0636 195.552 9.51152C195.552 7.90198 195.954 6.50801 196.759 5.32959C197.593 4.12243 198.742 3.18832 200.208 2.52726C201.703 1.83746 203.427 1.49255 205.382 1.49255ZM205.382 5.97628C204.031 5.97628 202.953 6.30681 202.148 6.96787C201.343 7.62893 200.941 8.56305 200.941 9.7702C200.941 10.9774 201.343 11.9258 202.148 12.6156C202.953 13.3054 204.031 13.6503 205.382 13.6503C206.733 13.6503 207.81 13.3054 208.615 12.6156C209.42 11.9258 209.822 10.9774 209.822 9.7702C209.822 8.5343 209.42 7.60019 208.615 6.96787C207.81 6.30681 206.733 5.97628 205.382 5.97628Z" fill="CurrentColor" />
+            <path d="M180.41 29.8608V7.05414H183.212V29.8608H180.41ZM183.212 16.7545H181.876C182.02 14.4839 182.48 12.6013 183.256 11.1067C184.032 9.58341 185.023 8.44811 186.23 7.70083C187.438 6.95354 188.774 6.5799 190.24 6.5799C190.671 6.5799 191.073 6.62301 191.447 6.70923C191.821 6.79546 192.108 6.91043 192.309 7.05414V9.59779C192.022 9.48282 191.677 9.39659 191.275 9.33911C190.872 9.28163 190.47 9.25289 190.067 9.25289C188.889 9.25289 187.869 9.45408 187.006 9.85646C186.173 10.2588 185.469 10.8193 184.894 11.5379C184.319 12.2277 183.888 13.0181 183.6 13.9091C183.342 14.8001 183.212 15.7485 183.212 16.7545Z" fill="CurrentColor" />
+            <path d="M164.872 30.335C162.745 30.335 160.92 29.8608 159.397 28.9123C157.873 27.9638 156.709 26.6129 155.904 24.8597C155.1 23.0777 154.697 20.9508 154.697 18.479C154.697 15.8922 155.1 13.7222 155.904 11.969C156.738 10.2157 157.916 8.87924 159.44 7.9595C160.963 7.03977 162.774 6.5799 164.872 6.5799C166.999 6.5799 168.81 7.05414 170.304 8.00262C171.827 8.9511 172.991 10.3163 173.796 12.0983C174.601 13.8803 175.003 16.0072 175.003 18.479C175.003 21.037 174.587 23.1927 173.753 24.9459C172.948 26.6992 171.784 28.0357 170.261 28.9554C168.766 29.8751 166.97 30.335 164.872 30.335ZM164.872 27.9207C167.229 27.9207 169.025 27.1016 170.261 25.4633C171.526 23.825 172.158 21.4969 172.158 18.479C172.158 15.4611 171.526 13.133 170.261 11.4947C168.996 9.82772 167.2 8.99421 164.872 8.99421C162.515 8.99421 160.704 9.81335 159.44 11.4516C158.175 13.0899 157.543 15.4324 157.543 18.479C157.543 21.4682 158.175 23.7962 159.44 25.4633C160.733 27.1016 162.544 27.9207 164.872 27.9207Z" fill="CurrentColor" />
+            <path d="M144.085 23.6094V1.79431H146.887V23.6094C146.887 25.1039 147.175 26.2105 147.749 26.929C148.353 27.6188 149.517 27.9637 151.241 27.9637H151.931V29.99C151.759 30.0763 151.5 30.1338 151.155 30.1625C150.81 30.1912 150.437 30.2056 150.034 30.2056C147.965 30.2056 146.456 29.6739 145.507 28.6104C144.559 27.547 144.085 25.88 144.085 23.6094ZM140.636 9.29593V7.05407H151.974V9.29593H140.636Z" fill="CurrentColor" />
+            <path d="M138.272 14.7713H135.47C135.125 12.8744 134.349 11.4373 133.142 10.46C131.963 9.48282 130.512 8.99421 128.787 8.99421C126.459 8.99421 124.677 9.81335 123.441 11.4516C122.206 13.0899 121.588 15.4324 121.588 18.479C121.588 21.4969 122.22 23.825 123.485 25.4633C124.778 27.1016 126.589 27.9207 128.917 27.9207C130.641 27.9207 132.093 27.4608 133.271 26.5411C134.45 25.5926 135.24 24.1843 135.642 22.316H138.445C137.899 25.1327 136.763 27.1734 135.039 28.4381C133.343 29.7027 131.274 30.335 128.831 30.335C126.732 30.335 124.922 29.8608 123.398 28.9123C121.904 27.9638 120.754 26.6129 119.949 24.8597C119.145 23.0777 118.742 20.9508 118.742 18.479C118.742 15.8922 119.145 13.7222 119.949 11.969C120.754 10.2157 121.904 8.87924 123.398 7.9595C124.922 7.03977 126.718 6.5799 128.787 6.5799C130.454 6.5799 131.949 6.89606 133.271 7.52838C134.593 8.13195 135.685 9.05169 136.548 10.2876C137.439 11.4947 138.014 12.9893 138.272 14.7713Z" fill="CurrentColor" />
+            <path d="M113.122 16.7545L111.569 18.2634C111.569 15.3318 110.937 13.0612 109.672 11.4516C108.408 9.81335 106.64 8.99421 104.37 8.99421C102.042 8.99421 100.245 9.81335 98.9805 11.4516C97.7446 13.0899 97.1267 15.4324 97.1267 18.479C97.1267 21.4682 97.7734 23.7962 99.0668 25.4633C100.389 27.1016 102.228 27.9207 104.585 27.9207C106.396 27.9207 107.905 27.4608 109.112 26.5411C110.348 25.6214 111.196 24.2561 111.656 22.4454H114.544C113.912 25.1184 112.719 27.1016 110.966 28.3949C109.213 29.6883 107.086 30.335 104.585 30.335C102.43 30.335 100.576 29.8608 99.0237 28.9123C97.5003 27.9638 96.3219 26.6129 95.4884 24.8597C94.6836 23.0777 94.2812 20.9508 94.2812 18.479C94.2812 15.8922 94.6836 13.7222 95.4884 11.969C96.3219 10.2157 97.486 8.87924 98.9805 7.9595C100.504 7.03977 102.3 6.5799 104.37 6.5799C106.468 6.5799 108.264 7.05414 109.759 8.00262C111.253 8.92235 112.403 10.2445 113.208 11.969C114.013 13.6648 114.415 15.7198 114.415 18.1341V18.9101H95.4884V16.7545H113.122Z" fill="CurrentColor" />
+            <path d="M79.7526 29.8607L71.0869 7.05408H74.1048L81.0028 25.6788L81.822 28.2224H81.3477L82.1238 25.6788L89.0218 7.05408H91.8241L83.1585 29.8607H79.7526Z" fill="CurrentColor" />
+            <defs>
+              <clipPath id="clipv8top">
+                <rect width="65.2835" height="32" fill="CurrentColor" />
+              </clipPath>
+            </defs>
+          </svg></a>
+        </div>
+        <div class="cta">
+          <a class="btn primary" href="https://websear.ch" rel="noopener">Essayer la démo</a>
+          <a class="btn" href="#mcp">Connecter un agent</a>
+        </div>
+      </div>
+    </div>
+    <svg class="hills" viewBox="0 0 1200 240" preserveAspectRatio="xMidYMax slice" aria-hidden="true" focusable="false">
+      <circle class="sun" cx="930" cy="92" r="46"/>
+      <path class="h1" d="M0 150C140 120 260 100 400 112C540 124 640 160 800 146C930 134 1040 96 1200 104V240H0Z"/>
+      <path class="h2" d="M0 190C120 160 230 150 360 164C500 180 600 206 760 190C900 176 1010 140 1200 150V240H0Z"/>
+      <path class="h3" d="M0 222C160 196 300 196 440 210C600 226 720 228 880 212C1010 198 1100 184 1200 190V240H0Z"/>
+      <path class="h4" d="M0 240C200 226 380 226 560 232C760 238 960 230 1200 226V240Z"/>
+    </svg>
+  </div>
+
+  <div class="facts" aria-label="L’index en chiffres">
+    <div class="wrap">
+      <div class="fact"><b>100 M</b><span>pages, dans l’index que vous pouvez télécharger aujourd’hui</span></div>
+      <div class="fact"><b>1 Md</b><span>pages, l’objectif pour l’index complet</span></div>
+      <div class="fact"><b>≈ 3 To</b><span>d’espace disque pour l’index complet</span></div>
+      <div class="fact"><b>&lt; 1 jour</b><span>pour tout télécharger</span></div>
+    </div>
+  </div>
+
+  <section id="why">
+    <div class="wrap">
+      <div class="text stack">
+        <p class="eyebrow">Pourquoi</p>
+        <h2>La recherche web a été conçue pour les humains. Les agents ont besoin de la leur.</h2>
+        <p class="lead mute">Depuis des décennies, la recherche web est entre les mains d’une poignée d’entreprises qui indexent des centaines de milliards de pages. Une alternative ouverte à cette échelle n’a jamais été réaliste&nbsp;: le coût de l’infrastructure est énorme et l’index serait bien trop volumineux pour être partagé. Nous nous sommes donc demandé ce dont un agent a réellement besoin.</p>
+      </div>
+      <div class="cols text">
+        <div>
+          <h3>La précision d’abord</h3>
+          <p>Un agent qui répond à une question juridique doit lire le texte exact de la loi avant de répondre. Il lui faut la source faisant autorité elle-même, pas une page qui en parle.</p>
+        </div>
+        <div>
+          <h3>Des données fraîches, pas vieilles de plusieurs mois</h3>
+          <p>Un modèle est entraîné sur des données qui ont déjà plusieurs mois lorsqu’il est publié. La recherche permet à un agent de voir ce qui a changé depuis.</p>
+        </div>
+        <div>
+          <h3>Souverain jusqu’au bout</h3>
+          <p>Les modèles à poids ouverts rendent possibles des LLM souverains. Un agent qui envoie encore chaque requête hors de votre périmètre n’est souverain qu’à moitié.</p>
+        </div>
+        <div>
+          <h3>À vous de le garder et de le modifier</h3>
+          <p>Le code et l’index sont ouverts. Une fondation veille à l’intégrité de l’index central, et chacun peut le faire tourner, le forker ou y ajouter ses propres sources.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="how" class="band">
+    <div class="wrap">
+      <div class="text stack">
+        <p class="eyebrow">Comment ça s’articule</p>
+        <h2>Les agents n’ont pas besoin du web comme les humains.</h2>
+        <p class="lead mute">Deux différences nous permettent de repenser l’index de zéro, pour sa taille et pour son partage.</p>
+      </div>
+      <div class="cols text">
+        <div>
+          <h3>Le modèle porte déjà un web compressé</h3>
+          <p>L’index n’a donc qu’à combler ce qui manque au modèle&nbsp;: le texte exact, l’état actuel, l’URL de la source faisant autorité.</p>
+        </div>
+        <div>
+          <h3>Un bon point d’entrée suffit</h3>
+          <p>Un agent n’a pas besoin de la page parfaite parmi les trois premiers résultats. À partir d’un bon point d’entrée, il parcourt lui-même le site et trouve la meilleure page en quelques secondes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="sizes">
+    <div class="wrap">
+      <div class="text stack">
+        <p class="eyebrow">Tailles</p>
+        <h2>Trois tailles de terre commune.</h2>
+        <p class="lead mute">Le même logiciel fonctionne à toutes les tailles. L’index réside sur NVMe&nbsp;; la RAM achète de la vitesse, pas la faisabilité. À la taille complète, une recherche web privée et souveraine devient praticable pour une équipe, une entreprise ou un pays.</p>
+      </div>
+      <div class="tablewrap">
+        <table class="sizes">
+          <thead><tr><th>Index</th><th>Pages</th><th>Sur disque</th><th>RAM</th><th>Fonctionne sur</th></tr></thead>
+          <tbody>
+            <tr class="now"><td>Petit</td><td>100 millions</td><td>300 GB</td><td>32 GB</td><td>un serveur Hetzner, environ 30 € par mois</td></tr>
+            <tr><td>Moyen</td><td>300 millions</td><td>1 TB</td><td>128 GB</td><td>un serveur Hetzner issu des enchères, environ 130 € par mois</td></tr>
+            <tr><td>Complet</td><td>1 milliard</td><td>3 TB</td><td>384 GB</td><td>un seul serveur&nbsp;; l’index entier se télécharge en moins d’une journée</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="aside">Moyen et complet sont les prochaines étapes. Petit est déjà là.</p>
+    </div>
+  </section>
+
+  <section id="mcp" class="band">
+    <div class="wrap">
+      <div class="text stack">
+        <p class="eyebrow">Disponible dès aujourd’hui</p>
+        <h2>Le voici. Servez-vous.</h2>
+        <p class="lead mute">La première version de l’index, avec 100 millions de pages, accompagnée du code source pour la déployer et l’enrichir de votre propre contenu. Une démo hébergée est en ligne sur <a href="https://websear.ch" rel="noopener">websear.ch</a> et se connecte à n’importe quel agent via MCP.</p>
+      </div>
+      <div class="mcpbox">
+        <div class="stack">
+          <h3>Connecter un agent</h3>
+          <p class="mute">Ajoutez le point d’accès hébergé à votre client MCP. L’agent reçoit un seul outil, <code>search</code>, qui renvoie l’URL de la source faisant autorité avec le contexte minimal nécessaire pour choisir.</p>
+          <p class="mute">Votre propre déploiement expose le même point d’accès sur votre propre hôte.</p>
+        </div>
+        <pre><code>{
+  "mcpServers": {
+    "cytir-websearch": { "url": "https://mcp.websear.ch" }
+  }
+}</code></pre>
+      </div>
+      <div class="cta" style="margin-top:1.6rem">
+        <a class="btn primary" href="https://websear.ch" rel="noopener">Ouvrir la démo</a>
+        <a class="btn" href="https://github.com/impactia-foundation/cytir" rel="noopener">Obtenir le code</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="who">
+    <div class="wrap">
+      <div class="text stack">
+        <p class="eyebrow">Qui est derrière</p>
+        <h2>Deux gardiens, un bien commun.</h2>
+        <p class="lead mute">Cytir est une collaboration entre impactIA, une fondation établie à Genève, et Vector8, un cabinet de conseil européen en IA. Le code et l’index sont publiés sous Apache-2.0.</p>
+      </div>
+      <div class="partners text">
+        <div class="partner">
+          <a class="mark" href="https://impactia.org" rel="noopener" aria-label="Fondation impactIA">
+            <img class="only-light" src="/assets/impactia-logo-black.png" alt="impactIA" width="872" height="280">
+            <img class="only-dark" src="/assets/impactia-logo-white.png" alt="impactIA" width="872" height="280">
+          </a>
+          <p><strong>impactIA</strong> gouverne la communauté open source et le contenu de l’index central. La fondation est basée à Genève.</p>
+        </div>
+        <div class="partner">
+          <a class="mark" href="https://vector8.com" rel="noopener" aria-label="Vector8"><svg aria-label="Vector8" role="img" viewBox="0 0 217 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g clip-path="url(#clip0_40000002_15659)">
+    <path d="M36.2467 15.7327L41.9132 21.401L42.8918 22.3777C43.7319 23.2183 44.7293 23.8851 45.8272 24.34C46.9251 24.795 48.1019 25.0291 49.2903 25.0291C50.4787 25.0291 51.6554 24.795 52.7533 24.34C53.8512 23.8851 54.8487 23.2183 55.6888 22.3777C56.0512 22.0174 56.3818 21.6264 56.6768 21.2091C57.7621 19.683 58.3431 17.8557 58.3385 15.983C59.0146 17.4817 59.322 19.1204 59.235 20.7622C59.1479 22.404 58.669 24.0011 57.8382 25.4199C57.0074 26.8386 55.8489 28.0378 54.4596 28.9171C53.0704 29.7963 51.4908 30.3301 49.8529 30.4737C49.6779 30.4737 49.4954 30.485 49.2884 30.485C48.5218 30.4828 47.7566 30.4199 47 30.2968C46.8758 30.278 46.7534 30.2554 46.633 30.2347L46.4448 30.1971C43.6309 29.6421 41.0466 28.2602 39.0226 26.2281L32.3813 19.6L36.2449 15.7346M51.8195 8.8054C52.8748 9.20574 53.8295 9.83273 54.6161 10.6421C56.0083 12.0607 56.7841 13.9715 56.7749 15.9591C56.7657 17.9467 55.9721 19.8502 54.5668 21.2558C53.1615 22.6613 51.2581 23.4552 49.2705 23.4648C47.2829 23.4744 45.372 22.6989 43.9532 21.3069L42.9746 20.3283L36.243 13.5968L35.1759 14.6638L30.251 19.6L37.9668 27.3159C40.2016 29.56 43.0553 31.0862 46.1625 31.6988C46.362 31.739 46.5634 31.7747 46.7666 31.8061C47.6012 31.9392 48.4451 32.0059 49.2903 32.0056C49.501 32.0056 49.7118 32.0056 49.9226 31.9924H49.9339C52.6453 31.7707 55.1968 30.619 57.1565 28.7321C59.1163 26.8451 60.3638 24.339 60.6879 21.6379C61.012 18.9369 60.3929 16.2067 58.9352 13.9098C57.4776 11.6128 55.271 9.89001 52.689 9.03312C52.4011 8.97102 52.1131 8.84492 51.8233 8.80164L51.8195 8.8054Z" fill="CurrentColor" />
+    <path d="M15.7723 1.50557C16.5382 1.50861 17.3027 1.57153 18.0589 1.69376L18.4352 1.75773L18.6234 1.79349C21.4279 2.34854 24.0038 3.72557 26.0231 5.74927L32.6587 12.3849L28.8008 16.2447L23.14 10.5858L22.1633 9.60907C21.3244 8.76948 20.3283 8.10344 19.2318 7.64902C18.1354 7.1946 16.9601 6.9607 15.7733 6.9607C14.5864 6.9607 13.4112 7.1946 12.3147 7.64902C11.2183 8.10344 10.2222 8.76948 9.38325 9.60907C9.02081 9.96939 8.69024 10.3604 8.39525 10.7777C7.31203 12.2998 6.73169 14.1224 6.7354 15.9906C6.05997 14.4941 5.75263 12.8577 5.83908 11.2181C5.92553 9.57855 6.40326 7.98351 7.23233 6.56636C8.0614 5.14921 9.2177 3.95113 10.6046 3.07233C11.9914 2.19352 13.5685 1.65952 15.204 1.51497C15.379 1.51497 15.5616 1.50368 15.7686 1.50368M15.7686 -0.00184675C15.5578 -0.00184675 15.347 -0.00184537 15.1362 0.011328H15.125C12.4205 0.237164 9.87679 1.38939 7.92342 3.27342C5.97006 5.15745 4.72671 7.65785 4.40333 10.3524C4.07995 13.047 4.69635 15.7706 6.14845 18.0633C7.60055 20.356 9.79937 22.0774 12.3736 22.9368C12.6615 22.9989 13.0605 23.1532 13.3503 23.2002C12.2582 22.7871 11.2669 22.1455 10.4428 21.3183C9.03027 19.9058 8.23674 17.9901 8.23674 15.9925C8.23674 13.9949 9.03027 12.0792 10.4428 10.6667C11.8553 9.25421 13.771 8.46068 15.7686 8.46068C17.7661 8.46068 19.6819 9.25421 21.0944 10.6667L22.0711 11.6434L28.797 18.3675L29.8622 17.3023L34.7834 12.3792L27.0826 4.67846C24.8497 2.4379 21.9996 0.913886 18.8963 0.301138C18.6968 0.261618 18.4955 0.22586 18.2941 0.193868C17.4601 0.060791 16.6169 -0.00591195 15.7723 -0.00561424L15.7686 -0.00184675Z" fill="CurrentColor" />
+    <path d="M1.63691e-07 16C-0.00057423 11.9826 1.51054 8.11202 4.23299 5.1577C6.95544 2.20339 10.6899 0.381637 14.6939 0.0545713C15.1287 0.0169331 15.5653 1.61155e-08 16.0019 1.61155e-08H16.0979C13.1079 -0.00015649 10.2304 1.13963 8.05161 3.18714C5.87278 5.23465 4.55656 8.03585 4.3711 11.02C4.18564 14.0042 5.1449 16.9468 7.05344 19.2483C8.96198 21.5498 11.6762 23.0371 14.6431 23.4072C14.7843 23.4335 14.9273 23.4561 15.0703 23.4731C15.3788 23.5109 15.6892 23.5298 16 23.5295C16.3342 23.5297 16.6681 23.5071 16.9993 23.4618H17.0162H17.0896L17.1668 23.4392C18.555 23.2254 19.8549 22.6247 20.9174 21.7059C21.0567 21.5836 21.1922 21.4575 21.3239 21.3296L22.2988 20.3529L26.6497 16.0038L26.6366 15.9906L27.2802 15.347C29.0717 13.5554 30.8558 11.76 32.6248 10.0023L32.638 10.0155L37.9657 4.68972C40.6431 2.00366 44.1913 0.361366 47.9718 0.0583388C48.4065 0.0207006 48.8431 0.00375603 49.2797 0.00375603C49.53 0.00375603 49.7803 0.00376292 50.0325 0.022582C51.3733 0.0840663 52.7011 0.314219 53.9845 0.7076C57.4435 1.76531 60.4419 3.96411 62.4904 6.94521C64.539 9.9263 65.5167 13.5137 65.264 17.122C65.0114 20.7302 63.5433 24.1464 61.0993 26.8129C58.6553 29.4794 55.3798 31.2389 51.8071 31.8043C51.1841 31.9047 50.5557 31.9675 49.9252 31.9925C52.6324 31.7699 55.1797 30.6191 57.1361 28.7346C59.0925 26.8501 60.338 24.3478 60.6618 21.6508C60.9856 18.9537 60.3679 16.2277 58.9132 13.9336C57.4585 11.6396 55.256 9.91849 52.6784 9.06139C51.8946 8.80013 51.0852 8.62286 50.2639 8.53257L50.119 8.51564C49.9384 8.49557 49.7558 8.48239 49.5714 8.47612H49.5563C49.466 8.47612 49.3681 8.47612 49.2835 8.47612C48.4226 8.47533 47.568 8.62107 46.7561 8.90708C45.9428 9.1973 45.1859 9.62577 44.5185 10.1736L37.593 17.099L32.67 22.0221L32.6417 21.9939L27.3159 27.3216C25.2605 29.3723 22.6869 30.8265 19.8697 31.5292C17.0525 32.2318 14.0974 32.1565 11.3197 31.3112C10.868 31.1738 10.4201 31.0158 9.97976 30.837C7.03022 29.6384 4.50544 27.5869 2.72859 24.9451C0.951729 22.3032 0.00363359 19.1913 0.00563992 16.0075L1.63691e-07 16Z" fill="CurrentColor" />
+  </g>
+  <path d="M205.382 30.5074C203.226 30.5074 201.329 30.1625 199.691 29.4727C198.081 28.7542 196.831 27.7626 195.94 26.4979C195.049 25.2333 194.604 23.7387 194.604 22.0142C194.604 20.3472 195.049 18.9245 195.94 17.7461C196.86 16.5676 198.124 15.6623 199.734 15.03C201.372 14.3976 203.255 14.0815 205.382 14.0815C207.566 14.0815 209.449 14.4264 211.029 15.1162C212.639 15.7772 213.889 16.697 214.78 17.8754C215.7 19.0538 216.16 20.419 216.16 21.9711C216.16 23.7244 215.714 25.2477 214.823 26.5411C213.932 27.8057 212.682 28.7829 211.073 29.4727C209.463 30.1625 207.566 30.5074 205.382 30.5074ZM205.382 26.0237C206.963 26.0237 208.227 25.6501 209.176 24.9028C210.124 24.1555 210.598 23.092 210.598 21.7124C210.598 20.7927 210.383 20.0167 209.952 19.3843C209.521 18.7233 208.917 18.2203 208.141 17.8754C207.365 17.5305 206.445 17.358 205.382 17.358C203.801 17.358 202.536 17.7461 201.588 18.5221C200.639 19.2694 200.165 20.3472 200.165 21.7555C200.165 23.0777 200.639 24.1267 201.588 24.9028C202.536 25.6501 203.801 26.0237 205.382 26.0237ZM205.382 1.49255C207.365 1.49255 209.089 1.82308 210.555 2.48415C212.05 3.11647 213.199 4.03621 214.004 5.24336C214.838 6.45052 215.255 7.87324 215.255 9.51152C215.255 11.0348 214.838 12.357 214.004 13.4779C213.171 14.5701 212.021 15.4323 210.555 16.0647C209.089 16.6682 207.365 16.97 205.382 16.97C203.427 16.97 201.703 16.6682 200.208 16.0647C198.742 15.4611 197.593 14.6132 196.759 13.521C195.954 12.4001 195.552 11.0636 195.552 9.51152C195.552 7.90198 195.954 6.50801 196.759 5.32959C197.593 4.12243 198.742 3.18832 200.208 2.52726C201.703 1.83746 203.427 1.49255 205.382 1.49255ZM205.382 5.97628C204.031 5.97628 202.953 6.30681 202.148 6.96787C201.343 7.62893 200.941 8.56305 200.941 9.7702C200.941 10.9774 201.343 11.9258 202.148 12.6156C202.953 13.3054 204.031 13.6503 205.382 13.6503C206.733 13.6503 207.81 13.3054 208.615 12.6156C209.42 11.9258 209.822 10.9774 209.822 9.7702C209.822 8.5343 209.42 7.60019 208.615 6.96787C207.81 6.30681 206.733 5.97628 205.382 5.97628Z" fill="CurrentColor" />
+  <path d="M180.41 29.8608V7.05414H183.212V29.8608H180.41ZM183.212 16.7545H181.876C182.02 14.4839 182.48 12.6013 183.256 11.1067C184.032 9.58341 185.023 8.44811 186.23 7.70083C187.438 6.95354 188.774 6.5799 190.24 6.5799C190.671 6.5799 191.073 6.62301 191.447 6.70923C191.821 6.79546 192.108 6.91043 192.309 7.05414V9.59779C192.022 9.48282 191.677 9.39659 191.275 9.33911C190.872 9.28163 190.47 9.25289 190.067 9.25289C188.889 9.25289 187.869 9.45408 187.006 9.85646C186.173 10.2588 185.469 10.8193 184.894 11.5379C184.319 12.2277 183.888 13.0181 183.6 13.9091C183.342 14.8001 183.212 15.7485 183.212 16.7545Z" fill="CurrentColor" />
+  <path d="M164.872 30.335C162.745 30.335 160.92 29.8608 159.397 28.9123C157.873 27.9638 156.709 26.6129 155.904 24.8597C155.1 23.0777 154.697 20.9508 154.697 18.479C154.697 15.8922 155.1 13.7222 155.904 11.969C156.738 10.2157 157.916 8.87924 159.44 7.9595C160.963 7.03977 162.774 6.5799 164.872 6.5799C166.999 6.5799 168.81 7.05414 170.304 8.00262C171.827 8.9511 172.991 10.3163 173.796 12.0983C174.601 13.8803 175.003 16.0072 175.003 18.479C175.003 21.037 174.587 23.1927 173.753 24.9459C172.948 26.6992 171.784 28.0357 170.261 28.9554C168.766 29.8751 166.97 30.335 164.872 30.335ZM164.872 27.9207C167.229 27.9207 169.025 27.1016 170.261 25.4633C171.526 23.825 172.158 21.4969 172.158 18.479C172.158 15.4611 171.526 13.133 170.261 11.4947C168.996 9.82772 167.2 8.99421 164.872 8.99421C162.515 8.99421 160.704 9.81335 159.44 11.4516C158.175 13.0899 157.543 15.4324 157.543 18.479C157.543 21.4682 158.175 23.7962 159.44 25.4633C160.733 27.1016 162.544 27.9207 164.872 27.9207Z" fill="CurrentColor" />
+  <path d="M144.085 23.6094V1.79431H146.887V23.6094C146.887 25.1039 147.175 26.2105 147.749 26.929C148.353 27.6188 149.517 27.9637 151.241 27.9637H151.931V29.99C151.759 30.0763 151.5 30.1338 151.155 30.1625C150.81 30.1912 150.437 30.2056 150.034 30.2056C147.965 30.2056 146.456 29.6739 145.507 28.6104C144.559 27.547 144.085 25.88 144.085 23.6094ZM140.636 9.29593V7.05407H151.974V9.29593H140.636Z" fill="CurrentColor" />
+  <path d="M138.272 14.7713H135.47C135.125 12.8744 134.349 11.4373 133.142 10.46C131.963 9.48282 130.512 8.99421 128.787 8.99421C126.459 8.99421 124.677 9.81335 123.441 11.4516C122.206 13.0899 121.588 15.4324 121.588 18.479C121.588 21.4969 122.22 23.825 123.485 25.4633C124.778 27.1016 126.589 27.9207 128.917 27.9207C130.641 27.9207 132.093 27.4608 133.271 26.5411C134.45 25.5926 135.24 24.1843 135.642 22.316H138.445C137.899 25.1327 136.763 27.1734 135.039 28.4381C133.343 29.7027 131.274 30.335 128.831 30.335C126.732 30.335 124.922 29.8608 123.398 28.9123C121.904 27.9638 120.754 26.6129 119.949 24.8597C119.145 23.0777 118.742 20.9508 118.742 18.479C118.742 15.8922 119.145 13.7222 119.949 11.969C120.754 10.2157 121.904 8.87924 123.398 7.9595C124.922 7.03977 126.718 6.5799 128.787 6.5799C130.454 6.5799 131.949 6.89606 133.271 7.52838C134.593 8.13195 135.685 9.05169 136.548 10.2876C137.439 11.4947 138.014 12.9893 138.272 14.7713Z" fill="CurrentColor" />
+  <path d="M113.122 16.7545L111.569 18.2634C111.569 15.3318 110.937 13.0612 109.672 11.4516C108.408 9.81335 106.64 8.99421 104.37 8.99421C102.042 8.99421 100.245 9.81335 98.9805 11.4516C97.7446 13.0899 97.1267 15.4324 97.1267 18.479C97.1267 21.4682 97.7734 23.7962 99.0668 25.4633C100.389 27.1016 102.228 27.9207 104.585 27.9207C106.396 27.9207 107.905 27.4608 109.112 26.5411C110.348 25.6214 111.196 24.2561 111.656 22.4454H114.544C113.912 25.1184 112.719 27.1016 110.966 28.3949C109.213 29.6883 107.086 30.335 104.585 30.335C102.43 30.335 100.576 29.8608 99.0237 28.9123C97.5003 27.9638 96.3219 26.6129 95.4884 24.8597C94.6836 23.0777 94.2812 20.9508 94.2812 18.479C94.2812 15.8922 94.6836 13.7222 95.4884 11.969C96.3219 10.2157 97.486 8.87924 98.9805 7.9595C100.504 7.03977 102.3 6.5799 104.37 6.5799C106.468 6.5799 108.264 7.05414 109.759 8.00262C111.253 8.92235 112.403 10.2445 113.208 11.969C114.013 13.6648 114.415 15.7198 114.415 18.1341V18.9101H95.4884V16.7545H113.122Z" fill="CurrentColor" />
+  <path d="M79.7526 29.8607L71.0869 7.05408H74.1048L81.0028 25.6788L81.822 28.2224H81.3477L82.1238 25.6788L89.0218 7.05408H91.8241L83.1585 29.8607H79.7526Z" fill="CurrentColor" />
+  <defs>
+    <clipPath id="clip0_40000002_15659">
+      <rect width="65.2835" height="32" fill="CurrentColor" />
+    </clipPath>
+  </defs>
+</svg></a>
+          <p><strong>Vector8</strong> apporte des ressources à la communauté et propose des services de déploiement et de personnalisation aux entreprises. Bureaux à Zurich, Londres, Paris, Skopje et Pristina.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Cytir"><svg viewBox="0 0 190 64" role="img" aria-label="cytir"><defs><mask id="fv0" maskUnits="userSpaceOnUse" x="-50" y="-50" width="100" height="100"><rect x="-50" y="-50" width="100" height="100" fill="#fff"/><path d="M-13.2 0.0H-1.2000000000000002" fill="none" stroke="#000" stroke-width="9"/></mask><mask id="fv1" maskUnits="userSpaceOnUse" x="-50" y="-50" width="100" height="100"><rect x="-50" y="-50" width="100" height="100" fill="#fff"/><path d="M-6.0 -7.2H6.0" fill="none" stroke="#000" stroke-width="9"/><path d="M-6.0 7.2H6.0" fill="none" stroke="#000" stroke-width="9"/></mask><mask id="fv2" maskUnits="userSpaceOnUse" x="-50" y="-50" width="100" height="100"><rect x="-50" y="-50" width="100" height="100" fill="#fff"/><path d="M1.2000000000000002 0.0H13.2" fill="none" stroke="#000" stroke-width="9"/></mask><mask id="fh0" maskUnits="userSpaceOnUse" x="-50" y="-50" width="100" height="100"><rect x="-50" y="-50" width="100" height="100" fill="#fff"/><path d="M-7.2 -13.2V-1.2000000000000002" fill="none" stroke="#000" stroke-width="9"/><path d="M7.2 -13.2V-1.2000000000000002" fill="none" stroke="#000" stroke-width="9"/></mask><mask id="fh1" maskUnits="userSpaceOnUse" x="-50" y="-50" width="100" height="100"><rect x="-50" y="-50" width="100" height="100" fill="#fff"/><path d="M0.0 -6.0V6.0" fill="none" stroke="#000" stroke-width="9"/></mask><mask id="fh2" maskUnits="userSpaceOnUse" x="-50" y="-50" width="100" height="100"><rect x="-50" y="-50" width="100" height="100" fill="#fff"/><path d="M-7.2 1.2000000000000002V13.2" fill="none" stroke="#000" stroke-width="9"/><path d="M7.2 1.2000000000000002V13.2" fill="none" stroke="#000" stroke-width="9"/></mask></defs><g transform="translate(25 36) scale(0.92) rotate(45)" fill="none" stroke-width="5" stroke-linecap="round"><path d="M-7.2 -17.0V17.0" stroke="var(--cytir-red,#C8372D)" mask="url(#fv0)"/><path d="M0.0 -17.0V17.0" stroke="var(--cytir-green,#2F7D4F)" mask="url(#fv1)"/><path d="M7.2 -17.0V17.0" stroke="var(--cytir-green,#2F7D4F)" mask="url(#fv2)"/><path d="M-17.0 -7.2H17.0" stroke="var(--cytir-green,#2F7D4F)" mask="url(#fh0)"/><path d="M-17.0 0.0H17.0" stroke="var(--cytir-green,#2F7D4F)" mask="url(#fh1)"/><path d="M-17.0 7.2H17.0" stroke="var(--cytir-green,#2F7D4F)" mask="url(#fh2)"/></g><g fill="none" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke="currentColor"><path d="M84 29A12 12 0 1 0 84 43"/><path d="M96 24L106 47M118 24L106.5 47Q102 57 95 56"/><path d="M131 24V43Q131 48 136 48H140M122 24H141"/><path d="M152 24V48"/><path d="M166 24V48M166 34Q169 24 179 26"/></g><circle cx="152" cy="13" r="4.2" fill="var(--cytir-red,#C8372D)"/></svg></a>
+    <span>le web est notre terre commune · Fondation impactIA × Vector8</span>
+    <span><a href="https://websear.ch/privacy" rel="noopener">Confidentialité</a> · <a href="https://websear.ch" rel="noopener">websear.ch</a> · Apache-2.0</span>
+  </div>
+</footer>
+</body>
+</html>

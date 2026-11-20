@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ARTICLE>
+<META>
+<META_COMMUN>
+<ID>LEGIARTI000018978893</ID>
+<ANCIEN_ID/>
+<ORIGINE>LEGI</ORIGINE>
+<URL>article/LEGI/ARTI/00/00/18/97/88/LEGIARTI000018978893.xml</URL>
+<NATURE>Article</NATURE>
+</META_COMMUN>
+<META_SPEC>
+<META_ARTICLE>
+
+<NUM>10</NUM>
+
+<ETAT>ABROGE_DIFF</ETAT>
+
+<DATE_DEBUT>1979-12-15</DATE_DEBUT>
+<DATE_FIN>2025-10-01</DATE_FIN>
+
+
+
+<TYPE>AUTONOME</TYPE>
+</META_ARTICLE>
+</META_SPEC>
+</META>
+<CONTEXTE>
+<TEXTE autorite="" cid="LEGITEXT000018978881" date_publi="2999-01-01" date_signature="1979-12-12" ministere="" nature="DECRET" nor="" num="79-1076" num_parution_jo="">
+<TITRE_TXT c_titre_court="Décret n°79-1076  du 12 décembre 1979" debut="2007-03-01" fin="2025-10-01" id_txt="LEGITEXT000021806451">Décret n° 79-1076 du 12 décembre 1979 relatif aux congés en cas de maladie, maternité, accident du travail dont peut bénéficier le personnel ouvrier de l'établissement public La Monnaie de Paris </TITRE_TXT>
+<TITRE_TXT c_titre_court="Décret n°79-1076  du 12 décembre 1979" debut="1979-12-15" fin="2007-02-28" id_txt="LEGITEXT000018978881">Décret n° 79-1076 du 12 décembre 1979 relatif aux congés en cas de maladie, maternité, accident du travail dont peut bénéficier le personnel ouvrier de l’administration des monnaies et médailles.</TITRE_TXT>
+</TEXTE>
+</CONTEXTE>
+<VERSIONS>
+<VERSION etat="ABROGE_DIFF">
+<LIEN_ART debut="1979-12-15" etat="ABROGE_DIFF" fin="2025-10-01" id="LEGIARTI000018978893" num="10" origine="LEGI"/>
+</VERSION>
+</VERSIONS>
+<NOTA>
+<CONTENU/>
+</NOTA>
+<BLOC_TEXTUEL>
+<CONTENU>
+<p>
+<br/>Le ministre de l’économie, le ministre du budget et le ministre
+de la santé et de la sécurité sociale sont chargés, chacun en ce qui
+le concerne, de l’exécution du présent décret, qui sera publié au
+Journal officiel de la République française.</p>
+</CONTENU>
+</BLOC_TEXTUEL>
+<LIENS>
+<LIEN cidtexte="JORFTEXT000051954589" datesignatexte="2025-07-23" id="LEGIARTI000051957293" naturetexte="DECRET" nortexte="APFF2512987D" num="49" numtexte="2025-694" sens="cible" typelien="ABROGE">Décret n°2025-694 du 23 juillet 2025 - art. 49 (V)</LIEN>
+</LIENS>
+</ARTICLE>

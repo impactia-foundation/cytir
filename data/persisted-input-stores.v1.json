@@ -1,0 +1,74 @@
+{
+ "schema": "aw.persisted-input-stores.v1",
+ "version": "2026-09-12",
+ "why": "ADR-105 / task 581. The registry of stores in which a page's text counts as PERSISTED. `cytir.corpus.persisted` indexes exactly these and refuses to load a row whose page is in none of them. Globs, never file lists: the roster is derived from the storage tree at build time and printed with the result (corpus-doctrine 8). Paths are relative to AW_CORPUS_ROOT (pipeline/aw_paths.CORPUS_ROOT).",
+ "layer_meaning": {
+  "l0": "originals as fetched - raw response bytes. Re-extraction is local; ADR-026 calls this the only non-recomputable layer.",
+  "l1": "extracted documents - the FULL text/markdown of a page plus, where the lane recorded one, its sha. The ADR-105 bar.",
+  "l2": "passages - the chunked text a build consumed. Admits a page only under the ADR-093 overlap-chaining route (require='l1b'), never as a replay."
+ },
+ "text_fields_note": "A record counts as persistence only if one of `text_fields` is non-empty. Without that predicate the L1 release tree's `unresolved.jsonl.gz` - a list of URLs a lane FAILED to retrieve - would index as proof that those very pages are on disk (corpus-doctrine 3: our own failure is not the record's presence).",
+ "roster_note": "The L1 release tree names its document files eleven different ways across 34 sources (l1-markdown-*.jsonl.gz, parents.jsonl.gz, gesetze.jsonl, legi.jsonl, pubmed-full.jsonl.gz, stages/markdown/data/*.jsonl.gz, lang=*/.multistream-fragments/range-*/shard-*.jsonl). A first draft of this file globbed `l1-markdown-*` and found EIGHT files in a tree of 156,704. The globs below are recursive over the whole layer for that reason; `tasks/581-scripts/store_discovery_581.py` is the exhaustive walk that established it.",
+ "stores": [
+  {
+   "store_id": "l1-release-gz",
+   "layer": "l1",
+   "kind": "jsonl_gz",
+   "glob": "l1/**/*.jsonl.gz",
+   "url_fields": ["canonical_url", "url"],
+   "sha_fields": ["markdown_sha256", "sha256", "content_digest"],
+   "text_fields": ["markdown", "text"],
+   "note": "The gzipped half of the L1 document layer (51 files, ~56.9 GB at 2026-09-12): l1-markdown-*.jsonl.gz, parents.jsonl.gz, pubmed-full.jsonl.gz, legi-production-legal-markdown.jsonl.gz and the per-source stages/markdown/data trees. Task 579 measured this layer as THIN against L2 on deficit pages (median 0.77 of L2's words) - presence here is persistence, not completeness, and the completeness question was answered separately by the task-era script pipeline/page_text_completeness.py (retired in task 1939; pinned as git-blob:b4b5502901bab7824378c92b93a88581caf3fc59:pipeline/page_text_completeness.py). Neither guard substitutes for the other."
+  },
+  {
+   "store_id": "l1-release-plain",
+   "layer": "l1",
+   "kind": "jsonl",
+   "glob": "l1/**/*.jsonl",
+   "url_fields": ["canonical_url", "url"],
+   "sha_fields": ["markdown_sha256", "sha256", "content_digest"],
+   "text_fields": ["markdown", "text"],
+   "note": "The uncompressed half (156,653 files, ~86.8 GB at 2026-09-12) - overwhelmingly wikipedia-markdown-v3's lang=*/.multistream-fragments/range-*/shard-*.jsonl. Excluded by every earlier glob and by far the largest L1 population."
+  },
+  {
+   "store_id": "l0-waves",
+   "layer": "l0",
+   "kind": "jsonl_gz",
+   "glob": "l0/wave=*/shard-*.jsonl.gz",
+   "url_fields": ["url", "final_url"],
+   "sha_fields": ["sha256"],
+   "text_fields": ["body_b64"],
+   "note": "pack_fetch.L0Store - raw response bytes, status, content_type, fetched_at, sha256. ADR-093 section 6 flagged that 16 of 28 waves carry sealed_by: None and three are gzip-corrupt at seal; the index build treats an unreadable shard as a FAILURE, not as an empty wave."
+  },
+  {
+   "store_id": "l0-direct",
+   "layer": "l0",
+   "kind": "jsonl_gz",
+   "glob": "l0_direct/wave=*/*.raw.jsonl.gz",
+   "url_fields": ["url", "final_url"],
+   "sha_fields": ["sha256"],
+   "text_fields": ["body_b64", "html", "text"],
+   "note": "The wave1b direct-fetch raw HTML retained before the l0/ layout existed."
+  },
+  {
+   "store_id": "l2-legacy-corpus",
+   "layer": "l2",
+   "kind": "parquet",
+   "glob": "wave=*/*.parquet",
+   "url_fields": ["url"],
+   "sha_fields": ["content_digest"],
+   "text_fields": ["text"],
+   "note": "The corpus_store.py passage parquet - 78 waves, 159 files, 53,990,262 passages (task 407's exhaustive count, re-derived by task 579). This is production's OWN build input and the layer ADR-093's chainer reconstructs L1 from."
+  },
+  {
+   "store_id": "l2-openalex",
+   "layer": "l2",
+   "kind": "jsonl_gz",
+   "glob": "l2/wave=*/passages-*.jsonl.gz",
+   "url_fields": ["url", "canonical_url"],
+   "sha_fields": ["content_digest", "sha256"],
+   "text_fields": ["text"],
+   "note": "The n2-openalex passage wave, written in jsonl rather than parquet."
+  }
+ ]
+}

@@ -1,0 +1,13 @@
+{
+ "chunks_sha256": "e32aafae2ee8e6d3f3c0c30cdcfc0b448d612fbeaf9815f448ffd3d235d451cb",
+ "dropped_served": 0,
+ "family_id": "stackexchange_nonso_qa_p0",
+ "pack_id": "stackexchange-nonso-qa-p0-v1-local-ea6e89b9db45",
+ "row_start": 0,
+ "rows": 7,
+ "schema": "aw.family-stage.v1",
+ "shard": 0,
+ "slice_rows": 150000,
+ "source_records_sha256": "ea6e89b9db4586248e54921e808bcd22fb48c8e22d9ac0a9a787375bc01f8458",
+ "source_rows": 7
+}

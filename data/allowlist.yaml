@@ -1,0 +1,200 @@
+# Authoritative Web (AW) P0 allowlist — Swiss-focused grounding index.
+# Target languages: EN / DE / FR / IT. Every domain/seed was fetched and
+# confirmed to load by the allowlist sub-agent (2026-06-21). Operational
+# notes (JS-gating, UA quirks) are load-bearing for the fetcher.
+allowlist:
+  - domain: fedlex.admin.ch
+    tier: A
+    languages: [de, fr, it, en]
+    fetch_method: render          # JS-gated landing pages → render (Playwright)
+    consent: open
+    authoritative_for: "Swiss federal law — Classified Compilation (SR/RS): statutes, codes, ordinances"
+    seeds:
+      - https://www.fedlex.admin.ch/eli/cc/1999/404/de        # SR 101 Federal Constitution
+      - https://www.fedlex.admin.ch/eli/cc/1999/404/fr
+      - https://www.fedlex.admin.ch/eli/cc/1999/404/it
+      - https://www.fedlex.admin.ch/eli/cc/1999/404/en
+      - https://www.fedlex.admin.ch/eli/cc/27/317_321_377/de  # SR 220 Code of Obligations
+      - https://www.fedlex.admin.ch/eli/cc/27/317_321_377/fr
+      - https://www.fedlex.admin.ch/eli/cc/27/317_321_377/it
+      - https://www.fedlex.admin.ch/eli/cc/24/233_245_233/de  # SR 210 Civil Code
+      - https://www.fedlex.admin.ch/eli/cc/24/233_245_233/fr
+      - https://www.fedlex.admin.ch/eli/cc/24/233_245_233/it
+      - https://www.fedlex.admin.ch/eli/cc/54/757_781_799/de  # SR 311.0 Criminal Code
+      - https://www.fedlex.admin.ch/eli/cc/54/757_781_799/it
+      - https://www.fedlex.admin.ch/eli/cc/1993/1798_1798_1798/de  # SR 231.1 Copyright Act
+      - https://www.fedlex.admin.ch/eli/cc/1993/1798_1798_1798/fr
+      - https://www.fedlex.admin.ch/eli/cc/1993/1798_1798_1798/it
+      - https://www.fedlex.admin.ch/eli/cc/2015/493/de        # SR 741.13 road-traffic alcohol limits
+      - https://www.fedlex.admin.ch/eli/cc/2015/493/fr
+    notes: >
+      The anchor grounding case. ELI URLs: shared path-id + trailing /de /fr /it /en.
+      Landing pages are JS-gated — render to get the legal text; store the ELI URL.
+      EN exists for SR 101 and SR 311.0; OR/ZGB/URG/SVG EN is unofficial/absent.
+
+  - domain: bger.ch
+    tier: A
+    languages: [de, fr, it]
+    fetch_method: crawl          # server-rendered (not a SPA, unlike fedlex) → CC-ingestable
+    consent: open
+    authoritative_for: "Swiss federal case law — Federal Supreme Court (Bundesgericht / Tribunal fédéral / Tribunale federale): leading decisions (BGE/ATF) and rulings"
+    seeds:
+      - https://www.bger.ch/                                  # institutional portal (DE)
+      - https://www.bger.ch/fr/                               # FR
+      - https://www.bger.ch/it/                               # IT
+      - https://www.bger.ch/index/juridiction/jurisdiction-inherit-template/jurisdiction-recht/jurisdiction-recht-leitentscheide1954.htm  # leading decisions index
+    notes: >
+      Federal Supreme Court — complements fedlex (legislation) with case law.
+      Institutional + leitentscheide-index pages are server-rendered → CC captures
+      them (~3,300 captures, CC-MAIN-2026-25); ingested via cc_ingest.
+      CAVEAT: ~2,400 of those are /aza/ decision URLs but they are the Eurospider
+      search-portal SHELL behind a T&C gate (no Erwägung/Sachverhalt text) — the
+      decision *full-text* is NOT usefully in CC. Deep BGE/ATF jurisprudence is a
+      bespoke step (entscheidsuche.ch bulk dataset / court export), see plan P1.5b.
+
+  - domain: admin.ch
+    tier: A
+    languages: [de, fr, it, en]
+    fetch_method: crawl
+    consent: open
+    authoritative_for: "Swiss federal government — Federal Council, departments, official portal"
+    seeds:
+      - https://www.admin.ch/gov/en/start/federal-council/members-of-the-federal-council.html
+      - https://www.admin.ch/gov/de/start/bundesrat/mitglieder-des-bundesrates.html
+    notes: "200 to plain clients, 403 to some browser UAs — use a tolerant UA."
+
+  - domain: bfs.admin.ch
+    tier: A
+    languages: [de, fr, it, en]
+    fetch_method: crawl
+    consent: open
+    authoritative_for: "Swiss official statistics — Federal Statistical Office (FSO/BFS/OFS)"
+    seeds:
+      - https://www.bfs.admin.ch/bfs/en/home/news/press-releases.gnpdetail.2025-0336.html
+    notes: "press-release (gnpdetail) + /asset/ pages carry concrete figures; landing pages JS-rendered."
+
+  - domain: ch.ch
+    tier: A
+    languages: [de, fr, it, en, rm]
+    fetch_method: render
+    consent: open
+    authoritative_for: "Swiss authorities online — citizen how-to / civic info portal"
+    seeds:
+      - https://www.ch.ch/en/
+    notes: "Client-side-rendered SPA — needs JS rendering for body text."
+
+  - domain: swissmedic.ch
+    tier: A
+    languages: [de, fr, it, en]
+    fetch_method: crawl
+    consent: open
+    authoritative_for: "Swiss authorisation & supervision of therapeutic products"
+    seeds:
+      - https://www.swissmedic.ch/swissmedic/en/home.html
+    notes: "Static text fetchable."
+
+  - domain: ethz.ch
+    tier: B
+    languages: [de, en]
+    fetch_method: crawl
+    consent: open
+    authoritative_for: "ETH Zurich — research, institutional reference"
+    seeds: [https://ethz.ch/en]
+
+  - domain: epfl.ch
+    tier: B
+    languages: [fr, en, de]
+    fetch_method: crawl
+    consent: open
+    authoritative_for: "EPFL — research, reference"
+    seeds: [https://epfl.ch/en]
+
+  - domain: arxiv.org
+    tier: B
+    languages: [en]
+    fetch_method: crawl
+    consent: open
+    authoritative_for: "Open-access scientific preprints"
+    seeds: [https://arxiv.org/abs/1706.03762]
+    notes: "P0 slice: ground on /abs/ landing pages (title+abstract), not PDFs. English-only."
+
+  - domain: docs.python.org
+    tier: C
+    languages: [en]
+    fetch_method: crawl
+    consent: open
+    authoritative_for: "Python language & standard-library documentation"
+    seeds:
+      - https://docs.python.org/3/library/os.html
+      - https://docs.python.org/3/library/functions.html
+
+  - domain: developer.mozilla.org
+    tier: C
+    languages: [en, de, fr]
+    fetch_method: crawl
+    consent: open
+    authoritative_for: "Web platform documentation — MDN"
+    seeds:
+      - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map
+
+  - domain: www.assemblee-nationale.fr
+    tier: A
+    languages: [fr]
+    fetch_method: crawl
+    consent: open
+    authoritative_for: "Assemblée nationale — French lower house: deputies, groups, dossiers législatifs, comptes rendus"
+    seeds: [https://www.assemblee-nationale.fr]
+    notes: "Task 554: the bare hostname assemblee-nationale.fr has no DNS record (every earlier ConnectError probed a dead name); the www origin is readable, search_ok=True, train_ok=True (the crawl host, 2026-09-08). Gold fr-gov-027 lives here. Added 2026-09-09 (task 557 stopped for lack of this entry)."
+
+  - domain: impactia.org
+    tier: A
+    languages: [fr, en]
+    fetch_method: crawl
+    consent: open
+    authoritative_for: "impactIA — Swiss (Geneva) foundation for ethical AI (entity homepage)"
+    seeds: [https://impactia.org]
+    notes: "Foundation supporting this project; an authority as such (Tim, ADR-104, 2026-09-08). Was tier D until that ruling."
+
+  - domain: wikipedia.org
+    tier: B
+    languages: [de, fr, it, en]
+    fetch_method: wikipedia       # curated Swiss slice via the Wikipedia API
+    consent: open
+    authoritative_for: "Encyclopedic reference — curated Swiss-relevant slice (4 editions)"
+    notes: >
+      Curated slice: 26 cantons + capitals, major cities/geography, federal
+      institutions, ETH/EPFL, articles linked from Tier-A sources. de/fr/it/en.
+
+  - domain: direct.mit.edu
+    tier: B
+    languages: [en]
+    fetch_method: register-pointer   # POINTER HOST ONLY — content never fetched, see notes
+    consent: open
+    authoritative_for: "MIT Press Direct — open-access scholarly monographs (pointer host; landing pages only)"
+    seeds:
+      - https://direct.mit.edu/books/book/5590/Distributional-Reinforcement-Learning
+    notes: >
+      Pointer host only, never crawled. robots.txt is open (search_ok=True,
+      train_ok=True — task 556), but content pages and sitemaps are
+      Cloudflare-challenged for every UA tried, including Common Crawl's own
+      crawler. AW resolves the landing URL from DOAB/OAPEN's own register via
+      a DOI redirect HEADER only (never the challenged body) and stores a
+      pointer card with no book prose (task 558; specs/oa-monographs.md,
+      PR #124, Option B). First tranche: MIT Press OA titles only.
+
+  - domain: directory.doabooks.org
+    tier: B
+    languages: [en]
+    fetch_method: api             # DOAB/OAPEN REST + OAI-PMH register harvest
+    consent: open
+    authoritative_for: "DOAB/OAPEN — open-access book register (source of the MIT Press monograph pointer cards)"
+    seeds:
+      - https://directory.doabooks.org/rest/search?query=publisher:%22The+MIT+Press%22
+    notes: >
+      Register API, not a content host: title/author/subject/publisher/
+      license metadata only (cytir/sources/families/doab_monographs.py), rate-limited
+      to <=2 req/s. Shares one backend with OAPEN (oai/Identify:
+      "DOAB PROD Instance"). First tranche = MIT Press only (~250 titles); the
+      wider DOAB catalogue (72,569 books, DE/FR/IT depth) is an explicit,
+      separately-scoped follow-on (notes/oa-monographs.md), not
+      part of this admission.

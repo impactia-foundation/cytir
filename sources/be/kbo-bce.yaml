@@ -1,0 +1,86 @@
+# BE commercial register — KBO/BCE. DECLINED on licence grounds.
+# This pack exists so the finding is durable and machine-readable: a future
+# lane must not re-scout KBO and re-discover the same blocker.
+id: be-kbo-bce
+name: "KBO/BCE Open Data (Crossroads Bank for Enterprises) — DECLINED, licence blocks redistribution"
+country: BE
+layer: commercial
+policy_section: "§4.9"
+adapter: dump
+acquisition_policy: aw-acquisition-v1
+outlink_policy: capture-and-receipt
+preservation_profiles: [entity_registry]
+provenance: authored
+trust_tier: 0.85
+density_tier: T0
+freshness: daily
+theme: []
+
+license:
+  default: "proprietary-bespoke-non-transferable"
+  notes: >
+    NOT an open licence despite the "Open Data" branding. It is a bespoke
+    click-through contract between a named licensor and a named licensee under
+    art. III.33 Belgian Code of Economic Law and the arrêté royal of 18 July
+    2008 — no CC-BY, no ODbL, no CC0, no Etalab, no named open licence anywhere
+    in the document. Governed by Belgian law, exclusive jurisdiction Brussels.
+    Source: Licentie-KBO-Open-Data-gebruiksvoorwaarden.pdf /
+    Licence-BCE-Open-Data-Conditions-d-utilisation.pdf (economie.fgov.be).
+
+consent:
+  basis: declined
+  notes: >
+    Declined on licence, not on robots. The blocking clauses are art. 2.6 (the
+    reuse right is "personnel et non exclusif" and confers no IP rights), art. 11
+    ("Les droits et obligations résultant du contrat ne peuvent être ni cédés
+    entièrement ou partiellement à un tiers ni donnés en sous-traitance"),
+    art. 2.3 (purpose-locked to the purpose declared at registration) and art. 3.2
+    (licensor asserts a sui generis database right). Together these mean a
+    downstream recipient of an AW dump would hold no licence of their own, while
+    AW would remain contractually answerable for their conduct (art. 2.9 extends
+    compliance duties to the licensee's own customers). That is incompatible with
+    AW's "permissive licences end to end — self-host AND redistribute" constraint.
+    ADR-076 does NOT rescue this: ADR-076 requires an EXPLICIT OPEN licence on the
+    bulk distribution, and this licence is not open.
+
+status: declined
+
+admission:
+  channel: official-dump
+  evidence:
+    - "task 435 (2026-08-20): full licence PDF read end-to-end in NL and FR (not summarised); blocking clauses 2.3/2.6/2.7/2.9/3.2/11 quoted verbatim in task 435 (private tree)."
+    - "task 435: art. 2.7 additionally requires the data remain 'ongewijzigd' / 'ne soient pas altérées ni leur sens dénaturé' — hostile on a literal reading to chunking, embedding and snippet extraction, i.e. awkward even for ingest-only use."
+    - "task 435: no anonymous access. Four unauthenticated file endpoints all 302 to /kbo-open-data/login; signup requires real name, working email and a CAPTCHA."
+    - "task 435: every KBO Public Search page carries <meta name=\"robots\" content=\"noindex,nofollow\"> — independently verified twice, on AB InBev 0417497106 and Colruyt 0400378485, and again on BNP Paribas Fortis 0403199702. The host serves no robots.txt to override it (the /robots.txt path is a meta-refresh to a 404). So the per-company page route is closed on consent grounds even setting the licence aside."
+    - "task 435: natural persons are ~43% of the VAT population (510,346 of 1,187,819, derived from Statbel TF_VAT_NACE_2024 and reconciling exactly with Statbel's published headline). Their entity NAME is a person's surname+firstname and ships unsuppressed in denomination.csv; art. 2.2 of the licence classifies every field of a natural-person entity as personal data."
+    - "task 435: the register's own price signal for anything richer — the full reuse file (active + ceased, full history) is EUR 30,000/yr commercial."
+  decision: auto-reject
+  policy: "POLICY.md@v3 §4.9"
+  date: "2026-08-20"
+  would_pass_today: false
+
+notes:
+  - >
+    Re-open condition, stated so a future lane knows exactly what would change
+    the answer: a bespoke non-commercial reuse licence from the KBO beheersdienst
+    (kbo-bce-webservice@economie.fgov.be) that EXPLICITLY permits publishing
+    derived minimal records and permits downstream recipients to hold their own
+    rights. The self-service Open Data click-through cannot be made to work and
+    should not be re-litigated.
+  - >
+    If that licence is ever obtained, the ADR-091 filter for BE is already known
+    and is clean: enterprise.csv TypeOfEnterprise discriminates rechtspersoon
+    from natuurlijk persoon and is mandatory on every row. BE also suppresses the
+    SEAT address for natural persons already (Gegevenscatalogus: "ENKEL
+    BESCHIKBAAR VOOR ENTITEITEN-RECHTSPERSONEN"), though an establishment address
+    can still leak a sole trader's home.
+  - >
+    Belgium's federal CMS estate (economie.fgov.be, data.gov.be) sits behind an
+    F5/Shape JS captcha wall that plain HTTP clients cannot pass. Licence and
+    cookbook PDFs were reachable directly; the portal pages were not. Any future
+    BE work should plan for a browser-driven fetch rather than curl.
+  - >
+    Cadence correction for the record: the KBO full file is now produced DAILY
+    (Cookbook R018.00 and both language landing pages), not monthly. The official
+    comparison table still says monthly and is stale; the _YYYY_MM_ filename
+    pattern is a fossil of the monthly era.

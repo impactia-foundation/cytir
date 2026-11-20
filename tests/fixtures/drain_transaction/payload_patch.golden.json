@@ -1,0 +1,55 @@
+{
+ "family": "snippet_fix",
+ "inverse_pack": {
+  "manifest_sha256": "e042eb63d78a682f60046198c09d600fdcc2535d75f4c81ff0ae0087d92a9897",
+  "rows_sha256": "9b77b3c93078bc48d7d92e080c60c8edf513570afcb554ff467fb047faa3ba69"
+ },
+ "pack_id": "snip-pack-001",
+ "payload_patch": {
+  "field": "snippet",
+  "rows": 2,
+  "version": 1
+ },
+ "prod": {
+  "already_applied": 0,
+  "applied": 2,
+  "batch": 1000,
+  "collection": "aw_e9",
+  "expect_missing": 0,
+  "field": "snippet",
+  "ids_artifact": "snip-pack-001-prod-ids.json",
+  "missing": 0,
+  "missing_ids": [],
+  "pause_s": 0,
+  "points_after": 3,
+  "points_before": 3,
+  "precondition_failed": 0,
+  "precondition_failed_ids": [],
+  "role": "prod",
+  "selected": 2,
+  "verify_sample": 2,
+  "write_calls": 1
+ },
+ "schema": "aw.promotion-queue-drain.v1",
+ "status": "LANDED",
+ "twin": {
+  "already_applied": 2,
+  "applied": 0,
+  "batch": 1000,
+  "collection": "aw_e8",
+  "expect_missing": 0,
+  "field": "snippet",
+  "ids_artifact": "snip-pack-001-twin-ids.json",
+  "missing": 0,
+  "missing_ids": [],
+  "pause_s": 0,
+  "points_after": 3,
+  "points_before": 3,
+  "precondition_failed": 0,
+  "precondition_failed_ids": [],
+  "role": "twin",
+  "selected": 2,
+  "verify_sample": 2,
+  "write_calls": 0
+ }
+}

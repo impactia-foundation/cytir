@@ -1,0 +1,83 @@
+# swissinfo.ch -- SWI, the SRG SSR international public-service broadcaster.
+# Multilingual (DE/FR/IT/EN) news, high mission fit for CH depth + reach.
+id: ch-swissinfo
+name: "swissinfo.ch (SWI, SRG SSR public-service broadcaster)"
+country: CH
+layer: news
+policy_section: "§4.7"
+adapter: cc
+acquisition_policy: aw-acquisition-v1
+outlink_policy: capture-and-receipt
+preservation_profiles: [news_article]
+# no `extractor` field: the swissinfo-specific fetch scripts were never
+# committed to the private pipeline tree or a task 292 (private tree)/ mirror (see notes) -- an
+# honest gap, not an omission.
+provenance: authored
+tier: C
+trust_tier: 0.6
+density_tier: T2
+freshness: rolling-12mo
+theme: []
+
+license:
+  default: permissive-or-fairuse-snippet
+  notes: >
+    Broadcaster (SRG SSR) copyrighted editorial content -- AW is a
+    URL-finder here, ADR-039 minimum-content only (url + anchor + <=25-word
+    snippet + embedding + lang), never a mirror.
+
+consent:
+  basis: live-resolve-open
+  train_ok_override: false
+  notes: >
+    robots allow crawling; no AI-training/TDM opt-out signal found, but
+    `train_ok` is force-overridden false post-gate anyway (task 292) --
+    absence of a robots block is not affirmative training permission for
+    copyrighted broadcaster content (mirrors the ch-media.yaml posture).
+
+status: staged
+
+admission:
+  channel: news-sitemap-feed
+  evidence:
+    - "task 292 (2026-07-21): CC-S3 columnar route, exact-URL resolve, 4,800 URLs (1,200/lang, fresh-first by article-id) -> 21,504 staged passages, DE/FR/IT/EN, all consent-ok."
+    - "task 294 (2026-07-21): the news-freshness policy's own measurement found CC structurally under-covers this source's RECENT output -- CC held ~344 in-window articles vs 32,272 measured straight from swissinfo's own per-language sitemaps (~94x). Source-feed (sitemap --freshness mode) is now the freshness-cadence route; CC stays for backbone coverage only."
+    - "task 303 (2026-07-22, POST-ratification): FIRST enforcement action under POLICY.md@v1 §4.7 -- re-derived published dates for 100% of the 4,736 distinct URLs (CC-S3 re-fetch + direct-origin fallback), applied the rolling 12-month window: 21,504 -> 2,722 in-window points; verified 100% of survivors carry `published` >= cutoff; 0 out-of-window survivors on full-scroll spot-check."
+  decision: grandfathered-at-M2
+  policy: "POLICY.md@v1 §4.7"
+  date: "2026-07-21"
+  would_pass_today: true
+
+notes:
+  - >
+    Ingested pre-policy (task 292) but IS the collection task 303 used as
+    the first live enforcement of §4.7's "a news record without a date is
+    inadmissible" rule -- of the pre-policy packs in this directory, this is
+    the one that has already been brought into full §4.7 compliance
+    end-to-end (published-date capture + rolling window + verified 0
+    aged-out survivors), so would_pass_today=true, unlike the license-field
+    gap on the law/gov packs.
+  - >
+    country override: `aw_country.country_for_record()` classifies
+    swissinfo.ch as INTL by default (international-scope broadcaster); for
+    the CH-depth strategy directive it is force-stamped `country=CH` on
+    every point (task 292) -- flagged there as "consider making this a
+    durable aw_country rule" and still not promoted to a durable rule as of
+    this pack's authoring.
+  - >
+    `extractor` is honestly incomplete: the swissinfo-specific fetch script
+    (`select_swissinfo_urls.py` / `swissinfo_fetch.py`) lives only on
+    the crawl host (a work directory), not committed to
+    `the private pipeline tree` or `task 292 (private tree)/` (no such scripts dir was created for
+    task 292, unlike 293/294/296/299/275). This is a real gap -- the recipe
+    is not yet reproducible from a fresh clone alone.
+  - >
+    Staged, not live: `aw_dswissinfo_cov` exists on the crawl host staging qdrant
+    only; not confirmed merged into `aw_prod` in any evidence this pack
+    traces to.
+  - >
+    weekly/daily source-feed refresh cadence is BUILT (`sitemap_ingest.py
+    --freshness`, `news_refresh_cron.sh`, cron armed for daily
+    05:40/weekly Mon 04:40 UTC per task 294) but task 294 itself reports the
+    full staged fetch of the ~32k in-window backlog was blocked on
+    the crawl host's flapping egress at the time of writing, not confirmed landed.

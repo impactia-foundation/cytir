@@ -1,0 +1,296 @@
+{
+ "schema": "aw.chunk-policy-registry.v1",
+ "why": [
+  "ADR-090 §6 ordered this artifact and nobody built it (checked 2026-09-08:",
+  "`data/chunk-policy-registry.json` did not exist). Two separate needs land on",
+  "the same table, so it is one table:",
+  "",
+  "(a) STATUS. A policy artifact's sha256 IS its identity -- it is pinned by",
+  "    `build_config.json`, by every MANIFEST and by the shipped chunk@3 corpus,",
+  "    and `chunk_policy.load_chunk_policy` validates an EXACT key set. So a",
+  "    `status` field cannot be added to the artifact itself: it would change the",
+  "    hash AND make the file unloadable. ADR-090 §6's mechanism is a sidecar",
+  "    consulted at SELECTION time only; the artifacts stay byte-identical and",
+  "    readable forever (I2 rule 2; ADR-039).",
+  "",
+  "(b) FAMILY. `specs/epochs.md` §5 says that if a third chunker family appears,",
+  "    'split the family formally (chunk.generic, chunk.law) rather than widening",
+  "    the scope again'. ADR-090 §3 made that split, and ADR-090 §4 scoped",
+  "    'standardize on 1152' to `chunk.generic` alone. But the family a policy",
+  "    belongs to was never written down anywhere a program can read: task 535",
+  "    measured a 3.73x median granularity change across 82 hosts and NOTHING in",
+  "    the repo could see it, because 84 of 86 sealed families declare",
+  "    `chunk_policy.policy_id: \"unknown\"` and no artifact states which family a",
+  "    policy serves. This table is where that lives.",
+  "",
+  "READ AT SELECTION TIME, NEVER AT REPLAY TIME. A historical reproduction loads",
+  "the artifact by sha256 and ignores this file entirely (`--replay`); that is the",
+  "whole point of a sidecar. A NEW materialization that selects a `superseded`",
+  "policy is refused."
+ ],
+ "ratified_by": "Tim's merge of PR #108 (task 541, the mechanism) and PR #130 (ADR-090 amendment 1, the ruling), 2026-09-09",
+ "consulted_by": [
+  "cytir/chunk/registry.py",
+  "cytir/chunk/reference_selector.py (which family a page belongs to)",
+  "cytir/sources/contract.py (a family may not declare a superseded policy)"
+ ],
+ "policy_families": {
+  "chunk.generic": {
+   "what": "The structured markdown packer for generic prose and documentation. ADR-079 scoped it; ADR-090 §3 named it.",
+   "current_policy_sha256": "7dcb54c497e1855ad91ddafe80ff34b1da14f3d23b3af26dc7c7b53ab70ce6bf"
+  },
+  "chunk.law": {
+   "what": "Per-article splitters over source-native anchors (fedlex Akoma Ntoso, ch_cantonal_law, ch_zh_fulltext, de_laender_*). ADR-090 §3/§4: out of scope for the generic policy, own counter, and 'standardize on 1152' may NEVER be read as authority to sweep it in. Enforced today by the canonical materializer's `validate_page` (deny_source_types + non-empty-anchor refusal), which this registry restates rather than re-implements.",
+   "current_policy_sha256": null
+  },
+  "chunk.news": {
+   "what": "The daily news lane. ADR-090 §5: news keeps `legacy-180w-o30@1`, the one measured exception, on a 21,569-article / 6,000-query bake-off in which epoch 4 lost on every leg and every query shape.",
+   "current_policy_sha256": "0491ea77909c10956186f9821b63d5304ef0407b93b61a2ee2452f75d5dbfd56"
+  },
+  "chunk.reference": {
+   "what": "RATIFIED, ADR-090 amendment 1 (PR #130, option 2). Production-granularity boundaries for the pages the epoch-4 packer cut wider than the collection production serves -- the whole density class task 535 measured at a 3.73x median chunk-count drop and task 540 priced at 3,663,458 rows, SHORT PAGES INCLUDED. Selected per PAGE by chunk_reference_selector.py under data/chunk-reference-selector.v2.json, never per host. Epoch-4 width stays where ADR-090 measured it to win (Wikipedia) or to be a no-op (the single-unit families).",
+   "current_policy_sha256": "73507461445b7a78602b0f3fc2f03f905f8fb59f74420d6e02b92b7df07de9b8"
+  },
+  "chunk.atomic": {
+   "what": "One source record, one chunk: sources whose own record boundary IS the passage boundary (registry rows, catalogue entries).",
+   "current_policy_sha256": "d13fdfe524da31bdb99ea131d6115236a2360695d98adccf7803426c19b648bf"
+  },
+  "chunk.preserved": {
+   "what": "Not a chunker. Records the fact that a stage shard's text was RECOVERED from the retained store, never produced -- so it cannot be read as having been chunked under whichever policy happened to be current (task 505).",
+   "current_policy_sha256": "670647e41e08981b4054374f64b343be3fabd9fcb9930cbc476e187b386fbad0"
+  },
+  "chunk.law.sub": {
+   "what": "PROPOSED, task 573 / E573-1 -- NOT ratified. Sub-chunks the BODY of a `chunk.law` article that is wider than the 288-word tail, at the widths `chunk.reference` already uses, and leaves shorter articles byte-identical. The article's source-native anchor and its `article_id`/`law_id` travel on every sub-chunk, so the outer per-article boundary ADR-090 4 protects is kept in both directions: `chunk.law` is not swept into the generic policy, and a long article stops being one wide vector. Ratification is ADR-090 amendment 2 and is Tim's merge; until then its policy is `proposed`, selectable only by an experiment arm (EXPERIMENT_SELECTABLE).",
+   "current_policy_sha256": null
+  }
+ },
+ "policies": {
+  "0491ea77909c10956186f9821b63d5304ef0407b93b61a2ee2452f75d5dbfd56": {
+   "policy_id": "legacy-180w-o30",
+   "file": "data/chunk-policy-legacy-180w-o30.v1.json",
+   "policy_family": "chunk.news",
+   "epoch": 1,
+   "status": "current",
+   "why": "ADR-090 §5 + ADR-100 Ruling A. Also the epoch the ENTIRE incumbent serving collection `aw_e3` was cut at for generic prose; it is `current` for chunk.news and `historical` for chunk.generic, which is why status is stated per policy and family together rather than per policy alone."
+  },
+  "d13fdfe524da31bdb99ea131d6115236a2360695d98adccf7803426c19b648bf": {
+   "policy_id": "source-native-atomic-record",
+   "file": "data/chunk-policy-atomic-record.v1.json",
+   "policy_family": "chunk.atomic",
+   "epoch": 1,
+   "status": "current"
+  },
+  "670647e41e08981b4054374f64b343be3fabd9fcb9930cbc476e187b386fbad0": {
+   "policy_id": "preserved-retained-passage-no-rechunk",
+   "file": "data/chunk-policy-preserved-retained-passage.v1.json",
+   "policy_family": "chunk.preserved",
+   "epoch": 1,
+   "status": "current"
+  },
+  "e28336e3c3dc9206ba7136e38bfab0c9580e83c8bffc2b0e1de8d88392d6b2ab": {
+   "policy_id": "struct-md-768w-o0",
+   "file": "data/chunk-policy-struct-md-768w-o0.v1.json",
+   "policy_family": "chunk.generic",
+   "epoch": 2,
+   "status": "superseded",
+   "successor_sha256": "7dcb54c497e1855ad91ddafe80ff34b1da14f3d23b3af26dc7c7b53ab70ce6bf",
+   "superseded_by_adr": "ADR-090 §6",
+   "why": "Named in ADR-090 §6's superseded list; holds zero corpus rows."
+  },
+  "1c811c581a9c638ebb3026b76c5a8ce33e549854f202ec33ddecb3bd101b9cb1": {
+   "policy_id": "struct-md-768w-o0-adjacent-sections",
+   "file": "data/chunk-policy-struct-md-768w-o0-adjacent-sections.v1.json",
+   "policy_family": "chunk.generic",
+   "epoch": 3,
+   "status": "superseded",
+   "successor_sha256": "7dcb54c497e1855ad91ddafe80ff34b1da14f3d23b3af26dc7c7b53ab70ce6bf",
+   "superseded_by_adr": "ADR-090 §6",
+   "why": "Named in ADR-090 §6's superseded list; holds zero corpus rows."
+  },
+  "85cdd0af223a1bd943374a4b090946ba5d7aadb07b77bc9cb92c91dd7c6c9845": {
+   "policy_id": "struct-md-768w-o0-adjacent-sections-tail-783",
+   "file": "data/chunk-policy-struct-md-768w-o0-adjacent-sections-tail-783.v1.json",
+   "policy_family": "chunk.generic",
+   "epoch": 3,
+   "status": "superseded",
+   "successor_sha256": "7dcb54c497e1855ad91ddafe80ff34b1da14f3d23b3af26dc7c7b53ab70ce6bf",
+   "superseded_by_adr": "ADR-090 §6",
+   "why": "Named in ADR-090 §6's superseded list; holds zero corpus rows."
+  },
+  "7e7fd2530b9ccd721a82126ddb3c076a4299f91ccc8fba1f6141d8b6905de69f": {
+   "policy_id": "struct-md-768w-o0-adjacent-sections-tail-896",
+   "file": "data/chunk-policy-struct-md-768w-o0-adjacent-sections-tail-896.v1.json",
+   "policy_family": "chunk.generic",
+   "epoch": 3,
+   "status": "superseded",
+   "successor_sha256": "7dcb54c497e1855ad91ddafe80ff34b1da14f3d23b3af26dc7c7b53ab70ce6bf",
+   "superseded_by_adr": "ADR-090 §6",
+   "why": "Named in ADR-090 §6's superseded list; holds zero corpus rows."
+  },
+  "31f6485e0f4f79972d758410b2381a4546778b00cecf2ed1687a9cfeee0da243": {
+   "policy_id": "struct-md-768w-o0-adjacent-sections-tail-1024",
+   "file": "data/chunk-policy-struct-md-768w-o0-adjacent-sections-tail-1024.v1.json",
+   "policy_family": "chunk.generic",
+   "epoch": 3,
+   "status": "superseded",
+   "successor_sha256": "7dcb54c497e1855ad91ddafe80ff34b1da14f3d23b3af26dc7c7b53ab70ce6bf",
+   "superseded_by_adr": "ADR-090 §6",
+   "why": "Named in ADR-090 §6's superseded list; holds zero corpus rows."
+  },
+  "cf0f5244dc9b27494bb8683e31a55392a3f9ea50db8c4ddc1de274d7ebbbd4a7": {
+   "policy_id": "struct-md-768w-o0-adjacent-sections-tail-1152",
+   "file": "data/chunk-policy-struct-md-768w-o0-adjacent-sections-tail-1152.v1.json",
+   "policy_family": "chunk.generic",
+   "epoch": 3,
+   "status": "superseded",
+   "successor_sha256": "7dcb54c497e1855ad91ddafe80ff34b1da14f3d23b3af26dc7c7b53ab70ce6bf",
+   "superseded_by_adr": "ADR-087 / ADR-090 §1",
+   "why": "chunk@3: same boundary rules as epoch 4 with the composed dense token ceiling at 2,000 instead of 2,560 (ADR-087). ADR-090 §1 closed epoch 3 to new materializations. NOT one of ADR-090 §6's five zero-row artifacts -- the 19.2M epoch-3 Wikipedia slice was cut under this family and ADR-090's reserved calls ACCEPTED it as-is, so this policy has rows and is `superseded` for selection only."
+  },
+  "0b54285d4bee9d5052723f10aa5f02db32e9b598bbb4d39fc391dc50fa4eed2b": {
+   "policy_id": "struct-md-768w-o0-adjacent-sections-tail-1152-tok2540-ce-anchor",
+   "file": "data/chunk-policy-struct-md-768w-o0-adjacent-sections-tail-1152-tok2540-ce-anchor.v1.json",
+   "policy_family": "chunk.generic",
+   "epoch": 4,
+   "status": "special-purpose",
+   "why": "A 20-token headroom variant for a composed anchor prefix. Not a candidate for general selection; kept loadable so its rows stay reproducible."
+  },
+  "7dcb54c497e1855ad91ddafe80ff34b1da14f3d23b3af26dc7c7b53ab70ce6bf": {
+   "policy_id": "struct-md-768w-o0-adjacent-sections-tail-1152-tok2560",
+   "file": "data/chunk-policy-struct-md-768w-o0-adjacent-sections-tail-1152-tok2560.v1.json",
+   "policy_family": "chunk.generic",
+   "epoch": 4,
+   "status": "current",
+   "why": "ADR-090 §1: the target for all new generic-prose chunking."
+  },
+  "95185ad0519ee95229ad858f3d8f8efcb5fb473522da79cb6d37d4ea2ae543fc": {
+   "policy_id": "news-article-768w-o0-adjacent-sections-tail-1152-tok2560",
+   "file": "data/chunk-policy-news-article-768w-o0-adjacent-sections-tail-1152-tok2560.v1.json",
+   "policy_family": "chunk.news",
+   "epoch": 4,
+   "status": "superseded",
+   "successor_sha256": "0491ea77909c10956186f9821b63d5304ef0407b93b61a2ee2452f75d5dbfd56",
+   "superseded_by_adr": "ADR-090 §5",
+   "why": "The epoch-4 arm of the news bake-off. It LOST on every leg and every query shape (fused h@1 5,192->4,754, deep-fact fused h@1 2,314->1,957), so ADR-090 §5 kept the news lane on legacy-180w-o30. Recorded as superseded so a future lane cannot select it by looking like the obvious news policy."
+  },
+  "73507461445b7a78602b0f3fc2f03f905f8fb59f74420d6e02b92b7df07de9b8": {
+   "policy_id": "struct-md-192w-o0-adjacent-sections-tail-288-tok2560",
+   "file": "data/chunk-policy-struct-md-192w-o0-adjacent-sections-tail-288-tok2560.v1.json",
+   "policy_family": "chunk.reference",
+   "epoch": 5,
+   "status": "current",
+   "why": "RATIFIED by ADR-090 amendment 1 (PR #130, merged by Tim 2026-09-09 11:32Z, star on OPTION 2). Task 541 / specs/chunk-reference-epoch.md built it as `proposed`; the amendment ruled the whole DENSITY class -- 3,663,458 rows, short pages included -- back to production's granularity through this policy. Every parameter except the three width knobs is byte-identical to the epoch-4 generic policy, so the A/B has one variable (verification-doctrine 3).",
+   "ratified_by": "ADR-090 amendment 1, PR #130 merged by Tim 2026-09-09 11:32Z"
+  },
+  "219487eb3f0c61c236a4fb62648dbd82dfca3012f2696a3e8bafa9545fae24bb": {
+   "policy_id": "struct-md-384w-o0-adjacent-sections-tail-576-tok2560",
+   "file": "data/chunk-policy-struct-md-384w-o0-adjacent-sections-tail-576-tok2560.v1.json",
+   "policy_family": "chunk.reference",
+   "epoch": 6,
+   "status": "proposed",
+   "why": "Task 569's MIDDLE width-sweep arm. specs/chunk-reference-epoch.md §9 left the width VALUE open ('a middle arm (384/576) is cheap to add ... nobody has measured which wins on the authority instrument'). Minted by task 569 declare_width_policies_569.py from the epoch-4 generic artifact, changing only sizing.soft_target, word_guard.hard_max (1.5x, the ratified ratio) and prefix.maximum (soft_target//8, chunk._apply_policy's own derivation). PROPOSED, never `current`: it is a measurement arm and may be selected only via assert_selectable(experiment=True), which writes to no collection. Ratifying it is an ADR PR Tim merges.",
+   "measured_by": "task 569"
+  },
+  "e758aa8cc2009ca7d11af548ab23fc27ca0ca5daef025a4047dec73550e5e9e1": {
+   "policy_id": "struct-md-1024w-o0-adjacent-sections-tail-1536-tok2560",
+   "file": "data/chunk-policy-struct-md-1024w-o0-adjacent-sections-tail-1536-tok2560.v1.json",
+   "policy_family": "chunk.reference",
+   "epoch": 7,
+   "status": "proposed",
+   "why": "Task 569's WIDE width-sweep arm -- the one arm ABOVE epoch 4. Tim's directive 2026-09-10: 'all else being equal we prefer larger chunks as that means a smaller index', and a sweep that stops at the incumbent width cannot answer whether wider still would have been better. 1024 is not a further doubling of 768: 1536 words would exceed the artifact's own 2,560-token ceiling at the 2.2 word-to-token ratio task 340 measured, so 1024 is the widest soft target whose 1.5x guard still fits. Same generator, same three knobs. PROPOSED for the same reason as the 384 arm.",
+   "measured_by": "task 569"
+  },
+  "bf43a0444a4e25c159215deef9ea0af162f86d4ea23d2769620d1222258a6e17": {
+   "policy_id": "law-article-sub-192w-o0-tail-288-tok2560",
+   "file": "data/chunk-policy-law-article-sub-192w-o0-tail-288-tok2560.v1.json",
+   "policy_family": "chunk.law.sub",
+   "epoch": 6,
+   "status": "proposed",
+   "why": "Task 573's E573-1 arm. Epoch 6 because it is a new chunk generation with its own producer (`cytir/chunk/law_subchunk.py`), not a re-parameterisation of epoch 5: epoch 5 rows were cut by the adjacent-section packer over a whole page, epoch 6 rows are cut inside one article. `proposed` until ADR-090 amendment 2 is merged; a lane that selects it without `experiment=True` is refused."
+  },
+  "3f3e24823cf2e0851b149690b6c43d579e3b7d1066a66617b97fd86c5cc7e8d4": {
+   "policy_id": "struct-md-1024w-o0-adjacent-sections-tail-1536-tok2560-generic-arm",
+   "file": "data/chunk-policy-struct-md-1024w-o0-adjacent-sections-tail-1536-tok2560-generic-arm.v1.json",
+   "policy_family": "chunk.generic",
+   "epoch": 8,
+   "status": "proposed",
+   "why": "Task 631's ERIC-scoped measurement arm, minted per Tim's standing directive (2026-09-10, memory `tim-prefer-larger-chunks-fundamentals`): 'all else being equal we prefer larger chunks as that means a smaller index'. ERIC official-PDF is `chunk.generic` (generic prose/PDF, currently epoch 4 at 768w/1152-tail, measured at 40.6 chunks/doc on the 080000 sample -- the highest ratio of any measured family, `specs/portfolio-100m.md` fork F7b) and had never had a wider arm measured for it. Task 569 already minted a numerically-identical shape (soft_target 1024, hard_max 1536 = the ratified 1.5x guard, token_hard_max 2560 unchanged) for `chunk.reference` (epoch 7, `struct-md-1024w-o0-adjacent-sections-tail-1536-tok2560`) -- but that arm is explicitly scoped to Wikipedia-class short reference pages (task 569's own `why`) and was never recommended for `chunk.generic`. Rather than reuse the chunk.reference sha256/policy_id (which would conflate two families' measurement history under one identity and violate `chunk_policy_registry`'s per-family selection contract), this is a SEPARATE artifact: same generator (`struct-markdown-adjacent-section-pack-v1`), same overlap/merge/floor/tail/section_packing sub-blocks copied unchanged from the epoch-4 `chunk.generic` policy, only sizing.soft_target/word_guard.hard_max/prefix.maximum changed (1024/1536/128, same derivation rule task 569 used: hard_max = soft_target*1.5, prefix.maximum = soft_target//8). The policy_id carries an explicit `-generic-arm` suffix (deliberately NOT the bare `struct-md-1024w-o0-adjacent-sections-tail-1536-tok2560` name chunk.reference epoch 7 already owns) so the two families' identically-shaped-but-differently-scoped arms can never be confused by name, even though their sha256 already differs (the `policy_id` field is embedded in the file bytes, so a distinct string was required to get a distinct hash, not merely sufficient). `proposed`, selectable only via `assert_selectable(experiment=True)` -- this arm writes to no serving or candidate collection; it measures `chunk.generic` chunks/doc on one already-Docling'd ERIC tranche (010000) only, per the task631 brief.",
+   "measured_by": "task 631 (task 631, W1b), data/experiments-ledger.v1.jsonl id E631-1",
+   "admitted_for_families": ["eric_official_pdf"],
+   "admitted_for_families_why": "ADR-113 (Tim, 2026-09-25): ratified selectable for `eric_official_pdf`'s own real extraction ONLY (`chunk_policy_registry.assert_selectable(..., family_id='eric_official_pdf')`), via the demand-reserve admission ruling (POLICY.md@v3.1 §5, fork F7b). Status stays `proposed`, not `current`: E631-1 cashed all three pre-registered STRUCTURAL predictions (30.06 chunks/doc, 0/7,515 over the 2,560-token ceiling, full 250-doc coverage), which is evidence enough for a bounded points ceiling, but says nothing about retrieval quality -- task 569's own W1024 arm lost ground on one held-out leg despite being structurally smaller. Promoting this arm to the shared `chunk.generic` default for every other family needs a held-out eval this ADR does not run."
+  }
+ },
+ "epoch_counter": {
+  "family": "chunk",
+  "rule": "specs/epochs.md §4 rule 2 -- epoch ints are monotonic per family, never reused, never decremented.",
+  "decision": "The split families chunk.generic / chunk.law / chunk.news / chunk.reference SHARE the one monotonic `chunk` counter rather than each starting a private one at 1. `rule_epochs.chunk` therefore stays a single comparable integer, which is what every existing generation discriminator relies on -- task 536 index_partition_hosts.py's --min-chunk-epoch/--max-chunk-epoch classifies a stage partition by exactly this int, and a private per-family counter would have made a chunk.reference row read as epoch 1. The FAMILY is read from `chunk_rule`/`policy_id` through this registry, never from the int.",
+  "next_free": 9,
+  "note_on_vocabulary": "`policy_family` here (chunk.generic / chunk.law / chunk.news / chunk.reference / chunk.atomic / chunk.preserved) is ADR-090 §3's POLICY taxonomy: which boundary rule set a page is cut under. It is NOT chunk_provenance.FAMILIES (generic-structured / generic-legacy-window / law-article-117 / ...), which names the PRODUCER: which code emitted the row. The two axes are orthogonal and both are needed -- a chunk.reference row is produced by `generic-structured`, exactly like a chunk.generic row, because it is the same module under a different pinned artifact. Neither vocabulary may absorb the other (engineering-doctrine 1: a merged vocabulary would make 'which rule cut this row' unanswerable again)."
+ },
+ "selectors": {
+  "why": [
+   "ADR-090 amendment 1 widened `chunk.reference` from long, densely-",
+   "sectioned reference pages to the whole density class. That change is a",
+   "change of RULE, and a rule with no status is exactly what let a 3.73x",
+   "granularity change sweep 82 hosts unseen. So the selector artifacts get",
+   "the same treatment the policy artifacts got: identity is the sha256,",
+   "status lives in this sidecar, and `assert_selector_selectable` refuses a",
+   "superseded selector for a NEW materialization while replay still",
+   "reproduces the rows any historical selector produced."
+  ],
+  "artifacts": {
+   "713bd06f0fd84e7b89696804a4c0576b41ea82ca07b2f84532537c7d48677f9f": {
+    "file": "data/chunk-reference-selector.v1.json",
+    "public": false,
+    "withheld_reason": "sealed derivation history; v4 is the shipped current selector (task 1915)",
+    "selector_id": "narrow-partitioned-and-merged-v1",
+    "selection_mode": "narrow-partitioned-and-merged",
+    "policy_family": "chunk.reference",
+    "status": "superseded",
+    "successor_sha256": "6fbe570a311024495e162443633cc67bcfd157f1c2d1b5a6920ab24729d018e4",
+    "superseded_by_adr": "ADR-090 amendment 1 (PR #130, option 2)",
+    "why": "The rule the task-541 dry run measured: 5,962 of 118,121 pages, +98,272 rows. Kept byte-identical so that measurement stays reproducible; refused for a new materialization."
+   },
+   "6fbe570a311024495e162443633cc67bcfd157f1c2d1b5a6920ab24729d018e4": {
+    "file": "data/chunk-reference-selector.v2.json",
+    "public": false,
+    "withheld_reason": "sealed derivation history; v4 is the shipped current selector (task 1915)",
+    "selector_id": "whole-density-class-v2",
+    "selection_mode": "whole-density-class",
+    "policy_family": "chunk.reference",
+    "status": "superseded",
+    "successor_sha256": "5b5fa4117e5f0aaacffd5d1c8a619c394ece2f4570a695bad128f66a7ce72630",
+    "superseded_by_adr": "ADR-043 amendment A2 (task 576 POLICY PR)",
+    "ratified_by": "ADR-090 amendment 1, PR #130 merged by Tim 2026-09-09 11:32Z",
+    "why": "The ruled rule: P1 and P2 retire, P4 (reference_chunks - generic_chunks >= 1) decides, and the density class itself is carried by the claim manifest rather than by this artifact."
+   },
+   "5b5fa4117e5f0aaacffd5d1c8a619c394ece2f4570a695bad128f66a7ce72630": {
+    "file": "data/chunk-reference-selector.v3.json",
+    "public": false,
+    "withheld_reason": "sealed derivation history; v4 is the shipped current selector (task 1915)",
+    "selector_id": "whole-density-class-source-native-p3-v3",
+    "selection_mode": "whole-density-class",
+    "native_anchor_rule": "source-native-only",
+    "policy_family": "chunk.reference",
+    "status": "superseded",
+   "successor_sha256": "246506a65c8e2ad2a2b7b481b0ce67168ae499236d105205cf645adb6d86d021",
+   "superseded_by_adr": "task 1313 (decision D5): selector v4 is v3 with the private path mentions removed; the rule is unchanged",
+    "ratified_by": "ADR-043 amendment A2, task 576 POLICY PR, merged by Tim",
+    "predecessor_sha256": "6fbe570a311024495e162443633cc67bcfd157f1c2d1b5a6920ab24729d018e4",
+    "measured_by": "E576-1 (task 576 adr043-verdict.v1.json): all four ADR-043 CONTENT conditions PASS on task 575's sealed arm -- net +16 h@1 / +17 h@10 aggregated, flood non-increasing, no class broken, LEGAL held and NAMES +1 h@10 on both legs.",
+    "why": "RATIFIED by the task-576 POLICY PR. Was PROPOSED, task 575 / E575-1. v2's width predicates are unchanged; the one change is that P3 reads the RECORD's own anchor field through aw_b1_identity.has_source_native_anchor instead of a caller-asserted boolean, because that boolean was measured to be bool(content_digest) on the staged rows that carry identity_anchor_component -- refusing 206,707 of 206,707 ADR-093 L1-b pages (100.0%, 31 waves) of which not one is a law family, while refusing 0 of 19,762 sha256-keyed pages. Ratification is Tim's merge of the task-575 POLICY PR; until then only assert_selector_selectable(experiment=True) admits it."
+   },
+   "246506a65c8e2ad2a2b7b481b0ce67168ae499236d105205cf645adb6d86d021": {
+    "file": "data/chunk-reference-selector.v4.json",
+    "selector_id": "whole-density-class-source-native-p3-v4",
+    "selection_mode": "whole-density-class",
+    "native_anchor_rule": "source-native-only",
+    "policy_family": "chunk.reference",
+    "status": "current",
+    "ratified_by": "decision D5, task 1313 POLICY PR (merged by Tim)",
+    "predecessor_sha256": "5b5fa4117e5f0aaacffd5d1c8a619c394ece2f4570a695bad128f66a7ce72630",
+    "why": "Same rule as v3 (ADR-043 amendment A2). Only the three tasks/ prose mentions and the one bare pipeline/ path value are removed, so the public cut can ship the file. No predicate changed; v3 stays on disk as history."
+   }
+  }
+ }
+}

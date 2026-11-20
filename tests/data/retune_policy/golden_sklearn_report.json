@@ -1,0 +1,96 @@
+{
+  "artifact_role": "candidate_only",
+  "counterfactual_utility": {
+    "calibration_global_mean": 0.1,
+    "calibration_global_plus_country_mean": 0.5,
+    "calibration_measured_rows": 4,
+    "calibration_missing_rows": 1,
+    "train_global_mean": 0.1,
+    "train_global_plus_country_mean": 0.5,
+    "train_measured_rows": 4,
+    "train_missing_rows": 1
+  },
+  "heads": {
+    "country_bm25_quota": {
+      "calibration_fraction_mae": 0.282609,
+      "masks": {
+        "calibration_missing": 1,
+        "calibration_present": 4,
+        "train_missing": 1,
+        "train_present": 4
+      },
+      "training_max_quota": 8.0
+    },
+    "country_dense_quota": {
+      "calibration_fraction_mae": 0.282609,
+      "masks": {
+        "calibration_missing": 1,
+        "calibration_present": 4,
+        "train_missing": 1,
+        "train_present": 4
+      },
+      "training_max_quota": 8.0
+    },
+    "country_scope": {
+      "class_counts": {
+        "CH": 4,
+        "_NONE_": 1
+      },
+      "masks": {
+        "calibration_missing": 0,
+        "calibration_present": 5,
+        "train_missing": 0,
+        "train_present": 5
+      },
+      "scope_activation_metrics": {
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "temperature_nll": 0.018278
+    },
+    "foreign_authority_needed": {
+      "masks": {
+        "calibration_missing": 0,
+        "calibration_present": 5,
+        "train_missing": 0,
+        "train_present": 5
+      },
+      "temperature_nll": 0.00725,
+      "threshold_metrics": {
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      }
+    },
+    "jurisdiction_binding": {
+      "masks": {
+        "calibration_missing": 0,
+        "calibration_present": 5,
+        "train_missing": 0,
+        "train_present": 5
+      },
+      "temperature_nll": 0.00725,
+      "threshold_metrics": {
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      }
+    },
+    "multi_scope": {
+      "masks": {
+        "calibration_missing": 0,
+        "calibration_present": 5,
+        "train_missing": 0,
+        "train_present": 5
+      },
+      "temperature_nll": 0.391326,
+      "threshold_metrics": {
+        "f1": 0.666667,
+        "precision": 0.5,
+        "recall": 1.0
+      }
+    }
+  },
+  "schema": "aw.query-policy.candidate.v1"
+}

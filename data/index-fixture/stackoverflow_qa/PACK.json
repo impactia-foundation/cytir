@@ -1,0 +1,13 @@
+{
+ "chunks_sha256": "33a9311d8d8c6b0fa200894b46b04992d436dc32f9525d9db842e96356f2a275",
+ "dropped_served": 0,
+ "family_id": "stackoverflow_qa",
+ "pack_id": "stackoverflow-qa-v1-local-27ffc4e09546",
+ "row_start": 0,
+ "rows": 10,
+ "schema": "aw.family-stage.v1",
+ "shard": 0,
+ "slice_rows": 150000,
+ "source_records_sha256": "27ffc4e09546e14c61f0c1f49866dba492bb4e06d987dac8e8a066f108c7ef41",
+ "source_rows": 10
+}

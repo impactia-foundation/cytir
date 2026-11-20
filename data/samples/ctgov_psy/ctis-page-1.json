@@ -1,0 +1,37 @@
+{
+ "data": [
+  {
+   "conditions": "Major depressive disorder",
+   "ctNumber": "2022-500001-01-00",
+   "ctTitle": "A synthetic psilocybin trial in major depressive disorder",
+   "decisionDateOverall": "2023-02-01",
+   "sponsor": "Synthetic Pharma",
+   "therapeuticAreas": [
+    "Psychiatry"
+   ],
+   "trialCountries": [
+    "Switzerland:1",
+    "Germany:2"
+   ]
+  },
+  {
+   "conditions": "Postoperative pain",
+   "ctNumber": "2022-500002-01-00",
+   "ctTitle": "A synthetic ketamine anaesthesia trial",
+   "decisionDateOverall": "2023-03-01",
+   "sponsor": "Synthetic Pharma",
+   "therapeuticAreas": [
+    "Anaesthesia"
+   ],
+   "trialCountries": [
+    "Spain:1"
+   ]
+  },
+  {
+   "ctTitle": "no number"
+  }
+ ],
+ "pagination": {
+  "nextPage": false
+ }
+}

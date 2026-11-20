@@ -1,0 +1,134 @@
+# Founder-affiliated CH orgs -- CONFLICT-DECLARED admission (Tim/impactIA).
+# impactia.org (impactIA Foundation, Tim's own foundation), psychedelos.ch
+# (Association Psychedelos) and fondationcsm.org (Fondation Conscience et
+# Sante Mentale) are all already LIVE in prod (impactia.org since 2026-06-25,
+# psychedelos.ch/fondationcsm.org since 2026-07-20 via task 284) -- this pack
+# is the retroactive, TRANSPARENT admission-block paper trail POLICY.md@v1 §5
+# requires for every record, applied honestly to entries that predate this
+# governance instrument. See governance §2's appeal/transparency cell: a
+# conflict of interest is disclosed, not hidden, and the board-merge of THIS
+# PR is the accountability act.
+id: ch-affiliated
+name: "Founder-affiliated CH orgs (impactIA, Psychedelos, Fondation CSM) -- conflict-declared"
+country: CH
+layer: commercial
+policy_section: "§4.9"
+adapter: cards
+acquisition_policy: aw-acquisition-v1
+outlink_policy: capture-and-receipt
+preservation_profiles: [entity_registry]
+provenance: authored
+tier: B
+trust_tier: 0.83
+density_tier: T1
+freshness: static
+theme: []
+
+card_recipe:
+  name: adr060-two-channel-v1
+  ref_adr: ADR-060
+  dense: "Zefix Zweck prose where a register link exists (fondationcsm.org, ADR-060/task 296 zefix pattern); else curated site-fact/About prose (impactia.org, psychedelos.ch -- neither Wikipedia/Wikidata-covered, so no encyclopedic-description fallback either, per ADR-049's own fallback chain landing one level further down at site text)."
+  sparse: "name + aliases + domain token + CHE-UID hooks where present (fondationcsm.org: CHE-144.108.620; impactia.org: CHE-396.275.781) + category terms (impactia.org: AI/hybrid-intelligence/future-of-work; psychedelos.ch/fondationcsm.org: psychedelic-assisted therapy, mental health), function-word stopword-filtered, multilingual (FR/DE/EN)."
+
+license:
+  default: "permissive-or-fairuse-snippet"
+  notes: >
+    Content passages (154 of the psychedelos/CSM 156 pts, task 284):
+    all-rights-reserved, snippet-only (never a mirror). fondationcsm.org
+    card dense channel = Zefix Zweck -> "Swiss public commercial register
+    (Zefix/LINDAS, OGD)" per ADR-039 (same pattern as sources/ch/zefix.yaml).
+    impactia.org/psychedelos.ch cards: no register-Zweck or Wikidata/
+    Wikipedia source available -> curated site-fact prose, all-rights-
+    reserved snippet-only, same ADR-049 pointer-card treatment as any
+    permissive-fallback-less site.
+
+consent:
+  basis: live-resolve-open
+  notes: >
+    impactia.org: `Allow: /`-class, live-fetched repeatedly since
+    2026-06-25 (log.md), no opt-out signal ever found. psychedelos.ch:
+    robots `Allow: /`. fondationcsm.org: robots `Crawl-delay: 10`,
+    RESPECTED (task 284 fetched at >=10s/req). All three train_ok=False
+    (task 284: explicit for psy/csm; impactia.org's train_ok not
+    independently re-verified this session -- flagged, see notes).
+
+status: ingested
+
+admission:
+  channel: authored-strategic
+  evidence:
+    - "CONFLICT DECLARATION: all three organizations are founder-affiliated. impactia.org is Tim's own foundation (impactIA); psychedelos.ch and fondationcsm.org were Tim's manual adds (task 284, 2026-07-20) as on-mission Swiss psychedelic-therapy orgs -- the same domain Tim separately directs sources/themes/mental-health/psychedelics.yaml (this same PR) for. This pack is admitted via a board-merged PR per governance §2's appeal/transparency instrument -- the curator (Bender) drafts, Tim (board) ratifies by merging, exactly as sources/README.md's change process requires for any admission block. No self-merge; conflict is logged, not hidden."
+    - "impactia.org: live in the index since 2026-06-25 (log.md 'impactia.org + Laura Tocmacov added to the live arctic index'); root-caused missing-card bug fixed 2026-07-16 (task 224, log.md 3640-3663) -- Zefix slug-resolution tranche had silently stalled at ~5% coverage, impactIA (CHE-396.275.781) was one of ~685k entities never reached, NOT a resolver defect (resolves at confidence 1.0 on name_full + all 3 address tokens). BUG-1/BUG-2 fixed (task-098-rebuild-build-phase.md class): .org/.swiss TLD slug variants + head-only HTML clip dropping the footer address. Per-token BM25 fix (task 083) + saturation (task 096) landed impactIA as rank-1 on 'Tim O'Hear' / 'Laura Tocmacov' / 'impactIA' queries -- verified live on websear.ch (task 098/144)."
+    - "psychedelos.ch + fondationcsm.org: task 284 (2026-07-20) manual authoritative add -- 156 points (154 content `source_type=official` trust 0.8 + 2 `entity_card` trust 0.85), fetched live+polite (fondationcsm.org robots Crawl-delay:10 respected), merged live both prod+twin same day (log.md 2026-07-20: 'prod=twin 47,824,966 green'). Cross-link finding: neither org's site links the other (0 hyperlinks either direction), confirming a link-graph crawler alone would never have discovered either -- manual add + register-join was the only route (task 284 §'Cross-link finding')."
+    - "fondationcsm.org register link: CHE-144.108.620 (Fondation Conscience et Sante Mentale - Centre transdisciplinaire en Therapie assistee par psychedeliques), resolve_confidence=1.0, UID confirmed BOTH on-page (mentions-legales) AND via a fresh live LINDAS SPARQL query run for this task (2026-07-25, ld.admin.ch/query, graph lindas.admin.ch/foj/zefix): legalName + Zweck text match task 284 exactly. ADR-041 filed the miss cause: the slug resolver's TLD-priority order deprioritizes `.org` (fixed for the general case: non-profit legal forms now weight `.org` normally) plus the un-inferrable abbreviation 'CSM' vs the full legal name (the harder, general case)."
+    - "psychedelos.ch: NO CHE-UID -- task 284 confirms it is a CC Art.60 ss association (Geneve, founded 2023), which is not required to register commercially. Non-register authoritative card, resolve_confidence=1.0 (human-curated + live-verified domain), same class as any Art.60/Verein org the Zefix route structurally cannot reach (sources/ch/zefix.yaml notes this exact dead-end for the automated route)."
+    - "2026-07-25 verification (this task): all three domains re-fetched live (WebFetch, no Brave/Google/Bing) -- impactia.org confirms 'Fondation impactIA' self-description; psychedelos.ch confirms 'Premiere association suisse de patient·es PAP', founded Geneva 2023; fondationcsm.org's register data re-confirmed live via direct LINDAS SPARQL query (not a competitor-search route, ADR-040-clean)."
+    - "Wikidata/Wikipedia check (ADR-049 description-source precedent, 2026-07-25): NONE of the three orgs have a Wikipedia article or Wikidata item (searched directly, no results for 'impactIA foundation', 'Psychedelos', 'Fondation Conscience et Sante Mentale'). Per ADR-049's fallback chain, card descriptions for all three come from registry Zweck text (fondationcsm.org only, register-linked) or curated site-fact prose (impactia.org, psychedelos.ch) -- the zefix-card pattern's own documented fallback, not a gap specific to this pack."
+    - "aw_b1 typing finding (this task, 2026-07-25): task 284's record builder (an exploration script) stamps the 154 psychedelos/CSM CONTENT records `source_type=official` (line 112) -- a mistyping. `official` is AW's location-bound government/authority source_type family (see a private pipeline module, server/aw_server/retrieval.py:565 -- grouped with gov-*/case_law/central-bank/registry_record as 'location-bound' types implying official-publisher status). Neither Psychedelos (a patient association) nor Fondation CSM (a private foundation) is a government body. The 2 CARD records are correctly typed `entity_card`/`entity_kind=org` (task 284 lines 169/207) -- only the content-passage typing is off. impactia.org's content-passage source_type was not independently re-audited this session. This is flagged as a genuine gap for the next aw_b1 rebuild's tier/type reclassification pass (task 306 is the mechanism -- its §2.2 already fixed one source_type-classification bug found via slice validation, `classify_tier` forcing Tier B for news page-anchors; the official->org/entity retyping for these records is the same CLASS of fix, not yet done). Not resolved by this pack -- logged per P5."
+  decision: escalated
+  policy: "POLICY.md@v1 §4.9"
+  date: "2026-07-25"
+  would_pass_today: true
+
+notes:
+  - >
+    Tier honestly capped per the task's own instruction: entity/site cards
+    = T0/T1 only. `density_tier: T1` granted by structural role at
+    admission (POLICY §5 -- impactia.org/psychedelos.ch/fondationcsm.org
+    are each a verified, single organization's own site, the textbook T1
+    case). NO density beyond cards/site-content is granted here -- any T2+
+    (e.g. a deeper crawl of impactia.org's publication archive) would need
+    its own evidence trail per §5's "never granted at admission" rule, and
+    is explicitly NOT what this pack does.
+  - >
+    `decision: escalated`, not auto-admit or grandfathered-at-M2: these
+    records predate POLICY.md@v1 (impactia.org: 2026-06-25; psy/csm:
+    2026-07-20; policy ratified 2026-07-22) so grandfathered-at-M2 would be
+    the mechanically honest label for the INGESTION date -- but the
+    CONFLICT (founder-affiliated) is the load-bearing fact here, and
+    conflict-of-interest admissions should never ride the quiet
+    "grandfathered" label; they need the explicit board-merge-as-
+    ratification act this PR performs. `would_pass_today: true` because
+    mechanically these clear §2 (U1-U5) and §4.9's floor cleanly on the
+    evidence above -- the escalation is about disclosure, not doubt.
+  - >
+    layer=commercial/§4.9 is a fit-by-precedent, not a perfect semantic
+    fit, flagged honestly: §4.9's own floor text is "a legitimate operating
+    business agents may need to act through (retailers, booking,
+    services)" -- none of these three orgs are commercial/transactional.
+    sources/ch/zefix.yaml already sweeps ALL Zefix entity types (incl.
+    foundations/associations) under §4.9 as the closest existing "entity
+    card" layer in POLICY's current enum (no dedicated "civil-society/
+    nonprofit" layer exists yet) -- this pack follows that precedent rather
+    than inventing a new layer unilaterally. If POLICY is ever amended
+    with a nonprofit/entity layer, these three (and zefix's non-profit
+    slice) should move together, not be split.
+  - >
+    trust_tier=0.83 is a pack-level rounding: task 284's stamps are content
+    0.8 / cards 0.85 for psychedelos.ch+fondationcsm.org; impactia.org's
+    exact stamped trust_tier was not re-derived from the live index this
+    session (would require a prod/twin scroll query, out of scope for a
+    repo+web-verification task per this task's constraints) -- assumed in
+    the same 0.8-0.85 band by analogy by long-standing precedent (live
+    since 2026-06-25, repeatedly used as the flood/ranking regression
+    fixture in tasks 083/096/098/102/144), not independently confirmed.
+    Flagged rather than silently asserted as measured.
+  - >
+    train_ok for impactia.org specifically was not re-verified live in
+    this task (a live consent re-resolve was out of scope -- "repo + light
+    web verification only, no index writes" per this task's constraints).
+    psychedelos.ch/fondationcsm.org train_ok=False is confirmed from task
+    284's own build. Per POLICY P4, actual search_ok/train_ok are always
+    re-resolved live at the next build regardless of what this pack says --
+    this note documents the last-observed posture only.
+  - >
+    Cross-reference: sources/themes/mental-health/psychedelics.yaml (this
+    same PR) covers the psychedelics RESEARCH-ORG theme (MAPS, MIND,
+    Usona, Heffter, Beckley, SÄPT) -- deliberately a SEPARATE pack from
+    this one. psychedelos.ch and fondationcsm.org are patient/clinical
+    orgs, not research-standards orgs, and critically are founder-
+    affiliated (conflict-declared here) where the theme pack's six orgs
+    are not. Keeping them apart keeps the conflict declaration scoped to
+    exactly the entries that need it, per governance §3's per-pack
+    ledger design ("git log on sources/ becomes the complete editorial
+    history").

@@ -1,0 +1,145 @@
+{
+  "$comment": [
+    "Hosts with a RECORDED consent-declined or consent-unknown determination.",
+    "This file is a MIRROR of decisions already documented elsewhere in the repo",
+    "(script docstrings, task docs). It records no new determination.",
+    "Enforced by consent_block.py, which fails CLOSED: an ingester must",
+    "refuse to crawl any host listed with state 'declined' or 'unknown'.",
+    "",
+    "Changing a VERDICT here is a POLICY change and goes via PR to Tim.",
+    "The un-block condition is a fresh consent_resolver re-resolve returning ok;",
+    "for a host that previously DECLINED, ordering that re-resolve is itself",
+    "Tim's decision, not an ingester's.",
+    "",
+    "state declined = evidence says search_ok=False (do not crawl, do not index)",
+    "state unknown  = consent could not be established (hold; do not crawl)"
+  ],
+  "schema_version": 1,
+  "hosts": {
+    "prestations.vd.ch": {
+      "state": "declined",
+      "decided_on": "2026-07-09",
+      "basis": "robots.txt HTTP 403 (access-controlled) + X-Robots-Tag: noindex,nofollow,noarchive on every API response",
+      "rubric": "consent_resolver: robots.txt 401/403 -> search_ok=False, train_ok=False",
+      "search_ok": false,
+      "train_ok": false,
+      "recorded_in": "task 142 item 2; ingest_vd docstring (deleted task 1552, blob 46eb72247bac)",
+      "unblock_condition": "fresh consent_resolver re-resolve of prestations.vd.ch returns ok"
+    },
+    "gesetze.berlin.de": {
+      "state": "declined",
+      "decided_on": "2026-07-09",
+      "basis": "robots Disallow:/ + AW token disallowed",
+      "search_ok": false,
+      "train_ok": false,
+      "recorded_in": "ingest_de_laender_juris.py docstring; task 146 (BE)",
+      "unblock_condition": "fresh consent_resolver re-resolve returns ok"
+    },
+    "landesrecht-mv.de": {
+      "state": "declined",
+      "decided_on": "2026-07-09",
+      "basis": "robots Disallow:/ + AW token disallowed",
+      "search_ok": false,
+      "train_ok": false,
+      "recorded_in": "ingest_de_laender_juris.py docstring; task 146 (MV)",
+      "unblock_condition": "fresh consent_resolver re-resolve returns ok"
+    },
+    "landesrecht.rlp.de": {
+      "state": "declined",
+      "decided_on": "2026-07-09",
+      "basis": "robots Disallow:/ + AW token disallowed",
+      "search_ok": false,
+      "train_ok": false,
+      "recorded_in": "ingest_de_laender_juris.py docstring; task 146 (RP)",
+      "unblock_condition": "fresh consent_resolver re-resolve returns ok"
+    },
+    "recht.saarland.de": {
+      "state": "declined",
+      "decided_on": "2026-07-09",
+      "basis": "robots Disallow:/ + AW token disallowed",
+      "search_ok": false,
+      "train_ok": false,
+      "recorded_in": "ingest_de_laender_juris.py docstring; task 146 (SL)",
+      "unblock_condition": "fresh consent_resolver re-resolve returns ok"
+    },
+    "landesrecht.thueringen.de": {
+      "state": "declined",
+      "decided_on": "2026-07-09",
+      "basis": "robots Disallow:/ + AW token disallowed",
+      "search_ok": false,
+      "train_ok": false,
+      "recorded_in": "ingest_de_laender_juris.py docstring; task 146 (TH)",
+      "unblock_condition": "fresh consent_resolver re-resolve returns ok"
+    },
+    "landesrecht-hamburg.de": {
+      "state": "unknown",
+      "decided_on": "2026-07-09",
+      "basis": "robots/tdmrep unreachable (ConnectTimeout from both probe vantages) - consent could not be established",
+      "search_ok": null,
+      "train_ok": null,
+      "recorded_in": "ingest_de_laender_juris.py docstring; task 146 (HH)",
+      "unblock_condition": "robots/tdmrep becomes reachable and consent_resolver returns ok"
+    },
+    "landesrecht.hessen.de": {
+      "state": "unknown",
+      "decided_on": "2026-07-09",
+      "basis": "robots unreachable (NXDOMAIN from the probe egress) - consent could not be established",
+      "search_ok": null,
+      "train_ok": null,
+      "recorded_in": "ingest_de_laender_juris.py docstring; task 146 (HE)",
+      "unblock_condition": "robots/tdmrep becomes reachable and consent_resolver returns ok"
+    },
+    "www.landesrecht-bw.de": {
+      "state": "declined",
+      "decided_on": "2026-07-14",
+      "basis": "robots allowlist: 'User-agent: Googlebot/CCBot/OnCrawl Allow: /' + 'User-agent: * Disallow: /' -- our token 'authoritative-web' disallowed at root",
+      "rubric": "consent_resolver: wildcard Disallow:/ and our-token disallow -> search_ok=False, train_ok=False",
+      "search_ok": false,
+      "train_ok": false,
+      "recorded_in": "the build box consent record for www.landesrecht-bw.de (2026-07-14T19:44:57Z); supersedes the 2026-07-09 OK for the bare host, which task 433 found was parsed from a 65KB juris.de HTML homepage served as HTTP 200, not a robots.txt",
+      "unblock_condition": "fresh consent_resolver re-resolve of THIS host key returns ok AND the cached _robots_body is a real robots.txt (not HTML)",
+      "note": "This is the exact host string ingest_de_laender_juris.py crawls for Land BW. The 2,328 BW records already in aw_v4_sat were acquired under the superseded OK -- that is a DATA question for Tim (task 433), not settled here."
+    },
+    "landesrecht.sachsen-anhalt.de": {
+      "state": "unknown",
+      "decided_on": "2026-07-14",
+      "basis": "NO VALID OWN-ORIGIN EVIDENCE. This origin's cached robots body is juris.de's robots, reached through a redirect the record never captured, so it establishes nothing about this host in either direction. Its sibling www.landesrecht.sachsen-anhalt.de carries a valid robots that DECLINES (named-bot allowlist then 'User-agent: * Disallow: /', 2026-07-14), but under a per-origin reading that is evidence about the sibling, not about this host. Consent here could not be established -- and consent that could not be established is not consent.",
+      "rubric": "consent_resolver: wildcard Disallow:/ and our-token disallow -> search_ok=False, train_ok=False",
+      "search_ok": null,
+      "train_ok": null,
+      "recorded_in": "task 433 Part 9. Records under this key are served from the BARE origin (100/100 sampled URLs are https://landesrecht.sachsen-anhalt.de/...), so the bare origin's own evidence is what governs, and it is invalid. Sibling decline: the build box consent record for www.landesrecht.sachsen-anhalt.de (2026-07-14T19:44:58Z).",
+      "unblock_condition": "fresh consent_resolver re-resolve of BOTH host keys returns ok AND the cached _robots_body for each is that host's own robots.txt (not a cross-host redirect target)",
+      "note": "Blocked 2026-08-19, authorized by the orchestrator. Basis CORRECTED in Part 9 from 'the www record declines' to 'this origin has no valid evidence': under the per-origin rule proposed in ADR-095, a sibling host key is evidence about neither direction. The block is unchanged -- unknown is a blocking state -- only its stated reason is more precise. STOPS FUTURE CRAWLING ONLY; the 999 indexed points are untouched and remain Tim's ruling. This is the ONLY host in all 27,530 cached verdicts where a canonicalisation mismatch could have admitted content against a declining origin."
+    },
+    "www.rechtsprechung-im-internet.de": {
+      "state": "declined",
+      "decided_on": "2026-08-28",
+      "basis": "robots.txt 302 -> /jportal/docs/eclicrawler/robots.txt: 'User-agent: * / Disallow: /' with a DG_JUSTICE_CRAWLER-only carve-out; response header 'tdm-reservation: 1' (TDMRep header variant); tdmrep.json 404",
+      "rubric": "consent_resolver: robots Disallow-all -> search_ok=False; tdm-reservation header -> train_ok=False",
+      "search_ok": false,
+      "train_ok": false,
+      "recorded_in": "task 457 Q1; task 465 (retained points KEPT per Tim's option-(a) ruling 2026-08-28: non-refreshable, dump-basis backfill; refresh_policy in data/assembly/rii-dump-basis-backfill.v1.json)",
+      "unblock_condition": "a fresh Tim-ordered decision, NOT a routine re-resolve: the decline is a publisher decision recorded on clean probes. New DE case-law coverage comes from the openlegaldata pack (ratified PR #77), never from re-opening rii."
+    },
+    "shab.ch": {
+      "state": "declined",
+      "decided_on": "2026-07-09",
+      "basis": "robots: User-agent:* Disallow:/ (full opt-out); AW token 'authoritative-web' disallowed on /; CCBot disallowed",
+      "rubric": "consent_resolver: wildcard Disallow:/ and our-token disallow -> search_ok=False, train_ok=False",
+      "search_ok": false,
+      "train_ok": false,
+      "recorded_in": "served source_cards payload for shab.ch (consent.checked_at 2026-07-09T13:26:49Z, 20 rows excluded at gate); task 2659 review 2668",
+      "unblock_condition": "fresh consent_resolver re-resolve of shab.ch returns ok"
+    },
+    "rsn.ne.ch": {
+      "state": "declined",
+      "decided_on": "2026-07-09",
+      "basis": "robots.txt User-agent:* Disallow:/ (host-level full opt-out); AW token disallowed on /; CCBot disallowed. An Allow:/DATA/ exception covers the law corpus path (a path-level policy is a documented follow-up, not acted on)",
+      "rubric": "consent_resolver: wildcard Disallow:/ and our-token disallow -> search_ok=False, train_ok=False",
+      "search_ok": false,
+      "train_ok": false,
+      "recorded_in": "task 130 (191 CC rows excluded at gate); served source_cards payload for rsn.ne.ch; task 2659 review 2668",
+      "unblock_condition": "fresh consent_resolver re-resolve of rsn.ne.ch returns ok"
+    }
+  }
+}

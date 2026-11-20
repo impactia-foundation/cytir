@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ARTICLE>
+<META>
+<META_COMMUN>
+<ID>LEGIARTI000006320111</ID>
+<ANCIEN_ID>FAEJ4XXXXXX013AAXXXXXXAA</ANCIEN_ID>
+<ORIGINE>LEGI</ORIGINE>
+<URL>article/LEGI/ARTI/00/00/06/32/01/LEGIARTI000006320111.xml</URL>
+<NATURE>Article</NATURE>
+</META_COMMUN>
+<META_SPEC>
+<META_ARTICLE>
+
+<NUM>13</NUM>
+
+<ETAT>ABROGE</ETAT>
+
+<DATE_DEBUT>1923-07-01</DATE_DEBUT>
+<DATE_FIN>2019-12-13</DATE_FIN>
+
+
+
+<TYPE>AUTONOME</TYPE>
+</META_ARTICLE>
+</META_SPEC>
+</META>
+<CONTEXTE>
+<TEXTE autorite="" cid="LEGITEXT000006069599" date_publi="2999-01-01" date_signature="1923-06-30" ministere="" nature="LOI" nor="" num="" num_parution_jo="">
+<TITRE_TXT c_titre_court="Loi du 30 juin 1923" debut="1923-07-01" fin="2999-01-01" id_txt="LEGITEXT000006069599">Loi du 30 juin 1923 portant : 1° ouverture et annulation de crédits sur l'exercice 1922 au titre du budget général ; 2° ouverture de crédits sur l'exercice 1922 au titre du budget spécial des dépenses recouvrables en exécution des traités de paix.</TITRE_TXT>
+</TEXTE>
+</CONTEXTE>
+<VERSIONS>
+<VERSION etat="ABROGE">
+<LIEN_ART debut="1923-07-01" etat="ABROGE" fin="2019-12-13" id="LEGIARTI000006320111" num="13" origine="LEGI"/>
+</VERSION>
+</VERSIONS>
+<NOTA>
+<CONTENU/>
+</NOTA>
+<BLOC_TEXTUEL>
+<CONTENU>
+<br/>   Lorsque les monuments seront édifiés sur des terrains faisant partie du domaine privé de l'Etat, l'administration des domaines pourra consentir aux communes intéressées la cession gratuite de l'emplacement reconnu nécessaire à leur érection.<br/>
+<br/>
+</CONTENU>
+</BLOC_TEXTUEL>
+<LIENS>
+<LIEN cidtexte="JORFTEXT000039480074" datesignatexte="2019-12-11" id="LEGIARTI000039482898" naturetexte="LOI" nortexte="CPAX1907946L" num="1" numtexte="2019-1332" sens="cible" typelien="ABROGE">LOI n°2019-1332 du 11 décembre 2019 - art. 1</LIEN>
+</LIENS>
+</ARTICLE>

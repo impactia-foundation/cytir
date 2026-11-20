@@ -1,0 +1,221 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cytir"
+version = "0.1.0"
+description = "Cytir: an open web search engine and open web search index whose primary user is an AI agent"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "Apache-2.0" }
+authors = [{ name = "impactIA" }]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+]
+
+# Base install is deliberately dependency-free (engineering-doctrine #2, config
+# is data, not prose): what a box needs depends on which layer it runs, so
+# every real dependency lives in an extra below, never here.
+dependencies = []
+
+[project.urls]
+Homepage = "https://cytir.org"
+Issues = "https://github.com/impactia-foundation/cytir/issues"
+Repository = "https://github.com/impactia-foundation/cytir"
+
+[project.scripts]
+cyt = "cytir.cli:main"
+
+[project.optional-dependencies]
+# The CI test extra (task 646 S1). Mirrors requirements-ci.txt PIN FOR PIN --
+# that file is what task 530's baseline actually proved the suite green
+# against, so this extra must not silently drift from it. When the two
+# disagree, requirements-ci.txt is the one measured against the real CI run;
+# fix this list to match it, not the other way around.
+# NOTE: German de-compounding also needs `charsplit` (dtuggener/CharSplit, MIT, pinned commit).
+# PyPI forbids direct-URL requirements, so it is NOT in any extra: install it with
+#   pip install "charsplit @ https://github.com/dtuggener/CharSplit/archive/9710624ef0b0df0edd12a721c33533ff1d07b557.tar.gz"
+# (the PyPI project named `charsplit` is another project; never install that one). See NOTICE.
+dev = [
+    "pytest==9.1.1",
+    "pytest-timeout==2.4.0",
+    "pytest-xdist==3.8.0",
+    "scikit-learn==1.7.2",  # newest wheel for the CI runner's python3.10; the recording golden was made with 1.7.2
+    "qdrant-client==1.18.0",
+    "trafilatura==2.1.0",
+    "httpx==0.28.1",
+    "mcp==2.2.0",
+    "beautifulsoup4==4.15.0",
+    "lxml[html-clean]==6.1.1",
+    "duckdb==1.5.5",
+    "PyYAML==6.0.1",
+    "pyarrow==25.0.1",
+    "jsonschema==4.26.0",
+    "htmldate==1.10.0",
+    "zstandard==0.25.0",
+    "boto3==1.34.46",
+    "fastapi==0.141.1",
+    "pip-licenses>=4.0.0",   # task 643 §5.3: third-party licence report, CI-only
+]
+
+# the agent-probe .reader variant and `cyt read --mcp` (task 2779)
+reader = [
+    "httpx==0.28.1",
+    "lxml[html-clean]==6.1.1",
+    "mcp==2.2.0",
+    "trafilatura==2.1.0",
+]
+
+# The build-pipeline install (the build box / a self-hoster's GPU box). Floors
+# only -- see requirements-build.txt (app root), the source of truth this mirrors.
+# `docling` (PDF/table extraction, ADR-013..016) is its own `pdf` extra: it
+# is heavy and only some source families need it. `pytest` lives in `dev`.
+# Resolve time (task 908): the resolver does NOT backtrack here; the cost is
+# DOWNLOAD. `sentence-transformers`/`FlagEmbedding` pull torch + the CUDA 13
+# wheels (~3.3 GB, 280 files), so `pip install --dry-run` takes 275-300 s on a
+# good link and can stall past 15 min on a slow one. On a CPU-only box add
+# `--extra-index-url https://download.pytorch.org/whl/cpu` (~0.5 GB, ~200 s).
+# Pinning would not shorten it, so the floors stay.
+pipeline = [
+    "FlagEmbedding>=1.3.0",
+    "qdrant-client>=1.12.0,<1.20",
+    "trafilatura>=2.0.0",
+    "lxml_html_clean",
+    "httpx>=0.27.0",
+    "beautifulsoup4>=4.12.0",
+    "lxml>=5.0.0",
+    "mwparserfromhell>=0.6.6",
+    "duckdb>=1.1.0",
+    "pyyaml>=6.0",
+    "orjson>=3.10.0",
+    "tqdm>=4.66.0",
+    "zstandard>=0.22.0",
+    "transformers>=4.40.0",
+    "pyarrow>=17.0.0",
+    "sentence-transformers>=3.0.0",
+    "jsonschema>=4.20.0",
+    "htmldate>=1.8.0",
+    # task 429 / QUICKSTART "Known gap": imported by pipeline code that ships
+    # today but was never declared anywhere -- a clean clone ImportErrors on
+    # these unless the lane that needs them is skipped. Declared now
+    # (engineering-doctrine #2: deps are config, not archaeology).
+    "boto3>=1.34.0",       # signed-S3 fast path for Common Crawl (falls back to public HTTPS)
+    "mwxml>=0.3.3",        # cytir/extract/wikipedia_dump.py
+    "lmdb>=1.4.0",         # build_aw_b1.py
+    "py7zr>=0.20.0",       # ingest_se (Stack Exchange 7z dumps)
+    "pypdf>=4.0.0",        # finma-pdf and similar PDF-metadata lanes
+    "playwright>=1.40.0",  # render lane (JS-rendered pages)
+    "aiohttp>=3.9.0",      # async fetch lanes
+    "scikit-learn>=1.4.0", # cytir/retune/policy_train.py
+]
+
+# The language scope-gate venv (task 238) -- MUST be a separate install from
+# `pipeline`/`pdf`: fasttext's predict() breaks on numpy>=2, but docling/
+# opencv need numpy>=2, so the two can never share one environment. See
+# deploy/langgate/requirements.txt (source of truth) for the full story.
+langgate = [
+    "numpy<2",
+    "fasttext-wheel",
+    "trafilatura>=2.0.0",
+    "lxml_html_clean",
+    "beautifulsoup4>=4.12.0",
+    "lxml>=5.0.0",
+    "httpx>=0.27.0",
+    "pyyaml>=6.0",
+    "orjson>=3.10.0",
+    "duckdb>=1.1.0",
+    "tqdm>=4.66.0",
+]
+
+# PDF + table extraction (ADR-013..016). Heavy; its own extra so a self-hoster
+# who does not need it does not pay for it. `cytir.extract.pdf` (task 656)
+# routes between the two: liteparse (Apache-2.0) by default for every
+# document, Docling only for the narrow short+complex/table-dense class
+# where its structural edge earns its ~735-805x higher CPU cost per page
+# (task 655 bake-off). Both entries recorded
+# in NOTICE.
+pdf = [
+    "docling>=2.0.0",
+    "liteparse>=2.14.0",
+]
+
+# The MCP/HTTP serving stack (server/requirements.txt, source of truth).
+serve = [
+    "fastapi>=0.115.0",
+    "uvicorn[standard]>=0.32.0",
+    "httpx>=0.27.0",
+    "qdrant-client>=1.12.0,<1.20",
+    "mcp>=2.2.0",
+]
+
+# The torch carriers of the serve path (task 2281; server/requirements-embed-local.txt mirrors it). Add it
+# to `serve` only when the server embeds queries in-process (no AW_TEI_URL) or loads the opt-in reranker:
+# `pip install ".[serve,embed-local]"`. A serve-only install behind a TEI sidecar needs no torch.
+embed-local = [
+    "FlagEmbedding>=1.3.0",
+    "sentence-transformers>=3.0.0",
+]
+
+# `data/` ships as the sub-package `cytir._data` (task 733), so a non-editable `pip install .`
+# finds the contracts the runtime reads. The package LIST is in setup.py (see its docstring);
+# the globs below are held equal to the public cut's `data-contracts` + `release-rehearsal`
+# rules by tests/test_package_data.py. Withheld on purpose: held-pending-anonymization.*,
+# eval inputs, samples, index fixtures, tasks.
+[tool.setuptools.package-dir]
+"cytir._data" = "data"
+
+[tool.setuptools.package-data]
+"cytir.corpus" = ["data/*.yaml"]
+"cytir.news" = ["publishers.v1.json"]
+"cytir.ops" = ["serving_env.default.json"]
+"cytir.serve" = ["*.json"]
+"cytir._data" = [
+    "acquisition-policy.v1.json",
+    "allowlist.yaml",
+    "assembly/adr101-class-precedence.v1.json",
+    "authored-text-origins.v1.json",
+    "build_config.json",
+    "chunk-policy-*.json",
+    "chunk-reference-selector.v4.json",
+    "collection-payload-profiles.v1.json",
+    "consent-unclear-register.yaml",
+    "consent-unresolved-register.yaml",
+    "consent_declined_hosts.json",
+    "consent-undated-gov-hosts.v1.json",
+    "content-gate-convergence.v1.json",
+    "cov351_routes.yaml",
+    "fedlex-law-names.v1.json",
+    "fedlex-versions.v1.json",
+    "ci-fixture-gate-contract.v1.json",
+    "flip-gate-contract.v1.json",
+    "health-host-vet-rules.v1.json",
+    "pack.schema.json",
+    "licence-spdx-respell.v1.json",
+    "news-daily-gate-contract.v1.json",
+    "news-host-meta.v1.json",
+    "news-queue.example.json",
+    "payload-enum-tables.v1.json",
+    "payload-shape-contract.v1.json",
+    "persisted-input-stores.v1.json",
+    "promotion-gate-contract.v1.json",
+    "release-rehearsal-fixture/**",
+    "representation-contract.v1.json",
+    "routec-pack-declarations/*.json",
+    "script-entrypoints.v1.json",
+    "pack-surface-contract.v1.json",
+    "http-drift-allowlist.v1.json",
+    "serving-profiles/*.config.v1.json",
+    "soft-404-signals.v1.json",
+    "source-family-contract.schema.v1.json",
+    "source-family-contracts.v1.json",
+    "source-preservation-profiles.v1.json",
+    "unpersisted-legacy-register.v1.json",
+    "url-select-presets.v1.json",
+]

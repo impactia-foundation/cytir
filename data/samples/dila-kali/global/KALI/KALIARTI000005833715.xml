@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ARTICLE>
+<META>
+<META_COMMUN>
+<ID>KALIARTI000005833715</ID>
+<ANCIEN_ID>K1XAAXXXXXX00000XAAXSXXA</ANCIEN_ID>
+<ORIGINE>KALI</ORIGINE>
+<URL>article/KALI/ARTI/00/00/05/83/37/KALIARTI000005833715.xml</URL>
+<NATURE>Article</NATURE>
+</META_COMMUN>
+<META_SPEC>
+<META_ARTICLE>
+
+<NUM/>
+<TITRE/>
+
+<ETAT>PERIME</ETAT>
+
+
+<CALIPSOS/>
+<HISTORIQUE/>
+<DATE_DEBUT>2000-09-01</DATE_DEBUT>
+<DATE_FIN>2005-09-01</DATE_FIN>
+<DATE_DEB_EXT>2999-01-01</DATE_DEB_EXT>
+<DATE_FIN_EXT>2999-01-01</DATE_FIN_EXT>
+<TYPE/>
+
+</META_ARTICLE>
+</META_SPEC>
+</META>
+<CONTEXTE>
+<TEXTE cid="KALITEXT000005672388" date_publi="2999-01-01" date_signature="2000-06-30" nature="ACCORD" nor="ASET0050684M" num="" num_parution_jo="">
+<TITRE_TXT c_titre_court="Cessation anticipée d'activité des salariés postés en fin de carrière" debut="2000-09-01" fin="2005-09-01" id_txt="KALITEXT000005672388">Accord du 30 juin 2000 relatif à la cessation anticipée d'activité des salariés postés en fin de carrière</TITRE_TXT>
+
+
+<TM>
+<TITRE_TM debut="2000-09-01" fin="2005-09-01" id="KALISCTA000005716694">Objet</TITRE_TM>
+</TM>
+</TEXTE>
+<CONTENEUR cid="KALICONT000005635082" date_publi="2000-09-01" etat="PERIME" nature="TI" num="" titre="Accord du 30 juin 2000 relatif à la cessation anticipée d'activité des salariés postés en fin de carrière" url="conteneur/KALI/CONT/00/00/05/63/50/KALICONT000005635082.xml"/>
+</CONTEXTE>
+<VERSIONS>
+<VERSION etat="PERIME">
+<LIEN_ART debut="2000-09-01" etat="PERIME" fin="2005-09-01" id="KALIARTI000005833715" num="" origine="KALI"/>
+</VERSION>
+</VERSIONS>
+<BLOC_TEXTUEL>
+<CONTENU>
+<br/>   Cet accord est conclu dans le cadre des dispositions du décret n° 2000-105 du 9 février 2000 et de l'arrêté pris pour son application daté du même jour.<br/>
+<br/>   Il est applicable aux entreprises ou établissements relevant des champs d'application des conventions collectives nationales de la production et de la transformation des pâtes, papiers et cartons et à l'ensemble de leurs salariés.<br/>
+</CONTENU>
+</BLOC_TEXTUEL>
+<LIENS>
+<LIEN cidtexte="KALITEXT000005651216" datesignatexte="1972-12-04" id="KALITEXT000005651216" naturetexte="Convention collective nationale " nortexte="" num="" numtexte="" sens="source" typelien="RATTACHEMENT">700</LIEN>
+<LIEN cidtexte="" datesignatexte="" id="" naturetexte="" nortexte="" num="" numtexte="" sens="source" typelien="CREATION">Accord 2000-06-30 en vigueur le 1er septembre 2000 BO conventions collectives 2000-36</LIEN>
+</LIENS>
+
+
+
+</ARTICLE>

@@ -1,0 +1,208 @@
+{
+ "cases": [
+  {
+   "repository": "acme/widgets",
+   "rows": [
+    {
+     "chunk_n_words": 7,
+     "content_digest": "bf4c73576e16fc423bd2fc1207e512a9dfc0e44f",
+     "domain": "github.com",
+     "lang": "en",
+     "last_seen": "2026-10-23",
+     "license": "MIT",
+     "point_id": "ece05c34-a52e-585b-8ee1-4657ea8dcb8b",
+     "rule_epochs": {
+      "chunk": 4
+     },
+     "snippet": "Widgets See [docs](docs/intro.md), [site](https://widgets.example/) and <https://auto.example/x>. [bad](http://[oops)",
+     "source_type": "docs",
+     "stamps": {
+      "chunk": 4,
+      "prov_id": "6370ee1d65a21add"
+     },
+     "text": "Widgets\n\nSee [docs](docs/intro.md), [site](https://widgets.example/) and <https://auto.example/x>.\n[bad](http://[oops)",
+     "tier": "A",
+     "title": "Widgets",
+     "trust_tier": "A",
+     "url": "https://github.com/acme/widgets/blob/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/README.md"
+    }
+   ],
+   "url": "https://github.com/acme/widgets/blob/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/README.md"
+  },
+  {
+   "repository": "acme/widgets",
+   "rows": [
+    {
+     "chunk_n_words": 10,
+     "content_digest": "4bbd0eeeaa87e3d2c1af38d09f5141eb11a9f2f6",
+     "domain": "github.com",
+     "lang": "en",
+     "last_seen": "2026-10-23",
+     "license": "MIT",
+     "point_id": "885fc2e4-a50b-50d8-b4d3-bb1afce3c064",
+     "rule_epochs": {
+      "chunk": 4
+     },
+     "snippet": "Title See [the guide](https://ex.org/g) and `x`. Title > Sub body",
+     "source_type": "docs",
+     "stamps": {
+      "chunk": 4,
+      "prov_id": "6370ee1d65a21add"
+     },
+     "text": "Title\n\nSee [the guide](https://ex.org/g) and `x`.\n\nTitle > Sub\n\nbody",
+     "tier": "A",
+     "title": "Title",
+     "trust_tier": "A",
+     "url": "https://github.com/acme/widgets/blob/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/docs/guide.rst"
+    }
+   ],
+   "url": "https://github.com/acme/widgets/blob/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/docs/guide.rst"
+  },
+  {
+   "repository": "acme/widgets",
+   "rows": [
+    {
+     "chunk_n_words": 3,
+     "content_digest": "8b88fe12f46cf5f718f4039c857bfb6900680a9d",
+     "domain": "github.com",
+     "lang": "en",
+     "last_seen": "2026-10-23",
+     "license": "MIT",
+     "point_id": "9ab6201d-b17b-5303-b0a8-cc5809035711",
+     "rule_epochs": {
+      "chunk": 4
+     },
+     "snippet": "Intro Hello [rel](../README.md#top).",
+     "source_type": "docs",
+     "stamps": {
+      "chunk": 4,
+      "prov_id": "6370ee1d65a21add"
+     },
+     "text": "Intro\n\nHello [rel](../README.md#top).",
+     "tier": "A",
+     "title": "Intro",
+     "trust_tier": "A",
+     "url": "https://github.com/acme/widgets/blob/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/docs/intro.md"
+    }
+   ],
+   "url": "https://github.com/acme/widgets/blob/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/docs/intro.md"
+  },
+  {
+   "repository": "acme/widgets",
+   "rows": [],
+   "url": "https://github.com/acme/widgets/blob/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/docs/noheading.md"
+  },
+  {
+   "repository": "acme/fallback",
+   "rows": [
+    {
+     "chunk_n_words": 7,
+     "content_digest": "0b75ec69f4559888ecc6d778a8713ff98cc3f992",
+     "domain": "github.com",
+     "lang": "en",
+     "last_seen": "2026-10-23",
+     "license": "Apache-2.0",
+     "point_id": "b54d5e4c-10db-58b9-8f27-03866cb9879c",
+     "rule_epochs": {
+      "chunk": 4
+     },
+     "snippet": "Hidden Served only by the Git-blob API.",
+     "source_type": "docs",
+     "stamps": {
+      "chunk": 4,
+      "prov_id": "6370ee1d65a21add"
+     },
+     "text": "Hidden\n\nServed only by the Git-blob API.",
+     "tier": "A",
+     "title": "Hidden",
+     "trust_tier": "A",
+     "url": "https://github.com/acme/fallback/blob/bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb/docs/hidden.md"
+    }
+   ],
+   "url": "https://github.com/acme/fallback/blob/bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb/docs/hidden.md"
+  },
+  {
+   "repository": "acme/pointer",
+   "rows": [
+    {
+     "chunk_n_words": 8,
+     "content_digest": "eee81141d48c0cca4d335eae34680c468aa07bc5",
+     "domain": "github.com",
+     "lang": "en",
+     "last_seen": "2026-10-23",
+     "license": "GPL-3.0",
+     "point_id": "c7dc6327-7de6-5ec1-911c-cfd8a5eb8fc5",
+     "rule_epochs": {
+      "chunk": 4
+     },
+     "snippet": "Pointer Copyleft: only the root document is taken.",
+     "source_type": "docs",
+     "stamps": {
+      "chunk": 4,
+      "prov_id": "6370ee1d65a21add"
+     },
+     "text": "Pointer\n\nCopyleft: only the root document is taken.",
+     "tier": "A",
+     "title": "Pointer",
+     "trust_tier": "A",
+     "url": "https://github.com/acme/pointer/blob/dddddddddddddddddddddddddddddddddddddddd/README.md"
+    }
+   ],
+   "url": "https://github.com/acme/pointer/blob/dddddddddddddddddddddddddddddddddddddddd/README.md"
+  }
+ ],
+ "gate": {
+  "[\"404935a9ef4d5fe46ad88273b7fc7ee2dc276a94a475e76723314d062d0b24b2\", \"https://github.com/acme/widgets/blob/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/docs/intro.md\", \"en\"]": [
+   "en",
+   false
+  ],
+  "[\"6edabe97652fd19cfead81b7622b5d2ae99a68f6563f352a24747903834b2f2b\", \"https://github.com/acme/widgets/blob/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/docs/guide.rst\", \"en\"]": [
+   "en",
+   false
+  ],
+  "[\"aa5665aa1fed93c56fdc1c8b228d3e504e6bdf88650b4d2f3544000e254b08e9\", \"https://github.com/acme/fallback/blob/bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb/docs/hidden.md\", \"en\"]": [
+   "en",
+   false
+  ],
+  "[\"b398405f2e0b0307cc6e55212395f71135fe5facf1e395db1031cf3e3a31e1f2\", \"https://github.com/acme/pointer/blob/dddddddddddddddddddddddddddddddddddddddd/README.md\", \"en\"]": [
+   "en",
+   false
+  ],
+  "[\"b7a0c8e9435f513fc7842ca30f1c16c5f957c2e0d6e5363584b8755f92ec06e2\", \"https://github.com/acme/widgets/blob/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/docs/noheading.md\", \"en\"]": [
+   "en",
+   false
+  ],
+  "[\"de347e105d659261c50bb9d1bddf5d2e9ba480656cf2cde14903b1abd02a3730\", \"https://github.com/acme/widgets/blob/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/README.md\", \"en\"]": [
+   "en",
+   false
+  ]
+ },
+ "provenance": {
+  "checkout_app": "origin/main app dir (lane unmodified)",
+  "command": "<redacted recorder command>",
+  "git_sha": "08d14210bf72d90963e2c381c913da9cbf724371",
+  "host": "build-host",
+  "lane_sha256": "76c00fc66c0a5f50dc07a2932e1d4ca57b68a59a7a9f8de20d90a3e9b71e99db",
+  "lid_model": "lid.176.bin",
+  "lid_sha256": "7e69ec5451bc261cc7844e49e4792a85d7f09c06789ec800fc4a44aec362764e",
+  "recorded_at_utc": "2026-10-24T00:56:54Z",
+  "redacted": "host, checkout_app, lid_model and command carry labels, not the private paths the recorder wrote",
+  "today_frozen": "2026-10-23",
+  "tokenizer": "Snowflake/snowflake-arctic-embed-l-v2.0",
+  "tokenizer_class": "XLMRobertaTokenizer",
+  "tokenizer_is_fast": true,
+  "tokenizer_revision": "ac6544c8a46e00af67e330e85a9028c66b8cfd9a",
+  "tokenizer_status": "ok"
+ },
+ "tokens": {
+  "2da93199bffe1bf30bb5f66876fa6758c6c7aa27854560ea030bebffb65d57b8": 15,
+  "5555f897791baaecdc244dff0dd7abd6eac3f8198ccc6930694907758bf07ecc": 4,
+  "5967c3da2e385444bddf6fdf4260e32a1151738998b6a1334d92a6db8a25fe89": 20,
+  "91cbadba10ea9d01fd7e15988da788cd30b1d2c96f4f4be38473beaea8cdcef4": 22,
+  "99daebb5bbbc93b918a7697a557e4329388f842321a1fa95a27d6eb7a35ee2a8": 46,
+  "b999a9f5d45c6d6519a1dc9c584c29ab47ec485a2542ebf70054f80ad2f185ae": 8,
+  "ce1623b8888cf11a60b1b405fb6760103be620a972f1edc43ee23406f0731498": 56,
+  "eedd92ea2640683df488597fb0957cd5841a2679ec82cc942c486a4b7a49afb8": 24,
+  "f605195cbb0865bcd8178160b561bb2e5514f91c07db3cc0dcc09b208f41a1da": 16
+ }
+}

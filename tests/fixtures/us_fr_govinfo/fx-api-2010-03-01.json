@@ -1,0 +1,115 @@
+{
+ "date": "2010-03-01",
+ "api_results": [
+  {
+   "document_number": "2010-4114",
+   "title": "Airworthiness Directives; International Aero Engines AG (IAE) V2500-A1, V2522-A5, V2524-A5, V2525-D5, V2527-A5, V2527E-A5, V2527M-A5, V2528-D5, V2530-A5, and V2533-A5 Turbofan Engines; Correction",
+   "abstract": "The FAA is correcting an NPRM, which published in the Federal Register. That NPRM applies to IAE V2500-A1, V2522-A5, V2524-A5, V2525- D5, V2527-A5, V2527E-A5, V2527M-A5, V2528-D5, V2530-A5, and V2533-A5 turbofan engines. The docket number is incorrect in three locations. This document corrects the docket number in those three locations. In all other respects, the original document remains the same.",
+   "type": "Proposed Rule",
+   "publication_date": "2010-03-01",
+   "raw_text_url": "https://www.federalregister.gov/documents/full_text/text/2010/03/01/2010-4114.txt",
+   "html_url": "https://www.federalregister.gov/documents/2010/03/01/2010-4114/airworthiness-directives-international-aero-engines-ag-iae-v2500-a1-v2522-a5-v2524-a5-v2525-d5",
+   "citation": "75 FR 9140",
+   "agencies": [
+    {
+     "raw_name": "DEPARTMENT OF TRANSPORTATION",
+     "name": "Transportation Department",
+     "id": 492,
+     "url": "https://www.federalregister.gov/agencies/transportation-department",
+     "json_url": "https://www.federalregister.gov/api/v1/agencies/492",
+     "parent_id": null,
+     "slug": "transportation-department"
+    },
+    {
+     "raw_name": "Federal Aviation Administration",
+     "name": "Federal Aviation Administration",
+     "id": 159,
+     "url": "https://www.federalregister.gov/agencies/federal-aviation-administration",
+     "json_url": "https://www.federalregister.gov/api/v1/agencies/159",
+     "parent_id": 492,
+     "slug": "federal-aviation-administration"
+    }
+   ]
+  },
+  {
+   "document_number": "2010-4184",
+   "title": "National Cancer Institute; Amended Notice of Meeting",
+   "abstract": null,
+   "type": "Notice",
+   "publication_date": "2010-03-01",
+   "raw_text_url": "https://www.federalregister.gov/documents/full_text/text/2010/03/01/2010-4184.txt",
+   "html_url": "https://www.federalregister.gov/documents/2010/03/01/2010-4184/national-cancer-institute-amended-notice-of-meeting",
+   "citation": "75 FR 9231",
+   "agencies": [
+    {
+     "raw_name": "DEPARTMENT OF HEALTH AND HUMAN SERVICES",
+     "name": "Health and Human Services Department",
+     "id": 221,
+     "url": "https://www.federalregister.gov/agencies/health-and-human-services-department",
+     "json_url": "https://www.federalregister.gov/api/v1/agencies/221",
+     "parent_id": null,
+     "slug": "health-and-human-services-department"
+    },
+    {
+     "raw_name": "National Institutes of Health",
+     "name": "National Institutes of Health",
+     "id": 353,
+     "url": "https://www.federalregister.gov/agencies/national-institutes-of-health",
+     "json_url": "https://www.federalregister.gov/api/v1/agencies/353",
+     "parent_id": 221,
+     "slug": "national-institutes-of-health"
+    }
+   ]
+  },
+  {
+   "document_number": "2010-4134",
+   "title": "36(b)(1) Arms Sales Notification",
+   "abstract": "The Department of Defense is publishing the unclassified text of a section 36(b)(1) arms sales notification to fulfill the requirements of section 155 of Public Law 104-164 dated 21 July 1996.",
+   "type": "Notice",
+   "publication_date": "2010-03-01",
+   "raw_text_url": "https://www.federalregister.gov/documents/full_text/text/2010/03/01/2010-4134.txt",
+   "html_url": "https://www.federalregister.gov/documents/2010/03/01/2010-4134/36b1-arms-sales-notification",
+   "citation": "75 FR 9182",
+   "agencies": [
+    {
+     "raw_name": "DEPARTMENT OF DEFENSE",
+     "name": "Defense Department",
+     "id": 103,
+     "url": "https://www.federalregister.gov/agencies/defense-department",
+     "json_url": "https://www.federalregister.gov/api/v1/agencies/103",
+     "parent_id": null,
+     "slug": "defense-department"
+    },
+    {
+     "raw_name": "Office of the Secretary"
+    }
+   ]
+  },
+  {
+   "document_number": "2010-4360",
+   "title": "American Red Cross Month, 2010",
+   "abstract": null,
+   "type": "Presidential Document",
+   "publication_date": "2010-03-01",
+   "raw_text_url": "https://www.federalregister.gov/documents/full_text/text/2010/03/01/2010-4360.txt",
+   "html_url": "https://www.federalregister.gov/documents/2010/03/01/2010-4360/american-red-cross-month-2010",
+   "citation": "75 FR 9325",
+   "agencies": [
+    {
+     "raw_name": "EXECUTIVE OFFICE OF THE PRESIDENT",
+     "name": "Executive Office of the President",
+     "id": 538,
+     "url": "https://www.federalregister.gov/agencies/executive-office-of-the-president",
+     "json_url": "https://www.federalregister.gov/api/v1/agencies/538",
+     "parent_id": null,
+     "slug": "executive-office-of-the-president"
+    }
+   ]
+  }
+ ],
+ "in_xml": [
+  "2010-4114",
+  "2010-4184",
+  "2010-4134"
+ ]
+}

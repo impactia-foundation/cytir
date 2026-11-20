@@ -1,0 +1,1598 @@
+# Task 351 — coverage-pack routes (PRs #47/#48 ratified packs).
+# Config-is-data (doctrine 2): every source's route, filters, politeness,
+# trust (ratified tiers), license and consent basis live HERE, not in code.
+# Evidence per route: the task 351 recon notes (verified 2026-07-28).
+#
+# P3 regdocs is split into three sub-packs (disjoint hosts) so three fetch
+# processes can run in parallel (Docling on big PDFs serializes a process;
+# separate out-dirs/L0 waves avoid shard collisions). ALL THREE stage into
+# ONE collection: aw_dregdocs_cov (stage_pack_b1 --resume).
+#
+# Trust stamps per specs/ch-industry-coverage.md P3 (A/0.95-1.0 CH
+# regulators) + social-contract P5 (ENISA-class 0.9). cheminfo.ch SKIPPED
+# (recon p3a: BAG awareness-campaign portal, not a regulator doc corpus).
+# BLV SLMB: retired from blv.admin.ch (recon p3a) — recorded, not fetchable.
+version: 1
+packs:
+  regdocs1:
+    collection: aw_dregdocs_cov
+    theme: [ch-industry]
+    sources:
+      finma_docs2:
+        host: www.finma.ch
+        mode: sitecore_widget
+        base: https://www.finma.ch
+        api_path: /de/api/search/getresult
+        widgets:  # 7 NEW widgets beyond task 209's four (recon p3b, API-verified)
+          - {key: wegleitungen, ds: "{4C931921-DB10-4B74-A88F-B9D4B4DCEE3F}", multilang: true}
+          - {key: enforcement_verfuegungen, ds: "{5BA36EBB-5F53-4746-A412-6C593DB237F0}", multilang: true}
+          - {key: enforcement_gerichtsentscheide, ds: "{4C699740-8893-4B35-B7D9-152A2702ABCD}", multilang: true}
+          - {key: enforcement_kasuistik, ds: "{2FBD0DFE-112F-4176-BE8D-07C2D0BE0903}", multilang: true}
+          - {key: faktenblaetter, ds: "{59471245-7D6F-497E-B39E-ACD481B0CCE1}", multilang: true}
+          - {key: referate_aktuell, ds: "{E2892753-588F-4051-A396-38B5692591DD}", multilang: true}
+          - {key: referate_archiv, ds: "{65E92CFA-3BEC-491E-B051-407D5EACDF69}", multilang: true}
+        delay: 2.0
+        cap: 3000
+        lang_default: de
+        source_type: official
+        tier: A
+        trust: 0.95
+        license: ch-gov-open-cite
+        attribution: "Eidgenössische Finanzmarktaufsicht FINMA"
+        consent: {basis: robots-live-resolve}
+        provenance_note: "gap-fill beyond task-209 finma_circulars"
+      swissmedic_guidance:
+        host: www.swissmedic.ch
+        mode: sitemap
+        sitemaps:
+          - https://www.swissmedic.ch/swissmedic/de/home.sitemap.xml
+          - https://www.swissmedic.ch/swissmedic/fr/home.sitemap.xml
+          - https://www.swissmedic.ch/swissmedic/it/home.sitemap.xml
+          - https://www.swissmedic.ch/swissmedic/en/home.sitemap.xml
+        include: '^https://www\.swissmedic\.ch/swissmedic/(de|fr|it|en)/home/.*\.html$'
+        exclude: '/(news/mitteilungen/archiv|404|sitemap)\.html|/offene-stellen|/ueber-uns/karriere'
+        pdf_include: '^https://www\.swissmedic\.ch/dam/swissmedic/.*\.pdf\.download\.pdf/.*$'
+        lang_url_re: '/swissmedic/(de|fr|it|en)/'
+        delay: 2.0
+        cap: 6500
+        lang_default: de
+        source_type: official
+        tier: A
+        trust: 0.95
+        license: ch-gov-open-cite
+        attribution: "Swissmedic, Schweizerisches Heilmittelinstitut"
+        consent: {basis: robots-live-resolve}
+  regdocs2:
+    collection: aw_dregdocs_cov
+    theme: [ch-industry]
+    sources:
+      elcom_docs:
+        host: www.elcom.admin.ch
+        mode: sitemap
+        sitemaps:
+          - https://www.elcom.admin.ch/sitemap/de.xml
+          - https://www.elcom.admin.ch/sitemap/fr.xml
+          - https://www.elcom.admin.ch/sitemap/it.xml
+        include: '^https://www\.elcom\.admin\.ch/(de|fr|it)/'
+        exclude: '/(kontakt|impressum|newsletter|suche)'
+        pdf_include: '^https://www\.elcom\.admin\.ch/dam/[a-z]{2}/sd-web/[^/]+/.*\.pdf'
+        delay: 2.0
+        cap: 900
+        lang_default: de
+        source_type: official
+        tier: A
+        trust: 0.95
+        license: ch-gov-open-cite
+        attribution: "Eidgenössische Elektrizitätskommission ElCom"
+        consent: {basis: robots-live-resolve}
+      weko_docs:
+        host: www.weko.admin.ch
+        mode: sitemap
+        sitemaps:
+          - https://www.weko.admin.ch/sitemap/de.xml
+          - https://www.weko.admin.ch/sitemap/fr.xml
+          - https://www.weko.admin.ch/sitemap/it.xml
+        include: '^https://www\.weko\.admin\.ch/(de|fr|it)/'
+        exclude: '/(kontakt|impressum|newsletter|stellenangebot|danke|suche)'
+        pdf_include: '^https://www\.weko\.admin\.ch/dam/[a-z]{2}/sd-web/[^/]+/.*\.pdf'
+        delay: 2.0
+        cap: 1300
+        lang_default: de
+        source_type: official
+        tier: A
+        trust: 0.95
+        license: ch-gov-open-cite
+        attribution: "Wettbewerbskommission WEKO"
+        consent: {basis: robots-live-resolve}
+      blv_docs:
+        host: www.blv.admin.ch
+        mode: sitemap
+        sitemaps:
+          - https://www.blv.admin.ch/sitemap/de.xml
+          - https://www.blv.admin.ch/sitemap/fr.xml
+          - https://www.blv.admin.ch/sitemap/it.xml
+        include: '^https://www\.blv\.admin\.ch/(de|fr|it)/'
+        exclude: '/(kontakt|impressum|newsletter|medien$|arbeiten-im-blv)'
+        pdf_include: '^https://www\.blv\.admin\.ch/dam/[a-z]{2}/sd-web/[^/]+/.*\.pdf'
+        delay: 2.0
+        cap: 1700
+        lang_default: de
+        source_type: official
+        tier: A
+        trust: 0.95
+        license: ch-gov-open-cite
+        attribution: "Bundesamt für Lebensmittelsicherheit und Veterinärwesen BLV"
+        consent: {basis: robots-live-resolve}
+        note: "SLMB retired from this host (recon p3a) — not fetchable"
+      anmeldestelle_docs:
+        host: www.anmeldestelle.admin.ch
+        mode: sitemap
+        sitemaps:
+          - https://www.anmeldestelle.admin.ch/sitemap/de.xml
+          - https://www.anmeldestelle.admin.ch/sitemap/fr.xml
+          - https://www.anmeldestelle.admin.ch/sitemap/it.xml
+        include: '^https://www\.anmeldestelle\.admin\.ch/(de|fr|it)/'
+        exclude: '/(kontakt|impressum|newsletter)'
+        pdf_include: '^https://www\.anmeldestelle\.admin\.ch/dam/[a-z]{2}/sd-web/[^/]+/.*\.pdf'
+        delay: 2.0
+        cap: 800
+        lang_default: de
+        source_type: official
+        tier: A
+        trust: 0.95
+        license: ch-gov-open-cite
+        attribution: "Anmeldestelle Chemikalien (BAG/BAFU/SECO)"
+        consent: {basis: robots-live-resolve}
+      oakbv_docs:
+        host: www.oak-bv.admin.ch
+        mode: sitemap
+        sitemaps:
+          - https://www.oak-bv.admin.ch/sitemap/de.xml
+          - https://www.oak-bv.admin.ch/sitemap/fr.xml
+        include: '^https://www\.oak-bv\.admin\.ch/(de|fr)/(weisungen|mitteilungen|publikationen|bericht|faq)'
+        pdf_include: '^https://www\.oak-bv\.admin\.ch/dam/[a-z]{2}/sd-web/[^/]+/.*\.pdf'
+        delay: 2.0
+        cap: 300
+        lang_default: de
+        source_type: official
+        tier: A
+        trust: 0.95
+        license: ch-gov-open-cite
+        attribution: "Oberaufsichtskommission Berufliche Vorsorge OAK BV"
+        consent: {basis: robots-live-resolve}
+  regdocs3:
+    collection: aw_dregdocs_cov
+    theme: [ch-industry]
+    sources:
+      suva_docs:
+        host: www.suva.ch
+        ok_hosts: [www.suva.ch, suva-p-001.sitecorecontenthub.cloud]
+        mode: sitemap
+        sitemaps:
+          - https://www.suva.ch/sitemap/de-CH.xml
+          - https://www.suva.ch/sitemap/fr-CH.xml
+          - https://www.suva.ch/sitemap/it-CH.xml
+        include: '^https://www\.suva\.ch/(de|fr|it)-ch/download/'
+        exclude: '/download/videos/'
+        # PDFs live on the contenthub host whose robots explicitly Allows
+        # /api/public/ (recon p3b, verified end-to-end). www.suva.ch/*.pdf
+        # and */api/ are robots-disallowed and are NEVER requested.
+        pdf_include: '^https://suva-p-001\.sitecorecontenthub\.cloud/api/public/content/[0-9a-f]+\?v=[0-9a-f]+&download=true$'
+        lang_url_re: '/(de|fr|it)-ch/'
+        delay: 2.0
+        cap: 5500
+        lang_default: de
+        source_type: official
+        tier: A
+        trust: 0.9
+        license: proprietary-index-only
+        license_version: "no explicit reuse terms (recon p3b) — index-only, train_ok=false"
+        attribution: "Suva — Schweizerische Unfallversicherungsanstalt"
+        train_ok: false
+        consent: {basis: robots-live-resolve}
+      swissgrid_docs:
+        host: www.swissgrid.ch
+        mode: sitemap
+        sitemaps:
+          - https://www.swissgrid.ch/de/home.sitemap.xml
+          - https://www.swissgrid.ch/fr/home.sitemap.xml
+          - https://www.swissgrid.ch/it/home.sitemap.xml
+        include: '^https://www\.swissgrid\.ch/(de|fr|it)/home/'
+        pdf_include: '^https://www\.swissgrid\.ch/dam/jcr:[0-9a-f-]+/.*\.pdf$'
+        delay: 2.0
+        cap: 2600
+        lang_default: de
+        source_type: official
+        tier: A
+        trust: 0.9
+        license: proprietary-index-only
+        license_version: "all rights reserved (legal-information page, recon p3b) — index-only, train_ok=false"
+        attribution: "Swissgrid AG"
+        train_ok: false
+        consent: {basis: robots-live-resolve}
+      bav_docs:
+        host: www.bav.admin.ch
+        mode: sitemap
+        sitemaps: [https://www.bav.admin.ch/sitemap.xml]
+        include: '^https://www\.bav\.admin\.ch/(de|fr|it)/'
+        exclude: '/(kontakt|impressum|newsletter|suche)'
+        pdf_include: '^https://www\.bav\.admin\.ch/dam/(de|fr|it)/sd-web/[^/]+/.*\.pdf'
+        delay: 2.0
+        cap: 2500
+        lang_default: de
+        source_type: official
+        tier: A
+        trust: 0.95
+        license: ch-gov-open-cite
+        attribution: "Bundesamt für Verkehr BAV"
+        consent: {basis: robots-live-resolve}
+      bazl_docs:
+        host: www.bazl.admin.ch
+        mode: sitemap
+        sitemaps: [https://www.bazl.admin.ch/sitemap.xml]
+        include: '^https://www\.bazl\.admin\.ch/(de|fr|it|en)/'
+        exclude: '/(kontakt|impressum|newsletter|suche)'
+        pdf_include: '^https://www\.bazl\.admin\.ch/dam/(de|fr|it|en)/sd-web/[^/]+/.*\.pdf'
+        delay: 2.0
+        cap: 3000
+        lang_default: de
+        source_type: official
+        tier: A
+        trust: 0.95
+        license: ch-gov-open-cite
+        attribution: "Bundesamt für Zivilluftfahrt BAZL"
+        consent: {basis: robots-live-resolve}
+      astra_docs:
+        host: www.astra.admin.ch
+        mode: sitemap
+        sitemaps: [https://www.astra.admin.ch/sitemap.xml]
+        include: '^https://www\.astra\.admin\.ch/(de|fr|it)/'
+        exclude: '/(kontakt|impressum|newsletter|suche)'
+        pdf_include: '^https://www\.astra\.admin\.ch/dam/(de|fr|it)/sd-web/[^/]+/.*\.pdf'
+        delay: 2.0
+        cap: 5000
+        lang_default: de
+        source_type: official
+        tier: A
+        trust: 0.95
+        license: ch-gov-open-cite
+        attribution: "Bundesamt für Strassen ASTRA"
+        consent: {basis: robots-live-resolve}
+      enisa_pubs:
+        host: www.enisa.europa.eu
+        mode: sitemap
+        sitemaps: [https://www.enisa.europa.eu/sitemap.xml]
+        include: '^https://www\.enisa\.europa\.eu/publications/'
+        pdf_include: '^https://www\.enisa\.europa\.eu/sites/default/files/publications/.*\.pdf$'
+        delay: 2.0
+        cap: 1400
+        lang_default: en
+        source_type: official
+        tier: A
+        trust: 0.9
+        license: eu-reuse-attribution
+        license_version: "ENISA legal notice: reproduction authorized with source acknowledgement, per-doc exceptions possible"
+        attribution: "European Union Agency for Cybersecurity (ENISA)"
+        consent: {basis: robots-live-resolve}
+        theme: [ch-industry, social-contract]
+  # ---- P1 social-contract IGO core, wave 1: VERIFIED routes only ----------
+  # (recon task 351 recon igo_routes.yaml, 2026-07-28)
+  # DEFERRED honestly (blocked routes, never spoofed): unesdoc (Cloudflare JS
+  # challenge, no OAI), ohchr bulk (CF 403), iea (fully bot-blocked), ilo
+  # research repository (OAI unauthorized, SPA), itu bulk (REST auth-gated ->
+  # cards later), wipo (CC BY 4.0 default ratified route but TIND OAI list
+  # verbs 500 server-side — retry later), oecd.ai national-policies DB (API
+  # not curl-locatable — needs one headless capture first).
+  igo:
+    collection: aw_digo_cov
+    theme: [social-contract]
+    sources:
+      iris_meta:
+        host: iris.who.int
+        mode: oai
+        endpoint: https://iris.who.int/server/oai/request
+        metadata_prefix: oai_dc
+        sets: [com_10665_8]        # Headquarters publications (195,030)
+        record_kind: meta          # minimal-record posture (Tim, PR #47):
+                                   # title+abstract embedded, URL surfaced,
+                                   # NO content fetched, NO full-text mirror
+        identifier_re: 'iris\.who\.int'
+        pdf_from: none
+        max_records: 0
+        delay: 2.0
+        cap: 200000                # metadata harvest is cheap; SELECTION to
+                                   # the ~50k budget happens post-harvest on
+                                   # subject/doc_type (documented in task doc)
+        lang_default: en
+        source_type: official
+        tier: A
+        trust: 0.95
+        license: who-rights-reserved-minimal-record
+        license_version: "per-record dc:rights honored where present (CC BY-NC-SA 3.0 IGO on newer pubs)"
+        attribution: "World Health Organization (IRIS)"
+        consent: {basis: robots-live-resolve}
+      who_factsheets:
+        host: www.who.int
+        mode: listing
+        seeds: ["https://www.who.int/news-room/fact-sheets"]
+        doc_re: 'href="(/news-room/fact-sheets/detail/[^"#?]+)"'
+        delay: 2.0
+        cap: 320
+        lang_default: en
+        source_type: official
+        tier: A
+        trust: 0.95
+        license: who-rights-reserved-minimal-record
+        attribution: "World Health Organization"
+        consent: {basis: robots-live-resolve}
+      normlex:
+        host: normlex.ilo.org
+        mode: urllist
+        keep_query: true
+        code_patterns:
+          - template: "https://normlex.ilo.org/dyn/nrmlx_en/f?p=NORMLEXPUB:12100:0::NO::P12100_ILO_CODE:{code}"
+            codes: ["C001-C190", "R001-R206", "P029", "P081", "P089", "P110", "P147", "P155"]
+            lang: en
+          - template: "https://normlex.ilo.org/dyn/nrmlx_fr/f?p=NORMLEXPUB:12100:0::NO::P12100_ILO_CODE:{code}"
+            codes: ["C001-C190", "R001-R206", "P029", "P081", "P089", "P110", "P147", "P155"]
+            lang: fr
+        delay: 3.0                 # APEX app — extra gentle; httpx client
+                                   # cookie persistence handles the APEX
+                                   # session redirect (curl-L alone loops)
+        cap: 850
+        lang_default: en
+        source_type: official
+        tier: A
+        trust: 0.95
+        license: ilo-normative-text
+        license_version: "official normative texts; no explicit license statement (recon igo_routes)"
+        attribution: "International Labour Organization (NORMLEX)"
+        consent: {basis: robots-live-resolve}
+      oecdai_posts:
+        host: oecd.ai
+        mode: listing
+        ok_hosts: ["oecd.ai", "www.oecd.ai"]
+        seeds: ["https://wp.oecd.ai/wp-json/wp/v2/posts?per_page=100&page={n}"]
+        n_start: 1
+        n_max: 40
+        doc_re: '"link":\s*"(https:\\?/\\?/(?:www\.)?oecd\.ai\\?/[^"]+)"'
+        exclude: '/fr/'            # robots disallows /fr/* on oecd.ai
+        delay: 2.0
+        cap: 1600
+        lang_default: en
+        source_type: official
+        tier: A
+        trust: 0.9
+        license: oecd-terms
+        license_version: "OECD.AI observatory content; site terms not individually verified — minimal records only, flag for follow-up"
+        attribution: "OECD.AI Policy Observatory"
+        consent: {basis: robots-live-resolve}
+  # ---- P1 ch-industry intl technical guidance, wave 1: VERIFIED routes ----
+  # (recon task 351 recon intl_standards.yaml, 2026-07-28)
+  # BLOCKED honestly (never crawled around): echa (403-edge from the orchestrator box AND
+  # the build box), imdrf + iso20022 (Akamai silent-drop, both hosts/UAs — likely
+  # shared ASN edge rule, retry from other egress later), edqm (Cloudflare
+  # JS-challenge on all content; robots content-signal says ai-train=no ->
+  # train_ok=false if ever admitted), iso.org (403 everywhere INCL Common
+  # Crawl 38/38 captures = 403 — the ratified 20k-card slice needs a
+  # licensed feed/partner route: BLOCKED DECISION, not an engineering task).
+  # DEFERRED with route documented: etsi /deliver/ autoindex walk (cards
+  # from path structure, zero doc fetches — needs a 2-level recursive
+  # enumerator); sia shop (ASP.NET __doPostBack pagination defeats plain
+  # crawling); snv (editorial site, catalog is a separate webshop — skip).
+  intlguid:
+    collection: aw_dintlguid_cov
+    theme: [ch-industry]
+    sources:
+      ich_guidelines:
+        host: database.ich.org
+        mode: listing
+        ok_hosts: ["database.ich.org"]
+        seeds:
+          - "https://admin.ich.org/api/v1/nodes?loadEntities%5B%5D=paragraph&alias=/page/quality-guidelines"
+          - "https://admin.ich.org/api/v1/nodes?loadEntities%5B%5D=paragraph&alias=/page/safety-guidelines"
+          - "https://admin.ich.org/api/v1/nodes?loadEntities%5B%5D=paragraph&alias=/page/efficacy-guidelines"
+          - "https://admin.ich.org/api/v1/nodes?loadEntities%5B%5D=paragraph&alias=/page/multidisciplinary-guidelines"
+        doc_re: '(https:\\?/\\?/database\.ich\.org\\?/sites\\?/default\\?/files\\?/[^"\\]+\.pdf)'
+        delay: 2.0
+        cap: 450
+        lang_default: en
+        source_type: official
+        tier: A
+        trust: 0.95
+        license: ich-open-with-attribution
+        license_version: "ICH Legal Mentions: use/reproduction/distribution permitted with copyright acknowledgment; third-party carve-out"
+        attribution: "International Council for Harmonisation (ICH)"
+        consent: {basis: robots-live-resolve}
+      pics_gmp:
+        host: picscheme.org
+        mode: listing
+        seeds: ["https://picscheme.org/en/publications?tri=all"]
+        doc_re: 'href="(/docview/\d+)"'
+        delay: 10.0            # robots Crawl-delay: 10 — honored
+        cap: 160
+        lang_default: en
+        source_type: official
+        tier: A
+        trust: 0.9
+        license: pics-terms-minimal-record
+        license_version: "PIC/S copyright-disclaimer: single-copy personal non-commercial; minimal records only, train_ok=false"
+        attribution: "Pharmaceutical Inspection Co-operation Scheme (PIC/S)"
+        consent: {basis: robots-live-resolve}
+      iais_docs:
+        host: www.iais.org
+        mode: sitemap
+        sitemaps: ["https://www.iais.org/sitemap.xml"]
+        include: '^https://www\.iais\.org/(uploads/|activities-topics|icp)'
+        delay: 2.0
+        cap: 900
+        lang_default: en
+        source_type: official
+        tier: A
+        trust: 0.9
+        license: iais-noncommercial-attribution
+        license_version: "IAIS terms: reproduce/distribute/translate with attribution, not for private/commercial gain — NC posture, minimal records"
+        attribution: "International Association of Insurance Supervisors (IAIS)"
+        consent: {basis: robots-live-resolve}
+        note: "888 malformed empty-host sitemap locs auto-dropped by host filter (recon)"
+      ech_standards:
+        host: www.ech.ch
+        mode: sitemap
+        sitemaps: ["https://www.ech.ch/sitemap.xml"]
+        include: '^https://www\.ech\.ch/(de|fr)/'
+        pdf_include: '(?i)^https://www\.ech\.ch/.*\.pdf'
+        delay: 2.0
+        cap: 1500
+        lang_default: de
+        source_type: official
+        tier: A
+        trust: 0.9
+        license: ech-open-access-adr082
+        license_version: "ADMITTED per ADR-082 (2026-07-28): standards state free use/redistribution/adaptation with attribution (Art. front-matter §5/§6, verified across 2016/2023/2025 vintages); no named license, train_ok=false (conservative, ADR-076 pattern)"
+        attribution: "Verein eCH"
+        train_ok: false
+        consent: {basis: robots-live-resolve}
+      vkf_bsv:
+        host: www.bsvonline.ch
+        mode: listing
+        ok_hosts: ["www.bsvonline.ch", "services2.vkf.ch"]
+        seeds:
+          - "https://www.bsvonline.ch/de/brandschutzvorschriften/vorschriften-2015"
+          - "https://www.bsvonline.ch/fr/brandschutzvorschriften/vorschriften-2015"
+          - "https://www.bsvonline.ch/it/brandschutzvorschriften/vorschriften-2015"
+        # Astro serializes the authoritative document title and transport URL
+        # in the same record. Named groups retain both in the inventory; this
+        # avoids the generic REST leaf "content" becoming the document title.
+        doc_re: '(?s)&quot;fileLeafRef&quot;:\[0,&quot;[^&]*?&quot;\],&quot;title&quot;:\[0,&quot;(?P<title>.*?)&quot;\].{0,5000}?&quot;dokumentUrl&quot;:\[0,&quot;(?P<url>https://services2\.vkf\.ch/rest/public/georg/bs/publikation/documents/BSPUB-[0-9-]+\.pdf/content)&quot;\]'
+        delay: 2.0
+        cap: 320
+        lang_default: de
+        source_type: official
+        tier: A
+        trust: 0.9
+        license: vkf-open-published-adr082
+        license_version: "ADMITTED per ADR-082 (2026-07-28): bare copyright notice only, but the fire codes are declared generally binding by intercantonal authority (URG Art. 5 official-works exclusion applies at minimum arguably), VKF itself distributes free on its own portal, and AW never mirrors the PDFs; train_ok=false"
+        attribution: "Vereinigung Kantonaler Feuerversicherungen VKF"
+        train_ok: false
+        consent: {basis: robots-live-resolve}
+        note: "2026 revision in flight — plan refresh; HEAD returns 400 on doc URLs, GET works. Canonical-URL check (task 355): the bsvonline listing's JSON blob carries only one per-document URL (dokumentUrl -> the services2 REST path) — no separate stable bsvonline/praever document-detail permalink found per document, so the REST path is used as url (ADR-082's 'prefer the stable link where both exist' has no alternate to prefer here; re-check if VKF ever adds per-doc landing pages)."
+      entsoe_codes:
+        host: www.entsoe.eu
+        mode: urllist
+        urls:
+          - https://www.entsoe.eu/network_codes/
+          - https://www.entsoe.eu/network_codes/cacm/
+          - https://www.entsoe.eu/network_codes/dcc/
+          - https://www.entsoe.eu/network_codes/eb/
+          - https://www.entsoe.eu/network_codes/fca/
+          - https://www.entsoe.eu/network_codes/hvdc/
+          - https://www.entsoe.eu/network_codes/er/
+          - https://www.entsoe.eu/network_codes/sys-ops/
+          - https://www.entsoe.eu/network_codes/rfg/
+        delay: 2.0
+        cap: 40
+        lang_default: en
+        source_type: official
+        tier: A
+        trust: 0.9
+        license: entsoe-rights-reserved-minimal-record
+        license_version: "disclaimer: contents owned/copyrighted by ENTSO-E all rights reserved — T1 hub pages only, minimal records + pointer"
+        attribution: "ENTSO-E"
+        consent: {basis: robots-live-resolve}
+  # ---- P2 social-contract CH governance, wave 1: VERIFIED routes only -----
+  # (recon task 351 recon chgov_coe_vet.yaml + .md, 2026-07-28)
+  # Trust per specs/social-contract-coverage.md §2 P2 table (edoeb/bk/fedpol/
+  # ab-nd 1.0, nek-cne 0.95, others 0.9).
+  # SKIPPED/DEFERRED honestly (never worked around):
+  #  * edk.ch — its API backend edk-api.webcloud7.ch is Cloudflare-403; the
+  #    real EDK document corpus is edudoc.ch (ingested below); the small
+  #    edk.ch SSR page shell adds little — fold into a later wave if wanted.
+  #  * educa.ch — www sitemap is MISCONFIGURED (children list only
+  #    sistemdafurmaziun.educa.ch); a www nav-crawl needs a BFS enumerator
+  #    this engine doesn't have; edudoc.ch carries the document weight.
+  #    License gold captured: educa impressum = CC BY-NC-ND (recon).
+  #  * opendata.swiss — CKAN API verified (package_search, count=16108,
+  #    rows<=1000+start paging, per-dataset 4-symbol terms) but needs a
+  #    ckan-mode enumerator (metadata cards, not page fetches) — DEFERRED
+  #    to a dedicated cards lane; route fully documented in the recon YAML.
+  #  * ethz/epfl Swiss-AI sections (B/0.8, ~2k) — not in this wave's brief.
+  # Engine notes baked into the routes below:
+  #  * edoeb serves SSR HTML but PDF links exist ONLY inside the Nuxt JSON
+  #    blob (0 href anchors on the doc hubs — verified 2026-07-28), so PDFs
+  #    are enumerated by a listing source (doc_re over raw HTML) and the
+  #    page corpus by a separate sitemap source. Both sources share the
+  #    host: delay 4.0 each => ~2s effective per-host spacing (politeness
+  #    scheduling is per-source).
+  #  * nek-cne uses <base href> + relative 'inhalte/...' hrefs which
+  #    urljoin-against-page-URL mis-resolves (verified 404) — enumerated
+  #    into an explicit urls_file by the task 351b url-list generator
+  #    (runs on the build box, 18 listing-page fetches, base-href-aware).
+  chgov:
+    collection: aw_dchgov_cov
+    theme: [social-contract]
+    sources:
+      edoeb_pages:
+        host: www.edoeb.admin.ch
+        mode: sitemap
+        sitemaps:
+          - https://www.edoeb.admin.ch/sitemap/de.xml
+          - https://www.edoeb.admin.ch/sitemap/fr.xml
+          - https://www.edoeb.admin.ch/sitemap/it.xml
+        include: '^https://www\.edoeb\.admin\.ch/(de|fr|it)/'
+        exclude: '/(kontakt|impressum|newsletter|suche)'
+        delay: 4.0            # shares host with edoeb_docs (see pack header)
+        cap: 950
+        lang_default: de
+        source_type: official
+        tier: A
+        trust: 1.0
+        license: ch-gov-open-cite
+        attribution: "Eidgenössischer Datenschutz- und Öffentlichkeitsbeauftragter EDÖB"
+        consent: {basis: robots-live-resolve}
+        provenance_note: "P2 priority source — T3-class deepen from 330 pts"
+      edoeb_docs:
+        host: www.edoeb.admin.ch
+        mode: listing
+        ok_hosts: ["backend.edoeb.admin.ch"]
+        seeds:               # the two doc-hub families, all langs (slugs
+          # verified live 2026-07-28: DE hub carries 128 unique PDFs,
+          # BGOe DE hub 113; PDFs = backend fileservice UUID names, so
+          # titles come from Docling/metadata, never the filename)
+          - https://www.edoeb.admin.ch/de/dokumentation-datenschutz
+          - https://www.edoeb.admin.ch/fr/documentation-protection-des-donnees
+          - https://www.edoeb.admin.ch/it/documentazione-protezione-dei-dati
+          - https://www.edoeb.admin.ch/de/dokumentation-bgoe
+          - https://www.edoeb.admin.ch/fr/documentation-ltrans
+          - https://www.edoeb.admin.ch/it/documentazione-ltras
+        doc_re: '"(https://backend\.edoeb\.admin\.ch/fileservice/[^"]+\.pdf)"'
+        delay: 4.0
+        cap: 900
+        lang_default: de     # backend URLs carry no lang segment; the gate's
+                             # fasttext LID re-detects from content
+        source_type: official
+        tier: A
+        trust: 1.0
+        license: ch-gov-open-cite
+        attribution: "Eidgenössischer Datenschutz- und Öffentlichkeitsbeauftragter EDÖB"
+        consent: {basis: robots-live-resolve}
+      bk_digital:
+        host: www.bk.admin.ch
+        mode: sitemap
+        sitemaps:
+          - https://www.bk.admin.ch/sitemap/de.xml
+          - https://www.bk.admin.ch/sitemap/fr.xml
+          - https://www.bk.admin.ch/sitemap/it.xml
+        # e-voting + Digital Switzerland sections only (752 locs/lang total);
+        # www.digital.swiss 302s to /de/digitale-schweiz — covered here
+        include: '^https://www\.bk\.admin\.ch/(de|fr|it)/[^?]*(e-voting|evoting|vote-electronique|voto-elettronico|digital|berichte-und-studien|politische-rechte)'
+        exclude: '/(kontakt|impressum|newsletter|suche)'
+        pdf_include: '^https://backend\.bk\.admin\.ch/fileservice/[^"\s]+\.pdf'
+        delay: 2.0
+        cap: 700
+        lang_default: de
+        source_type: official
+        tier: A
+        trust: 1.0
+        license: ch-gov-open-cite
+        attribution: "Schweizerische Bundeskanzlei BK"
+        consent: {basis: robots-live-resolve}
+      nek_cne:
+        host: www.nek-cne.admin.ch
+        mode: urllist
+        # generated on the build box by the task 351b url-list generator
+        # from the 6 DE publication sections + their FR/IT lang-nav
+        # equivalents (base-href-aware resolution; see pack header)
+        urls_file: chgov/nek_urls.jsonl
+        lang_url_re: '/(de|fr|it)/'
+        delay: 2.0
+        cap: 350               # generated list = 305 rows (20 pages + 285 PDFs)
+        lang_default: de
+        source_type: official
+        tier: A
+        trust: 0.95
+        license: ch-gov-open-cite
+        attribution: "Nationale Ethikkommission im Bereich der Humanmedizin NEK-CNE"
+        consent: {basis: robots-live-resolve}
+      fedpol_docs:
+        host: www.fedpol.admin.ch
+        mode: sitemap
+        sitemaps:
+          - https://www.fedpol.admin.ch/sitemap/de.xml
+          - https://www.fedpol.admin.ch/sitemap/fr.xml
+          - https://www.fedpol.admin.ch/sitemap/it.xml
+        include: '^https://www\.fedpol\.admin\.ch/(de|fr|it)/'
+        exclude: '/(kontakt|impressum|newsletter|suche)'
+        pdf_include: '^https://www\.fedpol\.admin\.ch/dam/[^"\s]+\.pdf'
+        delay: 2.0
+        cap: 1100
+        lang_default: de
+        source_type: official
+        tier: A
+        trust: 1.0
+        license: ch-gov-open-cite
+        attribution: "Bundesamt für Polizei fedpol"
+        consent: {basis: robots-live-resolve}
+      abnd_docs:
+        host: www.ab-nd.admin.ch
+        mode: sitemap
+        sitemaps:
+          - https://www.ab-nd.admin.ch/sitemap/de.xml
+          - https://www.ab-nd.admin.ch/sitemap/fr.xml
+          - https://www.ab-nd.admin.ch/sitemap/it.xml
+        include: '^https://www\.ab-nd\.admin\.ch/(de|fr|it)/'
+        pdf_include: '^https://www\.ab-nd\.admin\.ch/dam/[^"\s]+\.pdf'
+        delay: 2.0
+        cap: 150
+        lang_default: de
+        source_type: official
+        tier: A
+        trust: 1.0
+        license: ch-gov-open-cite
+        attribution: "Unabhängige Aufsichtsbehörde über die nachrichtendienstlichen Tätigkeiten AB-ND"
+        consent: {basis: robots-live-resolve}
+      ta_swiss:
+        host: www.ta-swiss.ch
+        mode: sitemap
+        sitemaps:              # the 3 useful Yoast children (skip event/modal)
+          - https://www.ta-swiss.ch/project-sitemap.xml
+          - https://www.ta-swiss.ch/page-sitemap.xml
+          - https://www.ta-swiss.ch/post-sitemap.xml
+        include: '^https://www\.ta-swiss\.ch/'
+        exclude: '/(impressum|kontakt|datenschutz)'
+        pdf_include: '(?i)^https://www\.ta-swiss\.ch/app/uploads/.*\.pdf'
+        delay: 2.0
+        cap: 700
+        lang_default: de
+        source_type: official
+        tier: A
+        trust: 0.9
+        license: cc-by-4.0
+        license_version: "impressum (verified 2026-07-28): 'Wenn nicht anders vermerkt, stehen die Texte dieser Website unter der freien Lizenz CC-BY 4.0.' — PDFs may carry their own notice, per-doc check downstream"
+        attribution: "TA-SWISS Stiftung für Technologiefolgen-Abschätzung"
+        consent: {basis: robots-live-resolve}
+      privatim_docs:
+        host: www.privatim.ch
+        mode: sitemap
+        sitemaps:
+          - https://www.privatim.ch/de/wp-sitemap-posts-post-1.xml
+          - https://www.privatim.ch/de/wp-sitemap-posts-page-1.xml
+          - https://www.privatim.ch/fr/wp-sitemap-posts-post-1.xml
+          - https://www.privatim.ch/fr/wp-sitemap-posts-page-1.xml
+        include: '^https://www\.privatim\.ch/(de|fr)/'
+        pdf_include: '^https://www\.privatim\.ch/wp-content/uploads/[^"\s]+\.pdf'
+        lang_url_re: '/(de|fr)/'
+        delay: 2.0
+        cap: 450
+        lang_default: de
+        source_type: official
+        tier: A
+        trust: 0.9
+        license: privatim-silent-minimal-record
+        license_version: "impressum SILENT on reuse (recon 2026-07-28) — all-rights-reserved default; minimal records, train_ok=false; cantonal-DPA conference guidance is quasi-official but privatim is a Verein"
+        attribution: "privatim — Konferenz der schweizerischen Datenschutzbeauftragten"
+        consent: {basis: robots-live-resolve}
+      skos_docs:
+        host: skos.ch
+        mode: sitemap
+        sitemaps: [https://skos.ch/sitemap.xml]   # TYPO3 index; child sitemap
+        # URLs carry cHash (the /*cHash disallow targets duplicate content
+        # pages — the sitemap itself advertises these children; page locs
+        # are clean, recon-verified)
+        # ONLY the open RiL-context + Merkblätter/Praxishilfen subtree. The
+        # RiL FULL TEXT lives on rl.skos.ch — an ExtJS JS-app, NOT crawlable
+        # with this engine (recon): recorded as a known gap; print RiL is
+        # sold via /shop (excluded).
+        include: '^https://skos\.ch/skos-richtlinien'
+        exclude: '/(shop|typo3|intern)'
+        pdf_include: '^https://skos\.ch/fileadmin/user_upload/skos_main/public/[^"\s]+\.pdf'
+        delay: 2.0
+        cap: 400
+        lang_default: de
+        source_type: official
+        tier: A
+        trust: 0.9
+        license: skos-silent-minimal-record
+        license_version: "impressum silent on reuse, footer '© SKOS' only (recon) — all-rights-reserved default; minimal records, train_ok=false; RiL normative content quasi-official (referenced by cantonal law) but SKOS holds copyright"
+        attribution: "Schweizerische Konferenz für Sozialhilfe SKOS"
+        consent: {basis: robots-live-resolve}
+      edudoc_records:
+        host: edudoc.ch
+        mode: sitemap
+        sitemaps: [https://edudoc.ch/sitemap_index.xml.gz]  # 6 gz children,
+        # ~137k locs ~= 65-70k Invenio records — the REAL EDK/IDES corpus.
+        # WAVE-1 CAP 3000 (record pages + their harvested PDFs); the full
+        # sweep is a later dedicated wave with metadata-driven selection
+        # (publisher=EDK/IDES; see recon).
+        include: '^https://edudoc\.ch/record/[0-9]+$'
+        pdf_include: '^https://edudoc\.ch/record/[0-9]+/files/[^"\s]+\.pdf$'
+        delay: 5.0           # robots Crawl-Delay: 5 — honored at enumerate
+                             # too (eff_delay at fetch = max(5, robots 5))
+        cap: 3000
+        lang_default: de
+        source_type: official
+        tier: A
+        trust: 0.9
+        license: edk-official-mixed
+        license_version: "record pages show no license field (recon) — EDK/cantonal official docs largely amtliche Werke (URG Art. 5 reading); educa.ch-published content CC BY-NC-ND per educa impressum; per-record rights honored where present; minimal-record posture otherwise"
+        attribution: "edudoc.ch — Schweizerischer Dokumentenserver Bildung (EDK/IDES)"
+        consent: {basis: robots-live-resolve}
+  # ---- P5 ch-industry VET / professional education, wave 1 ----------------
+  # (recon task 351 recon chgov_coe_vet.yaml Group C, 2026-07-28)
+  # A/0.9 per specs/ch-industry-coverage.md §2 P5.
+  # !! becc.admin.ch / bvz.admin.ch (the SBFI Berufsverzeichnis — THE pack
+  #    core, ~940 professions, Bildungsplan PDFs): robots.txt says
+  #    'User-agent: * / Disallow: /'. Under live-consent policy (POLICY §2
+  #    U1 / ADR-076) search_ok resolves FALSE -> NOT INGESTED, full stop.
+  #    The file is visibly a template default (comment 'Add here the private
+  #    directories...' with the real list commented out) on a public federal
+  #    register, and the register is fully server-rendered + enumerable
+  #    (showAllActive?offset=N&max=60, /beruf/show/<id>,
+  #    /beruf/download/<docId> — all recon-verified) — but as written it
+  #    forbids crawling and we never work around robots.
+  #    FALLBACK in scope elsewhere: Bildungsverordnungen live on fedlex
+  #    (already admissible); sbfi.admin.ch policy pages ingested below.
+  #    ACTION: a polite DE email asking whether the exclusion is intentional
+  #    is DRAFTED at the task 351 BECC robots email draft for the
+  #    orchestrator to send to berufsverzeichnis@sbfi.admin.ch (NOT sent).
+  vet:
+    collection: aw_dvet_cov
+    theme: [ch-industry]
+    sources:
+      sdbb_de:
+        host: www.berufsbildung.ch
+        mode: sitemap
+        sitemaps: [https://www.berufsbildung.ch/de/sitemap.xml]
+        # 955 locs: 647 /de/dokumente/* (302 straight to the S3 PDF — the
+        # /dokumente/ URL stays canonical, fetch follows the redirect and
+        # detects PDF by content-type) + 232 /de/lexikon/* HTML entries
+        include: '^https://www\.berufsbildung\.ch/de/(dokumente|lexikon)/'
+        delay: 2.0
+        cap: 900
+        lang_default: de
+        source_type: official
+        tier: A
+        trust: 0.9
+        license: sdbb-arr-minimal-record
+        license_version: "/de/rechtliches (verified): '© SDBB, Bern. Alle Rechte vorbehalten.' — minimal records, train_ok=false; docs openly served without login"
+        attribution: "SDBB | CSFO — Schweizerisches Dienstleistungszentrum Berufsbildung"
+        consent: {basis: robots-live-resolve}
+      sdbb_fr:
+        host: www.formationprof.ch
+        mode: sitemap
+        sitemaps: [https://www.formationprof.ch/fr/sitemap.xml]  # sister
+        # domain listed in berufsbildung.ch robots (recon)
+        include: '^https://www\.formationprof\.ch/fr/(documents|lexique)/'
+        delay: 2.0
+        cap: 900
+        lang_default: fr
+        source_type: official
+        tier: A
+        trust: 0.9
+        license: sdbb-arr-minimal-record
+        license_version: "© SDBB/CSFO, all rights reserved (DE terms page) — minimal records, train_ok=false"
+        attribution: "SDBB | CSFO — Centre suisse de services Formation professionnelle"
+        consent: {basis: robots-live-resolve}
+      sdbb_it:
+        host: www.formazioneprof.ch
+        mode: sitemap
+        sitemaps: [https://www.formazioneprof.ch/it/sitemap.xml]
+        include: '^https://www\.formazioneprof\.ch/it/(documenti|lessico)/'
+        delay: 2.0
+        cap: 900
+        lang_default: it
+        source_type: official
+        tier: A
+        trust: 0.9
+        license: sdbb-arr-minimal-record
+        license_version: "© SDBB/CSFO, all rights reserved (DE terms page) — minimal records, train_ok=false"
+        attribution: "SDBB | CSFO — Centro svizzero di servizio Formazione professionale"
+        consent: {basis: robots-live-resolve}
+      sbfi_vet:
+        host: www.sbfi.admin.ch
+        mode: sitemap          # RELAUNCHED CMS (old AEM sitemap is 404)
+        sitemaps:
+          - https://www.sbfi.admin.ch/sitemap/de.xml
+          - https://www.sbfi.admin.ch/sitemap/fr.xml
+          - https://www.sbfi.admin.ch/sitemap/it.xml
+        include: '^https://www\.sbfi\.admin\.ch/(de|fr|it)/[^?]*(berufsbildung|hoehere|pruefung|berufsmaturit|formation-professionnelle|formazione-professionale|maturite|maturita|examen|esami)'
+        exclude: '/(kontakt|impressum|newsletter|suche)'
+        pdf_include: '^https://www\.sbfi\.admin\.ch/dam/[^"\s]+\.pdf'
+        delay: 2.0
+        cap: 600
+        lang_default: de
+        source_type: official
+        tier: A
+        trust: 0.9
+        license: ch-gov-open-cite
+        attribution: "Staatssekretariat für Bildung, Forschung und Innovation SBFI"
+        consent: {basis: robots-live-resolve}
+      ehb_pubs:
+        host: www.ehb.swiss
+        mode: sitemap
+        sitemaps: [https://www.ehb.swiss/sitemap.xml]  # simple_sitemap index,
+        # 8 children, ~12-15k locs mixing ehb.swiss + hefp.swiss; the host
+        # filter keeps ehb.swiss; publication/project slice only
+        include: '^https://www\.ehb\.swiss/(forschung/publikationen|projekt)/'
+        delay: 2.0
+        cap: 700              # all-rights-reserved -> cards posture: small
+                              # cap, publication-card pages only
+        lang_default: de
+        source_type: official
+        tier: A
+        trust: 0.9
+        license: ehb-arr-minimal-record
+        license_version: "impressum (verified): 'Der gesamte Inhalt dieser Website ... urheberrechtlich geschuetzt. Die Rechte liegen ... bei der EHB.' — minimal records, train_ok=false"
+        attribution: "Eidgenössische Hochschule für Berufsbildung EHB"
+        consent: {basis: robots-live-resolve}
+      hefp_pubs:
+        host: www.hefp.swiss
+        mode: sitemap
+        sitemaps: [https://www.ehb.swiss/sitemap.xml]  # SAME sitemap carries
+        # both hosts' URLs (recon); this source keeps the hefp.swiss slice
+        include: '^https://www\.hefp\.swiss/(recherche/publications|projet)/'
+        delay: 2.0
+        cap: 500
+        lang_default: fr
+        source_type: official
+        tier: A
+        trust: 0.9
+        license: ehb-arr-minimal-record
+        license_version: "© EHB/HEFP all rights reserved (impressum) — minimal records, train_ok=false"
+        attribution: "Haute école fédérale en formation professionnelle HEFP"
+        consent: {basis: robots-live-resolve}
+  # ---- P3 social-contract CoE/EU rights institutions, wave 1 --------------
+  # (recon task 351 recon chgov_coe_vet.yaml Group B, 2026-07-28)
+  # A/0.95 per specs/social-contract-coverage.md §2 P3.
+  # BLOCKED honestly (never spoofed/crawled around):
+  #  * www.coe.int + rm.coe.int — Cloudflare 'Attention Required' 403 on ALL
+  #    paths incl. robots.txt, both UAs, from 2 IPs (two vantages) =
+  #    fingerprint-level block. Defer: headless capture or CC-WARC lane.
+  #    (CEPEJ AI charter + Framework Convention on AI live here.)
+  #  * edps.europa.eu — nginx 403s our declared bot UA on every path; they
+  #    refuse declared bots. Defer/contact; never spoof.
+  #  * hudoc.echr.coe.int — JSON API verified live (resultcount=16486 since
+  #    2024) then began serving the static CoE 404 to this client after ~6
+  #    hits (dispatch-family per-client gating). kpdate-windowed sweeps at
+  #    <=1 req/30s = a later dedicated lane, not this engine's fetch loop.
+  #  * fra.europa.eu — robots allows, but a custom challenge intercepts
+  #    HTML+sitemap for curl (both UAs); direct /sites/default/files/
+  #    fra_uploads/*.pdf DO return 200 to our UA. The recon gives NO
+  #    concrete enumerable list route without CC-CDX (unavailable this
+  #    session) or headless -> DEFERRED per brief; when a CC-CDX lane
+  #    exists, enumerate fra.europa.eu/en/publication/* there and fetch
+  #    PDFs directly.
+  coe:
+    collection: aw_dcoe_cov
+    theme: [social-contract]
+    sources:
+      venice_docs:
+        host: www.venice.coe.int
+        mode: urllist
+        # venice.coe.int is NOT behind the coe.int Cloudflare block (recon).
+        # Per-document delivery verified: default.aspx?pdffile=<CDL-ref>
+        # 302s to docs-venice.coe.int/api/Document -> PDF 200. The search
+        # UI/listing is gated (dispatch.coe.int) — enumeration is a BOUNDED
+        # REFERENCE-PATTERN SWEEP of recent years only, generated into a
+        # urls_file by the task 351b url-list generator:
+        #   EN: CDL-AD(2019..2026)001..060-e   (480 refs)
+        #   FR: CDL-AD(2022..2026)001..060-f   (300 refs)
+        # ~30-40% probe misses expected (recon) — misses come back as
+        # non-200/HTML-junk rows and are dropped at gate; per-entry titles
+        # carry the CDL reference (default.aspx filename is useless).
+        urls_file: coe/venice_urls.jsonl
+        keep_query: true
+        delay: 2.5
+        cap: 800
+        lang_default: en
+        source_type: official
+        tier: A
+        trust: 0.95
+        license: coe-unverified-minimal-record
+        license_version: "CoE terms pages sit on www.coe.int (Cloudflare-403) — treat as cite-with-attribution pending verification; minimal records, train_ok=false"
+        attribution: "Council of Europe — European Commission for Democracy through Law (Venice Commission)"
+        consent: {basis: robots-live-resolve}
+      edpb_docs:
+        host: www.edpb.europa.eu
+        mode: sitemap
+        sitemaps:
+          - "https://www.edpb.europa.eu/sitemap.xml?page=1"
+          - "https://www.edpb.europa.eu/sitemap.xml?page=2"
+          - "https://www.edpb.europa.eu/sitemap.xml?page=3"
+          - "https://www.edpb.europa.eu/sitemap.xml?page=4"
+          - "https://www.edpb.europa.eu/sitemap.xml?page=5"
+        include: '^https://www\.edpb\.europa\.eu/.*_en$'   # ~1.2-1.5k _en
+        # docs out of ~10k locs (24-lang duplication)
+        pdf_include: '^https://www\.edpb\.europa\.eu/system/files/[^"\s]+\.pdf'
+        delay: 8.0            # SLOW LANE — host 429'd on the 5th request at
+                              # ~2s spacing during recon; >=8s + the engine's
+                              # per-source scheduling keeps us under it.
+                              # NOTE engine marks 429 rows done (no retry) —
+                              # check fetch_log for 429s post-run.
+        cap: 2500
+        lang_default: en
+        source_type: official
+        tier: A
+        trust: 0.95
+        license: eu-reuse-attribution
+        license_version: "Decision 2011/833/EU-pattern reuse-with-attribution expected; legal-notice fetch itself 429'd during recon — verify from first ingested pages"
+        attribution: "European Data Protection Board (EDPB)"
+        consent: {basis: robots-live-resolve}
+
+  docsites:
+    collection: aw_ddocsites_cov
+    theme: [ai-agents]
+    sources:
+      a2a_protocol_org_docs:
+        # framework(s): a2a-protocol | probed docs_url: https://a2a-protocol.org/
+        host: a2a-protocol.org
+        mode: sitemap
+        sitemaps: ["https://a2a-protocol.org/latest/sitemap.xml"]
+        include: '^https://a2a\-protocol\.org/'
+        pdf_include: '(?i)\.pdf$'
+        delay: 1.5
+        cap: 400
+        lang_default: en
+        source_type: docs
+        tier: A
+        trust: 0.75
+        license: docs-index-only-unstated
+        license_version: "no per-site content-license research done for this 48-host campaign pass; conservative index-only default (train_ok=false) — revisit per-site if a specific project states an open license (many docs-as-code sites are MIT/CC-BY via their repo, unverified here)"
+        train_ok: false
+        consent: {basis: robots-live-resolve}
+      ai_sdk_dev_docs:
+        # framework(s): vercel-ai-sdk | probed docs_url: https://ai-sdk.dev/docs
+        host: ai-sdk.dev
+        mode: sitemap
+        sitemaps: ["https://ai-sdk.dev/sitemap.xml"]
+        include: '^https://ai\-sdk\.dev/'
+        pdf_include: '(?i)\.pdf$'
+        delay: 1.5
+        cap: 400
+        lang_default: en
+        source_type: docs
+        tier: A
+        trust: 0.75
+        license: docs-index-only-unstated
+        license_version: "no per-site content-license research done for this 48-host campaign pass; conservative index-only default (train_ok=false) — revisit per-site if a specific project states an open license (many docs-as-code sites are MIT/CC-BY via their repo, unverified here)"
+        train_ok: false
+        consent: {basis: robots-live-resolve}
+      ai_pydantic_dev_docs:
+        # framework(s): pydantic-ai | probed docs_url: https://ai.pydantic.dev/
+        # ai.pydantic.dev's own /sitemap.xml redirects to pydantic.dev (verified live) — scoped to the /pydantic-ai path so the parent company's other product pages (logfire etc) aren't pulled in
+        host: pydantic.dev
+        mode: sitemap
+        sitemaps: ["https://pydantic.dev/sitemap.xml"]
+        include: '^https://pydantic\.dev/pydantic-ai'
+        pdf_include: '(?i)\.pdf$'
+        delay: 1.5
+        cap: 400
+        lang_default: en
+        source_type: docs
+        tier: A
+        trust: 0.75
+        license: docs-index-only-unstated
+        license_version: "no per-site content-license research done for this 48-host campaign pass; conservative index-only default (train_ok=false) — revisit per-site if a specific project states an open license (many docs-as-code sites are MIT/CC-BY via their repo, unverified here)"
+        train_ok: false
+        consent: {basis: robots-live-resolve}
+      aider_chat_docs:
+        # framework(s): aider | probed docs_url: https://aider.chat/
+        host: aider.chat
+        mode: sitemap
+        sitemaps: ["https://aider.chat/sitemap.xml"]
+        include: '^https://aider\.chat/'
+        pdf_include: '(?i)\.pdf$'
+        delay: 1.5
+        cap: 400
+        lang_default: en
+        source_type: docs
+        tier: A
+        trust: 0.75
+        license: docs-index-only-unstated
+        license_version: "no per-site content-license research done for this 48-host campaign pass; conservative index-only default (train_ok=false) — revisit per-site if a specific project states an open license (many docs-as-code sites are MIT/CC-BY via their repo, unverified here)"
+        train_ok: false
+        consent: {basis: robots-live-resolve}
+      developers_openai_com_docs:
+        # framework(s): codex | probed docs_url: https://developers.openai.com/codex
+        host: developers.openai.com
+        mode: sitemap
+        sitemaps: ["https://developers.openai.com/sitemap-index.xml"]
+        include: '^https://developers\.openai\.com/'
+        pdf_include: '(?i)\.pdf$'
+        delay: 1.5
+        cap: 400
+        lang_default: en
+        source_type: docs
+        tier: A
+        trust: 0.75
+        license: docs-index-only-unstated
+        license_version: "no per-site content-license research done for this 48-host campaign pass; conservative index-only default (train_ok=false) — revisit per-site if a specific project states an open license (many docs-as-code sites are MIT/CC-BY via their repo, unverified here)"
+        train_ok: false
+        consent: {basis: robots-live-resolve}
+      docs_ag2_ai_docs:
+        # framework(s): ag2 | probed docs_url: https://docs.ag2.ai/
+        host: docs.ag2.ai
+        mode: sitemap
+        sitemaps: ["https://docs.ag2.ai/sitemap.xml"]
+        include: '^https://docs\.ag2\.ai/'
+        pdf_include: '(?i)\.pdf$'
+        delay: 1.5
+        cap: 400
+        lang_default: en
+        source_type: docs
+        tier: A
+        trust: 0.75
+        license: docs-index-only-unstated
+        license_version: "no per-site content-license research done for this 48-host campaign pass; conservative index-only default (train_ok=false) — revisit per-site if a specific project states an open license (many docs-as-code sites are MIT/CC-BY via their repo, unverified here)"
+        train_ok: false
+        consent: {basis: robots-live-resolve}
+      docs_agno_com_docs:
+        # framework(s): agno | probed docs_url: https://docs.agno.com/
+        host: docs.agno.com
+        mode: sitemap
+        sitemaps: ["https://docs.agno.com/sitemap.xml"]
+        include: '^https://docs\.agno\.com/'
+        pdf_include: '(?i)\.pdf$'
+        delay: 1.5
+        cap: 400
+        lang_default: en
+        source_type: docs
+        tier: A
+        trust: 0.75
+        license: docs-index-only-unstated
+        license_version: "no per-site content-license research done for this 48-host campaign pass; conservative index-only default (train_ok=false) — revisit per-site if a specific project states an open license (many docs-as-code sites are MIT/CC-BY via their repo, unverified here)"
+        train_ok: false
+        consent: {basis: robots-live-resolve}
+      docs_agpt_co_docs:
+        # framework(s): autogpt | probed docs_url: https://docs.agpt.co/
+        host: docs.agpt.co
+        mode: sitemap
+        sitemaps: ["https://docs.agpt.co/sitemap.xml"]
+        include: '^https://docs\.agpt\.co/'
+        pdf_include: '(?i)\.pdf$'
+        delay: 1.5
+        cap: 400
+        lang_default: en
+        source_type: docs
+        tier: A
+        trust: 0.75
+        license: docs-index-only-unstated
+        license_version: "no per-site content-license research done for this 48-host campaign pass; conservative index-only default (train_ok=false) — revisit per-site if a specific project states an open license (many docs-as-code sites are MIT/CC-BY via their repo, unverified here)"
+        train_ok: false
+        consent: {basis: robots-live-resolve}
+      docs_all_hands_dev_docs:
+        # framework(s): openhands | probed docs_url: https://docs.all-hands.dev/
+        # org-migration (All-Hands-AI -> OpenHands, same class already found in the agentgap lane) — docs host moved too
+        host: docs.openhands.dev
+        mode: sitemap
+        sitemaps: ["https://docs.openhands.dev/sitemap.xml"]
+        include: '^https://docs\.openhands\.dev/'
+        pdf_include: '(?i)\.pdf$'
+        delay: 1.5
+        cap: 400
+        lang_default: en
+        source_type: docs
+        tier: A
+        trust: 0.75
+        license: docs-index-only-unstated
+        license_version: "no per-site content-license research done for this 48-host campaign pass; conservative index-only default (train_ok=false) — revisit per-site if a specific project states an open license (many docs-as-code sites are MIT/CC-BY via their repo, unverified here)"
+        train_ok: false
+        consent: {basis: robots-live-resolve}
+      docs_browser_use_com_docs:
+        # framework(s): browser-use | probed docs_url: https://docs.browser-use.com/
+        host: docs.browser-use.com
+        mode: sitemap
+        sitemaps: ["https://docs.browser-use.com/sitemap.xml"]
+        include: '^https://docs\.browser\-use\.com/'
+        pdf_include: '(?i)\.pdf$'
+        delay: 1.5
+        cap: 400
+        lang_default: en
+        source_type: docs
+        tier: A
+        trust: 0.75
+        license: docs-index-only-unstated
+        license_version: "no per-site content-license research done for this 48-host campaign pass; conservative index-only default (train_ok=false) — revisit per-site if a specific project states an open license (many docs-as-code sites are MIT/CC-BY via their repo, unverified here)"
+        train_ok: false
+        consent: {basis: robots-live-resolve}
+      docs_camel_ai_org_docs:
+        # framework(s): camel | probed docs_url: https://docs.camel-ai.org/
+        host: docs.camel-ai.org
+        mode: sitemap
+        sitemaps: ["https://docs.camel-ai.org/sitemap.xml"]
+        include: '^https://docs\.camel\-ai\.org/'
+        pdf_include: '(?i)\.pdf$'
+        delay: 1.5
+        cap: 400
+        lang_default: en
+        source_type: docs
+        tier: A
+        trust: 0.75
+        license: docs-index-only-unstated
+        license_version: "no per-site content-license research done for this 48-host campaign pass; conservative index-only default (train_ok=false) — revisit per-site if a specific project states an open license (many docs-as-code sites are MIT/CC-BY via their repo, unverified here)"
+        train_ok: false
+        consent: {basis: robots-live-resolve}
+      docs_claude_com_docs:
+        # framework(s): claude-agent-sdk,claude-code | probed docs_url: https://docs.claude.com/en/api/agent-sdk/overview
+        # docs.claude.com's own paths 301 through platform.claude.com to code.claude.com (verified live 2026-07-30, both the claude-code and agent-sdk sections land there)
+        host: code.claude.com
+        mode: sitemap
+        sitemaps: ["https://code.claude.com/sitemap.xml"]
+        include: '^https://code\.claude\.com/docs/'
+        pdf_include: '(?i)\.pdf$'
+        delay: 1.5
+        cap: 400
+        lang_default: en
+        source_type: docs
+        tier: A
+        trust: 0.75
+        license: docs-index-only-unstated
+        license_version: "no per-site content-license research done for this 48-host campaign pass; conservative index-only default (train_ok=false) — revisit per-site if a specific project states an open license (many docs-as-code sites are MIT/CC-BY via their repo, unverified here)"
+        train_ok: false
+        consent: {basis: robots-live-resolve}
+      docs_cline_bot_docs:
+        # framework(s): cline | probed docs_url: https://docs.cline.bot/
+        host: docs.cline.bot
+        mode: sitemap
+        sitemaps: ["https://docs.cline.bot/sitemap.xml"]
+        include: '^https://docs\.cline\.bot/'
+        pdf_include: '(?i)\.pdf$'
+        delay: 1.5
+        cap: 400
+        lang_default: en
+        source_type: docs
+        tier: A
+        trust: 0.75
+        license: docs-index-only-unstated
+        license_version: "no per-site content-license research done for this 48-host campaign pass; conservative index-only default (train_ok=false) — revisit per-site if a specific project states an open license (many docs-as-code sites are MIT/CC-BY via their repo, unverified here)"
+        train_ok: false
+        consent: {basis: robots-live-resolve}
+      docs_composio_dev_docs:
+        # framework(s): composio | probed docs_url: https://docs.composio.dev/
+        host: docs.composio.dev
+        mode: sitemap
+        sitemaps: ["https://docs.composio.dev/sitemap.xml"]
+        include: '^https://docs\.composio\.dev/'
+        pdf_include: '(?i)\.pdf$'
+        delay: 1.5
+        cap: 400
+        lang_default: en
+        source_type: docs
+        tier: A
+        trust: 0.75
+        license: docs-index-only-unstated
+        license_version: "no per-site content-license research done for this 48-host campaign pass; conservative index-only default (train_ok=false) — revisit per-site if a specific project states an open license (many docs-as-code sites are MIT/CC-BY via their repo, unverified here)"
+        train_ok: false
+        consent: {basis: robots-live-resolve}
+      docs_crewai_com_docs:
+        # framework(s): crewai | probed docs_url: https://docs.crewai.com/
+        host: docs.crewai.com
+        mode: sitemap
+        sitemaps: ["https://docs.crewai.com/sitemap.xml"]
+        include: '^https://docs\.crewai\.com/'
+        pdf_include: '(?i)\.pdf$'
+        delay: 1.5
+        cap: 400
+        lang_default: en
+        source_type: docs
+        tier: A
+        trust: 0.75
+        license: docs-index-only-unstated
+        license_version: "no per-site content-license research done for this 48-host campaign pass; conservative index-only default (train_ok=false) — revisit per-site if a specific project states an open license (many docs-as-code sites are MIT/CC-BY via their repo, unverified here)"
+        train_ok: false
+        consent: {basis: robots-live-resolve}
+      docs_dify_ai_docs:
+        # framework(s): dify | probed docs_url: https://docs.dify.ai/
+        host: docs.dify.ai
+        mode: sitemap
+        sitemaps: ["https://docs.dify.ai/sitemap.xml"]
+        include: '^https://docs\.dify\.ai/'
+        pdf_include: '(?i)\.pdf$'
+        delay: 1.5
+        cap: 400
+        lang_default: en
+        source_type: docs
+        tier: A
+        trust: 0.75
+        license: docs-index-only-unstated
+        license_version: "no per-site content-license research done for this 48-host campaign pass; conservative index-only default (train_ok=false) — revisit per-site if a specific project states an open license (many docs-as-code sites are MIT/CC-BY via their repo, unverified here)"
+        train_ok: false
+        consent: {basis: robots-live-resolve}
+      docs_elizaos_ai_docs:
+        # framework(s): eliza | probed docs_url: https://docs.elizaos.ai/
+        host: docs.elizaos.ai
+        mode: sitemap
+        sitemaps: ["https://docs.elizaos.ai/sitemap.xml"]
+        include: '^https://docs\.elizaos\.ai/'
+        pdf_include: '(?i)\.pdf$'
+        delay: 1.5
+        cap: 400
+        lang_default: en
+        source_type: docs
+        tier: A
+        trust: 0.75
+        license: docs-index-only-unstated
+        license_version: "no per-site content-license research done for this 48-host campaign pass; conservative index-only default (train_ok=false) — revisit per-site if a specific project states an open license (many docs-as-code sites are MIT/CC-BY via their repo, unverified here)"
+        train_ok: false
+        consent: {basis: robots-live-resolve}
+      docs_flowiseai_com_docs:
+        # framework(s): flowise | probed docs_url: https://docs.flowiseai.com/
+        host: docs.flowiseai.com
+        mode: sitemap
+        sitemaps: ["https://docs.flowiseai.com/sitemap.xml"]
+        include: '^https://docs\.flowiseai\.com/'
+        pdf_include: '(?i)\.pdf$'
+        delay: 1.5
+        cap: 400
+        lang_default: en
+        source_type: docs
+        tier: A
+        trust: 0.75
+        license: docs-index-only-unstated
+        license_version: "no per-site content-license research done for this 48-host campaign pass; conservative index-only default (train_ok=false) — revisit per-site if a specific project states an open license (many docs-as-code sites are MIT/CC-BY via their repo, unverified here)"
+        train_ok: false
+        consent: {basis: robots-live-resolve}
+      docs_haystack_deepset_ai_docs:
+        # framework(s): haystack | probed docs_url: https://docs.haystack.deepset.ai/
+        host: docs.haystack.deepset.ai
+        mode: sitemap
+        sitemaps: ["https://docs.haystack.deepset.ai/sitemap.xml"]
+        include: '^https://docs\.haystack\.deepset\.ai/'
+        pdf_include: '(?i)\.pdf$'
+        delay: 1.5
+        cap: 400
+        lang_default: en
+        source_type: docs
+        tier: A
+        trust: 0.75
+        license: docs-index-only-unstated
+        license_version: "no per-site content-license research done for this 48-host campaign pass; conservative index-only default (train_ok=false) — revisit per-site if a specific project states an open license (many docs-as-code sites are MIT/CC-BY via their repo, unverified here)"
+        train_ok: false
+        consent: {basis: robots-live-resolve}
+      docs_langflow_org_docs:
+        # framework(s): langflow | probed docs_url: https://docs.langflow.org/
+        host: docs.langflow.org
+        mode: sitemap
+        sitemaps: ["https://docs.langflow.org/sitemap.xml"]
+        include: '^https://docs\.langflow\.org/'
+        pdf_include: '(?i)\.pdf$'
+        delay: 1.5
+        cap: 400
+        lang_default: en
+        source_type: docs
+        tier: A
+        trust: 0.75
+        license: docs-index-only-unstated
+        license_version: "no per-site content-license research done for this 48-host campaign pass; conservative index-only default (train_ok=false) — revisit per-site if a specific project states an open license (many docs-as-code sites are MIT/CC-BY via their repo, unverified here)"
+        train_ok: false
+        consent: {basis: robots-live-resolve}
+      docs_letta_com_docs:
+        # framework(s): letta | probed docs_url: https://docs.letta.com/
+        host: docs.letta.com
+        mode: sitemap
+        sitemaps: ["https://docs.letta.com/sitemap-index.xml"]
+        include: '^https://docs\.letta\.com/'
+        pdf_include: '(?i)\.pdf$'
+        delay: 1.5
+        cap: 400
+        lang_default: en
+        source_type: docs
+        tier: A
+        trust: 0.75
+        license: docs-index-only-unstated
+        license_version: "no per-site content-license research done for this 48-host campaign pass; conservative index-only default (train_ok=false) — revisit per-site if a specific project states an open license (many docs-as-code sites are MIT/CC-BY via their repo, unverified here)"
+        train_ok: false
+        consent: {basis: robots-live-resolve}
+      docs_litellm_ai_docs:
+        # framework(s): litellm | probed docs_url: https://docs.litellm.ai/
+        host: docs.litellm.ai
+        mode: sitemap
+        sitemaps: ["https://docs.litellm.ai/sitemap.xml"]
+        include: '^https://docs\.litellm\.ai/'
+        pdf_include: '(?i)\.pdf$'
+        delay: 1.5
+        cap: 400
+        lang_default: en
+        source_type: docs
+        tier: A
+        trust: 0.75
+        license: docs-index-only-unstated
+        license_version: "no per-site content-license research done for this 48-host campaign pass; conservative index-only default (train_ok=false) — revisit per-site if a specific project states an open license (many docs-as-code sites are MIT/CC-BY via their repo, unverified here)"
+        train_ok: false
+        consent: {basis: robots-live-resolve}
+      docs_llamaindex_ai_docs:
+        # framework(s): llamaindex | probed docs_url: https://docs.llamaindex.ai/
+        host: docs.llamaindex.ai
+        mode: sitemap
+        sitemaps: ["https://docs.llamaindex.ai/sitemap.xml"]
+        include: '^https://docs\.llamaindex\.ai/'
+        pdf_include: '(?i)\.pdf$'
+        delay: 1.5
+        cap: 400
+        lang_default: en
+        source_type: docs
+        tier: A
+        trust: 0.75
+        license: docs-index-only-unstated
+        license_version: "no per-site content-license research done for this 48-host campaign pass; conservative index-only default (train_ok=false) — revisit per-site if a specific project states an open license (many docs-as-code sites are MIT/CC-BY via their repo, unverified here)"
+        train_ok: false
+        consent: {basis: robots-live-resolve}
+      docs_n8n_io_docs:
+        # framework(s): n8n | probed docs_url: https://docs.n8n.io/
+        host: docs.n8n.io
+        mode: sitemap
+        sitemaps: ["https://docs.n8n.io/sitemap.xml"]
+        include: '^https://docs\.n8n\.io/'
+        pdf_include: '(?i)\.pdf$'
+        delay: 1.5
+        cap: 400
+        lang_default: en
+        source_type: docs
+        tier: A
+        trust: 0.75
+        license: docs-index-only-unstated
+        license_version: "no per-site content-license research done for this 48-host campaign pass; conservative index-only default (train_ok=false) — revisit per-site if a specific project states an open license (many docs-as-code sites are MIT/CC-BY via their repo, unverified here)"
+        train_ok: false
+        consent: {basis: robots-live-resolve}
+      docs_openwebui_com_docs:
+        # framework(s): open-webui | probed docs_url: https://docs.openwebui.com/
+        host: docs.openwebui.com
+        mode: sitemap
+        sitemaps: ["https://docs.openwebui.com/sitemap.xml"]
+        include: '^https://docs\.openwebui\.com/'
+        pdf_include: '(?i)\.pdf$'
+        delay: 1.5
+        cap: 400
+        lang_default: en
+        source_type: docs
+        tier: A
+        trust: 0.75
+        license: docs-index-only-unstated
+        license_version: "no per-site content-license research done for this 48-host campaign pass; conservative index-only default (train_ok=false) — revisit per-site if a specific project states an open license (many docs-as-code sites are MIT/CC-BY via their repo, unverified here)"
+        train_ok: false
+        consent: {basis: robots-live-resolve}
+      docs_roocode_com_docs:
+        # framework(s): roo-code | probed docs_url: https://docs.roocode.com/
+        host: roocodeinc.github.io
+        mode: sitemap
+        sitemaps: ["https://roocodeinc.github.io/Roo-Code/sitemap.xml"]
+        include: '^https://roocodeinc\.github\.io/Roo-Code/'
+        pdf_include: '(?i)\.pdf$'
+        delay: 1.5
+        cap: 400
+        lang_default: en
+        source_type: docs
+        tier: A
+        trust: 0.75
+        license: docs-index-only-unstated
+        license_version: "no per-site content-license research done for this 48-host campaign pass; conservative index-only default (train_ok=false) — revisit per-site if a specific project states an open license (many docs-as-code sites are MIT/CC-BY via their repo, unverified here)"
+        train_ok: false
+        consent: {basis: robots-live-resolve}
+      docs_stagehand_dev_docs:
+        # framework(s): stagehand | probed docs_url: https://docs.stagehand.dev/
+        host: docs.stagehand.dev
+        mode: sitemap
+        sitemaps: ["https://docs.stagehand.dev/sitemap.xml"]
+        include: '^https://docs\.stagehand\.dev/'
+        pdf_include: '(?i)\.pdf$'
+        delay: 1.5
+        cap: 400
+        lang_default: en
+        source_type: docs
+        tier: A
+        trust: 0.75
+        license: docs-index-only-unstated
+        license_version: "no per-site content-license research done for this 48-host campaign pass; conservative index-only default (train_ok=false) — revisit per-site if a specific project states an open license (many docs-as-code sites are MIT/CC-BY via their repo, unverified here)"
+        train_ok: false
+        consent: {basis: robots-live-resolve}
+      dspy_ai_docs:
+        # framework(s): dspy | probed docs_url: https://dspy.ai/
+        host: dspy.ai
+        mode: sitemap
+        sitemaps: ["https://dspy.ai/sitemap.xml"]
+        include: '^https://dspy\.ai/'
+        pdf_include: '(?i)\.pdf$'
+        delay: 1.5
+        cap: 400
+        lang_default: en
+        source_type: docs
+        tier: A
+        trust: 0.75
+        license: docs-index-only-unstated
+        license_version: "no per-site content-license research done for this 48-host campaign pass; conservative index-only default (train_ok=false) — revisit per-site if a specific project states an open license (many docs-as-code sites are MIT/CC-BY via their repo, unverified here)"
+        train_ok: false
+        consent: {basis: robots-live-resolve}
+      fast_agent_ai_docs:
+        # framework(s): fast-agent | probed docs_url: https://fast-agent.ai/
+        host: fast-agent.ai
+        mode: sitemap
+        sitemaps: ["https://fast-agent.ai/sitemap.xml"]
+        include: '^https://fast\-agent\.ai/'
+        pdf_include: '(?i)\.pdf$'
+        delay: 1.5
+        cap: 400
+        lang_default: en
+        source_type: docs
+        tier: A
+        trust: 0.75
+        license: docs-index-only-unstated
+        license_version: "no per-site content-license research done for this 48-host campaign pass; conservative index-only default (train_ok=false) — revisit per-site if a specific project states an open license (many docs-as-code sites are MIT/CC-BY via their repo, unverified here)"
+        train_ok: false
+        consent: {basis: robots-live-resolve}
+      # DEFERRED: geminicli.com is the official Gemini CLI documentation, but
+      # its quota/pricing pages are product-confusable with Gemini API pricing.
+      # Re-enter this source when the common head consumes a trained product
+      # facet; do not encode a query-specific ranking exception here.
+      gofastmcp_com_docs:
+        # framework(s): fastmcp | probed docs_url: https://gofastmcp.com/
+        host: gofastmcp.com
+        mode: sitemap
+        sitemaps: ["https://gofastmcp.com/sitemap.xml"]
+        include: '^https://gofastmcp\.com/'
+        pdf_include: '(?i)\.pdf$'
+        delay: 1.5
+        cap: 400
+        lang_default: en
+        source_type: docs
+        tier: A
+        trust: 0.75
+        license: docs-index-only-unstated
+        license_version: "no per-site content-license research done for this 48-host campaign pass; conservative index-only default (train_ok=false) — revisit per-site if a specific project states an open license (many docs-as-code sites are MIT/CC-BY via their repo, unverified here)"
+        train_ok: false
+        consent: {basis: robots-live-resolve}
+      goose_docs_ai_docs:
+        # framework(s): goose | probed docs_url: https://goose-docs.ai/
+        host: goose-docs.ai
+        mode: sitemap
+        sitemaps: ["https://goose-docs.ai/sitemap.xml"]
+        include: '^https://goose\-docs\.ai/'
+        pdf_include: '(?i)\.pdf$'
+        delay: 1.5
+        cap: 400
+        lang_default: en
+        source_type: docs
+        tier: A
+        trust: 0.75
+        license: docs-index-only-unstated
+        license_version: "no per-site content-license research done for this 48-host campaign pass; conservative index-only default (train_ok=false) — revisit per-site if a specific project states an open license (many docs-as-code sites are MIT/CC-BY via their repo, unverified here)"
+        train_ok: false
+        consent: {basis: robots-live-resolve}
+      huggingface_co_docs:
+        # framework(s): smolagents | probed docs_url: https://huggingface.co/docs/smolagents
+        host: huggingface.co
+        mode: sitemap
+        sitemaps: ["https://huggingface.co/sitemap.xml"]
+        include: '^https://huggingface\.co/docs/smolagents(?:/|$)'
+        pdf_include: '(?i)\.pdf$'
+        delay: 1.5
+        cap: 400
+        lang_default: en
+        source_type: docs
+        tier: A
+        trust: 0.75
+        license: docs-index-only-unstated
+        license_version: "no per-site content-license research done for this 48-host campaign pass; conservative index-only default (train_ok=false) — revisit per-site if a specific project states an open license (many docs-as-code sites are MIT/CC-BY via their repo, unverified here)"
+        train_ok: false
+        consent: {basis: robots-live-resolve}
+      learn_microsoft_com_docs:
+        # framework(s): semantic-kernel | probed docs_url: https://learn.microsoft.com/en-us/semantic-kernel/
+        host: learn.microsoft.com
+        mode: sitemap
+        sitemaps: ["https://learn.microsoft.com/_sitemaps/sitemapindex.xml"]
+        include: '^https://learn\.microsoft\.com/'
+        pdf_include: '(?i)\.pdf$'
+        delay: 1.5
+        cap: 400
+        lang_default: en
+        source_type: docs
+        tier: A
+        trust: 0.75
+        license: docs-index-only-unstated
+        license_version: "no per-site content-license research done for this 48-host campaign pass; conservative index-only default (train_ok=false) — revisit per-site if a specific project states an open license (many docs-as-code sites are MIT/CC-BY via their repo, unverified here)"
+        train_ok: false
+        consent: {basis: robots-live-resolve}
+      mastra_ai_docs:
+        # framework(s): mastra | probed docs_url: https://mastra.ai/docs
+        host: mastra.ai
+        mode: sitemap
+        sitemaps: ["https://mastra.ai/sitemap.xml"]
+        include: '^https://mastra\.ai/'
+        pdf_include: '(?i)\.pdf$'
+        delay: 1.5
+        cap: 400
+        lang_default: en
+        source_type: docs
+        tier: A
+        trust: 0.75
+        license: docs-index-only-unstated
+        license_version: "no per-site content-license research done for this 48-host campaign pass; conservative index-only default (train_ok=false) — revisit per-site if a specific project states an open license (many docs-as-code sites are MIT/CC-BY via their repo, unverified here)"
+        train_ok: false
+        consent: {basis: robots-live-resolve}
+      modelcontextprotocol_io_docs:
+        # framework(s): mcp-spec,mcp-python-sdk,mcp-typescript-sdk,mcp-servers | probed docs_url: https://modelcontextprotocol.io/
+        host: modelcontextprotocol.io
+        mode: sitemap
+        sitemaps: ["https://modelcontextprotocol.io/sitemap.xml"]
+        include: '^https://modelcontextprotocol\.io/'
+        dated_family_policy: latest_stable
+        pdf_include: '(?i)\.pdf$'
+        delay: 1.5
+        cap: 400
+        lang_default: en
+        source_type: docs
+        tier: A
+        trust: 0.75
+        license: docs-index-only-unstated
+        license_version: "no per-site content-license research done for this 48-host campaign pass; conservative index-only default (train_ok=false) — revisit per-site if a specific project states an open license (many docs-as-code sites are MIT/CC-BY via their repo, unverified here)"
+        train_ok: false
+        consent: {basis: robots-live-resolve}
+      opencode_ai_docs:
+        # framework(s): opencode | probed docs_url: https://opencode.ai/docs/
+        host: opencode.ai
+        mode: sitemap
+        sitemaps: ["https://opencode.ai/sitemap.xml"]
+        include: '^https://opencode\.ai/'
+        pdf_include: '(?i)\.pdf$'
+        delay: 1.5
+        cap: 400
+        lang_default: en
+        source_type: docs
+        tier: A
+        trust: 0.75
+        license: docs-index-only-unstated
+        license_version: "no per-site content-license research done for this 48-host campaign pass; conservative index-only default (train_ok=false) — revisit per-site if a specific project states an open license (many docs-as-code sites are MIT/CC-BY via their repo, unverified here)"
+        train_ok: false
+        consent: {basis: robots-live-resolve}
+      python_langchain_com_docs:
+        # framework(s): langchain | probed docs_url: https://python.langchain.com/
+        host: python.langchain.com
+        mode: sitemap
+        sitemaps: ["https://python.langchain.com/sitemap.xml"]
+        include: '^https://python\.langchain\.com/'
+        pdf_include: '(?i)\.pdf$'
+        delay: 1.5
+        cap: 400
+        lang_default: en
+        source_type: docs
+        tier: A
+        trust: 0.75
+        license: docs-index-only-unstated
+        license_version: "no per-site content-license research done for this 48-host campaign pass; conservative index-only default (train_ok=false) — revisit per-site if a specific project states an open license (many docs-as-code sites are MIT/CC-BY via their repo, unverified here)"
+        train_ok: false
+        consent: {basis: robots-live-resolve}
+      python_useinstructor_com_docs:
+        # framework(s): instructor | probed docs_url: https://python.useinstructor.com/
+        host: python.useinstructor.com
+        mode: sitemap
+        sitemaps: ["https://python.useinstructor.com/sitemap.xml"]
+        include: '^https://python\.useinstructor\.com/'
+        pdf_include: '(?i)\.pdf$'
+        delay: 1.5
+        cap: 400
+        lang_default: en
+        source_type: docs
+        tier: A
+        trust: 0.75
+        license: docs-index-only-unstated
+        license_version: "no per-site content-license research done for this 48-host campaign pass; conservative index-only default (train_ok=false) — revisit per-site if a specific project states an open license (many docs-as-code sites are MIT/CC-BY via their repo, unverified here)"
+        train_ok: false
+        consent: {basis: robots-live-resolve}

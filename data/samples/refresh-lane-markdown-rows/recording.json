@@ -1,0 +1,841 @@
+{
+ "cases": [
+  {
+   "id": "long_doc",
+   "rows": [
+    {
+     "chunk_n_words": 401,
+     "content_digest": "c5097e01a484cf9c652c22e53555fda4aaaa6e42",
+     "domain": "example.org",
+     "lang": "en",
+     "point_id": "93cbb3f6-a0a5-54e8-8471-d2c0c04b0a7e",
+     "snippet": "Migrating from version one > Section 0 The migration tool reads the old configuration file and writes a new one next to it.",
+     "source_type": "docs",
+     "stamps": {
+      "chunk": 4,
+      "prov_id": "6370ee1d65a21add"
+     },
+     "text": "Migrating from version one > Section 0\n\nThe migration tool reads the old configuration file and writes a new one next to it. Plugins that used the earlier hook names must be renamed before the next release. Each session now stores its history in a separate file that you can inspect by hand. If a key is missing the tool falls back to the value from the project directory.\n\nPlugins that used the earlier hook names must be renamed before the next release. Each session now stores its history in a separate file that you can inspect by hand. If a key is missing the tool falls back to the value from the project directory. Run the check command first so that every problem is listed before anything is changed.\n\n| key | default |\n| --- | --- |\n| model | small |\n| retries | 3 |\n\nEach session now stores its history in a separate file that you can inspect by hand. If a key is missing the tool falls back to the value from the project directory. Run the check command first so that every problem is listed before anything is changed. The server refuses a request when the signature header is absent or the clock drifts.\n\nIf a key is missing the tool falls back to the value from the project directory. Run the check command first so that every problem is listed before anything is changed. The server refuses a request when the signature header is absent or the clock drifts. The migration tool reads the old configuration file and writes a new one next to it.\n\n```json\n{\"model\": \"small\", \"retries\": 3}\n```\n\nRun the check command first so that every problem is listed before anything is changed. The server refuses a request when the signature header is absent or the clock drifts. The migration tool reads the old configuration file and writes a new one next to it. Plugins that used the earlier hook names must be renamed before the next release.\n\nThe server refuses a request when the signature header is absent or the clock drifts. The migration tool reads the old configuration file and writes a new one next to it. Plugins that used the earlier hook names must be renamed before the next release. Each session now stores its history in a separate file that you can inspect by hand.",
+     "tier": "A",
+     "title": "Migrate",
+     "trust_tier": 0.75,
+     "url": "https://example.org/docs/migrate-v1"
+    },
+    {
+     "chunk_n_words": 401,
+     "content_digest": "d62c6d29cd6c3b89f9e1c29f6e8ec3c93c7b0944",
+     "domain": "example.org",
+     "lang": "en",
+     "point_id": "79359177-7d42-5660-8ace-8610774f33b7",
+     "snippet": "Migrating from version one > Section 1 The migration tool reads the old configuration file and writes a new one next to it.",
+     "source_type": "docs",
+     "stamps": {
+      "chunk": 4,
+      "prov_id": "6370ee1d65a21add"
+     },
+     "text": "Migrating from version one > Section 1\n\nThe migration tool reads the old configuration file and writes a new one next to it. Plugins that used the earlier hook names must be renamed before the next release. Each session now stores its history in a separate file that you can inspect by hand. If a key is missing the tool falls back to the value from the project directory.\n\nPlugins that used the earlier hook names must be renamed before the next release. Each session now stores its history in a separate file that you can inspect by hand. If a key is missing the tool falls back to the value from the project directory. Run the check command first so that every problem is listed before anything is changed.\n\n| key | default |\n| --- | --- |\n| model | small |\n| retries | 3 |\n\nEach session now stores its history in a separate file that you can inspect by hand. If a key is missing the tool falls back to the value from the project directory. Run the check command first so that every problem is listed before anything is changed. The server refuses a request when the signature header is absent or the clock drifts.\n\nIf a key is missing the tool falls back to the value from the project directory. Run the check command first so that every problem is listed before anything is changed. The server refuses a request when the signature header is absent or the clock drifts. The migration tool reads the old configuration file and writes a new one next to it.\n\n```json\n{\"model\": \"small\", \"retries\": 3}\n```\n\nRun the check command first so that every problem is listed before anything is changed. The server refuses a request when the signature header is absent or the clock drifts. The migration tool reads the old configuration file and writes a new one next to it. Plugins that used the earlier hook names must be renamed before the next release.\n\nThe server refuses a request when the signature header is absent or the clock drifts. The migration tool reads the old configuration file and writes a new one next to it. Plugins that used the earlier hook names must be renamed before the next release. Each session now stores its history in a separate file that you can inspect by hand.",
+     "tier": "A",
+     "title": "Migrate",
+     "trust_tier": 0.75,
+     "url": "https://example.org/docs/migrate-v1"
+    },
+    {
+     "chunk_n_words": 401,
+     "content_digest": "6bb55bb16733115074fddbaa2ef6eaec4db2ab32",
+     "domain": "example.org",
+     "lang": "en",
+     "point_id": "4080da9a-8a26-5c15-8e95-3bcdbf8170b1",
+     "snippet": "Migrating from version one > Section 2 The migration tool reads the old configuration file and writes a new one next to it.",
+     "source_type": "docs",
+     "stamps": {
+      "chunk": 4,
+      "prov_id": "6370ee1d65a21add"
+     },
+     "text": "Migrating from version one > Section 2\n\nThe migration tool reads the old configuration file and writes a new one next to it. Plugins that used the earlier hook names must be renamed before the next release. Each session now stores its history in a separate file that you can inspect by hand. If a key is missing the tool falls back to the value from the project directory.\n\nPlugins that used the earlier hook names must be renamed before the next release. Each session now stores its history in a separate file that you can inspect by hand. If a key is missing the tool falls back to the value from the project directory. Run the check command first so that every problem is listed before anything is changed.\n\n| key | default |\n| --- | --- |\n| model | small |\n| retries | 3 |\n\nEach session now stores its history in a separate file that you can inspect by hand. If a key is missing the tool falls back to the value from the project directory. Run the check command first so that every problem is listed before anything is changed. The server refuses a request when the signature header is absent or the clock drifts.\n\nIf a key is missing the tool falls back to the value from the project directory. Run the check command first so that every problem is listed before anything is changed. The server refuses a request when the signature header is absent or the clock drifts. The migration tool reads the old configuration file and writes a new one next to it.\n\n```json\n{\"model\": \"small\", \"retries\": 3}\n```\n\nRun the check command first so that every problem is listed before anything is changed. The server refuses a request when the signature header is absent or the clock drifts. The migration tool reads the old configuration file and writes a new one next to it. Plugins that used the earlier hook names must be renamed before the next release.\n\nThe server refuses a request when the signature header is absent or the clock drifts. The migration tool reads the old configuration file and writes a new one next to it. Plugins that used the earlier hook names must be renamed before the next release. Each session now stores its history in a separate file that you can inspect by hand.",
+     "tier": "A",
+     "title": "Migrate",
+     "trust_tier": 0.75,
+     "url": "https://example.org/docs/migrate-v1"
+    },
+    {
+     "chunk_n_words": 401,
+     "content_digest": "0004a61151996324313dea3553bb7a0ef01fef14",
+     "domain": "example.org",
+     "lang": "en",
+     "point_id": "ab782abf-8afd-5f9e-acc0-e6c4c676f35b",
+     "snippet": "Migrating from version one > Section 3 The migration tool reads the old configuration file and writes a new one next to it.",
+     "source_type": "docs",
+     "stamps": {
+      "chunk": 4,
+      "prov_id": "6370ee1d65a21add"
+     },
+     "text": "Migrating from version one > Section 3\n\nThe migration tool reads the old configuration file and writes a new one next to it. Plugins that used the earlier hook names must be renamed before the next release. Each session now stores its history in a separate file that you can inspect by hand. If a key is missing the tool falls back to the value from the project directory.\n\nPlugins that used the earlier hook names must be renamed before the next release. Each session now stores its history in a separate file that you can inspect by hand. If a key is missing the tool falls back to the value from the project directory. Run the check command first so that every problem is listed before anything is changed.\n\n| key | default |\n| --- | --- |\n| model | small |\n| retries | 3 |\n\nEach session now stores its history in a separate file that you can inspect by hand. If a key is missing the tool falls back to the value from the project directory. Run the check command first so that every problem is listed before anything is changed. The server refuses a request when the signature header is absent or the clock drifts.\n\nIf a key is missing the tool falls back to the value from the project directory. Run the check command first so that every problem is listed before anything is changed. The server refuses a request when the signature header is absent or the clock drifts. The migration tool reads the old configuration file and writes a new one next to it.\n\n```json\n{\"model\": \"small\", \"retries\": 3}\n```\n\nRun the check command first so that every problem is listed before anything is changed. The server refuses a request when the signature header is absent or the clock drifts. The migration tool reads the old configuration file and writes a new one next to it. Plugins that used the earlier hook names must be renamed before the next release.\n\nThe server refuses a request when the signature header is absent or the clock drifts. The migration tool reads the old configuration file and writes a new one next to it. Plugins that used the earlier hook names must be renamed before the next release. Each session now stores its history in a separate file that you can inspect by hand.",
+     "tier": "A",
+     "title": "Migrate",
+     "trust_tier": 0.75,
+     "url": "https://example.org/docs/migrate-v1"
+    },
+    {
+     "chunk_n_words": 401,
+     "content_digest": "9afac048c24a646f7f0c91cbf8c122b0044d7b0d",
+     "domain": "example.org",
+     "lang": "en",
+     "point_id": "ed20f0da-40e2-50ca-b246-50a20706c99f",
+     "snippet": "Migrating from version one > Section 4 The migration tool reads the old configuration file and writes a new one next to it.",
+     "source_type": "docs",
+     "stamps": {
+      "chunk": 4,
+      "prov_id": "6370ee1d65a21add"
+     },
+     "text": "Migrating from version one > Section 4\n\nThe migration tool reads the old configuration file and writes a new one next to it. Plugins that used the earlier hook names must be renamed before the next release. Each session now stores its history in a separate file that you can inspect by hand. If a key is missing the tool falls back to the value from the project directory.\n\nPlugins that used the earlier hook names must be renamed before the next release. Each session now stores its history in a separate file that you can inspect by hand. If a key is missing the tool falls back to the value from the project directory. Run the check command first so that every problem is listed before anything is changed.\n\n| key | default |\n| --- | --- |\n| model | small |\n| retries | 3 |\n\nEach session now stores its history in a separate file that you can inspect by hand. If a key is missing the tool falls back to the value from the project directory. Run the check command first so that every problem is listed before anything is changed. The server refuses a request when the signature header is absent or the clock drifts.\n\nIf a key is missing the tool falls back to the value from the project directory. Run the check command first so that every problem is listed before anything is changed. The server refuses a request when the signature header is absent or the clock drifts. The migration tool reads the old configuration file and writes a new one next to it.\n\n```json\n{\"model\": \"small\", \"retries\": 3}\n```\n\nRun the check command first so that every problem is listed before anything is changed. The server refuses a request when the signature header is absent or the clock drifts. The migration tool reads the old configuration file and writes a new one next to it. Plugins that used the earlier hook names must be renamed before the next release.\n\nThe server refuses a request when the signature header is absent or the clock drifts. The migration tool reads the old configuration file and writes a new one next to it. Plugins that used the earlier hook names must be renamed before the next release. Each session now stores its history in a separate file that you can inspect by hand.",
+     "tier": "A",
+     "title": "Migrate",
+     "trust_tier": 0.75,
+     "url": "https://example.org/docs/migrate-v1"
+    },
+    {
+     "chunk_n_words": 871,
+     "content_digest": "a2db39367f028c711470992bec2b8856cb31fda4",
+     "domain": "example.org",
+     "lang": "en",
+     "point_id": "1cfac36f-19fa-5178-a5ae-f7e9f71ddc22",
+     "snippet": "Migrating from version one > Section 5 The migration tool reads the old configuration file and writes a new one next to it.",
+     "source_type": "docs",
+     "stamps": {
+      "chunk": 4,
+      "prov_id": "6370ee1d65a21add"
+     },
+     "text": "Migrating from version one > Section 5\n\nThe migration tool reads the old configuration file and writes a new one next to it. Plugins that used the earlier hook names must be renamed before the next release. Each session now stores its history in a separate file that you can inspect by hand. If a key is missing the tool falls back to the value from the project directory.\n\nPlugins that used the earlier hook names must be renamed before the next release. Each session now stores its history in a separate file that you can inspect by hand. If a key is missing the tool falls back to the value from the project directory. Run the check command first so that every problem is listed before anything is changed.\n\n| key | default |\n| --- | --- |\n| model | small |\n| retries | 3 |\n\nEach session now stores its history in a separate file that you can inspect by hand. If a key is missing the tool falls back to the value from the project directory. Run the check command first so that every problem is listed before anything is changed. The server refuses a request when the signature header is absent or the clock drifts.\n\nIf a key is missing the tool falls back to the value from the project directory. Run the check command first so that every problem is listed before anything is changed. The server refuses a request when the signature header is absent or the clock drifts. The migration tool reads the old configuration file and writes a new one next to it.\n\n```json\n{\"model\": \"small\", \"retries\": 3}\n```\n\nRun the check command first so that every problem is listed before anything is changed. The server refuses a request when the signature header is absent or the clock drifts. The migration tool reads the old configuration file and writes a new one next to it. Plugins that used the earlier hook names must be renamed before the next release.\n\nThe server refuses a request when the signature header is absent or the clock drifts. The migration tool reads the old configuration file and writes a new one next to it. Plugins that used the earlier hook names must be renamed before the next release. Each session now stores its history in a separate file that you can inspect by hand.\n\nMigrating from version one > Section 6\n\nThe migration tool reads the old configuration file and writes a new one next to it. Plugins that used the earlier hook names must be renamed before the next release. Each session now stores its history in a separate file that you can inspect by hand. If a key is missing the tool falls back to the value from the project directory.\n\nPlugins that used the earlier hook names must be renamed before the next release. Each session now stores its history in a separate file that you can inspect by hand. If a key is missing the tool falls back to the value from the project directory. Run the check command first so that every problem is listed before anything is changed.\n\n| key | default |\n| --- | --- |\n| model | small |\n| retries | 3 |\n\nEach session now stores its history in a separate file that you can inspect by hand. If a key is missing the tool falls back to the value from the project directory. Run the check command first so that every problem is listed before anything is changed. The server refuses a request when the signature header is absent or the clock drifts.\n\nIf a key is missing the tool falls back to the value from the project directory. Run the check command first so that every problem is listed before anything is changed. The server refuses a request when the signature header is absent or the clock drifts. The migration tool reads the old configuration file and writes a new one next to it.\n\n```json\n{\"model\": \"small\", \"retries\": 3}\n```\n\nRun the check command first so that every problem is listed before anything is changed. The server refuses a request when the signature header is absent or the clock drifts. The migration tool reads the old configuration file and writes a new one next to it. Plugins that used the earlier hook names must be renamed before the next release.\n\nThe server refuses a request when the signature header is absent or the clock drifts. The migration tool reads the old configuration file and writes a new one next to it. Plugins that used the earlier hook names must be renamed before the next release. Each session now stores its history in a separate file that you can inspect by hand.\n\nMigrating from version one > Section 7\n\nThe migration tool reads the old configuration file and writes a new one next to it. Plugins that used the earlier hook names must be renamed before the next release. Each session now stores its history in a separate file that you can inspect by hand. If a key is missing the tool falls back to the value from the project directory.",
+     "tier": "A",
+     "title": "Migrate",
+     "trust_tier": 0.75,
+     "url": "https://example.org/docs/migrate-v1"
+    }
+   ]
+  },
+  {
+   "id": "headings_only",
+   "rows": []
+  },
+  {
+   "id": "code_fence_heavy",
+   "rows": [
+    {
+     "chunk_n_words": 554,
+     "content_digest": "fa8d91044024ec46a7ec7ba45288b85ea57ffab8",
+     "domain": "example.org",
+     "lang": "en",
+     "point_id": "323056eb-3ec8-511f-af5f-ad65a1338e83",
+     "snippet": "Command reference > Command 0 Use this command to inspect item 0 of the store and print its fields.",
+     "source_type": "docs",
+     "stamps": {
+      "chunk": 4,
+      "prov_id": "6370ee1d65a21add"
+     },
+     "text": "Command reference > Command 0\n\nUse this command to inspect item 0 of the store and print its fields.\n\n```bash\naw inspect --item 0 --field field0 --format json | jq '.value0'\naw inspect --item 0 --field field1 --format json | jq '.value1'\naw inspect --item 0 --field field2 --format json | jq '.value2'\naw inspect --item 0 --field field3 --format json | jq '.value3'\naw inspect --item 0 --field field4 --format json | jq '.value4'\naw inspect --item 0 --field field5 --format json | jq '.value5'\naw inspect --item 0 --field field6 --format json | jq '.value6'\naw inspect --item 0 --field field7 --format json | jq '.value7'\naw inspect --item 0 --field field8 --format json | jq '.value8'\naw inspect --item 0 --field field9 --format json | jq '.value9'\naw inspect --item 0 --field field10 --format json | jq '.value10'\naw inspect --item 0 --field field11 --format json | jq '.value11'\naw inspect --item 0 --field field12 --format json | jq '.value12'\naw inspect --item 0 --field field13 --format json | jq '.value13'\naw inspect --item 0 --field field14 --format json | jq '.value14'\naw inspect --item 0 --field field15 --format json | jq '.value15'\naw inspect --item 0 --field field16 --format json | jq '.value16'\naw inspect --item 0 --field field17 --format json | jq '.value17'\n```\n\n```python\ndef handler_0_0(request):\n    return {'item': 0, 'field': 0}\ndef handler_0_1(request):\n    return {'item': 0, 'field': 1}\ndef handler_0_2(request):\n    return {'item': 0, 'field': 2}\ndef handler_0_3(request):\n    return {'item': 0, 'field': 3}\ndef handler_0_4(request):\n    return {'item': 0, 'field': 4}\ndef handler_0_5(request):\n    return {'item': 0, 'field': 5}\ndef handler_0_6(request):\n    return {'item': 0, 'field': 6}\ndef handler_0_7(request):\n    return {'item': 0, 'field': 7}\n```\n\nCommand reference > Command 1\n\nUse this command to inspect item 1 of the store and print its fields.\n\n```bash\naw inspect --item 1 --field field0 --format json | jq '.value0'\naw inspect --item 1 --field field1 --format json | jq '.value1'\naw inspect --item 1 --field field2 --format json | jq '.value2'\naw inspect --item 1 --field field3 --format json | jq '.value3'\naw inspect --item 1 --field field4 --format json | jq '.value4'\naw inspect --item 1 --field field5 --format json | jq '.value5'\naw inspect --item 1 --field field6 --format json | jq '.value6'\naw inspect --item 1 --field field7 --format json | jq '.value7'\naw inspect --item 1 --field field8 --format json | jq '.value8'\naw inspect --item 1 --field field9 --format json | jq '.value9'\naw inspect --item 1 --field field10 --format json | jq '.value10'\naw inspect --item 1 --field field11 --format json | jq '.value11'\naw inspect --item 1 --field field12 --format json | jq '.value12'\naw inspect --item 1 --field field13 --format json | jq '.value13'\naw inspect --item 1 --field field14 --format json | jq '.value14'\naw inspect --item 1 --field field15 --format json | jq '.value15'\naw inspect --item 1 --field field16 --format json | jq '.value16'\naw inspect --item 1 --field field17 --format json | jq '.value17'\n```\n\n```python\ndef handler_1_0(request):\n    return {'item': 1, 'field': 0}\ndef handler_1_1(request):\n    return {'item': 1, 'field': 1}\ndef handler_1_2(request):\n    return {'item': 1, 'field': 2}\ndef handler_1_3(request):\n    return {'item': 1, 'field': 3}\ndef handler_1_4(request):\n    return {'item': 1, 'field': 4}\ndef handler_1_5(request):\n    return {'item': 1, 'field': 5}\ndef handler_1_6(request):\n    return {'item': 1, 'field': 6}\ndef handler_1_7(request):\n    return {'item': 1, 'field': 7}\n```",
+     "tier": "A",
+     "title": "Commands",
+     "trust_tier": 0.75,
+     "url": "https://example.org/docs/commands"
+    },
+    {
+     "chunk_n_words": 554,
+     "content_digest": "23dc100ba94ca01192ad91c2393afbe0581ad0a2",
+     "domain": "example.org",
+     "lang": "en",
+     "point_id": "6837e1f0-3d49-50d1-ae6e-e90ce6d8b95c",
+     "snippet": "Command reference > Command 2 Use this command to inspect item 2 of the store and print its fields.",
+     "source_type": "docs",
+     "stamps": {
+      "chunk": 4,
+      "prov_id": "6370ee1d65a21add"
+     },
+     "text": "Command reference > Command 2\n\nUse this command to inspect item 2 of the store and print its fields.\n\n```bash\naw inspect --item 2 --field field0 --format json | jq '.value0'\naw inspect --item 2 --field field1 --format json | jq '.value1'\naw inspect --item 2 --field field2 --format json | jq '.value2'\naw inspect --item 2 --field field3 --format json | jq '.value3'\naw inspect --item 2 --field field4 --format json | jq '.value4'\naw inspect --item 2 --field field5 --format json | jq '.value5'\naw inspect --item 2 --field field6 --format json | jq '.value6'\naw inspect --item 2 --field field7 --format json | jq '.value7'\naw inspect --item 2 --field field8 --format json | jq '.value8'\naw inspect --item 2 --field field9 --format json | jq '.value9'\naw inspect --item 2 --field field10 --format json | jq '.value10'\naw inspect --item 2 --field field11 --format json | jq '.value11'\naw inspect --item 2 --field field12 --format json | jq '.value12'\naw inspect --item 2 --field field13 --format json | jq '.value13'\naw inspect --item 2 --field field14 --format json | jq '.value14'\naw inspect --item 2 --field field15 --format json | jq '.value15'\naw inspect --item 2 --field field16 --format json | jq '.value16'\naw inspect --item 2 --field field17 --format json | jq '.value17'\n```\n\n```python\ndef handler_2_0(request):\n    return {'item': 2, 'field': 0}\ndef handler_2_1(request):\n    return {'item': 2, 'field': 1}\ndef handler_2_2(request):\n    return {'item': 2, 'field': 2}\ndef handler_2_3(request):\n    return {'item': 2, 'field': 3}\ndef handler_2_4(request):\n    return {'item': 2, 'field': 4}\ndef handler_2_5(request):\n    return {'item': 2, 'field': 5}\ndef handler_2_6(request):\n    return {'item': 2, 'field': 6}\ndef handler_2_7(request):\n    return {'item': 2, 'field': 7}\n```\n\nCommand reference > Command 3\n\nUse this command to inspect item 3 of the store and print its fields.\n\n```bash\naw inspect --item 3 --field field0 --format json | jq '.value0'\naw inspect --item 3 --field field1 --format json | jq '.value1'\naw inspect --item 3 --field field2 --format json | jq '.value2'\naw inspect --item 3 --field field3 --format json | jq '.value3'\naw inspect --item 3 --field field4 --format json | jq '.value4'\naw inspect --item 3 --field field5 --format json | jq '.value5'\naw inspect --item 3 --field field6 --format json | jq '.value6'\naw inspect --item 3 --field field7 --format json | jq '.value7'\naw inspect --item 3 --field field8 --format json | jq '.value8'\naw inspect --item 3 --field field9 --format json | jq '.value9'\naw inspect --item 3 --field field10 --format json | jq '.value10'\naw inspect --item 3 --field field11 --format json | jq '.value11'\naw inspect --item 3 --field field12 --format json | jq '.value12'\naw inspect --item 3 --field field13 --format json | jq '.value13'\naw inspect --item 3 --field field14 --format json | jq '.value14'\naw inspect --item 3 --field field15 --format json | jq '.value15'\naw inspect --item 3 --field field16 --format json | jq '.value16'\naw inspect --item 3 --field field17 --format json | jq '.value17'\n```\n\n```python\ndef handler_3_0(request):\n    return {'item': 3, 'field': 0}\ndef handler_3_1(request):\n    return {'item': 3, 'field': 1}\ndef handler_3_2(request):\n    return {'item': 3, 'field': 2}\ndef handler_3_3(request):\n    return {'item': 3, 'field': 3}\ndef handler_3_4(request):\n    return {'item': 3, 'field': 4}\ndef handler_3_5(request):\n    return {'item': 3, 'field': 5}\ndef handler_3_6(request):\n    return {'item': 3, 'field': 6}\ndef handler_3_7(request):\n    return {'item': 3, 'field': 7}\n```",
+     "tier": "A",
+     "title": "Commands",
+     "trust_tier": 0.75,
+     "url": "https://example.org/docs/commands"
+    },
+    {
+     "chunk_n_words": 554,
+     "content_digest": "ff5a3b3abd04326c081698a9a072d792d0d89924",
+     "domain": "example.org",
+     "lang": "en",
+     "point_id": "e47ebcd8-f02f-5472-b25a-84e204b0843a",
+     "snippet": "Command reference > Command 4 Use this command to inspect item 4 of the store and print its fields.",
+     "source_type": "docs",
+     "stamps": {
+      "chunk": 4,
+      "prov_id": "6370ee1d65a21add"
+     },
+     "text": "Command reference > Command 4\n\nUse this command to inspect item 4 of the store and print its fields.\n\n```bash\naw inspect --item 4 --field field0 --format json | jq '.value0'\naw inspect --item 4 --field field1 --format json | jq '.value1'\naw inspect --item 4 --field field2 --format json | jq '.value2'\naw inspect --item 4 --field field3 --format json | jq '.value3'\naw inspect --item 4 --field field4 --format json | jq '.value4'\naw inspect --item 4 --field field5 --format json | jq '.value5'\naw inspect --item 4 --field field6 --format json | jq '.value6'\naw inspect --item 4 --field field7 --format json | jq '.value7'\naw inspect --item 4 --field field8 --format json | jq '.value8'\naw inspect --item 4 --field field9 --format json | jq '.value9'\naw inspect --item 4 --field field10 --format json | jq '.value10'\naw inspect --item 4 --field field11 --format json | jq '.value11'\naw inspect --item 4 --field field12 --format json | jq '.value12'\naw inspect --item 4 --field field13 --format json | jq '.value13'\naw inspect --item 4 --field field14 --format json | jq '.value14'\naw inspect --item 4 --field field15 --format json | jq '.value15'\naw inspect --item 4 --field field16 --format json | jq '.value16'\naw inspect --item 4 --field field17 --format json | jq '.value17'\n```\n\n```python\ndef handler_4_0(request):\n    return {'item': 4, 'field': 0}\ndef handler_4_1(request):\n    return {'item': 4, 'field': 1}\ndef handler_4_2(request):\n    return {'item': 4, 'field': 2}\ndef handler_4_3(request):\n    return {'item': 4, 'field': 3}\ndef handler_4_4(request):\n    return {'item': 4, 'field': 4}\ndef handler_4_5(request):\n    return {'item': 4, 'field': 5}\ndef handler_4_6(request):\n    return {'item': 4, 'field': 6}\ndef handler_4_7(request):\n    return {'item': 4, 'field': 7}\n```\n\nCommand reference > Command 5\n\nUse this command to inspect item 5 of the store and print its fields.\n\n```bash\naw inspect --item 5 --field field0 --format json | jq '.value0'\naw inspect --item 5 --field field1 --format json | jq '.value1'\naw inspect --item 5 --field field2 --format json | jq '.value2'\naw inspect --item 5 --field field3 --format json | jq '.value3'\naw inspect --item 5 --field field4 --format json | jq '.value4'\naw inspect --item 5 --field field5 --format json | jq '.value5'\naw inspect --item 5 --field field6 --format json | jq '.value6'\naw inspect --item 5 --field field7 --format json | jq '.value7'\naw inspect --item 5 --field field8 --format json | jq '.value8'\naw inspect --item 5 --field field9 --format json | jq '.value9'\naw inspect --item 5 --field field10 --format json | jq '.value10'\naw inspect --item 5 --field field11 --format json | jq '.value11'\naw inspect --item 5 --field field12 --format json | jq '.value12'\naw inspect --item 5 --field field13 --format json | jq '.value13'\naw inspect --item 5 --field field14 --format json | jq '.value14'\naw inspect --item 5 --field field15 --format json | jq '.value15'\naw inspect --item 5 --field field16 --format json | jq '.value16'\naw inspect --item 5 --field field17 --format json | jq '.value17'\n```\n\n```python\ndef handler_5_0(request):\n    return {'item': 5, 'field': 0}\ndef handler_5_1(request):\n    return {'item': 5, 'field': 1}\ndef handler_5_2(request):\n    return {'item': 5, 'field': 2}\ndef handler_5_3(request):\n    return {'item': 5, 'field': 3}\ndef handler_5_4(request):\n    return {'item': 5, 'field': 4}\ndef handler_5_5(request):\n    return {'item': 5, 'field': 5}\ndef handler_5_6(request):\n    return {'item': 5, 'field': 6}\ndef handler_5_7(request):\n    return {'item': 5, 'field': 7}\n```",
+     "tier": "A",
+     "title": "Commands",
+     "trust_tier": 0.75,
+     "url": "https://example.org/docs/commands"
+    },
+    {
+     "chunk_n_words": 554,
+     "content_digest": "af4bcdb7928b121b82135a559eba39b1ca0e471d",
+     "domain": "example.org",
+     "lang": "en",
+     "point_id": "77e98d7d-c917-57ee-b7da-2ceeb64b2b70",
+     "snippet": "Command reference > Command 6 Use this command to inspect item 6 of the store and print its fields.",
+     "source_type": "docs",
+     "stamps": {
+      "chunk": 4,
+      "prov_id": "6370ee1d65a21add"
+     },
+     "text": "Command reference > Command 6\n\nUse this command to inspect item 6 of the store and print its fields.\n\n```bash\naw inspect --item 6 --field field0 --format json | jq '.value0'\naw inspect --item 6 --field field1 --format json | jq '.value1'\naw inspect --item 6 --field field2 --format json | jq '.value2'\naw inspect --item 6 --field field3 --format json | jq '.value3'\naw inspect --item 6 --field field4 --format json | jq '.value4'\naw inspect --item 6 --field field5 --format json | jq '.value5'\naw inspect --item 6 --field field6 --format json | jq '.value6'\naw inspect --item 6 --field field7 --format json | jq '.value7'\naw inspect --item 6 --field field8 --format json | jq '.value8'\naw inspect --item 6 --field field9 --format json | jq '.value9'\naw inspect --item 6 --field field10 --format json | jq '.value10'\naw inspect --item 6 --field field11 --format json | jq '.value11'\naw inspect --item 6 --field field12 --format json | jq '.value12'\naw inspect --item 6 --field field13 --format json | jq '.value13'\naw inspect --item 6 --field field14 --format json | jq '.value14'\naw inspect --item 6 --field field15 --format json | jq '.value15'\naw inspect --item 6 --field field16 --format json | jq '.value16'\naw inspect --item 6 --field field17 --format json | jq '.value17'\n```\n\n```python\ndef handler_6_0(request):\n    return {'item': 6, 'field': 0}\ndef handler_6_1(request):\n    return {'item': 6, 'field': 1}\ndef handler_6_2(request):\n    return {'item': 6, 'field': 2}\ndef handler_6_3(request):\n    return {'item': 6, 'field': 3}\ndef handler_6_4(request):\n    return {'item': 6, 'field': 4}\ndef handler_6_5(request):\n    return {'item': 6, 'field': 5}\ndef handler_6_6(request):\n    return {'item': 6, 'field': 6}\ndef handler_6_7(request):\n    return {'item': 6, 'field': 7}\n```\n\nCommand reference > Command 7\n\nUse this command to inspect item 7 of the store and print its fields.\n\n```bash\naw inspect --item 7 --field field0 --format json | jq '.value0'\naw inspect --item 7 --field field1 --format json | jq '.value1'\naw inspect --item 7 --field field2 --format json | jq '.value2'\naw inspect --item 7 --field field3 --format json | jq '.value3'\naw inspect --item 7 --field field4 --format json | jq '.value4'\naw inspect --item 7 --field field5 --format json | jq '.value5'\naw inspect --item 7 --field field6 --format json | jq '.value6'\naw inspect --item 7 --field field7 --format json | jq '.value7'\naw inspect --item 7 --field field8 --format json | jq '.value8'\naw inspect --item 7 --field field9 --format json | jq '.value9'\naw inspect --item 7 --field field10 --format json | jq '.value10'\naw inspect --item 7 --field field11 --format json | jq '.value11'\naw inspect --item 7 --field field12 --format json | jq '.value12'\naw inspect --item 7 --field field13 --format json | jq '.value13'\naw inspect --item 7 --field field14 --format json | jq '.value14'\naw inspect --item 7 --field field15 --format json | jq '.value15'\naw inspect --item 7 --field field16 --format json | jq '.value16'\naw inspect --item 7 --field field17 --format json | jq '.value17'\n```\n\n```python\ndef handler_7_0(request):\n    return {'item': 7, 'field': 0}\ndef handler_7_1(request):\n    return {'item': 7, 'field': 1}\ndef handler_7_2(request):\n    return {'item': 7, 'field': 2}\ndef handler_7_3(request):\n    return {'item': 7, 'field': 3}\ndef handler_7_4(request):\n    return {'item': 7, 'field': 4}\ndef handler_7_5(request):\n    return {'item': 7, 'field': 5}\ndef handler_7_6(request):\n    return {'item': 7, 'field': 6}\ndef handler_7_7(request):\n    return {'item': 7, 'field': 7}\n```",
+     "tier": "A",
+     "title": "Commands",
+     "trust_tier": 0.75,
+     "url": "https://example.org/docs/commands"
+    },
+    {
+     "chunk_n_words": 554,
+     "content_digest": "25c47b63f2db0b24c74c07d7bae3d8b8a20875e2",
+     "domain": "example.org",
+     "lang": "en",
+     "point_id": "6a88f485-fe84-5a2f-af74-508a4eaae7ee",
+     "snippet": "Command reference > Command 8 Use this command to inspect item 8 of the store and print its fields.",
+     "source_type": "docs",
+     "stamps": {
+      "chunk": 4,
+      "prov_id": "6370ee1d65a21add"
+     },
+     "text": "Command reference > Command 8\n\nUse this command to inspect item 8 of the store and print its fields.\n\n```bash\naw inspect --item 8 --field field0 --format json | jq '.value0'\naw inspect --item 8 --field field1 --format json | jq '.value1'\naw inspect --item 8 --field field2 --format json | jq '.value2'\naw inspect --item 8 --field field3 --format json | jq '.value3'\naw inspect --item 8 --field field4 --format json | jq '.value4'\naw inspect --item 8 --field field5 --format json | jq '.value5'\naw inspect --item 8 --field field6 --format json | jq '.value6'\naw inspect --item 8 --field field7 --format json | jq '.value7'\naw inspect --item 8 --field field8 --format json | jq '.value8'\naw inspect --item 8 --field field9 --format json | jq '.value9'\naw inspect --item 8 --field field10 --format json | jq '.value10'\naw inspect --item 8 --field field11 --format json | jq '.value11'\naw inspect --item 8 --field field12 --format json | jq '.value12'\naw inspect --item 8 --field field13 --format json | jq '.value13'\naw inspect --item 8 --field field14 --format json | jq '.value14'\naw inspect --item 8 --field field15 --format json | jq '.value15'\naw inspect --item 8 --field field16 --format json | jq '.value16'\naw inspect --item 8 --field field17 --format json | jq '.value17'\n```\n\n```python\ndef handler_8_0(request):\n    return {'item': 8, 'field': 0}\ndef handler_8_1(request):\n    return {'item': 8, 'field': 1}\ndef handler_8_2(request):\n    return {'item': 8, 'field': 2}\ndef handler_8_3(request):\n    return {'item': 8, 'field': 3}\ndef handler_8_4(request):\n    return {'item': 8, 'field': 4}\ndef handler_8_5(request):\n    return {'item': 8, 'field': 5}\ndef handler_8_6(request):\n    return {'item': 8, 'field': 6}\ndef handler_8_7(request):\n    return {'item': 8, 'field': 7}\n```\n\nCommand reference > Command 9\n\nUse this command to inspect item 9 of the store and print its fields.\n\n```bash\naw inspect --item 9 --field field0 --format json | jq '.value0'\naw inspect --item 9 --field field1 --format json | jq '.value1'\naw inspect --item 9 --field field2 --format json | jq '.value2'\naw inspect --item 9 --field field3 --format json | jq '.value3'\naw inspect --item 9 --field field4 --format json | jq '.value4'\naw inspect --item 9 --field field5 --format json | jq '.value5'\naw inspect --item 9 --field field6 --format json | jq '.value6'\naw inspect --item 9 --field field7 --format json | jq '.value7'\naw inspect --item 9 --field field8 --format json | jq '.value8'\naw inspect --item 9 --field field9 --format json | jq '.value9'\naw inspect --item 9 --field field10 --format json | jq '.value10'\naw inspect --item 9 --field field11 --format json | jq '.value11'\naw inspect --item 9 --field field12 --format json | jq '.value12'\naw inspect --item 9 --field field13 --format json | jq '.value13'\naw inspect --item 9 --field field14 --format json | jq '.value14'\naw inspect --item 9 --field field15 --format json | jq '.value15'\naw inspect --item 9 --field field16 --format json | jq '.value16'\naw inspect --item 9 --field field17 --format json | jq '.value17'\n```\n\n```python\ndef handler_9_0(request):\n    return {'item': 9, 'field': 0}\ndef handler_9_1(request):\n    return {'item': 9, 'field': 1}\ndef handler_9_2(request):\n    return {'item': 9, 'field': 2}\ndef handler_9_3(request):\n    return {'item': 9, 'field': 3}\ndef handler_9_4(request):\n    return {'item': 9, 'field': 4}\ndef handler_9_5(request):\n    return {'item': 9, 'field': 5}\ndef handler_9_6(request):\n    return {'item': 9, 'field': 6}\ndef handler_9_7(request):\n    return {'item': 9, 'field': 7}\n```",
+     "tier": "A",
+     "title": "Commands",
+     "trust_tier": 0.75,
+     "url": "https://example.org/docs/commands"
+    },
+    {
+     "chunk_n_words": 554,
+     "content_digest": "3901ed50fbb555c319f7b574944b2953d73c6712",
+     "domain": "example.org",
+     "lang": "en",
+     "point_id": "121fb5b0-af96-56a0-96e9-a064d8d54395",
+     "snippet": "Command reference > Command 10 Use this command to inspect item 10 of the store and print its fields.",
+     "source_type": "docs",
+     "stamps": {
+      "chunk": 4,
+      "prov_id": "6370ee1d65a21add"
+     },
+     "text": "Command reference > Command 10\n\nUse this command to inspect item 10 of the store and print its fields.\n\n```bash\naw inspect --item 10 --field field0 --format json | jq '.value0'\naw inspect --item 10 --field field1 --format json | jq '.value1'\naw inspect --item 10 --field field2 --format json | jq '.value2'\naw inspect --item 10 --field field3 --format json | jq '.value3'\naw inspect --item 10 --field field4 --format json | jq '.value4'\naw inspect --item 10 --field field5 --format json | jq '.value5'\naw inspect --item 10 --field field6 --format json | jq '.value6'\naw inspect --item 10 --field field7 --format json | jq '.value7'\naw inspect --item 10 --field field8 --format json | jq '.value8'\naw inspect --item 10 --field field9 --format json | jq '.value9'\naw inspect --item 10 --field field10 --format json | jq '.value10'\naw inspect --item 10 --field field11 --format json | jq '.value11'\naw inspect --item 10 --field field12 --format json | jq '.value12'\naw inspect --item 10 --field field13 --format json | jq '.value13'\naw inspect --item 10 --field field14 --format json | jq '.value14'\naw inspect --item 10 --field field15 --format json | jq '.value15'\naw inspect --item 10 --field field16 --format json | jq '.value16'\naw inspect --item 10 --field field17 --format json | jq '.value17'\n```\n\n```python\ndef handler_10_0(request):\n    return {'item': 10, 'field': 0}\ndef handler_10_1(request):\n    return {'item': 10, 'field': 1}\ndef handler_10_2(request):\n    return {'item': 10, 'field': 2}\ndef handler_10_3(request):\n    return {'item': 10, 'field': 3}\ndef handler_10_4(request):\n    return {'item': 10, 'field': 4}\ndef handler_10_5(request):\n    return {'item': 10, 'field': 5}\ndef handler_10_6(request):\n    return {'item': 10, 'field': 6}\ndef handler_10_7(request):\n    return {'item': 10, 'field': 7}\n```\n\nCommand reference > Command 11\n\nUse this command to inspect item 11 of the store and print its fields.\n\n```bash\naw inspect --item 11 --field field0 --format json | jq '.value0'\naw inspect --item 11 --field field1 --format json | jq '.value1'\naw inspect --item 11 --field field2 --format json | jq '.value2'\naw inspect --item 11 --field field3 --format json | jq '.value3'\naw inspect --item 11 --field field4 --format json | jq '.value4'\naw inspect --item 11 --field field5 --format json | jq '.value5'\naw inspect --item 11 --field field6 --format json | jq '.value6'\naw inspect --item 11 --field field7 --format json | jq '.value7'\naw inspect --item 11 --field field8 --format json | jq '.value8'\naw inspect --item 11 --field field9 --format json | jq '.value9'\naw inspect --item 11 --field field10 --format json | jq '.value10'\naw inspect --item 11 --field field11 --format json | jq '.value11'\naw inspect --item 11 --field field12 --format json | jq '.value12'\naw inspect --item 11 --field field13 --format json | jq '.value13'\naw inspect --item 11 --field field14 --format json | jq '.value14'\naw inspect --item 11 --field field15 --format json | jq '.value15'\naw inspect --item 11 --field field16 --format json | jq '.value16'\naw inspect --item 11 --field field17 --format json | jq '.value17'\n```\n\n```python\ndef handler_11_0(request):\n    return {'item': 11, 'field': 0}\ndef handler_11_1(request):\n    return {'item': 11, 'field': 1}\ndef handler_11_2(request):\n    return {'item': 11, 'field': 2}\ndef handler_11_3(request):\n    return {'item': 11, 'field': 3}\ndef handler_11_4(request):\n    return {'item': 11, 'field': 4}\ndef handler_11_5(request):\n    return {'item': 11, 'field': 5}\ndef handler_11_6(request):\n    return {'item': 11, 'field': 6}\ndef handler_11_7(request):\n    return {'item': 11, 'field': 7}\n```",
+     "tier": "A",
+     "title": "Commands",
+     "trust_tier": 0.75,
+     "url": "https://example.org/docs/commands"
+    },
+    {
+     "chunk_n_words": 554,
+     "content_digest": "69e0447e719cb7d0fc12f86f44c2f161cde7a684",
+     "domain": "example.org",
+     "lang": "en",
+     "point_id": "3555f432-596a-53be-8701-0497770e53f3",
+     "snippet": "Command reference > Command 12 Use this command to inspect item 12 of the store and print its fields.",
+     "source_type": "docs",
+     "stamps": {
+      "chunk": 4,
+      "prov_id": "6370ee1d65a21add"
+     },
+     "text": "Command reference > Command 12\n\nUse this command to inspect item 12 of the store and print its fields.\n\n```bash\naw inspect --item 12 --field field0 --format json | jq '.value0'\naw inspect --item 12 --field field1 --format json | jq '.value1'\naw inspect --item 12 --field field2 --format json | jq '.value2'\naw inspect --item 12 --field field3 --format json | jq '.value3'\naw inspect --item 12 --field field4 --format json | jq '.value4'\naw inspect --item 12 --field field5 --format json | jq '.value5'\naw inspect --item 12 --field field6 --format json | jq '.value6'\naw inspect --item 12 --field field7 --format json | jq '.value7'\naw inspect --item 12 --field field8 --format json | jq '.value8'\naw inspect --item 12 --field field9 --format json | jq '.value9'\naw inspect --item 12 --field field10 --format json | jq '.value10'\naw inspect --item 12 --field field11 --format json | jq '.value11'\naw inspect --item 12 --field field12 --format json | jq '.value12'\naw inspect --item 12 --field field13 --format json | jq '.value13'\naw inspect --item 12 --field field14 --format json | jq '.value14'\naw inspect --item 12 --field field15 --format json | jq '.value15'\naw inspect --item 12 --field field16 --format json | jq '.value16'\naw inspect --item 12 --field field17 --format json | jq '.value17'\n```\n\n```python\ndef handler_12_0(request):\n    return {'item': 12, 'field': 0}\ndef handler_12_1(request):\n    return {'item': 12, 'field': 1}\ndef handler_12_2(request):\n    return {'item': 12, 'field': 2}\ndef handler_12_3(request):\n    return {'item': 12, 'field': 3}\ndef handler_12_4(request):\n    return {'item': 12, 'field': 4}\ndef handler_12_5(request):\n    return {'item': 12, 'field': 5}\ndef handler_12_6(request):\n    return {'item': 12, 'field': 6}\ndef handler_12_7(request):\n    return {'item': 12, 'field': 7}\n```\n\nCommand reference > Command 13\n\nUse this command to inspect item 13 of the store and print its fields.\n\n```bash\naw inspect --item 13 --field field0 --format json | jq '.value0'\naw inspect --item 13 --field field1 --format json | jq '.value1'\naw inspect --item 13 --field field2 --format json | jq '.value2'\naw inspect --item 13 --field field3 --format json | jq '.value3'\naw inspect --item 13 --field field4 --format json | jq '.value4'\naw inspect --item 13 --field field5 --format json | jq '.value5'\naw inspect --item 13 --field field6 --format json | jq '.value6'\naw inspect --item 13 --field field7 --format json | jq '.value7'\naw inspect --item 13 --field field8 --format json | jq '.value8'\naw inspect --item 13 --field field9 --format json | jq '.value9'\naw inspect --item 13 --field field10 --format json | jq '.value10'\naw inspect --item 13 --field field11 --format json | jq '.value11'\naw inspect --item 13 --field field12 --format json | jq '.value12'\naw inspect --item 13 --field field13 --format json | jq '.value13'\naw inspect --item 13 --field field14 --format json | jq '.value14'\naw inspect --item 13 --field field15 --format json | jq '.value15'\naw inspect --item 13 --field field16 --format json | jq '.value16'\naw inspect --item 13 --field field17 --format json | jq '.value17'\n```\n\n```python\ndef handler_13_0(request):\n    return {'item': 13, 'field': 0}\ndef handler_13_1(request):\n    return {'item': 13, 'field': 1}\ndef handler_13_2(request):\n    return {'item': 13, 'field': 2}\ndef handler_13_3(request):\n    return {'item': 13, 'field': 3}\ndef handler_13_4(request):\n    return {'item': 13, 'field': 4}\ndef handler_13_5(request):\n    return {'item': 13, 'field': 5}\ndef handler_13_6(request):\n    return {'item': 13, 'field': 6}\ndef handler_13_7(request):\n    return {'item': 13, 'field': 7}\n```",
+     "tier": "A",
+     "title": "Commands",
+     "trust_tier": 0.75,
+     "url": "https://example.org/docs/commands"
+    }
+   ]
+  },
+  {
+   "id": "japanese",
+   "rows": []
+  },
+  {
+   "id": "russian",
+   "rows": []
+  },
+  {
+   "id": "german",
+   "rows": [
+    {
+     "chunk_n_words": 828,
+     "content_digest": "935770c269f5469d1ffd4b5fda2d817d16b68e3e",
+     "domain": "example.org",
+     "lang": "de",
+     "point_id": "55399bf0-dec3-56be-9b26-07afd6c23365",
+     "snippet": "Umstellung von Version eins > Abschnitt 0 Das Werkzeug liest die alte Konfigurationsdatei und schreibt daneben eine neue Datei.",
+     "source_type": "docs",
+     "stamps": {
+      "chunk": 4,
+      "prov_id": "6370ee1d65a21add"
+     },
+     "text": "Umstellung von Version eins > Abschnitt 0\n\nDas Werkzeug liest die alte Konfigurationsdatei und schreibt daneben eine neue Datei. Erweiterungen mit den früheren Namen müssen vor der nächsten Version umbenannt werden. Jede Sitzung speichert ihren Verlauf nun in einer eigenen Datei, die man von Hand prüfen kann. Das Werkzeug liest die alte Konfigurationsdatei und schreibt daneben eine neue Datei. Erweiterungen mit den früheren Namen müssen vor der nächsten Version umbenannt werden. Jede Sitzung speichert ihren Verlauf nun in einer eigenen Datei, die man von Hand prüfen kann. Das Werkzeug liest die alte Konfigurationsdatei und schreibt daneben eine neue Datei. Erweiterungen mit den früheren Namen müssen vor der nächsten Version umbenannt werden. Jede Sitzung speichert ihren Verlauf nun in einer eigenen Datei, die man von Hand prüfen kann. Das Werkzeug liest die alte Konfigurationsdatei und schreibt daneben eine neue Datei. Erweiterungen mit den früheren Namen müssen vor der nächsten Version umbenannt werden. Jede Sitzung speichert ihren Verlauf nun in einer eigenen Datei, die man von Hand prüfen kann. Das Werkzeug liest die alte Konfigurationsdatei und schreibt daneben eine neue Datei. Erweiterungen mit den früheren Namen müssen vor der nächsten Version umbenannt werden. Jede Sitzung speichert ihren Verlauf nun in einer eigenen Datei, die man von Hand prüfen kann.\n\nUmstellung von Version eins > Abschnitt 1\n\nDas Werkzeug liest die alte Konfigurationsdatei und schreibt daneben eine neue Datei. Erweiterungen mit den früheren Namen müssen vor der nächsten Version umbenannt werden. Jede Sitzung speichert ihren Verlauf nun in einer eigenen Datei, die man von Hand prüfen kann. Das Werkzeug liest die alte Konfigurationsdatei und schreibt daneben eine neue Datei. Erweiterungen mit den früheren Namen müssen vor der nächsten Version umbenannt werden. Jede Sitzung speichert ihren Verlauf nun in einer eigenen Datei, die man von Hand prüfen kann. Das Werkzeug liest die alte Konfigurationsdatei und schreibt daneben eine neue Datei. Erweiterungen mit den früheren Namen müssen vor der nächsten Version umbenannt werden. Jede Sitzung speichert ihren Verlauf nun in einer eigenen Datei, die man von Hand prüfen kann. Das Werkzeug liest die alte Konfigurationsdatei und schreibt daneben eine neue Datei. Erweiterungen mit den früheren Namen müssen vor der nächsten Version umbenannt werden. Jede Sitzung speichert ihren Verlauf nun in einer eigenen Datei, die man von Hand prüfen kann. Das Werkzeug liest die alte Konfigurationsdatei und schreibt daneben eine neue Datei. Erweiterungen mit den früheren Namen müssen vor der nächsten Version umbenannt werden. Jede Sitzung speichert ihren Verlauf nun in einer eigenen Datei, die man von Hand prüfen kann.\n\nUmstellung von Version eins > Abschnitt 2\n\nDas Werkzeug liest die alte Konfigurationsdatei und schreibt daneben eine neue Datei. Erweiterungen mit den früheren Namen müssen vor der nächsten Version umbenannt werden. Jede Sitzung speichert ihren Verlauf nun in einer eigenen Datei, die man von Hand prüfen kann. Das Werkzeug liest die alte Konfigurationsdatei und schreibt daneben eine neue Datei. Erweiterungen mit den früheren Namen müssen vor der nächsten Version umbenannt werden. Jede Sitzung speichert ihren Verlauf nun in einer eigenen Datei, die man von Hand prüfen kann. Das Werkzeug liest die alte Konfigurationsdatei und schreibt daneben eine neue Datei. Erweiterungen mit den früheren Namen müssen vor der nächsten Version umbenannt werden. Jede Sitzung speichert ihren Verlauf nun in einer eigenen Datei, die man von Hand prüfen kann. Das Werkzeug liest die alte Konfigurationsdatei und schreibt daneben eine neue Datei. Erweiterungen mit den früheren Namen müssen vor der nächsten Version umbenannt werden. Jede Sitzung speichert ihren Verlauf nun in einer eigenen Datei, die man von Hand prüfen kann. Das Werkzeug liest die alte Konfigurationsdatei und schreibt daneben eine neue Datei. Erweiterungen mit den früheren Namen müssen vor der nächsten Version umbenannt werden. Jede Sitzung speichert ihren Verlauf nun in einer eigenen Datei, die man von Hand prüfen kann.\n\nUmstellung von Version eins > Abschnitt 3\n\nDas Werkzeug liest die alte Konfigurationsdatei und schreibt daneben eine neue Datei. Erweiterungen mit den früheren Namen müssen vor der nächsten Version umbenannt werden. Jede Sitzung speichert ihren Verlauf nun in einer eigenen Datei, die man von Hand prüfen kann. Das Werkzeug liest die alte Konfigurationsdatei und schreibt daneben eine neue Datei. Erweiterungen mit den früheren Namen müssen vor der nächsten Version umbenannt werden. Jede Sitzung speichert ihren Verlauf nun in einer eigenen Datei, die man von Hand prüfen kann. Das Werkzeug liest die alte Konfigurationsdatei und schreibt daneben eine neue Datei. Erweiterungen mit den früheren Namen müssen vor der nächsten Version umbenannt werden. Jede Sitzung speichert ihren Verlauf nun in einer eigenen Datei, die man von Hand prüfen kann. Das Werkzeug liest die alte Konfigurationsdatei und schreibt daneben eine neue Datei. Erweiterungen mit den früheren Namen müssen vor der nächsten Version umbenannt werden. Jede Sitzung speichert ihren Verlauf nun in einer eigenen Datei, die man von Hand prüfen kann. Das Werkzeug liest die alte Konfigurationsdatei und schreibt daneben eine neue Datei. Erweiterungen mit den früheren Namen müssen vor der nächsten Version umbenannt werden. Jede Sitzung speichert ihren Verlauf nun in einer eigenen Datei, die man von Hand prüfen kann.",
+     "tier": "A",
+     "title": "Umstellung",
+     "trust_tier": 0.75,
+     "url": "https://example.org/de/docs/umstellung"
+    },
+    {
+     "chunk_n_words": 621,
+     "content_digest": "3acd3dfd150dcc063fc5bb069f7d8d99b75ff8bd",
+     "domain": "example.org",
+     "lang": "de",
+     "point_id": "31489e84-eeae-5e98-a3a8-207554353257",
+     "snippet": "Umstellung von Version eins > Abschnitt 4 Das Werkzeug liest die alte Konfigurationsdatei und schreibt daneben eine neue Datei.",
+     "source_type": "docs",
+     "stamps": {
+      "chunk": 4,
+      "prov_id": "6370ee1d65a21add"
+     },
+     "text": "Umstellung von Version eins > Abschnitt 4\n\nDas Werkzeug liest die alte Konfigurationsdatei und schreibt daneben eine neue Datei. Erweiterungen mit den früheren Namen müssen vor der nächsten Version umbenannt werden. Jede Sitzung speichert ihren Verlauf nun in einer eigenen Datei, die man von Hand prüfen kann. Das Werkzeug liest die alte Konfigurationsdatei und schreibt daneben eine neue Datei. Erweiterungen mit den früheren Namen müssen vor der nächsten Version umbenannt werden. Jede Sitzung speichert ihren Verlauf nun in einer eigenen Datei, die man von Hand prüfen kann. Das Werkzeug liest die alte Konfigurationsdatei und schreibt daneben eine neue Datei. Erweiterungen mit den früheren Namen müssen vor der nächsten Version umbenannt werden. Jede Sitzung speichert ihren Verlauf nun in einer eigenen Datei, die man von Hand prüfen kann. Das Werkzeug liest die alte Konfigurationsdatei und schreibt daneben eine neue Datei. Erweiterungen mit den früheren Namen müssen vor der nächsten Version umbenannt werden. Jede Sitzung speichert ihren Verlauf nun in einer eigenen Datei, die man von Hand prüfen kann. Das Werkzeug liest die alte Konfigurationsdatei und schreibt daneben eine neue Datei. Erweiterungen mit den früheren Namen müssen vor der nächsten Version umbenannt werden. Jede Sitzung speichert ihren Verlauf nun in einer eigenen Datei, die man von Hand prüfen kann.\n\nUmstellung von Version eins > Abschnitt 5\n\nDas Werkzeug liest die alte Konfigurationsdatei und schreibt daneben eine neue Datei. Erweiterungen mit den früheren Namen müssen vor der nächsten Version umbenannt werden. Jede Sitzung speichert ihren Verlauf nun in einer eigenen Datei, die man von Hand prüfen kann. Das Werkzeug liest die alte Konfigurationsdatei und schreibt daneben eine neue Datei. Erweiterungen mit den früheren Namen müssen vor der nächsten Version umbenannt werden. Jede Sitzung speichert ihren Verlauf nun in einer eigenen Datei, die man von Hand prüfen kann. Das Werkzeug liest die alte Konfigurationsdatei und schreibt daneben eine neue Datei. Erweiterungen mit den früheren Namen müssen vor der nächsten Version umbenannt werden. Jede Sitzung speichert ihren Verlauf nun in einer eigenen Datei, die man von Hand prüfen kann. Das Werkzeug liest die alte Konfigurationsdatei und schreibt daneben eine neue Datei. Erweiterungen mit den früheren Namen müssen vor der nächsten Version umbenannt werden. Jede Sitzung speichert ihren Verlauf nun in einer eigenen Datei, die man von Hand prüfen kann. Das Werkzeug liest die alte Konfigurationsdatei und schreibt daneben eine neue Datei. Erweiterungen mit den früheren Namen müssen vor der nächsten Version umbenannt werden. Jede Sitzung speichert ihren Verlauf nun in einer eigenen Datei, die man von Hand prüfen kann.\n\nUmstellung von Version eins > Abschnitt 6\n\nDas Werkzeug liest die alte Konfigurationsdatei und schreibt daneben eine neue Datei. Erweiterungen mit den früheren Namen müssen vor der nächsten Version umbenannt werden. Jede Sitzung speichert ihren Verlauf nun in einer eigenen Datei, die man von Hand prüfen kann. Das Werkzeug liest die alte Konfigurationsdatei und schreibt daneben eine neue Datei. Erweiterungen mit den früheren Namen müssen vor der nächsten Version umbenannt werden. Jede Sitzung speichert ihren Verlauf nun in einer eigenen Datei, die man von Hand prüfen kann. Das Werkzeug liest die alte Konfigurationsdatei und schreibt daneben eine neue Datei. Erweiterungen mit den früheren Namen müssen vor der nächsten Version umbenannt werden. Jede Sitzung speichert ihren Verlauf nun in einer eigenen Datei, die man von Hand prüfen kann. Das Werkzeug liest die alte Konfigurationsdatei und schreibt daneben eine neue Datei. Erweiterungen mit den früheren Namen müssen vor der nächsten Version umbenannt werden. Jede Sitzung speichert ihren Verlauf nun in einer eigenen Datei, die man von Hand prüfen kann. Das Werkzeug liest die alte Konfigurationsdatei und schreibt daneben eine neue Datei. Erweiterungen mit den früheren Namen müssen vor der nächsten Version umbenannt werden. Jede Sitzung speichert ihren Verlauf nun in einer eigenen Datei, die man von Hand prüfen kann.",
+     "tier": "A",
+     "title": "Umstellung",
+     "trust_tier": 0.75,
+     "url": "https://example.org/de/docs/umstellung"
+    }
+   ]
+  },
+  {
+   "id": "empty",
+   "rows": []
+  },
+  {
+   "id": "short",
+   "rows": []
+  },
+  {
+   "id": "title_override",
+   "rows": [
+    {
+     "chunk_n_words": 613,
+     "content_digest": "57836120959203214b3a4b9d2c7127654f9e90c9",
+     "domain": "example.org",
+     "lang": "en",
+     "point_id": "61da1fc4-da93-5f94-885e-908a2e6c7544",
+     "snippet": "Migrating from version one > Section 0 The migration tool reads the old configuration file and writes a new one next to it.",
+     "source_type": "docs",
+     "stamps": {
+      "chunk": 4,
+      "prov_id": "6370ee1d65a21add"
+     },
+     "text": "Migrating from version one > Section 0\n\nThe migration tool reads the old configuration file and writes a new one next to it. Plugins that used the earlier hook names must be renamed before the next release. Each session now stores its history in a separate file that you can inspect by hand. If a key is missing the tool falls back to the value from the project directory.\n\nPlugins that used the earlier hook names must be renamed before the next release. Each session now stores its history in a separate file that you can inspect by hand. If a key is missing the tool falls back to the value from the project directory. Run the check command first so that every problem is listed before anything is changed.\n\n| key | default |\n| --- | --- |\n| model | small |\n| retries | 3 |\n\nEach session now stores its history in a separate file that you can inspect by hand. If a key is missing the tool falls back to the value from the project directory. Run the check command first so that every problem is listed before anything is changed. The server refuses a request when the signature header is absent or the clock drifts.\n\nIf a key is missing the tool falls back to the value from the project directory. Run the check command first so that every problem is listed before anything is changed. The server refuses a request when the signature header is absent or the clock drifts. The migration tool reads the old configuration file and writes a new one next to it.\n\n```json\n{\"model\": \"small\", \"retries\": 3}\n```\n\nRun the check command first so that every problem is listed before anything is changed. The server refuses a request when the signature header is absent or the clock drifts. The migration tool reads the old configuration file and writes a new one next to it. Plugins that used the earlier hook names must be renamed before the next release.\n\nThe server refuses a request when the signature header is absent or the clock drifts. The migration tool reads the old configuration file and writes a new one next to it. Plugins that used the earlier hook names must be renamed before the next release. Each session now stores its history in a separate file that you can inspect by hand.\n\nMigrating from version one > Section 1\n\nThe migration tool reads the old configuration file and writes a new one next to it. Plugins that used the earlier hook names must be renamed before the next release. Each session now stores its history in a separate file that you can inspect by hand. If a key is missing the tool falls back to the value from the project directory.\n\nPlugins that used the earlier hook names must be renamed before the next release. Each session now stores its history in a separate file that you can inspect by hand. If a key is missing the tool falls back to the value from the project directory. Run the check command first so that every problem is listed before anything is changed.\n\n| key | default |\n| --- | --- |\n| model | small |\n| retries | 3 |\n\nEach session now stores its history in a separate file that you can inspect by hand. If a key is missing the tool falls back to the value from the project directory. Run the check command first so that every problem is listed before anything is changed. The server refuses a request when the signature header is absent or the clock drifts.",
+     "tier": "A",
+     "title": "An Explicit Title",
+     "trust_tier": 0.75,
+     "url": "https://example.org/docs/titled"
+    }
+   ]
+  },
+  {
+   "id": "title_none_falls_back_to_url",
+   "rows": [
+    {
+     "chunk_n_words": 613,
+     "content_digest": "57836120959203214b3a4b9d2c7127654f9e90c9",
+     "domain": "example.org",
+     "lang": "en",
+     "point_id": "bebd0210-1f4c-5005-af00-1fa64bf5d2c9",
+     "snippet": "Migrating from version one > Section 0 The migration tool reads the old configuration file and writes a new one next to it.",
+     "source_type": "docs",
+     "stamps": {
+      "chunk": 4,
+      "prov_id": "6370ee1d65a21add"
+     },
+     "text": "Migrating from version one > Section 0\n\nThe migration tool reads the old configuration file and writes a new one next to it. Plugins that used the earlier hook names must be renamed before the next release. Each session now stores its history in a separate file that you can inspect by hand. If a key is missing the tool falls back to the value from the project directory.\n\nPlugins that used the earlier hook names must be renamed before the next release. Each session now stores its history in a separate file that you can inspect by hand. If a key is missing the tool falls back to the value from the project directory. Run the check command first so that every problem is listed before anything is changed.\n\n| key | default |\n| --- | --- |\n| model | small |\n| retries | 3 |\n\nEach session now stores its history in a separate file that you can inspect by hand. If a key is missing the tool falls back to the value from the project directory. Run the check command first so that every problem is listed before anything is changed. The server refuses a request when the signature header is absent or the clock drifts.\n\nIf a key is missing the tool falls back to the value from the project directory. Run the check command first so that every problem is listed before anything is changed. The server refuses a request when the signature header is absent or the clock drifts. The migration tool reads the old configuration file and writes a new one next to it.\n\n```json\n{\"model\": \"small\", \"retries\": 3}\n```\n\nRun the check command first so that every problem is listed before anything is changed. The server refuses a request when the signature header is absent or the clock drifts. The migration tool reads the old configuration file and writes a new one next to it. Plugins that used the earlier hook names must be renamed before the next release.\n\nThe server refuses a request when the signature header is absent or the clock drifts. The migration tool reads the old configuration file and writes a new one next to it. Plugins that used the earlier hook names must be renamed before the next release. Each session now stores its history in a separate file that you can inspect by hand.\n\nMigrating from version one > Section 1\n\nThe migration tool reads the old configuration file and writes a new one next to it. Plugins that used the earlier hook names must be renamed before the next release. Each session now stores its history in a separate file that you can inspect by hand. If a key is missing the tool falls back to the value from the project directory.\n\nPlugins that used the earlier hook names must be renamed before the next release. Each session now stores its history in a separate file that you can inspect by hand. If a key is missing the tool falls back to the value from the project directory. Run the check command first so that every problem is listed before anything is changed.\n\n| key | default |\n| --- | --- |\n| model | small |\n| retries | 3 |\n\nEach session now stores its history in a separate file that you can inspect by hand. If a key is missing the tool falls back to the value from the project directory. Run the check command first so that every problem is listed before anything is changed. The server refuses a request when the signature header is absent or the clock drifts.",
+     "tier": "A",
+     "title": "https://example.org/docs/untitled",
+     "trust_tier": 0.75,
+     "url": "https://example.org/docs/untitled"
+    }
+   ]
+  },
+  {
+   "id": "news_legacy_policy",
+   "rows": [
+    {
+     "chunk_n_words": 151,
+     "content_digest": "36a755ed96c59dfacbf825d62807b70911271b87",
+     "domain": "example.org",
+     "lang": "en",
+     "point_id": "ca6862ca-cbd1-5c46-9d06-25d8199ad777",
+     "snippet": "# Migrating from version one ## Section 0 The migration tool reads the old configuration file and writes a new one next to it.",
+     "source_type": "news",
+     "stamps": {
+      "chunk": 1,
+      "prov_id": "d8a962c4796858f4"
+     },
+     "text": "# Migrating from version one\n## Section 0\nThe migration tool reads the old configuration file and writes a new one next to it. Plugins that used the earlier hook names must be renamed before the next release. Each session now stores its history in a separate file that you can inspect by hand. If a key is missing the tool falls back to the value from the project directory.\nPlugins that used the earlier hook names must be renamed before the next release. Each session now stores its history in a separate file that you can inspect by hand. If a key is missing the tool falls back to the value from the project directory. Run the check command first so that every problem is listed before anything is changed.\n| key | default |\n| --- | --- |\n| model | small |\n| retries | 3 |",
+     "tier": "B",
+     "title": "Story",
+     "trust_tier": 0.7,
+     "url": "https://example.org/news/story"
+    },
+    {
+     "chunk_n_words": 143,
+     "content_digest": "09f25db65a51e8232c4b951124e410d99ba3f29b",
+     "domain": "example.org",
+     "lang": "en",
+     "point_id": "48df52c2-423f-5d0e-81bf-af5c6c9def1a",
+     "snippet": "Plugins that used the earlier hook names must be renamed before the next release.",
+     "source_type": "news",
+     "stamps": {
+      "chunk": 1,
+      "prov_id": "d8a962c4796858f4"
+     },
+     "text": "Plugins that used the earlier hook names must be renamed before the next release. Each session now stores its history in a separate file that you can inspect by hand. If a key is missing the tool falls back to the value from the project directory. Run the check command first so that every problem is listed before anything is changed.\n| key | default |\n| --- | --- |\n| model | small |\n| retries | 3 |\nEach session now stores its history in a separate file that you can inspect by hand. If a key is missing the tool falls back to the value from the project directory. Run the check command first so that every problem is listed before anything is changed. The server refuses a request when the signature header is absent or the clock drifts.",
+     "tier": "B",
+     "title": "Story",
+     "trust_tier": 0.7,
+     "url": "https://example.org/news/story"
+    },
+    {
+     "chunk_n_words": 130,
+     "content_digest": "c06fd6fb2ac07080aecdd5bfbb346ecede7c41c0",
+     "domain": "example.org",
+     "lang": "en",
+     "point_id": "5ede100b-964a-5400-8824-cd7723a52a64",
+     "snippet": "Each session now stores its history in a separate file that you can inspect by hand.",
+     "source_type": "news",
+     "stamps": {
+      "chunk": 1,
+      "prov_id": "d8a962c4796858f4"
+     },
+     "text": "Each session now stores its history in a separate file that you can inspect by hand. If a key is missing the tool falls back to the value from the project directory. Run the check command first so that every problem is listed before anything is changed. The server refuses a request when the signature header is absent or the clock drifts.\nIf a key is missing the tool falls back to the value from the project directory. Run the check command first so that every problem is listed before anything is changed. The server refuses a request when the signature header is absent or the clock drifts. The migration tool reads the old configuration file and writes a new one next to it.\n```json\n{\"model\": \"small\", \"retries\": 3}\n```",
+     "tier": "B",
+     "title": "Story",
+     "trust_tier": 0.7,
+     "url": "https://example.org/news/story"
+    },
+    {
+     "chunk_n_words": 128,
+     "content_digest": "018b9ded2923513426d0fcaacacfb0df2fbf7073",
+     "domain": "example.org",
+     "lang": "en",
+     "point_id": "c15ae80f-d9b5-53d7-bc35-33da79f988e4",
+     "snippet": "If a key is missing the tool falls back to the value from the project directory.",
+     "source_type": "news",
+     "stamps": {
+      "chunk": 1,
+      "prov_id": "d8a962c4796858f4"
+     },
+     "text": "If a key is missing the tool falls back to the value from the project directory. Run the check command first so that every problem is listed before anything is changed. The server refuses a request when the signature header is absent or the clock drifts. The migration tool reads the old configuration file and writes a new one next to it.\n```json\n{\"model\": \"small\", \"retries\": 3}\n```\nRun the check command first so that every problem is listed before anything is changed. The server refuses a request when the signature header is absent or the clock drifts. The migration tool reads the old configuration file and writes a new one next to it. Plugins that used the earlier hook names must be renamed before the next release.",
+     "tier": "B",
+     "title": "Story",
+     "trust_tier": 0.7,
+     "url": "https://example.org/news/story"
+    },
+    {
+     "chunk_n_words": 124,
+     "content_digest": "43253f751aa37e36d81e21301299684e0b300b26",
+     "domain": "example.org",
+     "lang": "en",
+     "point_id": "57e0f3be-73b2-5e64-a35e-790856308df6",
+     "snippet": "Run the check command first so that every problem is listed before anything is changed.",
+     "source_type": "news",
+     "stamps": {
+      "chunk": 1,
+      "prov_id": "d8a962c4796858f4"
+     },
+     "text": "Run the check command first so that every problem is listed before anything is changed. The server refuses a request when the signature header is absent or the clock drifts. The migration tool reads the old configuration file and writes a new one next to it. Plugins that used the earlier hook names must be renamed before the next release.\nThe server refuses a request when the signature header is absent or the clock drifts. The migration tool reads the old configuration file and writes a new one next to it. Plugins that used the earlier hook names must be renamed before the next release. Each session now stores its history in a separate file that you can inspect by hand.\n## Section 1",
+     "tier": "B",
+     "title": "Story",
+     "trust_tier": 0.7,
+     "url": "https://example.org/news/story"
+    },
+    {
+     "chunk_n_words": 126,
+     "content_digest": "9ba98e2d0edbcb8facca12f4e8d54d880eb68de7",
+     "domain": "example.org",
+     "lang": "en",
+     "point_id": "25669a44-0b82-5d77-8c74-6ac4b82c5149",
+     "snippet": "The server refuses a request when the signature header is absent or the clock drifts.",
+     "source_type": "news",
+     "stamps": {
+      "chunk": 1,
+      "prov_id": "d8a962c4796858f4"
+     },
+     "text": "The server refuses a request when the signature header is absent or the clock drifts. The migration tool reads the old configuration file and writes a new one next to it. Plugins that used the earlier hook names must be renamed before the next release. Each session now stores its history in a separate file that you can inspect by hand.\n## Section 1\nThe migration tool reads the old configuration file and writes a new one next to it. Plugins that used the earlier hook names must be renamed before the next release. Each session now stores its history in a separate file that you can inspect by hand. If a key is missing the tool falls back to the value from the project directory.",
+     "tier": "B",
+     "title": "Story",
+     "trust_tier": 0.7,
+     "url": "https://example.org/news/story"
+    },
+    {
+     "chunk_n_words": 143,
+     "content_digest": "2120f6b24f7e8a33b30a510db84b8b1ce8b3551d",
+     "domain": "example.org",
+     "lang": "en",
+     "point_id": "43bf1c6c-57a9-56c4-9adc-4622b9c342a6",
+     "snippet": "The migration tool reads the old configuration file and writes a new one next to it.",
+     "source_type": "news",
+     "stamps": {
+      "chunk": 1,
+      "prov_id": "d8a962c4796858f4"
+     },
+     "text": "The migration tool reads the old configuration file and writes a new one next to it. Plugins that used the earlier hook names must be renamed before the next release. Each session now stores its history in a separate file that you can inspect by hand. If a key is missing the tool falls back to the value from the project directory.\nPlugins that used the earlier hook names must be renamed before the next release. Each session now stores its history in a separate file that you can inspect by hand. If a key is missing the tool falls back to the value from the project directory. Run the check command first so that every problem is listed before anything is changed.\n| key | default |\n| --- | --- |\n| model | small |\n| retries | 3 |",
+     "tier": "B",
+     "title": "Story",
+     "trust_tier": 0.7,
+     "url": "https://example.org/news/story"
+    },
+    {
+     "chunk_n_words": 143,
+     "content_digest": "09f25db65a51e8232c4b951124e410d99ba3f29b",
+     "domain": "example.org",
+     "lang": "en",
+     "point_id": "48df52c2-423f-5d0e-81bf-af5c6c9def1a",
+     "snippet": "Plugins that used the earlier hook names must be renamed before the next release.",
+     "source_type": "news",
+     "stamps": {
+      "chunk": 1,
+      "prov_id": "d8a962c4796858f4"
+     },
+     "text": "Plugins that used the earlier hook names must be renamed before the next release. Each session now stores its history in a separate file that you can inspect by hand. If a key is missing the tool falls back to the value from the project directory. Run the check command first so that every problem is listed before anything is changed.\n| key | default |\n| --- | --- |\n| model | small |\n| retries | 3 |\nEach session now stores its history in a separate file that you can inspect by hand. If a key is missing the tool falls back to the value from the project directory. Run the check command first so that every problem is listed before anything is changed. The server refuses a request when the signature header is absent or the clock drifts.",
+     "tier": "B",
+     "title": "Story",
+     "trust_tier": 0.7,
+     "url": "https://example.org/news/story"
+    },
+    {
+     "chunk_n_words": 130,
+     "content_digest": "c06fd6fb2ac07080aecdd5bfbb346ecede7c41c0",
+     "domain": "example.org",
+     "lang": "en",
+     "point_id": "5ede100b-964a-5400-8824-cd7723a52a64",
+     "snippet": "Each session now stores its history in a separate file that you can inspect by hand.",
+     "source_type": "news",
+     "stamps": {
+      "chunk": 1,
+      "prov_id": "d8a962c4796858f4"
+     },
+     "text": "Each session now stores its history in a separate file that you can inspect by hand. If a key is missing the tool falls back to the value from the project directory. Run the check command first so that every problem is listed before anything is changed. The server refuses a request when the signature header is absent or the clock drifts.\nIf a key is missing the tool falls back to the value from the project directory. Run the check command first so that every problem is listed before anything is changed. The server refuses a request when the signature header is absent or the clock drifts. The migration tool reads the old configuration file and writes a new one next to it.\n```json\n{\"model\": \"small\", \"retries\": 3}\n```",
+     "tier": "B",
+     "title": "Story",
+     "trust_tier": 0.7,
+     "url": "https://example.org/news/story"
+    },
+    {
+     "chunk_n_words": 128,
+     "content_digest": "018b9ded2923513426d0fcaacacfb0df2fbf7073",
+     "domain": "example.org",
+     "lang": "en",
+     "point_id": "c15ae80f-d9b5-53d7-bc35-33da79f988e4",
+     "snippet": "If a key is missing the tool falls back to the value from the project directory.",
+     "source_type": "news",
+     "stamps": {
+      "chunk": 1,
+      "prov_id": "d8a962c4796858f4"
+     },
+     "text": "If a key is missing the tool falls back to the value from the project directory. Run the check command first so that every problem is listed before anything is changed. The server refuses a request when the signature header is absent or the clock drifts. The migration tool reads the old configuration file and writes a new one next to it.\n```json\n{\"model\": \"small\", \"retries\": 3}\n```\nRun the check command first so that every problem is listed before anything is changed. The server refuses a request when the signature header is absent or the clock drifts. The migration tool reads the old configuration file and writes a new one next to it. Plugins that used the earlier hook names must be renamed before the next release.",
+     "tier": "B",
+     "title": "Story",
+     "trust_tier": 0.7,
+     "url": "https://example.org/news/story"
+    },
+    {
+     "chunk_n_words": 124,
+     "content_digest": "f927785b722eabb082e593aaf9db46b3aec7eb6e",
+     "domain": "example.org",
+     "lang": "en",
+     "point_id": "94829e6f-d655-592b-a1bf-090db693f243",
+     "snippet": "Run the check command first so that every problem is listed before anything is changed.",
+     "source_type": "news",
+     "stamps": {
+      "chunk": 1,
+      "prov_id": "d8a962c4796858f4"
+     },
+     "text": "Run the check command first so that every problem is listed before anything is changed. The server refuses a request when the signature header is absent or the clock drifts. The migration tool reads the old configuration file and writes a new one next to it. Plugins that used the earlier hook names must be renamed before the next release.\nThe server refuses a request when the signature header is absent or the clock drifts. The migration tool reads the old configuration file and writes a new one next to it. Plugins that used the earlier hook names must be renamed before the next release. Each session now stores its history in a separate file that you can inspect by hand.\n## Section 2",
+     "tier": "B",
+     "title": "Story",
+     "trust_tier": 0.7,
+     "url": "https://example.org/news/story"
+    },
+    {
+     "chunk_n_words": 126,
+     "content_digest": "c3c10b4aab33ededa8b0224fb379b7e551743b04",
+     "domain": "example.org",
+     "lang": "en",
+     "point_id": "e6194268-c505-5376-98cc-1818a224d61b",
+     "snippet": "The server refuses a request when the signature header is absent or the clock drifts.",
+     "source_type": "news",
+     "stamps": {
+      "chunk": 1,
+      "prov_id": "d8a962c4796858f4"
+     },
+     "text": "The server refuses a request when the signature header is absent or the clock drifts. The migration tool reads the old configuration file and writes a new one next to it. Plugins that used the earlier hook names must be renamed before the next release. Each session now stores its history in a separate file that you can inspect by hand.\n## Section 2\nThe migration tool reads the old configuration file and writes a new one next to it. Plugins that used the earlier hook names must be renamed before the next release. Each session now stores its history in a separate file that you can inspect by hand. If a key is missing the tool falls back to the value from the project directory.",
+     "tier": "B",
+     "title": "Story",
+     "trust_tier": 0.7,
+     "url": "https://example.org/news/story"
+    },
+    {
+     "chunk_n_words": 143,
+     "content_digest": "2120f6b24f7e8a33b30a510db84b8b1ce8b3551d",
+     "domain": "example.org",
+     "lang": "en",
+     "point_id": "43bf1c6c-57a9-56c4-9adc-4622b9c342a6",
+     "snippet": "The migration tool reads the old configuration file and writes a new one next to it.",
+     "source_type": "news",
+     "stamps": {
+      "chunk": 1,
+      "prov_id": "d8a962c4796858f4"
+     },
+     "text": "The migration tool reads the old configuration file and writes a new one next to it. Plugins that used the earlier hook names must be renamed before the next release. Each session now stores its history in a separate file that you can inspect by hand. If a key is missing the tool falls back to the value from the project directory.\nPlugins that used the earlier hook names must be renamed before the next release. Each session now stores its history in a separate file that you can inspect by hand. If a key is missing the tool falls back to the value from the project directory. Run the check command first so that every problem is listed before anything is changed.\n| key | default |\n| --- | --- |\n| model | small |\n| retries | 3 |",
+     "tier": "B",
+     "title": "Story",
+     "trust_tier": 0.7,
+     "url": "https://example.org/news/story"
+    },
+    {
+     "chunk_n_words": 143,
+     "content_digest": "09f25db65a51e8232c4b951124e410d99ba3f29b",
+     "domain": "example.org",
+     "lang": "en",
+     "point_id": "48df52c2-423f-5d0e-81bf-af5c6c9def1a",
+     "snippet": "Plugins that used the earlier hook names must be renamed before the next release.",
+     "source_type": "news",
+     "stamps": {
+      "chunk": 1,
+      "prov_id": "d8a962c4796858f4"
+     },
+     "text": "Plugins that used the earlier hook names must be renamed before the next release. Each session now stores its history in a separate file that you can inspect by hand. If a key is missing the tool falls back to the value from the project directory. Run the check command first so that every problem is listed before anything is changed.\n| key | default |\n| --- | --- |\n| model | small |\n| retries | 3 |\nEach session now stores its history in a separate file that you can inspect by hand. If a key is missing the tool falls back to the value from the project directory. Run the check command first so that every problem is listed before anything is changed. The server refuses a request when the signature header is absent or the clock drifts.",
+     "tier": "B",
+     "title": "Story",
+     "trust_tier": 0.7,
+     "url": "https://example.org/news/story"
+    }
+   ]
+  }
+ ],
+ "gate": {
+  "[\"01cc341301566992ab059e93e70d779eee3a8e752d545b80e2d25538d9ddbd9c\", \"https://example.org/ru/docs/migrate\", \"en\"]": [
+   "ru",
+   true
+  ],
+  "[\"3ec2b4bcf6db79d24481f07ddfa820224391fb86c714fafd8292a23a2bb6f816\", \"https://example.org/news/story\", \"en\"]": [
+   "en",
+   true
+  ],
+  "[\"4ac9d8087421b38e456613e5783227c95f5704fe218d852278dff6d09e2f6d68\", \"https://example.org/de/docs/umstellung\", \"en\"]": [
+   "de",
+   true
+  ],
+  "[\"917818246aba005ad23cad3bf3b474949af1965163d85838bc07ec792b0708c6\", \"https://example.org/ja/docs/migrate\", \"en\"]": [
+   "ja",
+   true
+  ],
+  "[\"991fd97edefc025a05fb29504280f929f8c4ab260d6c45fa28ebc5039fbc86ac\", \"https://example.org/docs/migrate-v1\", \"en\"]": [
+   "en",
+   true
+  ],
+  "[\"a76e43d825680bf7820a8fb1f3cbe1c611b5fbcb4b13377f17d87f1c5a03f321\", \"https://example.org/docs/titled\", \"en\"]": [
+   "en",
+   true
+  ],
+  "[\"a76e43d825680bf7820a8fb1f3cbe1c611b5fbcb4b13377f17d87f1c5a03f321\", \"https://example.org/docs/untitled\", \"en\"]": [
+   "en",
+   true
+  ],
+  "[\"b4c8af56b37c47dbbcf4593396f6a5e1515d4341885f7c871b5fd6521268b13d\", \"https://example.org/docs/commands\", \"en\"]": [
+   "en",
+   false
+  ],
+  "[\"b5f96dfe14966f83eec39a20f79588ca48a0cfb6b348107559ccf3e669704bab\", \"https://example.org/docs/short\", \"en\"]": [
+   "en",
+   false
+  ],
+  "[\"df4fafccfbd8d9d51482fceb6e17bca7e86d01205c79c6586fd69aad80dc5045\", \"https://example.org/docs/outline\", \"en\"]": [
+   "en",
+   false
+  ],
+  "[\"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\", \"https://example.org/docs/empty\", \"en\"]": [
+   "en",
+   false
+  ]
+ },
+ "provenance": {
+  "checkout_app": "release 888488bead5193388e1cf500930abc6dfae62e70 (app dir)",
+  "command": "<redacted recorder command>",
+  "git_sha": "888488bead5193388e1cf500930abc6dfae62e70",
+  "host": "build-host",
+  "lane_sha256": "be5d44200cb8aeb02fbdcb478ae644f4c1d923793b30d174e248cc48696cdcc7",
+  "lid_model": "lid.176.bin",
+  "lid_sha256": "7e69ec5451bc261cc7844e49e4792a85d7f09c06789ec800fc4a44aec362764e",
+  "recorded_at_utc": "2026-10-23T23:16:12Z",
+  "redacted": "host, checkout_app, lid_model and command carry labels, not the private paths the recorder wrote",
+  "tokenizer": "Snowflake/snowflake-arctic-embed-l-v2.0",
+  "tokenizer_class": "XLMRobertaTokenizer",
+  "tokenizer_revision": "ac6544c8a46e00af67e330e85a9028c66b8cfd9a",
+  "tokenizer_status": "ok"
+ },
+ "tokens": {
+  "00589fafb7f5815cfebc0c86573b0427813fe7c4eaaff321edd8b0ecb44abc9c": 1374,
+  "007cbe010a0d8da87073c7fbdf4c7c98167edce54bddb604e6138b43b95e8e7d": 343,
+  "0205d6074b127da0209d110b1479ea473b7bd7fd5eb39636053a9588f7c48760": 688,
+  "04a2a44f2b526714f491edb6d77da0b39029f547e150ae653d266154891d1ce3": 671,
+  "0755d7030756ea108de642ca077c11ee41a78a6ff80ae851333b52b7cffc5aa8": 417,
+  "0a0fcb8478f3fb9bb5d0a54b6d781d60dc402a779043b4d171c361131646112d": 634,
+  "0a208c094926afbddece4ec95432aae3db0b315dd5b1d0df6725e2c41f4b2c5d": 634,
+  "0c0d07e67543583e98e31a9a9e810f304b573ed3913f3de40d1c640dcc1c43f3": 417,
+  "0cb6af8aeda1ca2008458008eff8c4dda4497b785d067d35ad0e9a85bd618595": 688,
+  "0d06f4535cb1b7b68d240b0a20853e8645c2f62a5acd66dbfbcd1ea2af1dd704": 567,
+  "0dac21ed5343f6e6865affc3eab23581d1aa31677447eeeb99ed38da86e0b0c1": 473,
+  "0e978bf72ceecbd3955add429ef0e73ef1c99114464bc53c099e7cc24161285b": 634,
+  "0f042fba3b3255fa9949a9208121bf6a4ebfb1792309a3a97d9241b275e7b8c2": 1054,
+  "0f465592adfa9bd55f1ff135d716b4c3fb90d9166d0e1fcf5eb598db5da097f4": 20,
+  "104916c7252ee2cc6f1f008c92512ec591ecfcd334d3ee56c0decfc94698811f": 686,
+  "11fe4dd2449ea2825da797a92755544877cacc26123fd51daef7dafa64284feb": 671,
+  "134b33ee3fea9af42fd17605ae45e1012a15af44d7dbb69b123f23b220b90209": 20,
+  "1372dd056bfc5a3dc303cfb8254d8c30ec69fc2b621401296558a88888043738": 567,
+  "144ca83a6ab09052d7e0db61dfd4f021385190c609eefd5477421ced291c4edd": 686,
+  "146c79ac365e262be58ae0823ec25329539da2d88e5810fbb8ba120e3ba5c482": 663,
+  "147c77269ecc9d08d0bdca4ac0415c76afe35a2dfff79af1474fada0d756c278": 20,
+  "19fa6aadc87e1a30ec8ab3c3828326d06f3e02653c409782b66ded802aac0ccb": 304,
+  "1a17d5ffdf9efff3bf5d1ab03129a3e2d9005ee24154437ad35c9834f3d87e8b": 473,
+  "1bd54e3c510db6dd515f207cf3845a255b28d3a5229661c3a13efbefdbcb718f": 178,
+  "1beb03d8f9dc2a058d6657851f5965208f21b6c1ed092d82db42b7b7c7967fc8": 20,
+  "1d9ebfe003397de4bf509dee5b0ab9ed6ed9563a440acaf685fa963e31e8947e": 688,
+  "1fd037328968b72f64d06a294f22df2597822dd38e4b6f62debdac3691b4e361": 304,
+  "2808bb6aa72a819e5a5dd9f8d5b8cd69ca4435aab63cf9b44fe6e7f92216feaa": 473,
+  "2856d0547daee0935104ab0699732add0fdd6c09ef79a5e5088a9d9789cc8c32": 634,
+  "288b7e5b6d846a8fe18daae3ee08ba340fbf0c39a8525abff15f4233d445ae78": 417,
+  "29e14ace1c28644488377f571bc78f76ce73b8ef3bef7a0de48360b718565e03": 417,
+  "2a3a174c30f0f1d93eed51bd7498136ebebb2d7f02bc77912341615bfa9b3288": 304,
+  "2c8501cce033d791389241a3403884aafd54f68e7e6e105d2bba09ed5ed3e5d0": 686,
+  "2e6f22b3547b2a4b95864cc62d6897388defbb639743d8e58fbeec4b4cfd2d35": 20,
+  "338061260805fb8da2133415fc20bd04ba07d5127c7659646c3b000a281ef04a": 1374,
+  "33eafb629113cd008f9c5ab97a9a9fa3987ff10b4aa98687ba018bdce598d03c": 688,
+  "3643de88cccbc6adf11f03ece80551828c7b2fb28aaa6b41fec19acb226aec95": 686,
+  "3748cfdb058a2ed940679b64a7e7ba8224db2694c13c6404b56644d6420412f1": 628,
+  "37e6370eda2e073ec5d460250d40d1b364f25793c53c70f0be76abe66c481083": 2738,
+  "3b14bd2ba10484ee096f2456963a46e7eb11639da40640f9fbe79051f01c14d0": 567,
+  "3c6ebd2da0fad32e56052006572f60a2089cfc2ed9224473cdd55b0ce1603817": 76,
+  "3da64adb3f1df4c07054aa08e87bfaa3c748247f4426fea559e7e9e1275f9b07": 20,
+  "40469ebb105d7d504cc8ae62c8da9d97d7a3f2bca0e8294eb176115da5092765": 686,
+  "4180e547ac013b901c39626c402085e0e145e58fde222edf7c5892aebb03d34c": 634,
+  "4211911d9b98183969320f98fa1dd7de17b42598f1a401723d7e6723ef4b8dbf": 473,
+  "42699c5c83c63a69fb3f9613587d8c31c3741b9902cdb871a39bd5631ecc467e": 491,
+  "43b26195c2dd31dc45710472e1d750daf3d2033cf1bec53fa16a26b694765991": 20,
+  "43fc5b83fe06d2df0362f85915b7993af1a404f2cc6b9ad6f5db7e5797c9137a": 343,
+  "450ac38c103ffd3a4ff4689e5a58853a5bd52e223cfa81802b1b51ee4cfcc923": 491,
+  "4792777050854e3bb48504484750725f99e9296a29bc76ba4f7fd5c7a3d6205b": 1210,
+  "4b8e4456283e27a73e617f560dd81856677f9b902ff1f1634fa1961f477f6a62": 1366,
+  "4bddbfe23a4a5e945b6acc430dc746838820060acb7e067314ce86572a614eb5": 671,
+  "4d3fe4b851783a2d7f6eb815a37f6c8d409c44b00167b488434366d704020aed": 686,
+  "4f1d7141885050a351618c1b8f012d1b4d2fbbc6dd77c39b14a45eac8f38052c": 250,
+  "5018a640f9f0c7aa1ff2082ad3f3ef6fa9c30d87ee9aeac0dd400b93dee1f341": 671,
+  "502eee6be2cda73bab0e7c6234d1b59caef7e6538fdee0a0cb8eb56d034627dc": 634,
+  "516e6db4701fb4ef8e8f43d0e9e18ccb78ca6f70ba045339e27cd13d804b3434": 473,
+  "521e39b4da4950a2160d84ffebec8df381eec7f0ff40aff2c10ea5d4b7935235": 417,
+  "5464cf454ec062a56f07f0a284bc34eeee5b8d699fe08a0dd173e6670a3f35f8": 491,
+  "56c4ab0ffc2d08a3faafdb0d5c0cd5cd96bda8103081ea077f3bea751f0f279b": 567,
+  "57e99f3130c732e895485779442a0bb5121d506dd8db8029e6cdf58e22f36c2e": 417,
+  "59cf7931b8d144ed6c5850a52b926d36f33e94ca1b111acba5cb3bf86121e7ff": 564,
+  "59ecfe666a46cd62ab31e7a241cdb9a075018a56f8e49b43b07dba5608eb1fae": 634,
+  "5adfeb51985488f247ca928f67713c0ab4f555ca8eb4eee0ddc545be1fdb0b3f": 417,
+  "5b5acb1e69c845a7a1eef024d2c3e11847ca2fc00094293d536ad02f279a71b9": 76,
+  "5c229d2c323f07db3576b60c23db829256c0511836237517e1879f492eb2c6ae": 343,
+  "5d1074d884abd2f8900b94d79e6b0a3bbc5ebad30074d80352993d45c9ebc0e5": 250,
+  "5d95908b4e2cba83c16628d7f7ee6cd87c8f5b16102da96d0ce3b36fba57d88d": 250,
+  "5e324f55ea238cd262588c64542c3c7f849a921b5cb5950243584dd294ebf466": 473,
+  "5e99498ea2a75b72afa8094d42f410a4f041b2d0e26cdd5f4fa1156f4eb1562f": 680,
+  "5f44418b0c985be4bf1c8cafc0c2c781bebe50c2c2a2b8d8d27890cacbf82216": 567,
+  "615aa70cc38dc079ae06fb579cc6a868d55aa92ccbd0f911577fa83e42ef7952": 686,
+  "6327eb631cde49c5ec2aced0c867f43f6f844447f47b7961b9944209314b3179": 304,
+  "641497b80104102de5703d624b3fb3291f1e8621a9ba56cc5f47fbb09466036d": 671,
+  "668cb22f78192538b398fed96793098b6ec8116263fae942eacb5e7987f3ebb1": 686,
+  "67f63077befb8cec0cb426370156a25d3aa9d97fd59eaf8850df77642598902b": 688,
+  "6a8ef4bb7ea786d4708757c8010ee29a437abf9a0d3f8f6ac9f1f68d445c3f85": 2738,
+  "6ae7daadb0499a1803af020df7140c4f921de48b2d4a6cb39b6c1b144264aa2b": 664,
+  "6f56fb39d71d7f22cbd7c14fa1cbdbb611ca6661ee71a05cefb2adfa1e90ff12": 671,
+  "6fad41418f2c71146051bc38e942089cc7dc5fd4a47b89c2dd0969c4d9171598": 671,
+  "71bc9b48e92845a83c29580eb2823c1a01ae49f1624114888db0f13b056f5a2d": 473,
+  "721b5b9badb58da98dacc50f62fe42da949019e6cd00463f398c658ede552f6b": 688,
+  "746e98eaed5530542385190ec8c68b18f9defce54561dcc6958d750c2bfbb2b1": 20,
+  "7553e38d520b9c0ddf84a2bef1a783a2fab933c4a5f79be9bc4a24f7f2b03774": 678,
+  "7705ba1044fd5cf9684c08e71a45eb82e2303e6ee7558732f617737e68a5a927": 671,
+  "780bce7d934adb604cd4c85d19c4cdbbab8ff459c932c15049fdd8d3361355d6": 304,
+  "7822472ba5ac6b890cca58995e15b5e9b1fe1fff7f53c1a1994550b4e9a796cb": 1374,
+  "7c8124b6c35f7aa007e87c1e1a119d957ff17a33a1cc0c58bb2060045353b890": 567,
+  "8352806ab16e578d1898bf47156384b6908c345a37414f539247f955ac5e157d": 417,
+  "836799173a950cfd93945140b41534a9095837eac3579bbfa087b0558f72409a": 304,
+  "84d6649ed67431031ae5573d37e02b9f9dff026653526042b85583c064575a60": 628,
+  "84dad591152e10c1242dc0944b0a3a03176b576c45c07a89dd0fd47c5e0400e8": 688,
+  "8972050a43cef2bff21db6fd1754d65df03b69f8e10ef2b86a2fac5cb6d0687f": 563,
+  "8979f43aa8f272979b340df67b1538a5d08fec3b551477f923836c0c78ef8453": 153,
+  "8bb68a965ee150df015f1689967ab3205cb819842755e84466b6b1ba88bc69fc": 417,
+  "8c6b17ea050d5030b721a0eac7b75c94511b6b450c38929ebac0d45054d83ee5": 567,
+  "8e476166cdb8bbcd8addc92a118f47662496ab59aa105ee801f7d24f42488453": 417,
+  "9051c17af593c7dea3769daf50035ce2e7e84c2968a63e5a291cb74d1c61ac9e": 20,
+  "93f9df14df896bd6751b5b9374338ac811861e91f2db9fc532bfc98f036787ef": 473,
+  "95438e366b93907926ec75507ab8c9eaa757881ac50d9310e2ddeb033ff0e16e": 688,
+  "983cef61f751a6e580abd2c6e412cb759608fc179da296a9410096ba521bff1b": 343,
+  "990b03404fa4d5b5736e122f6698ae7fa8622a8ef8be7551c90048640afb85c5": 417,
+  "a30dee057c7ac7f200328c019e6917f7fe6f50c6d165c2a2aa73dc1323933cde": 250,
+  "a30e764d2b1377f2a020897ae308ebe868293b808df90c3b5c50fa47ffaf87d6": 688,
+  "a557fca604cf569b847ef24c995420f33ae4f002c5abd7ad560c02119afb4dfd": 671,
+  "a7036bee357b5202c8e18fd4ec2eca8daea5a31ef7f39a465cbdd268f9c5e757": 686,
+  "a85f99964cdc189ea2fc738548f5b9a53b800edb43365280b253d58b4566d503": 20,
+  "a987394c8d20bc95b5d52cf672242e5b059be2ca2053aea1087de2338713ce15": 20,
+  "a9a08d8b35cca6cbbbbb59b113b6a02f8084fa3b5386aa0459b5dc3650d66041": 491,
+  "ab63f83a9df81d1a5b92aa552f508bd03e2b3395cf9f29ad0db6fddf5675c730": 634,
+  "ac3dfbf004115dd7f15f240b5e3ac2b45066fc0dc145546c41c64f3e840baed2": 491,
+  "ae58a3178e9790de88daed0723b2219ba7c64d2619ded35f4ee6be03ce749eb6": 678,
+  "b1dfc428043896a52be79ae5b00337f5d2b89642a5fea7a46fb8b5ad00c8ced5": 20,
+  "b31811b1700fb08c38243f9c266feb99792874ebc505ac042250a80ca26cf3e2": 76,
+  "b39791cd768b78e84ab5bdb14b6902478356b0eb37dc0c03533b1a59a3cf6fe9": 250,
+  "b5476ee93f64d928524220efcadb88cec2b3b38949bb20c0c36069ae9bce89a7": 908,
+  "b55822d8ce79ec34e824ba80e3c042171e085cd675fb45fb5f1a58f450acb5a1": 671,
+  "b777fe3b256dc7c60cdf3b472730a0fdc215d874117412508a3f8b712615e145": 567,
+  "b98e444b768edf7d4008e8bf7bd24ddcd877d5e8856959450d4e6ba0f601b9fc": 7,
+  "b9dab39bcef3dfcc99c937128264aaf5239678b9ce13a1e5c46318c0cf2993de": 417,
+  "bad5a04c8434e033f7fb753ff9aec02449e8b2bc976c6de73718bcae09167767": 473,
+  "bd36a6623273af089705fde25b0df43f3ca0775f3465a282a4dd454767945575": 688,
+  "bd3d1d6aebade6c99be4290922e0b8de8a8dbc583644d9098567f75851a46e5f": 250,
+  "c0e23020b808ed4e630d76c19e423613926e82160fea6e73abb418418cff80de": 76,
+  "c11d3c5a43ed9ac2b120589b58296aa57b9efa2c793a8362f49d26143870a2e3": 634,
+  "c2dbacca4f4cfd17001ac335a6c996e90268e79ff77116e80e4e4ba8cc268938": 473,
+  "c31900456a2a63f2f67d7a92b36e9e993064afe75520b31a43c3e0d983aa4fa6": 417,
+  "c9d8d070a57d637bc22641f406835279ef1ec771419bad0ff7316adffb128bd6": 250,
+  "c9f8b2e23bf90803063b2fd258448b8461f399b25e15d123074e5a6862e31d3f": 567,
+  "ca266f524359183da1d83d1ec3f887da557a340285ce33170ae35df1e0c6ed66": 343,
+  "ca7290ce7c650de981d76ab59447a372d8c309ea3f715106e1bfe8c01df1c673": 473,
+  "ca86b3e0ad9e137cd92a854de46334fe9e99d9758ed1fa4b59576e827b46924e": 565,
+  "cc19ab1d6ea14a16b365e8794993b68a5628c99772aec054413d30c0667ec1fc": 739,
+  "ce2baf4ad9e82aa06b93ee52ec2e7d52d22c691e0d2272581cc4c937c1c444a1": 688,
+  "ced6efda736e3a0e47909e191cec184bb08a69dcd4b6e5c9a3e5777107958a4c": 634,
+  "d08bee45efb68d9afbf543b5abf8a63001071daa9852657baa41671a4489261d": 567,
+  "d21acaf4289e63faff89622b1c9dddb0e4fd7c7aca7f39c47d18e9be72eb43a4": 686,
+  "d4a9a0cfd4d3b401c3dfd25617d19e002003d74fabe63be8be702c8bc6f00040": 686,
+  "d55c9184221257a1233b219bc96f01c2cc332677e3338b1c4ae0e251dfa0abbd": 76,
+  "d565cd633740fa647000e4413ec1d8638ac859153974df577ffb6458c855f4e1": 76,
+  "d5ec0302cc84c41de082e7c817283f50e0ddc9f49e7e1c6a1249576a67f0242d": 491,
+  "d68e5c1d830be2401694fec2407af7ea7d1d601d8783233c266d77add5d3030e": 634,
+  "d71c48d7b837568aa3223b6537810148b1d50dffe0958e15b2e245626482b15f": 686,
+  "d8f450576f01c29d24de0cf1f25730a310941f19227ba332f7d69bcf272fd06c": 20,
+  "d97d2b1eb15749373d4f3fc91e1fd6e5da0ca77712037396de9a3fb9ca4688c3": 634,
+  "d9d5f7903d4bf5bfbe7e470e5dadb726599431322f9f0cc1025d77eb04a84edd": 688,
+  "db51213dc823bfbbce9777636418324f5ec65fb1b8a10ea69a621d71245fc675": 567,
+  "db5dbccb50ce6f0f9f122bd47d84ecc606dac1747100d52047a15a98c0f47a00": 343,
+  "db89a8532a2c6b3e6717e4d8c2632132beb46e25ae9058e9af77642ea4f5e87c": 1366,
+  "dc19e09ba5f90f8f41a7a28fe99989caed722f587ca6a76a49c1aa88de5331c3": 343,
+  "e082164ac6f759276f97fa258552624f5faab57ba73143ee359a3b776301d0cd": 671,
+  "e2b20ef0c1f1949b761b44757e376f0d698695c0d6aa91b8ff2f63d090b7d574": 473,
+  "e3d3b83371189c60d630264dde7cda887eddffe1cbb743c20de1afc9bf448b5d": 304,
+  "e58e55937c1b0c36a9c9e41f1d50e3ce93e0243e62adf3eba78511e9df1a3a05": 473,
+  "e6cc174da09daa406f0df221bb94082e28b057da59459a66b0a950bea8a1b109": 178,
+  "e84135da15f257ff358dd76876c09dbc9e7f8941a1d5ea039fdf7e9522027440": 491,
+  "e8ac94851e536ab5e5bb7bcd9c17092c64941d60581a9013c3d76005f7d87cd5": 76,
+  "e91ecd627c574726bb9ec314f33c0aaa5f909da85be7f3ae42e630e2e61dd3e1": 20,
+  "e9e4746d21917929c3980ee9f096d196655d7b42135d71d1c00fba9c67765c82": 1374,
+  "f2878e945115ea526be66cce7a2f1e2fe9d667923471dea6c47be10294d781ad": 473,
+  "f3b181b09f23dde6cdc586fd8ecc3b6e235dbe44169458b8c68c021a1fdfa1a2": 1374,
+  "f3fff9c6451845ad0302997b424e76ce9a0f228718482f1f23767256a6ab721f": 76,
+  "f8516d54af011874ac55a70ed20a2f2ba0b5ac84755fe87488c7bd49e644024a": 417,
+  "f89a5b95025d273dbe1c699d03438dba4775124a9fc9fc45e5479633c3f43d75": 671,
+  "f9f1104763b419aa6c19ef6b648a838bfd5b7b4a4033e9ccf4941bb841a607a5": 567,
+  "ff62b17f8143f072acac2f7a1ba806418ed1a200d8a8991c577751ffbd770c46": 680
+ }
+}

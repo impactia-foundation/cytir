@@ -1,0 +1,166 @@
+{
+  "artifact_role": "candidate_only",
+  "input_dim": 4,
+  "knobs": {
+    "legacy": {
+      "alpha": 0
+    }
+  },
+  "policy_heads": {
+    "country_bm25_quota": {
+      "W": [
+        0.10869564861059189,
+        -0.10869564861059189,
+        0.0,
+        0.0
+      ],
+      "activation": "identity",
+      "b": 0.5,
+      "hi": 1.0,
+      "input_dim": 4,
+      "kind": "bounded_scalar",
+      "lo": 0.0,
+      "missing_label_mask": {
+        "calibration_missing": 1,
+        "calibration_present": 4,
+        "train_missing": 1,
+        "train_present": 4
+      },
+      "training_max_quota": 8.0
+    },
+    "country_dense_quota": {
+      "W": [
+        0.10869564861059189,
+        -0.10869564861059189,
+        0.0,
+        0.0
+      ],
+      "activation": "identity",
+      "b": 0.5,
+      "hi": 1.0,
+      "input_dim": 4,
+      "kind": "bounded_scalar",
+      "lo": 0.0,
+      "missing_label_mask": {
+        "calibration_missing": 1,
+        "calibration_present": 4,
+        "train_missing": 1,
+        "train_present": 4
+      },
+      "training_max_quota": 8.0
+    },
+    "country_scope": {
+      "W": [
+        [
+          -0.2246130257844925,
+          -0.2246130257844925,
+          0.5628236532211304,
+          0.0
+        ],
+        [
+          0.2246130257844925,
+          0.2246130257844925,
+          -0.5628236532211304,
+          0.0
+        ]
+      ],
+      "b": [
+        -1.8719470500946045,
+        0.039365582168102264
+      ],
+      "classes": [
+        "_NONE_",
+        "CH"
+      ],
+      "input_dim": 4,
+      "kind": "classifier",
+      "missing_label_mask": {
+        "calibration_missing": 0,
+        "calibration_present": 5,
+        "train_missing": 0,
+        "train_present": 5
+      },
+      "none_class": "_NONE_",
+      "temperature": 0.2,
+      "threshold": 0.9499999999999997
+    },
+    "foreign_authority_needed": {
+      "W": [
+        -0.7284616231918335,
+        1.114957332611084,
+        -0.5376814007759094,
+        0.0
+      ],
+      "activation": "sigmoid",
+      "b": -0.7053182125091553,
+      "hi": 1.0,
+      "input_dim": 4,
+      "kind": "binary_logistic",
+      "lo": 0.0,
+      "missing_label_mask": {
+        "calibration_missing": 0,
+        "calibration_present": 5,
+        "train_missing": 0,
+        "train_present": 5
+      },
+      "positive_class": true,
+      "temperature": 0.2,
+      "threshold": 0.9499999999999997
+    },
+    "jurisdiction_binding": {
+      "W": [
+        1.114957332611084,
+        -0.7284616231918335,
+        -0.5376814007759094,
+        0.0
+      ],
+      "activation": "sigmoid",
+      "b": -0.7053182125091553,
+      "hi": 1.0,
+      "input_dim": 4,
+      "kind": "binary_logistic",
+      "lo": 0.0,
+      "missing_label_mask": {
+        "calibration_missing": 0,
+        "calibration_present": 5,
+        "train_missing": 0,
+        "train_present": 5
+      },
+      "positive_class": true,
+      "temperature": 0.2,
+      "threshold": 0.9499999999999997
+    },
+    "multi_scope": {
+      "W": [
+        -0.6977798938751221,
+        0.13950695097446442,
+        -0.5137118697166443,
+        0.0
+      ],
+      "activation": "sigmoid",
+      "b": -0.8272091150283813,
+      "hi": 1.0,
+      "input_dim": 4,
+      "kind": "binary_logistic",
+      "lo": 0.0,
+      "missing_label_mask": {
+        "calibration_missing": 0,
+        "calibration_present": 5,
+        "train_missing": 0,
+        "train_present": 5
+      },
+      "positive_class": true,
+      "temperature": 0.7,
+      "threshold": 0.25
+    }
+  },
+  "query_policy_candidate": {
+    "activation": "none; requires an explicit serving experiment flag and gate",
+    "artifact_role": "candidate_only",
+    "base_qhead_sha256": "3477b6f40b37e9fd0e101384834f697327a7bd762db51d1d8c18b0b57c928ee5",
+    "calibration_sha256": "8d3f692927d2e9982df81871bd1d7d86169f5fec68018620f9828fe3b49addb8",
+    "input_dim": 4,
+    "schema": "aw.query-policy.candidate.v1",
+    "train_sha256": "f2a3cd8f3ddbdf4095be8d335ecfe8bf85953e9a4f02b6887a34839ed08e972c"
+  }
+}

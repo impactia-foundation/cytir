@@ -1,0 +1,80 @@
+# IT official journal + Senate bulk. Gazzetta Ufficiale carries the LEGALLY
+# AUTHENTIC text; the Senato publishes an Akoma Ntoso bulk repo over git.
+id: it-gazzetta-senato
+name: "Gazzetta Ufficiale + Senato della Repubblica — Italian official texts"
+country: IT
+layer: law-government
+policy_section: "§4.1"
+adapter: dump
+acquisition_policy: aw-acquisition-v1
+outlink_policy: capture-and-receipt
+preservation_profiles: [anchored_law]
+provenance: authored
+trust_tier: 1.0
+freshness: daily
+
+# Task 439: acquire.params gives the consent gate an attachment point.
+acquire:
+  route: source_owned_bulk_dump
+  rank: 2
+  params:
+    url: "https://www.senato.it/static/bgt/listedati/akn.zip"
+    format: xml
+
+license:
+  default: CC-BY-4.0
+  notes: >
+    Senato bulk repo is CC-BY-4.0. Gazzetta Ufficiale texts are official acts
+    of the State and therefore excluded from copyright by L. 633/1941 art. 5
+    ("i testi degli atti ufficiali dello Stato e delle Amministrazioni
+    pubbliche, sia italiane che straniere"). Gazzetta is additionally the
+    LEGALLY AUTHENTIC text, which Normattiva's consolidations are not -- a
+    material distinction for a grounding engine.
+
+consent:
+  basis: live-resolve-open
+  train_ok_override: null
+  notes: >
+    Resolved live 2026-08-20: www.gazzettaufficiale.it -> ok/true/true;
+    www.senato.it -> ok/true/true. No opt-out signal on either.
+    RE-PROBED 2026-10-02T06:22Z from the crawl host: www.senato.it ok/true/true (robots HTTP 202, empty body), www.gazzettaufficiale.it ok/true/true (robots 404). Family declared: it_senato_gazzetta; the Gazzetta ELI leg is gated on an adapter smoke test.
+
+status: planned
+
+routes:
+  - host: www.senato.it
+    lang: [it]
+    route: "Akoma Ntoso bulk repository via git clone (1.71 GB)"
+    status: planned
+    evidence: "task 440: 1.71 GB Akoma Ntoso bulk repo, CC-BY-4.0, pushed the day of assessment."
+    notes: >
+      A git clone is the cheapest and most resumable acquisition shape in this
+      whole lane -- it is incremental by construction and needs no bespoke
+      pagination or receipting logic.
+  - host: www.gazzettaufficiale.it
+    lang: [it]
+    route: "ELI URIs + per-issue enumeration"
+    status: planned
+    evidence: "task 440: ~271k acts; exposes ELI (European Legislation Identifier) URIs, which are structured and enumerable rather than opaque search URLs."
+    notes: >
+      ELI addressing is what makes this cheap: identifiers are derivable rather
+      than discoverable, so enumeration does not depend on a search surface.
+
+admission:
+  channel: official-dump
+  evidence:
+    - "task 440: Senato Akoma Ntoso bulk repo, CC-BY-4.0, git-cloneable, 1.71 GB."
+    - "task 440: Gazzetta Ufficiale ~271k acts via enumerable ELI URIs; legally authentic text."
+    - "task 440 consent resolve 2026-08-20: both hosts ok/true/true."
+    - "ADR-076 -- explicit open licence on an official bulk distribution is the admission basis."
+  decision: escalated
+  policy: "POLICY.md@v3 §4.1"
+  date: "2026-08-20"
+
+notes:
+  - >
+    ~271k acts is a SOURCE count, not a point projection.
+  - >
+    Sequence the Senato git clone FIRST in the whole lane: lowest cost, fully
+    resumable, and it validates the Akoma Ntoso extraction path before the
+    larger API-driven routes are attempted.

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ARTICLE>
+<META>
+<META_COMMUN>
+<ID>LEGIARTI000020679864</ID>
+<ANCIEN_ID/>
+<ORIGINE>LEGI</ORIGINE>
+<URL>article/LEGI/ARTI/00/00/20/67/98/LEGIARTI000020679864.xml</URL>
+<NATURE>Article</NATURE>
+</META_COMMUN>
+<META_SPEC>
+<META_ARTICLE>
+
+<NUM>1</NUM>
+
+<ETAT>VIGUEUR</ETAT>
+
+<DATE_DEBUT>1945-01-15</DATE_DEBUT>
+<DATE_FIN>2999-01-01</DATE_FIN>
+
+
+
+<TYPE>AUTONOME</TYPE>
+</META_ARTICLE>
+</META_SPEC>
+</META>
+<CONTEXTE>
+<TEXTE autorite="" cid="LEGITEXT000020679863" date_publi="2999-01-01" date_signature="1945-01-13" ministere="" nature="ORDONNANCE" nor="" num="45-55" num_parution_jo="">
+<TITRE_TXT c_titre_court="Ordonnance n° 45-55 du 13 janvier 1945" debut="1945-01-15" fin="2999-01-01" id_txt="LEGITEXT000020679863">Ordonnance n° 45-55 du 13 janvier 1945 relative à la réunion de la bibliothèque Mazarine à la bibliothèque de l ’ Institut de France</TITRE_TXT>
+</TEXTE>
+</CONTEXTE>
+<VERSIONS>
+<VERSION etat="VIGUEUR">
+<LIEN_ART debut="1945-01-15" etat="VIGUEUR" fin="2999-01-01" id="LEGIARTI000020679864" num="1" origine="LEGI"/>
+</VERSION>
+</VERSIONS>
+<NOTA>
+<CONTENU/>
+</NOTA>
+<BLOC_TEXTUEL>
+<CONTENU>
+<p>
+<br/>Le décret du 4 décembre 1930 portant réunion de la bibliothèque
+Mazarine à la Bibliothèque nationale est abrogé.</p>
+</CONTENU>
+</BLOC_TEXTUEL>
+<LIENS/>
+</ARTICLE>

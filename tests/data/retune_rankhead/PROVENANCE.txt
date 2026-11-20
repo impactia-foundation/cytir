@@ -1,0 +1,8 @@
+Fixture for tests/test_aw_retune_rankhead_train.py (task 1380).
+Every 700th synth row (task 204, 57 of 39,686), every 60th real row (task 206, 57 of 3,381) and every 50th
+negative row (task 222 "v2" set, 56 of 2,794), taken from the private training box (work dirs depth205, depth206, depth222; basenames only)
+on 2026-10-28. Vectors are the frozen 1024-d arctic query vectors (float32). Label files keep only the fields the
+trainer reads (no query text). golden_head.json = the ORIGINAL training code of the retired task-222 exploration script
+(routing probes cut) run on these rows with scikit-learn 1.7.2 / numpy 2.2.6.
+Full-data recording (not in CI, inputs live on the private training box): the port reproduces rankhead_222.json
+(w, b, beta_gen) bit-for-bit, and cytir/serve/rankhead.json with --neg-weight 1.5 --beta-gen 0.9 on the 2,999-row set.

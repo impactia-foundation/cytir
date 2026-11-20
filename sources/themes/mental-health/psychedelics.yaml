@@ -1,0 +1,268 @@
+# Psychedelics-research sub-theme (mental-health, PORTFOLIO.md §3b) -- authored
+# strategic pack per Tim, 2026-07-25. Cross-jurisdiction (US/DE/UK/CH), four
+# routes: (1) research/clinical-standards orgs as entity/site cards, (2)
+# ClinicalTrials.gov psychedelic+psychiatry filter (already merged live, task
+# 177), (3) the psychedelic-trial slice riding inside the existing PubMed slab
+# (task 172, D3 carve-out), (4) one editorially-standing journal as a
+# DOI-landing pointer (U3, paywalled core). §4.6's floor is deliberately the
+# strictest of any layer -- every org below is classified honestly against
+# "primary output is research/clinical standards" vs "primary output is
+# advocacy marketing"; see notes for the one org (MAPS) this genuinely strains.
+id: mh-psychedelics
+name: "Psychedelics-research sub-theme (research orgs + CT.gov + PubMed slice + journal pointer)"
+country: multi
+layer: health
+policy_section: "§4.6"
+adapter: cards
+acquisition_policy: aw-acquisition-v1
+outlink_policy: capture-and-receipt
+preservation_profiles: [entity_registry, academic_dump]
+provenance: authored
+tier: B
+trust_tier: 0.75
+density_tier: T1
+freshness: static
+theme: ["mental-health", "psychedelics"]
+
+card_recipe:
+  name: adr060-org-two-channel-v1
+  ref_adr: ADR-060
+  dense: "Wikidata description / Wikipedia lead where present (ADR-049); else the org's own site About/mission prose, natural-language, 2-3 sentences -- 'what it is + what it researches or trains'. NOT scraped marketing copy -- a factual identity statement."
+  sparse: "name + aliases + domain token + research-focus terms (psilocybin, MDMA, LSD, psychedelic-assisted therapy, clinical trial) multilingual where the org is CH/DE, function-word stopword-filtered."
+
+license:
+  default: "permissive-or-fairuse-snippet"
+  notes: >
+    Mixed by route, stamped honestly per record, not rounded to one value:
+    ClinicalTrials.gov + PubMed = public-domain (US gov). Research-org sites
+    (MAPS/MIND/Usona/Heffter/Beckley/SÄPT) = all-rights-reserved site content
+    -> ADR-049 pointer/card only, never a content mirror (matches the
+    psychedelos.ch/fondationcsm.org precedent, sources/ch/affiliated.yaml).
+    Journal (journals.sagepub.com/home/jop) = © SAGE, paywalled core ->
+    DOI-landing pointer only (U3).
+
+consent:
+  basis: live-resolve-mixed
+  notes: >
+    ClinicalTrials.gov/FDA/BAG/Swissmedic hosts confirmed consent-ok (task
+    177 §4, incl. the curl-fallback fix for the clinicaltrials.gov/fda.gov
+    TLS-fingerprint 403 artifact). Research-org sites: NOT yet live-resolved
+    for this pack (no card-build has run) -- expected open (small nonprofit
+    sites, no robots block observed on the 2026-07-25 verification HEAD
+    requests) but this is an observation, not a resolver run. Re-resolve live
+    at card-build time per P4, never inherit this note as a stamp.
+
+status: staged
+
+admission:
+  channel: authored-strategic
+  evidence:
+    - "Tim, 2026-07-25: authored strategic sub-theme directive (mental-health -> psychedelics), matching PORTFOLIO.md §3b's named 'mental health' strategic theme and the existing d176 + CT.gov-psy + psy_csm holdings already counted there."
+    - "task 177 (2026-07-12, aw_d177_ctgov_psy): ClinicalTrials.gov API v2 psychedelic+psychiatry filter -- psilocybin 289, MDMA 123/114, LSD 80/67, DMT 149/128, 5-MeO-DMT 18/0, ayahuasca 13/6, mescaline 6/2, ibogaine 9/6, ketamine/esketamine x psychiatric conditions 482/475, query.term=psychedelic sweep 105, plus curated ph2/3 psychiatry broadening; CTIS 54; FDA/BAG Art.8/Swissmedic regulator passages 33. 2,175 rows MERGED live both sides 2026-07-12 (log.md), source_type=registry_record tier=B trust=0.9 for CTG, tier=A trust=1.0 official for regulator pages. Precedent extractor: a private pipeline module."
+    - "task 172 (2026-07-11) §2.2: original scout for psychedelic_therapy -- enumerated ClinicalTrials.gov, EU CTIS, WHO ICTRP, FDA, EMA, Swissmedic, BAG Art.8, Johns Hopkins CPCR, Imperial Centre for Psychedelic Research, UZH/DAPP, 'MAPS / Lykos, Usona' (flagged 'advocacy-adjacent -- trust_tier accordingly' at scout time), journal DOI-landings, and the PubMed psychedelic-trial slice (~1.1k records, D3 carve-out preserves it through the PubMed 28M->5M reshape, PORTFOLIO.md §4 campaign #1). Binding caution from Tim recorded in that task: 'source bar = research institutions, government health bodies, established scientific orgs, primary studies. NOT advocacy blogs / wellness-industry / hype content.'"
+    - "task 177 §0: explicit narrower decision at that time -- 'Registries / regulators / gov ONLY per Tim's advice-sensitivity caution -- NO MAPS/advocacy hosts (that is a separate, later decision).' This pack is that later decision; see notes for how each org was resolved against it."
+    - "2026-07-25 verification (this task, WebFetch + curl HEAD, no Brave/Google/Bing): each org's own site fetched directly + cross-checked against Wikipedia/Wikidata. Per-org citations in 'routes' below."
+    - "POLICY.md@v1 §4.6: 'Authority = official health authorities, WHO-class IGOs, professional societies, and evidence-synthesis bodies (Cochrane-class). Floor: deliberately the strictest -- harm asymmetry. No commercial wellness content, no practitioner marketing, no supplement-adjacent media, even when popular. Escalation band is narrower here: when in doubt, out.'"
+    - "POLICY.md@v1 §4.2 (scholarship): governs the CT.gov/PubMed/journal sub-routes -- CT.gov is 'a primary research registry' named directly in §4.2; PubMed likewise; the journal is 'venue listed in the accepted registries... paywalled papers: DOI-landing pointers only.'"
+  decision: escalated
+  policy: "POLICY.md@v1 §4.6"
+  date: "2026-07-25"
+
+routes:
+  - host: clinicaltrials.gov
+    route: "API v2, psychedelic+psychiatry intervention/condition filter (already-built, live)"
+    status: ingested
+    lang: [en]
+    evidence: "task 177: 2,175 rows merged live 2026-07-12; extractor a private pipeline module"
+  - host: euclinicaltrials.eu
+    route: "CTIS public API, same filter terms"
+    status: ingested
+    lang: [en]
+    evidence: "task 177: 54 CTIS records merged as part of the same 2,175-row wave"
+  - host: pubmed.ncbi.nlm.nih.gov
+    route: "existing PubMed dump, psychedelic-trial slice (not independently topic-tagged)"
+    status: ingested
+    lang: [en]
+    notes: "Rides passively inside the ~28M PubMed slab (D3 carve-out, task 172 §5) -- ~1.1k records estimated on-topic, not a standalone filtered/delta-refreshed route. GAP: building a dedicated topic-filtered PubMed delta feed (PORTFOLIO §3c daily/weekly class) is not done; flagged as follow-up, not resolved by this pack."
+    evidence: "task 172 §2.2/§5"
+  - host: maps.org
+    canonical_domain: maps.org
+    route: "candidate entity/site card -- CC/site-crawl, not yet built"
+    status: planned             # BOARD-ADMITTED (override, PR #46) — T0 pointer, trust_tier 0.62; card build queued; see resolution note
+    lang: [en]
+    notes: >
+      Verified 2026-07-25 (own site + Wikipedia + Wikidata, no competitor
+      search): Multidisciplinary Association for Psychedelic Studies, founded
+      1986, 501(c)(3), sponsor of the MDMA-assisted-therapy Phase 2/3
+      clinical program (real registered trials, real FDA engagement, FDA
+      rejected the NDA in 2024, ~1/3 staff layoff 2025). Wikidata Q6934663
+      describes it AS-IS: "American nonprofit organization focused on
+      psychedelic research, education, policy reform, and harm reduction" --
+      an independent source confirming the mixed research+advocacy nature,
+      not just this pack's own read. MAPS's own homepage foregrounds "create
+      legal responsible evidence-based pathways to psychedelics" and "end
+      drug prohibition everywhere" alongside the research description --
+      genuine policy-advocacy language, not merely research framing.
+      task 172 flagged it "advocacy-adjacent -- trust_tier accordingly" at
+      scout time; task 177 went further and excluded MAPS/advocacy hosts
+      from the CT.gov ingest entirely, deferring the question. That
+      deferral has not been reversed since. Given §4.6's explicit "when in
+      doubt, out" and an unreversed prior Tim caution on this EXACT org,
+      this pack does NOT auto-admit MAPS -- carried here as `deferred`,
+      not silently dropped (P5), for explicit board resolution. If
+      admitted, T0 pointer + reduced trust_tier (~0.6-0.65) would be the
+      right shape, not a full content card.
+      RESOLUTION (board, 2026-07-25): Tim, PR #46 comment — "Include MAPS
+      for their role in research." Admitted per the override, in the
+      reduced shape above (T0 pointer, trust_tier 0.62). The §4.6 concern
+      stands on the record; the board weighed the clinical-program research
+      role (MDMA Phase 2/3 sponsorship) as decisive. First board override
+      under the appeals process — governance §2 working as designed.
+    evidence: "task 172 §2.2 (original advocacy-adjacent flag); task 177 §0 (explicit MAPS exclusion, deferred); 2026-07-25 WebFetch(maps.org) + WebFetch(en.wikipedia.org/wiki/Multidisciplinary_Association_for_Psychedelic_Studies) + Wikidata Q6934663"
+  - host: mind-foundation.org
+    canonical_domain: www.mind-foundation.org
+    route: "candidate entity/site card -- CC/site-crawl, not yet built"
+    status: planned
+    lang: [en, de]
+    notes: >
+      Verified 2026-07-25: MIND Foundation gGmbH, Berlin, Germany --
+      "nonprofit mental health organization dedicated to research and
+      education", Scientific Advisory Board, completed EPIsoDE Phase-II +
+      upcoming DiMension Phase-III trials. Clean research-standing, no
+      advocacy-marketing framing observed. Wikidata Q140324736: "German
+      nonprofit organization for psychedelic science and education." No
+      Wikipedia article found -- card description falls back to the site's
+      own About prose (ADR-049), not Wikidata (Wikidata description alone
+      is thin but usable as a supplementary line).
+    evidence: "2026-07-25 WebFetch(mind-foundation.org) + Wikidata search (Q140324736)"
+  - host: usonainstitute.org
+    canonical_domain: www.usonainstitute.org
+    route: "candidate entity/site card -- CC/site-crawl, not yet built"
+    status: planned
+    lang: [en]
+    notes: >
+      Verified 2026-07-25: 501(c)(3) medical research organization (Madison,
+      WI, founded 2014), developing/manufacturing synthetic psilocybin and
+      supplying it FREE for research worldwide, Phase 3 depression trial
+      (240 participants, FDA breakthrough-therapy designation 2019). No
+      advocacy/policy framing observed -- clean research-org fit for §4.6.
+      Wikipedia article confirmed + Wikidata Q50035802.
+    evidence: "2026-07-25 WebFetch(usonainstitute.org) + WebFetch(en.wikipedia.org/wiki/Usona_Institute) + Wikidata Q50035802"
+  - host: heffter.org
+    canonical_domain: www.heffter.org
+    route: "candidate entity/site card -- CC/site-crawl, not yet built"
+    status: planned
+    lang: [en]
+    notes: >
+      Verified 2026-07-25: direct WebFetch of the site 403'd (likely bot
+      posture on the root path); confirmed instead via curl HEAD (301 ->
+      www.heffter.org, 200) + Wikipedia. 501(c)(3) since 1994 (incorporated
+      New Mexico 1993 by David E. Nichols et al.), funds peer-reviewed
+      psychedelic research (80+ publications funded, $3.1M+ grants
+      2011-2014), no advocacy-marketing framing. Wikidata Q16948437. Clean
+      research-funding-body fit for §4.6.
+    evidence: "2026-07-25 curl HEAD(heffter.org) + WebFetch(en.wikipedia.org/wiki/Heffter_Research_Institute) + Wikidata Q16948437"
+  - host: beckleyfoundation.org
+    canonical_domain: www.beckleyfoundation.org
+    route: "candidate entity/site card -- CC/site-crawl, not yet built"
+    status: planned
+    lang: [en]
+    notes: >
+      Verified 2026-07-25: UK charitable trust (est. 1998, Amanda Feilding),
+      UN-ECOSOC-accredited NGO, runs a distinct "Science Programme"
+      (neuroscience/therapeutic research) alongside a "Policy Programme"
+      (drug-policy reform advocacy) -- a milder version of the MAPS tension
+      (two visibly separated programs rather than blended messaging).
+      Admitted, not deferred: the Science Programme's research pedigree is
+      independently well-established and the split is structurally explicit
+      on the org's own site, unlike MAPS's blended framing. trust_tier for
+      this route should sit at the pack's lower end (~0.65-0.7) reflecting
+      the dual mission -- flagged, not resolved, by this pack (card-build
+      time decision). Wikidata Q4878750.
+    evidence: "2026-07-25 WebFetch(beckleyfoundation.org) + WebFetch(en.wikipedia.org/wiki/Beckley_Foundation) + Wikidata Q4878750"
+  - host: saept.ch
+    canonical_domain: saept.ch
+    route: "candidate entity/site card -- CC/site-crawl, not yet built"
+    status: planned
+    lang: [de, fr]
+    notes: >
+      Verified 2026-07-25: Schweizerische Ärztegesellschaft für
+      Psycholytische Therapie (SÄPT), Bern, Switzerland -- an
+      interdisciplinary MEDICAL professional society (est. 1986) that
+      "promotes research on psychedelic substances, trains doctors and
+      therapists in their safe application, and supports holders of
+      exemption permits in their work." This is close to a verbatim match
+      for §4.6's own floor text ("professional societies"). CH-specific --
+      strengthens CH-first per PORTFOLIO §3b/§3c. No Wikipedia (de.wikipedia
+      404) or Wikidata entry found -- card description falls back to the
+      site's own About text (ADR-049 pointer-card pattern), same shape as
+      psychedelos.ch (sources/ch/affiliated.yaml), no register_id expected
+      until checked (a professional Ärztegesellschaft may be a Verein,
+      Art.60 ss -- same non-register class as psychedelos.ch; not resolved
+      against Zefix in this task, flagged as follow-up).
+    evidence: "2026-07-25 WebFetch(saept.ch) + WebFetch(de.wikipedia.org, 404 confirmed) + Wikidata search (no results)"
+  - host: journals.sagepub.com
+    route: "Journal of Psychopharmacology (SAGE) -- DOI-landing pointer only, U3 paywalled core"
+    status: planned
+    lang: [en]
+    notes: >
+      Direct WebFetch of journals.sagepub.com/home/jop 403'd; verified
+      instead via the journal's Wikipedia article + Wikidata. Peer-reviewed,
+      published by SAGE on behalf of the British Association for
+      Psychopharmacology, ISSN 0269-8811 / 1461-7285, Wikidata Q6295819.
+      Clear editorial standing (U3 pointer-eligible per POLICY §4.2); not a
+      blanket admission of every SAGE journal -- this is the one journal
+      named in this pack's brief, others would need their own evidence.
+    evidence: "2026-07-25 WebFetch(en.wikipedia.org/wiki/Journal_of_Psychopharmacology) + Wikidata Q6295819"
+
+notes:
+  - >
+    Advocacy-vs-authority classification, stated plainly per org: PASS clean
+    (research/clinical-standards primary output, no advocacy-marketing
+    framing) -- MIND Foundation, Usona Institute, Heffter Research
+    Institute, SÄPT. PASS with an honest flag (dual research+policy mission,
+    admitted at reduced trust) -- Beckley Foundation. DEFERRED, not admitted
+    by this pack (mixed research+drug-policy-advocacy framing on the org's
+    OWN site, an independent Wikidata description confirming it, and an
+    unreversed prior Tim caution on this exact org) -- MAPS. This is the
+    honest per-org classification the task asked for; none were excluded
+    for being merely unpopular or small -- SÄPT (no Wikipedia/Wikidata at
+    all) is admitted because its OWN description matches the policy floor
+    almost verbatim, which is the right test (P2: authority is structural,
+    not popularity).
+  - >
+    Nothing in this pack has actually been card-built yet except the two
+    already-live sub-routes (CT.gov/CTIS via task 177, PubMed slice via the
+    existing 28M-slab carve-out). All six research-org card routes are
+    `planned`/`deferred`, not `ingested` -- this pack documents the
+    admission decision and evidence, per governance §3's instrument shape
+    ("git log on sources/ becomes the complete editorial history"); the
+    actual fetch/extract/embed/merge work is separate follow-up (a natural
+    task-317-scripts build, sized similarly to task 284's psychedelos/CSM
+    build -- ~10-20 pages/org, entity_card + snippet content, trust
+    0.6-0.8 per org per the notes above).
+  - >
+    `status: staged` at the pack level reflects this mix honestly (two
+    ingested sub-routes, six planned/deferred) rather than rounding up to
+    "ingested" or down to "planned" -- matches the admin-ch.yaml pack's
+    precedent for mixed-route packs.
+  - >
+    `decision: escalated` (not auto-admit) is deliberate: the pack as a
+    whole is not ambiguous (CT.gov/PubMed/five of six orgs clear §4.6/§4.2
+    cleanly), but MAPS's inclusion-as-deferred is exactly the kind of
+    judgment call POLICY §6 reserves for the board, and bundling a clean
+    auto-admit decision around a live, named tension would understate it.
+    Tim is both the board and this pack's author (2026-07-25 directive) --
+    the PR merge itself is the ratification act (sources/README.md).
+  - >
+    trust_tier=0.75 at the pack level is a rounding across a real spread:
+    CT.gov/regulator pages 0.9-1.0, PubMed ~0.85 (existing stamp), Usona/
+    Heffter/SÄPT/MIND ~0.75-0.8, Beckley ~0.65-0.7, MAPS ~0.6-0.65 IF ever
+    admitted, journal pointer ~0.7. Per-record trust must be stamped at
+    card-build time from this spread, never uniformly from the pack header
+    (same discipline as sources/ch/retailers.yaml).
+  - >
+    Country=multi is a genuine cross-jurisdiction fact here (US/DE/UK/CH),
+    not a strategy-directive rounding like ch-retailers.yaml's country:CH --
+    SÄPT is the only CH-native org in this pack; the rest strengthen
+    international coverage of a CH-anchored strategic theme.

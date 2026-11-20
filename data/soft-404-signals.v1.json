@@ -1,0 +1,28 @@
+{
+  "schema": "aw.soft-404-signals.v1",
+  "why": "A site that answers an error page with HTTP 200 (a soft 404) produced passages: ElCom's sitemap lists /de/404 and /de/500, both return 200, and both were admitted as 'Ein Fehler ist aufgetreten' (task 683 finding 2). The framework (cytir.sources.run_family) excludes a unit whose extracted text is short AND says, in its title or at its head, that the page is an error page. Length is the guard against a long page that merely discusses errors. Excluded, never deleted: the bytes stay sealed in L0 and the unit ends `excluded(soft_404:<signal>)`.",
+  "max_unit_chars": 1500,
+  "error_path_regex": "^/(?:[^/]+/){0,3}(?:40[0-9]|41[0-9]|50[0-9]|error|fehler|erreur|errore|pagina-defecta|seite-nicht-gefunden|page-introuvable|not-found)(?:\\.html?)?/?$",
+  "head_chars": 400,
+  "title_regex": [
+    "^\\s*(fehler|error|erreur|errore)\\s*[45]\\d\\d\\b",
+    "^\\s*(404|500|403|410)\\s*[-:.]?\\s*(not found|error|fehler|erreur|errore|seite nicht gefunden|page introuvable|pagina non trovata|internal server error)",
+    "\\bseite (wurde )?nicht gefunden\\b",
+    "\\bpage not found\\b",
+    "\\bpage introuvable\\b",
+    "\\bpagina non trovata\\b",
+    "^\\s*ein fehler ist aufgetreten\\s*$",
+    "^\\s*(internal server error|not found)\\s*$",
+    "^\\s*(une erreur s.est produite|si [eè] verificato un errore|an error (has )?occurred)\\s*$"
+  ],
+  "head_regex": [
+    "die aufgerufene seite wurde (leider )?nicht gefunden",
+    "diese seite existiert nicht",
+    "the (requested )?page (you (were looking for|requested) )?(could not be found|does not exist|was not found|cannot be found)",
+    "la page (demand[ée]e |que vous recherchez )?(est introuvable|n.existe pas|n.a pas [ée]t[ée] trouv[ée]e)",
+    "la pagina desiderata non [eè] disponibile",
+    "la page (souhait[ée]e|d[ée]sir[ée]e) n.est pas disponible",
+    "die gew[üu]nschte seite ist nicht verf[üu]gbar",
+    "la pagina (richiesta |che stai cercando )?(non [eè] stata trovata|non esiste|non [eè] disponibile)"
+  ]
+}

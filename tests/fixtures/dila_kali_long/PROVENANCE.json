@@ -1,0 +1,10 @@
+{
+  "what": "one real, in-force DILA KALI article (collective agreement, Convention collective nationale de l'habitat et du logement accompagnes, art. 7.2) whose embed text is longer than 8000 characters and has 47 paragraphs: the shape the old 4,000-character cap cut in half (ADR-090 am., 2026-10-07)",
+  "licence": "Etalab-2.0 (DILA open data, KALI)",
+  "natural_person_data": "none: a clause about part-time working time; the text was scanned for civility titles, e-mail addresses and phone numbers (0 hits)",
+  "source_dump": "DILA KALI increment 20260616-213852 of the sealed task-696 dump on the operator build box (kali/global/article/KALI/ARTI/00/00/52/50/21/KALIARTI000052502103.xml)",
+  "copied": "2026-10-07, read-only copy from the build box; bytes unchanged",
+  "files": {
+    "KALIARTI000052502103.xml": {"sha256": "0c306f9eac029ea7179904ccc020d070a3023034d7ae566eccd8aa8835a13591", "embed_chars": 9025, "paragraphs": 47}
+  }
+}

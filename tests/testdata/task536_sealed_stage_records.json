@@ -1,0 +1,82 @@
+{
+ "ca_canadaca_chunk4": {
+  "canonical_url": "https://canada.ca/en/revenue-agency/services/scientific-research-experimental-development-tax-incentive-program.html",
+  "chunk_header_path": "",
+  "chunk_n_words": 129,
+  "chunk_ordinal": 0,
+  "chunk_rule": "struct-md-768w-o0-adjacent-sections-tail-1152-tok2560@4",
+  "chunk_unit": "adjacent_sections",
+  "consent_checked_at": "2026-07-09T13:39:31Z",
+  "consent_search_ok": true,
+  "consent_train_ok": true,
+  "content_digest": "96c350b0282deb7abb5e7d697162f46bc917ca40ae6d67a3bca5df2f15b848d7",
+  "country": "CA",
+  "dense_text": "Scientific Research and Experimental Development (SR&ED) tax incentives\nThe Scientific Research and Experimental Development (SR&ED) tax incentives ar ...",
+  "domain": "canada.ca",
+  "id_salt": 0,
+  "identity_anchor_component": "96c350b0282deb7abb5e7d697162f46bc917ca40ae6d67a3bca5df2f15b848d7",
+  "identity_tier": "B",
+  "lang": "en",
+  "last_seen": "2026-07-09",
+  "point_id": "28313b66-5647-5ac5-8b24-fee9c076b002",
+  "provenance": "ca_canadaca_cc",
+  "rule_epochs": {
+   "chunk": 4
+  },
+  "source_type": "official",
+  "sparse_text": "Scientific Research and Experimental Development (SR&ED) tax incentives\n\nThe Scientific Research and Experimental Development (SR&ED) tax incentives a ...",
+  "text": "Scientific Research and Experimental Development (SR&ED) tax incentives\n\nThe Scientific Research and Experimental Development (SR&ED) tax incentives a ...",
+  "tier": "A",
+  "title": "Scientific Research and Experimental Development (SR&ED) tax incentives",
+  "trust_tier": 0.95,
+  "url": "https://www.canada.ca/en/revenue-agency/services/scientific-research-experimental-development-tax-incentive-program.html"
+ },
+ "pubmed_pack": {
+  "canonical_text": "[Biochemical studies on camomile components/III. In vitro studies about the antipeptic activity of (--)-alpha-bisabolol (author's transl)]. > Record i ...",
+  "chunk_ordinal": 0,
+  "document_id": "09342b31-ae68-5ede-8292-b298cf50e153",
+  "lang": "en",
+  "parent_identity": {
+   "member": "_dumps/pubmed/pubmed26n0001.xml.gz",
+   "sha256": "ff52cc95450982f0910e16ae2e5042236abeba8ebddb7e47091db42230e62890"
+  },
+  "parent_markdown_sha256": "9da5002e326ab3613cb328f0b376b187b69a8ece67fee41123db895ca4af63bf",
+  "point_id": "78816eae-7133-5f99-b8ca-edd45aae42bb",
+  "prov_id": "6370ee1d65a21add",
+  "section_heading": "Record identity",
+  "source_links": [],
+  "source_metadata": {
+   "title": "[Biochemical studies on camomile components/III. In vitro studies about the antipeptic activity of (--)-alpha-bisabolol (author's transl)]."
+  },
+  "source_profile": "academic_dump",
+  "source_record_id": "21",
+  "sparse_text": "[Biochemical studies on camomile components/III. In vitro studies about the antipeptic activity of (--)-alpha-bisabolol (author's transl)]. > Record i ...",
+  "text": "Record identity\n- PMID: `21`\n- Parent archive: `_dumps/pubmed/pubmed26n0001.xml.gz`\n- Parent archive SHA-256: `ff52cc95450982f0910e16ae2e5042236abeba8 ...",
+  "url": "https://pubmed.ncbi.nlm.nih.gov/21/"
+ },
+ "pubmed_registry_snapshot_row": {
+  "url": "https://pubmed.ncbi.nlm.nih.gov/21/",
+  "title": "[Biochemical studies on camomile components/III. In vitro studies about the antipeptic activity of (--)-alpha-bisabolol (author's transl)].",
+  "snippet": "(--)-alpha-Bisabolol has a primary antipeptic action depending on dosage, which is not caused by an alteration of the pH-value.",
+  "lang": "en",
+  "domain": "pubmed.ncbi.nlm.nih.gov",
+  "tier": "B",
+  "source_type": "reference",
+  "trust_tier": 0.85,
+  "country": "INTL",
+  "license": "NLM-PubMed-Terms",
+  "content_digest": "dfaf1e342c386e448570294ccd8fbe75eac33bb0df6f10ab8a1b6d6f33f0d5b9",
+  "point_id": "09342b31-ae68-5ede-8292-b298cf50e153",
+  "rule_epochs": {
+   "extract": 1,
+   "chunk": 1,
+   "embed": 1,
+   "tok": 2,
+   "country": 2,
+   "trust": 1,
+   "card": 1
+  },
+  "build_id": "aw_b1",
+  "published": "1975"
+ }
+}

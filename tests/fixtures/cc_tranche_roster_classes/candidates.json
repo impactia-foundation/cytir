@@ -1,0 +1,58 @@
+[
+ {
+  "domain": "corp-a.example.com",
+  "reg": "corp-a.example.com",
+  "class": "corporate",
+  "class_basis": "self-signal",
+  "n_src": 1
+ },
+ {
+  "domain": "corp-b.example.ch",
+  "reg": "corp-b.example.ch",
+  "class": "corporate",
+  "class_basis": "self-signal",
+  "n_src": 1
+ },
+ {
+  "domain": "health-self.example.org",
+  "reg": "health-self.example.org",
+  "class": "health",
+  "class_basis": "self-signal",
+  "n_src": 9
+ },
+ {
+  "domain": "health-endorsed.example.org",
+  "reg": "health-endorsed.example.org",
+  "class": "health",
+  "class_basis": "endorsed",
+  "n_src": 8
+ },
+ {
+  "domain": "uni.example.edu",
+  "reg": "uni.example.edu",
+  "class": "edu",
+  "class_basis": "endorsed",
+  "n_src": 7
+ },
+ {
+  "domain": "shop.example.com",
+  "reg": "shop.example.com",
+  "class": "news",
+  "class_basis": "endorsed",
+  "n_src": 5
+ },
+ {
+  "domain": "odd.example.com",
+  "reg": "odd.example.com",
+  "class": "unlisted",
+  "class_basis": "self-signal",
+  "n_src": 5
+ },
+ {
+  "domain": "corp-endorsed.example.com",
+  "reg": "corp-endorsed.example.com",
+  "class": "corporate",
+  "class_basis": "endorsed",
+  "n_src": 1
+ }
+]

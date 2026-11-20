@@ -1,0 +1,500 @@
+# Hugging Face model cards for curated, AW-relevant orgs -- task 661 F5
+# (industry-site refresh: "HF org model cards of tracked orgs"). See
+# sources/us/github-releases-tracked.yaml's header for the shared
+# `country: US` / STATUS reasoning; both packs are proposed together in
+# ONE POLICY PR.
+#
+# STATUS: ingested. First live refresh landed in the promotion queue
+# 2026-09-28 (a private pipeline module, task 661 F5
+# follow-up) -- consent live-resolved for huggingface.co (search_ok=true,
+# train_ok=true, no opt-out signal), 567 rows staged/packed/queued
+# (pack refresh-direct-hf-models-20260928). Runs DAILY (11:30 UTC, task 693;
+# was weekly) via aw-refresh-lane-direct-compose.timer. Task 693 widened the
+# tracked list from 4 to 30 orgs (the major open-weight publishers plus the
+# task 120 major-org list) after zai-org/GLM-5.3 was found missing.
+id: us-huggingface-orgs-tracked
+name: "Hugging Face model cards — curated org list (Hub API, no auth)"
+country: US
+layer: tech-docs
+policy_section: "§4.4"
+adapter: api
+acquisition_policy: aw-acquisition-v1
+outlink_policy: capture-and-receipt
+preservation_profiles: [structured_data_feed, software_docs]
+provenance: authored
+trust_tier: 0.85
+freshness: weekly
+
+license:
+  default: unknown-per-model
+  notes: >
+    Model cards carry per-model licences (often permissive, sometimes
+    gated/restricted) -- read per model at admission time, never
+    inferred from the org. Same ADR-111/ADR-112 minimum-record basis as
+    the GitHub sibling pack: served/distributed on opt-out + minimum
+    record unless the specific host's live-resolved signals opt out.
+
+consent:
+  basis: live-resolve-open
+  train_ok_override: null
+  notes: >
+    Resolved live 2026-09-28 (a private pipeline module, from
+    the crawl host): huggingface.co search_ok=true, train_ok=true, "no opt-out
+    signal found". Re-resolved live again on every fetch
+    (consent_gate.py --direct-crawl --search-indexing), never cached
+    past this note.
+
+status: ingested
+
+# Fanned out one route per tracked org (schema: routes[] is for a pack
+# that fans out over many same-shape hosts/items -- task 434). Each
+# route's own `acquire` uses `documented_source_api` with a fixed
+# `endpoint` (the Hub API base) and the per-org `author` filter carried
+# in `query` -- `allowed: {endpoint, dialect, paginate, query, headers}`
+# has no room for a flat list of orgs at pack level, which is what broke
+# PR #383's schema check (task 661), fixed here.
+# `a private pipeline module`'s `discover()` reads this pack's
+# `routes[].acquire.params.query.author` via `pack_path` in the
+# refresh-cadence row -- see that module's own doc comment. Expand the
+# tracked list by adding a route entry, by PR, never by hand-editing
+# prod -- this pack is the source of truth for what gets tracked.
+routes:
+  - host: huggingface.co/api/models?author=Snowflake
+    canonical_domain: huggingface.co
+    lang: [en]
+    status: ingested
+    acquire:
+      route: documented_source_api
+      params:
+        endpoint: "https://huggingface.co/api/models"
+        query:
+          author: Snowflake  # arctic-embed-l-v2, the live production embedder
+          sort: lastModified
+          direction: "-1"
+          limit: "100"
+    evidence: "2026-09-26: verified live (5 public models, no auth)."
+  - host: huggingface.co/api/models?author=BAAI
+    canonical_domain: huggingface.co
+    lang: [en]
+    status: ingested
+    acquire:
+      route: documented_source_api
+      params:
+        endpoint: "https://huggingface.co/api/models"
+        query:
+          author: BAAI  # BGE-M3, the P0 incumbent embedder
+          sort: lastModified
+          direction: "-1"
+          limit: "100"
+    evidence: "2026-09-26: same API shape as Snowflake, not independently re-verified."
+  - host: huggingface.co/api/models?author=Qwen
+    canonical_domain: huggingface.co
+    lang: [en]
+    status: ingested
+    acquire:
+      route: documented_source_api
+      params:
+        endpoint: "https://huggingface.co/api/models"
+        query:
+          author: Qwen  # Qwen3-Embedding, the bake-off runner-up
+          sort: lastModified
+          direction: "-1"
+          limit: "100"
+    evidence: "2026-09-26: same API shape as Snowflake, not independently re-verified."
+  - host: huggingface.co/api/models?author=qdrant
+    canonical_domain: huggingface.co
+    lang: [en]
+    status: ingested
+    acquire:
+      route: documented_source_api
+      params:
+        endpoint: "https://huggingface.co/api/models"
+        query:
+          author: qdrant  # the retrieval store's own model artifacts, if any
+          sort: lastModified
+          direction: "-1"
+          limit: "100"
+    evidence: "2026-09-26: same API shape as Snowflake, not independently re-verified."
+  - host: huggingface.co/api/models?author=zai-org
+    canonical_domain: huggingface.co
+    lang: [en]
+    status: ingested
+    acquire:
+      route: documented_source_api
+      params:
+        endpoint: "https://huggingface.co/api/models"
+        query:
+          author: zai-org  # GLM family (trigger: GLM-5.3 absent, task 693)
+          sort: lastModified
+          direction: "-1"
+          limit: "100"
+    evidence: "2026-10-02 (task 693): Hub API author=zai-org answered 200 with public models."
+  - host: huggingface.co/api/models?author=moonshotai
+    canonical_domain: huggingface.co
+    lang: [en]
+    status: ingested
+    acquire:
+      route: documented_source_api
+      params:
+        endpoint: "https://huggingface.co/api/models"
+        query:
+          author: moonshotai  # Kimi
+          sort: lastModified
+          direction: "-1"
+          limit: "100"
+    evidence: "2026-10-02 (task 693): Hub API author=moonshotai answered 200 with public models."
+  - host: huggingface.co/api/models?author=nvidia
+    canonical_domain: huggingface.co
+    lang: [en]
+    status: ingested
+    acquire:
+      route: documented_source_api
+      params:
+        endpoint: "https://huggingface.co/api/models"
+        query:
+          author: nvidia  # Nemotron and others
+          sort: lastModified
+          direction: "-1"
+          limit: "100"
+    evidence: "2026-10-02 (task 693): Hub API author=nvidia answered 200 with public models."
+  - host: huggingface.co/api/models?author=ibm-granite
+    canonical_domain: huggingface.co
+    lang: [en]
+    status: ingested
+    acquire:
+      route: documented_source_api
+      params:
+        endpoint: "https://huggingface.co/api/models"
+        query:
+          author: ibm-granite  # Granite
+          sort: lastModified
+          direction: "-1"
+          limit: "100"
+    evidence: "2026-10-02 (task 693): Hub API author=ibm-granite answered 200 with public models."
+  - host: huggingface.co/api/models?author=allenai
+    canonical_domain: huggingface.co
+    lang: [en]
+    status: ingested
+    acquire:
+      route: documented_source_api
+      params:
+        endpoint: "https://huggingface.co/api/models"
+        query:
+          author: allenai  # OLMo, Tulu
+          sort: lastModified
+          direction: "-1"
+          limit: "100"
+    evidence: "2026-10-02 (task 693): Hub API author=allenai answered 200 with public models."
+  - host: huggingface.co/api/models?author=CohereLabs
+    canonical_domain: huggingface.co
+    lang: [en]
+    status: ingested
+    acquire:
+      route: documented_source_api
+      params:
+        endpoint: "https://huggingface.co/api/models"
+        query:
+          author: CohereLabs  # Command, Aya
+          sort: lastModified
+          direction: "-1"
+          limit: "100"
+    evidence: "2026-10-02 (task 693): Hub API author=CohereLabs answered 200 with public models."
+  - host: huggingface.co/api/models?author=MiniMaxAI
+    canonical_domain: huggingface.co
+    lang: [en]
+    status: ingested
+    acquire:
+      route: documented_source_api
+      params:
+        endpoint: "https://huggingface.co/api/models"
+        query:
+          author: MiniMaxAI  # MiniMax
+          sort: lastModified
+          direction: "-1"
+          limit: "100"
+    evidence: "2026-10-02 (task 693): Hub API author=MiniMaxAI answered 200 with public models."
+  - host: huggingface.co/api/models?author=tencent
+    canonical_domain: huggingface.co
+    lang: [en]
+    status: ingested
+    acquire:
+      route: documented_source_api
+      params:
+        endpoint: "https://huggingface.co/api/models"
+        query:
+          author: tencent  # Hunyuan
+          sort: lastModified
+          direction: "-1"
+          limit: "100"
+    evidence: "2026-10-02 (task 693): Hub API author=tencent answered 200 with public models."
+  - host: huggingface.co/api/models?author=baidu
+    canonical_domain: huggingface.co
+    lang: [en]
+    status: ingested
+    acquire:
+      route: documented_source_api
+      params:
+        endpoint: "https://huggingface.co/api/models"
+        query:
+          author: baidu  # ERNIE
+          sort: lastModified
+          direction: "-1"
+          limit: "100"
+    evidence: "2026-10-02 (task 693): Hub API author=baidu answered 200 with public models."
+  - host: huggingface.co/api/models?author=xai-org
+    canonical_domain: huggingface.co
+    lang: [en]
+    status: ingested
+    acquire:
+      route: documented_source_api
+      params:
+        endpoint: "https://huggingface.co/api/models"
+        query:
+          author: xai-org  # Grok open weights
+          sort: lastModified
+          direction: "-1"
+          limit: "100"
+    evidence: "2026-10-02 (task 693): Hub API author=xai-org answered 200 with public models."
+  - host: huggingface.co/api/models?author=ai21labs
+    canonical_domain: huggingface.co
+    lang: [en]
+    status: ingested
+    acquire:
+      route: documented_source_api
+      params:
+        endpoint: "https://huggingface.co/api/models"
+        query:
+          author: ai21labs  # Jamba
+          sort: lastModified
+          direction: "-1"
+          limit: "100"
+    evidence: "2026-10-02 (task 693): Hub API author=ai21labs answered 200 with public models."
+  - host: huggingface.co/api/models?author=apple
+    canonical_domain: huggingface.co
+    lang: [en]
+    status: ingested
+    acquire:
+      route: documented_source_api
+      params:
+        endpoint: "https://huggingface.co/api/models"
+        query:
+          author: apple  # OpenELM and others
+          sort: lastModified
+          direction: "-1"
+          limit: "100"
+    evidence: "2026-10-02 (task 693): Hub API author=apple answered 200 with public models."
+  - host: huggingface.co/api/models?author=LGAI-EXAONE
+    canonical_domain: huggingface.co
+    lang: [en]
+    status: ingested
+    acquire:
+      route: documented_source_api
+      params:
+        endpoint: "https://huggingface.co/api/models"
+        query:
+          author: LGAI-EXAONE  # EXAONE
+          sort: lastModified
+          direction: "-1"
+          limit: "100"
+    evidence: "2026-10-02 (task 693): Hub API author=LGAI-EXAONE answered 200 with public models."
+  - host: huggingface.co/api/models?author=XiaomiMiMo
+    canonical_domain: huggingface.co
+    lang: [en]
+    status: ingested
+    acquire:
+      route: documented_source_api
+      params:
+        endpoint: "https://huggingface.co/api/models"
+        query:
+          author: XiaomiMiMo  # MiMo
+          sort: lastModified
+          direction: "-1"
+          limit: "100"
+    evidence: "2026-10-02 (task 693): Hub API author=XiaomiMiMo answered 200 with public models."
+  - host: huggingface.co/api/models?author=stepfun-ai
+    canonical_domain: huggingface.co
+    lang: [en]
+    status: ingested
+    acquire:
+      route: documented_source_api
+      params:
+        endpoint: "https://huggingface.co/api/models"
+        query:
+          author: stepfun-ai  # Step
+          sort: lastModified
+          direction: "-1"
+          limit: "100"
+    evidence: "2026-10-02 (task 693): Hub API author=stepfun-ai answered 200 with public models."
+  - host: huggingface.co/api/models?author=meituan-longcat
+    canonical_domain: huggingface.co
+    lang: [en]
+    status: ingested
+    acquire:
+      route: documented_source_api
+      params:
+        endpoint: "https://huggingface.co/api/models"
+        query:
+          author: meituan-longcat  # LongCat
+          sort: lastModified
+          direction: "-1"
+          limit: "100"
+    evidence: "2026-10-02 (task 693): Hub API author=meituan-longcat answered 200 with public models."
+  - host: huggingface.co/api/models?author=meta-llama
+    canonical_domain: huggingface.co
+    lang: [en]
+    status: ingested
+    acquire:
+      route: documented_source_api
+      params:
+        endpoint: "https://huggingface.co/api/models"
+        query:
+          author: meta-llama  # Llama (task 120 major-org list)
+          sort: lastModified
+          direction: "-1"
+          limit: "100"
+    evidence: "2026-10-02 (task 693): Hub API author=meta-llama answered 200 with public models."
+  - host: huggingface.co/api/models?author=mistralai
+    canonical_domain: huggingface.co
+    lang: [en]
+    status: ingested
+    acquire:
+      route: documented_source_api
+      params:
+        endpoint: "https://huggingface.co/api/models"
+        query:
+          author: mistralai  # Mistral (task 120 major-org list)
+          sort: lastModified
+          direction: "-1"
+          limit: "100"
+    evidence: "2026-10-02 (task 693): Hub API author=mistralai answered 200 with public models."
+  - host: huggingface.co/api/models?author=google
+    canonical_domain: huggingface.co
+    lang: [en]
+    status: ingested
+    acquire:
+      route: documented_source_api
+      params:
+        endpoint: "https://huggingface.co/api/models"
+        query:
+          author: google  # Gemma and others (task 120 major-org list)
+          sort: lastModified
+          direction: "-1"
+          limit: "100"
+    evidence: "2026-10-02 (task 693): Hub API author=google answered 200 with public models."
+  - host: huggingface.co/api/models?author=openai
+    canonical_domain: huggingface.co
+    lang: [en]
+    status: ingested
+    acquire:
+      route: documented_source_api
+      params:
+        endpoint: "https://huggingface.co/api/models"
+        query:
+          author: openai  # gpt-oss and others (task 120 major-org list)
+          sort: lastModified
+          direction: "-1"
+          limit: "100"
+    evidence: "2026-10-02 (task 693): Hub API author=openai answered 200 with public models."
+  - host: huggingface.co/api/models?author=deepseek-ai
+    canonical_domain: huggingface.co
+    lang: [en]
+    status: ingested
+    acquire:
+      route: documented_source_api
+      params:
+        endpoint: "https://huggingface.co/api/models"
+        query:
+          author: deepseek-ai  # DeepSeek (task 120 major-org list)
+          sort: lastModified
+          direction: "-1"
+          limit: "100"
+    evidence: "2026-10-02 (task 693): Hub API author=deepseek-ai answered 200 with public models."
+  - host: huggingface.co/api/models?author=microsoft
+    canonical_domain: huggingface.co
+    lang: [en]
+    status: ingested
+    acquire:
+      route: documented_source_api
+      params:
+        endpoint: "https://huggingface.co/api/models"
+        query:
+          author: microsoft  # Phi and others (task 120 major-org list)
+          sort: lastModified
+          direction: "-1"
+          limit: "100"
+    evidence: "2026-10-02 (task 693): Hub API author=microsoft answered 200 with public models."
+  - host: huggingface.co/api/models?author=anthropic
+    canonical_domain: huggingface.co
+    lang: [en]
+    status: ingested
+    acquire:
+      route: documented_source_api
+      params:
+        endpoint: "https://huggingface.co/api/models"
+        query:
+          author: anthropic  # task 120 major-org list
+          sort: lastModified
+          direction: "-1"
+          limit: "100"
+    evidence: "2026-10-02 (task 693): Hub API author=anthropic answered 200 with public models."
+  - host: huggingface.co/api/models?author=stabilityai
+    canonical_domain: huggingface.co
+    lang: [en]
+    status: ingested
+    acquire:
+      route: documented_source_api
+      params:
+        endpoint: "https://huggingface.co/api/models"
+        query:
+          author: stabilityai  # task 120 major-org list
+          sort: lastModified
+          direction: "-1"
+          limit: "100"
+    evidence: "2026-10-02 (task 693): Hub API author=stabilityai answered 200 with public models."
+  - host: huggingface.co/api/models?author=black-forest-labs
+    canonical_domain: huggingface.co
+    lang: [en]
+    status: ingested
+    acquire:
+      route: documented_source_api
+      params:
+        endpoint: "https://huggingface.co/api/models"
+        query:
+          author: black-forest-labs  # FLUX (task 120 major-org list)
+          sort: lastModified
+          direction: "-1"
+          limit: "100"
+    evidence: "2026-10-02 (task 693): Hub API author=black-forest-labs answered 200 with public models."
+  - host: huggingface.co/api/models?author=sentence-transformers
+    canonical_domain: huggingface.co
+    lang: [en]
+    status: ingested
+    acquire:
+      route: documented_source_api
+      params:
+        endpoint: "https://huggingface.co/api/models"
+        query:
+          author: sentence-transformers  # task 120 major-org list
+          sort: lastModified
+          direction: "-1"
+          limit: "100"
+    evidence: "2026-10-02 (task 693): Hub API author=sentence-transformers answered 200 with public models."
+
+admission:
+  channel: refresh-cadence-new-refs
+  evidence:
+    - "task 661 F5 (2026-09-26): industry-site refresh — HF org model cards of tracked orgs."
+  decision: escalated
+  policy: "POLICY.md@v1 §6 (a NEW family/host runs the assessment band; queued for Tim)"
+  date: "2026-09-26"
+
+notes:
+  - >
+    Same "new declared source, not a tranche" reasoning as
+    sources/us/github-releases-tracked.yaml's own note — PORTFOLIO §4.4's
+    "HF cards" line names EXISTING generic-discovery content, not this
+    curated, source-owned-API pack.
+  - >
+    Tracked-org list is a starting proposal (models AW's own build
+    already depends on or measured in the embedder bake-off) — expand by
+    PR, same discipline as the GitHub repo list.

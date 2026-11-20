@@ -1,0 +1,25 @@
+{
+  "schema": "aw.chunk-policy.v1",
+  "policy_id": "law-article-sub-192w-o0-tail-288-tok2560",
+  "policy_version": 1,
+  "algorithm": "law-article-sub-pack-v1",
+  "epoch": 6,
+  "rule_legend": "law-article-sub-192w-o0-tail-288-tok2560@6",
+  "sizing": {"unit": "words", "soft_target": 192},
+  "word_guard": {"unit": "words", "hard_max": 288, "derivation": "explicit-tail-maximum"},
+  "token_hard_max": {"unit": "tokens", "exact": 2560, "tokenizer_model": "Snowflake/snowflake-arctic-embed-l-v2.0", "count_special_tokens": true, "split_policy": "line-then-word-exact"},
+  "overlap": {"unit": "words", "size": 0, "scope": "oversized-unit"},
+  "merge": {"unit": "words", "below": 40, "policy": "previous-if-fits-else-next"},
+  "floor": {"unit": "words", "minimum": 15, "per_call_override": true},
+  "prefix": {"unit": "words", "maximum": 24, "separator": " > ", "truncation": "keep-deepest"},
+  "tail": {"under_floor": "merge-into-previous-or-emit", "token_split_remainder": "emit-below-floor"},
+  "section_packing": {"unit": "sections", "policy": "keep-whole-balanced", "headings": "inline-breadcrumb", "order": "source-order"},
+  "law_article": {
+    "unit": "articles",
+    "boundary": "source-native-anchor",
+    "split_body_above_words": 288,
+    "short_article": "emit-whole-unchanged",
+    "anchor_carried": "every-sub-chunk",
+    "identity": "anchor-plus-sub-ordinal"
+  }
+}

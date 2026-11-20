@@ -1,0 +1,130 @@
+{
+ "cfg": {
+  "artifact_root": "/aw-corpus",
+  "parent_root": "/aw-corpus/stack/parent-x",
+  "outcome": "/aw-corpus/stack/attempt-x/OUTCOME.json",
+  "pack_root": "/aw-corpus/stack/pack-x",
+  "audit_root": "/aw-corpus/stack/audit-x",
+  "adapter": "/rel/cytir/sources/stackoverflow/materialize_production_tranche.py",
+  "producer_revision": "abababababababababababababababababababababababababababababababab",
+  "expected_schema": "aw.stackoverflow-qa-production-tranche-run.v1",
+  "expected_status": "source_native_tranche_complete_pending_profile_fidelity_chunk_measurement",
+  "expected_selected": 1000,
+  "expected_cell": "accepted_qscore_10_plus",
+  "source_id": "stackoverflow-qa-score10-production-tranche-000000-000999-v1",
+  "classification": "measured exact ordinal-1 production tranche (offset=0, limit=1000); full 5000-pair frontier remains selection-only"
+ },
+ "driver_pythonpath": "/drv/repo:/drv/repo/pipeline",
+ "steps": [
+  {
+   "prefix": [
+    "nice",
+    "-n",
+    "10",
+    "ionice",
+    "-c3"
+   ],
+   "argv": [
+    "-m",
+    "cytir.corpus.stage_structured_markdown",
+    "--artifact-root",
+    "/aw-corpus",
+    "--parent-root",
+    "/aw-corpus/stack/parent-x",
+    "--parent-run",
+    "/aw-corpus/stack/parent-x/RUN.json",
+    "--out",
+    "/aw-corpus/stack/pack-x",
+    "--policy",
+    "<REL>/data/chunk-policy-struct-md-768w-o0-adjacent-sections-tail-1152-tok2560.v1.json",
+    "--tokenizer-revision",
+    "ac6544c8a46e00af67e330e85a9028c66b8cfd9a",
+    "--producer-revision",
+    "abababababababababababababababababababababababababababababababab",
+    "--source-profile",
+    "community_qa"
+   ],
+   "PYTHONPATH": "<REL>:/drv/repo:/drv/repo/pipeline"
+  },
+  {
+   "prefix": [
+    "nice",
+    "-n",
+    "10",
+    "ionice",
+    "-c3"
+   ],
+   "argv": [
+    "-m",
+    "cytir.sources.stackoverflow.audit_profile",
+    "--artifact-root",
+    "/aw-corpus",
+    "--parent-run",
+    "/aw-corpus/stack/parent-x/RUN.json",
+    "--pack-root",
+    "/aw-corpus/stack/pack-x",
+    "--output-root",
+    "/aw-corpus/stack/audit-x",
+    "--profile-registry",
+    "<REL>/data/source-preservation-profiles.v1.json",
+    "--source-id",
+    "stackoverflow-qa-score10-production-tranche-000000-000999-v1",
+    "--expected-schema",
+    "aw.stackoverflow-qa-production-tranche-run.v1",
+    "--expected-status",
+    "source_native_tranche_complete_pending_profile_fidelity_chunk_measurement",
+    "--expected-selected",
+    "1000",
+    "--classification",
+    "measured exact ordinal-1 production tranche (offset=0, limit=1000); full 5000-pair frontier remains selection-only",
+    "--expected-cell",
+    "accepted_qscore_10_plus"
+   ],
+   "PYTHONPATH": "<REL>:/drv/repo:/drv/repo/pipeline"
+  },
+  {
+   "prefix": [],
+   "argv": [
+    "-m",
+    "cytir.index.seal_content_fidelity_audit",
+    "--artifact-root",
+    "/aw-corpus",
+    "--parent-run",
+    "/aw-corpus/stack/parent-x/RUN.json",
+    "--adapter-source",
+    "/rel/cytir/sources/stackoverflow/materialize_production_tranche.py",
+    "--source-id",
+    "stackoverflow-qa-score10-production-tranche-000000-000999-v1",
+    "--verification-method",
+    "Deep source/archive/XML/Markdown semantic audit with AST no-cap check and exact selected-row digests",
+    "--receipt",
+    "/aw-corpus/stack/audit-x/content-fidelity-receipt.json",
+    "--envelope",
+    "/aw-corpus/stack/audit-x/content-fidelity-envelope.json"
+   ],
+   "PYTHONPATH": "<REL>:/drv/repo:/drv/repo/pipeline"
+  },
+  {
+   "prefix": [],
+   "argv": [
+    "-m",
+    "cytir.index.seal_source_profile_compliance",
+    "--artifact-root",
+    "/aw-corpus",
+    "--profile-registry",
+    "<REL>/data/source-preservation-profiles.v1.json",
+    "--profile",
+    "community_qa",
+    "--source-id",
+    "stackoverflow-qa-score10-production-tranche-000000-000999-v1",
+    "--checks",
+    "/aw-corpus/stack/audit-x/checks.json",
+    "--verification-evidence",
+    "/aw-corpus/stack/audit-x/verification-evidence.json",
+    "--receipt",
+    "/aw-corpus/stack/audit-x/source-profile-compliance-receipt.json"
+   ],
+   "PYTHONPATH": "<REL>:/drv/repo:/drv/repo/pipeline"
+  }
+ ]
+}

@@ -1,0 +1,19 @@
+{
+ "schema": "aw.licence-spdx-respell.v1",
+ "about": "E7 of the aw_e10 rebuild (specs/aw-e10-rebuild.md section 1): the served rows of a family that moved to the family door take the SPDX spelling the door writes (POLICY v3.3 U2, ruling 27 T7: 'licence spelling SPDX for door rows; served rows follow at the rebuild'). Read by aw.index.rebuild_e10 only. A row is respelled when (1) its licence is a key of `spellings` and (2) its family, mapped by cytir.consent.derive's family inference on the RESPELLED licence, is registered at the family door (cytir.sources.registry.registered()). The door's own rule for the dump's words is cytir/sources/families/stackoverflow_qa.py `_licence_name` (spaces to hyphens); this table holds the measured spellings only (task 713 section 3.2, scan of 2026-10-07).",
+ "decided": "ruling 27 T7 (Tim 2026-10-07); POLICY v3.3 U2 (#647)",
+ "measured": "task 713, section 3.2 (59,750,612 twin rows, 2026-10-07)",
+ "spellings": {
+  "CC BY-SA 2.5": "CC-BY-SA-2.5",
+  "CC BY-SA 3.0": "CC-BY-SA-3.0",
+  "CC BY-SA 4.0": "CC-BY-SA-4.0",
+  "CC BY 3.0": "CC-BY-3.0",
+  "CC BY 4.0": "CC-BY-4.0",
+  "cc-by-4.0": "CC-BY-4.0",
+  "APACHE-2.0": "Apache-2.0"
+ },
+ "not_respelled": {
+  "etalab-2.0": "OPEN (task 720): `etalab-2.0` (1,314 rows) IS the SPDX identifier; the repository writes `Etalab-2.0` (cytir/sources/families/loda.py, service_public_fiche.py) and cytir.consent.derive r5 / r1-service-public match the prefix `Etalab-2.0`. Which spelling is canonical is a ruling, not a respelling.",
+  "CC BY-NC-SA 3.0 IGO; ...": "WHO free-text strings (about 3,500 rows) are not a spelling of one SPDX id: they stay (task 713 section 3.2)."
+ }
+}

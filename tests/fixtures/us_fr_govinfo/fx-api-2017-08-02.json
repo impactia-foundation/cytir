@@ -1,0 +1,97 @@
+{
+ "date": "2017-08-02",
+ "api_results": [
+  {
+   "document_number": "2017-16278",
+   "title": "Approval and Promulgation of State Plans for Designated Facilities and Pollutants: Colorado, Montana, North Dakota, South Dakota, Utah, and Wyoming; Negative Declarations; Correction",
+   "abstract": "The Environmental Protection Agency (EPA) is correcting a direct final rule that appeared in the Federal Register on June 5, 2017. The document approved a total of 20 negative declarations from all EPA Region 8 states declaring an absence of existing designated facilities, of certain incinerator classes, regulated under one of the Emissions Guidelines for solid waste incineration units. An approved and promulgated negative declaration exempts a state from certain implementation plan development requirements of Clean Air Act sections 111 and 129. An error in the proposed regulatory text amending 40 CFR part 62 is identified and corrected in this action.",
+   "type": "Rule",
+   "publication_date": "2017-08-02",
+   "raw_text_url": "https://www.federalregister.gov/documents/full_text/text/2017/08/02/2017-16278.txt",
+   "html_url": "https://www.federalregister.gov/documents/2017/08/02/2017-16278/approval-and-promulgation-of-state-plans-for-designated-facilities-and-pollutants-colorado-montana",
+   "citation": "82 FR 35906",
+   "agencies": [
+    {
+     "raw_name": "ENVIRONMENTAL PROTECTION AGENCY",
+     "name": "Environmental Protection Agency",
+     "id": 145,
+     "url": "https://www.federalregister.gov/agencies/environmental-protection-agency",
+     "json_url": "https://www.federalregister.gov/api/v1/agencies/145",
+     "parent_id": null,
+     "slug": "environmental-protection-agency"
+    }
+   ]
+  },
+  {
+   "document_number": "2017-16301",
+   "title": "Sunshine Act Meeting",
+   "abstract": null,
+   "type": "Notice",
+   "publication_date": "2017-08-02",
+   "raw_text_url": "https://www.federalregister.gov/documents/full_text/text/2017/08/02/2017-16301.txt",
+   "html_url": "https://www.federalregister.gov/documents/2017/08/02/2017-16301/sunshine-act-meeting",
+   "citation": "82 FR 36007",
+   "agencies": [
+    {
+     "raw_name": "POSTAL SERVICE",
+     "name": "Postal Service",
+     "id": 410,
+     "url": "https://www.federalregister.gov/agencies/postal-service",
+     "json_url": "https://www.federalregister.gov/api/v1/agencies/410",
+     "parent_id": null,
+     "slug": "postal-service"
+    }
+   ]
+  },
+  {
+   "document_number": "2017-16290",
+   "title": "List of Countries Requiring Cooperation With an International Boycott",
+   "abstract": null,
+   "type": "Notice",
+   "publication_date": "2017-08-02",
+   "raw_text_url": "https://www.federalregister.gov/documents/full_text/text/2017/08/02/2017-16290.txt",
+   "html_url": "https://www.federalregister.gov/documents/2017/08/02/2017-16290/list-of-countries-requiring-cooperation-with-an-international-boycott",
+   "citation": "82 FR 36076",
+   "agencies": [
+    {
+     "raw_name": "DEPARTMENT OF THE TREASURY",
+     "name": "Treasury Department",
+     "id": 497,
+     "url": "https://www.federalregister.gov/agencies/treasury-department",
+     "json_url": "https://www.federalregister.gov/api/v1/agencies/497",
+     "parent_id": null,
+     "slug": "treasury-department"
+    },
+    {
+     "raw_name": "Office of the Secretary"
+    }
+   ]
+  },
+  {
+   "document_number": "2017-16368",
+   "title": "Government in the Sunshine Act Meeting Notice",
+   "abstract": null,
+   "type": "Notice",
+   "publication_date": "2017-08-02",
+   "raw_text_url": "https://www.federalregister.gov/documents/full_text/text/2017/08/02/2017-16368.txt",
+   "html_url": "https://www.federalregister.gov/documents/2017/08/02/2017-16368/government-in-the-sunshine-act-meeting-notice",
+   "citation": "82 FR 35991",
+   "agencies": [
+    {
+     "raw_name": "INTERNATIONAL TRADE COMMISSION",
+     "name": "International Trade Commission",
+     "id": 262,
+     "url": "https://www.federalregister.gov/agencies/international-trade-commission",
+     "json_url": "https://www.federalregister.gov/api/v1/agencies/262",
+     "parent_id": null,
+     "slug": "international-trade-commission"
+    }
+   ]
+  }
+ ],
+ "in_xml": [
+  "2017-16278",
+  "2017-16301",
+  "2017-16290"
+ ]
+}

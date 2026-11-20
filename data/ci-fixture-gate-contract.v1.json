@@ -1,0 +1,7 @@
+{
+ "schema": "aw.ci-fixture-gate-contract.v1",
+ "slice": "ci-fixture",
+ "golds_n": 24,
+ "golds_outcome_digest": "7811db279ed8c97267e0ed11ccb4a2270e66e77ecd7304353ebccdb7b71569b9",
+ "sealed": "Policy file. Pins the ranking outcome (id, hit_at_k, rank, rank_exact per gold) of the committed CI-fixture gate baseline. A re-record of the baseline may move plumbing fields (profile digests, timestamps, ports, top tails); a changed gold outcome fails the test until this file changes in a POLICY PR. Never written by the recorder."
+}

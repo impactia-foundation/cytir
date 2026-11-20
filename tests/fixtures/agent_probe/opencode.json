@@ -1,0 +1,54 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "model": "openrouter/anthropic/claude-haiku-5.5",
+  "update": "disable",
+  "share": "disabled",
+  "websearch": false,
+  "provider": {"openrouter": {"models": {
+    "anthropic/claude-haiku-5.5": {"options": {"reasoning": {"effort": "medium"}}},
+    "openai/gpt-6.1-sol": {"options": {"reasoning": {"effort": "medium"}}},
+    "deepseek/deepseek-v4.1-flash-1017": {"options": {"reasoning": {"effort": "medium"}}}
+  }}},
+  "mcp": {
+    "cytir-websearch": {"type": "remote", "url": "https://mcp.websear.ch/mcp", "oauth": false, "codemode": false}
+  },
+  "permissions": [
+    {"action": "tool.use", "resource": "shell", "effect": "deny"},
+    {"action": "tool.use", "resource": "edit", "effect": "deny"},
+    {"action": "tool.use", "resource": "write", "effect": "deny"},
+    {"action": "tool.use", "resource": "subagent", "effect": "deny"},
+    {"action": "tool.use", "resource": "execute", "effect": "deny"},
+    {"action": "tool.use", "resource": "question", "effect": "deny"},
+    {"action": "tool.use", "resource": "skill", "effect": "deny"},
+    {"action": "tool.use", "resource": "experimental_image_generate", "effect": "deny"},
+    {"action": "webfetch", "resource": "http*://bing.com/*", "effect": "deny"},
+    {"action": "webfetch", "resource": "http*://*.bing.com/*", "effect": "deny"},
+    {"action": "webfetch", "resource": "http*://duckduckgo.com/*", "effect": "deny"},
+    {"action": "webfetch", "resource": "http*://*.duckduckgo.com/*", "effect": "deny"},
+    {"action": "webfetch", "resource": "http*://google.com/*", "effect": "deny"},
+    {"action": "webfetch", "resource": "http*://*.google.com/*", "effect": "deny"},
+    {"action": "webfetch", "resource": "http*://baidu.com/*", "effect": "deny"},
+    {"action": "webfetch", "resource": "http*://*.baidu.com/*", "effect": "deny"},
+    {"action": "webfetch", "resource": "http*://startpage.com/*", "effect": "deny"},
+    {"action": "webfetch", "resource": "http*://*.startpage.com/*", "effect": "deny"},
+    {"action": "webfetch", "resource": "http*://ecosia.org/*", "effect": "deny"},
+    {"action": "webfetch", "resource": "http*://*.ecosia.org/*", "effect": "deny"},
+    {"action": "webfetch", "resource": "http*://kagi.com/*", "effect": "deny"},
+    {"action": "webfetch", "resource": "http*://*.kagi.com/*", "effect": "deny"},
+    {"action": "webfetch", "resource": "http*://perplexity.ai/*", "effect": "deny"},
+    {"action": "webfetch", "resource": "http*://*.perplexity.ai/*", "effect": "deny"},
+    {"action": "webfetch", "resource": "http*://you.com/*", "effect": "deny"},
+    {"action": "webfetch", "resource": "http*://*.you.com/*", "effect": "deny"},
+    {"action": "webfetch", "resource": "http*://yandex.*/*", "effect": "deny"},
+    {"action": "webfetch", "resource": "http*://*.yandex.*/*", "effect": "deny"},
+    {"action": "webfetch", "resource": "http*://search.yahoo.com/*", "effect": "deny"},
+    {"action": "webfetch", "resource": "http*://*yahoo.com/search*", "effect": "deny"},
+    {"action": "webfetch", "resource": "http*://brave.com/search*", "effect": "deny"},
+    {"action": "webfetch", "resource": "http*://search.brave.com/*", "effect": "deny"}
+  ],
+  "tools": {
+    "shell": false, "edit": false, "write": false, "subagent": false,
+    "execute": false, "question": false, "skill": false, "experimental_image_generate": false
+  },
+  "agents": {"build": {"steps": 15}}
+}

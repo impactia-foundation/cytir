@@ -1,0 +1,68 @@
+# GitHub repositories whose docs are tracked at a pinned commit -- task 972.
+# One route per repository (host github.com/<owner>/<repo>). the github_repo_docs refresh adapter
+# runs the GitHub repo-docs acquisition adapter (deep mode, --max-files) into a per-run preserve
+# root and hands the sealed Markdown to the refresh lane. The licence is the route's `license`
+# (SPDX), read from GET /repos/{owner}/{repo} when the route is added; a route without one is
+# refused. To track another repo: add a route and check its licence the same way.
+#
+# STATUS: planned. The first run is staged by hand (task 972) and enqueued after the
+# opencode.ai docs pack lands (one content pack at a time, task 874).
+id: us-github-repo-docs-tracked
+name: "GitHub repository docs -- curated repos at a pinned commit"
+country: US
+layer: tech-docs
+policy_section: "§4.4"
+adapter: api
+acquisition_policy: aw-acquisition-v1
+outlink_policy: capture-and-receipt
+preservation_profiles: [software_docs]
+provenance: authored
+tier: A
+trust_tier: 0.75
+freshness: weekly
+
+license:
+  default: unknown-per-repo
+  notes: >
+    Declared per route from the repository's own licence (GitHub API spdx_id). A repo whose
+    licence is NOASSERTION or missing is not acquired (the github_agent_resources hold: task 629).
+
+consent:
+  basis: live-resolve-open
+  train_ok_override: null
+  notes: >
+    Resolved live per fetch by consent_gate.py. The acquirer reads GitHub's documented API and raw
+    content route, not the repository's HTML pages.
+
+status: planned
+
+# task 996: phase-1 repo list (JSONL, one row per repo); the refresh adapter appends it to the routes.
+repo_list: data/github-repo-docs-phase1.v1.jsonl
+
+routes:
+  - host: github.com/anomalyco/opencode
+    canonical_domain: github.com
+    lang: [en]
+    status: planned
+    license: MIT
+    acquire:
+      route: documented_source_api
+      rank: 3
+      params:
+        endpoint: "https://api.github.com/repos/anomalyco/opencode"
+        query:
+          branch: dev
+          max_files: 40
+          # the content dir holds one sub-directory per translation (17 of them: ar bs da de es fr it
+          # ja ko nb pl pt-br ru th tr zh-cn zh-tw); the English pages are its root files
+          exclude_regex: '/content/docs/[^/]+/'
+    evidence: "2026-10-17: GET /repos/anomalyco/opencode -> license.spdx_id MIT, default_branch dev (sst/opencode redirects here)."
+
+admission:
+  channel: refresh-cadence-new-refs
+  evidence:
+    - "Tim 2026-10-17 02:10Z: 'add the opencode repo to the github acquisition'."
+    - "task 972: the github_repo_docs refresh adapter over the GitHub repo-docs acquisition adapter."
+  decision: escalated
+  policy: "POLICY.md@v1 §6 (admission ruled by Tim 2026-10-17)"
+  date: "2026-10-17"

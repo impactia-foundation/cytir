@@ -1,0 +1,233 @@
+# Consent-unclear register — ADR-024 amendment (Tim, 2026-07-13).
+#
+# Hosts whose robots blocks ONLY vendor-specific AI-TRAINING tokens (e.g.
+# google-extended, gptbot) with NO wildcard/general AI block, NO Claude-family
+# block (claudebot / claude-web / anthropic-ai), NO tdm-reservation / noai, and
+# no explicit search signal either way. Per the amendment these hosts are
+# INCLUDED FOR SEARCH (retrieval embedding + <=25-word snippet stored,
+# train_ok=false stamped in every payload row) and TRACKED here — auditable,
+# revisitable, purgeable by host if an owner ever objects.
+#
+# A wildcard AI block, any Claude-family token block, tdm-reservation, noai,
+# or any explicit opt-out still = decline (unchanged).
+#
+# Maintained BY THE GATE: consent_gate.py appends qualifying hosts here
+# automatically (never silently — it prints each append), and the ingest task
+# syncs new entries back to this repo copy. Do not hand-edit entries except to
+# purge a host on owner objection (record the purge in log.md).
+hosts:
+- host: www.tbray.org
+  signals_observed: 'robots: training-only tokens disallowed: google-extended'
+  robots_train_tokens_blocked: [google-extended]
+  wildcard_root_allowed: true
+  claude_tokens_blocked: []
+  tdm_or_noai: false
+  observed_at: '2026-07-13'
+  rationale: 'vendor-specific training-token blocks only; no wildcard/general
+    AI block; no explicit search signal; included for search per ADR-024
+    amendment 2026-07-13'
+  provenance: tech_blogs
+  added_by: task 197 (initial register per Tim ruling)
+- host: gao.gov
+  signals_observed: 'robots: training-only tokens disallowed: bytespider'
+  robots_train_tokens_blocked: [bytespider]
+  wildcard_root_allowed: true
+  claude_tokens_blocked: []
+  tdm_or_noai: false
+  observed_at: '2026-07-14'
+  rationale: 'vendor-specific training-token block only (bytespider); no
+    wildcard/general AI block; no Claude-family block; no tdm/noai; included for
+    search per ADR-024 amendment. train_ok=false stamped on all 7,523 staged
+    gao.gov points (US-gov public-domain; search-only).'
+  provenance: us_fed_cc
+  added_by: task 233 (federalreserve.gov ingest pack)
+- host: jvns.ca
+  signals_observed: 'robots: training-only tokens disallowed: google-extended,gptbot'
+  robots_train_tokens_blocked: [google-extended, gptbot]
+  wildcard_root_allowed: true
+  claude_tokens_blocked: []
+  tdm_or_noai: false
+  observed_at: '2026-07-13'
+  rationale: 'vendor-specific training-token blocks only; no wildcard/general
+    AI block; no explicit search signal; included for search per ADR-024
+    amendment 2026-07-13'
+  provenance: tech_blogs
+  added_by: task 197 (initial register per Tim ruling)
+- host: developer.arm.com
+  signals_observed: 'robots: training-only token disallowed: bytespider; wildcard * open'
+  robots_train_tokens_blocked: [bytespider]
+  wildcard_root_allowed: true
+  claude_tokens_blocked: []
+  tdm_or_noai: false
+  observed_at: '2026-07-15'
+  rationale: 'ADR-024 amendment-2 (Tim 2026-07-15): training-only block, * open ->
+    index-for-search, train_ok=false. CC-join (253 pages).'
+  provenance: wave6_cc
+  added_by: task 243 (wave-6 crawl)
+- host: wizardzines.com
+  signals_observed: 'robots: training-only tokens disallowed: google-extended,gptbot; wildcard * open'
+  robots_train_tokens_blocked: [google-extended, gptbot]
+  wildcard_root_allowed: true
+  claude_tokens_blocked: []
+  tdm_or_noai: false
+  observed_at: '2026-07-15'
+  rationale: 'ADR-024 amendment-2 (Tim 2026-07-15): training-only block, * open ->
+    index-for-search, train_ok=false. CC-join (82 pages).'
+  provenance: wave6_cc
+  added_by: task 243 (wave-6 crawl)
+- host: aphyr.com
+  signals_observed: 'robots: CCBot + Claude-family + many AI-training tokens disallowed;
+    Content-Signal: ai-train=no, search=yes; wildcard * Allow: /'
+  robots_train_tokens_blocked: [ccbot, claudebot, claude-web, anthropic-ai, gptbot, google-extended, many-ai-bots]
+  wildcard_root_allowed: true
+  claude_tokens_blocked: [claudebot, claude-web, anthropic-ai]
+  tdm_or_noai: false
+  observed_at: '2026-07-15'
+  rationale: 'ADR-024 amendment-2 (Tim 2026-07-15): CCBot/Claude-family blocks are
+    TRAINING signals, not search declines; * open + explicit Content-Signal
+    search=yes -> index-for-search, train_ok=false. Direct-crawl (CCBot-blocked,
+    not CC-joinable). NOTE: amendment-2 supersedes the earlier register condition
+    that a Claude-family block = decline.'
+  provenance: wave6_direct
+  added_by: task 243 (wave-6 crawl)
+- host: reforge.com
+  signals_observed: 'robots: CCBot + gptbot disallowed; wildcard * Allow: / (with path exclusions)'
+  robots_train_tokens_blocked: [ccbot, gptbot]
+  wildcard_root_allowed: true
+  claude_tokens_blocked: []
+  tdm_or_noai: false
+  observed_at: '2026-07-15'
+  rationale: 'ADR-024 amendment-2 (Tim 2026-07-15): CCBot/gptbot = training signals,
+    * open -> index-for-search, train_ok=false. Direct-crawl (CCBot-blocked).'
+  provenance: wave6_direct
+  added_by: task 243 (wave-6 crawl)
+# --- task 245 (wave-7 FR/DE/CA/BE/EU tech media) — added 2026-07-15 ---
+# Per ADR-024 amendment 2 (2026-07-15), which SUPERSEDES amendment-1's
+# "ClaudeBot / wildcard-AI block = decline" clause: the operative test is the
+# generic `*` agent. AI-crawler blocks (incl. ClaudeBot/anthropic-ai, e.g.
+# heise.de + lapresse.ca below) are TRAINING signals -> index-for-search,
+# train_ok=false. Only a `*` disallow declines us (-> card-only).
+- host: numerama.com
+  signals_observed: 'robots: AI-train tokens root-disallowed: ccbot'
+  robots_train_tokens_blocked: [ccbot]
+  wildcard_root_allowed: true
+  claude_tokens_blocked: []
+  tdm_or_noai: false
+  observed_at: '2026-07-15'
+  rationale: 'AI-training-crawler block only; `*` open; included for search per
+    ADR-024 amendment 2; train_ok=false stamped on all staged numerama.com points.'
+  provenance: wave7_fr_tech
+  added_by: task 245 (wave-7 FR/DE/CA/BE/EU tech media)
+- host: frandroid.com
+  signals_observed: 'robots: AI-train tokens root-disallowed: ccbot'
+  robots_train_tokens_blocked: [ccbot]
+  wildcard_root_allowed: true
+  claude_tokens_blocked: []
+  tdm_or_noai: false
+  observed_at: '2026-07-15'
+  rationale: 'AI-training-crawler block only; `*` open; included for search per
+    ADR-024 amendment 2; train_ok=false stamped on all staged frandroid.com points.'
+  provenance: wave7_fr_tech
+  added_by: task 245 (wave-7 FR/DE/CA/BE/EU tech media)
+- host: presse-citron.net
+  signals_observed: 'robots: AI-train tokens root-disallowed: ccbot,bytespider,meta-externalagent,cohere-ai,diffbot,timpibot,ai2bot'
+  robots_train_tokens_blocked: [ccbot, bytespider, meta-externalagent, cohere-ai, diffbot, timpibot, ai2bot]
+  wildcard_root_allowed: true
+  claude_tokens_blocked: []
+  tdm_or_noai: false
+  observed_at: '2026-07-15'
+  rationale: 'AI-training-crawler block only; `*` open; included for search per
+    ADR-024 amendment 2; train_ok=false stamped on all staged presse-citron.net points.'
+  provenance: wave7_fr_tech
+  added_by: task 245 (wave-7 FR/DE/CA/BE/EU tech media)
+- host: heise.de
+  signals_observed: 'robots: AI-train tokens root-disallowed: ccbot,gptbot,google-extended,claudebot,claude-web,anthropic-ai,applebot-extended,bytespider,meta-externalagent,facebookbot,amazonbot,perplexitybot,cohere-ai,diffbot,omgili,timpibot,youbot,ai2bot,petalbot'
+  robots_train_tokens_blocked: [ccbot, gptbot, google-extended, claudebot, claude-web, anthropic-ai, applebot-extended, bytespider, meta-externalagent, facebookbot, amazonbot, perplexitybot, cohere-ai, diffbot, omgili, timpibot, youbot, ai2bot, petalbot]
+  wildcard_root_allowed: true
+  claude_tokens_blocked: [claudebot, claude-web, anthropic-ai]
+  tdm_or_noai: false
+  observed_at: '2026-07-15'
+  rationale: 'AI-training-crawler block (incl. Claude-family) but `*` open ->
+    index-for-search per ADR-024 amendment 2 (supersedes amend-1 Claude=decline);
+    train_ok=false stamped on all staged heise.de points.'
+  provenance: wave7_de_tech
+  added_by: task 245 (wave-7 FR/DE/CA/BE/EU tech media)
+- host: golem.de
+  signals_observed: 'robots: AI-train tokens root-disallowed: bytespider,google-cloudvertexbot,amazonbot,ai2bot'
+  robots_train_tokens_blocked: [bytespider, google-cloudvertexbot, amazonbot, ai2bot]
+  wildcard_root_allowed: true
+  claude_tokens_blocked: []
+  tdm_or_noai: false
+  observed_at: '2026-07-15'
+  rationale: 'AI-training-crawler block only; `*` open; included for search per
+    ADR-024 amendment 2; train_ok=false stamped on all staged golem.de points.'
+  provenance: wave7_de_tech
+  added_by: task 245 (wave-7 FR/DE/CA/BE/EU tech media)
+- host: computerbase.de
+  signals_observed: 'robots: AI-train tokens root-disallowed: meta-externalagent'
+  robots_train_tokens_blocked: [meta-externalagent]
+  wildcard_root_allowed: true
+  claude_tokens_blocked: []
+  tdm_or_noai: false
+  observed_at: '2026-07-15'
+  rationale: 'AI-training-crawler block only; `*` open; included for search per
+    ADR-024 amendment 2; train_ok=false stamped on all staged computerbase.de points.'
+  provenance: wave7_de_tech
+  added_by: task 245 (wave-7 FR/DE/CA/BE/EU tech media)
+- host: winfuture.de
+  signals_observed: 'robots: AI-train tokens root-disallowed: ccbot,applebot-extended,bytespider,meta-externalagent,amazonbot,perplexitybot,diffbot,petalbot'
+  robots_train_tokens_blocked: [ccbot, applebot-extended, bytespider, meta-externalagent, amazonbot, perplexitybot, diffbot, petalbot]
+  wildcard_root_allowed: true
+  claude_tokens_blocked: []
+  tdm_or_noai: false
+  observed_at: '2026-07-15'
+  rationale: 'AI-training-crawler block only; `*` open; included for search per
+    ADR-024 amendment 2; train_ok=false stamped on all staged winfuture.de points.'
+  provenance: wave7_de_tech
+  added_by: task 245 (wave-7 FR/DE/CA/BE/EU tech media)
+- host: mobilesyrup.com
+  signals_observed: 'robots: AI-train tokens root-disallowed: ccbot,applebot-extended,bytespider,google-cloudvertexbot,facebookbot,amazonbot,cohere-ai,diffbot,omgili'
+  robots_train_tokens_blocked: [ccbot, applebot-extended, bytespider, google-cloudvertexbot, facebookbot, amazonbot, cohere-ai, diffbot, omgili]
+  wildcard_root_allowed: true
+  claude_tokens_blocked: []
+  tdm_or_noai: false
+  observed_at: '2026-07-15'
+  rationale: 'AI-training-crawler block only; `*` open; included for search per
+    ADR-024 amendment 2; train_ok=false stamped on all staged mobilesyrup.com points.'
+  provenance: wave7_ca_tech
+  added_by: task 245 (wave-7 FR/DE/CA/BE/EU tech media)
+- host: lapresse.ca
+  signals_observed: 'robots: AI-train tokens root-disallowed: ccbot,gptbot,google-extended,claudebot,claude-web,anthropic-ai,applebot-extended,bytespider,meta-externalagent,facebookbot,amazonbot,perplexitybot,diffbot,youbot'
+  robots_train_tokens_blocked: [ccbot, gptbot, google-extended, claudebot, claude-web, anthropic-ai, applebot-extended, bytespider, meta-externalagent, facebookbot, amazonbot, perplexitybot, diffbot, youbot]
+  wildcard_root_allowed: true
+  claude_tokens_blocked: [claudebot, claude-web, anthropic-ai]
+  tdm_or_noai: false
+  observed_at: '2026-07-15'
+  rationale: 'AI-training-crawler block (incl. Claude-family) but `*` open ->
+    index-for-search per ADR-024 amendment 2 (supersedes amend-1 Claude=decline);
+    train_ok=false stamped on all staged lapresse.ca points.'
+  provenance: wave7_ca_tech
+  added_by: task 245 (wave-7 FR/DE/CA/BE/EU tech media)
+- host: financialpost.com
+  signals_observed: 'robots: AI-train tokens root-disallowed: omgili'
+  robots_train_tokens_blocked: [omgili]
+  wildcard_root_allowed: true
+  claude_tokens_blocked: []
+  tdm_or_noai: false
+  observed_at: '2026-07-15'
+  rationale: 'AI-training-crawler block only; `*` open; included for search per
+    ADR-024 amendment 2; train_ok=false stamped on all staged financialpost.com points.
+    (Postmedia metered paywall -> subscriber-only bodies simply never fetch 200.)'
+  provenance: wave7_ca_tech
+  added_by: task 245 (wave-7 FR/DE/CA/BE/EU tech media)
+- host: dailyhive.com
+  signals_observed: 'robots: AI-train tokens root-disallowed: ccbot,applebot-extended,bytespider,google-cloudvertexbot,facebookbot,amazonbot,cohere-ai,diffbot,omgili'
+  robots_train_tokens_blocked: [ccbot, applebot-extended, bytespider, google-cloudvertexbot, facebookbot, amazonbot, cohere-ai, diffbot, omgili]
+  wildcard_root_allowed: true
+  claude_tokens_blocked: []
+  tdm_or_noai: false
+  observed_at: '2026-07-15'
+  rationale: 'AI-training-crawler block only; `*` open; included for search per
+    ADR-024 amendment 2; train_ok=false stamped on all staged dailyhive.com points.'
+  provenance: wave7_ca_tech
+  added_by: task 245 (wave-7 FR/DE/CA/BE/EU tech media)

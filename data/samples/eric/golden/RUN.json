@@ -1,0 +1,56 @@
+{
+  "content_scope": {
+    "classification": "full_text_authorized_catalog_records_and_pdf_pointers",
+    "excludes": [
+      "PDF bytes",
+      "PDF principal text",
+      "production point projection"
+    ],
+    "includes": [
+      "source-native ERIC metadata",
+      "full-text authorization flag",
+      "record URL fields"
+    ],
+    "records": 5
+  },
+  "counts": {
+    "api_pages": 1,
+    "catalog_records": 5,
+    "unique_document_ids": 5
+  },
+  "downstream": {
+    "chunks": "blocked_until_full_markdown",
+    "full_text_pdf_acquisition": "pending_exact_inventory_terminal",
+    "markdown": "blocked_until_pdf_preservation"
+  },
+  "query": {
+    "fields": "id,title,author,source,publicationdateyear,description,subject,peerreviewed,abstractor,audience,authorxlink,e_datemodified,e_fulltextauth,e_yearadded,educationlevel,identifiersgeo,identifierslaw,identifierstest,iescited,iesfunded,iesgrantcontractnum,iesgrantcontractnumxlink,ieslinkpublication,ieslinkwwcreviewguide,ieswwcreviewed,institution,isbn,issn,language,publicationtype,publisher,sourceid,sponsor,url",
+    "ordering_note": "request recorded verbatim; conservation does not assume lexical server ordering",
+    "requested_sort": "id asc",
+    "rows": 5,
+    "search": "e_fulltextauth:1"
+  },
+  "route": "documented_source_api",
+  "schema": "aw.eric-api-inventory-run.v1",
+  "source": "ERIC API / Institute of Education Sciences",
+  "stages": {
+    "original": {
+      "bytes": 18503,
+      "deterministic_encoding": true,
+      "format": "exact-http-response-body+headers+curl-metrics+canonical-transport-metadata+page-receipts",
+      "logical_sha256": "090e529ae324d79b3570dfda623334fa93835519231489d3222e370f29070349",
+      "producer": {
+        "id": "pipeline/acquire_eric_api_inventory.py",
+        "version": "eric-api-inventory.v1"
+      },
+      "receipt": {
+        "bytes": 1450,
+        "sha256": "4f9d6920580c596c726c2ba252d24235f0674a70c11c11b21ccde91e093b5319",
+        "uri": "artifact://stages/original/receipt.json"
+      },
+      "records": 1
+    }
+  },
+  "status": "complete",
+  "version": "eric-api-inventory.v1"
+}

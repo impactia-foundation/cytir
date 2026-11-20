@@ -1,0 +1,180 @@
+{
+ "schema": "aw.public-cut-leak-baseline.v1",
+ "note": "Ratchet: `aw ops cut` refuses a leak absent from this list or above its count. It only shrinks (`aw ops cut --tighten`); the one way up is `aw ops cut --admit-moved FROM TO`, recorded in `admitted`. Zero is the real cut.",
+ "totals": {
+  "pipeline_ref": {
+   "files": 1,
+   "mentions": 1
+  },
+  "tasks_ref": {
+   "files": 1,
+   "mentions": 1
+  },
+  "host_literal": {
+   "files": 0,
+   "mentions": 0
+  },
+  "secret_literal": {
+   "files": 0,
+   "mentions": 0
+  }
+ },
+ "leaks": {
+  "pipeline_ref": {
+   "cytir/news/coverage_backfill.py": 1
+  },
+  "tasks_ref": {
+   "data/payload-enum-tables.v1.json": 1
+  },
+  "host_literal": {},
+  "secret_literal": {}
+ },
+ "admitted": [
+  {
+   "kind": "moved",
+   "from": "pipeline/testdata/task564_fedlex_pack_rows.json",
+   "to": "tests/fixtures/law_sparse_pack_rows.json",
+   "counts": {
+    "host_literal": 1
+   },
+   "date": "2026-10-30",
+   "reason": "task 1476: fixture moved with the law sparse producer into the package tree",
+   "branch": "task-1476-law-sparse-port"
+  },
+  {
+   "kind": "stored-value",
+   "file": "data/payload-enum-tables.v1.json",
+   "category": "host_literal",
+   "count": 29,
+   "date": "2026-11-04",
+   "reason": "Tim ruling 68(b) 2026-11-04: stored enum value; a hostname as a word, no path a stranger must change; rename at the next table version with a payload rewrite",
+   "branch": "worktree-agent-a2fec665b84a8641c"
+  },
+  {
+   "kind": "stored-value",
+   "file": "data/payload-enum-tables.v1.json",
+   "category": "tasks_ref",
+   "count": 1,
+   "date": "2026-11-04",
+   "reason": "Tim ruling 68(b) 2026-11-04: stored enum value naming a script (consent_source); no path a stranger must change; rename at the next table version. The provenance.manifest_copy path is NOT admitted",
+   "branch": "worktree-agent-a2fec665b84a8641c"
+  },
+  {
+   "kind": "stored-value",
+   "file": "cytir/chunk/policy.py",
+   "category": "pipeline_ref",
+   "count": 1,
+   "date": "2026-11-04",
+   "reason": "frozen producer id matched against stored/contract data; rewrite needs a payload or contract version (task 2324, follow-up of 2316)",
+   "branch": "task-2324-frozen-producer-id-exemption"
+  },
+  {
+   "kind": "stored-value",
+   "file": "cytir/extract/openlegaldata.py",
+   "category": "pipeline_ref",
+   "count": 1,
+   "date": "2026-11-04",
+   "reason": "frozen producer id matched against stored/contract data; rewrite needs a payload or contract version (task 2324, follow-up of 2316)",
+   "branch": "task-2324-frozen-producer-id-exemption"
+  },
+  {
+   "kind": "stored-value",
+   "file": "cytir/extract/stackoverflow_pilot.py",
+   "category": "pipeline_ref",
+   "count": 1,
+   "date": "2026-11-04",
+   "reason": "frozen producer id matched against stored/contract data; rewrite needs a payload or contract version (task 2324, follow-up of 2316)",
+   "branch": "task-2324-frozen-producer-id-exemption"
+  },
+  {
+   "kind": "stored-value",
+   "file": "cytir/sources/stackoverflow/authorize_second.py",
+   "category": "pipeline_ref",
+   "count": 1,
+   "date": "2026-11-04",
+   "reason": "stamped producer id present in stored rows; rename needs a payload version (task 2324)",
+   "branch": "task-2324-frozen-producer-id-exemption"
+  },
+  {
+   "kind": "stored-value",
+   "file": "cytir/sources/stackoverflow/authorize_third.py",
+   "category": "pipeline_ref",
+   "count": 1,
+   "date": "2026-11-04",
+   "reason": "stamped producer id present in stored rows; rename needs a payload version (task 2324)",
+   "branch": "task-2324-frozen-producer-id-exemption"
+  },
+  {
+   "kind": "stored-value",
+   "file": "cytir/sources/stackoverflow/authorize_nth.py",
+   "category": "pipeline_ref",
+   "count": 1,
+   "date": "2026-11-04",
+   "reason": "stamped producer id present in stored rows; rename needs a payload version (task 2324)",
+   "branch": "task-2324-frozen-producer-id-exemption"
+  },
+  {
+   "kind": "stored-value",
+   "file": "data/payload-enum-tables.v1.json",
+   "category": "pipeline_ref",
+   "count": 2,
+   "date": "2026-11-04",
+   "reason": "Tim ruling 68(b) 2026-11-04: stored consent_source enum values naming a resolver script; no path a stranger must change; rename at the next table version with a payload rewrite",
+   "branch": "task-2325-sealed-contracts-pipeline-ref"
+  },
+  {
+   "kind": "stored-value",
+   "file": "data/chunk-policy-legacy-180w-o30.v1.json",
+   "category": "pipeline_ref",
+   "count": 1,
+   "date": "2026-11-04",
+   "reason": "frozen provenance record; its sha is a registry key and a contract pin (task 2325)",
+   "branch": "task-2325-sealed-contracts-pipeline-ref"
+  },
+  {
+   "kind": "stored-value",
+   "file": "data/fedlex-law-names.v1.json",
+   "category": "pipeline_ref",
+   "count": 3,
+   "date": "2026-11-04",
+   "reason": "sealed bytes (516 artifact + sha test); prose rewrite needs a Tim re-seal (task 2325)",
+   "branch": "task-2325-sealed-contracts-pipeline-ref"
+  },
+  {
+   "kind": "stored-value",
+   "file": "cytir/index/layout.py",
+   "category": "tasks_ref",
+   "count": 1,
+   "date": "2026-11-04",
+   "reason": "frozen receipt label: MEASURED_SAFE_BASIS cites the 0917 pre-apply snapshot by name; never opened (task 2376)",
+   "branch": "task-2376-admit-layout-receipt-label"
+  },
+  {
+   "kind": "stored-value",
+   "file": "cytir/gates/authority.py",
+   "category": "pipeline_ref",
+   "count": 1,
+   "date": "2026-11-04",
+   "reason": "sealed gate file: the B02 record binds its SHA-256, so the one legacy-path comment cannot be reworded (task 2387)",
+   "branch": "task-2372-s11-aw-leak-mentions"
+  },
+  {
+   "kind": "stored-value",
+   "file": "tests/fixtures/news_refresh_chain/stage_before.json",
+   "category": "pipeline_ref",
+   "count": 3,
+   "date": "2026-11-04",
+   "reason": "task 2410: sealed real recorded run of the news refresh stage (bytes bound by the recorded-run test); the literal is a path string in a recorded receipt, data not a reference",
+   "branch": "task-2410-pipeline-tests-batch-5"
+  },
+  {
+   "kind": "stored-value",
+   "file": "tests/testdata/task627_layout_fingerprints.json",
+   "category": "tasks_ref",
+   "count": 1,
+   "date": "2026-11-04",
+   "reason": "task 2410: sealed real layout fingerprints read off the live mirrors 2026-09-21; one provenance label naming the snapshot it was sealed from; data, not a reference",
+   "branch": "task-2410-pipeline-tests-batch-5"
+  }
+ ]
+}

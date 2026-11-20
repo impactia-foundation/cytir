@@ -1,0 +1,101 @@
+{
+  "acquired_at": "2026-10-23T14:06:15.637696Z",
+  "counts": {
+    "markdown_documents": 1,
+    "original_documents": 1,
+    "outlink_documents": 1,
+    "outlinks": 0
+  },
+  "documents": [
+    {
+      "blob_api_response": {
+        "body_bytes": 318,
+        "body_sha256": "aa1f98b144db5056a1985b06fffc4f7b502d2065f1dc32b78fae258fa3603d64",
+        "bytes": 284,
+        "compression": "gzip",
+        "sha256": "ef1ceb859bd0a721b8352662307c646598e46f98b15da7d500bf649ce25b4dec",
+        "uri": "artifact://original/api/aa/aa1f98b144db5056a1985b06fffc4f7b502d2065f1dc32b78fae258fa3603d64.json.gz"
+      },
+      "git_blob_sha1": "93f7a6c435cd92f1da311c1e5548eedf8d54efc5",
+      "markdown": {
+        "body_bytes": 43,
+        "body_sha256": "aa5665aa1fed93c56fdc1c8b228d3e504e6bdf88650b4d2f3544000e254b08e9",
+        "bytes": 63,
+        "compression": "gzip",
+        "sha256": "1468b849ffc9ba1b41a1905e73fa0a0c5c17986f717c0b897143a96ead92db36",
+        "uri": "artifact://markdown/aa/aa5665aa1fed93c56fdc1c8b228d3e504e6bdf88650b4d2f3544000e254b08e9.md.gz"
+      },
+      "media_type": "application/vnd.github+json; decoded-git-blob",
+      "original": {
+        "body_bytes": 43,
+        "body_sha256": "aa5665aa1fed93c56fdc1c8b228d3e504e6bdf88650b4d2f3544000e254b08e9",
+        "bytes": 63,
+        "compression": "gzip",
+        "sha256": "1468b849ffc9ba1b41a1905e73fa0a0c5c17986f717c0b897143a96ead92db36",
+        "uri": "artifact://original/blobs/aa/aa5665aa1fed93c56fdc1c8b228d3e504e6bdf88650b4d2f3544000e254b08e9.raw.gz"
+      },
+      "outlinks": {
+        "body_bytes": 292,
+        "body_sha256": "b7efef5feab1cafe8206c157a29d88f1815ac2723d36cc374db41c949f645f73",
+        "bytes": 177,
+        "compression": "gzip",
+        "records": 0,
+        "sha256": "426432d391553a2812058912582f553a1a34583e2dcbddd8a0109ceff495596f",
+        "uri": "artifact://outlinks/b7/b7efef5feab1cafe8206c157a29d88f1815ac2723d36cc374db41c949f645f73.json.gz"
+      },
+      "provenance": {
+        "parent_sha256": "aa5665aa1fed93c56fdc1c8b228d3e504e6bdf88650b4d2f3544000e254b08e9",
+        "repository": "acme/fallback",
+        "revision": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "source_path": "docs/hidden.md"
+      },
+      "source_path": "docs/hidden.md",
+      "source_url": "https://github.com/acme/fallback/blob/bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb/docs/hidden.md",
+      "title": "Hidden"
+    }
+  ],
+  "downstream": {
+    "chunks": "pending",
+    "vectors": "pending"
+  },
+  "license": "APACHE-2.0",
+  "posture": "deep",
+  "repository": "acme/fallback",
+  "requested_branch": "main",
+  "revision": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+  "route": "documented_source_api",
+  "route_receipt": {
+    "consent_and_robots_result": "GitHub documented API/raw content route",
+    "fetch_vantage": "fetch-host",
+    "higher_priority_routes_checked": [
+      "source_owned_incremental_feed:not_applicable",
+      "source_owned_bulk_dump:not_selected_repository_tree_is_canonical"
+    ],
+    "reason_selected_route_is_needed": "pin repository tree and exact source blobs"
+  },
+  "schema": "aw.github-doc-acquisition.v1",
+  "skipped_empty": [],
+  "source_profile": "software_docs",
+  "status": "complete",
+  "tree": {
+    "commit_response": {
+      "body_bytes": 220,
+      "body_sha256": "eb82f35d6c7e3e8af99461484167f79023562fc22dde63371d3707a5eda5a5dd",
+      "bytes": 168,
+      "compression": "gzip",
+      "sha256": "431afb3e46d972c0a58668778502216b6f4cd06f7348a30d0fb097ef107f119b",
+      "uri": "artifact://original/api/eb/eb82f35d6c7e3e8af99461484167f79023562fc22dde63371d3707a5eda5a5dd.json.gz"
+    },
+    "node_count": 1,
+    "tree_response": {
+      "body_bytes": 374,
+      "body_sha256": "773330c54d77122487a9964a481e8db9d07d44c0dc28b3f8837ffc94fe457dc8",
+      "bytes": 301,
+      "compression": "gzip",
+      "sha256": "bc188e344437ee77e8aff31c4de846cc06eb76bb9d78b171676502a14d262fed",
+      "uri": "artifact://original/api/77/773330c54d77122487a9964a481e8db9d07d44c0dc28b3f8837ffc94fe457dc8.json.gz"
+    },
+    "truncated": false
+  },
+  "unparsable_links": 0
+}

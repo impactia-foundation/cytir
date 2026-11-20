@@ -1,0 +1,155 @@
+# Biomedical / health authority core — the §4.6 layer's authoritative seed.
+# POLICY §4.6 names "evidence-synthesis bodies (Cochrane-class)" and "WHO-class
+# IGOs" as the authority definition for this layer; Cochrane held ZERO points
+# before this wave.
+id: biomed-authority-core
+name: "Biomedical / health authority core (Cochrane, WHO web, ECDC, national health authorities)"
+country: multi
+layer: health
+policy_section: "§4.6"
+adapter: sitemap
+acquisition_policy: aw-acquisition-v1
+outlink_policy: capture-and-receipt
+preservation_profiles: [web_html, web_pdf]
+extractor: cytir/sources/families/authority_packs.py
+provenance: authored
+tier: A
+trust_tier: 0.95
+density_tier: T2
+freshness: static
+theme: [health]
+
+license:
+  default: per-route
+  notes: >
+    Per-record: cochrane-terms, who-web-terms, eu-reuse-2011-833 (ECDC,
+    Decision 2011/833/EU), us-gov-public-domain (medlineplus.gov),
+    etalab-2.0 (santepubliquefrance.fr), rki-terms. Minimum-content records
+    only (ADR-039); never a full-text mirror.
+
+consent:
+  basis: live-resolve-open
+  train_ok_override: null
+  notes: >
+    Re-resolved live per host in DIRECT-crawl mode on 2026-08-07; every shipped
+    host resolved search_ok=true and train_ok=true.
+    www.who.int is the case that makes the crawl MODE load-bearing: its
+    robots.txt is a 527-entry bad-bot blocklist with NO `User-agent: *` group
+    and no rule naming our token; its only relevant rule is
+    `User-agent: CCBot / Disallow: /`. Under CC-provenance semantics that
+    flips both flags (a CC-derived copy has no consent chain to us), but this
+    wave fetches DIRECTLY under our own UA, where the rule is recorded and not
+    binding (resolve_host docstring, task-187 precedent). A CC-routed wave
+    could NOT take this host.
+
+routes:
+  - host: www.cochrane.org
+    lang: [en]
+    license: cochrane-terms
+    route: "sitemap.xml (71,404 locs) → canonical /evidence/CD<id>_<slug> review + plain-language-summary pages"
+    status: staged
+    evidence: "task 399 recon"
+    notes: "held ZERO points before this wave despite being named in POLICY §4.6; enumerate the post-redirect canonical /evidence/ space."
+    acquire: &biomed_sitemap
+      route: source_owned_sitemap_fetch
+      rank: 5
+      params: {urls: ["https://www.cochrane.org/sitemap.xml"]}
+      select: {path_regex: "(?i)^/(evidence|news)(/|$)", deny_preset: generic-apparatus, min_path_segments: 2}
+      lang: {const: en}
+      delay_s: 2.0
+      cap: 6000
+      reason_receipt: {higher_priority_routes_checked: [source_owned_bulk_dump, documented_source_api, common_crawl], reason_selected_route_is_needed: "Publisher-owned sitemap is the enumerated route measured in task 399.", consent_and_robots_result: "live re-resolve required"}
+  - host: www.who.int
+    lang: [en]
+    license: who-web-terms
+    route: "robots-declared index http://www.who.int/sitemaps/sitemapindex.xml (268,098 locs) → authority paths; non-mission languages excluded pre-fetch"
+    status: staged
+    evidence: "task 399 recon"
+    notes: "The declared index is the legacy who.int tree; WHO IRIS is a separate repository and licence posture."
+    acquire:
+      <<: *biomed_sitemap
+      params: {urls: ["http://www.who.int/sitemaps/sitemapindex.xml"]}
+      select: {path_regex: "(?i)^/(publications|bulletin|news-room|health-topics|initiatives|teams|csr|mediacentre)(/|$)", path_deny_regex: "(?i)(^/(ar|es|ru|zh|pt|nl|da|el|fi|sv|et|lv|lt|pl|cs|sk|sl|hu|ro|bg|hr|ga|mt)(/|$)|/(ar|zh|ru|es)/)", deny_preset: generic-apparatus, min_path_segments: 2}
+      cap: 5000
+  - host: www.ecdc.europa.eu
+    lang: [en]
+    license: eu-reuse-2011-833
+    trust_tier: 0.90
+    route: "sitemap.xml (11,734 locs) → /en/publications-data|/en/all-topics|/en/infectious-disease-topics"
+    status: staged
+    evidence: "task 399 recon"
+    acquire:
+      <<: *biomed_sitemap
+      params: {urls: ["https://www.ecdc.europa.eu/sitemap.xml"]}
+      select: {path_regex: "(?i)^/en/(publications-data|all-topics|infectious-disease-topics|news-events)(/|$)", deny_preset: generic-apparatus, min_path_segments: 2}
+      cap: 1500
+  - host: medlineplus.gov
+    lang: [en]
+    license: us-gov-public-domain
+    trust_tier: 0.90
+    route: "robots-declared sitemap (25,506 locs)"
+    status: staged
+    evidence: "task 399 recon"
+    acquire:
+      <<: *biomed_sitemap
+      params: {urls: ["https://medlineplus.gov/sitemap.xml"]}
+      select: {path_deny_regex: "(?i)^/spanish/", deny_preset: generic-apparatus, min_path_segments: 2}
+      cap: 1500
+  - host: www.santepubliquefrance.fr
+    lang: [fr]
+    license: etalab-2.0
+    trust_tier: 0.90
+    route: "sitemap.xml (36,975 locs) → /docs/… publications; regional bulletins excluded on authority density"
+    status: staged
+    evidence: "task 399 recon"
+    acquire:
+      <<: *biomed_sitemap
+      params: {urls: ["https://www.santepubliquefrance.fr/sitemap.xml"]}
+      select: {path_regex: "(?i)^/(docs|maladies-et-traumatismes|determinants-de-sante|etudes-et-enquetes)(/|$)", deny_preset: generic-apparatus, min_path_segments: 2}
+      lang: {const: fr}
+      cap: 1500
+  - host: www.rki.de
+    lang: [de, en]
+    license: rki-terms
+    trust_tier: 0.90
+    route: "robots-declared /Sitemap_Index.xml (8,376 locs) → Themen/Aktuelles/Institut/Topics/News; crawl-delay 30s so deliberately capped"
+    status: staged
+    evidence: "task 399 recon"
+    acquire:
+      <<: *biomed_sitemap
+      params: {urls: ["https://www.rki.de/Sitemap_Index.xml"]}
+      select: {path_regex: "(?i)^/(DE|EN)/(Themen|Topics|Institut|Institute|Service|News|Aktuelles)(/|$)", deny_preset: generic-apparatus, min_path_segments: 2}
+      # First path segment wins. Declaring DE explicitly prevents a nested
+      # /EN/ filename directory inside a German page from changing its language.
+      lang: {by_path_segment: {DE: de, EN: en}, default: de}
+      cap: 250
+  - {host: iris.who.int, lang: [en, fr], route: "OAI-PMH ListRecords, oai_dc, set com_10665_8 (Headquarters, ~195k records) via the proven `iris_meta` route — METADATA-ONLY minimal records (title+abstract embedded, URL surfaced, nothing mirrored); per-record dc:rights stamped honestly", status: staged, evidence: "PR #47 merged 2026-07-26; specs/social-contract-coverage.md L44/L134; coordinator confirmation 2026-08-07", notes: "UN-PARKED 2026-08-07. The task-399 brief described the CC-BY-NC-SA question as PARKED; that was a stale plan.md note. The ledger rules the other way — 'IRIS mostly CC BY-NC-SA -> minimal-record posture RATIFIED, not U3-pointers-only (Tim, PR #47, MERGED 2026-07-26T08:33:36Z)'. 19,573 points were already live under that posture; the ~50k budget line in specs/social-contract-coverage.md §2 P1 governs the total, so this wave tops up toward it. NC clauses are compatible with the minimal-record posture precisely because no full-text is ever mirrored (ADR-039)."}
+  - {host: www.ema.europa.eu, route: "—", status: deferred, evidence: "task 399 recon", notes: "declared sitemap is a DOCUMENT dump: 4,000 rows, 99.1% PDF/DOC binaries across 24 EU languages. The EPAR/medicine pages carrying the authority are NOT in it (they extract fine by hand — 25 passages on the Comirnaty EPAR). Needs a bespoke route; holds 1,121 pts.", recheck_after: "2026-11-07"}
+  - {host: www.nice.org.uk, route: "—", status: deferred, evidence: "task 399 recon", notes: "sitemap's /guidance/* entries are STUBS (awaiting-development, deferred, inconsultation); the real guideline corpus is absent. Holds 4,420 pts.", recheck_after: "2026-11-07"}
+  - {host: www.cochranelibrary.com, route: "—", status: deferred, evidence: "task 399 recon", notes: "robots fail-closed (WAF/JS-shell on robots.txt itself); not spoofed around", recheck_after: "2026-11-07"}
+  - {host: www.aifa.gov.it, route: "—", status: deferred, evidence: "task 399 recon", notes: "robots fail-closed — IT-language health authority gap remains open", recheck_after: "2026-11-07"}
+  - {host: www.salute.gov.it, route: "—", status: deferred, evidence: "task 399 recon", notes: "robots fail-closed", recheck_after: "2026-11-07"}
+  - {host: www.epicentro.iss.it, route: "—", status: deferred, evidence: "task 399 recon", notes: "robots fail-closed", recheck_after: "2026-11-07"}
+  - {host: www.iss.it, route: "—", status: deferred, evidence: "task 399 recon", notes: "sitemap enumerates only 9 rows — token inventory, deferred rather than shipped as a misleading slice", recheck_after: "2026-11-07"}
+  - {host: www.cdc.gov, route: "—", status: deferred, evidence: "task 399 recon", notes: "sitemap enumerates only 45 rows; inventory route is elsewhere", recheck_after: "2026-11-07"}
+  - {host: www.has-sante.fr, route: "—", status: deferred, evidence: "task 399 recon", notes: "no sitemap at common locations; holds 9,436 pts from an earlier route", recheck_after: "2026-11-07"}
+  - {host: www.bfarm.de, route: "—", status: deferred, evidence: "task 399 recon", notes: "no sitemap at common locations", recheck_after: "2026-11-07"}
+  - {host: www.gesundheitsinformation.de, route: "—", status: deferred, evidence: "task 399 recon", notes: "no sitemap at common locations (IQWiG evidence-based patient info — DE gap remains open)", recheck_after: "2026-11-07"}
+  - {host: ansm.sante.fr, route: "—", status: deferred, evidence: "task 399 recon", notes: "no sitemap at common locations", recheck_after: "2026-11-07"}
+
+status: staged
+
+admission:
+  channel: board-directive
+  evidence:
+    - "Tim, 2026-08-07 (verbatim): 'Please add biomedical + the other leading domains you've identified'"
+    - "POLICY §4.6 names evidence-synthesis bodies (Cochrane-class) and WHO-class IGOs as this layer's authority definition; the layer's ratified target is 3M points"
+  decision: escalated
+  policy: "POLICY.md@v3 §4.6"
+  date: "2026-08-07"
+
+notes:
+  - "§4.6 is the strictest floor by policy (harm asymmetry): every shipped host is an official health authority, an evidence-synthesis body, or an IGO. No commercial wellness, practitioner marketing or supplement-adjacent media."
+  - "Decision 'escalated' (schema enum): the board directive above is the escalation's resolution; this record documents it per POLICY P5."
+  - "Adding this content does NOT fix the PubMed flood — that needs the biomedical-intent ranking gate Tim ruled for on 2026-07-07, which task 395 found was never implemented."
+  - "IT-language health authority coverage remains a genuine open gap: all four candidate IT hosts fail closed or return token inventories."

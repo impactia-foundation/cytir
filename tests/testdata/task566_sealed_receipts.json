@@ -1,0 +1,406 @@
+{
+ "ameli.fr": {
+  "origin": "https://www.ameli.fr",
+  "receipt": {
+   "_robots_body": "",
+   "checked_at": "2026-08-28T18:40:33Z",
+   "host": "www.ameli.fr",
+   "mode": "direct",
+   "origin": "https://www.ameli.fr",
+   "origin_scheme": "https",
+   "reasons": [
+    "robots.txt HTTP 403 (access-controlled)"
+   ],
+   "search_ok": false,
+   "signals": {
+    "robots": {
+     "fetched": true,
+     "http_status": 403,
+     "transport": "https"
+    },
+    "tdmrep": {
+     "fetched": true,
+     "http_status": 403,
+     "transport": "https"
+    }
+   },
+   "status": "ok",
+   "train_ok": false
+  },
+  "version": "adr092-direct-terminal.v5"
+ },
+ "bfs.admin.ch": {
+  "origin": "https://www.bfs.admin.ch",
+  "receipt": {
+   "_robots_body": "\n<!DOCTYPE HTML>\n<html lang=\"de\">\n    <head>\n\n    \n    <meta charset=\"UTF-8\"/>\n    <!-- Find different way for 'Mixed-Content' issue:  https://issue.swisscom.ch/browse/SDWAEM-859 -->\n    <title>404 – Seite nicht gefunden | Bundesamt für Statistik - BFS</title>\n    <meta http-equiv=\"Content-Security-Policy\" content=\"upgrade-insecure-requests\"/>\n    \n\n    \n    \n\n    \n    \n\n    <meta name=\"template\" content=\"error-page\"/>\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/>\n\n    <meta name=\"og:title\" content=\"404 – Seite nicht gefunden\"/>\n    \n        <meta name=\"og:url\" content=\"https://www.bfs.admin.ch/content/bfs/de/home/error-pages/404.html\"/>\n        <meta name=\"og:type\" content=\"article\"/>\n        \n    \n\n    \n    <meta name=\"google-site-verification\" content=\"73mc4VF9PG07ab81Pq9zibNt7JjiZUCIhcn9VGJYyA8\"/>\n\n    \n    \n    <!--\n    <PageMap>\n        <DataObject type=\"document\">\n            <Attribute name=\"type\">page</Attribute>\n        </DataObject>\n    </PageMap>\n    -->\n\n\n\n\n    \n    \n<link rel=\"canonical\" href=\"/bfs/de/home/error-pages/404.html\"/>\n\n    \n\n    \n\n\n\n\n\n    \n    \n<link rel=\"stylesheet\" href=\"/etc.clientlibs/sdweb-bfs/clientlibs/clientlib-base.min.ACSHASH70267407c54bfd3d524dbb8e5bf56862.css\" type=\"text/css\">\n\n\n\n\n\n\n    \n    \n<link rel=\"stylesheet\" href=\"/etc.clientlibs/sdweb-bfs/clientlibs/clientlib-dependencies.min.ACSHASHd41d8cd98f00b204e9800998ecf8427e.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/sdweb-bfs/clientlibs/clientlib-wgl.min.ACSHASHa199a9fe58e5a03be52ef38271bc29ec.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/sdweb-bfs/clientlibs/clientlib-site.min.ACSHASHfdc527b6891d34629e9363f4a33a7533.css\" type=\"text/css\">\n\n\n\n\n\n\n\n    \n    \n    \n\n    \n\n    \n    \n<script src=\"/etc.clientlibs/sdweb-core/clientlibs/clientlib-dependencies.min.ACSHASHd41d8cd98f00b204e9800998ecf8427e.js\"></script>\n\n\n\n    \n    \n<link rel=\"stylesheet\" href=\"/etc.clientlibs/sdweb-core/clientlibs/clientlib-dependencies.",
+   "_robots_body_original_len": 65536,
+   "_robots_body_truncated_for_fixture": true,
+   "checked_at": "2026-08-28T16:03:26Z",
+   "host": "www.bfs.admin.ch",
+   "mode": "direct",
+   "origin": "https://www.bfs.admin.ch",
+   "origin_scheme": "https",
+   "reasons": [
+    "no opt-out signal found"
+   ],
+   "search_ok": true,
+   "signals": {
+    "robots": {
+     "ccbot_root": true,
+     "content_signal": {},
+     "content_signal_search_grant": false,
+     "content_usage": {},
+     "fetched": true,
+     "http_status": 200,
+     "noai": false,
+     "our_agent_root": true,
+     "tdm_reservation_in_robots": false,
+     "train_tokens_disallowed": [],
+     "transport": "https",
+     "ua_tokens_seen": [],
+     "wildcard_root": true
+    },
+    "tdmrep": {
+     "fetched": true,
+     "http_status": 200,
+     "note": "200 but not JSON (ignored)",
+     "transport": "https"
+    }
+   },
+   "status": "ok",
+   "train_ok": true
+  },
+  "version": "adr092-direct-terminal.v5"
+ },
+ "bger.ch": {
+  "origin": "https://www.bger.ch",
+  "receipt": {
+   "checked_at": "2026-08-28T11:47:51Z",
+   "host": "www.bger.ch",
+   "mode": "direct",
+   "origin": "https://www.bger.ch",
+   "origin_scheme": "https",
+   "reasons": [
+    "robots.txt unreachable (ConnectError) — held, retryable"
+   ],
+   "search_ok": true,
+   "signals": {
+    "robots": {
+     "error": "ConnectError",
+     "fetched": false
+    }
+   },
+   "status": "unknown",
+   "train_ok": true
+  },
+  "version": "adr092-direct-terminal.v5"
+ },
+ "echr.coe.int": {
+  "origin": "https://www.echr.coe.int",
+  "receipt": {
+   "_robots_body": "",
+   "checked_at": "2026-08-28T08:08:18Z",
+   "host": "www.echr.coe.int",
+   "mode": "direct",
+   "origin": "https://www.echr.coe.int",
+   "origin_scheme": "https",
+   "reasons": [
+    "robots.txt HTTP 403 (access-controlled)"
+   ],
+   "search_ok": false,
+   "signals": {
+    "robots": {
+     "fetched": true,
+     "http_status": 403,
+     "transport": "https"
+    },
+    "tdmrep": {
+     "fetched": true,
+     "http_status": 403,
+     "transport": "https"
+    }
+   },
+   "status": "ok",
+   "train_ok": false
+  },
+  "version": "adr092-direct-terminal.v5"
+ },
+ "fda.gov": {
+  "origin": "https://www.fda.gov",
+  "receipt": {
+   "_robots_body": "",
+   "checked_at": "2026-08-28T09:24:36Z",
+   "host": "www.fda.gov",
+   "mode": "direct",
+   "origin": "https://www.fda.gov",
+   "origin_scheme": "https",
+   "reasons": [
+    "robots.txt HTTP 403 (access-controlled)"
+   ],
+   "search_ok": false,
+   "signals": {
+    "robots": {
+     "fetched": true,
+     "http_status": 403,
+     "transport": "https"
+    },
+    "tdmrep": {
+     "fetched": true,
+     "http_status": 403,
+     "transport": "https"
+    }
+   },
+   "status": "ok",
+   "train_ok": false
+  },
+  "version": "adr092-direct-terminal.v5"
+ },
+ "hudoc.echr.coe.int": {
+  "origin": "https://hudoc.echr.coe.int",
+  "receipt": {
+   "_robots_body": "\n<!DOCTYPE html>\n<html>\n<head>\n   <meta charset=\"utf-8\">\n   <meta http-equiv=\"Content-Security-Policy\" content=\"default-src *.coe.int; script-src *.coe.int https://code.jquery.com http://www.google-analytics.com 'nonce-2726c7f26d' 'unsafe-eval'; style-src *.coe.int *.cloudflare.com 'unsafe-inline'; img-src *.coe.int http://www.google-analytics.com https://stats.g.doubleclick.net data:; font-src *.coe.int *.cloudflare.com data:; connect-src *.coe.int http://www.google-analytics.com https://stats.g.doubleclick.net;\">\n    <title>HUDOC - European Court of Human Rights</title>\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, maximum-scale=1.0\">\n    <meta name=\"description\" content=\"The HUDOC database provides access to the case-law of the Court (Grand Chamber, Chamber and Committee judgments and decisions, communicated cases, advisory opinions and legal summaries from the Case-Law Information Note), the European Commission of Human Rights (decisions and reports) and the Committee of Ministers (resolutions)\">\n    <meta name=\"author\" content=\"ECHR\">\n\t<link rel=\"icon\" type=\"image/vnd.microsoft.icon\" href=\"/images/Icons/ECHRfavicon.ico\" />\n    <link rel=\"shortcut icon\" type=\"image/vnd.microsoft.icon\" href=\"/images/Icons/ECHRfavicon.ico\" />\n\t\n    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->\n    <!--[if lt IE 9]>\n      <script src=\"https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js\"></script>\n    <![endif]-->\n\t\t\n\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, maximum-scale=1.0\">\n    <link rel=\"stylesheet\" media=\"screen\" type=\"text/css\" href=\"/css/screen.css?v=1775044138827\">\n\t<link rel=\"stylesheet\" media=\"print\" type=\"text/css\" href=\"/css/print.css?v=1775044138827\">\n\t<link rel=\"stylesheet\" media=\"screen,print\" type=\"text/css\" href=\"shared/override.css?v=1775044138827\">\n    \n    <script src=\"/javascript/jquery-1.12.4.min.js\" type=\"text/javascript\" instruction=\"ignore\"></script>\n    <script src=\"/",
+   "_robots_body_original_len": 15718,
+   "_robots_body_truncated_for_fixture": true,
+   "checked_at": "2026-08-28T17:03:46Z",
+   "host": "hudoc.echr.coe.int",
+   "mode": "direct",
+   "origin": "https://hudoc.echr.coe.int",
+   "origin_scheme": "https",
+   "reasons": [
+    "no opt-out signal found"
+   ],
+   "search_ok": true,
+   "signals": {
+    "robots": {
+     "ccbot_root": true,
+     "content_signal": {},
+     "content_signal_search_grant": false,
+     "content_usage": {},
+     "fetched": true,
+     "http_status": 200,
+     "noai": false,
+     "our_agent_root": true,
+     "tdm_reservation_in_robots": false,
+     "train_tokens_disallowed": [],
+     "transport": "https",
+     "ua_tokens_seen": [],
+     "wildcard_root": true
+    },
+    "tdmrep": {
+     "fetched": true,
+     "http_status": 200,
+     "note": "200 but not JSON (ignored)",
+     "transport": "https"
+    }
+   },
+   "status": "ok",
+   "train_ok": true
+  },
+  "version": "adr092-direct-terminal.v5"
+ },
+ "ilo.org": {
+  "origin": "https://www.ilo.org",
+  "receipt": {
+   "_robots_body": "",
+   "checked_at": "2026-08-27T22:49:37Z",
+   "host": "www.ilo.org",
+   "mode": "direct",
+   "origin": "https://www.ilo.org",
+   "origin_scheme": "https",
+   "reasons": [
+    "robots.txt HTTP 403 (access-controlled)"
+   ],
+   "search_ok": false,
+   "signals": {
+    "robots": {
+     "fetched": true,
+     "http_status": 403,
+     "transport": "https"
+    },
+    "tdmrep": {
+     "fetched": true,
+     "http_status": 403,
+     "transport": "https"
+    }
+   },
+   "status": "ok",
+   "train_ok": false
+  },
+  "version": "adr092-direct-terminal.v5"
+ },
+ "insee.fr": {
+  "origin": "https://www.insee.fr",
+  "receipt": {
+   "_robots_body": "User-agent: *\nDisallow: *.xls\nDisallow: *.csv\nDisallow: *.zip\nDisallow: *.xlsx\nDisallow: /*/bdm2/\nDisallow: /*/ddl/\nSitemap: https://www.insee.fr/sitemap-index.xml",
+   "checked_at": "2026-08-28T08:08:40Z",
+   "host": "www.insee.fr",
+   "mode": "direct",
+   "origin": "https://www.insee.fr",
+   "origin_scheme": "https",
+   "reasons": [
+    "tdmrep.json unreachable (HTTP 500) — held, retryable"
+   ],
+   "search_ok": true,
+   "signals": {
+    "robots": {
+     "ccbot_root": true,
+     "content_signal": {},
+     "content_signal_search_grant": false,
+     "content_usage": {},
+     "fetched": true,
+     "http_status": 200,
+     "noai": false,
+     "our_agent_root": true,
+     "tdm_reservation_in_robots": false,
+     "train_tokens_disallowed": [],
+     "transport": "https",
+     "ua_tokens_seen": [
+      "*"
+     ],
+     "wildcard_root": true
+    },
+    "tdmrep": {
+     "error": "HTTP 500",
+     "fetched": false
+    }
+   },
+   "status": "unknown",
+   "train_ok": true
+  },
+  "version": "adr092-direct-terminal.v5"
+ },
+ "legifrance.gouv.fr": {
+  "origin": "https://www.legifrance.gouv.fr",
+  "receipt": {
+   "_robots_body": "",
+   "checked_at": "2026-08-28T12:39:48Z",
+   "host": "www.legifrance.gouv.fr",
+   "mode": "direct",
+   "origin": "https://www.legifrance.gouv.fr",
+   "origin_scheme": "https",
+   "reasons": [
+    "robots.txt HTTP 403 (access-controlled)"
+   ],
+   "search_ok": false,
+   "signals": {
+    "robots": {
+     "fetched": true,
+     "http_status": 403,
+     "transport": "https"
+    },
+    "tdmrep": {
+     "fetched": true,
+     "http_status": 403,
+     "transport": "https"
+    }
+   },
+   "status": "ok",
+   "train_ok": false
+  },
+  "version": "adr092-direct-terminal.v5"
+ },
+ "openai.com": {
+  "origin": "https://openai.com",
+  "receipt": {
+   "_robots_body": "User-agent: *\nAllow: /\nDisallow: /microsoft-for-startups/\n\nSitemap: https://openai.com/sitemap.xml",
+   "checked_at": "2026-08-28T18:11:48Z",
+   "host": "openai.com",
+   "mode": "direct",
+   "origin": "https://openai.com",
+   "origin_scheme": "https",
+   "reasons": [
+    "no opt-out signal found"
+   ],
+   "search_ok": true,
+   "signals": {
+    "robots": {
+     "ccbot_root": true,
+     "content_signal": {},
+     "content_signal_search_grant": false,
+     "content_usage": {},
+     "fetched": true,
+     "http_status": 200,
+     "noai": false,
+     "our_agent_root": true,
+     "tdm_reservation_in_robots": false,
+     "train_tokens_disallowed": [],
+     "transport": "https",
+     "ua_tokens_seen": [
+      "*"
+     ],
+     "wildcard_root": true
+    },
+    "tdmrep": {
+     "fetched": true,
+     "http_status": 404,
+     "transport": "https"
+    }
+   },
+   "status": "ok",
+   "train_ok": true
+  },
+  "version": "adr092-direct-terminal.v5"
+ },
+ "security.stackexchange.com": {
+  "origin": "https://security.stackexchange.com",
+  "receipt": {
+   "_robots_body": "",
+   "checked_at": "2026-08-28T09:24:05Z",
+   "host": "security.stackexchange.com",
+   "mode": "direct",
+   "origin": "https://security.stackexchange.com",
+   "origin_scheme": "https",
+   "reasons": [
+    "no opt-out signal found"
+   ],
+   "search_ok": true,
+   "signals": {
+    "robots": {
+     "fetched": true,
+     "http_status": 418,
+     "note": "no robots rules published (open)",
+     "transport": "https"
+    },
+    "tdmrep": {
+     "fetched": true,
+     "http_status": 404,
+     "transport": "https"
+    }
+   },
+   "status": "ok",
+   "train_ok": true
+  },
+  "version": "adr092-direct-terminal.v5"
+ },
+ "who.int": {
+  "origin": "http://www.who.int",
+  "receipt": {
+   "_robots_body": "",
+   "checked_at": "2026-08-27T19:48:20Z",
+   "host": "www.who.int",
+   "mode": "direct",
+   "origin": "http://www.who.int",
+   "origin_scheme": "http",
+   "reasons": [
+    "no opt-out signal found"
+   ],
+   "search_ok": true,
+   "signals": {
+    "robots": {
+     "fetched": true,
+     "http_status": 406,
+     "note": "no robots rules published (open)",
+     "transport": "http"
+    },
+    "tdmrep": {
+     "fetched": true,
+     "http_status": 404,
+     "transport": "http"
+    }
+   },
+   "status": "ok",
+   "train_ok": true
+  },
+  "version": "adr092-direct-terminal.v5"
+ }
+}

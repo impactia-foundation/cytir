@@ -1,0 +1,26 @@
+{
+ "www.srf.ch.json": {
+  "host": "www.srf.ch",
+  "status": "ok",
+  "search_ok": false,
+  "train_ok": false,
+  "mode": "cc",
+  "reasons": [
+   "robots: CCBot disallowed \u2014 our copy came via Common Crawl (provenance has no consent; conservative reading)",
+   "robots: training-only tokens disallowed: applebot-extended,bytespider,claudebot,google-extended,gptbot,meta-externalagent,webzio-extended (train_ok=False; excluded from training use/export)"
+  ],
+  "checked_at": "2026-08-22T05:40:08Z"
+ },
+ "www.srf.ch@direct.json": {
+  "host": "www.srf.ch",
+  "status": "ok",
+  "search_ok": true,
+  "train_ok": false,
+  "mode": "direct",
+  "reasons": [
+   "robots: CCBot disallowed \u2192 train_ok=False only (Tim 2026-09-03, ADR-024 am.5); search_ok unaffected",
+   "robots: training-only tokens disallowed: applebot-extended,bytespider,claudebot,google-extended,gptbot,meta-externalagent,webzio-extended (train_ok=False; excluded from training use/export)"
+  ],
+  "checked_at": "2026-09-27T06:11:32Z"
+ }
+}

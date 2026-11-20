@@ -1,0 +1,18 @@
+{
+  "_comment": "PINNED build profile for the live serving collection. Recurring generic ingesters resolve their default chunker from this file. Candidate structured runs require AW_CHUNKER=structured plus an explicit versioned policy path, exact byte SHA, and immutable tokenizer revision. At a chunk-epoch alias flip, change mode/policy-path/policy-SHA/tokenizer-revision/epoch/legend atomically in the same release. weekly_delta v1 deliberately refuses non-legacy epochs until its URL-addressed writer is replaced.",
+  "collection": "aw_prod",
+  "embed_model": "Snowflake/snowflake-arctic-embed-l-v2.0",
+  "mrl_dim": 128,
+  "dense_size": 128,
+  "dense_distance": "Cosine",
+  "dense_on_disk": true,
+  "sparse_bm25_modifier": "idf",
+  "sparse_bm25_on_disk": true,
+  "quant_type": "int8",
+  "chunker_mode": "legacy",
+  "chunk_epoch": 1,
+  "chunk_rule_legend": "legacy-180w-o30@1",
+  "chunk_policy_path": null,
+  "chunk_policy_sha256": null,
+  "chunk_tokenizer_revision": null
+}

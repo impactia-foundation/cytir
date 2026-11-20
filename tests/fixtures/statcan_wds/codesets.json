@@ -1,0 +1,28 @@
+{
+ "object": {
+  "subject": [
+   {
+    "subjectCode": 10,
+    "subjectEn": "Government",
+    "subjectFr": "Gouvernement"
+   },
+   {
+    "subjectCode": 11,
+    "subjectEn": "Prices",
+    "subjectFr": "Prix"
+   }
+  ],
+  "frequency": [
+   {
+    "frequencyCode": 12,
+    "frequencyDescEn": "Quarterly",
+    "frequencyDescFr": "Trimestriel"
+   },
+   {
+    "frequencyCode": 6,
+    "frequencyDescEn": "Monthly",
+    "frequencyDescFr": "Mensuel"
+   }
+  ]
+ }
+}

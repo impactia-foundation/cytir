@@ -1,0 +1,284 @@
+{
+ "schema": "aw.payload-shape-contract.v1",
+ "why": [
+  "Task 514 loaded 30,897,557 rows and 11,273,954 of them (36.5%) reached the",
+  "collection with no `trust_tier` and no `source_type`; 19,619,656 (63.5%),",
+  "including the whole 19.2M Wikipedia slice, carried no BM25 posting at all.",
+  "Every count check passed, because conservation counts ROWS and not what is",
+  "in them. Task 516's fedlex defect is the same class one level down: 22,928",
+  "titles that were present, non-empty, and did not contain the handle the",
+  "query uses.",
+  "So the build now declares what a shipped payload must LOOK like, per set and",
+  "per family, and refuses a stage that does not meet it. A threshold here is a",
+  "judgement about how much of the collection may be unrankable; it is data, it",
+  "has a `why`, and moving it is a visible diff."
+ ],
+ "evaluated_by": [
+  ":: stage (refuses the tree)",
+  ":: verify (re-evaluates from the receipts, and",
+  "measures the same fields as is_empty on the built collection)"
+ ],
+ "serving_signal_fields": [
+  "title",
+  "trust_tier",
+  "source_type",
+  "lang"
+ ],
+ "defaults": {
+  "max_missing_serving_signal_frac": 0.005,
+  "max_no_bm25_posting_frac": 0.001,
+  "max_provenance_head_frac": 0.005,
+  "why": [
+   "0.5% missing a serving signal is task 515's declared allowance, measured at",
+   "0.4066%. 0.1% with no posting is two orders of magnitude tighter than what",
+   "task 514 shipped and one order looser than what task 515/516 measure",
+   "(13 rows, 0.00004%): a genuinely textless point is legal, a slice of them",
+   "is not.",
+   "0.5% with a provenance head is the same allowance applied to the defect",
+   "class task 516 and task 517 each found once: a materializer that writes its",
+   "own bookkeeping into the head of the document, where the chunker turns it",
+   "into the snippet AND the head of the dense embedding. fedlex shipped",
+   "22,913 of 22,928 like that; context7 shipped 72,330 of 126,427. Neither was",
+   "visible to any count check, because the row is present, titled or not, and",
+   "conservation balances either way."
+  ]
+ },
+ "provenance_head_patterns": {
+  "aw_yaml_front_matter": {
+   "pattern": "^-{3}\\s+aw_[a-z0-9_]+\\s*:",
+   "why": "acquire_github_repo_docs.source_to_markdown (context7 + github families) and the RFC materializer opened every document with a YAML block of aw_* keys. Deliberately ANY aw_* key: the first pass named the four github ones and would have missed the RFC family, whose block opens aw_rfc_number.",
+   "sample": "--- aw_repository: \"daltron/notificationbanner\" aw_revision: \"9550d28f...\" aw_source_path: \"README.md\" ---"
+  },
+  "eli_official_source_identity": {
+   "pattern": "^#?\\s*Official source identity\\b",
+   "why": "task 516's fedlex preamble -- ELI, language, consolidated source version, XML SHA-256 -- which was the first Markdown section of all 22,913 re-materialized articles and moved the chunk token p50 from 144 to 265.",
+   "sample": "Official source identity - ELI: `cc/11/529_488_529` - Language: `de` - XML SHA-256: `bd2c1be...`"
+  }
+ },
+ "per_set": {
+  "wikipedia_413a": {
+   "max_no_bm25_posting_frac": 0.0,
+   "why": "19,227,106 in-place re-embeds whose posting is CARRIED from the twin by point id. A single row without one means the carry failed, and 63.5% of task 514's collection is what that looks like when nobody counts it."
+  },
+  "task467_entity_card_1024_reembed": {
+   "max_no_bm25_posting_frac": 0.0,
+   "why": "cards regenerate their posting from the recipe-owned surface; a card with none is invisible to the lexical leg, which is the task-365 loss class."
+  },
+  "task477_direct_capture_epoch4_chunks": {
+   "max_missing_serving_signal_frac": 0.011,
+   "measured": "2,301 of 224,439 staged rows (1.0252%) carry no title",
+   "why": [
+    "NOT a regression, and measured on both sides rather than asserted. All",
+    "2,301 rows are github.com blob URLs, all 2,301 are PRESENT in the sealed",
+    "membership of the collection this build replaces, and production's title",
+    "for every one of them is null: 2,301 of 2,301 `url_present_title_null`,",
+    "0 `url_present_title_present`, 0 absent from the registry",
+    "(, measured 2026-09-05 against",
+    "serving-metadata-registry.v2.sqlite through `aw_serving_metadata.url_key`",
+    "so the key is the projection's own, not a re-implementation).",
+    "The 0.5% default is a BUILD-WIDE allowance carried down to the unit; a",
+    "per-set ceiling that matches what production itself ships is calibration,",
+    "not a waiver. The number to watch is the direction: if this set ever",
+    "titles FEWER rows than production does, the default is not what catches",
+    "it -- a rate with no counterpart never was the measurement (task 516 §3)."
+   ]
+  },
+  "rfc-editor-production-current-v2": {
+   "max_provenance_head_frac": 0.103,
+   "measured": "4,562 of 44,543 staged rows (10.2418%)",
+   "status": "KNOWN DEFECT, NOT FIXED -- this ceiling is the measured rate, set so the task-517 build could proceed. It is a waiver in substance and it is on Tim's decision list ( section 9).",
+   "why": [
+    "The SAME defect class as fedlex and context7, in a",
+    "third family, found only because task 517 generalized the pattern from the",
+    "four github `aw_*` keys to any of them: `restage_rfc_editor_markdown.py` (now `cytir/extract/rfc_editor.py restage`, task 1261)",
+    "opens every RFC with `--- aw_rfc_number: N / aw_source_path / ... ---`,",
+    "and the chunker's section-adjacent policy makes that block the head of",
+    "chunk 0 -- the snippet AND the head of the dense embedding.",
+    "It is a REGRESSION, not parity: 0 of a 200-row sample of the collection",
+    "this build replaces (aw_e3, domain rfc-editor.org) opens with the block,",
+    "against an expected ~20 if the rates matched.",
+    "The producer is FIXED for future runs (pipeline, task 517); this build's",
+    "44,543 rows were not re-materialized because doing so needs the family's",
+    "own chain re-run and the task's remaining budget was owed to the gate",
+    "separation."
+   ],
+   "unparks_when": "the rfc-editor family is re-materialized without the front matter; then this entry is deleted and the default 0.5% applies."
+  },
+  "service-public-dila-fiche-v4b": {
+   "max_provenance_head_frac": 0.361,
+   "measured": "2,997 of 8,324 staged rows (36.0043%)",
+   "status": "KNOWN DEFECT, NOT FIXED -- as above. Tim's decision list.",
+   "why": [
+    "`restage_service_public_fiches.py` (now `cytir/extract/service_public_fiche.py`, task 1261) opens every fiche with `--- aw_fiche_id",
+    "/ aw_archive_member / aw_archive_sha256 / aw_member_sha256 /",
+    "aw_modified_date / aw_fiche_type / aw_subject ---`. Same class, same",
+    "consequence, third and fourth families found by one generalized pattern.",
+    "Production parity is NOT established here: the twin's `domain` for this",
+    "family did not resolve on the sampled key, so the direction of the",
+    "difference is unmeasured rather than measured-clean."
+   ],
+   "unparks_when": "the service-public family is re-materialized without the front matter."
+  }
+ },
+ "title_shape": {
+  "fedlex-r0-exact-current-v1": {
+   "pattern": "\\bSR\\s?\\d",
+   "min_share": 0.95,
+   "sample": "Obligationenrecht (OR; SR 220) — Art. 411 — IV. Kreditnehmer und Auftraggeber",
+   "why": [
+    "Swiss federal law is searched for by its SR number and its abbreviation,",
+    "not by its formal docTitle: every legal gold the 1024 build lost is",
+    "abbreviation-led (URG, DSG, StPO, ZGB, CO, LCR, LTVA). The collection this",
+    "build replaces carries an SR number on 23,495 of its 23,872 fedlex rows",
+    "(98.4%); the epoch-4 re-materialization carried it on 0 of 22,928 and",
+    "nothing refused. 95% is below production's own rate, so this fails only on",
+    "a real regression, not on the 118 articles production itself titles with",
+    "the bare docTitle."
+   ]
+  },
+  "_absent_family": {
+   "note": "A family with no entry here is NOT checked. Adding one is how a family's title contract becomes checkable; inventing a pattern for a family whose production titles never had one would fail a build over a rule nobody measured a need for (task 516 section 3: jorf, kali, cantonal, gesetze and legifrance production titles carry no SR number at all)."
+  }
+ },
+ "published_presence": {
+  "pubmed-exact-production-academic-markdown-v3": {
+   "min_share": 0.99,
+   "why": [
+    "Task 535 sec.3.1: the collection this build replaces carries `published`",
+    "on 4,969,090 of its pubmed.ncbi.nlm.nih.gov rows against ADR-090's own",
+    "count of 4,969,092 single-unit no-op documents for this family -- i.e.",
+    "effectively every pubmed row twin-side. Task 536 found the mechanism:",
+    "`published` was never in `aw_serving_metadata.REGISTRY_FIELDS`, so the",
+    "sealed pubmed stage record (identity + text, no serving payload) had",
+    "nowhere to recover it from and this build shipped 27,839 of 5,208,018,",
+    "0 of them pubmed. 99% (not 100%) leaves headroom for the sample of",
+    "pubmed's own production rows that never had a `published` date at all",
+    "(a `<PubDate>` XML field with no year, historically a small residue),",
+    "same margin style as the fedlex title-shape entry above."
+   ]
+  },
+  "_absent_family": {
+   "note": "OPT-IN, same posture as title_shape: a family with no entry here is not checked for `published` presence. ADR-039's shared payload_minimum has no `published` field in it for ANY of the 86 declared families (task 535 sec.3.5), so declaring one here for a family that never stamped it in production would fail a build over a rule nobody measured a need for. Add an entry only once the twin's own rate for that family is measured (task 535 sec.3.1's per-domain table names iris.who.int, finma.ch and the Swiss news domains as the other candidates)."
+  }
+ },
+ "extraction_collapse": {
+  "_why": [
+   "ONE stored body serving MANY distinct URLs. Invisible to every count",
+   "check (the rows are all present, conservation balances) and to the",
+   "provenance-head rule (the text is a real fragment of a real page, just",
+   "the same wrong fragment for every page): the task-517 contract flagged",
+   "5 of 127,074 task472_f2_html rows while 17,850 of them were collapsed.",
+   "MEASURED (task 521 / 523). Pre-fix, on the staged payloads the build",
+   "actually loads: 21 cohorts of >= 25 distinct URLs, 7,985 of 127,074",
+   "rows = 6.28%, sparse postings 27..205 -- eeoc.gov 3,010 URLs at 34",
+   "postings (the '.gov websites use HTTPS' banner), edudoc.ch 1,082 at 27,",
+   "has-sante.fr 1,970 at 205.",
+   "ROOT CAUSE and fix: libxml2 mis-nested <main> into <nav> on malformed",
+   "USWDS markup, trafilatura's boilerplate prune then deleted the page, and",
+   "recover_wild_text salvaged the banner. aw_common now re-parses such a",
+   "document through the stdlib HTML parser. Post-fix the same lane measures",
+   "20 cohorts / 4,098 of 168,128 rows = 2.44% -- eeoc.gov 3,010 -> 253,",
+   "edudoc.ch 1,082 -> 0.",
+   "THE CEILING IS PER LANE AND OPT-IN. N and the posting ceiling are",
+   "judgements about a lane's own content shape; a number nobody measured",
+   "for a lane must not decide whether that lane ships. Two lanes are",
+   "measured and NOT yet declared, because their residue has not been",
+   "decomposed: task472_cc_materializer_1024_embed 236 cohorts / 50,046 of",
+   "621,975 rows (8.05%) and task477_direct_capture_epoch4_chunks 134",
+   "cohorts / 137,281 of 349,798 rows (39.25%), the latter dominated by",
+   "eur-lex documents of 1,000+ tokens that the posting ceiling excludes."
+  ],
+  "task472_f2_html_1024_embed": {
+   "min_cohort_urls": 25,
+   "sparse_posting_ceiling": 256,
+   "max_collapsed_row_frac": 0.03,
+   "why": [
+    "N=25: the measured distribution has no cohort between 25 and 27, so",
+    "the cut is in a gap and not on a slope.",
+    "256 postings: the whole pre-fix cohort head sits at 27..205, and the",
+    "eur-lex duplicates that are genuine shared DOCUMENTS (one text at",
+    "many language URLs, 1,000+ dense tokens) sit far above it. The unit",
+    "is distinct BM25 postings because the stored snippet is truncated to",
+    "25 words and cannot tell a 72-token banner from a 700-token page.",
+    "3%: the post-fix lane measures 2.44% (4,098 of 168,128 rows), and",
+    "1,970 of those rows are has-sante.fr -- NOT an extraction defect but",
+    "the origin serving one document at many nested-path URLs (four",
+    "sampled captures, four identical <title>s, extraction correct on",
+    "all four). The pre-fix lane measured 6.28% and this ceiling REFUSES",
+    "it, which is the point. The number to watch is the direction: this",
+    "residue should fall as the capture-side duplicates are fixed, and a",
+    "rise means a new extractor defect, not a new corpus."
+   ]
+  }
+ },
+ "chunk_width": {
+  "_why": [
+   "Task 535: the epoch-4 generic packer cut long, densely-sectioned reference",
+   "documents at a 3.73x lower chunk count than the collection production serves",
+   "-- 82 hosts, ~1.01M rows down, 150 of the 262 golds lost on the held-out",
+   "1,418 set -- and nothing in the repo could see it. Two reasons, both closed",
+   "here. (1) No row could state its own width: the chunker computed",
+   "`chunk_n_words` and `project_record` discarded it, so 535 had to argue the",
+   "question from a chunk-COUNT ratio and record merged-vs-dropped as",
+   "unmeasurable (535 sec.2.3). Task 536 landed the passthrough. (2) No family",
+   "had ever been asked which policy it cuts with: 84 of 86 declare",
+   "chunk_policy.policy_id 'unknown'.",
+   "",
+   "THE ARMS.",
+   "  policy_sha256                the bytes of the policy the set declares. A",
+   "                               policy is identified by its hash; a different",
+   "                               hash is a different rule, not a renamed one.",
+   "  min_chunk_n_words_presence   a row that cannot state its own width cannot",
+   "                               be checked at all.",
+   "  max_rows_over_hard_max_frac  rows wider than the declared policy's own",
+   "                               word_guard.hard_max. A STRUCTURAL invariant of",
+   "                               the chunker, not a tuned threshold: 0.0 is the",
+   "                               only honest value, because a row above the",
+   "                               guard was not cut by the policy the set names.",
+   "  max_mis_selected_frac        OPTIONAL fourth arm. The share of rows whose",
+   "                               page the ratified selector",
+   "                               (data/chunk-reference-selector.v1.json)",
+   "                               assigns to a DIFFERENT policy family than the",
+   "                               one the row was cut under. This is the arm",
+   "                               that catches task 535's actual defect, in",
+   "                               which every row was correctly declared epoch-4",
+   "                               and the PAGES were in the wrong family. It",
+   "                               needs the materializer to stamp",
+   "                               `chunk_selector` (it holds the markdown; the",
+   "                               payload stage does not), so declaring it for a",
+   "                               lane that does not stamp is a FAIL,",
+   "                               deliberately -- not a skip.",
+   "",
+   "OPT-IN PER SET, same posture as title_shape, published_presence and",
+   "extraction_collapse. A route with no markdown page -- source-native records,",
+   "entity cards, preserved passages (chunk.atomic / chunk.preserved in",
+   "data/chunk-policy-registry.v1.json) -- has no width to declare, and no set",
+   "already in aw_e8 is declared here: their stage trees were sealed before the",
+   "task-536 passthrough existed, so a presence floor would fail a build over",
+   "evidence that cannot be re-created without re-staging. The sets that would",
+   "backfill onto them are named in specs/chunk-reference-epoch.md."
+  ],
+  "task541_chunk_reference_delta": {
+   "policy_sha256": "73507461445b7a78602b0f3fc2f03f905f8fb59f74420d6e02b92b7df07de9b8",
+   "min_chunk_n_words_presence": 1.0,
+   "max_rows_over_hard_max_frac": 0.0,
+   "max_mis_selected_frac": 0.0,
+   "why": [
+    "The chunk.reference delta's own set id. Every threshold is 0 or 1",
+    "because this lane is NEW: it is produced by",
+    "materialize, which runs the chunker",
+    "under the pinned policy and stamps chunk_n_words and chunk_selector on",
+    "every row it writes. There is no historical residue to tolerate and",
+    "therefore no margin to invent; a margin here would be a tolerance for a",
+    "defect nobody has measured (memory: cold-read-specs-and-circular-filters,",
+    "round numbers are the tell).",
+    "The entry is live before the lane exists on purpose: evaluate() only sees",
+    "set ids the stage actually produced, so this binds the day the delta",
+    "stages and changes nothing before then."
+   ]
+  },
+  "_absent_set": {
+   "note": "OPT-IN. A set with no entry here is not checked for chunk width. Adding one for a set already sealed in aw_e8 requires re-staging it, because the presence of chunk_n_words on a staged record is a property of the run that produced it (task 536 sec.2.1) and cannot be backfilled onto a sealed stage tree."
+  }
+ }
+}

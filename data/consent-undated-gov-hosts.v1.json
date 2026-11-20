@@ -1,0 +1,4 @@
+{
+  "note": "Registrable domain whose pages carry no usable date: the build consent gate treats this domain and any subdomain as undated government content (task 321 ch-media undated-gov ruling). The subdomain rule lives in cytir/consent/build_gate.py.",
+  "undated_gov_host": "admin.ch"
+}

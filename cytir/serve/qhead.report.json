@@ -1,0 +1,132 @@
+{
+ "input_dim": 1024,
+ "n_train": 46066,
+ "report": {
+  "dense_scale": {
+   "driver": "head",
+   "default": 1.0,
+   "target_var": 0.0,
+   "fit_mae": 0.0,
+   "resid_max": 0.0,
+   "w_norm": 0.0
+  },
+  "bm25_scale": {
+   "driver": "head",
+   "default": 1.0,
+   "target_var": 0.0,
+   "fit_mae": 0.0,
+   "resid_max": 0.0,
+   "w_norm": 0.0
+  },
+  "trust_scale": {
+   "driver": "head",
+   "default": 1.0,
+   "target_var": 0.0,
+   "fit_mae": 0.0,
+   "resid_max": 0.0,
+   "w_norm": 0.0
+  },
+  "recency": {
+   "driver": "head",
+   "default": 0.0,
+   "target_var": 0.0,
+   "fit_mae": 0.0,
+   "resid_max": 0.0,
+   "w_norm": 0.0
+  },
+  "title": {
+   "driver": "head",
+   "default": 2.5,
+   "target_var": 0.0,
+   "fit_mae": 0.0,
+   "resid_max": 0.0,
+   "w_norm": 0.0
+  },
+  "exact": {
+   "driver": "head",
+   "default": 0.8,
+   "target_var": 0.0,
+   "fit_mae": 0.0,
+   "resid_max": 0.0,
+   "w_norm": 0.0
+  },
+  "entity_card": {
+   "driver": "head",
+   "default": 2.0,
+   "target_var": 0.0,
+   "fit_mae": 0.0,
+   "resid_max": 0.0,
+   "w_norm": 0.0
+  },
+  "machine": {
+   "driver": "head",
+   "default": -1.0,
+   "target_var": 0.0,
+   "fit_mae": 0.0,
+   "resid_max": 0.0,
+   "w_norm": 0.0
+  },
+  "off_country": {
+   "driver": "head",
+   "default": -2.0,
+   "target_var": 0.0,
+   "fit_mae": 0.0,
+   "resid_max": 0.0,
+   "w_norm": 0.0
+  },
+  "country_boost": {
+   "driver": "head",
+   "default": 0.6,
+   "target_var": 0.0,
+   "fit_mae": 0.0,
+   "resid_max": 0.0,
+   "w_norm": 0.0
+  },
+  "trust_beta": {
+   "driver": "adr036"
+  },
+  "academic": {
+   "driver": "lexicon",
+   "default": 0.0,
+   "target_var": 0.007847,
+   "fit_mae": 0.034737,
+   "resid_max": 0.629864,
+   "w_norm": 1.059414,
+   "imitation_agreement": 0.9778,
+   "target_values": [
+    -0.6000000238418579,
+    0.0
+   ]
+  },
+  "commercial_ref": {
+   "driver": "lexicon",
+   "default": 0.0,
+   "target_var": 0.005964,
+   "fit_mae": 0.008188,
+   "resid_max": 2.47701,
+   "w_norm": 0.379724,
+   "imitation_agreement": 0.999,
+   "target_values": [
+    -2.5,
+    0.0
+   ]
+  },
+  "commercial_gov_scale": {
+   "driver": "lexicon",
+   "default": 1.0,
+   "target_var": 0.000537,
+   "fit_mae": 0.002457,
+   "resid_max": 0.743103,
+   "w_norm": 0.113917,
+   "imitation_agreement": 0.999,
+   "target_values": [
+    0.25,
+    1.0
+   ]
+  },
+  "country_scope": {
+   "driver": "deterministic",
+   "scoped_queries": 4557
+  }
+ }
+}

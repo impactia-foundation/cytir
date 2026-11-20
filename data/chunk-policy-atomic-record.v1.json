@@ -1,0 +1,22 @@
+{
+  "schema": "aw.chunk-policy.v1",
+  "policy_id": "source-native-atomic-record",
+  "policy_version": 1,
+  "algorithm": "source-record-identity-v1",
+  "epoch": 1,
+  "rule_legend": "source-native-atomic-record@1",
+  "boundary": {
+    "unit": "source-record",
+    "policy": "one-record-one-chunk",
+    "cross_record_merge": false
+  },
+  "text": {
+    "source": "stored-l1-markdown",
+    "normalization": "identity",
+    "title_composition": "embedding-stage-compose-index-text"
+  },
+  "overlap": {
+    "unit": "words",
+    "size": 0
+  }
+}

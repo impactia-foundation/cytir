@@ -1,0 +1,114 @@
+{
+ "studies": [
+  {
+   "protocolSection": {
+    "armsInterventionsModule": {
+     "interventions": [
+      {
+       "name": "Psilocybin"
+      },
+      {
+       "name": "Placebo"
+      }
+     ]
+    },
+    "conditionsModule": {
+     "conditions": [
+      "Depression",
+      "Treatment-Resistant Depression"
+     ]
+    },
+    "contactsLocationsModule": {
+     "locations": [
+      {
+       "country": "Switzerland"
+      },
+      {
+       "country": "Germany"
+      },
+      {
+       "country": "Switzerland"
+      }
+     ]
+    },
+    "descriptionModule": {
+     "briefSummary": "This synthetic study tests whether a single dose of psilocybin with psychological support reduces depressive symptoms in adults whose depression did not respond to two prior treatments, measured over twelve weeks."
+    },
+    "designModule": {
+     "phases": [
+      "PHASE2"
+     ],
+     "studyType": "INTERVENTIONAL"
+    },
+    "identificationModule": {
+     "briefTitle": "Psilocybin for TRD",
+     "nctId": "NCT00000001",
+     "officialTitle": "A Synthetic Phase 2 Trial of Psilocybin-Assisted Therapy in Treatment-Resistant Depression"
+    },
+    "sponsorCollaboratorsModule": {
+     "collaborators": [
+      {
+       "name": "Example Hospital"
+      }
+     ],
+     "leadSponsor": {
+      "name": "Example University"
+     }
+    },
+    "statusModule": {
+     "overallStatus": "RECRUITING"
+    }
+   }
+  },
+  {
+   "protocolSection": {
+    "armsInterventionsModule": {
+     "interventions": [
+      {
+       "name": "Ketamine"
+      }
+     ]
+    },
+    "conditionsModule": {
+     "conditions": [
+      "Suicidal Ideation"
+     ]
+    },
+    "contactsLocationsModule": {
+     "locations": [
+      {
+       "country": "France"
+      }
+     ]
+    },
+    "descriptionModule": {
+     "briefSummary": "Ketamine infusion for suicidal ideation."
+    },
+    "designModule": {
+     "phases": [
+      "PHASE3"
+     ],
+     "studyType": "INTERVENTIONAL"
+    },
+    "identificationModule": {
+     "briefTitle": "Ketamine",
+     "nctId": "NCT00000003",
+     "officialTitle": "Synthetic ketamine study"
+    },
+    "sponsorCollaboratorsModule": {
+     "collaborators": [
+      {
+       "name": "Example Hospital"
+      }
+     ],
+     "leadSponsor": {
+      "name": "Synthetic Institute"
+     }
+    },
+    "statusModule": {
+     "overallStatus": "COMPLETED"
+    }
+   }
+  }
+ ]
+}

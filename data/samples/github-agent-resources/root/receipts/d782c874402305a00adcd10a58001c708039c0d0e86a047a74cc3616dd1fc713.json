@@ -1,0 +1,209 @@
+{
+  "acquired_at": "2026-10-23T14:06:15.625857Z",
+  "counts": {
+    "markdown_documents": 4,
+    "original_documents": 4,
+    "outlink_documents": 4,
+    "outlinks": 5
+  },
+  "documents": [
+    {
+      "git_blob_sha1": "cf90157c211a1254558dddac4639a8aa9570a70d",
+      "markdown": {
+        "body_bytes": 121,
+        "body_sha256": "de347e105d659261c50bb9d1bddf5d2e9ba480656cf2cde14903b1abd02a3730",
+        "bytes": 116,
+        "compression": "gzip",
+        "sha256": "e7a4b2c9d6f386cd9ffc4e99c176278c78e0f36077bfd53a378779f2b542d7ac",
+        "uri": "artifact://markdown/de/de347e105d659261c50bb9d1bddf5d2e9ba480656cf2cde14903b1abd02a3730.md.gz"
+      },
+      "media_type": "application/octet-stream",
+      "original": {
+        "body_bytes": 121,
+        "body_sha256": "de347e105d659261c50bb9d1bddf5d2e9ba480656cf2cde14903b1abd02a3730",
+        "bytes": 116,
+        "compression": "gzip",
+        "sha256": "e7a4b2c9d6f386cd9ffc4e99c176278c78e0f36077bfd53a378779f2b542d7ac",
+        "uri": "artifact://original/blobs/de/de347e105d659261c50bb9d1bddf5d2e9ba480656cf2cde14903b1abd02a3730.raw.gz"
+      },
+      "outlinks": {
+        "body_bytes": 895,
+        "body_sha256": "aaf9f278f4fd6557eedf5f4c522e5767136c5aab401230c8a56cddc770984a73",
+        "bytes": 256,
+        "compression": "gzip",
+        "records": 3,
+        "sha256": "6bea97e69e4ce464b6cb76b48f6cafbc5103c8312facb7298e0cfe9ea857edf9",
+        "uri": "artifact://outlinks/aa/aaf9f278f4fd6557eedf5f4c522e5767136c5aab401230c8a56cddc770984a73.json.gz"
+      },
+      "provenance": {
+        "parent_sha256": "de347e105d659261c50bb9d1bddf5d2e9ba480656cf2cde14903b1abd02a3730",
+        "repository": "acme/widgets",
+        "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "source_path": "README.md"
+      },
+      "source_path": "README.md",
+      "source_url": "https://github.com/acme/widgets/blob/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/README.md",
+      "title": "Widgets"
+    },
+    {
+      "git_blob_sha1": "bca4088127f0384874ba812f9e821f674f388f3c",
+      "markdown": {
+        "body_bytes": 66,
+        "body_sha256": "6edabe97652fd19cfead81b7622b5d2ae99a68f6563f352a24747903834b2f2b",
+        "bytes": 86,
+        "compression": "gzip",
+        "sha256": "aee98b9b27066c1d54648df785694e56153ced6ae3728477b3d5370d390e1f3b",
+        "uri": "artifact://markdown/6e/6edabe97652fd19cfead81b7622b5d2ae99a68f6563f352a24747903834b2f2b.md.gz"
+      },
+      "media_type": "application/octet-stream",
+      "original": {
+        "body_bytes": 79,
+        "body_sha256": "199f7be0313e098bfd0b591373f92380828adb9ed04522424c9aadd213884d38",
+        "bytes": 95,
+        "compression": "gzip",
+        "sha256": "5e043278ec157e2cd94622d851c1879cc976f09916d02a0f1534a57e569e5b14",
+        "uri": "artifact://original/blobs/19/199f7be0313e098bfd0b591373f92380828adb9ed04522424c9aadd213884d38.raw.gz"
+      },
+      "outlinks": {
+        "body_bytes": 468,
+        "body_sha256": "d645567015759eedf136abb0fa6e592c2cfaf80b5e69592cab0ea39be66ea00d",
+        "bytes": 215,
+        "compression": "gzip",
+        "records": 1,
+        "sha256": "7b3fd169ef8ef2806dcc2dd2b37e0f9db496ce0207ae0e89f4e74ed6d88891c6",
+        "uri": "artifact://outlinks/d6/d645567015759eedf136abb0fa6e592c2cfaf80b5e69592cab0ea39be66ea00d.json.gz"
+      },
+      "provenance": {
+        "parent_sha256": "199f7be0313e098bfd0b591373f92380828adb9ed04522424c9aadd213884d38",
+        "repository": "acme/widgets",
+        "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "source_path": "docs/guide.rst"
+      },
+      "source_path": "docs/guide.rst",
+      "source_url": "https://github.com/acme/widgets/blob/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/docs/guide.rst",
+      "title": "Title"
+    },
+    {
+      "git_blob_sha1": "19106a9f894de7870f0003979cbceccbdfc7fe83",
+      "markdown": {
+        "body_bytes": 40,
+        "body_sha256": "404935a9ef4d5fe46ad88273b7fc7ee2dc276a94a475e76723314d062d0b24b2",
+        "bytes": 60,
+        "compression": "gzip",
+        "sha256": "6902986ca6c2e91b2dd1fe2932c7155d959df50b4a307bf87684447efe8fd4f6",
+        "uri": "artifact://markdown/40/404935a9ef4d5fe46ad88273b7fc7ee2dc276a94a475e76723314d062d0b24b2.md.gz"
+      },
+      "media_type": "application/octet-stream",
+      "original": {
+        "body_bytes": 40,
+        "body_sha256": "404935a9ef4d5fe46ad88273b7fc7ee2dc276a94a475e76723314d062d0b24b2",
+        "bytes": 60,
+        "compression": "gzip",
+        "sha256": "6902986ca6c2e91b2dd1fe2932c7155d959df50b4a307bf87684447efe8fd4f6",
+        "uri": "artifact://original/blobs/40/404935a9ef4d5fe46ad88273b7fc7ee2dc276a94a475e76723314d062d0b24b2.raw.gz"
+      },
+      "outlinks": {
+        "body_bytes": 534,
+        "body_sha256": "c94373340e7c8f19aac93c43c6c879d298e9d8222bcd58b22ad5d82d65a3a295",
+        "bytes": 222,
+        "compression": "gzip",
+        "records": 1,
+        "sha256": "c6beba29c0fabcc93d0f2e0fe1eab76008a6f2cfb152b0eac2c4883451cb0546",
+        "uri": "artifact://outlinks/c9/c94373340e7c8f19aac93c43c6c879d298e9d8222bcd58b22ad5d82d65a3a295.json.gz"
+      },
+      "provenance": {
+        "parent_sha256": "404935a9ef4d5fe46ad88273b7fc7ee2dc276a94a475e76723314d062d0b24b2",
+        "repository": "acme/widgets",
+        "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "source_path": "docs/intro.md"
+      },
+      "source_path": "docs/intro.md",
+      "source_url": "https://github.com/acme/widgets/blob/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/docs/intro.md",
+      "title": "Intro"
+    },
+    {
+      "git_blob_sha1": "1a4fde6f12154df85b88105607a3927748092dac",
+      "markdown": {
+        "body_bytes": 22,
+        "body_sha256": "b7a0c8e9435f513fc7842ca30f1c16c5f957c2e0d6e5363584b8755f92ec06e2",
+        "bytes": 42,
+        "compression": "gzip",
+        "sha256": "59b8a5ad40fdcedc161d98b8edae53a26e9d537e92e617690a7be7ca269b4edd",
+        "uri": "artifact://markdown/b7/b7a0c8e9435f513fc7842ca30f1c16c5f957c2e0d6e5363584b8755f92ec06e2.md.gz"
+      },
+      "media_type": "application/octet-stream",
+      "original": {
+        "body_bytes": 22,
+        "body_sha256": "b7a0c8e9435f513fc7842ca30f1c16c5f957c2e0d6e5363584b8755f92ec06e2",
+        "bytes": 42,
+        "compression": "gzip",
+        "sha256": "59b8a5ad40fdcedc161d98b8edae53a26e9d537e92e617690a7be7ca269b4edd",
+        "uri": "artifact://original/blobs/b7/b7a0c8e9435f513fc7842ca30f1c16c5f957c2e0d6e5363584b8755f92ec06e2.raw.gz"
+      },
+      "outlinks": {
+        "body_bytes": 296,
+        "body_sha256": "ec5a4df9b41c4befae5da1c69c05e1d218a643b39387dd65e3710555ed199a27",
+        "bytes": 178,
+        "compression": "gzip",
+        "records": 0,
+        "sha256": "96273a4320e1bc235ceca5ced940e2196e27d0b4a211b6be801f35782ae98a02",
+        "uri": "artifact://outlinks/ec/ec5a4df9b41c4befae5da1c69c05e1d218a643b39387dd65e3710555ed199a27.json.gz"
+      },
+      "provenance": {
+        "parent_sha256": "b7a0c8e9435f513fc7842ca30f1c16c5f957c2e0d6e5363584b8755f92ec06e2",
+        "repository": "acme/widgets",
+        "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "source_path": "docs/noheading.md"
+      },
+      "source_path": "docs/noheading.md",
+      "source_url": "https://github.com/acme/widgets/blob/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/docs/noheading.md",
+      "title": "noheading.md"
+    }
+  ],
+  "downstream": {
+    "chunks": "pending",
+    "vectors": "pending"
+  },
+  "license": "MIT",
+  "posture": "deep",
+  "repository": "acme/widgets",
+  "requested_branch": "main",
+  "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "route": "documented_source_api",
+  "route_receipt": {
+    "consent_and_robots_result": "GitHub documented API/raw content route",
+    "fetch_vantage": "fetch-host",
+    "higher_priority_routes_checked": [
+      "source_owned_incremental_feed:not_applicable",
+      "source_owned_bulk_dump:not_selected_repository_tree_is_canonical"
+    ],
+    "reason_selected_route_is_needed": "pin repository tree and exact source blobs"
+  },
+  "schema": "aw.github-doc-acquisition.v1",
+  "skipped_empty": [
+    "docs/empty.md"
+  ],
+  "source_profile": "software_docs",
+  "status": "complete",
+  "tree": {
+    "commit_response": {
+      "body_bytes": 219,
+      "body_sha256": "3264818b3dcc2cf20a95438ca45314114d4d1b4d843b5cdcfc32a4cd443badd3",
+      "bytes": 169,
+      "compression": "gzip",
+      "sha256": "618accf13b5f807a16b9d9d0b6a4801c209aaa74e794862f1f44e40e12e71e89",
+      "uri": "artifact://original/api/32/3264818b3dcc2cf20a95438ca45314114d4d1b4d843b5cdcfc32a4cd443badd3.json.gz"
+    },
+    "node_count": 5,
+    "tree_response": {
+      "body_bytes": 893,
+      "body_sha256": "89db3ddab4092317faf706774aa1c6cdfc8765037e3fc844251e67bf14259485",
+      "bytes": 592,
+      "compression": "gzip",
+      "sha256": "6fed3f35194f16ab776d84d3c8c3debc0ebca266c19233ee5b614ee5a199a51e",
+      "uri": "artifact://original/api/89/89db3ddab4092317faf706774aa1c6cdfc8765037e3fc844251e67bf14259485.json.gz"
+    },
+    "truncated": false
+  },
+  "unparsable_links": 1
+}

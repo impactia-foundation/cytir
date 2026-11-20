@@ -1,0 +1,8 @@
+{
+  "counts": {
+    "route_reported_production_points": 1629,
+    "route_urls": 613
+  },
+  "schema": "aw.routec-pack-declaration.v1",
+  "source_id": "routec-ietf-datatracker-review-records-current"
+}

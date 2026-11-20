@@ -1,0 +1,215 @@
+{
+ "about": "The 38 DIFF-undeclared ids of the first mirror-audit run (2026-10-09, receipt 20261009T165019Z) and the keys on which each differed from prod.",
+ "ids": {
+  "07d290d1-8086-537f-8715-0d0f63609d49": [
+   "consent_basis",
+   "consent_checked_at",
+   "consent_source",
+   "consent_state",
+   "last_seen"
+  ],
+  "08265db1-d61a-58be-bd67-18c0c56411a5": [
+   "last_seen",
+   "dense"
+  ],
+  "13bfdd1a-7c3e-5967-936a-46b415d012a5": [
+   "last_seen",
+   "published",
+   "title",
+   "dense"
+  ],
+  "157f55e3-d55d-5bbe-84d5-8bc4fd39c82e": [
+   "last_seen",
+   "published",
+   "title",
+   "dense"
+  ],
+  "25b7cf6c-3755-52c1-b83d-b3249a929f53": [
+   "last_seen",
+   "published",
+   "title",
+   "dense"
+  ],
+  "28783fd6-b98c-5956-a7fc-1117e8040b1b": [
+   "consent_basis",
+   "consent_checked_at",
+   "consent_source",
+   "consent_state",
+   "last_seen"
+  ],
+  "2cf4ba56-7744-52af-8e3d-1c043d6f59b4": [
+   "consent_basis",
+   "consent_checked_at",
+   "consent_source",
+   "consent_state",
+   "last_seen"
+  ],
+  "303c4b3e-f524-5bfa-a53a-23a6083c8e35": [
+   "content_digest",
+   "last_seen",
+   "snippet",
+   "dense"
+  ],
+  "421df77e-da98-5db4-bb7a-1fd0eafd5762": [
+   "consent_basis",
+   "consent_checked_at",
+   "consent_source",
+   "consent_state",
+   "last_seen"
+  ],
+  "45251f83-a1e5-51dc-b6c7-54b157cdea95": [
+   "last_seen",
+   "title",
+   "dense"
+  ],
+  "4b7ef65f-c3b9-5687-8872-3b5b5dc35ded": [
+   "consent_basis",
+   "consent_checked_at",
+   "consent_source",
+   "consent_state",
+   "last_seen"
+  ],
+  "50e522de-f95f-52dd-becd-2a772b44d619": [
+   "last_seen",
+   "dense"
+  ],
+  "51ccb2ad-9232-5709-a562-58c4ea90bbfa": [
+   "last_seen",
+   "dense"
+  ],
+  "58f90885-0a45-573f-bd6a-be5ee0df0b8b": [
+   "consent_basis",
+   "consent_checked_at",
+   "consent_source",
+   "consent_state",
+   "last_seen"
+  ],
+  "5a51f84b-7cf9-540b-b10b-c96cfb687de9": [
+   "last_seen",
+   "dense"
+  ],
+  "5d2c2ae0-759f-508f-b013-67c275bd4768": [
+   "consent_basis",
+   "consent_checked_at",
+   "consent_source",
+   "consent_state",
+   "last_seen"
+  ],
+  "76b68244-1286-5b6e-8d82-917ab0f88491": [
+   "last_seen",
+   "title",
+   "dense"
+  ],
+  "7ab446dc-00bc-55e0-95d2-1ea6aba561de": [
+   "last_seen",
+   "dense"
+  ],
+  "7cd58e9d-9ee4-56f8-9a4e-dd7e88c97c70": [
+   "consent_basis",
+   "consent_checked_at",
+   "consent_source",
+   "consent_state",
+   "last_seen"
+  ],
+  "802a254c-ad19-5682-ba67-cea6b10494ad": [
+   "last_seen",
+   "title",
+   "dense"
+  ],
+  "82d19ebb-8b01-525d-b731-8646d55a307a": [
+   "consent_basis",
+   "consent_checked_at",
+   "consent_source",
+   "consent_state",
+   "last_seen"
+  ],
+  "84c6f8e3-5ba4-5f39-ad95-e2ec8b4aa4e1": [
+   "last_seen",
+   "dense"
+  ],
+  "9237117d-ce25-56ed-8f85-1fc2a55df1d2": [
+   "last_seen",
+   "dense"
+  ],
+  "990c7112-2dd0-5d44-9f47-49c6201e1c55": [
+   "last_seen",
+   "dense"
+  ],
+  "a3c72c86-c7fb-5db6-9544-2687ebb82365": [
+   "last_seen",
+   "dense"
+  ],
+  "ab3e1103-3112-5986-bbd2-adf14f8702a3": [
+   "last_seen",
+   "title",
+   "dense"
+  ],
+  "afa9cd1f-32c1-5491-9405-9b23465b2398": [
+   "consent_basis",
+   "consent_checked_at",
+   "consent_source",
+   "consent_state",
+   "last_seen"
+  ],
+  "b06cef26-cc3e-5a3a-afbe-168bfd4bfce6": [
+   "last_seen",
+   "dense"
+  ],
+  "b2cc0118-e502-5718-8e6e-39f829ef34af": [
+   "last_seen",
+   "title",
+   "dense"
+  ],
+  "b6b38a2a-9f63-5ac5-9cf3-414594049a2e": [
+   "last_seen",
+   "dense"
+  ],
+  "c46c1508-fd22-54a3-af22-842c3c80e328": [
+   "consent_basis",
+   "consent_checked_at",
+   "consent_source",
+   "consent_state",
+   "last_seen"
+  ],
+  "c8a7dc99-66a5-5768-be0e-fdcc708aaad5": [
+   "last_seen",
+   "title",
+   "dense"
+  ],
+  "d319b2df-a311-5145-83cd-26ff84ba1e09": [
+   "last_seen",
+   "dense"
+  ],
+  "e206ae86-a648-5b69-9e1a-c19ad081ed94": [
+   "last_seen",
+   "title",
+   "dense"
+  ],
+  "e6c1931f-4b0d-560e-a3c4-c6762de7f233": [
+   "consent_basis",
+   "consent_checked_at",
+   "consent_source",
+   "consent_state",
+   "last_seen"
+  ],
+  "f17f9d6f-f866-518e-8d9c-f2858825c70c": [
+   "consent_basis",
+   "consent_checked_at",
+   "consent_source",
+   "consent_state",
+   "last_seen"
+  ],
+  "fa41deaa-c095-52c9-8665-6316b34b65cd": [
+   "last_seen",
+   "published",
+   "title",
+   "dense"
+  ],
+  "fce33093-43f8-57b3-97b5-38c00dd76426": [
+   "last_seen",
+   "published",
+   "title",
+   "dense"
+  ]
+ }
+}

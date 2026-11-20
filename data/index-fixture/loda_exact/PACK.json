@@ -1,0 +1,13 @@
+{
+ "chunks_sha256": "6c6c8c70d49d20c76592e431b65573d1065a24b866e3bc71f516f8bbefc59b11",
+ "dropped_served": 0,
+ "family_id": "loda_exact",
+ "pack_id": "loda-exact-v1-local-fb45826c249c",
+ "row_start": 0,
+ "rows": 3,
+ "schema": "aw.family-stage.v1",
+ "shard": 0,
+ "slice_rows": 150000,
+ "source_records_sha256": "fb45826c249c124a227dc046b1c1a29ae7201b0d93b0419aa711d122fb266dba",
+ "source_rows": 3
+}

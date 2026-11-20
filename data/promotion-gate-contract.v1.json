@@ -1,0 +1,14 @@
+{
+ "schema": "aw.promotion-gate-contract.v1",
+ "adr": "ADR-110",
+ "pr": 302,
+ "profile": "mechanical",
+ "profiles": {
+  "battery-required": "The prior contract (ADR-043's main CONTENT-pack gate, unamended for a PORTFOLIO-admitted family): every pack needs a per-pack held-out battery verdict from task 351 apply_content_pack_shared.py's default post_twin_battery_gate (task 370 compare_corpus_arms.py --profile content-pack). cytir/index/promote_queue.py does not run that battery generically -- it proves a queued pack clears the mechanical checks (dry-run plan) and then refuses to write, twin or prod, rather than silently skip the gate this field names.",
+  "mechanical": "ADR-110 ratified: a pack from a family sources/PORTFOLIO.md already admits lands on five checks -- counts reconcile, consent+licence per row, dedup/supersede clean, the content guard passes, twin == prod after apply. No per-pack battery. cytir/index/promote_queue.py runs these five and, on PASS, proceeds through twin -> prod under twin_first_apply. The 'content guard passes' check runs as profile `mechanical-content-v1` (cytir/gates/mechanical_content_check.py): a MECHANICAL, no-query, per-row content check (title, text+word-floor, language match, stub/coverage vs sealed L1) -- never the gold-query cytir/gates/content_guard.py arms, which ADR-110 moves to the weekly whole-prod battery. Orchestrator's ruling, 2026-09-23, reading ADR-110's 'content guard passes' clause; Tim informed."
+ },
+ "how_this_flips": "One field, read by cytir/index/promote_queue.py:gate_profile() at the start of every drain -- never a live git check of what Tim has merged, and never a second copy of the value in code. FLIPPED 2026-09-23: Tim merged PR #302 (ADR-110) at 06:09Z, ratifying the mechanical gate for PORTFOLIO-admitted families -- this field now reads 'mechanical'.",
+ "evidence": "decisions.md ADR-110 (RATIFIED, PR #302 merged by Tim 2026-09-23 06:09Z); task 639; plan.md rulings; cytir/gates/mechanical_content_check.py (mechanical-content-v1, orchestrator's ruling 2026-09-23 on how to read the 'content guard passes' clause).",
+ "tombstone_word_coverage_floor": 0.50,
+ "tombstone_word_coverage_floor_note": "Orchestrator's ruling, 2026-09-23, after task640-news-backlog's composer collapsed multi-chunk articles to one row per url, losing content. For every url a pack's `superseded` tombstones name: the pack must KEEP >= 1 row for that url, and the pack's total words for that url must be >= this floor times the words being tombstoned for that url (both measured on `payload.snippet`, the only text a content_pack's payload carries -- ADR-039 minimum-content). Below the floor, the pack REFUSES whole (a news update that shrinks an article to a fragment must refuse, not silently land). cytir/index/promote_queue.py:validate_tombstone_word_coverage()."
+}

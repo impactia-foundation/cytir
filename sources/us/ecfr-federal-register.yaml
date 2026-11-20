@@ -1,0 +1,73 @@
+# US regulation — eCFR (current consolidated) + Federal Register (daily journal).
+# Both publishers CAPTCHA-wall their HTML and direct automated users to the API:
+# this pack uses the sanctioned channel only.
+id: us-ecfr-fedreg
+name: "eCFR + Federal Register — U.S. regulation (OFR/GPO)"
+country: US
+layer: law-government
+policy_section: "§4.1"
+adapter: api
+acquisition_policy: aw-acquisition-v1
+outlink_policy: capture-and-receipt
+preservation_profiles: [anchored_law]
+provenance: authored
+trust_tier: 1.0
+freshness: daily
+
+# Task 439: acquire.params gives the consent gate an attachment point.
+acquire:
+  route: documented_source_api
+  rank: 3
+  params:
+    endpoint: "https://www.ecfr.gov/api/versioner/v1"
+    dialect: json
+
+license:
+  default: public-domain
+  notes: >
+    17 U.S.C. §105 (US Government works). Same GPO policy statement as
+    us-govinfo. CFR standards incorporated by reference (ASTM/NFPA/ISO) remain
+    third-party copyrighted but are referenced, not contained; AW indexes the
+    referencing section and never mirrors the IBR'd standard.
+
+consent:
+  basis: live-resolve-open
+  train_ok_override: null
+  notes: >
+    Resolved live 2026-08-20: www.ecfr.gov -> ok/true/true;
+    www.federalregister.gov -> ok/true/true.
+    IMPORTANT sanctioned-channel split: both publishers redirect HTML paths to
+    unblock.federalregister.gov, which states verbatim (HTTP 200, 2026-08-20):
+    "Due to aggressive automated scraping of FederalRegister.gov and eCFR.gov,
+    programmatic access to these sites is limited to access to our extensive
+    developer APIs." Their APIs return 200 to our honest UA. This is the
+    publisher telling us which door to use, NOT a block -- so the pack is
+    API-only and must never HTML-crawl these hosts.
+    ecfr.gov/robots.txt additionally disallows /api/versioner/v1/full/ and
+    /api/renderer/v1/content/ ("Don't index developer tool links"); the
+    /structure/ endpoint used for enumeration is not disallowed, and bulk text
+    comes from govinfo's ECFR XML tree rather than the versioner full endpoint.
+    RE-PROBED 2026-10-02T06:22Z from the crawl host: www.federalregister.gov, www.ecfr.gov and www.govinfo.gov all ok/true/true. Family declared: us_federal_register_ecfr (API-only).
+
+status: planned
+
+admission:
+  channel: official-api
+  evidence:
+    - "task 440 re-derivation (task 440 (private tree)): 220,551 live non-reserved CFR sections across all 50 titles, 77,125,208 bytes of structure JSON. Title 40 = 23,405 live sections; Title 1 = 288."
+    - "task 440: the scout's headline 227,530 had an EMPTY aggregation file; the 6,979 gap is reserved sections, proven on Title 40 (24,649 all-sections vs 23,405 live = 1,244 reserved) from the scout's own saved st40.json. Reconciled, not averaged."
+    - "task 440: Federal Register 1,006,725 documents (API facet counts) vs 1,008,928 (govinfo granule counts) -- two independent derivations agreeing to 0.22%."
+    - "task 440: unblock.federalregister.gov sanctioned-channel statement quoted verbatim, HTTP 200."
+  decision: escalated
+  policy: "POLICY.md@v3 §4.1"
+  date: "2026-08-20"
+
+notes:
+  - >
+    eCFR is the CURRENT but legally UNOFFICIAL consolidation; the official text
+    is the annual CFR edition on govinfo. For a grounding engine this matters:
+    prefer eCFR for currency, but the record should not assert legal
+    authenticity that eCFR itself disclaims.
+  - >
+    220,551 sections is the ingestable count (reserved sections carry no text).
+    Not a point projection.

@@ -1,0 +1,162 @@
+{
+ "captured_at": "2026-09-21T09:54:39Z",
+ "fingerprints": {
+  "prod": {
+   "collection": "aw_prod",
+   "indexed_vectors_count": 69228285,
+   "n_per_vector": 34614142.5,
+   "named_vectors": 2,
+   "optimizer_entries": [
+    {
+     "end_at": "2026-09-20T07:10:43.505299849Z",
+     "name": "indexing",
+     "segment_ids": [
+      0
+     ],
+     "start_at": "2026-09-20T07:10:32.797146888Z"
+    },
+    {
+     "end_at": "2026-09-20T07:37:44.459164705Z",
+     "name": "merge",
+     "segment_ids": [
+      14,
+      13,
+      3
+     ],
+     "start_at": "2026-09-20T07:10:43.505614640Z"
+    }
+   ],
+   "optimizer_high_water": "2026-09-20T07:37:44.459164705Z",
+   "optimizer_status": "ok",
+   "physical": "aw_e8",
+   "points_count": 33734809,
+   "qdrant_startup": "2026-09-19T12:07:58.160Z",
+   "schema": "aw.collection-layout-fingerprint.v1",
+   "segment_sizes": [
+    883,
+    2332301,
+    2443492,
+    2521218,
+    2543726,
+    2565469,
+    2773628,
+    2843615,
+    2880874,
+    2978519,
+    3035161,
+    3190923,
+    3625000
+   ],
+   "segments_count": 13,
+   "stale_postings": 879333.5,
+   "stale_ratio": 0.026066058355332617,
+   "status": "green",
+   "url": "http://127.0.0.1:6334"
+  },
+  "twin": {
+   "collection": "aw_e8",
+   "indexed_vectors_count": 69241144,
+   "n_per_vector": 34620572.0,
+   "named_vectors": 2,
+   "optimizer_entries": [
+    {
+     "end_at": "2026-09-21T08:32:00.183118292Z",
+     "name": "indexing",
+     "segment_ids": [
+      0
+     ],
+     "start_at": "2026-09-21T08:31:53.709635663Z"
+    },
+    {
+     "end_at": "2026-09-21T08:40:46.490300965Z",
+     "name": "merge",
+     "segment_ids": [
+      14,
+      13,
+      2
+     ],
+     "start_at": "2026-09-21T08:32:00.183261864Z"
+    },
+    {
+     "end_at": "2026-09-21T08:52:46.068020688Z",
+     "name": "indexing",
+     "segment_ids": [
+      15
+     ],
+     "start_at": "2026-09-21T08:52:39.483619339Z"
+    },
+    {
+     "end_at": "2026-09-21T09:01:12.245057111Z",
+     "name": "merge",
+     "segment_ids": [
+      18,
+      17,
+      16
+     ],
+     "start_at": "2026-09-21T08:52:46.068176272Z"
+    }
+   ],
+   "optimizer_high_water": "2026-09-21T09:01:12.245057111Z",
+   "optimizer_status": "ok",
+   "physical": "aw_e8",
+   "points_count": 33734809,
+   "qdrant_startup": "2026-09-21T04:38:10.680Z",
+   "schema": "aw.collection-layout-fingerprint.v1",
+   "segment_sizes": [
+    0,
+    2332301,
+    2443492,
+    2521217,
+    2543723,
+    2563678,
+    2773627,
+    2841101,
+    2880870,
+    2977430,
+    3044265,
+    3190858,
+    3622247
+   ],
+   "segments_count": 13,
+   "stale_postings": 885763.0,
+   "stale_ratio": 0.02625664784407109,
+   "status": "green",
+   "url": "http://127.0.0.1:6457"
+  },
+  "twin_at_baseline_0807z": {
+   "collection": "aw_e8",
+   "indexed_vectors_count": 69241144,
+   "n_per_vector": 34620572.0,
+   "named_vectors": 2,
+   "optimizer_entries": [],
+   "optimizer_high_water": null,
+   "optimizer_status": "ok",
+   "physical": "aw_e8",
+   "points_count": 33734809,
+   "qdrant_startup": "2026-09-21T04:38:10.680Z",
+   "schema": "aw.collection-layout-fingerprint.v1",
+   "segment_sizes": [
+    0,
+    2332301,
+    2443492,
+    2521217,
+    2543723,
+    2563678,
+    2773627,
+    2841101,
+    2880870,
+    2977430,
+    3044265,
+    3190858,
+    3622247
+   ],
+   "segments_count": 13,
+   "stale_postings": 885763.0,
+   "stale_ratio": 0.02625664784407109,
+   "status": "green",
+   "url": "http://127.0.0.1:6457"
+  }
+ },
+ "note": "Real layout fingerprints, read from the live mirrors on 2026-09-21 at 09:54:38Z with BOTH at a byte-equal membership of 33,734,809 points, sealed here so the gate's comparability logic is tested against the record rather than against invented numbers. This is the pair task 627 measured to cost ZERO h@1 (206 on both, h@10 350 vs 349, 2 golds moved) -- i.e. the calibration point behind collection_layout.MEASURED_SAFE_STALE_RATIO_GAP. The twin's two optimizer merges of that morning are real log entries and are what the straddle test uses: task 626c cut its twin baseline at 08:07Z and its candidate at 08:42Z, with merge[14,13,2] running 08:32:00Z->08:40:46Z between them. Source: tasks/627-artifacts/snapshot.pre-apply-0917.json.",
+ "schema": "aw.task627.layout-fingerprints.v1"
+}

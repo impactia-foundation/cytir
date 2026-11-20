@@ -1,0 +1,17 @@
+{
+  "schema": "aw.chunk-policy.v1",
+  "policy_id": "struct-md-384w-o0-adjacent-sections-tail-576-tok2560",
+  "policy_version": 1,
+  "algorithm": "struct-markdown-adjacent-section-pack-v1",
+  "epoch": 6,
+  "rule_legend": "struct-md-384w-o0-adjacent-sections-tail-576-tok2560@6",
+  "sizing": {"unit": "words", "soft_target": 384},
+  "word_guard": {"unit": "words", "hard_max": 576, "derivation": "explicit-tail-maximum"},
+  "token_hard_max": {"unit": "tokens", "exact": 2560, "tokenizer_model": "Snowflake/snowflake-arctic-embed-l-v2.0", "count_special_tokens": true, "split_policy": "line-then-word-exact"},
+  "overlap": {"unit": "words", "size": 0, "scope": "oversized-unit"},
+  "merge": {"unit": "words", "below": 40, "policy": "previous-if-fits-else-next"},
+  "floor": {"unit": "words", "minimum": 15, "per_call_override": true},
+  "prefix": {"unit": "words", "maximum": 48, "separator": " > ", "truncation": "keep-deepest"},
+  "tail": {"under_floor": "merge-into-previous-or-emit", "token_split_remainder": "emit-below-floor"},
+  "section_packing": {"unit": "sections", "policy": "keep-whole-balanced", "headings": "inline-breadcrumb", "order": "source-order"}
+}

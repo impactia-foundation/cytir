@@ -1,0 +1,8 @@
+# The local-embedder add-on to requirements.txt (task 2281): everything that pulls torch.
+# Needed only when the server embeds queries in-process (no AW_TEI_URL; arctic via sentence-transformers,
+# or AW_EMBEDDER=bge-m3 via FlagEmbedding) or loads the opt-in cross-encoder reranker (cytir/serve/models.py).
+# Same rules as requirements.txt: exact pins, every transitive version in constraints.txt (torch included).
+# Install: pip install -r requirements.txt -r requirements-embed-local.txt -c constraints.txt
+FlagEmbedding==1.4.2
+# torch (CPU) is pulled by these two; pinned in constraints.txt, installed first from the CPU index in the Dockerfile
+sentence-transformers==6.1.0

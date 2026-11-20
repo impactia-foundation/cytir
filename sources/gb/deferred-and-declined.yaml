@@ -1,0 +1,131 @@
+# UK sources assessed in task 440 and NOT admitted. Logged as a pack so the
+# absences are explicit and dated (POLICY P5: nothing is silent), each with a
+# recheck_after so a temporary blocker cannot silently become permanent.
+id: gb-deferred-declined
+name: "UK — assessed, not admitted (caselaw, FCA, Parliament, Gazette, Ofcom)"
+country: GB
+layer: law-government
+policy_section: "§4.1"
+adapter: sitemap
+acquisition_policy: aw-acquisition-v1
+outlink_policy: capture-and-receipt
+preservation_profiles: [anchored_law, web_html]
+provenance: authored
+trust_tier: 1.0
+freshness: static
+
+license:
+  default: mixed-see-routes
+  notes: >
+    No single licence -- this pack exists to RECORD why each route is not
+    admitted. Per-route licence findings and verbatim quotes are in
+    task 440 (private tree).
+
+consent:
+  basis: live-resolve-mixed
+  train_ok_override: null
+  notes: >
+    All verdicts resolved live 2026-08-20; records in
+    task 440 (private tree).
+
+status: declined
+
+routes:
+  - host: caselaw.nationalarchives.gov.uk
+    lang: [en]
+    route: "/atom.xml + 719 sitemaps + /{uri}/data.xml (Akoma Ntoso)"
+    status: declined
+    recheck_after: "2026-10-01"
+    evidence: "task 440: Open Justice Licence v2.0 Exclusions -- 'This licence does not cover: computational analysis of the Information (including indexing by search engines)'. /when-you-need-permission names 'building vector databases for semantic search'."
+    notes: >
+      CONSENT PASSES, LICENCE FAILS -- the distinction that matters. robots is
+      permissive to us (16 named AI bots get Disallow: /, `*` gets Allow: /,
+      our UA is unnamed) and the resolver returned search_ok=true. The LICENCE
+      independently forbids exactly what AW does. POLICY U1 and U2 are separate
+      gates; this fails U2.
+      REMEDY IS FREE AND SHOULD BE FILED NOW: "There are no costs to apply for a
+      licence to perform computational analysis." Contact
+      caselawlicence@nationalarchives.gov.uk. 81,307 judgments (two derivations
+      81,310 vs 81,307, delta 3) in Akoma Ntoso at ~7 hours of polite fetching
+      -- the highest-value UK legal corpus after legislation.gov.uk.
+      train_ok must be false regardless of the licence outcome: the robots
+      intent toward AI crawlers is unmistakable even though our UA is unnamed.
+  - host: www.fca.org.uk
+    lang: [en]
+    route: "sitemap-main.xml only; no API"
+    status: declined
+    recheck_after: "2027-02-01"
+    evidence: "task 440: fca.org.uk/legal clause 3.3 -- 'You must not reproduce or store any part of this site in any other website or include it in any public or private electronic retrieval system or service without our prior written permission.'"
+    notes: >
+      An AW index IS a private electronic retrieval system, so the clause names
+      our architecture. OGL applies only where 'expressly stated', on some joint
+      FCA/BoE/PRA statistical outputs; clause 2.3 keeps narrative text out.
+      Only 43,055 URLs and NO second volume derivation exists via FCA channels.
+      Long recheck horizon: this is a stated publisher preference, not a
+      technical block. Escape hatch is a statutory RPSI-2015 request, which has
+      a Charges section -- only worth it if UK financial regulation becomes a
+      target vertical.
+  - host: hansard.parliament.uk
+    lang: [en]
+    route: "hansard-api.parliament.uk (32 swagger paths, no key) + bills/questions/erskinemay APIs"
+    status: deferred
+    recheck_after: "2026-10-01"
+    evidence: "task 440: consent resolver -> DECLINED (robots.txt HTTP 403 + tdmrep 403). Every parliament.uk WEBSITE host 403s our honest UA with a Cloudflare managed challenge -- including the Open Parliament Licence page itself."
+    notes: >
+      The largest single UK volume assessed (1,370,184 debates by API total,
+      plus 684,559 written questions, covering 1803-present) and it is parked on
+      a LICENCE question, not a technical one. The API hosts are wide open and
+      unauthenticated, but no swagger info block carries a `license` field, and
+      we cannot read the OPL page to cite it. We do not ingest what we cannot
+      licence. Route: email softwareengineering@parliament.uk.
+  - host: www.thegazette.co.uk
+    lang: [en]
+    route: "/all-notices/notice/data.feed (Atom) + SPARQL"
+    status: deferred
+    recheck_after: "2027-02-01"
+    evidence: "task 440: two derivations agree to 6 -- <f:total>4855144</f:total> vs rel=last 485,515 x 10 = 4,855,150. OGL v3 BUT 'this licence does not cover the re-use of personal data'."
+    notes: >
+      4.85M notices is the biggest UK number on the table and the worst fit.
+      Notices are overwhelmingly ABOUT NAMED INDIVIDUALS (insolvency, probate,
+      partnership dissolution), and robots.txt carries 4,842 per-notice Disallow
+      lines -- a live right-to-erasure mechanism we would have to re-poll
+      continuously, not a static rule. Under aw-gdpr-by-conviction (rights
+      honoured globally by conviction, not applicability) this is high cost and
+      high risk for formulaic text. Structured per-notice formats
+      (data.xml/.rdf/.ttl/.jsonld) are robots-blocked anyway, and crawling is
+      restricted to 21:00-07:00 UK at <=5 req/10 s.
+  - host: www.ofcom.org.uk
+    lang: [en]
+    route: "none -- 403 Cloudflare challenge on /robots.txt and /sitemap.xml"
+    status: declined
+    recheck_after: "2026-10-01"
+    evidence: "task 440: consent resolver -> DECLINED (robots.txt HTTP 403 + tdmrep 403). Not assessable at all."
+    notes: "Technical block to an honest UA; short recheck horizon. Not retried disguised."
+  - host: www.gov.wales
+    lang: [en]
+    route: "none -- HTTP 403 CloudFront 'Request blocked'"
+    status: declined
+    recheck_after: "2026-10-01"
+    evidence: "task 440: 403 to our honest UA."
+    notes: >
+      The more painful of the two 403 losses: gov.wales is a genuinely bilingual
+      en/cy corpus. Recorded so the gap is visible.
+
+admission:
+  channel: official-dump
+  evidence:
+    - "task 440: per-route licence and consent evidence, all quoted verbatim in task 440 (private tree)."
+  decision: auto-reject
+  policy: "POLICY.md@v3 §4.1"
+  date: "2026-08-20"
+
+notes:
+  - >
+    This pack admits NOTHING. It exists so that five significant UK absences are
+    logged, dated and re-checkable rather than silently missing -- the failure
+    mode the schema's recheck_after field was added to prevent (igo-core/iea:
+    a stale 'fully bot-blocked' verdict hid 27,692 extractable URLs for ten days).
+  - >
+    Priority action out of this pack: file the FREE caselaw computational-
+    analysis licence application with TNA. It is the cheapest large win available
+    in the UK set.

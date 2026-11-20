@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ARTICLE>
+<META>
+<META_COMMUN>
+<ID>LEGIARTI000018943658</ID>
+<ANCIEN_ID/>
+<ORIGINE>LEGI</ORIGINE>
+<URL>article/LEGI/ARTI/00/00/18/94/36/LEGIARTI000018943658.xml</URL>
+<NATURE>Article</NATURE>
+</META_COMMUN>
+<META_SPEC>
+<META_ARTICLE>
+
+<NUM>6</NUM>
+
+<ETAT>VIGUEUR</ETAT>
+
+<DATE_DEBUT>1986-03-20</DATE_DEBUT>
+<DATE_FIN>2999-01-01</DATE_FIN>
+
+
+
+<TYPE>AUTONOME</TYPE>
+</META_ARTICLE>
+</META_SPEC>
+</META>
+<CONTEXTE>
+<TEXTE autorite="" cid="LEGITEXT000018943646" date_publi="2999-01-01" date_signature="1986-03-14" ministere="" nature="DECRET" nor="" num="86-687" num_parution_jo="">
+<TITRE_TXT c_titre_court="Décret n°86-687 du 14 mars 1986" debut="1986-03-20" fin="2999-01-01" id_txt="LEGITEXT000018943646">Décret n° 86-687 du 14 mars 1986 instituant le brevet d'Etat d'animateur technicien de l'éducation populaire et de la jeunesse</TITRE_TXT>
+<TM>
+<TITRE_TM debut="1986-03-20" fin="2999-01-01" id="LEGISCTA000018943652"> TITRE Ier : L'ACCES A LA FORMATION.</TITRE_TM>
+</TM>
+</TEXTE>
+</CONTEXTE>
+
+<VERSIONS>
+<VERSION etat="VIGUEUR">
+<LIEN_ART debut="1986-03-20" etat="VIGUEUR" fin="2999-01-01" id="LEGIARTI000018943658" num="6" origine="LEGI"/>
+</VERSION>
+</VERSIONS>
+<NOTA>
+<CONTENU/>
+</NOTA>
+<BLOC_TEXTUEL>
+<CONTENU>
+<p>Le test permet de vérifier le niveau des connaissances techniques du candidat. Les épreuves de sélection ont pour objet de s'assurer que le candidat est apte à suivre la formation proposée et de vérifier sa capacité à communiquer avec divers publics. <br/>Les candidats retenus à l'issue de ces épreuves entrent en formation et reçoivent un livret de formation délivré par le directeur régional.<br/>
+</p>
+</CONTENU>
+</BLOC_TEXTUEL>
+<LIENS/>
+</ARTICLE>

@@ -1,0 +1,9 @@
+{
+  "counts": {
+    "cc_responses": 13,
+    "direct_responses": 177,
+    "route_urls": 190
+  },
+  "schema": "aw.routec-pack-declaration.v1",
+  "source_id": "routec-iana-official-registry-records-current"
+}

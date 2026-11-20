@@ -1,0 +1,14 @@
+# Pinned to the exact versions of the serving image running on 2026-10-05
+# (source: pip freeze of the container, deploy-628 before-capture 20261005T150602Z).
+# RULE: bumps are deliberate PRs that change this file; never build-time drift.
+# A stranger rebuilding the image must get what we serve (deployment-doctrine 1, 6).
+# Direct dependencies only. Every transitive version is fixed in constraints.txt.
+fastapi==0.141.1
+uvicorn[standard]==0.54.0
+httpx==0.28.1
+qdrant-client==1.19.1
+mcp==2.2.0
+charsplit @ https://github.com/dtuggener/CharSplit/archive/9710624ef0b0df0edd12a721c33533ff1d07b557.tar.gz
+# German de-compounding for the BM25 leg (ADR-004, ADR-121); MIT; table: python3 -m cytir.embed.fetch_models
+# Serve-only: no torch here (task 2281). A server that gets query vectors from a TEI sidecar (AW_TEI_URL) needs nothing more.
+# In-process query embedding and the opt-in cross-encoder need requirements-embed-local.txt (torch); the Dockerfile installs both.

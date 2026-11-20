@@ -1,0 +1,281 @@
+{
+ "law_provenance_head": {
+  "note": "task-417 law materializer: the embedded surface leads with the materializer's own identity block; the statute is its tail",
+  "stage_path": "<stage-root>/aw-corpus/_work/task417/gesetze/official-current-413a-stage-v1/shard-0000.texts.jsonl.gz",
+  "record": {
+   "canonical_text": "Gesetz über die Ausprägung einer 1-DM-Goldmünze\n\nund die Errichtung der Stiftung \"Geld und Währung\" — § 4\n\nGesetz über die Ausprägung einer 1-DM-Goldmünze > Article identity\n\n- Canonical URL: https://www.gesetze-im-internet.de/1-dm-goldm_nzg/__4.html\n- Source record: e62308af14974c68d932ce7840d006eaaf2958b979691e6e699ab3d1a5c6e133\n- Jurisdiction: Germany (federal)\n- Article anchor: __4\n- Law abbreviation: 1-DM-GoldmünzG\n- Official build date: 20260506175647\n- Promulgation date: 2000-12-27\n- Archive member: BJNR204500000.xml\n- Archive SHA-256: d898ae7eeb716fb657a436484d0a535c2035df136359cee64aa06c75a75cf563\n\nGesetz über die Ausprägung einer 1-DM-Goldmünze > Version and status\n\n- Source status: unspecified in official XML\n\nGesetz über die Ausprägung einer 1-DM-Goldmünze > Legal hierarchy\n\n- Gesetz über die Ausprägung einer 1-DM-Goldmünze\n\nund die Errichtung der Stiftung \"Geld und Währung\" — 1-DM-GoldmünzG\n\nGesetz über die Ausprägung einer 1-DM-Goldmünze > § 4 {#__4}\n\n(1) Die Deutsche Bundesbank ist verpflichtet, die 1-DM-Goldmünzen zum Nennwert in Zahlung zu nehmen oder in andere gesetzliche Zahlungsmittel umzutauschen. (2) Für den Umtausch der 1-DM-Goldmünzen ab 1. Januar 2002 gilt die Bestimmung des § 1 Satz 2 des DM-Beendigungsgesetzes entsprechend.",
+   "chunk_ordinal": 0,
+   "document_id": "e62308af14974c68d932ce7840d006eaaf2958b979691e6e699ab3d1a5c6e133",
+   "lang": "de",
+   "parent_identity": {
+    "archive": {
+     "bytes": 3699,
+     "sha256": "d898ae7eeb716fb657a436484d0a535c2035df136359cee64aa06c75a75cf563",
+     "uri": "artifact://_preservation/gesetze-official-xml-l0-20260815/assets/1-dm-goldm_nzg.xml.zip"
+    },
+    "law_document_number": "BJNR204500000",
+    "member": {
+     "bytes": 13972,
+     "path": "BJNR204500000.xml",
+     "sha256": "fea8c6bc8080c7d023f385191c55846ead53fcabb6877a67ae6cd183c07044b6"
+    }
+   },
+   "parent_markdown_sha256": "a8e87249dcfbb7a3a0c55c5f9103c1b80040b1b24a3897fcfd2f776ee3adfa0f",
+   "point_id": "5d5539fa-1f73-59e8-94be-bed212e22a26",
+   "prov_id": "6370ee1d65a21add",
+   "section_heading": "Gesetz über die Ausprägung einer 1-DM-Goldmünze",
+   "source_links": [
+    {
+     "article_anchor": "__4",
+     "context": "Januar 2002 gilt die Bestimmung des § 1 Satz 2 des DM-Beendigungsgesetzes entsprechend.",
+     "extraction": "exact-source-text-reference",
+     "label": "§ 1",
+     "relation": "same-law-statutory-reference",
+     "source_version": {
+      "effective_date": null,
+      "effective_date_status": "not-explicit-in-source-record",
+      "norm_build_date": "20260506175647",
+      "promulgation_date": "2000-12-27",
+      "release_build_date": "20260506175647",
+      "source_status": []
+     },
+     "target": "https://www.gesetze-im-internet.de/1-dm-goldm_nzg/__1.html"
+    }
+   ],
+   "source_metadata": {
+    "parent_source_sha256": "fea8c6bc8080c7d023f385191c55846ead53fcabb6877a67ae6cd183c07044b6",
+    "source_version": {
+     "effective_date": null,
+     "effective_date_status": "not-explicit-in-source-record",
+     "norm_build_date": "20260506175647",
+     "promulgation_date": "2000-12-27",
+     "release_build_date": "20260506175647",
+     "source_status": []
+    },
+    "title": "Gesetz über die Ausprägung einer 1-DM-Goldmünze\nund die Errichtung der Stiftung \"Geld und Währung\" — § 4"
+   },
+   "source_profile": "anchored_law",
+   "source_record_id": "e62308af14974c68d932ce7840d006eaaf2958b979691e6e699ab3d1a5c6e133",
+   "sparse_text": "Gesetz über die Ausprägung einer 1-DM-Goldmünze\n\nund die Errichtung der Stiftung \"Geld und Währung\" — § 4\n\nGesetz über die Ausprägung einer 1-DM-Goldmünze > Article identity\n\n- Canonical URL: https://www.gesetze-im-internet.de/1-dm-goldm_nzg/__4.html\n- Source record: e62308af14974c68d932ce7840d006eaaf2958b979691e6e699ab3d1a5c6e133\n- Jurisdiction: Germany (federal)\n- Article anchor: __4\n- Law abbreviation: 1-DM-GoldmünzG\n- Official build date: 20260506175647\n- Promulgation date: 2000-12-27\n- Archive member: BJNR204500000.xml\n- Archive SHA-256: d898ae7eeb716fb657a436484d0a535c2035df136359cee64aa06c75a75cf563\n\nGesetz über die Ausprägung einer 1-DM-Goldmünze > Version and status\n\n- Source status: unspecified in official XML\n\nGesetz über die Ausprägung einer 1-DM-Goldmünze > Legal hierarchy\n\n- Gesetz über die Ausprägung einer 1-DM-Goldmünze\n\nund die Errichtung der Stiftung \"Geld und Währung\" — 1-DM-GoldmünzG\n\nGesetz über die Ausprägung einer 1-DM-Goldmünze > § 4 {#__4}\n\n(1) Die Deutsche Bundesbank ist verpflichtet, die 1-DM-Goldmünzen zum Nennwert in Zahlung zu nehmen oder in andere gesetzliche Zahlungsmittel umzutauschen. (2) Für den Umtausch der 1-DM-Goldmünzen ab 1. Januar 2002 gilt die Bestimmung des § 1 Satz 2 des DM-Beendigungsgesetzes entsprechend.",
+   "text": "Gesetz über die Ausprägung einer 1-DM-Goldmünze\nund die Errichtung der Stiftung \"Geld und Währung\" — § 4\n\nArticle identity\n- Canonical URL: https://www.gesetze-im-internet.de/1-dm-goldm_nzg/__4.html\n- Source record: e62308af14974c68d932ce7840d006eaaf2958b979691e6e699ab3d1a5c6e133\n- Jurisdiction: Germany (federal)\n- Article anchor: __4\n- Law abbreviation: 1-DM-GoldmünzG\n- Official build date: 20260506175647\n- Promulgation date: 2000-12-27\n- Archive member: BJNR204500000.xml\n- Archive SHA-256: d898ae7eeb716fb657a436484d0a535c2035df136359cee64aa06c75a75cf563\n\nVersion and status\n- Source status: unspecified in official XML\n\nLegal hierarchy\n- Gesetz über die Ausprägung einer 1-DM-Goldmünze\n\nund die Errichtung der Stiftung \"Geld und Währung\" — 1-DM-GoldmünzG\n\n§ 4 {#__4}\n(1) Die Deutsche Bundesbank ist verpflichtet, die 1-DM-Goldmünzen zum Nennwert in Zahlung zu nehmen oder in andere gesetzliche Zahlungsmittel umzutauschen. (2) Für den Umtausch der 1-DM-Goldmünzen ab 1. Januar 2002 gilt die Bestimmung des § 1 Satz 2 des DM-Beendigungsgesetzes entsprechend.",
+   "url": "https://www.gesetze-im-internet.de/1-dm-goldm_nzg/__4.html"
+  },
+  "build_payload": {
+   "url": "https://www.gesetze-im-internet.de/1-dm-goldm_nzg/__4.html",
+   "title": "Gesetz über die Ausprägung einer 1-DM-Goldmünze\nund die Errichtung der Stiftung \"Geld und Währung\" — § 4",
+   "snippet": "Gesetz über die Ausprägung einer 1-DM-Goldmünze und die Errichtung der Stiftung \"Geld und Währung\" — § 4 Article identity - Canonical URL: https://www.gesetze-im-internet.de/1-dm-goldm_nzg/__4.",
+   "lang": "de",
+   "domain": "gesetze-im-internet.de",
+   "tier": "B",
+   "source_type": "official",
+   "trust_tier": 1.0,
+   "country": "DE",
+   "license": "GermanGov-Terms",
+   "content_digest": "6061014a5d22ab7c8480a74e012a1dc83d3878ba5f9c99e5345e3a0324365158",
+   "point_id": "b8051f0e-9f58-533c-9d51-85c27066b9d0",
+   "rule_epochs": {
+    "extract": 1,
+    "chunk": 1,
+    "embed": 1,
+    "tok": 2,
+    "country": 2,
+    "trust": 1,
+    "card": 1
+   },
+   "build_id": "aw_b1"
+  },
+  "twin_payload": null
+ },
+ "f2_html_body_only": {
+  "note": "task-472 F2-HTML: raw body, no title -- production's vector for the same point id reconstructs from the task-274 composed surface",
+  "stage_path": "<stage-root>/aw-corpus/_work/task472/f2-html-1024-embed-stage-v1/shard-0000.texts.jsonl.gz",
+  "record": {
+   "point_id": "00008a41-48c2-51a1-9e4d-8e6b1c9d4e78",
+   "text": "¸3Ð¢'³|Cô!šGùD�€l/!Í¼n(…_Zò#É(nýÊð2\tVì¼ôØ;J>QØG'Žñ€FÝ’��šÉ›´l/V”Æ'æºwÆ‹?�¯»\t2+†[äÑBgSîÉùÎ�O?à4¯,PÅ\tt%ÅðÝ,Vr¿£íWõö.úéalßY–x¨GœË,îjìí#ÜÓDŸuæ$¥aSò;´b@ó'‰Qì£‚É`Æ û°Sâ†¿ÜÜ °+KYÈ7Uùjˆ@*ÛæbìœV×É¸½QžX¬GÜvjïÅøè¬qC‡ú×.gA‚M]°›Yf9k£U«Ó#tvEï/°R¡AüÁæÁÓ¶]ÎŒõb�ì®ÒÌ\nnõ%²\\8Lñï‹J¼e´Œž>¥»É0^Y/Ù¨Æ#Zq$Ÿ3·j¿u¨³Ÿôe_|V0FêWdæmÏGžìß1·ŽòðRÎœøûÂÉÕU»¡?ä^yšRÓÛ|ÂÑ:µº†q†`Ð7x2Z×¹\n\\¯cw�“M³X¯˜™ŽJ]è\t6ÆË´I\t§\n™á~OT93|U½JÙ{AsDüÜøÑî¬¾Ç÷ñÖèÅ~].vùÄL�KRC˜M÷Ö©W/IFÞ%1$¿)+hVmHf“B--ƒã$H¿¥õ5h{äç³G×È´9%WVËž«.±J).ÇŠRyiælä()°?Í´x¸Tý„zþTÂÜ¾ d:–äÛÝ¬–$ŒßîB–¦Ê,>=Û‘.-ÁsÇØPa¨Í‘‹LËÄüÂjç†qo¦Â²³$sÉoåt\\Ê\\‹2Úßì\"w#h=3ÿAàœ¸b›q÷-N~õí)ñ!nî8=ÏLldÅÖeÕEŠŠTBx*¶>&omjÿ\\€Ñ%„<ÁkN6è;ó ±gƒKù�’³ÿ-úÒXóçí.5�_Ñ`±°n€yMewH\níÜ\n¼ðíÐ®ABÜ:fŠå';©.c]®+îýë�à\"}^»œ4Šå»5Ç+ÏHŒ\"~ê›ó¸mÿGÝªf„‰ãŽùmÉ'Í`tÖóPrÆÙ8‚éÄ��Ç—ýœ\"�<¸#&o<}ZÁÀ“Íhk%�Ð‘€e*>Cµ7wnÒç@Q:Vézq%„ô¡Ã÷C #*~�[‰{ã¡þîy´)BÐ>-hèÒ¡VO×,þ�<1›e¡Ö§Xóª[ýŒ-YèäGÙáíbÄ·F–òæq²™·„=f=DëzXõ¥–uÜÉüo¨9‘Ý3Ä–X1(Ò×hVØÑ¯b2ïÙÜ÷êæ,3ŠêZQÉZ|Ô9¨¹xÔ€'ó=¤y1¹l•s˜˜ó¼E<4.,…1\\,¼ÇA)òØÇ÷Ù\\›î¶Ìãìà7€›âL•^O¦×²7¤\\&aNBQÅQ#cÏ™Ÿ¢RkÎOŠÚ4b-Á1å{¨¤ÞíœÉÎ+�}\n³ª„|:²ÜTû]ÓqÕ¦Aà;fi¶ëû%ÁÅgS#QÖ«‘×ù¸ˆÄ„;€‡ÉoQ\nvm©!+!çØ8ã@\tËÑkÖš?¥ÉþºT|�¤”C6Ø‡?ö�àû°_Ôe(cQñJIú\"�ÛX¤´©6øt#5%NwqÖêQ¥Ì(üæodèÖ»7[!Ò.û_›¾•¼‘IÓXƒ-×¬†¢ÓB˜¹KRÃ>µ˜O9¦$ûc9#_-H™¨)wÏ¯Ø4|ErÄ”Ã�B�§Å£ô÷O?|Aœ]ÍY¾Ccƒ+É–tW…#È„ðJ_•\n\n|C†:ád“äGÀ2;`\\ã?¬³eßiq\\«&íˆš°Å#¡ËËºÛ?cýVp\"Àò4QLÔÅÏµy²"
+  },
+  "build_payload": {
+   "url": "https://www.bav.admin.ch/dam/de/sd-web/Rv0MGayBP3e7/zbms-projektierungsgrundlagen-v4-0.pdf",
+   "title": "zbms projektierungsgrundlagen v4 0",
+   "snippet": "¸3Ð¢'³|Cô!šGùD�€l/!Í¼n(…_Zò#É(nýÊð2 Vì¼ôØ;J>QØG'Žñ€FÝ’��šÉ›´l/V”Æ'æºwÆ‹?�¯» 2+†[äÑBgSîÉùÎ�O?à4¯,PÅ t%ÅðÝ,Vr¿£íWõö.úéalßY–x¨GœË,îjìí#ÜÓDŸuæ$¥aSò;´b@ó'‰Qì£‚É`Æ û°Sâ†¿ÜÜ °+KYÈ7Uùjˆ@*ÛæbìœV×É¸½QžX¬GÜvjïÅøè¬qC‡ú×.gA‚M]°›Yf9k£U«Ó#tvEï/°R¡AüÁæÁÓ¶]ÎŒõb�ì®ÒÌ nõ%²\\8Lñï‹J¼e´Œž>¥»É0^Y/Ù¨Æ#Zq$Ÿ3·j¿u¨³Ÿôe_|V0FêWdæmÏGžìß1·ŽòðRÎœøûÂÉÕU»¡?ä^yšRÓÛ|ÂÑ:µº†q†`Ð7x2Z×¹ \\¯cw�“M³X¯˜™ŽJ]è 6ÆË´I § ™á~OT93|U½JÙ{AsDüÜøÑî¬¾Ç÷ñÖèÅ~].vùÄL�KRC˜M÷Ö©W/IFÞ%1$¿)+hVmHf“B--ƒã$H¿¥õ5h{äç³G×È´9%WVËž«.±J).ÇŠRyiælä()°?Í´x¸Tý„zþTÂÜ¾ d:–äÛÝ¬–$ŒßîB–¦Ê,>=Û‘.-ÁsÇØPa¨Í‘‹LËÄüÂjç†qo¦Â²³$sÉoåt\\Ê\\‹2Úßì\"w#h=3ÿAàœ¸b›q÷-N~õí)ñ!nî8=ÏLldÅÖeÕEŠŠTBx*¶>&omjÿ\\€Ñ%„<ÁkN6è;ó ±gƒKù�’³ÿ-úÒXóçí.5�_Ñ`±°n€yMewH íÜ ¼ðíÐ®ABÜ:fŠå';©.c]®+îýë�à\"}^»œ4Šå»5Ç+ÏHŒ\"~ê›ó¸mÿGÝªf„‰ãŽùmÉ'Í`tÖóPrÆÙ8‚éÄ��Ç—ýœ\"�<¸#&o<}ZÁÀ“Íhk%�Ð‘€e*>Cµ7wnÒç@Q:Vézq%„ô¡Ã÷C #*~�[‰{ã¡þîy´)BÐ>-hèÒ¡VO×,þ�<1›e¡Ö§Xóª[ýŒ-YèäGÙáíbÄ·F–òæq²™·„=f=DëzXõ¥–uÜÉüo¨9‘Ý3Ä–X1(Ò×hVØÑ¯b2ïÙÜ÷êæ,3ŠêZQÉZ|Ô9¨¹xÔ€'ó=¤y1¹l•s˜˜ó¼E<4.,…1\\,¼ÇA)òØÇ÷Ù\\›î¶Ìãìà7€›âL•^O¦×²7¤\\&aNBQÅQ#cÏ™Ÿ¢RkÎOŠÚ4b-Á1å{¨¤ÞíœÉÎ+�} ³ª„|:²ÜTû]ÓqÕ¦Aà;fi¶ëû%ÁÅgS#QÖ«‘×ù¸ˆÄ„;€‡ÉoQ vm©!+!çØ8ã@ ËÑkÖš?¥ÉþºT|�¤”C6Ø‡?ö�àû°_Ôe(cQñJIú\"�ÛX¤´©6øt#5%NwqÖêQ¥Ì(üæodèÖ»7[!Ò.û_›¾•¼‘IÓXƒ-×¬†¢ÓB˜¹KRÃ>µ˜O9¦$ûc9#_-H™¨)wÏ¯Ø4|ErÄ”Ã�B�§Å£ô÷O?|Aœ]ÍY¾Ccƒ+É–tW…#È„ðJ_• |C†:ád“äGÀ2;`\\ã?¬³eßiq\\«&íˆš°Å#¡ËËºÛ?cýVp\"Àò4QLÔÅÏµy²",
+   "lang": "de",
+   "domain": "bav.admin.ch",
+   "tier": "B",
+   "source_type": "official",
+   "trust_tier": 0.95,
+   "last_seen": "2026-07-28",
+   "country": "CH",
+   "license": "ch-gov-open-cite",
+   "content_digest": "991bc50c0e8ef1a9e85b2f2cc1e674d0ba2e8476bd9aee8a34bc8e0cd8baf004",
+   "point_id": "00008a41-48c2-51a1-9e4d-8e6b1c9d4e78",
+   "rule_epochs": {
+    "extract": 1,
+    "chunk": 1,
+    "embed": 1,
+    "tok": 2,
+    "country": 2,
+    "trust": 1,
+    "card": 1
+   },
+   "build_id": "aw_b1",
+   "provenance": "bav_docs"
+  },
+  "twin_payload": null
+ },
+ "wiki_composed": {
+  "note": "the control: composed at stage time, and the twin's own vector reconstructs from the identical text at cos 1.0",
+  "stage_path": "<stage-root>/aw-corpus/_work/task413a/wiki-stage/shard-0000.texts.jsonl.gz",
+  "record": {
+   "point_id": "d9af9fda-4720-5669-9e2e-3f9ca99a80b4",
+   "text": "Liste von Abkürzungen (Computer). C\nC Programmiersprache C CAAD Computer Aided Architectural Design (Computergestütztes architektonisches Planen und Entwerfen) CA Certificate Authority CAD Computer-Aided Design (Computerunterstütztes Design) CAE Computer-aided engineering CAF Composite Application Framework CAM Computer-aided manufacturing CAN Controller Area Network oder Content Addressable Network CAPI Common ISDN Application Programming Interface CAPWAP Control And Provisioning of Wireless Access Points CARP Common Address Redundancy Protocol CAS Column Address Strobe: Dynamic Random Access Memory#CAS CAS Computeralgebrasystem CAT Catalog Service CAV Constant Angular Velocity CAVE Cave Automatic Virtual Environment CAW Computer-Aided Woodcut (zu Deutsch rechnerunterstützter Holzschnitt) CBO Cost Based Optimizer, kostenbasierten Optimizer für Zugriffe auf Datenbanksätze CC Carbon Copy oder Creative CommonsC Compiler CCD Charge-coupled Device CC/PP Composite Capability/Preference Profiles CCU Camera Control Unit CD Compact Disc CDATA Character Data CDC Connected Device Configuration CDE Common Desktop Environment CDMA Code Division Multiple Access CDN Content Delivery Network CD-R Compact Disc Recordable CD-ROM Compact Disc Read-Only Memory CD-RW Compact Disc ReWriteable CEPT Conférence Européenne des Administrations des Postes et des Télécommunications CET Control-flow Enforcement Technology CFML ColdFusion Markup Language CFSM Communicating Finite State Machines CGA Color Graphics Adapter CGI Common Gateway Interface CHAP Challenge Handshake Authentication Protocol CHS Cylinder/Head/Sector CICS Customer Information Control System CIDR Classless Inter-Domain Routing CIF Common Intermediate Format CIFS Common Internet File System CIM Computer-integrated manufacturing oder Common Information Model CISC Complex Instruction Set Computer CLDC Connected Limited Device Configuration CLI Call Level Interface oder Command Line Interpreter oder Common Language Infrastructure CLOB Character Large Object CLM Certificate Lifecycle Manager CLR Common Language Runtime CLTS Connectionless Transport Service, ein verbindungsloser Service, beispielsweise UDP CLV Constant Linear Velocity CM Content-Management CMD Command CMM Capability Maturity Model oder Color Management Module CMOS Complementary Metal Oxide Semiconductor (dt. Komplementärer Metall-Oxid-Halbleiter) CMS Content-Management-System CMYK Cyan Magenta Yellow Key, siehe CMYK-Farbmodell CO Callable Object COBOL Common Business Oriented Language CODASYL Conference on Data Systems Languages COM Component Object Model oder Computer on Module (Kernhardware eines Computers implementiert auf einem steckbaren Modul) COMA Cache-only-Memory-Access CORBA Common Object Request Broker Architecture COTS Connection Oriented Transport Service, ein verbindungsorientierter Service, wie beispielsweise TCP oderCommercial off-the-shelf COW Copy-On-Write, Verfahren zur Vermeidung von überflüssigen Kopien von Daten CPL Call Processing Language oder Combined Programming Language oder Common Public License CP/M Control Program/Monitor, später: Control Program for Microcomputers CPPM Content Protection for Pre-Recorded Media, Kopierschutzverfahren der DVD-Audio CPRI Common Public Radio Interface CPRM Content Protection for Recordable Media CPSL Common Pattern Specification Language CPU Central Processing Unit CPUID Central Processing Unit Identification CRC Cyclic Redundancy Check, Verfahren zur Ermittlung von Übertragungsfehlern CRE Content Relationship Engine CRL Certificate Revocation List CRM Customer-Relationship-Management CRT Cathode Ray Tube CRUD Create, Read, Update, Delete (Datenbankoperationen) CSA Common-Scrambling-Algorithmus oder Connector, Switch, Attenuator theory CSI Common System Interface CSM Compatibility Support Module CSMA/CA Carrier Sense Multiple Access/Collision Avoidance CSMA/CD Carrier Sense Multiple Access/Collision Detection CSP Communicating Sequential Processes CSS Cascading Style Sheets oder Content Scramble System CSV Character Separated Values, Comma Separated Values CTF Capture the Flag CTL Complex Text Layout CTS Clear To Send CUDA Compute Unified Device Architecture CUI Character User Interface, d. i. Zeichenorientierte Benutzerschnittstelle CUoD Capacity Upgrade on Demand CUPS Common Unix Printing System CVS Concurrent Versions System CVSS Common Vulnerability Scoring System CWM Common Warehouse Metamodel"
+  },
+  "build_payload": {
+   "url": "https://de.wikipedia.org/wiki/Liste_von_Abkürzungen_(Computer)",
+   "title": "Liste von Abkürzungen (Computer)",
+   "snippet": "C C Programmiersprache C CAAD Computer Aided Architectural Design (Computergestütztes architektonisches Planen und Entwerfen) CA Certificate Authority CAD Computer-Aided Design (Computerunterstütztes Design) CAE Computer-aided engineering…",
+   "lang": "de",
+   "domain": "de.wikipedia.org",
+   "tier": "B",
+   "source_type": "reference",
+   "trust_tier": 0.7,
+   "country": "INTL",
+   "license": "CC-BY-SA-4.0",
+   "content_digest": "1f17584110084796d813992a7d30537790cef4e07d91d7a699aed9fea7b66ca0",
+   "point_id": "4e01a210-ce9d-5e40-abdd-399837590956",
+   "rule_epochs": {
+    "extract": 1,
+    "chunk": 1,
+    "embed": 1,
+    "tok": 2,
+    "country": 2,
+    "trust": 1,
+    "card": 1
+   },
+   "build_id": "aw_b1",
+   "consent_checked_at": "2026-08-02T02:08:30Z"
+  },
+  "twin_payload": {
+   "_master": {
+    "attribution": "Wikipedia contributors",
+    "license_version": "CC BY-SA 4.0"
+   },
+   "build_id": "aw_b1",
+   "canonical_url": "https://de.wikipedia.org/wiki/Liste_von_Abkürzungen_(Computer)",
+   "chunk_header_path": "",
+   "chunk_n_words": 529,
+   "chunk_ordinal": 1,
+   "chunk_rule": "struct-md-768w-o0-adjacent-sections-tail-1152@3",
+   "chunk_unit": "adjacent_sections_part",
+   "consent_checked_at": "2026-08-02T02:08:30Z",
+   "consent_search_ok": true,
+   "consent_train_ok": true,
+   "content_digest": "51fc4d3d6deb8dfe8941e4e8c7a093114b977b5b14426ce317dc6f53f35c6a42",
+   "country": "INTL",
+   "domain": "de.wikipedia.org",
+   "extraction_rule": "wiki-wikitext-section-markdown@3",
+   "id_salt": 0,
+   "identity_anchor_component": "51fc4d3d6deb8dfe8941e4e8c7a093114b977b5b14426ce317dc6f53f35c6a42",
+   "identity_tier": "B",
+   "lang": "de",
+   "license": "CC-BY-SA-4.0",
+   "point_id": "d9af9fda-4720-5669-9e2e-3f9ca99a80b4",
+   "rule_epochs": {
+    "card": 1,
+    "chunk": 3,
+    "country": 2,
+    "embed": 1,
+    "extract": 3,
+    "tok": 2,
+    "trust": 1
+   },
+   "snippet": "C C Programmiersprache C CAAD Computer Aided Architectural Design (Computergestütztes architektonisches Planen und Entwerfen) CA Certificate Authority CAD Computer-Aided Design (Computerunterstütztes Design) CAE Computer-aided engineering…",
+   "source_type": "reference",
+   "tier": "B",
+   "title": "Liste von Abkürzungen (Computer)",
+   "trust_tier": 0.7,
+   "url": "https://de.wikipedia.org/wiki/Liste_von_Abkürzungen_(Computer)"
+  }
+ },
+ "card_website_blurb": {
+  "note": "task-467 card whose tier-1 resolution picked a website blurb over the register prose, truncated at 1,600 chars mid-officer-name",
+  "stage_path": "<stage-root>/aw-corpus/_work/task467/card-1024-embedding-stage-v1/shard-0000.texts.jsonl.gz",
+  "record": {
+   "point_id": "2a5bc752-ce61-58e7-9453-d63302b86e06",
+   "text": "Vector8 AG — Our mission is to elevate organizations by unlocking the true value of AI, getting the best from Human-Machine collaboration. Trusted by We help you grow your business by identifying and capitalizing on opportunities for innovation and revenue growth through the use of AI and automation. Our business, data and technology experts can help find the innovative idea that will ensure you beat the competition. We help you achieve efficiency and competitiveness by transforming your processes with automation and operational optimization. Our AI-driven solutions are tailored to streamline your workflows, elevate your productivity and enhance your competitive edge. We help organizations thrive in the AI era through AI transformation consulting, change management, staff training and capability building. We ensure you are future ready, today. We're Hiring Are you passionate about helping current and future leading enterprises transition to the AI era? Come and join our team. Vector8 stands as a benchmark in AI-driven solutions and transformation, distinguishing itself in a crowded AI marketplace. Here's what sets us apart: Entwicklung massgeschneiderter Softwarelösungen und Produktinnovationen; Management-, Technologie- und Prozessberatung sowie Schulungen, Forschung und Entwicklung als Dienstleistung und Handel mit Produkten auf diesen Gebieten. Die Gesellschaft kann Zweignie Registered signatories/officers: Emanuele Diquattro (von Schaffhausen, in Bülach, Mitglied des Verwaltungsrates); Marc Maret (von Val-de-Travers, in Küsnacht (ZH), Präsident des Verwaltungsrates); Ni"
+  },
+  "build_payload": {
+   "url": "https://www.vector8.com/en",
+   "title": "Vector8 AG",
+   "snippet": "Vector8 AG — Our mission is to elevate organizations by unlocking the true value of AI, getting the best from Human-Machine collaboration.",
+   "lang": "de",
+   "domain": "vector8.com",
+   "tier": "C",
+   "source_type": "entity_card",
+   "trust_tier": 0.85,
+   "last_seen": "2026-08-06",
+   "country": "CH",
+   "license": "Composite source licenses/statuses: Swiss public commercial register (Zefix/LINDAS, OGD); all-rights-reserved",
+   "content_digest": "c70b2f21f72dd664aa573af4200174e149ba3b09a184b13867b6b208545c2c71",
+   "point_id": "2a5bc752-ce61-58e7-9453-d63302b86e06",
+   "rule_epochs": {
+    "extract": 1,
+    "chunk": 1,
+    "embed": 1,
+    "tok": 2,
+    "country": 2,
+    "trust": 1,
+    "card": 1
+   },
+   "build_id": "aw_b1",
+   "register_id": "CHE-341.859.062",
+   "register_scheme": "CHE-UID",
+   "provenance": "zefix_ccjoin",
+   "entity_kind": "org"
+  },
+  "twin_payload": {
+   "title": "Vector8 AG",
+   "lang": "de",
+   "domain": "vector8.com",
+   "source_type": "entity_card",
+   "trust_tier": 0.85,
+   "last_seen": "2026-08-06",
+   "country": "CH",
+   "provenance": "zefix_ccjoin",
+   "published": "2025-12-02",
+   "search_ok": true,
+   "train_ok": false,
+   "register_id": "CHE-341.859.062",
+   "register_scheme": "CHE-UID",
+   "names": "Vector8 AG | vector8 | CHE-341.859.062 | CHE341859062 | CHE-341.859.062 MWST",
+   "entity_kind": "org",
+   "agent_policy": "unknown",
+   "founded": "2024-05-13",
+   "reg_status": "EXISTIEREND",
+   "dissolved": false,
+   "resolve_confidence": 1.0,
+   "url": "https://www.vector8.com/en",
+   "snippet": "Vector8 AG: Our mission is to elevate organizations by unlocking the true value of AI, getting the best from Human-Machine collaboration. Trusted by We help",
+   "tier": "C",
+   "license": "Composite source licenses/statuses: Swiss public commercial register (Zefix/LINDAS, OGD); all-rights-reserved",
+   "content_digest": "c70b2f21f72dd664aa573af4200174e149ba3b09a184b13867b6b208545c2c71",
+   "point_id": "2a5bc752-ce61-58e7-9453-d63302b86e06",
+   "rule_epochs": {
+    "extract": 1,
+    "chunk": 1,
+    "embed": 1,
+    "tok": 2,
+    "country": 2,
+    "trust": 1,
+    "card": 1
+   },
+   "build_id": "aw_b1",
+   "consent_state": "dump",
+   "consent_basis": "official-dump-license",
+   "consent_source": "task393 website recompose (live capture receipts, search_ok=true)",
+   "consent_checked_at": "2026-08-05T05:36:33Z",
+   "_master": {
+    "attribution": "Zefix — Federal Office of Justice, via LINDAS; Vector8 AG"
+   },
+   "bundle_digest": "83ba0daaee43c1a5e08791fe010dd24a5d6e247e0f98c7a46d68cc1b13800b16"
+  }
+ }
+}

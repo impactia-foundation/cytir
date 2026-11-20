@@ -1,0 +1,11 @@
+{
+  "schema": "aw.news-publishers.v1",
+  "note": "The ONE declaration of the news publishers the stage knows. role daily_required: every daily run needs the host to be ok/empty (the strict source boundary). role backfill_only: accepted by AW_NEWS_EXPECTED_HOSTS for a coverage backfill, never required of, and never fetched by, the daily run. arm: the staging arm the host's rows route to. Order is the order the stage has always used.",
+  "publishers": [
+    {"host": "www.swissinfo.ch", "arm": "swissinfo", "role": "daily_required"},
+    {"host": "www.srf.ch", "arm": "chmedia", "role": "daily_required"},
+    {"host": "www.rts.ch", "arm": "chmedia", "role": "daily_required"},
+    {"host": "www.rsi.ch", "arm": "chmedia", "role": "daily_required"},
+    {"host": "www.watson.ch", "arm": "chmedia", "role": "backfill_only"}
+  ]
+}

@@ -1,0 +1,363 @@
+{
+ "_about": "REAL rows read from build-box twin aw_e8 on 2026-10-05 (id retrieve + one entity_card scroll): 5 loda urls of the prepared pack fr-loda-exact-old-generation-superseded-tombstones-excl-long-articles (old = no anchor, new = anchor article:LEGIARTI...; in_pack = the id is in that pack) and 1 real entity card. Payload keys kept: url, source_type, provenance, anchor, tier, entity_kind, qid. No text.",
+ "rows": [
+  {
+   "id": "000c00c5-b948-5412-85fa-3c795719c5dd",
+   "role": "old",
+   "in_pack": true,
+   "url": "https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000043180265",
+   "family": "loda",
+   "payload": {
+    "url": "https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000043180265",
+    "tier": "B",
+    "source_type": "official",
+    "provenance": "loda"
+   }
+  },
+  {
+   "id": "102ec5e0-1c3a-59a0-8282-ad661e0ad1c3",
+   "role": "old",
+   "in_pack": true,
+   "url": "https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000043180265",
+   "family": "loda",
+   "payload": {
+    "url": "https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000043180265",
+    "tier": "B",
+    "source_type": "official",
+    "provenance": "loda"
+   }
+  },
+  {
+   "id": "2bb721cb-ccc4-5142-ba4c-d44018ec4605",
+   "role": "old",
+   "in_pack": true,
+   "url": "https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000043180265",
+   "family": "loda",
+   "payload": {
+    "url": "https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000043180265",
+    "tier": "B",
+    "source_type": "official",
+    "provenance": "loda"
+   }
+  },
+  {
+   "id": "3e678bc4-eeca-5921-996c-e1fbc9d77ff3",
+   "role": "old",
+   "in_pack": true,
+   "url": "https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000043180265",
+   "family": "loda",
+   "payload": {
+    "url": "https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000043180265",
+    "tier": "B",
+    "source_type": "official",
+    "provenance": "loda"
+   }
+  },
+  {
+   "id": "84ddfb97-1bf2-5e6f-95ca-6c8c96ca8c59",
+   "role": "old",
+   "in_pack": true,
+   "url": "https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000043180265",
+   "family": "loda",
+   "payload": {
+    "url": "https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000043180265",
+    "tier": "B",
+    "source_type": "official",
+    "provenance": "loda"
+   }
+  },
+  {
+   "id": "c4d32472-a6ae-5e43-b4fa-8631f14a5d02",
+   "role": "old",
+   "in_pack": true,
+   "url": "https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000043180265",
+   "family": "loda",
+   "payload": {
+    "url": "https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000043180265",
+    "tier": "B",
+    "source_type": "official",
+    "provenance": "loda"
+   }
+  },
+  {
+   "id": "d7581391-1e0c-5f5e-a616-d7f185a78609",
+   "role": "old",
+   "in_pack": true,
+   "url": "https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000043180265",
+   "family": "loda",
+   "payload": {
+    "url": "https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000043180265",
+    "tier": "B",
+    "source_type": "official",
+    "provenance": "loda"
+   }
+  },
+  {
+   "id": "6dad0f47-3300-57c1-9582-5f2331749342",
+   "role": "new",
+   "in_pack": false,
+   "url": "https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000043180265",
+   "family": "loda",
+   "payload": {
+    "source_type": "official",
+    "provenance": "loda",
+    "url": "https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000043180265",
+    "tier": "A",
+    "anchor": "article:LEGIARTI000043180265"
+   }
+  },
+  {
+   "id": "001234f2-d08f-5b0f-8043-b80ed3fd9a79",
+   "role": "old",
+   "in_pack": true,
+   "url": "https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000052465272",
+   "family": "loda",
+   "payload": {
+    "url": "https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000052465272",
+    "tier": "B",
+    "source_type": "official",
+    "provenance": "loda"
+   }
+  },
+  {
+   "id": "377e3271-a026-507f-a51f-533cba1a6686",
+   "role": "old",
+   "in_pack": true,
+   "url": "https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000052465272",
+   "family": "loda",
+   "payload": {
+    "url": "https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000052465272",
+    "tier": "B",
+    "source_type": "official",
+    "provenance": "loda"
+   }
+  },
+  {
+   "id": "3fb786a9-3e22-5711-a372-02284573a53d",
+   "role": "old",
+   "in_pack": true,
+   "url": "https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000052465272",
+   "family": "loda",
+   "payload": {
+    "url": "https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000052465272",
+    "tier": "B",
+    "source_type": "official",
+    "provenance": "loda"
+   }
+  },
+  {
+   "id": "42f8bae9-764b-59eb-8fe6-851fa4f88bd5",
+   "role": "old",
+   "in_pack": true,
+   "url": "https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000052465272",
+   "family": "loda",
+   "payload": {
+    "url": "https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000052465272",
+    "tier": "B",
+    "source_type": "official",
+    "provenance": "loda"
+   }
+  },
+  {
+   "id": "59b63e50-665c-533b-935f-e77872a2c2b7",
+   "role": "old",
+   "in_pack": true,
+   "url": "https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000052465272",
+   "family": "loda",
+   "payload": {
+    "url": "https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000052465272",
+    "tier": "B",
+    "source_type": "official",
+    "provenance": "loda"
+   }
+  },
+  {
+   "id": "96e9ea0f-06ee-5967-bcd0-90e3f4a60532",
+   "role": "old",
+   "in_pack": true,
+   "url": "https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000052465272",
+   "family": "loda",
+   "payload": {
+    "url": "https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000052465272",
+    "tier": "B",
+    "source_type": "official",
+    "provenance": "loda"
+   }
+  },
+  {
+   "id": "97f175f5-6989-5362-a4b5-b2810f485f68",
+   "role": "old",
+   "in_pack": true,
+   "url": "https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000052465272",
+   "family": "loda",
+   "payload": {
+    "url": "https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000052465272",
+    "tier": "B",
+    "source_type": "official",
+    "provenance": "loda"
+   }
+  },
+  {
+   "id": "b8225037-3b55-5337-b1ad-6ec16978521b",
+   "role": "old",
+   "in_pack": true,
+   "url": "https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000052465272",
+   "family": "loda",
+   "payload": {
+    "url": "https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000052465272",
+    "tier": "B",
+    "source_type": "official",
+    "provenance": "loda"
+   }
+  },
+  {
+   "id": "c144745e-0afd-5e7e-b447-e387c344965b",
+   "role": "old",
+   "in_pack": true,
+   "url": "https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000052465272",
+   "family": "loda",
+   "payload": {
+    "url": "https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000052465272",
+    "tier": "B",
+    "source_type": "official",
+    "provenance": "loda"
+   }
+  },
+  {
+   "id": "d2b1a61b-105b-5643-9892-59756c54616f",
+   "role": "old",
+   "in_pack": true,
+   "url": "https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000052465272",
+   "family": "loda",
+   "payload": {
+    "url": "https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000052465272",
+    "tier": "B",
+    "source_type": "official",
+    "provenance": "loda"
+   }
+  },
+  {
+   "id": "e70d8291-6803-5d32-9581-b833d19d2277",
+   "role": "old",
+   "in_pack": true,
+   "url": "https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000052465272",
+   "family": "loda",
+   "payload": {
+    "url": "https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000052465272",
+    "tier": "B",
+    "source_type": "official",
+    "provenance": "loda"
+   }
+  },
+  {
+   "id": "ed067e47-0080-5480-b74f-2f638f440247",
+   "role": "new",
+   "in_pack": false,
+   "url": "https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000052465272",
+   "family": "loda",
+   "payload": {
+    "source_type": "official",
+    "provenance": "loda",
+    "url": "https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000052465272",
+    "tier": "A",
+    "anchor": "article:LEGIARTI000052465272"
+   }
+  },
+  {
+   "id": "0000526c-05ad-535e-bfe0-3ff7bf3b0ae1",
+   "role": "old",
+   "in_pack": true,
+   "url": "https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000053100925",
+   "family": "loda",
+   "payload": {
+    "url": "https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000053100925",
+    "tier": "B",
+    "source_type": "official",
+    "provenance": "loda"
+   }
+  },
+  {
+   "id": "a1bee3d5-805f-5aa6-95a5-7717adcb66d4",
+   "role": "new",
+   "in_pack": false,
+   "url": "https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000053100925",
+   "family": "loda",
+   "payload": {
+    "source_type": "official",
+    "provenance": "loda",
+    "url": "https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000053100925",
+    "tier": "A",
+    "anchor": "article:LEGIARTI000053100925"
+   }
+  },
+  {
+   "id": "0000ade9-27d3-570a-858a-ddacb51167fa",
+   "role": "old",
+   "in_pack": true,
+   "url": "https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000033562045",
+   "family": "loda",
+   "payload": {
+    "url": "https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000033562045",
+    "tier": "B",
+    "source_type": "official",
+    "provenance": "loda"
+   }
+  },
+  {
+   "id": "e80625ec-fc07-5d94-9f23-303245e0e906",
+   "role": "new",
+   "in_pack": false,
+   "url": "https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000033562045",
+   "family": "loda",
+   "payload": {
+    "source_type": "official",
+    "provenance": "loda",
+    "url": "https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000033562045",
+    "tier": "A",
+    "anchor": "article:LEGIARTI000033562045"
+   }
+  },
+  {
+   "id": "0003404e-26db-5436-a85f-4a99c421673f",
+   "role": "old",
+   "in_pack": true,
+   "url": "https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000028775990",
+   "family": "loda",
+   "payload": {
+    "url": "https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000028775990",
+    "tier": "B",
+    "source_type": "official",
+    "provenance": "loda"
+   }
+  },
+  {
+   "id": "1cb1c4e2-ab50-55cc-8231-b5356e11700f",
+   "role": "new",
+   "in_pack": false,
+   "url": "https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000028775990",
+   "family": "loda",
+   "payload": {
+    "source_type": "official",
+    "provenance": "loda",
+    "url": "https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000028775990",
+    "tier": "A",
+    "anchor": "article:LEGIARTI000028775990"
+   }
+  },
+  {
+   "id": "000018fa-9a21-5498-9861-2fb8fe2aa45d",
+   "role": "card",
+   "in_pack": false,
+   "url": "https://www.waldsieversdorf.info/",
+   "family": "wikidata_de",
+   "payload": {
+    "url": "https://www.waldsieversdorf.info/",
+    "tier": "C",
+    "source_type": "entity_card",
+    "provenance": "wikidata_de",
+    "entity_kind": "org",
+    "qid": "Q585255"
+   }
+  }
+ ]
+}

@@ -1,0 +1,1552 @@
+[
+{
+"domain": "5il.co",
+"reg": "5il.co",
+"class": "gov",
+"swiss": false,
+"by_classes": [
+"disc-gov"
+],
+"why": "endorsed-by disc-gov seed(s)",
+"class_basis": "endorsed",
+"endorse_score": 10.2,
+"score": 10.2,
+"n_endorser_regs": 12,
+"n_src": 12,
+"n_regs": 12,
+"src_classes": [
+"gov"
+],
+"src_sample": [
+"arrsd.org",
+"episd.org",
+"dracutps.org",
+"shps.org",
+"jcsd1.us"
+],
+"authority": 1.0,
+"trust_tier": 0.7,
+"cap_n200": 1,
+"cap_nscope": 1,
+"max_pages": 120
+},
+{
+"domain": "aptg.co",
+"reg": "aptg.co",
+"class": "gov",
+"swiss": false,
+"by_classes": [
+"disc-gov"
+],
+"why": "endorsed-by disc-gov seed(s)",
+"class_basis": "endorsed",
+"endorse_score": 10.2,
+"score": 10.2,
+"n_endorser_regs": 12,
+"n_src": 12,
+"n_regs": 12,
+"src_classes": [
+"gov"
+],
+"src_sample": [
+"arrsd.org",
+"episd.org",
+"oneclay.net",
+"shps.org",
+"eisd.org"
+],
+"authority": 1.0,
+"trust_tier": 0.7,
+"cap_n200": 0,
+"cap_nscope": 0,
+"max_pages": 120
+},
+{
+"domain": "astradirect.de",
+"reg": "astradirect.de",
+"class": "gov",
+"swiss": false,
+"by_classes": [
+"disc-gov"
+],
+"why": "endorsed-by disc-gov seed(s)",
+"class_basis": "endorsed",
+"endorse_score": 10.2,
+"score": 10.2,
+"n_endorser_regs": 12,
+"n_src": 12,
+"n_regs": 12,
+"src_classes": [
+"gov"
+],
+"src_sample": [
+"abendschulen-marburg.de",
+"alteburg-schule.de",
+"dreissentalschule.de",
+"oberschule-langen.de",
+"igs-maifeld.de"
+],
+"authority": 1.0,
+"trust_tier": 0.7,
+"cap_n200": 29,
+"cap_nscope": 29,
+"max_pages": 120
+},
+{
+"domain": "daera-ni.gov.uk",
+"reg": "daera-ni.gov.uk",
+"class": "gov",
+"swiss": false,
+"by_classes": [
+"disc-gov"
+],
+"why": "gov TLD/keyword",
+"class_basis": "self-signal",
+"endorse_score": 10.2,
+"score": 10.2,
+"n_endorser_regs": 12,
+"n_src": 12,
+"n_regs": 12,
+"src_classes": [
+"gov"
+],
+"src_sample": [
+"economy-ni.gov.uk",
+"communities-ni.gov.uk",
+"nidirect.gov.uk",
+"afbini.gov.uk",
+"theccc.org.uk"
+],
+"authority": 1.0,
+"trust_tier": 0.85,
+"cap_n200": 3026,
+"cap_nscope": 3008,
+"max_pages": 120
+},
+{
+"domain": "comlaw.gov.au",
+"reg": "comlaw.gov.au",
+"class": "gov",
+"swiss": false,
+"by_classes": [
+"disc-edu",
+"disc-gov",
+"disc-health"
+],
+"why": "gov TLD/keyword",
+"class_basis": "self-signal",
+"endorse_score": 10.05,
+"score": 10.05,
+"n_endorser_regs": 9,
+"n_src": 12,
+"n_regs": 12,
+"src_classes": [
+"edu",
+"gov",
+"health"
+],
+"src_sample": [
+"lgbtiqhealth.org.au",
+"airservicesaustralia.com",
+"rba.gov.au",
+"aec.gov.au",
+"lant.nt.gov.au"
+],
+"authority": 1.0,
+"trust_tier": 0.85,
+"cap_n200": 0,
+"cap_nscope": 0,
+"max_pages": 120
+},
+{
+"domain": "foq.youreurope.europa.eu",
+"reg": "europa.eu",
+"class": "gov",
+"swiss": false,
+"by_classes": [
+"disc-edu",
+"disc-gov",
+"disc-health"
+],
+"why": "gov TLD/keyword",
+"class_basis": "self-signal",
+"endorse_score": 10.05,
+"score": 10.05,
+"n_endorser_regs": 9,
+"n_src": 12,
+"n_regs": 12,
+"src_classes": [
+"edu",
+"gov",
+"health"
+],
+"src_sample": [
+"ordomedic.be",
+"112.be",
+"mur.gov.it",
+"lifeindenmark.borger.dk",
+"dvi.gov.lv"
+],
+"authority": 1.0,
+"trust_tier": 0.85,
+"cap_n200": 13,
+"cap_nscope": 13,
+"max_pages": 120
+},
+{
+"domain": "www150.statcan.gc.ca",
+"reg": "gc.ca",
+"class": "gov",
+"swiss": false,
+"by_classes": [
+"disc-edu",
+"disc-gov",
+"disc-health"
+],
+"why": "gov TLD/keyword",
+"class_basis": "self-signal",
+"endorse_score": 9.8,
+"score": 9.8,
+"n_endorser_regs": 4,
+"n_src": 12,
+"n_regs": 12,
+"src_classes": [
+"edu",
+"gov",
+"health"
+],
+"src_sample": [
+"lmic-cimt.ca",
+"educanada.ca",
+"cphrmb.ca",
+"csls.ca",
+"kidsnewtocanada.ca"
+],
+"authority": 1.0,
+"trust_tier": 0.85,
+"cap_n200": 18066,
+"cap_nscope": 18061,
+"max_pages": 120
+},
+{
+"domain": "cao.go.jp",
+"reg": "go.jp",
+"class": "gov",
+"swiss": false,
+"by_classes": [
+"disc-edu",
+"disc-gov",
+"disc-health"
+],
+"why": "gov TLD/keyword",
+"class_basis": "self-signal",
+"endorse_score": 9.65,
+"score": 9.65,
+"n_endorser_regs": 1,
+"n_src": 12,
+"n_regs": 12,
+"src_classes": [
+"edu",
+"gov",
+"health"
+],
+"src_sample": [
+"ja.wikinews.org",
+"city.sapporo.jp",
+"gcgh.grandchallenges.org",
+"magazine.d-money.jp",
+"pagetaka.hatenablog.jp"
+],
+"authority": 1.0,
+"trust_tier": 0.85,
+"cap_n200": 1099,
+"cap_nscope": 28,
+"max_pages": 120
+},
+{
+"domain": "www3.epa.gov",
+"reg": "epa.gov",
+"class": "gov",
+"swiss": false,
+"by_classes": [
+"disc-gov",
+"disc-health",
+"disc-tech"
+],
+"why": "gov TLD/keyword",
+"class_basis": "self-signal",
+"endorse_score": 9.3,
+"score": 9.3,
+"n_endorser_regs": 4,
+"n_src": 12,
+"n_regs": 12,
+"src_classes": [
+"gov",
+"health",
+"tech"
+],
+"src_sample": [
+"energyeducation.ca",
+"niskanencenter.org",
+"americancompass.org",
+"slagcement.org",
+"hippo.com"
+],
+"authority": 1.0,
+"trust_tier": 0.85,
+"cap_n200": 384,
+"cap_nscope": 381,
+"max_pages": 120
+},
+{
+"domain": "www1.nyc.gov",
+"reg": "nyc.gov",
+"class": "gov",
+"swiss": false,
+"by_classes": [
+"disc-gov",
+"disc-health",
+"disc-tech"
+],
+"why": "gov TLD/keyword",
+"class_basis": "self-signal",
+"endorse_score": 9.25,
+"score": 9.25,
+"n_endorser_regs": 3,
+"n_src": 12,
+"n_regs": 12,
+"src_classes": [
+"gov",
+"health",
+"tech"
+],
+"src_sample": [
+"servicetitan.com",
+"landley.net",
+"bayareabicyclelaw.com",
+"citibikenyc.com",
+"hustle.com"
+],
+"authority": 1.0,
+"trust_tier": 0.85,
+"cap_n200": 163,
+"cap_nscope": 159,
+"max_pages": 120
+},
+{
+"domain": "cuny.edu",
+"reg": "cuny.edu",
+"class": "edu",
+"swiss": false,
+"by_classes": [
+"disc-edu",
+"disc-gov",
+"disc-health"
+],
+"why": "edu/research keyword",
+"class_basis": "self-signal",
+"endorse_score": 9.85,
+"score": 8.865,
+"n_endorser_regs": 6,
+"n_src": 12,
+"n_regs": 12,
+"src_classes": [
+"edu",
+"gov",
+"health"
+],
+"src_sample": [
+"ny.gov",
+"2023.programming-conference.org",
+"ccdaily.com",
+"the-job.beehiiv.com",
+"benkallos.com"
+],
+"authority": 0.9,
+"trust_tier": 0.8,
+"cap_n200": 0,
+"cap_nscope": 0,
+"max_pages": 120
+},
+{
+"domain": "saxion.edu",
+"reg": "saxion.edu",
+"class": "edu",
+"swiss": false,
+"by_classes": [
+"disc-edu",
+"disc-gov",
+"disc-ref"
+],
+"why": "edu/research keyword",
+"class_basis": "self-signal",
+"endorse_score": 9.85,
+"score": 8.865,
+"n_endorser_regs": 5,
+"n_src": 12,
+"n_regs": 12,
+"src_classes": [
+"edu",
+"gov",
+"ref"
+],
+"src_sample": [
+"auswahlgrenzen.de",
+"studieren-in-holland.de",
+"sefi.be",
+"studyinnl.org",
+"laval-virtual.com"
+],
+"authority": 0.9,
+"trust_tier": 0.8,
+"cap_n200": 301,
+"cap_nscope": 296,
+"max_pages": 120
+},
+{
+"domain": "www8.cao.go.jp",
+"reg": "go.jp",
+"class": "gov",
+"swiss": false,
+"by_classes": [
+"disc-edu",
+"disc-gov",
+"disc-health",
+"disc-tech"
+],
+"why": "gov TLD/keyword",
+"class_basis": "self-signal",
+"endorse_score": 8.85,
+"score": 8.85,
+"n_endorser_regs": 3,
+"n_src": 12,
+"n_regs": 11,
+"src_classes": [
+"edu",
+"gov",
+"health",
+"tech"
+],
+"src_sample": [
+"international.canada.ca",
+"os.helmholtz.de",
+"pref.aichi.jp",
+"city.sapporo.jp",
+"city.sasebo.lg.jp"
+],
+"authority": 1.0,
+"trust_tier": 0.85,
+"cap_n200": 1840,
+"cap_nscope": 31,
+"max_pages": 120
+},
+{
+"domain": "odu.edu",
+"reg": "odu.edu",
+"class": "edu",
+"swiss": false,
+"by_classes": [
+"disc-edu",
+"disc-gov",
+"disc-health"
+],
+"why": "edu/research keyword",
+"class_basis": "self-signal",
+"endorse_score": 9.75,
+"score": 8.775,
+"n_endorser_regs": 8,
+"n_src": 12,
+"n_regs": 12,
+"src_classes": [
+"edu",
+"gov",
+"health"
+],
+"src_sample": [
+"kwallcompany.com",
+"iste.org",
+"ojed.org",
+"cs.stonybrook.edu",
+"scs.org"
+],
+"authority": 0.9,
+"trust_tier": 0.8,
+"cap_n200": 2875,
+"cap_nscope": 2852,
+"max_pages": 120
+},
+{
+"domain": "www2.le.ac.uk",
+"reg": "le.ac.uk",
+"class": "edu",
+"swiss": false,
+"by_classes": [
+"disc-edu",
+"disc-gov",
+"disc-health",
+"disc-ref"
+],
+"why": "edu/research keyword",
+"class_basis": "self-signal",
+"endorse_score": 9.7,
+"score": 8.73,
+"n_endorser_regs": 7,
+"n_src": 12,
+"n_regs": 12,
+"src_classes": [
+"edu",
+"gov",
+"health",
+"ref"
+],
+"src_sample": [
+"homepages.inf.ed.ac.uk",
+"ukcdr.org.uk",
+"oxford-aiethics.ox.ac.uk",
+"ccr.ica.coop",
+"gearingroles.eu"
+],
+"authority": 0.9,
+"trust_tier": 0.8,
+"cap_n200": 0,
+"cap_nscope": 0,
+"max_pages": 120
+},
+{
+"domain": "www1.cs.columbia.edu",
+"reg": "columbia.edu",
+"class": "edu",
+"swiss": false,
+"by_classes": [
+"disc-edu",
+"disc-gov",
+"disc-health"
+],
+"why": "edu/research keyword",
+"class_basis": "self-signal",
+"endorse_score": 9.65,
+"score": 8.685,
+"n_endorser_regs": 8,
+"n_src": 12,
+"n_regs": 12,
+"src_classes": [
+"edu",
+"gov",
+"health"
+],
+"src_sample": [
+"isca-speech.org",
+"en.wikiversity.org",
+"sigsac.org",
+"aclweb.org",
+"cs.cornell.edu"
+],
+"authority": 0.9,
+"trust_tier": 0.8,
+"cap_n200": 5,
+"cap_nscope": 5,
+"max_pages": 120
+},
+{
+"domain": "www4.ncsu.edu",
+"reg": "ncsu.edu",
+"class": "edu",
+"swiss": false,
+"by_classes": [
+"disc-edu",
+"disc-gov",
+"disc-health",
+"disc-ref"
+],
+"why": "edu/research keyword",
+"class_basis": "self-signal",
+"endorse_score": 9.65,
+"score": 8.685,
+"n_endorser_regs": 7,
+"n_src": 12,
+"n_regs": 12,
+"src_classes": [
+"edu",
+"gov",
+"health",
+"ref"
+],
+"src_sample": [
+"sites.telfer.uottawa.ca",
+"www-sop.inria.fr",
+"chebucto.ns.ca",
+"gci.org.uk",
+"popsci.com"
+],
+"authority": 0.9,
+"trust_tier": 0.8,
+"cap_n200": 0,
+"cap_nscope": 0,
+"max_pages": 120
+},
+{
+"domain": "21tian.net",
+"reg": "21tian.net",
+"class": "edu",
+"swiss": false,
+"by_classes": [
+"disc-edu"
+],
+"why": "endorsed-by disc-edu seed(s)",
+"class_basis": "endorsed",
+"endorse_score": 9.6,
+"score": 8.64,
+"n_endorser_regs": 12,
+"n_src": 12,
+"n_regs": 12,
+"src_classes": [
+"edu"
+],
+"src_sample": [
+"personaljournal.ca",
+"kaeuchi.jp",
+"te.legra.ph",
+"elektroenergetika.si",
+"simplexthailand.com"
+],
+"authority": 0.9,
+"trust_tier": 0.7,
+"cap_n200": 3156,
+"cap_nscope": 4,
+"max_pages": 120
+},
+{
+"domain": "aesvik.com",
+"reg": "aesvik.com",
+"class": "edu",
+"swiss": false,
+"by_classes": [
+"disc-edu"
+],
+"why": "endorsed-by disc-edu seed(s)",
+"class_basis": "endorsed",
+"endorse_score": 9.6,
+"score": 8.64,
+"n_endorser_regs": 12,
+"n_src": 12,
+"n_regs": 12,
+"src_classes": [
+"edu"
+],
+"src_sample": [
+"ancomunn.co.uk",
+"ww.w.locking-stumps.co.uk",
+"kingsley.idehen.net",
+"rs.rikkyo.ac.jp",
+"drugs.ie"
+],
+"authority": 0.9,
+"trust_tier": 0.7,
+"cap_n200": 57,
+"cap_nscope": 57,
+"max_pages": 120
+},
+{
+"domain": "altavest.no",
+"reg": "altavest.no",
+"class": "edu",
+"swiss": false,
+"by_classes": [
+"disc-edu"
+],
+"why": "endorsed-by disc-edu seed(s)",
+"class_basis": "endorsed",
+"endorse_score": 9.6,
+"score": 8.64,
+"n_endorser_regs": 12,
+"n_src": 12,
+"n_regs": 12,
+"src_classes": [
+"edu"
+],
+"src_sample": [
+"peikko.fr",
+"peikko.de",
+"peikko.it",
+"peikko.com.hr",
+"peikko.kr"
+],
+"authority": 0.9,
+"trust_tier": 0.7,
+"cap_n200": 0,
+"cap_nscope": 0,
+"max_pages": 120
+},
+{
+"domain": "www2.warwick.ac.uk",
+"reg": "warwick.ac.uk",
+"class": "edu",
+"swiss": false,
+"by_classes": [
+"disc-edu",
+"disc-gov",
+"disc-health",
+"disc-ref",
+"disc-tech"
+],
+"why": "edu/research keyword",
+"class_basis": "self-signal",
+"endorse_score": 9.6,
+"score": 8.64,
+"n_endorser_regs": 6,
+"n_src": 12,
+"n_regs": 12,
+"src_classes": [
+"edu",
+"gov",
+"health",
+"ref",
+"tech"
+],
+"src_sample": [
+"doku.iab.de",
+"math.mcgill.ca",
+"studieren-weltweit.de",
+"pro.univ-lille.fr",
+"math.uni-hamburg.de"
+],
+"authority": 0.9,
+"trust_tier": 0.8,
+"cap_n200": 0,
+"cap_nscope": 0,
+"max_pages": 120
+},
+{
+"domain": "www3.nd.edu",
+"reg": "nd.edu",
+"class": "edu",
+"swiss": false,
+"by_classes": [
+"disc-edu",
+"disc-gov",
+"disc-tech"
+],
+"why": "edu/research keyword",
+"class_basis": "self-signal",
+"endorse_score": 9.55,
+"score": 8.595,
+"n_endorser_regs": 10,
+"n_src": 12,
+"n_regs": 12,
+"src_classes": [
+"edu",
+"gov",
+"tech"
+],
+"src_sample": [
+"math.mcgill.ca",
+"niskanencenter.org",
+"tsapps.nist.gov",
+"robots.law.miami.edu",
+"aquinas-in-english.neocities.org"
+],
+"authority": 0.9,
+"trust_tier": 0.8,
+"cap_n200": 0,
+"cap_nscope": 0,
+"max_pages": 120
+},
+{
+"domain": "isca-archive.org",
+"reg": "isca-archive.org",
+"class": "ref",
+"swiss": false,
+"by_classes": [
+"disc-edu",
+"disc-gov",
+"disc-health"
+],
+"why": "reference/library/registry keyword",
+"class_basis": "self-signal",
+"endorse_score": 9.7,
+"score": 8.245,
+"n_endorser_regs": 12,
+"n_src": 12,
+"n_regs": 12,
+"src_classes": [
+"edu",
+"gov",
+"health"
+],
+"src_sample": [
+"individual.utoronto.ca",
+"coli.uni-saarland.de",
+"disi.unitn.it",
+"isca-speech.org",
+"ai4health.io"
+],
+"authority": 0.85,
+"trust_tier": 0.78,
+"cap_n200": 3837,
+"cap_nscope": 3837,
+"max_pages": 120
+},
+{
+"domain": "myconcertarchive.com",
+"reg": "myconcertarchive.com",
+"class": "ref",
+"swiss": false,
+"by_classes": [
+"disc-edu",
+"disc-gov",
+"disc-health"
+],
+"why": "reference/library/registry keyword",
+"class_basis": "self-signal",
+"endorse_score": 9.65,
+"score": 8.203,
+"n_endorser_regs": 12,
+"n_src": 12,
+"n_regs": 12,
+"src_classes": [
+"edu",
+"gov",
+"health"
+],
+"src_sample": [
+"personaljournal.ca",
+"macuisineturque.fr",
+"jobboard.piasd.org",
+"worldchampmambo.com",
+"youyooz.com"
+],
+"authority": 0.85,
+"trust_tier": 0.78,
+"cap_n200": 14796,
+"cap_nscope": 14726,
+"max_pages": 120
+},
+{
+"domain": "us17.campaign-archive.com",
+"reg": "campaign-archive.com",
+"class": "ref",
+"swiss": false,
+"by_classes": [
+"disc-edu",
+"disc-gov",
+"disc-health",
+"disc-other"
+],
+"why": "reference/library/registry keyword",
+"class_basis": "self-signal",
+"endorse_score": 9.5,
+"score": 8.075,
+"n_endorser_regs": 12,
+"n_src": 12,
+"n_regs": 12,
+"src_classes": [
+"edu",
+"gov",
+"health",
+"other"
+],
+"src_sample": [
+"schweizeralpkaese.ch",
+"iale.de",
+"cahs-acss.ca",
+"celat.ca",
+"ashrae.uk"
+],
+"authority": 0.85,
+"trust_tier": 0.78,
+"cap_n200": 0,
+"cap_nscope": 0,
+"max_pages": 120
+},
+{
+"domain": "www4.in.tum.de",
+"reg": "tum.de",
+"class": "edu",
+"swiss": false,
+"by_classes": [
+"disc-edu"
+],
+"why": "endorsed-by disc-edu seed(s)",
+"class_basis": "endorsed",
+"endorse_score": 8.8,
+"score": 7.92,
+"n_endorser_regs": 11,
+"n_src": 11,
+"n_regs": 11,
+"src_classes": [
+"edu"
+],
+"src_sample": [
+"stefan-marr.de",
+"fmics.inria.fr",
+"kauers.de",
+"tcs.ifi.lmu.de",
+"cs.ru.nl"
+],
+"authority": 0.9,
+"trust_tier": 0.7,
+"cap_n200": 0,
+"cap_nscope": 0,
+"max_pages": 120
+},
+{
+"domain": "forms.mkrf.ru",
+"reg": "mkrf.ru",
+"class": "ref",
+"swiss": false,
+"by_classes": [
+"disc-ref"
+],
+"why": "endorsed-by disc-ref seed(s)",
+"class_basis": "endorsed",
+"endorse_score": 9.0,
+"score": 7.65,
+"n_endorser_regs": 12,
+"n_src": 12,
+"n_regs": 12,
+"src_classes": [
+"ref"
+],
+"src_sample": [
+"pushkinland.ru",
+"muzeimayakovskogo.ru",
+"comk.ru",
+"domrz.ru",
+"rostmuseum.ru"
+],
+"authority": 0.85,
+"trust_tier": 0.7,
+"cap_n200": 0,
+"cap_nscope": 0,
+"max_pages": 120
+},
+{
+"domain": "grants.culture.ru",
+"reg": "culture.ru",
+"class": "ref",
+"swiss": false,
+"by_classes": [
+"disc-ref"
+],
+"why": "endorsed-by disc-ref seed(s)",
+"class_basis": "endorsed",
+"endorse_score": 9.0,
+"score": 7.65,
+"n_endorser_regs": 12,
+"n_src": 12,
+"n_regs": 12,
+"src_classes": [
+"ref"
+],
+"src_sample": [
+"muar.ru",
+"pushkinland.ru",
+"mosconsv.ru",
+"tchaikovsky.house",
+"comk.ru"
+],
+"authority": 0.85,
+"trust_tier": 0.7,
+"cap_n200": 81,
+"cap_nscope": 0,
+"max_pages": 120
+},
+{
+"domain": "mkrf.ru",
+"reg": "mkrf.ru",
+"class": "ref",
+"swiss": false,
+"by_classes": [
+"disc-ref"
+],
+"why": "endorsed-by disc-ref seed(s)",
+"class_basis": "endorsed",
+"endorse_score": 9.0,
+"score": 7.65,
+"n_endorser_regs": 12,
+"n_src": 12,
+"n_regs": 12,
+"src_classes": [
+"ref"
+],
+"src_sample": [
+"pushkinland.ru",
+"mosconsv.ru",
+"pushkinmuseum.art",
+"sevmuseum.ru",
+"rostmuseum.ru"
+],
+"authority": 0.85,
+"trust_tier": 0.7,
+"cap_n200": 0,
+"cap_nscope": 0,
+"max_pages": 120
+},
+{
+"domain": "londmathsoc.onlinelibrary.wiley.com",
+"reg": "wiley.com",
+"class": "edu",
+"swiss": false,
+"by_classes": [
+"disc-edu",
+"disc-tech"
+],
+"why": "endorsed-by disc-edu seed(s)",
+"class_basis": "endorsed",
+"endorse_score": 7.9,
+"score": 7.11,
+"n_endorser_regs": 9,
+"n_src": 10,
+"n_regs": 10,
+"src_classes": [
+"edu",
+"tech"
+],
+"src_sample": [
+"math.mcgill.ca",
+"imo.universite-paris-saclay.fr",
+"paperswelove.org",
+"lms.ac.uk",
+"web.stanford.edu"
+],
+"authority": 0.9,
+"trust_tier": 0.7,
+"cap_n200": 0,
+"cap_nscope": 0,
+"max_pages": 120
+},
+{
+"domain": "www23.statcan.gc.ca",
+"reg": "gc.ca",
+"class": "gov",
+"swiss": false,
+"by_classes": [
+"disc-gov",
+"disc-health",
+"disc-tech"
+],
+"why": "gov TLD/keyword",
+"class_basis": "self-signal",
+"endorse_score": 5.75,
+"score": 5.75,
+"n_endorser_regs": 5,
+"n_src": 7,
+"n_regs": 7,
+"src_classes": [
+"gov",
+"health",
+"tech"
+],
+"src_sample": [
+"lmic-cimt.ca",
+"educanada.ca",
+"kidsnewtocanada.ca",
+"prenticeinstitute.ca",
+"datalibre.ca"
+],
+"authority": 1.0,
+"trust_tier": 0.85,
+"cap_n200": 25254,
+"cap_nscope": 25240,
+"max_pages": 120
+},
+{
+"domain": "www2018.thewebconf.org",
+"reg": "thewebconf.org",
+"class": "gov",
+"swiss": false,
+"by_classes": [
+"disc-edu",
+"disc-gov",
+"disc-other"
+],
+"why": "endorsed-by disc-gov seed(s)",
+"class_basis": "endorsed",
+"endorse_score": 5.25,
+"score": 5.25,
+"n_endorser_regs": 1,
+"n_src": 7,
+"n_regs": 7,
+"src_classes": [
+"edu",
+"gov",
+"other"
+],
+"src_sample": [
+"homepages.inf.ed.ac.uk",
+"cis.upenn.edu",
+"people.mpi-sws.org",
+"webdiis.unizar.es",
+"suchanek.name"
+],
+"authority": 1.0,
+"trust_tier": 0.6,
+"cap_n200": 0,
+"cap_nscope": 0,
+"max_pages": 120
+},
+{
+"domain": "ietresearch.onlinelibrary.wiley.com",
+"reg": "wiley.com",
+"class": "edu",
+"swiss": false,
+"by_classes": [
+"disc-edu"
+],
+"why": "endorsed-by disc-edu seed(s)",
+"class_basis": "endorsed",
+"endorse_score": 5.6,
+"score": 5.04,
+"n_endorser_regs": 7,
+"n_src": 7,
+"n_regs": 7,
+"src_classes": [
+"edu"
+],
+"src_sample": [
+"cse.yorku.ca",
+"research.monash.edu",
+"staff.fnwi.uva.nl",
+"msc-les.org",
+"cse.psu.edu"
+],
+"authority": 0.9,
+"trust_tier": 0.7,
+"cap_n200": 0,
+"cap_nscope": 0,
+"max_pages": 120
+},
+{
+"domain": "asistdl.onlinelibrary.wiley.com",
+"reg": "wiley.com",
+"class": "gov",
+"swiss": false,
+"by_classes": [
+"disc-edu",
+"disc-gov",
+"disc-tech"
+],
+"why": "endorsed-by disc-gov seed(s)",
+"class_basis": "endorsed",
+"endorse_score": 4.75,
+"score": 4.75,
+"n_endorser_regs": 1,
+"n_src": 6,
+"n_regs": 6,
+"src_classes": [
+"edu",
+"gov",
+"tech"
+],
+"src_sample": [
+"nintil.com",
+"bibliothecae.unibo.it",
+"globalsouth.org",
+"openwebsearch.eu",
+"wp.comminfo.rutgers.edu"
+],
+"authority": 1.0,
+"trust_tier": 0.6,
+"cap_n200": 0,
+"cap_nscope": 0,
+"max_pages": 120
+},
+{
+"domain": "www2.informatik.uni-freiburg.de",
+"reg": "uni-freiburg.de",
+"class": "edu",
+"swiss": false,
+"by_classes": [
+"disc-edu",
+"disc-health"
+],
+"why": "edu/research keyword",
+"class_basis": "self-signal",
+"endorse_score": 4.8,
+"score": 4.32,
+"n_endorser_regs": 5,
+"n_src": 6,
+"n_regs": 6,
+"src_classes": [
+"edu",
+"health"
+],
+"src_sample": [
+"uzh-rpg.github.io",
+"2015.ecoop.org",
+"jonbarron.info",
+"eurai.org",
+"sat2019.tecnico.ulisboa.pt"
+],
+"authority": 0.9,
+"trust_tier": 0.8,
+"cap_n200": 0,
+"cap_nscope": 0,
+"max_pages": 120
+},
+{
+"domain": "www2.epa.gov",
+"reg": "epa.gov",
+"class": "gov",
+"swiss": false,
+"by_classes": [
+"disc-edu",
+"disc-gov",
+"disc-tech"
+],
+"why": "gov TLD/keyword",
+"class_basis": "self-signal",
+"endorse_score": 4.05,
+"score": 4.05,
+"n_endorser_regs": 3,
+"n_src": 5,
+"n_regs": 5,
+"src_classes": [
+"edu",
+"gov",
+"tech"
+],
+"src_sample": [
+"energyeducation.ca",
+"noaa.gov",
+"deq.louisiana.gov",
+"dep.wv.gov",
+"nchh.pointclick.net"
+],
+"authority": 1.0,
+"trust_tier": 0.85,
+"cap_n200": 0,
+"cap_nscope": 0,
+"max_pages": 120
+},
+{
+"domain": "www2019.thewebconf.org",
+"reg": "thewebconf.org",
+"class": "gov",
+"swiss": false,
+"by_classes": [
+"disc-edu",
+"disc-gov"
+],
+"why": "endorsed-by disc-gov seed(s)",
+"class_basis": "endorsed",
+"endorse_score": 4.05,
+"score": 4.05,
+"n_endorser_regs": 1,
+"n_src": 5,
+"n_regs": 5,
+"src_classes": [
+"edu",
+"gov"
+],
+"src_sample": [
+"security.googleblog.com",
+"cs.vassar.edu",
+"webdiis.unizar.es",
+"w4a.info",
+"cgi.di.uoa.gr"
+],
+"authority": 1.0,
+"trust_tier": 0.6,
+"cap_n200": 0,
+"cap_nscope": 0,
+"max_pages": 120
+},
+{
+"domain": "ieeetv.ieee.org",
+"reg": "ieee.org",
+"class": "edu",
+"swiss": false,
+"by_classes": [
+"disc-edu",
+"disc-other"
+],
+"why": "endorsed-by disc-edu seed(s)",
+"class_basis": "endorsed",
+"endorse_score": 4.4,
+"score": 3.96,
+"n_endorser_regs": 5,
+"n_src": 6,
+"n_regs": 6,
+"src_classes": [
+"edu",
+"other"
+],
+"src_sample": [
+"web.media.mit.edu",
+"isscc.org",
+"rogerclarke.com",
+"cgi.cse.unsw.edu.au",
+"2026.ieee-icra.org"
+],
+"authority": 0.9,
+"trust_tier": 0.693,
+"cap_n200": 1692,
+"cap_nscope": 1650,
+"max_pages": 120
+},
+{
+"domain": "informatik.uni-freiburg.de",
+"reg": "uni-freiburg.de",
+"class": "edu",
+"swiss": false,
+"by_classes": [
+"disc-edu",
+"disc-other"
+],
+"why": "edu/research keyword",
+"class_basis": "self-signal",
+"endorse_score": 4.4,
+"score": 3.96,
+"n_endorser_regs": 5,
+"n_src": 6,
+"n_regs": 6,
+"src_classes": [
+"edu",
+"other"
+],
+"src_sample": [
+"informatik.uni-leipzig.de",
+"profs.sci.univr.it",
+"acm-stoc.org",
+"fmv.jku.at",
+"webdiis.unizar.es"
+],
+"authority": 0.9,
+"trust_tier": 0.8,
+"cap_n200": 0,
+"cap_nscope": 0,
+"max_pages": 120
+},
+{
+"domain": "www12.statcan.gc.ca",
+"reg": "gc.ca",
+"class": "gov",
+"swiss": false,
+"by_classes": [
+"disc-edu",
+"disc-other",
+"disc-tech"
+],
+"why": "gov TLD/keyword",
+"class_basis": "self-signal",
+"endorse_score": 3.8,
+"score": 3.8,
+"n_endorser_regs": 6,
+"n_src": 6,
+"n_regs": 6,
+"src_classes": [
+"edu",
+"other",
+"tech"
+],
+"src_sample": [
+"datalibre.ca",
+"homelesshub.ca",
+"tellingstorieswithdata.com",
+"mapzen.com",
+"blog.popdata.org"
+],
+"authority": 1.0,
+"trust_tier": 0.85,
+"cap_n200": 24959,
+"cap_nscope": 24959,
+"max_pages": 120
+},
+{
+"domain": "www2002.org",
+"reg": "www2002.org",
+"class": "edu",
+"swiss": false,
+"by_classes": [
+"disc-edu",
+"disc-other"
+],
+"why": "endorsed-by disc-edu seed(s)",
+"class_basis": "endorsed",
+"endorse_score": 4.0,
+"score": 3.6,
+"n_endorser_regs": 4,
+"n_src": 6,
+"n_regs": 6,
+"src_classes": [
+"edu",
+"other"
+],
+"src_sample": [
+"markbaker.ca",
+"webcorp.org.uk",
+"dlib.org",
+"it.uu.se",
+"ftp.math.utah.edu"
+],
+"authority": 0.9,
+"trust_tier": 0.68,
+"cap_n200": 0,
+"cap_nscope": 0,
+"max_pages": 120
+},
+{
+"domain": "www14.in.tum.de",
+"reg": "tum.de",
+"class": "edu",
+"swiss": false,
+"by_classes": [
+"disc-edu"
+],
+"why": "endorsed-by disc-edu seed(s)",
+"class_basis": "endorsed",
+"endorse_score": 4.0,
+"score": 3.6,
+"n_endorser_regs": 5,
+"n_src": 5,
+"n_regs": 5,
+"src_classes": [
+"edu"
+],
+"src_sample": [
+"informatik.tu-muenchen.de",
+"ac.informatik.uni-freiburg.de",
+"dcs.warwick.ac.uk",
+"illc.uva.nl",
+"eatcs.org"
+],
+"authority": 0.9,
+"trust_tier": 0.693,
+"cap_n200": 44,
+"cap_nscope": 43,
+"max_pages": 120
+},
+{
+"domain": "faseb.onlinelibrary.wiley.com",
+"reg": "wiley.com",
+"class": "edu",
+"swiss": false,
+"by_classes": [
+"disc-edu",
+"disc-tech"
+],
+"why": "endorsed-by disc-edu seed(s)",
+"class_basis": "endorsed",
+"endorse_score": 3.9,
+"score": 3.51,
+"n_endorser_regs": 4,
+"n_src": 5,
+"n_regs": 5,
+"src_classes": [
+"edu",
+"tech"
+],
+"src_sample": [
+"nintil.com",
+"seas.gwu.edu",
+"longevity.technology",
+"research-signals.com",
+"themeta.news"
+],
+"authority": 0.9,
+"trust_tier": 0.68,
+"cap_n200": 0,
+"cap_nscope": 0,
+"max_pages": 120
+},
+{
+"domain": "www2026.thewebconf.org",
+"reg": "thewebconf.org",
+"class": "edu",
+"swiss": false,
+"by_classes": [
+"disc-edu",
+"disc-other"
+],
+"why": "endorsed-by disc-edu seed(s)",
+"class_basis": "endorsed",
+"endorse_score": 3.2,
+"score": 2.88,
+"n_endorser_regs": 3,
+"n_src": 6,
+"n_regs": 5,
+"src_classes": [
+"edu",
+"other"
+],
+"src_sample": [
+"cseweb.ucsd.edu",
+"webdiis.unizar.es",
+"iw3c2.org",
+"w4a.info",
+"sysnet.ucsd.edu"
+],
+"authority": 0.9,
+"trust_tier": 0.663,
+"cap_n200": 5,
+"cap_nscope": 5,
+"max_pages": 120
+},
+{
+"domain": "www10.org",
+"reg": "www10.org",
+"class": "edu",
+"swiss": false,
+"by_classes": [
+"disc-edu",
+"disc-other"
+],
+"why": "endorsed-by disc-edu seed(s)",
+"class_basis": "endorsed",
+"endorse_score": 3.2,
+"score": 2.88,
+"n_endorser_regs": 3,
+"n_src": 5,
+"n_regs": 5,
+"src_classes": [
+"edu",
+"other"
+],
+"src_sample": [
+"ukoln.ac.uk",
+"math.unipd.it",
+"scripting.com",
+"grouplens.org",
+"philip.greenspun.com"
+],
+"authority": 0.9,
+"trust_tier": 0.663,
+"cap_n200": 0,
+"cap_nscope": 0,
+"max_pages": 120
+},
+{
+"domain": "www2006.org",
+"reg": "www2006.org",
+"class": "edu",
+"swiss": false,
+"by_classes": [
+"disc-edu",
+"disc-other"
+],
+"why": "endorsed-by disc-edu seed(s)",
+"class_basis": "endorsed",
+"endorse_score": 3.2,
+"score": 2.88,
+"n_endorser_regs": 3,
+"n_src": 5,
+"n_regs": 5,
+"src_classes": [
+"edu",
+"other"
+],
+"src_sample": [
+"markbaker.ca",
+"ukoln.ac.uk",
+"loa-cnr.it",
+"jacek.cz",
+"cgi.di.uoa.gr"
+],
+"authority": 0.9,
+"trust_tier": 0.663,
+"cap_n200": 0,
+"cap_nscope": 0,
+"max_pages": 120
+}
+]

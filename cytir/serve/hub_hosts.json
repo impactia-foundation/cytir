@@ -1,0 +1,126 @@
+{
+ "_comment": "AW_HUBFLOOR host-hubness table. Built read-only from twin aw_v4_sat domain facet by the hub-table builder script. hosts: the large location-bound gov/official/central-bank/gov-stat AUTHORITY hubs (df>=25000) that ride rel_core+trust onto generic general-intent queries (the measured class-C floods: canada.ca/laws-lois/federalreserve/eur-lex/ec.europa). reference(wikipedia)/academic(pubmed,arxiv)/INTL-tech(w3,rfc,ietf,...) EXCLUDED by class (spec sec4 Q4: wikipedia is often the RIGHT answer). hubness = normalized log-df in [.5,1]; DF_MIN gates membership. The distinctiveness discriminator is serving-side title-centrality (ADR-031), not a shipped token table.",
+ "min_df": 25000,
+ "n_hosts": 17,
+ "hosts": {
+  "legifrance.gouv.fr": {
+   "hubness": 1.0,
+   "df": 499302,
+   "source_type": "official",
+   "trust_tier": 1.0,
+   "country": "FR"
+  },
+  "swisstopo.admin.ch": {
+   "hubness": 1.0,
+   "df": 499133,
+   "source_type": "gov-geo",
+   "trust_tier": 0.95,
+   "country": "CH"
+  },
+  "canada.ca": {
+   "hubness": 0.9924,
+   "df": 241364,
+   "source_type": "official",
+   "trust_tier": 0.95,
+   "country": "CA"
+  },
+  "bfs.admin.ch": {
+   "hubness": 0.9033,
+   "df": 160186,
+   "source_type": "gov-stat",
+   "trust_tier": 0.95,
+   "country": "CH"
+  },
+  "laws-lois.justice.gc.ca": {
+   "hubness": 0.8868,
+   "df": 148451,
+   "source_type": "official",
+   "trust_tier": 1.0,
+   "country": "CA"
+  },
+  "gesetze-im-internet.de": {
+   "hubness": 0.8133,
+   "df": 105790,
+   "source_type": "official",
+   "trust_tier": 1.0,
+   "country": "DE"
+  },
+  "finma.ch": {
+   "hubness": 0.7935,
+   "df": 96578,
+   "source_type": "official",
+   "trust_tier": 0.85,
+   "country": "CH"
+  },
+  "federalreserve.gov": {
+   "hubness": 0.6604,
+   "df": 52337,
+   "source_type": "central-bank",
+   "trust_tier": 0.95,
+   "country": "US"
+  },
+  "bundestag.de": {
+   "hubness": 0.6567,
+   "df": 51439,
+   "source_type": "official",
+   "trust_tier": 0.85,
+   "country": "DE"
+  },
+  "eeoc.gov": {
+   "hubness": 0.6323,
+   "df": 45972,
+   "source_type": "official",
+   "trust_tier": 0.9,
+   "country": "US"
+  },
+  "be.clex.ch": {
+   "hubness": 0.6043,
+   "df": 40424,
+   "source_type": "official",
+   "trust_tier": 1.0,
+   "country": "CH"
+  },
+  "rechtsprechung-im-internet.de": {
+   "hubness": 0.5918,
+   "df": 38159,
+   "source_type": "official",
+   "trust_tier": 1.0,
+   "country": "DE"
+  },
+  "eur-lex.europa.eu": {
+   "hubness": 0.5906,
+   "df": 37952,
+   "source_type": "official",
+   "trust_tier": 0.95,
+   "country": null
+  },
+  "bdlf.fr.ch": {
+   "hubness": 0.575,
+   "df": 35321,
+   "source_type": "official",
+   "trust_tier": 1.0,
+   "country": "CH"
+  },
+  "ec.europa.eu": {
+   "hubness": 0.5739,
+   "df": 35129,
+   "source_type": "official",
+   "trust_tier": 0.95,
+   "country": "EU"
+  },
+  "lex.vs.ch": {
+   "hubness": 0.5738,
+   "df": 35111,
+   "source_type": "official",
+   "trust_tier": 1.0,
+   "country": "CH"
+  },
+  "arbeitsagentur.de": {
+   "hubness": 0.5502,
+   "df": 31501,
+   "source_type": "official",
+   "trust_tier": 0.85,
+   "country": "DE"
+  }
+ }
+}

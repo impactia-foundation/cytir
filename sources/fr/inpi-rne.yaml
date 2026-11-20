@@ -1,0 +1,90 @@
+# FR — Registre National des Entreprises (RNE, INPI). DEFERRED pending Tim's
+# ruling on whether AW enters a contractual relationship with INPI.
+# Distinct from sources/fr/insee-sirene.yaml: different operator, different
+# licence, different access model. Do not conflate the two.
+id: fr-inpi-rne
+name: "INPI Registre National des Entreprises (RNE) — DEFERRED, requires an INPI account Tim must authorise"
+country: FR
+layer: commercial
+policy_section: "§4.9"
+adapter: dump
+acquisition_policy: aw-acquisition-v1
+outlink_policy: capture-and-receipt
+preservation_profiles: [entity_registry]
+provenance: authored
+tier: A
+trust_tier: 0.85
+density_tier: T1
+freshness: daily
+theme: []
+
+license:
+  default: "INPI-RNE-homologated-open"
+  notes: >
+    State-homologated reuse licence under L. 323-2 CRPA. Grants a non-exclusive,
+    free, worldwide, unlimited right to reuse INCLUDING to "communiquer,
+    diffuser, redistribuer, publier", commercially, conditioned only on
+    attribution of source and last-update date. This CLEARS AW's permissive-
+    end-to-end constraint. The words "prospection", "indexation" and "masse"
+    appear in NEITHER licence PDF — verified by grep over both documents, i.e.
+    evidence of absence rather than inference from silence.
+    CAVEAT ON LINKAGE: data.inpi.fr 403s our datacenter IP on every route, so the
+    licence LINKAGE rests on a July-2026 archive capture; the licence PDF itself
+    was fetched live from www.inpi.fr. The current licence's homologation
+    decision could not be retrieved (Etalab's register lists only expired 2019
+    entries). Tim should rule with those limits visible.
+
+consent:
+  basis: official-no-copyright
+  notes: >
+    Open homologated licence on an official bulk distribution — the ADR-076
+    admission basis. BUT access is via SFTP behind an account plus licence
+    acceptance, which binds the organisation contractually. NO ACCOUNT HAS BEEN
+    CREATED AND NONE WILL BE without Tim's explicit authorisation.
+
+status: deferred
+
+admission:
+  channel: official-dump
+  evidence:
+    - "task 435 (2026-08-20): findings RELAYED from the orchestrator's RNE/INPI scout; NOT independently re-derived in this task. The task's own first-hand FR work covers INSEE SIRENE only. Flagged so the provenance of every RNE claim here is unambiguous."
+    - "task 435: licence is State-homologated under L. 323-2 CRPA; redistribution verbs quoted in the license block above."
+    - "task 435: officers are published to exactly the depth ADR-091 already assumes — name, first names, MONTH+YEAR of birth (not full date), commune. Beneficial owners are carved out and gated post-Sovim (CJEU C-37/20), i.e. OUT OF SCOPE BY LAW for everyone, not withheld from AW specifically."
+    - "task 435: unresolved and deliberately untested — whether 2026 licence acceptance is one-click (FAQ, CGU art. 4.4.1, INPI's 2026-01-26 data.gouv.fr note 'sans validation nécessaire') or a countersigned return (March-2023 SFTP PDF, 2016 CMS page). Testing it would BE entering the relationship, so it was not tested."
+  decision: escalated
+  policy: "POLICY.md@v3 §4.9"
+  date: "2026-08-20"
+  would_pass_today: false
+
+notes:
+  - >
+    BLOCKING ASK FOR TIM — creating an INPI account is not the orchestrator's
+    call nor a sub-agent's. It binds the organisation. This pack stays `deferred`
+    until Tim rules. If he declines, France still works via sources/fr/insee-
+    sirene.yaml (no account, no contract) plus the DINUM open API
+    recherche-entreprises.api.gouv.fr (unauthenticated, 7 req/s, officers to
+    L.123-52 depth) as the officer fallback.
+  - >
+    PRODUCT CONSTRAINT, not merely an ingest condition. Licence art. 2.5
+    incorporates art. A123-69 by reference, which forbids using as SEARCH
+    CRITERIA: the capacity of persons; insolvency sanctions against merchants or
+    company officers; incapacity or interdiction to manage or direct; and penal
+    proceedings or sanctions. AW IS a search product, so this governs what the
+    index may expose as a queryable facet. Design obligations: these attributes
+    must never become sparse-channel hooks (a BM25 token IS a search criterion),
+    never become filterable Qdrant payload fields, and never become rankhead
+    features. Recommended posture: do not ingest these fields at all —
+    minimum-content argues for the same thing independently.
+  - >
+    TWO MANDATORY EXCLUSION FILTERS, both operative and both committed to in the
+    PR: diffusionINSEE == "N" may NOT be redistributed even though the RNE itself
+    publishes those companies (an explicit redistribution ban, not a preference);
+    and diffusionCommerciale == false records the owner's opposition under
+    R. 123-320. Enforce both at ingest. Note these are RNE fields, DISTINCT from
+    SIRENE's statutDiffusionUniteLegale — one does not imply the other.
+  - >
+    Access blocks that must NOT be worked around: data.inpi.fr 403s our IP;
+    Legifrance is behind a JS challenge (article texts come from a DILA-derived
+    consolidation, one hop from official). A Chrome-header attempt was tried and
+    abandoned and is recorded as a probe NOT to be repeated — no browser UA, no
+    challenge solving.

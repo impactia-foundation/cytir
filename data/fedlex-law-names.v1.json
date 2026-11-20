@@ -1,0 +1,134 @@
+{
+ "schema": "aw.fedlex-law-names.v1",
+ "why": "The one thing fedlex SPARQL does not expose: a short COMMON name for each law, distinct from both the bare abbreviation (\"OR\") and the full formal docTitle (\"Bundesgesetz vom 30. Maerz 1911 betreffend ...\"). Hand-verified against fedlex.data.admin.ch SPARQL titles, 2026-07-30 (task 358b). Keyed by ELI, the same key the CLI and `xml_url` use.",
+ "consumed_by": [
+  "pipeline/fedlex_law_meta.py :: load_curated_names (the one reader)",
+  "pipeline/fedlex_dump.py :: parse_akn (the live loader)",
+  "pipeline/seal_fedlex_law_meta.py (the sealed-artifact producer)"
+ ],
+ "an_eli_absent_from_this_table": "still gets a record: the title falls back to the SPARQL abbreviation and then to the formal docTitle, with a loud WARNING. Absence is never silent.",
+ "names": {
+  "cc/27/317_321_377": {
+   "de": "Obligationenrecht",
+   "fr": "Code des obligations",
+   "it": "Codice delle obbligazioni",
+   "en": "Code of Obligations"
+  },
+  "cc/24/233_245_233": {
+   "de": "Zivilgesetzbuch",
+   "fr": "Code civil",
+   "it": "Codice civile",
+   "en": "Civil Code"
+  },
+  "cc/2010/267": {
+   "de": "Strafprozessordnung",
+   "fr": "Code de procédure pénale",
+   "it": "Codice di procedura penale",
+   "en": "Criminal Procedure Code"
+  },
+  "cc/54/757_781_799": {
+   "de": "Strafgesetzbuch",
+   "fr": "Code pénal",
+   "it": "Codice penale",
+   "en": "Criminal Code"
+  },
+  "cc/2010/262": {
+   "de": "Zivilprozessordnung",
+   "fr": "Code de procédure civile",
+   "it": "Codice di procedura civile",
+   "en": "Civil Procedure Code"
+  },
+  "cc/11/529_488_529": {
+   "de": "Schuldbetreibungs- und Konkursgesetz",
+   "fr": "Loi sur la poursuite pour dettes et la faillite",
+   "it": "Legge sulla esecuzione e sul fallimento",
+   "en": "Debt Enforcement and Bankruptcy Act"
+  },
+  "cc/2007/758": {
+   "de": "Ausländer- und Integrationsgesetz",
+   "fr": "Loi sur les étrangers et l'intégration",
+   "it": "Legge sugli stranieri e la loro integrazione",
+   "en": "Foreign Nationals Act"
+  },
+  "cc/1991/1184_1184_1184": {
+   "de": "Bundesgesetz über die direkte Bundessteuer",
+   "fr": "Loi sur l'impôt fédéral direct",
+   "it": "Legge sull'imposta federale diretta"
+  },
+  "cc/1999/404": {
+   "de": "Bundesverfassung",
+   "fr": "Constitution fédérale",
+   "it": "Costituzione federale",
+   "en": "Federal Constitution"
+  },
+  "cc/1999/358": {
+   "de": "Asylgesetz",
+   "fr": "Loi sur l'asile",
+   "it": "Legge sull'asilo",
+   "en": "Asylum Act"
+  },
+  "cc/63/837_843_843": {
+   "de": "Alters- und Hinterlassenenversicherungsgesetz",
+   "fr": "Loi sur l'assurance-vieillesse et survivants",
+   "it": "Legge sull'assicurazione per la vecchiaia e per i superstiti"
+  },
+  "cc/1959/679_705_685": {
+   "de": "Strassenverkehrsgesetz",
+   "fr": "Loi sur la circulation routière",
+   "it": "Legge sulla circolazione stradale"
+  },
+  "cc/1959/827_857_845": {
+   "de": "Invalidenversicherungsgesetz",
+   "fr": "Loi sur l'assurance-invalidité",
+   "it": "Legge sull'assicurazione per l'invalidità"
+  },
+  "cc/2009/615": {
+   "de": "Mehrwertsteuergesetz",
+   "fr": "Loi sur la TVA",
+   "it": "Legge sull'IVA",
+   "en": "Value Added Tax Act"
+  },
+  "cc/1993/1798_1798_1798": {
+   "de": "Urheberrechtsgesetz",
+   "fr": "Loi sur le droit d'auteur",
+   "it": "Legge sul diritto d'autore",
+   "en": "Copyright Act"
+  },
+  "cc/2002/510": {
+   "de": "Bundesgesetz über den Allgemeinen Teil des Sozialversicherungsrechts",
+   "fr": "Loi sur la partie générale du droit des assurances sociales",
+   "it": "Legge sulla parte generale del diritto delle assicurazioni sociali"
+  },
+  "cc/2022/491": {
+   "de": "Datenschutzgesetz",
+   "fr": "Loi sur la protection des données",
+   "it": "Legge sulla protezione dei dati",
+   "en": "Data Protection Act"
+  },
+  "cc/2015/493": {
+   "de": "Alkoholgrenzwerte im Strassenverkehr",
+   "fr": "Taux limites d'alcool dans la circulation routière",
+   "it": "Valori limite di alcolemia nella circolazione stradale"
+  }
+ },
+ "notes": {
+  "cc/27/317_321_377": "OR/CO — SR 220",
+  "cc/24/233_245_233": "ZGB/CC — SR 210",
+  "cc/2010/267": "StPO/CPP — SR 312.0",
+  "cc/54/757_781_799": "StGB/CP — SR 311.0",
+  "cc/2010/262": "ZPO/CPC — SR 272",
+  "cc/11/529_488_529": "SchKG/LP/LEF — SR 281.1",
+  "cc/2007/758": "AIG/LEI/LStrI — SR 142.20",
+  "cc/1991/1184_1184_1184": "DBG/LIFD — SR 642.11 (no EN)",
+  "cc/1999/404": "BV/Cst./Cost. — SR 101",
+  "cc/1999/358": "AsylG/LAsi — SR 142.31",
+  "cc/63/837_843_843": "AHVG/LAVS — SR 831.10 (no EN)",
+  "cc/1959/679_705_685": "SVG/LCR/LCStr — SR 741.01 (no EN)",
+  "cc/1959/827_857_845": "IVG/LAI — SR 831.20 (no EN)",
+  "cc/2009/615": "MWSTG/LTVA/LIVA — SR 641.20",
+  "cc/1993/1798_1798_1798": "URG/LDA — SR 231.1",
+  "cc/2002/510": "ATSG/LPGA — SR 830.1 (no EN)",
+  "cc/2022/491": "DSG/LPD/FADP — SR 235.1",
+  "cc/2015/493": "no abbrev, SR 741.13 (Verordnung, no EN)"
+ }
+}

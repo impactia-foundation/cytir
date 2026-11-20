@@ -1,0 +1,529 @@
+{
+  "schema": "aw.public-cut.v1",
+  "status": "working assumption Q8 (specs/oss-refactor-scoreboard.md section 3), not yet ruled by Tim. The public repo is this tree's allowlisted subset, with no history.",
+  "paths_are_relative_to": "authoritative-web-app/ (the root of the exported tree)",
+  "rules": [
+    {
+      "id": "package",
+      "why": "the product: the `aw` package and its CLI, the one way to run every verb",
+      "paths": [
+        "cytir/**"
+      ]
+    },
+    {
+      "id": "server",
+      "why": "the serving image: Dockerfile, pinned requirements (the package itself is `cytir/serve`, covered by `package`; its tests by `tests`)",
+      "paths": [
+        "server/Dockerfile",
+        "server/README.md",
+        "server/requirements.txt",
+        "server/requirements-embed-local.txt",
+        "server/constraints.txt"
+      ]
+    },
+    {
+      "id": "tests",
+      "why": "the package's own tests (slice 2 task 696: tests follow the package), run inside the exported tree by the cut rehearsal",
+      "paths": [
+        "tests/**"
+      ]
+    },
+    {
+      "id": "webapp",
+      "why": "the human search page, with its test",
+      "paths": [
+        "webapp/**"
+      ]
+    },
+    {
+      "id": "packs",
+      "why": "source packs, the schema and the policy a stranger runs with `aw source run` (slice 7, task 999: only packs that name nothing outside the cut; the rest stay private)",
+      "paths": [
+        "sources/ca/corporations-canada.yaml",
+        "sources/ch/watson.yaml",
+        "sources/de/handelsregister.yaml",
+        "sources/fr/inpi-rne.yaml",
+        "sources/gb/legislation.yaml",
+        "sources/it/gazzetta-senato.yaml",
+        "sources/themes/mental-health/psychedelics.yaml",
+        "sources/be/kbo-bce.yaml",
+        "sources/ch/affiliated.yaml",
+        "sources/ch/swissinfo.yaml",
+        "sources/gb/companies-house.yaml",
+        "sources/gb/deferred-and-declined.yaml",
+        "sources/gb/gov-uk.yaml",
+        "sources/it/deferred-and-declined.yaml",
+        "sources/it/normattiva.yaml",
+        "sources/us/agency-guidance.yaml",
+        "sources/us/ecfr-federal-register.yaml",
+        "sources/us/github-releases-tracked.yaml",
+        "sources/us/github-repo-docs-tracked.yaml",
+        "sources/us/govinfo.yaml",
+        "sources/us/huggingface-orgs-tracked.yaml",
+        "sources/us/opencode-ai-docs.yaml",
+        "sources/us/sec-edgar.yaml",
+        "sources/us/vendor-ai-blogs-tracked.yaml",
+        "sources/themes/health/biomed-authority-core.yaml",
+        "sources/themes/education/education-research.yaml",
+        "sources/themes/energy-climate/energy-climate-intl.yaml",
+        "sources/themes/urban-governance/urban-governance.yaml",
+        "sources/_examples/example-authority.yaml",
+        "sources/_schema/**",
+        "sources/POLICY.md",
+        "sources/PORTFOLIO.md",
+        "sources/README.md"
+      ]
+    },
+    {
+      "id": "root-runtime",
+      "why": "install, test and run entry files at the tree root + the build pins (rebuild on your own GPU box)",
+      "paths": [
+        "pyproject.toml",
+        "setup.py",
+        "pytest.ini",
+        "conftest.py",
+        "requirements-ci.txt",
+        "requirements-build.txt",
+        "requirements-build.lock",
+        "requirements-entity-card-snapshot.lock",
+        "run_source.py",
+        "operator.example.json",
+        ".gitleaks.toml"
+      ]
+    },
+    {
+      "id": "hosted-ci",
+      "why": "the GitHub-hosted workflow of the exported tree (task 997): ubuntu, qdrant service, no secrets, no self-hosted labels",
+      "paths": [
+        ".github/workflows/ci.yml"
+      ]
+    },
+    {
+      "id": "newcomer-docs",
+      "why": "what a stranger reads first (slice 12 rewrites them to `aw` verbs only)",
+      "paths": [
+        "README.md",
+        "QUICKSTART.md",
+        "ADDING-A-SOURCE.md",
+        "TAKEDOWN.md",
+        "NOTICE"
+      ]
+    },
+    {
+      "id": "stranger-files",
+      "why": "licence and community files (slice 5 adds them); named now so they ship the moment they exist",
+      "optional": true,
+      "paths": [
+        "LICENSE",
+        "CONTRIBUTING.md",
+        "SECURITY.md",
+        "CODE_OF_CONDUCT.md"
+      ]
+    },
+    {
+      "id": "data-contracts",
+      "why": "sealed contracts, registers and tables that the package reads at run time",
+      "paths": [
+        "data/acquisition-policy.v1.json",
+        "data/allowlist.yaml",
+        "data/assembly/adr101-class-precedence.v1.json",
+        "data/authored-text-origins.v1.json",
+        "data/build_config.json",
+        "data/chunk-policy-*.json",
+        "data/chunk-reference-selector.v4.json",
+        "data/collection-payload-profiles.v1.json",
+        "data/consent_declined_hosts.json",
+        "data/consent-undated-gov-hosts.v1.json",
+        "data/consent-unclear-register.yaml",
+        "data/consent-unresolved-register.yaml",
+        "data/cov351_routes.yaml",
+        "data/content-gate-convergence.v1.json",
+        "data/fedlex-law-names.v1.json",
+        "data/fedlex-versions.v1.json",
+        "data/licence-spdx-respell.v1.json",
+        "data/news-queue.example.json",
+        "data/news-host-meta.v1.json",
+        "data/ci-fixture-gate-contract.v1.json",
+        "data/flip-gate-contract.v1.json",
+        "data/news-daily-gate-contract.v1.json",
+        "data/pack.schema.json",
+        "data/payload-enum-tables.v1.json",
+        "data/payload-shape-contract.v1.json",
+        "data/persisted-input-stores.v1.json",
+        "data/promotion-gate-contract.v1.json",
+        "data/script-entrypoints.v1.json",
+        "data/pack-surface-contract.v1.json",
+        "data/http-drift-allowlist.v1.json",
+        "data/representation-contract.v1.json",
+        "data/health-host-vet-rules.v1.json",
+        "data/soft-404-signals.v1.json",
+        "data/source-family-contract.schema.v1.json",
+        "data/source-family-contracts.v1.json",
+        "data/source-preservation-profiles.v1.json",
+        "data/unpersisted-legacy-register.v1.json",
+        "data/url-select-presets.v1.json",
+        "data/routec-pack-declarations/*.json",
+        "data/serving-profiles/*.config.v1.json"
+      ]
+    },
+    {
+      "id": "release-rehearsal",
+      "why": "the sealed fixture that `aw rehearse run` dumps, signs, applies and queries",
+      "paths": [
+        "data/release-rehearsal-fixture/**"
+      ]
+    },
+    {
+      "id": "cut-itself",
+      "why": "the allowlist and its leak baseline ship so a stranger can re-run `aw ops cut` and see what was cut",
+      "paths": [
+        "data/public-cut.v1.json",
+        "data/public-cut-leak-baseline.v1.json"
+      ]
+    },
+    {
+      "id": "samples",
+      "why": "the 8 real DILA LEGI articles (Etalab-2.0) that the end-to-end source-run test and the quickstart run the source verb on",
+      "paths": [
+        "data/samples/**"
+      ]
+    },
+    {
+      "id": "index-fixture",
+      "why": "the three sealed fixture stages (67 rows: Fedlex, DILA LEGI, DILA KALI; official acts and Etalab-2.0; no court decision, whose texts stay held) that `aw index build` and the end-to-end gate run on, and the gold slice and baseline verdict `aw gate` scores them with (slice 8 step 5)",
+      "paths": [
+        "data/index-fixture/**",
+        "data/gate-slices/**"
+      ]
+    },
+    {
+      "id": "specs",
+      "why": "the specs a shipped doc points at (slice 12 curates the set)",
+      "paths": [
+        "specs/dump-format.md"
+      ]
+    }
+  ],
+  "never": [
+    {
+      "path": "tests/operator/**",
+      "why": "operator-only tests (task 2412): they need the operator overlay, box paths or pinned release values; they never ship"
+    },
+    {
+      "path": "pipeline/**",
+      "why": "the private build tree: scripts, shims and tests of the first product (Q8)"
+    },
+    {
+      "path": "tasks/**",
+      "why": "per-delegation evidence and one-off scripts (Q8)"
+    },
+    {
+      "path": "plan.md",
+      "why": "orchestrator working plan"
+    },
+    {
+      "path": "log.md",
+      "why": "orchestrator timeline"
+    },
+    {
+      "path": "decisions.md",
+      "why": "ADR ledger: not part of the cut (Q9 defers a cleaned set)"
+    },
+    {
+      "path": "notes/**",
+      "why": "troubleshooting scratchpad"
+    },
+    {
+      "path": "AGENTS.md",
+      "why": "agent instructions"
+    },
+    {
+      "path": "CLAUDE.md",
+      "why": "agent instructions"
+    },
+    {
+      "path": "RUNBOOK-v2.md",
+      "why": "operator runbook naming our boxes"
+    },
+    {
+      "path": "deploy/**",
+      "why": "unit files, cron and compose of our boxes"
+    },
+    {
+      "path": "probes/**",
+      "why": "probe harness against production"
+    },
+    {
+      "path": "presentation/**",
+      "why": "slides"
+    },
+    {
+      "path": "scripts/**",
+      "why": "repo hygiene scripts for the private tree"
+    },
+    {
+      "path": "data/oss-refactor-live-entrypoints.v1.json",
+      "why": "sealed snapshot of what our boxes run; names private hosts"
+    },
+    {
+      "path": "cytir/ops/scan_mechanism_callers.py",
+      "why": "censuses the private tree's legacy script directory (task 1088); never shipped"
+    },
+    {
+      "path": "tests/test_aw_mechanism_callers_fresh.py",
+      "why": "tests cytir/ops/scan_mechanism_callers.py against the private tree, which is never shipped"
+    },
+    {
+      "path": "cytir/ops/shims.py",
+      "why": "lists the private tree's pipeline/ alias shims (task 1371); the scoreboard and the shim-roster tests read it; never shipped"
+    },
+    {
+      "path": "tests/test_aw_shims.py",
+      "why": "tests cytir/ops/shims.py against a fake pipeline/ tree (task 1371); never shipped"
+    },
+    {
+      "path": "tests/test_aw_shim_ratchet.py",
+      "why": "ratchets the private tree pipeline/ shim list (task 1377); never shipped"
+    },
+    {
+      "path": "cytir/ops/refactor_scoreboard.py",
+      "why": "measures the private tree and names our hosts"
+    },
+    {
+      "path": "cytir/ops/test_suite_roster.py",
+      "why": "measures the private pipeline/ test tree and the CI env block (task 1211); never shipped"
+    },
+    {
+      "path": "tests/test_aw_test_suite_roster_builder.py",
+      "why": "tests cytir/ops/test_suite_roster.py, which is never shipped (task 1211)"
+    },
+    {
+      "path": "tests/fixtures/roster_builder/**",
+      "why": "frozen pytest output for tests/test_aw_test_suite_roster_builder.py (task 1211)"
+    },
+    {
+      "path": "tests/test_aw_refactor_scoreboard.py",
+      "why": "tests cytir/ops/refactor_scoreboard.py, which is never shipped (it measures the private tree); the test builds a fake private tree of pipeline/ and tasks/ paths"
+    },
+    {
+      "path": "tests/test_install_check_pairs.py",
+      "why": "tests the deploy/heimdall install pairs (aw-repo-sync, aw-run, aw-checkout.sh) through deploy/systemd/install.sh; deploy/** is never shipped, so the cut would run it against files that are not there"
+    },
+    {
+      "path": "tests/test_release_scripts_mcp_block.py",
+      "why": "tests the MCP verify block in deploy/scripts/rebuild-serving-image.sh and release-serving.sh (task 2700); deploy/** is never shipped, so the cut would run it against files that are not there"
+    },
+    {
+      "path": "tests/test_rewarm_index_script.py",
+      "why": "tests deploy/systemd/scripts/aw-rewarm-index.sh (task 2681); deploy/** is never shipped, so the cut would run it against files that are not there"
+    },
+    {
+      "path": "tests/ops/test_warmup_api.py",
+      "why": "tests deploy/scripts/warmup_api.py and deploy/warmup-queries.tsv (task 2658); deploy/** is never shipped, so the cut would run it against files that are not there"
+    },
+    {
+      "path": "tests/test_ops_install_crontab.py",
+      "why": "tests deploy/** (the box crontab and its install script), which is never shipped; the cut would run it against files that are not there"
+    },
+    {
+      "path": "tests/test_ops_generated_refresh.py",
+      "why": "tests deploy/bender/generated-refresh.sh (never shipped) with a fake remote and a fake gh; the cut would run it against a file that is not there"
+    },
+    {
+      "path": "tests/test_ops_receipt_merger.py",
+      "why": "tests deploy/bender/receipt-merger.sh (never shipped) with fake gh; the cut would run it against a file that is not there"
+    },
+    {
+      "path": "tests/test_content_gate_null_arm.py",
+      "why": "asserts evidence paths on our boxes and reads two fixtures recorded there"
+    },
+    {
+      "path": "tests/testdata/task603_gate_arms.json",
+      "why": "recorded gate arms from our boxes, read only by tests/test_content_gate_null_arm.py"
+    },
+    {
+      "path": "tests/testdata/task616_gate_arms.json",
+      "why": "recorded gate arms from our boxes, read only by tests/test_content_gate_null_arm.py"
+    },
+    {
+      "path": "tests/test_write_lock_isolation.py",
+      "why": "asserts the write-lock registry never reaches our boxes, so it names their host and paths"
+    },
+    {
+      "path": "tests/test_aw_country.py",
+      "why": "provenance notes or producer strings name the private build tree or our boxes; ships once the notes are reworded"
+    },
+    {
+      "path": "tests/test_extraction_collapse.py",
+      "why": "provenance notes or producer strings name the private build tree or our boxes; ships once the notes are reworded"
+    },
+    {
+      "path": "tests/testdata/task523/**",
+      "why": "sealed L0 bytes plus a manifest naming our box, read only by tests/test_extraction_collapse.py"
+    },
+    {
+      "path": "tests/test_aw_news_consent_stamp.py",
+      "why": "tests the news refresh stage script of the private build tree, which stays private; not part of the stranger's suite (task 730)"
+    },
+    {
+      "path": "tests/test_news_publisher_registry.py",
+      "why": "tests the news refresh stage script of the private build tree, which stays private; not part of the stranger's suite (task 730)"
+    },
+    {
+      "path": "tests/test_aw_index_prod_guard.py",
+      "why": "tests the collection-membership seal script of the private build tree, which stays private; not part of the stranger's suite (task 730)"
+    },
+    {
+      "path": "sources/outreach-log.md",
+      "why": "contact log with third parties"
+    },
+    {
+      "path": "cytir/ops/pipeline_reach_census.py",
+      "why": "censuses which private-tree pipeline/ files anything live still reaches (task 1736); the S9 deletion gate reads it; never shipped"
+    },
+    {
+      "path": "tests/test_aw_pipeline_reach_census.py",
+      "why": "tests cytir/ops/pipeline_reach_census.py against a fake private tree (task 1736); never shipped"
+    }
+  ],
+  "scan_exempt": [
+    "data/public-cut.v1.json",
+    "data/public-cut-leak-baseline.v1.json",
+    "cytir/ops/public_cut.py",
+    "data/pack.schema.json"
+  ],
+  "strip": [
+    {
+      "path": "data/source-family-contracts.v1.json",
+      "reseal": true,
+      "why": "derived at cut time (task 2223, ruling 60(c)): the master keeps its evidence trail; the shipped copy drops the internal pointers from these documentary fields only. Self-sealed: the cut re-seals the derived copy (last amendment row) and records the master sha256 in the manifest Relabel (task 2313, RULING 68(c), Tim 2026-11-04): the runtime-key private-tree pointers are swapped for neutral `frozen:task-N:name` labels in the shipped copy only; no key is deleted and the master keeps the real names.",
+      "fields": [
+        "families.evidence",
+        "families.representation.evidence",
+        "families.identity.evidence",
+        "families.chunk_policy.evidence",
+        "families.licence.evidence"
+      ],
+      "relabel": [
+        "families.producer_ids",
+        "families.producer_ids.*.code_home"
+      ]
+    },
+    {
+      "path": "data/representation-contract.v1.json",
+      "why": "derived at cut time (task 2223, ruling 60(c)): the master keeps its evidence trail; the shipped copy drops the internal pointers from these documentary fields only",
+      "fields": [
+        "families.*.producers"
+      ]
+    },
+    {
+      "path": "data/flip-gate-contract.v1.json",
+      "why": "derived at cut time (task 2223, ruling 60(c)): the master keeps its evidence trail; the shipped copy drops the internal pointers from these documentary fields only Relabel (task 2313, RULING 68(c), Tim 2026-11-04): the runtime-key private-tree pointers are swapped for neutral `frozen:task-N:name` labels in the shipped copy only; no key is deleted and the master keeps the real names.",
+      "fields": [
+        "regression_free.named_rulings.rebound.seals.verdict"
+      ],
+      "relabel": [
+        "instruments.1418.contamination.cite",
+        "regression_free.named_rulings.cite",
+        "regression_free.named_rulings.pending_evidence.cite",
+        "regression_free.named_rulings.restated_battery.cite",
+        "regression_free.named_rulings.extension.cite"
+      ]
+    },
+    {
+      "path": "data/news-daily-gate-contract.v1.json",
+      "why": "derived at cut time (task 2379, same mechanism as the flip-gate contract): the daily-gate standard ships so the shipped apply door can read it; the internal pointers in its documentary fields (evidence trail, measured-sensitivity note) do not. No runtime value changes.",
+      "fields": [
+        "evidence",
+        "slice.measured_sensitivity"
+      ]
+    },
+    {
+      "path": "data/assembly/adr101-class-precedence.v1.json",
+      "why": "derived at cut time (task 2277): the class ranks ship; the internal pointers in the documentary fields (consumer list, evidence trail) do not",
+      "fields": [
+        "consulted_by",
+        "evidence"
+      ]
+    },
+    {
+      "path": "data/payload-shape-contract.v1.json",
+      "why": "derived at cut time (task 2277): the declared payload shapes ship; the internal pointers in the documentary fields (evaluators, per-set and per-width notes) do not",
+      "fields": [
+        "evaluated_by",
+        "per_set.*.why",
+        "per_set.*.status",
+        "chunk_width.*.why"
+      ]
+    },
+    {
+      "path": "data/authored-text-origins.v1.json",
+      "why": "derived at cut time (task 2277): the authored-origin policy ships; the internal pointers in the documentary fields (recorded, stale-claim note) do not",
+      "fields": [
+        "recorded",
+        "stale_claim_note",
+        "why"
+      ]
+    },
+    {
+      "path": "data/collection-payload-profiles.v1.json",
+      "why": "derived at cut time (task 2223, ruling 60(c)): the master keeps its evidence trail; the shipped copy drops the internal pointers from these documentary fields only",
+      "fields": [
+        "collections.*.open_keys_why"
+      ]
+    }
+  ],
+  "prose_exempt": [
+    {
+      "path": "data/source-family-contracts.v1.json",
+      "labels": true,
+      "why": "RULING 46 (Tim, 2026-10-20): digest-pinned contract data; provenance prose is not scanned, bare path values still are; labels exempt (task 2434, orchestrator decision 2026-11-04): the file's frozen producer-id keys and code_home values are labels sealed into receipts, not paths"
+    },
+    {
+      "path": "data/source-family-contract.schema.v1.json",
+      "why": "RULING 46 (Tim, 2026-10-20): digest-pinned contract data; provenance prose is not scanned, bare path values still are"
+    },
+    {
+      "path": "data/flip-gate-contract.v1.json",
+      "why": "RULING 46 (Tim, 2026-10-20): digest-pinned contract data; provenance prose is not scanned, bare path values still are"
+    },
+    {
+      "path": "data/representation-contract.v1.json",
+      "why": "RULING 46 (Tim, 2026-10-20): digest-pinned contract data; provenance prose is not scanned, bare path values still are"
+    },
+    {
+      "path": "data/promotion-gate-contract.v1.json",
+      "why": "RULING 46 (Tim, 2026-10-20): digest-pinned contract data; provenance prose is not scanned, bare path values still are"
+    },
+    {
+      "path": "data/chunk-policy-preserved-retained-passage.v1.json",
+      "labels": true,
+      "why": "RULING 46 (Tim, 2026-10-20), extended to its label fields by decision D13 (Tim 2026-10-25, task 1313): digest-pinned contract data; provenance prose is not scanned, and the tasks/ or pipeline/ labels in its values are not counted; the file repoints them at its next re-seal"
+    },
+    {
+      "path": "data/chunk-policy-registry.v1.json",
+      "labels": true,
+      "why": "RULING 46 (Tim, 2026-10-20), extended to its label fields by decision D13 (Tim 2026-10-25, task 1313): digest-pinned contract data; provenance prose is not scanned, and the tasks/ or pipeline/ labels in its values are not counted; the file repoints them at its next re-seal"
+    },
+    {
+      "path": "data/content-gate-convergence.v1.json",
+      "labels": true,
+      "why": "RULING 46 (Tim, 2026-10-20), extended to its label fields by decision D13 (Tim 2026-10-25, task 1313): digest-pinned contract data; provenance prose is not scanned, and the tasks/ or pipeline/ labels in its values are not counted; the file repoints them at its next re-seal"
+    },
+    {
+      "path": "data/persisted-input-stores.v1.json",
+      "labels": true,
+      "why": "RULING 46 (Tim, 2026-10-20), extended to its label fields by decision D13 (Tim 2026-10-25, task 1313): digest-pinned contract data; provenance prose is not scanned, and the tasks/ or pipeline/ labels in its values are not counted; the file repoints them at its next re-seal"
+    },
+    {
+      "path": "data/unpersisted-legacy-register.v1.json",
+      "labels": true,
+      "why": "RULING 46 (Tim, 2026-10-20), extended to its label fields by decision D13 (Tim 2026-10-25, task 1313): digest-pinned contract data; provenance prose is not scanned, and the tasks/ or pipeline/ labels in its values are not counted; the file repoints them at its next re-seal"
+    },
+    {
+      "path": "data/chunk-reference-selector.v4.json",
+      "why": "RULING 46 (Tim, 2026-10-20): digest-pinned contract data; provenance prose is not scanned, bare path values still are (decision D5: v4 is v3 with the bare path value and the tasks/ mentions removed)"
+    }
+  ],
+  "scan_exempt_why": "the first three name the private paths on purpose: they are the cut's own rules and the list of leaks. data/pack.schema.json (task 735) is a byte copy of sources/_schema/pack.schema.json, a policy file the package may not edit: the copy's few leaks are the original's, counted once in the baseline entry for the original, and they leave with it (tests/test_aw_sources_install.py holds the copy equal)"
+}

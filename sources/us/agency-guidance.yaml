@@ -1,0 +1,108 @@
+# US agency technical/health guidance: NVD (NIST), openFDA, CDC open data.
+# CISA is included as an explicitly DECLINED route so the absence is logged.
+id: us-agency-guidance
+name: "US federal agency guidance & data — NVD, openFDA, CDC"
+country: US
+layer: tech-docs
+policy_section: "§4.4"
+adapter: api
+acquisition_policy: aw-acquisition-v1
+outlink_policy: capture-and-receipt
+preservation_profiles: [software_docs, web_html]
+provenance: authored
+trust_tier: 0.95
+freshness: daily
+
+# Task 439: acquire.params gives the consent gate an attachment point.
+acquire:
+  route: documented_source_api
+  rank: 3
+  params:
+    endpoint: "https://services.nvd.nist.gov/rest/json/cves/2.0"
+    dialect: json
+
+license:
+  default: public-domain
+  notes: >
+    Mixed, per route -- see routes[].notes. NVD: public domain under 17 USC 105
+    but with a MANDATORY attribution notice. openFDA: CC0 1.0 with a GMDN
+    carve-out that must be honoured by field exclusion. CDC: public domain.
+
+consent:
+  basis: live-resolve-mixed
+  train_ok_override: null
+  notes: >
+    Resolved live 2026-08-20: services.nvd.nist.gov ok/true/true;
+    api.fda.gov ok/true/true; data.cdc.gov ok/true/true; csrc.nist.gov
+    ok/true/true. www.cisa.gov -> DECLINED (robots.txt HTTP 403).
+
+status: planned
+
+routes:
+  - host: services.nvd.nist.gov
+    canonical_domain: nvd.nist.gov
+    lang: [en]
+    route: "NVD REST API /rest/json/cves/2.0"
+    status: planned
+    evidence: "task 440: 380,868 CVEs; public rate limit 5 req / rolling 30 s without a key, 50 with one."
+    notes: >
+      Attribution is a LICENCE CONDITION, not a courtesy. Verbatim: "services
+      which utilize or access the NVD are asked to display the following notice
+      prominently within the application: 'This product uses data from the NVD
+      API but is not endorsed or certified by the NVD.'" This string must ship
+      in the UI and in the redistributable dump, or the condition is unmet.
+  - host: api.fda.gov
+    canonical_domain: open.fda.gov
+    lang: [en]
+    route: "openFDA API"
+    status: planned
+    evidence: "task 440: 261,924 drug labels; last_updated 2026-08-19."
+    notes: >
+      CC0 1.0 EXCEPT GMDN device fields. Verbatim: "Any data/information
+      suppliers who wish to extract GMDN Content... for AI training purposes,
+      must first obtain an appropriate license from The GMDN Agency. No such
+      activity is permitted without a license." GMDN fields MUST be excluded at
+      extract time, not filtered downstream.
+  - host: data.cdc.gov
+    canonical_domain: cdc.gov
+    lang: [en]
+    route: "Socrata open-data API"
+    status: deferred
+    recheck_after: "2026-11-01"
+    evidence: "task 440: consent ok; yields datasets rather than authoritative prose."
+    notes: "Low grounding value relative to cost; revisit if a health vertical is prioritised."
+  - host: csrc.nist.gov
+    canonical_domain: nist.gov
+    lang: [en]
+    route: "HTML + PDF only; /api/csrc/publications returns 404"
+    status: deferred
+    recheck_after: "2026-11-01"
+    evidence: "task 440: no bulk channel found; consent ok."
+    notes: "High authority, no bulk route -- sitemap+PDF work. Defer until a cheaper channel is found or demand justifies it."
+  - host: www.cisa.gov
+    canonical_domain: cisa.gov
+    lang: [en]
+    route: "none -- Akamai 403 to our honest UA on every path incl. /robots.txt"
+    status: declined
+    recheck_after: "2026-10-01"
+    evidence: "task 440: 403 Access Denied, Reference #18.97ba1702.1787210019.a1106532; consent resolver -> DECLINED (robots.txt HTTP 403)."
+    notes: >
+      Not retried with a disguised UA. KEV/advisory value is largely recoverable
+      via NVD. Technical block, so a SHORT recheck horizon per the schema's
+      recheck_after guidance.
+
+admission:
+  channel: official-api
+  evidence:
+    - "task 440 consent resolve 2026-08-20 (task 440 (private tree))."
+    - "task 440: NVD 380,868 CVEs; openFDA 261,924 drug labels."
+  decision: escalated
+  policy: "POLICY.md@v3 §4.4"
+  date: "2026-08-20"
+
+notes:
+  - >
+    Two licence CONDITIONS in this pack are enforceable engineering work, not
+    notes: the NVD non-endorsement string must ship, and openFDA GMDN fields
+    must be dropped at extract. If neither is implemented, this pack is not
+    admissible as written.

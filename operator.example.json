@@ -1,0 +1,5 @@
+{
+  "_comment": "Copy to operator.json and put YOUR details here before crawling. This string is what every host you fetch will log, and what their allow/deny rules, rate limits and abuse reports are applied to. Do not leave someone else's site or mailbox in it.",
+  "url": "https://example.org/my-aw-instance",
+  "contact": "you@example.org"
+}

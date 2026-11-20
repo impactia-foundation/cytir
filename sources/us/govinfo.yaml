@@ -1,0 +1,77 @@
+# US federal government publications — govinfo.gov bulk data (GPO).
+# Dumps-first per ADR-013..016: the publisher's own bulk tree, not a crawl.
+id: us-govinfo
+name: "govinfo — U.S. Government Publishing Office bulk data"
+country: US
+layer: law-government
+policy_section: "§4.1"
+adapter: dump
+acquisition_policy: aw-acquisition-v1
+outlink_policy: capture-and-receipt
+preservation_profiles: [anchored_law, web_pdf]
+provenance: authored
+trust_tier: 1.0
+freshness: daily
+
+# Task 439: acquire.params gives the consent gate an attachment point.
+# NOTE the host this derives is www.govinfo.gov, which resolves ok -- NOT
+# api.govinfo.gov, which is HELD. The declared route is the admissible one.
+acquire:
+  route: source_owned_bulk_dump
+  rank: 2
+  params:
+    url_template: "https://www.govinfo.gov/bulkdata/{collection}/{year}"
+    index_endpoint: "https://www.govinfo.gov/bulkdata/json"
+    format: xml
+
+license:
+  default: public-domain
+  notes: >
+    17 U.S.C. §105. Verbatim from https://www.govinfo.gov/about/policies
+    (HTTP 200, retrieved 2026-08-20): "Title 17, Section 105, United States
+    Code, provides that: Copyright protection under this title is not
+    available for any work of the United States Government... By virtue of
+    the foregoing, public documents can generally be reprinted without legal
+    restriction. However, Government publications may contain copyrighted
+    material which was used with permission of the copyright owner."
+    The carve-out matters in two concrete places: standards incorporated by
+    reference into the CFR (ASTM/NFPA/ISO) are referenced but NOT contained in
+    the XML, and GPO purchased stock imagery is not public domain. Neither
+    affects a minimum-content text record.
+
+consent:
+  basis: live-resolve-open
+  train_ok_override: null
+  notes: >
+    Resolved live 2026-08-20 (task 440 (private tree)):
+    www.govinfo.gov -> ok, search_ok=true, train_ok=true, no opt-out signal.
+    NOTE api.govinfo.gov resolves UNKNOWN/HELD (robots.txt HTTP 500) and is
+    therefore NOT the acquisition origin; the bulkdata tree and sitemaps on
+    www.govinfo.gov are, and they resolve clean. The USCOURTS sitemap index
+    additionally ships an explicit LOCKSS collection permission.
+
+status: planned
+
+admission:
+  channel: official-dump
+  evidence:
+    - "task 440: www.govinfo.gov/bulkdata/json/ enumerates 15 bulk collections; api.govinfo.gov/collections reports 42 collections totalling 3,394,379 packages / 18,321,079 granules."
+    - "task 440: USCOURTS alone = 2,159,363 packages / 4,610,493 granules of federal court opinions, enumerable via 3,686 per-court-per-year sitemaps."
+    - "task 440: licence quoted verbatim from https://www.govinfo.gov/about/policies (HTTP 200)."
+    - "task 440 consent resolve 2026-08-20: www.govinfo.gov ok/true/true."
+    - "ADR-076 — explicit open licence (here: statutory public domain) on an official bulk distribution is the admission basis."
+  decision: escalated
+  policy: "POLICY.md@v3 §4.1"
+  date: "2026-08-20"
+
+notes:
+  - >
+    Volume is a SOURCE-SIDE inventory count (packages/granules), not a point
+    projection. No point claim is made before chunk/vector yield is measured
+    per enumerated-is-not-staged.
+  - >
+    govinfo is the primary-source answer to CourtListener (P3/U5): federal
+    court opinions are available here directly, so the aggregator is not needed.
+  - >
+    Acquisition must run from the crawl host, never the orchestrator host, and must be rate-shaped
+    within the project-wide <=8 MB/s egress ceiling.

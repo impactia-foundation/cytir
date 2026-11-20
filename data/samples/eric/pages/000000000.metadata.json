@@ -1,0 +1,16 @@
+{
+  "body": {
+    "bytes": 14444,
+    "sha256": "f1310f315fb5aa79245cf2323a17e1409d8f6f5a928979eef59455c8231b3835"
+  },
+  "fetched_at": "2026-08-15T13:13:48Z",
+  "final_url": "https://api.ies.ed.gov/eric/?search=e_fulltextauth%3A1&fields=id%2Ctitle%2Cauthor%2Csource%2Cpublicationdateyear%2Cdescription%2Csubject%2Cpeerreviewed%2Cabstractor%2Caudience%2Cauthorxlink%2Ce_datemodified%2Ce_fulltextauth%2Ce_yearadded%2Ceducationlevel%2Cidentifiersgeo%2Cidentifierslaw%2Cidentifierstest%2Ciescited%2Ciesfunded%2Ciesgrantcontractnum%2Ciesgrantcontractnumxlink%2Cieslinkpublication%2Cieslinkwwcreviewguide%2Cieswwcreviewed%2Cinstitution%2Cisbn%2Cissn%2Clanguage%2Cpublicationtype%2Cpublisher%2Csourceid%2Csponsor%2Curl&rows=5&start=0&sort=id+asc&format=json",
+  "http_status": 200,
+  "requested_url": "https://api.ies.ed.gov/eric/?search=e_fulltextauth%3A1&fields=id%2Ctitle%2Cauthor%2Csource%2Cpublicationdateyear%2Cdescription%2Csubject%2Cpeerreviewed%2Cabstractor%2Caudience%2Cauthorxlink%2Ce_datemodified%2Ce_fulltextauth%2Ce_yearadded%2Ceducationlevel%2Cidentifiersgeo%2Cidentifierslaw%2Cidentifierstest%2Ciescited%2Ciesfunded%2Ciesgrantcontractnum%2Ciesgrantcontractnumxlink%2Cieslinkpublication%2Cieslinkwwcreviewguide%2Cieswwcreviewed%2Cinstitution%2Cisbn%2Cissn%2Clanguage%2Cpublicationtype%2Cpublisher%2Csourceid%2Csponsor%2Curl&rows=5&start=0&sort=id+asc&format=json",
+  "response_headers": {
+    "bytes": 250,
+    "encoding": "curl-dump-header-raw",
+    "sha256": "6ca39bb3a46d3f8c11f596c94b1dd232c64b7310392e6a65651af8084ecc3f8e"
+  },
+  "schema": "aw.http-fetch-metadata.v1"
+}

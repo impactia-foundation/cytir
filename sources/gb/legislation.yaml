@@ -1,0 +1,82 @@
+# UK primary and secondary legislation — legislation.gov.uk (TNA / King's Printer).
+# The UK equivalent of fedlex: the official publisher, structured XML, own feeds.
+id: gb-legislation
+name: "legislation.gov.uk — UK primary & secondary legislation"
+country: GB
+layer: law-government
+policy_section: "§4.1"
+adapter: dump
+acquisition_policy: aw-acquisition-v1
+outlink_policy: capture-and-receipt
+preservation_profiles: [anchored_law]
+provenance: authored
+trust_tier: 1.0
+freshness: amendment-driven
+
+# Task 439: declaring acquire.params gives the consent gate an attachment point.
+# effective_hosts() derives www.legislation.gov.uk from url_template/index_endpoint,
+# so this pack is host-resolved before any fetch rather than silently ungated.
+acquire:
+  route: source_owned_bulk_dump
+  rank: 2
+  params:
+    url_template: "https://www.legislation.gov.uk/{uri}/data.akn"
+    index_endpoint: "https://www.legislation.gov.uk/{type}/data.feed"
+    format: xml
+
+license:
+  default: OGL-UK-3.0
+  notes: >
+    Open Government Licence v3.0. Content of EU origin carried in UK law is
+    under Commission Decision 2011/833/EU; the non-EU-origin subset is 199,071
+    of 358,852 items. OGL v3 permits copying, publishing, distributing,
+    adapting and commercial exploitation with attribution -- compatible with
+    the ADR-039 minimum-content record and the compact redistributable dump.
+
+consent:
+  basis: live-resolve-open
+  train_ok_override: null
+  notes: >
+    Resolved live 2026-08-20: www.legislation.gov.uk -> ok, search_ok=true,
+    train_ok=true, no opt-out signal. robots allows `*` with Crawl-delay: 5;
+    only */data.pdf, */data.docx and /defralex are disallowed.
+    The publisher's fair-use policy explicitly ENDORSES our identity convention:
+    "If you are not using a browser, you must identify yourself... Anonymous
+    user agents are not accepted."
+    UNRESOLVED TENSION to settle before acquisition: robots says Crawl-delay 5
+    (0.2 req/s, ~21 days for the corpus) while the fair-use policy says "You
+    must not exceed the request rate limit of 1,500 requests in any 5-minute
+    period" (5 req/s). The policy directs us to follow robots, and it further
+    says that for a large one-off crawl "you should use a different way to
+    download content" and "please contact us prior to taking any action"
+    (data.legislation@nationalarchives.gov.uk). We contact them first.
+    RE-PROBED 2026-10-02T06:22Z from the crawl host: www.legislation.gov.uk ok/true/true; robots re-read, Crawl-delay: 5 still published. Family declared: uk_legislation, at the recommended rate of robots Crawl-delay (1 request per 5 s); the choice is Tim's in the task 695 PR.
+
+status: planned
+
+admission:
+  channel: official-dump
+  evidence:
+    - "task 440: two independent volume derivations agree to 4 items -- 358,852 via /{type}/data.feed type facets vs 358,848 via year facets. ~20-25 GB of XML."
+    - "task 440: per-item structured formats /{uri}/data.xml (CLML) and /{uri}/data.akn (Akoma Ntoso); /update/data.feed is a publication log supporting amendment-driven deltas."
+    - "task 440: dc:publisher = 'King's Printer of Acts of Parliament' (TNA) -- authoritative-primary, not a mirror."
+    - "task 440: bilingual en + cy confirmed via dc:title xml:lang='cy'."
+    - "task 440 consent resolve 2026-08-20: ok/true/true."
+    - "ADR-076 -- explicit open licence (OGL v3) on an official distribution is the admission basis."
+  decision: escalated
+  policy: "POLICY.md@v3 §4.1"
+  date: "2026-08-20"
+
+notes:
+  - >
+    Welsh (cy) is OUT of the ratified language scope (EN/DE/FR/IT). The bilingual
+    corpus is a real asset but must NOT be ingested as a silent scope expansion --
+    it needs the same language-scope governance the spec requires for the
+    low-resource probe. Default: ingest en only, flag cy for a scope decision.
+  - >
+    358,852 is a SOURCE item count, not a point projection. Article-level
+    chunking (the fedlex pattern) will multiply it substantially; no budget
+    before the chunk baseline exists.
+  - >
+    Write to data.legislation@nationalarchives.gov.uk before acquiring, per the
+    publisher's own instruction for bulk use.

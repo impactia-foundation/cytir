@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Privacy · websear.ch — an impactIA Foundation product</title>
+<meta name="description" content="How Cytir (websear.ch) treats personal data: what the index holds, why, and how to get your name out — honoured for anyone, anywhere." />
+<meta name="robots" content="index, follow" />
+
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="impactIA Foundation" />
+<meta property="og:title" content="Privacy · websear.ch" />
+<meta property="og:description" content="We follow the GDPR and the Swiss data-protection act because we think they are right — not because we worked out where they apply." />
+<meta property="og:image" content="/assets/impactia-square-512.png" />
+<meta property="og:url" content="https://websear.ch/privacy" />
+
+<style>
+  /* Design tokens copied from webapp/index.html. There is no shared
+     stylesheet on this site — index.html inlines everything, and extracting
+     it would put the live search page behind a second request for a purely
+     cosmetic gain. Keep these in sync with index.html's :root block. */
+  :root {
+    --fg:#1a1f24; --mut:#5d6b76; --line:#dfe4e8; --bg:#fff;
+    --brand:#2F7D4F; --brand-dk:#1F5A39; --brand-lt:#E8F1EB; --ink:#1E2A22;
+    --link:#2F7D4F; --url:#1f7a45;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; scrollbar-gutter: stable; }
+  body { font: 16px/1.6 -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+         color: var(--fg); margin: 0; background: var(--bg); }
+  a { color: var(--link); }
+
+  /* ---- Masthead: the way back to search, and nothing else ---- */
+  .top { max-width: 660px; margin: 0 auto; padding: 26px 20px 0; }
+  .top a.home { font-weight: 800; font-size: 19px; color: var(--ink);
+                letter-spacing: -.5px; text-decoration: none; }
+  .top a.home:hover { text-decoration: underline; }
+
+  main { max-width: 660px; margin: 0 auto; padding: 0 20px 40px; }
+
+  h1 { font-size: clamp(30px, 7vw, 40px); font-weight: 700; letter-spacing: -.025em;
+       color: var(--ink); line-height: 1.05; margin: 44px 0 0; }
+  .lede { font-size: 18.5px; line-height: 1.55; color: var(--fg); margin: 20px 0 0;
+          max-width: 30em; }
+  .lede + .sub { font-size: 15px; color: var(--mut); margin: 14px 0 0; max-width: 34em; }
+
+  h2 { font-size: 19px; font-weight: 700; letter-spacing: -.01em; color: var(--ink);
+       margin: 56px 0 0; padding-top: 26px; border-top: 1px solid var(--line); }
+  h2 + p, h2 + ul, h2 + .card, h2 + .note { margin-top: 14px; }
+
+  p { line-height: 1.72; margin: 18px 0 0; }
+  strong { font-weight: 650; }
+
+  /* ---- Fact list: verdict first, explanation after ---- */
+  ul.facts { list-style: none; padding: 0; margin: 18px 0 0; }
+  ul.facts li { margin: 0 0 16px; line-height: 1.65; }
+  ul.facts li b { font-weight: 700; color: var(--fg); }
+  ul.facts li span { color: var(--mut); }
+
+  ul.bounds { padding-left: 20px; margin: 16px 0 0; }
+  ul.bounds li { margin: 0 0 12px; line-height: 1.65; }
+
+  /* ---- Action card: same language as the MCP box on the home page ---- */
+  .card { border: 1px solid var(--line); border-radius: 12px; padding: 18px 20px;
+          background: #fbfcfd; margin: 24px 0 0; }
+  .card h3 { font-size: 12px; font-weight: 700; color: var(--ink); margin: 0 0 10px;
+             letter-spacing: .04em; text-transform: uppercase; }
+  .card p { margin: 0 0 14px; font-size: 15px; line-height: 1.65; }
+  .card p:last-child { margin-bottom: 0; }
+  .card code { font-size: 14px; background: #fff; border: 1px solid var(--line);
+               border-radius: 6px; padding: 2px 7px; white-space: nowrap; }
+  a.go { display: inline-block; padding: 11px 22px; border-radius: 8px;
+         background: var(--brand); color: #fff; font-size: 15px; font-weight: 600;
+         text-decoration: none; }
+  a.go:hover { background: var(--brand-dk); }
+
+  /* ---- Status note: what is in effect right now, dated ---- */
+  .note { border-left: 3px solid var(--brand); background: var(--brand-lt);
+          border-radius: 0 8px 8px 0; padding: 14px 18px; margin: 24px 0 0;
+          font-size: 14.5px; line-height: 1.65; color: var(--fg); }
+  .note b { color: var(--brand-dk); }
+
+  footer { max-width: 660px; margin: 0 auto; text-align: center; color: var(--mut);
+           font-size: 12.5px; padding: 44px 20px 56px; border-top: 1px solid var(--line);
+           margin-top: 60px; }
+  footer a { color: var(--mut); }
+
+  @media (max-width: 560px) {
+    h2 { margin-top: 44px; }
+    .lede { font-size: 17.5px; }
+  }
+  @media print {
+    body { color: #000; }
+    .top, footer { display: none; }
+    h2 { page-break-after: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<div class="top"><a class="home" href="/">websear.ch</a></div>
+
+<main>
+
+  <h1>Privacy</h1>
+
+  <p class="lede">We follow the GDPR and the Swiss data-protection act because we
+  think they are right — not because we worked out where they apply.</p>
+
+  <p class="sub">Same standard for everyone, in every country, including you. If
+  you want something about you taken out, you do not have to prove that a
+  particular law reaches us. Just ask.</p>
+
+  <h2>Who we are</h2>
+  <p>Cytir — the open web search index behind <strong>websear.ch</strong> — is
+  built and run by the <a href="https://impactia.org" rel="noopener">impactIA
+  Foundation</a> in Switzerland. We are the controller for the personal data
+  described on this page.</p>
+  <p>For anything here — a question, a request, a complaint — write to
+  <a href="mailto:bender@impactia.org">bender@impactia.org</a>. That is the same
+  address that handles removals, and it is the only contact route you need.</p>
+
+  <h2>What websear.ch actually is</h2>
+  <p>It is a finder of sources, not a library. Ask it something and it answers
+  with the URL of the page that authoritatively says so — a federal statute, a
+  library's own documentation, a statistics office — so that an AI agent can go
+  and read the real thing instead of inventing an answer.</p>
+  <p>For each page we index, we keep a <strong>minimal record</strong>: the URL,
+  the title, a short snippet, a numeric representation used for matching, and
+  metadata such as the language, the licence, and when we last saw the page.
+  <strong>We do not mirror pages and we do not store their full text.</strong>
+  Every result sends you to the publisher's own site.</p>
+  <p>So if a page on the web mentions you, what we hold is a pointer to that
+  page — not a copy of what it says about you, and not a profile assembled from
+  it. Removing yourself from the source page removes you from us at the next
+  refresh; you can also ask us directly.</p>
+
+  <h2>Names in the index</h2>
+  <p>There is one deliberate exception, and it deserves to be spelled out rather
+  than buried.</p>
+  <p>Swiss commercial-register cards — built from what the register itself
+  publishes via Zefix and the official gazette — <strong>carry the people the
+  register names in connection with a company</strong>: signatories, board,
+  management. This is in effect today, not a plan. That is statutory publicity:
+  the register publishes it to the world precisely so that anyone can check who
+  is entitled to sign for a company. An agent asked "who signs for this company"
+  should be sent to the register, not left to guess.</p>
+  <p>How it is actually stored matters, so here it is exactly. Your name is
+  <strong>not written anywhere in the card's text</strong>. It is not in the
+  title, not in the snippet, not in any field we would ever display. It exists
+  only as a <em>matching token</em> — the machinery that decides whether a
+  company card is relevant to what someone typed. The single practical
+  consequence is that the company card can be matched by your name, the same
+  way it can be matched by its domain or its UID. You will not find your name
+  printed on websear.ch.</p>
+  <p>The limits we hold ourselves to are structural, not promises:</p>
+  <ul class="bounds">
+    <li><strong>A name is a search token on a company card — never a record
+    about a person.</strong> There is no person object anywhere in our data.</li>
+    <li><strong>No person pages, no profiles, no people-search.</strong> The
+    only thing that changes is that a company card can also be found by the name
+    of someone the register lists on it, the same way it can be found by its
+    domain or its UID.</li>
+    <li><strong>No linking across companies.</strong> We never assert that the
+    same name appearing on two different cards is the same human. No
+    "other directorships", no mandate counts, no disambiguation. Each name is
+    scoped strictly to the one card it came from.</li>
+    <li><strong>Nothing added from anywhere else.</strong> No biography, no
+    photo, no address, no employment history, no scoring. Exactly what the
+    register prints, and nothing attached to it.</li>
+    <li><strong>It expires by itself.</strong> When the register shows you have
+    left the role, the next register pass removes the name automatically — no
+    request needed.</li>
+  </ul>
+  <p>Separately, a well-known public figure may have an entity card pointing at
+  their <em>own</em> official website, the same way a company or an institution
+  does. That is a link to something you published about yourself, and the
+  removal route below covers it too.</p>
+
+  <div class="note">
+    <b>Status on 6 August 2026:</b> the above is <b>live</b>. Register-published
+    names have been carried on company cards since early August 2026. Because a
+    name is only a matching token and never displayed, you will not see it by
+    searching for yourself — a bare name query is far more likely to return
+    Wikipedia than the company card. <b>Not appearing in the results does not
+    mean the token is not there.</b> If you would rather it were not, the
+    removal route below applies to you today, and we will not ask you why.
+  </div>
+
+  <h2>Why we consider this lawful</h2>
+  <p>Our basis is <strong>legitimate interest</strong> — Art. 6(1)(f) GDPR, and
+  the corresponding basis under the Swiss LPD/nDSG. The interest is concrete:
+  letting an AI agent find the authoritative source for a fact that is already
+  published, rather than confabulating one.</p>
+  <p>That basis is only balanced because of the limits above — minimal data,
+  no aggregation, currency tracked from the register itself, and an objection
+  route that actually works and is fast. We would rather write the reasoning
+  down and be held to it than leave it implicit.</p>
+  <p>And to say the first line again in plainer words: we do not check whether
+  European or Swiss law reaches you before deciding how to treat you. We apply
+  the standard to everyone. It is a design constraint we chose, in the same way
+  we chose to license every record honestly and never to resell a competitor's
+  search results.</p>
+
+  <h2>Your rights, and how to use them</h2>
+  <p>You can ask what we hold about you, ask for it to be corrected, object to
+  it, or ask us to remove it. <strong>Anyone, any country, any nationality.</strong>
+  No lawyer, no forms, no legal formalities — a plain email is enough.</p>
+
+  <div class="card">
+    <h3>Take your name out of a register card</h3>
+    <p>Email <code>bender@impactia.org</code> with the subject
+    <code>TAKEDOWN PERSON &lt;your name&gt;</code>, and tell us the company name
+    or UID your name appears with. That is all we need — you do not have to
+    control a domain or prove anything else.</p>
+    <p><a class="go" href="mailto:bender@impactia.org?subject=TAKEDOWN%20PERSON">Write to us</a></p>
+  </div>
+
+  <p>We acknowledge within <strong>3 business days</strong> and resolve within
+  <strong>7</strong>. We strip your name from that card's searchable text; the
+  company card itself stays, because it is admissible on its own account. The
+  removal is <strong>pinned</strong>, so a later register refresh cannot quietly
+  put it back.</p>
+
+  <div class="card">
+    <h3>Remove a whole site</h3>
+    <p>If you run the site: email <code>bender@impactia.org</code> with the
+    subject <code>TAKEDOWN &lt;your-domain&gt;</code>. We delete every passage
+    for that domain and block it from future builds.</p>
+    <p>You can also opt out without writing to us at all. We re-check consent
+    live for every source, and we honour <code>robots.txt</code> (including
+    <code>CCBot</code> and the <code>-Extended</code> training tokens), AIPREF
+    <code>Content-Usage</code>, and W3C TDMRep. Publish one of those and the next
+    pass drops you.</p>
+  </div>
+
+  <p>If you think we have got a decision wrong, say so in the same thread. You
+  also have the right to complain to a supervisory authority — in Switzerland
+  the FDPIC, or in the EU/EEA your national data-protection authority.</p>
+
+  <h2>What this website does when you visit</h2>
+  <p>Very little, and we checked rather than assumed. Every statement here was
+  verified against the running service on 6 August 2026.</p>
+  <ul class="facts">
+    <li><b>No cookies.</b> <span>We do not set a single one. There is nothing to
+    consent to, which is why you are not being asked.</span></li>
+    <li><b>No analytics, no trackers, no third parties.</b> <span>Every asset on
+    this site is served from websear.ch. No advertising network, no tag manager,
+    no external fonts, no embedded anything. Nothing on this page talks to
+    anyone but us.</span></li>
+    <li><b>No account, ever, to search.</b> <span>There is no sign-in, and no
+    identifier is assigned to you.</span></li>
+    <li><b>Your IP address is not recorded.</b> <span>The proxy in front of the
+    search service keeps no access log for websear.ch, so your address is not
+    written down anywhere.</span></li>
+    <li><b>Your search terms do appear in an operational log.</b> <span>The
+    search service writes one standard line per request to its own log, and for
+    a search that line contains the words you typed — but not your address, and
+    with nothing to tie one line to another. Those lines exist so we can debug a
+    broken query; they stay on the server, are never exported or sold, and are
+    discarded when the service is redeployed.</span></li>
+    <li><b>Your language choice stays in your browser.</b> <span>Picking EN / FR
+    / DE / IT saves a value in your browser's local storage so the page comes
+    back in the same language. It is never sent to us.</span></li>
+    <li><b>We do not keep a record of what people search for.</b> <span>There is
+    no query database and no demand analytics today. We may add a measure of
+    what people look for, to decide what to index next — if we do, this page
+    will say so, and say exactly what is kept, <em>before</em> it starts.</span></li>
+  </ul>
+  <p>The same applies to the MCP endpoint and the JSON API: no keys, no
+  accounts, no per-caller records.</p>
+
+  <h2>Where this fits</h2>
+  <p>This notice reflects our index admission policy (§4.9.1, "register-published
+  individuals") and our published removal procedure. Both are part of an
+  open-source project: the rules that govern what may enter the index are
+  written down, versioned, and changed only by a ratified amendment — not by
+  whoever is on shift.</p>
+  <p>If we change this notice in a way that affects you, we will change it here
+  before the change takes effect, not after.</p>
+  <p>This notice is published in English. German, French and Italian versions
+  follow.</p>
+
+</main>
+
+<footer>
+  Last updated 6 August 2026 · <a href="/">back to search</a> ·
+  <a href="mailto:bender@impactia.org">bender@impactia.org</a>
+</footer>
+
+</body>
+</html>

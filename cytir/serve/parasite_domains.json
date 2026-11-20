@@ -1,0 +1,19 @@
+{
+  "_comment": "Task 125 parasite-domain suppression (roadmap #4). Never-authoritative scraper/paste/mirror/PR hosts that outrank real golds. RANKING demotion, not deletion (ADR-032). Every host verified NEVER a gold in the 348-query eval. Deploy to cytir/serve/parasite_domains.json; weight `parasite` in fusion_weights.json (<=0, default 0.0=inert). Hot-editable: add a host here, restart aw-api, no code change.",
+  "domains": [
+    "aic.lv",
+    "deezer.com",
+    "oec.uzh.ch",
+    "snippet.host",
+    "paste.jp",
+    "telegra.ph",
+    "swiss-press.com",
+    "wearekemb.com",
+    "gobugfree.com",
+    "blazehive.io"
+  ],
+  "url_patterns": [
+    "pkg\\.go\\.dev/[^?#]*\\?[^ ]*\\btab=(?:importedby|licenses|versions|imports)",
+    "mitadmissions\\.org/\\?[^ ]*\\bs="
+  ]
+}

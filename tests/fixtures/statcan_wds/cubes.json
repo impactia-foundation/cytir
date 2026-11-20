@@ -1,0 +1,99 @@
+[
+ {
+  "productId": 10100001,
+  "cubeTitleEn": "Central government debt, quarterly",
+  "cubeTitleFr": "Dette du gouvernement central, trimestrielle",
+  "archived": "2",
+  "subjectCode": [
+   "10"
+  ],
+  "frequencyCode": 12,
+  "cubeStartDate": "2000-01-01",
+  "cubeEndDate": "2025-06-01",
+  "releaseTime": "2026-09-30T08:30"
+ },
+ {
+  "productId": 10100002,
+  "cubeTitleEn": "Consumer Price Index, monthly, not seasonally adjusted",
+  "cubeTitleFr": "Indice des prix à la consommation, mensuel, non désaisonnalisé",
+  "archived": "2",
+  "subjectCode": [
+   "10",
+   "11"
+  ],
+  "frequencyCode": 6,
+  "cubeStartDate": "2000-01-01",
+  "cubeEndDate": "2025-06-01",
+  "releaseTime": "2026-09-30T08:30"
+ },
+ {
+  "productId": 10100003,
+  "cubeTitleEn": "Archived superseded table of old things",
+  "cubeTitleFr": "Tableau archivé ancien des choses",
+  "archived": "1",
+  "subjectCode": [
+   "10"
+  ],
+  "frequencyCode": 12,
+  "cubeStartDate": "2000-01-01",
+  "cubeEndDate": "2025-06-01",
+  "releaseTime": "2026-09-30T08:30"
+ },
+ {
+  "productId": 10100004,
+  "cubeTitleEn": "Population",
+  "cubeTitleFr": "Estimations de la population par âge et sexe, annuelles",
+  "archived": "2",
+  "subjectCode": [
+   "10"
+  ],
+  "frequencyCode": 12,
+  "cubeStartDate": "1971-01-01",
+  "cubeEndDate": "2025-01-01",
+  "releaseTime": ""
+ },
+ {
+  "productId": 10100005,
+  "cubeTitleEn": "Labour force characteristics by province",
+  "cubeTitleFr": "",
+  "archived": "2",
+  "subjectCode": [
+   "99"
+  ],
+  "frequencyCode": 99,
+  "cubeStartDate": "2000-01-01",
+  "cubeEndDate": "2025-06-01",
+  "releaseTime": "2026-09-30T08:30"
+ },
+ {
+  "productId": 10100006,
+  "cubeTitleEn": "Retail trade sales by industry",
+  "cubeTitleFr": "Ventes du commerce de détail par industrie",
+  "archived": "2",
+  "subjectCode": [
+   "10"
+  ],
+  "frequencyCode": 12,
+  "cubeStartDate": "2000-01-01",
+  "cubeEndDate": "2025-06-01",
+  "releaseTime": "2026-09-30T08:30"
+ },
+ {
+  "productId": 10100006,
+  "cubeTitleEn": "Retail trade sales by industry",
+  "cubeTitleFr": "Ventes du commerce de détail par industrie",
+  "archived": "2",
+  "subjectCode": [
+   "10"
+  ],
+  "frequencyCode": 12,
+  "cubeStartDate": "2000-01-01",
+  "cubeEndDate": "2025-06-01",
+  "releaseTime": "2026-09-30T08:30"
+ },
+ {
+  "cubeTitleEn": "Table without product id here",
+  "cubeTitleFr": "Tableau sans identifiant de produit ici",
+  "archived": "2"
+ }
+]

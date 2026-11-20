@@ -1,0 +1,787 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title data-i18n="meta_title">Cytir — open web search for agents · websear.ch</title>
+<meta name="description" data-i18n="meta_desc" data-i18n-attr="content" content="An open, self-hostable search index that surfaces the authoritative source URL for a fact — built for AI agents to ground on, legible to humans. A Cytir demo by the impactIA Foundation." />
+
+<!-- Icons -->
+<link rel="icon" type="image/svg+xml" href="/assets/cytir-mark.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+
+<!-- Open Graph / link previews -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Cytir" />
+<meta property="og:title" content="Cytir — open web search for agents" />
+<meta property="og:description" content="An open search index that returns the authoritative source URL for a fact — built for AI agents to ground on. A Cytir demo by the impactIA Foundation." />
+<meta property="og:image" content="/assets/impactia-square-512.png" />
+<meta property="og:url" content="https://websear.ch/" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Cytir — open web search for agents" />
+<meta name="twitter:description" content="An open search index that returns the authoritative source URL for a fact — built for AI agents." />
+<meta name="twitter:image" content="/assets/impactia-square-512.png" />
+
+<style>
+  :root {
+    --fg:#1a1f24; --mut:#5d6b76; --line:#dfe4e8; --bg:#fff;
+    --cytir-green:#2F7D4F; --cytir-red:#C8372D; --brand:#2F7D4F; --brand-dk:#1F5A39; --brand-lt:#E8F1EB; --ink:#1E2A22;
+    --link:#2F7D4F; --url:#1f7a45;
+  }
+  * { box-sizing: border-box; }
+  /* Reserve the scrollbar gutter so the centered layout doesn't shift
+     horizontally when results make the page tall enough to scroll. Only
+     acts on classic-scrollbar systems; overlay-scrollbar (macOS/mobile) never wobbled. */
+  html { -webkit-text-size-adjust: 100%; scrollbar-gutter: stable; }
+  body { font: 16px/1.6 -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+         color: var(--fg); margin: 0; background: var(--bg); min-height: 100vh; }
+  a { color: var(--link); }
+
+  /* ---- Language switcher (top-right, minimal) ---- */
+  .lang-switch { position: absolute; top: 16px; right: 20px; display: inline-flex;
+          align-items: center; gap: 2px; font-size: 13px; }
+  .lang-switch button { background: none; border: 0; padding: 4px 7px; cursor: pointer;
+          color: var(--mut); font: inherit; font-weight: 600; border-radius: 6px; }
+  .lang-switch button:hover,
+  .lang-switch button[aria-pressed="true"] { color: var(--brand-dk); background: var(--brand-lt); }
+  .lang-switch .sep { color: var(--line); cursor: default; }
+
+  /* ---- Centered home (Google-simple) ---- */
+  main.home { max-width: 640px; margin: 0 auto; padding: 20vh 20px 60px; text-align: center; }
+  .brand { display: inline-block; margin: 0 0 18px; color: var(--ink); }
+  .brand svg { height: 44px; width: auto; display: block; }
+  .brand img { height: 44px; width: auto; display: block; }
+  .title { font-size: clamp(26px, 5vw, 34px); font-weight: 700; letter-spacing: -.02em;
+          color: var(--ink); margin: 0; line-height: 1.05; }
+  .subtag { font-size: 13.5px; color: var(--mut); margin: 8px 0 34px; opacity: .85; letter-spacing: .01em; }
+  .mcp { max-width: 560px; margin: 40px auto 0; border: 1px solid var(--line); border-radius: 12px;
+         padding: 14px 16px; text-align: left; background: #fbfcfd; }
+  .mcp h2 { font-size: 12px; font-weight: 700; color: var(--ink); margin: 0 0 6px;
+            letter-spacing: .04em; text-transform: uppercase; }
+  .mcp p { font-size: 13px; color: var(--mut); margin: 0 0 10px; }
+  .mcp .row { display: flex; gap: 8px; align-items: center; }
+  .mcp code.url { flex: 1; font-size: 13.5px; color: var(--fg); background: #fff;
+                  border: 1px solid var(--line); border-radius: 8px; padding: 9px 12px;
+                  overflow-x: auto; white-space: nowrap; }
+  .mcp button.copy { border: 1px solid var(--line); background: #fff; border-radius: 8px;
+                     padding: 9px 14px; font-size: 13px; cursor: pointer; color: var(--brand-dk); }
+  .mcp button.copy:hover { background: var(--brand-lt); }
+  .mcp details { margin-top: 10px; }
+  .mcp summary { font-size: 12.5px; color: var(--brand-dk); cursor: pointer; }
+  .mcp pre { font-size: 12px; background: #fff; border: 1px solid var(--line); border-radius: 8px;
+             padding: 10px 12px; overflow-x: auto; margin: 8px 0 0; color: var(--fg); }
+
+  form { margin: 0 auto; max-width: 560px; }
+  input[type=search] { width: 100%; padding: 15px 20px; border: 1px solid var(--line);
+          border-radius: 999px; font-size: 17px; color: var(--fg); background:#fff;
+          box-shadow: 0 1px 4px rgba(0,0,0,.04); }
+  input[type=search]:focus { outline: none; border-color: var(--brand);
+          box-shadow: 0 1px 10px rgba(47,125,79,.2); }
+  .actions { margin-top: 22px; }
+  button.go { padding: 10px 24px; border: 0; border-radius: 8px; background: var(--brand);
+          color: #fff; font-size: 15px; font-weight: 600; cursor: pointer; }
+  button.go:hover { background: var(--brand-dk); }
+
+  /* ---- Controls (small, muted) ---- */
+  .ctl { display: inline-flex; gap: 16px; align-items: center; justify-content: center;
+          margin: 18px auto 0; color: var(--mut); font-size: 13px; flex-wrap: wrap; }
+  .ctl label { display: inline-flex; align-items: center; gap: 6px; }
+  select { border: 1px solid var(--line); border-radius: 8px; padding: 5px 8px;
+          font-size: 13px; color: var(--fg); background:#fff; }
+  .example { margin: 16px 0 0; font-size: 13px; color: var(--mut); }
+  .example button.ex { background: none; color: var(--link); border: 0; padding: 0;
+          font: inherit; cursor: pointer; text-decoration: underline; }
+
+  /* ---- Results (left-aligned block, centered column) ---- */
+  .res, .auth { text-align: left; max-width: 620px; margin-left: auto; margin-right: auto; }
+  .res { margin-top: 34px; }
+  .hit { padding: 16px 0; border-top: 1px solid var(--line); }
+  .hit a.title { color: var(--link); text-decoration: none; font-size: 17px; font-weight: 600; }
+  .hit a.title:hover { text-decoration: underline; }
+  .url { color: var(--url); font-size: 13px; word-break: break-all; margin: 3px 0; }
+  .snip { color: #374151; font-size: 14px; margin: 5px 0 0;
+          display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;
+          overflow: hidden; }
+  .tags { margin-top: 8px; display: flex; gap: 6px; flex-wrap: wrap; }
+  .tag { font-size: 11px; color: var(--mut); border: 1px solid var(--line);
+          border-radius: 999px; padding: 1px 9px; }
+  .tag.t { color: var(--brand-dk); border-color: #C5DBCD; background: var(--brand-lt); font-weight: 600; }
+  .empty, .err { color: var(--mut); margin-top: 22px; font-size: 14px; text-align: center; }
+  .err { color: #b91c1c; }
+  #meta { color: var(--mut); font-size: 13px; }
+
+  /* ---- Entity cards (in-results identity cards, task 155/163) ---- */
+  .hit.entity { border: 1px solid #C5DBCD; background: var(--brand-lt); border-radius: 12px;
+                padding: 14px 18px; margin-top: 12px; }
+  .hit.entity + .hit { border-top: 0; }
+  .entity-badge { font-size: 10.5px; font-weight: 700; letter-spacing: .05em;
+                  text-transform: uppercase; color: var(--brand-dk); background: #fff;
+                  border: 1px solid #C5DBCD; border-radius: 999px; padding: 1px 9px; }
+  .hit.entity a.title { font-size: 18px; color: var(--brand-dk); }
+  .entity-meta { font-size: 12px; color: var(--mut); margin-top: 5px; }
+
+  /* ---- Authority cards (opt-in /search sidecar; ADR-021: above results) ---- */
+  .auth { display: grid; gap: 8px; margin-top: 26px; }
+  .auth:empty { margin: 0; }
+  .auth-card { border: 1px solid #C5DBCD; background: var(--brand-lt);
+          border-radius: 12px; padding: 10px 16px; font-size: 14px;
+          display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+  .auth-badge { font-size: 11px; font-weight: 600; color: var(--brand-dk);
+          background: #fff; border: 1px solid #C5DBCD; border-radius: 999px;
+          padding: 1px 9px; white-space: nowrap; }
+  .auth-name { font-weight: 600; color: var(--fg); }
+  .auth-dom { color: var(--mut); font-size: 13px; word-break: break-all; }
+  .auth-go { margin-left: auto; font-weight: 600; font-size: 13.5px;
+          color: var(--brand-dk); text-decoration: none; white-space: nowrap; }
+  .auth-go:hover { text-decoration: underline; }
+  @media (max-width: 560px) { .auth-go { margin-left: 0; } }
+
+  footer { text-align: center; color: var(--mut); font-size: 12.5px; padding: 30px 20px 44px; }
+  footer a { color: var(--mut); }
+  footer p { margin: 0 0 14px; }
+  .collab { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 10px 16px; }
+  .collab img { height: 22px; width: auto; max-width: 100%; display: block; }
+  .collab a { display: inline-flex; align-items: center; }
+  .collab svg.v8 { height: 18px; width: auto; max-width: 100%; display: block; color: var(--mut); }
+  @media (max-width: 480px) { .collab { flex-direction: column; gap: 12px; } }
+
+  @media (max-width: 560px) { main.home { padding-top: 14vh; } }
+</style>
+</head>
+<body>
+
+<!-- impactIA logo restored — discreet, above the wordmark, links to the foundation. -->
+
+<nav class="lang-switch" aria-label="Language">
+  <button type="button" data-lang="en" lang="en" hreflang="en">EN</button>
+  <span class="sep" aria-hidden="true">·</span>
+  <button type="button" data-lang="fr" lang="fr" hreflang="fr">FR</button>
+  <span class="sep" aria-hidden="true">·</span>
+  <button type="button" data-lang="de" lang="de" hreflang="de">DE</button>
+  <span class="sep" aria-hidden="true">·</span>
+  <button type="button" data-lang="it" lang="it" hreflang="it">IT</button>
+</nav>
+
+<main class="home">
+  <a class="brand" href="/" aria-label="Cytir"><svg viewBox="0 0 190 64" class="cytir-lockup" role="img" aria-label="cytir"><defs><mask id="kv0" maskUnits="userSpaceOnUse" x="-50" y="-50" width="100" height="100"><rect x="-50" y="-50" width="100" height="100" fill="#fff"/><path d="M-13.2 0.0H-1.2000000000000002" fill="none" stroke="#000" stroke-width="9"/></mask><mask id="kv1" maskUnits="userSpaceOnUse" x="-50" y="-50" width="100" height="100"><rect x="-50" y="-50" width="100" height="100" fill="#fff"/><path d="M-6.0 -7.2H6.0" fill="none" stroke="#000" stroke-width="9"/><path d="M-6.0 7.2H6.0" fill="none" stroke="#000" stroke-width="9"/></mask><mask id="kv2" maskUnits="userSpaceOnUse" x="-50" y="-50" width="100" height="100"><rect x="-50" y="-50" width="100" height="100" fill="#fff"/><path d="M1.2000000000000002 0.0H13.2" fill="none" stroke="#000" stroke-width="9"/></mask><mask id="kh0" maskUnits="userSpaceOnUse" x="-50" y="-50" width="100" height="100"><rect x="-50" y="-50" width="100" height="100" fill="#fff"/><path d="M-7.2 -13.2V-1.2000000000000002" fill="none" stroke="#000" stroke-width="9"/><path d="M7.2 -13.2V-1.2000000000000002" fill="none" stroke="#000" stroke-width="9"/></mask><mask id="kh1" maskUnits="userSpaceOnUse" x="-50" y="-50" width="100" height="100"><rect x="-50" y="-50" width="100" height="100" fill="#fff"/><path d="M0.0 -6.0V6.0" fill="none" stroke="#000" stroke-width="9"/></mask><mask id="kh2" maskUnits="userSpaceOnUse" x="-50" y="-50" width="100" height="100"><rect x="-50" y="-50" width="100" height="100" fill="#fff"/><path d="M-7.2 1.2000000000000002V13.2" fill="none" stroke="#000" stroke-width="9"/><path d="M7.2 1.2000000000000002V13.2" fill="none" stroke="#000" stroke-width="9"/></mask></defs><g transform="translate(25 36) scale(0.92) rotate(45)" fill="none" stroke-width="5" stroke-linecap="round"><path d="M-7.2 -17.0V17.0" stroke="var(--cytir-red,#C8372D)" mask="url(#kv0)"/><path d="M0.0 -17.0V17.0" stroke="var(--cytir-green,#2F7D4F)" mask="url(#kv1)"/><path d="M7.2 -17.0V17.0" stroke="var(--cytir-green,#2F7D4F)" mask="url(#kv2)"/><path d="M-17.0 -7.2H17.0" stroke="var(--cytir-green,#2F7D4F)" mask="url(#kh0)"/><path d="M-17.0 0.0H17.0" stroke="var(--cytir-green,#2F7D4F)" mask="url(#kh1)"/><path d="M-17.0 7.2H17.0" stroke="var(--cytir-green,#2F7D4F)" mask="url(#kh2)"/></g><g fill="none" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke="currentColor"><path d="M84 29A12 12 0 1 0 84 43"/><path d="M96 24L106 47M118 24L106.5 47Q102 57 95 56"/><path d="M131 24V43Q131 48 136 48H140M122 24H141"/><path d="M152 24V48"/><path d="M166 24V48M166 34Q169 24 179 26"/></g><circle cx="152" cy="13" r="4.2" fill="var(--cytir-red,#C8372D)"/></svg></a>
+  <h1 class="title" data-i18n="h1">open web search for agents</h1>
+  <p class="subtag" data-i18n="subtag">the hosted demo of Cytir by the impactIA&nbsp;Foundation × Vector8</p>
+
+  <form id="f">
+    <input id="q" type="search" data-i18n="search_placeholder" data-i18n-attr="placeholder"
+      placeholder="e.g. durée de protection du droit d'auteur en Suisse" autofocus />
+    <div class="actions">
+      <button type="submit" class="go" data-i18n="search_btn">Search</button>
+    </div>
+  </form>
+
+  <div class="ctl">
+    <label><span data-i18n="lang_label">language</span>
+      <select id="lang">
+        <option value="" data-i18n="lang_any">any</option><option value="de">de</option>
+        <option value="fr">fr</option><option value="it">it</option><option value="en">en</option>
+      </select>
+    </label>
+    <label><span data-i18n="country_label">jurisdiction</span>
+      <select id="country" title="Soft-boost sources from a chosen jurisdiction (does not hide others)">
+        <option value="" data-i18n="country_none">none</option>
+        <option value="CH">🇨🇭 CH</option>
+        <option value="FR">🇫🇷 FR</option>
+        <option value="DE">🇩🇪 DE</option>
+        <option value="CA">🇨🇦 CA</option>
+        <option value="US">🇺🇸 US</option>
+      </select>
+    </label>
+    <label><span data-i18n="k_label">results</span>
+      <select id="k">
+        <option value="3">3</option>
+        <option value="5">5</option>
+        <option value="10" selected>10</option>
+        <option value="20">20</option>
+        <option value="50">50</option>
+        <option value="100">100</option>
+      </select>
+    </label>
+    <span id="meta"></span>
+  </div>
+
+  <p class="example"><span data-i18n="try_label">Try:</span>
+    <button type="button" class="ex" data-q="durée de protection du droit d'auteur en Suisse">durée de protection du droit d'auteur en Suisse</button>
+  </p>
+
+  <div id="auth" class="auth" aria-live="polite"></div>
+  <div id="res" class="res"></div>
+
+  <aside class="mcp" aria-label="Add the MCP server to your agent">
+    <h2 data-i18n="mcp_title">Add to your AI agent (MCP)</h2>
+    <p data-i18n="mcp_desc">Give your agent authoritative-source grounding via the Streamable-HTTP MCP endpoint (tools: search, find_authority).</p>
+    <div class="row">
+      <code class="url" id="mcpurl">https://mcp.websear.ch</code>
+      <button type="button" class="copy" id="mcpcopy" data-i18n="mcp_copy">Copy</button>
+    </div>
+    <details>
+      <summary data-i18n="mcp_cfg">Config snippet</summary>
+      <pre>{
+  "mcpServers": {
+    "cytir-websearch": { "url": "https://mcp.websear.ch" }
+  }
+}</pre>
+    </details>
+  </aside>
+</main>
+
+<footer>
+  <p class="collab"><span data-i18n="footer_collab">Cytir is a collaboration of</span>
+    <a href="https://impactia.org" rel="noopener" aria-label="impactIA"><img src="assets/impactia-logo-black.png" alt="impactIA" height="22" /></a>
+    <a href="https://vector8.com" rel="noopener"><svg class="v8" role="img" aria-label="Vector8" viewBox="0 0 217 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g clip-path="url(#clip0_40000002_15659)">
+    <path d="M36.2467 15.7327L41.9132 21.401L42.8918 22.3777C43.7319 23.2183 44.7293 23.8851 45.8272 24.34C46.9251 24.795 48.1019 25.0291 49.2903 25.0291C50.4787 25.0291 51.6554 24.795 52.7533 24.34C53.8512 23.8851 54.8487 23.2183 55.6888 22.3777C56.0512 22.0174 56.3818 21.6264 56.6768 21.2091C57.7621 19.683 58.3431 17.8557 58.3385 15.983C59.0146 17.4817 59.322 19.1204 59.235 20.7622C59.1479 22.404 58.669 24.0011 57.8382 25.4199C57.0074 26.8386 55.8489 28.0378 54.4596 28.9171C53.0704 29.7963 51.4908 30.3301 49.8529 30.4737C49.6779 30.4737 49.4954 30.485 49.2884 30.485C48.5218 30.4828 47.7566 30.4199 47 30.2968C46.8758 30.278 46.7534 30.2554 46.633 30.2347L46.4448 30.1971C43.6309 29.6421 41.0466 28.2602 39.0226 26.2281L32.3813 19.6L36.2449 15.7346M51.8195 8.8054C52.8748 9.20574 53.8295 9.83273 54.6161 10.6421C56.0083 12.0607 56.7841 13.9715 56.7749 15.9591C56.7657 17.9467 55.9721 19.8502 54.5668 21.2558C53.1615 22.6613 51.2581 23.4552 49.2705 23.4648C47.2829 23.4744 45.372 22.6989 43.9532 21.3069L42.9746 20.3283L36.243 13.5968L35.1759 14.6638L30.251 19.6L37.9668 27.3159C40.2016 29.56 43.0553 31.0862 46.1625 31.6988C46.362 31.739 46.5634 31.7747 46.7666 31.8061C47.6012 31.9392 48.4451 32.0059 49.2903 32.0056C49.501 32.0056 49.7118 32.0056 49.9226 31.9924H49.9339C52.6453 31.7707 55.1968 30.619 57.1565 28.7321C59.1163 26.8451 60.3638 24.339 60.6879 21.6379C61.012 18.9369 60.3929 16.2067 58.9352 13.9098C57.4776 11.6128 55.271 9.89001 52.689 9.03312C52.4011 8.97102 52.1131 8.84492 51.8233 8.80164L51.8195 8.8054Z" fill="currentColor" />
+    <path d="M15.7723 1.50557C16.5382 1.50861 17.3027 1.57153 18.0589 1.69376L18.4352 1.75773L18.6234 1.79349C21.4279 2.34854 24.0038 3.72557 26.0231 5.74927L32.6587 12.3849L28.8008 16.2447L23.14 10.5858L22.1633 9.60907C21.3244 8.76948 20.3283 8.10344 19.2318 7.64902C18.1354 7.1946 16.9601 6.9607 15.7733 6.9607C14.5864 6.9607 13.4112 7.1946 12.3147 7.64902C11.2183 8.10344 10.2222 8.76948 9.38325 9.60907C9.02081 9.96939 8.69024 10.3604 8.39525 10.7777C7.31203 12.2998 6.73169 14.1224 6.7354 15.9906C6.05997 14.4941 5.75263 12.8577 5.83908 11.2181C5.92553 9.57855 6.40326 7.98351 7.23233 6.56636C8.0614 5.14921 9.2177 3.95113 10.6046 3.07233C11.9914 2.19352 13.5685 1.65952 15.204 1.51497C15.379 1.51497 15.5616 1.50368 15.7686 1.50368M15.7686 -0.00184675C15.5578 -0.00184675 15.347 -0.00184537 15.1362 0.011328H15.125C12.4205 0.237164 9.87679 1.38939 7.92342 3.27342C5.97006 5.15745 4.72671 7.65785 4.40333 10.3524C4.07995 13.047 4.69635 15.7706 6.14845 18.0633C7.60055 20.356 9.79937 22.0774 12.3736 22.9368C12.6615 22.9989 13.0605 23.1532 13.3503 23.2002C12.2582 22.7871 11.2669 22.1455 10.4428 21.3183C9.03027 19.9058 8.23674 17.9901 8.23674 15.9925C8.23674 13.9949 9.03027 12.0792 10.4428 10.6667C11.8553 9.25421 13.771 8.46068 15.7686 8.46068C17.7661 8.46068 19.6819 9.25421 21.0944 10.6667L22.0711 11.6434L28.797 18.3675L29.8622 17.3023L34.7834 12.3792L27.0826 4.67846C24.8497 2.4379 21.9996 0.913886 18.8963 0.301138C18.6968 0.261618 18.4955 0.22586 18.2941 0.193868C17.4601 0.060791 16.6169 -0.00591195 15.7723 -0.00561424L15.7686 -0.00184675Z" fill="currentColor" />
+    <path d="M1.63691e-07 16C-0.00057423 11.9826 1.51054 8.11202 4.23299 5.1577C6.95544 2.20339 10.6899 0.381637 14.6939 0.0545713C15.1287 0.0169331 15.5653 1.61155e-08 16.0019 1.61155e-08H16.0979C13.1079 -0.00015649 10.2304 1.13963 8.05161 3.18714C5.87278 5.23465 4.55656 8.03585 4.3711 11.02C4.18564 14.0042 5.1449 16.9468 7.05344 19.2483C8.96198 21.5498 11.6762 23.0371 14.6431 23.4072C14.7843 23.4335 14.9273 23.4561 15.0703 23.4731C15.3788 23.5109 15.6892 23.5298 16 23.5295C16.3342 23.5297 16.6681 23.5071 16.9993 23.4618H17.0162H17.0896L17.1668 23.4392C18.555 23.2254 19.8549 22.6247 20.9174 21.7059C21.0567 21.5836 21.1922 21.4575 21.3239 21.3296L22.2988 20.3529L26.6497 16.0038L26.6366 15.9906L27.2802 15.347C29.0717 13.5554 30.8558 11.76 32.6248 10.0023L32.638 10.0155L37.9657 4.68972C40.6431 2.00366 44.1913 0.361366 47.9718 0.0583388C48.4065 0.0207006 48.8431 0.00375603 49.2797 0.00375603C49.53 0.00375603 49.7803 0.00376292 50.0325 0.022582C51.3733 0.0840663 52.7011 0.314219 53.9845 0.7076C57.4435 1.76531 60.4419 3.96411 62.4904 6.94521C64.539 9.9263 65.5167 13.5137 65.264 17.122C65.0114 20.7302 63.5433 24.1464 61.0993 26.8129C58.6553 29.4794 55.3798 31.2389 51.8071 31.8043C51.1841 31.9047 50.5557 31.9675 49.9252 31.9925C52.6324 31.7699 55.1797 30.6191 57.1361 28.7346C59.0925 26.8501 60.338 24.3478 60.6618 21.6508C60.9856 18.9537 60.3679 16.2277 58.9132 13.9336C57.4585 11.6396 55.256 9.91849 52.6784 9.06139C51.8946 8.80013 51.0852 8.62286 50.2639 8.53257L50.119 8.51564C49.9384 8.49557 49.7558 8.48239 49.5714 8.47612H49.5563C49.466 8.47612 49.3681 8.47612 49.2835 8.47612C48.4226 8.47533 47.568 8.62107 46.7561 8.90708C45.9428 9.1973 45.1859 9.62577 44.5185 10.1736L37.593 17.099L32.67 22.0221L32.6417 21.9939L27.3159 27.3216C25.2605 29.3723 22.6869 30.8265 19.8697 31.5292C17.0525 32.2318 14.0974 32.1565 11.3197 31.3112C10.868 31.1738 10.4201 31.0158 9.97976 30.837C7.03022 29.6384 4.50544 27.5869 2.72859 24.9451C0.951729 22.3032 0.00363359 19.1913 0.00563992 16.0075L1.63691e-07 16Z" fill="currentColor" />
+  </g>
+  <path d="M205.382 30.5074C203.226 30.5074 201.329 30.1625 199.691 29.4727C198.081 28.7542 196.831 27.7626 195.94 26.4979C195.049 25.2333 194.604 23.7387 194.604 22.0142C194.604 20.3472 195.049 18.9245 195.94 17.7461C196.86 16.5676 198.124 15.6623 199.734 15.03C201.372 14.3976 203.255 14.0815 205.382 14.0815C207.566 14.0815 209.449 14.4264 211.029 15.1162C212.639 15.7772 213.889 16.697 214.78 17.8754C215.7 19.0538 216.16 20.419 216.16 21.9711C216.16 23.7244 215.714 25.2477 214.823 26.5411C213.932 27.8057 212.682 28.7829 211.073 29.4727C209.463 30.1625 207.566 30.5074 205.382 30.5074ZM205.382 26.0237C206.963 26.0237 208.227 25.6501 209.176 24.9028C210.124 24.1555 210.598 23.092 210.598 21.7124C210.598 20.7927 210.383 20.0167 209.952 19.3843C209.521 18.7233 208.917 18.2203 208.141 17.8754C207.365 17.5305 206.445 17.358 205.382 17.358C203.801 17.358 202.536 17.7461 201.588 18.5221C200.639 19.2694 200.165 20.3472 200.165 21.7555C200.165 23.0777 200.639 24.1267 201.588 24.9028C202.536 25.6501 203.801 26.0237 205.382 26.0237ZM205.382 1.49255C207.365 1.49255 209.089 1.82308 210.555 2.48415C212.05 3.11647 213.199 4.03621 214.004 5.24336C214.838 6.45052 215.255 7.87324 215.255 9.51152C215.255 11.0348 214.838 12.357 214.004 13.4779C213.171 14.5701 212.021 15.4323 210.555 16.0647C209.089 16.6682 207.365 16.97 205.382 16.97C203.427 16.97 201.703 16.6682 200.208 16.0647C198.742 15.4611 197.593 14.6132 196.759 13.521C195.954 12.4001 195.552 11.0636 195.552 9.51152C195.552 7.90198 195.954 6.50801 196.759 5.32959C197.593 4.12243 198.742 3.18832 200.208 2.52726C201.703 1.83746 203.427 1.49255 205.382 1.49255ZM205.382 5.97628C204.031 5.97628 202.953 6.30681 202.148 6.96787C201.343 7.62893 200.941 8.56305 200.941 9.7702C200.941 10.9774 201.343 11.9258 202.148 12.6156C202.953 13.3054 204.031 13.6503 205.382 13.6503C206.733 13.6503 207.81 13.3054 208.615 12.6156C209.42 11.9258 209.822 10.9774 209.822 9.7702C209.822 8.5343 209.42 7.60019 208.615 6.96787C207.81 6.30681 206.733 5.97628 205.382 5.97628Z" fill="currentColor" />
+  <path d="M180.41 29.8608V7.05414H183.212V29.8608H180.41ZM183.212 16.7545H181.876C182.02 14.4839 182.48 12.6013 183.256 11.1067C184.032 9.58341 185.023 8.44811 186.23 7.70083C187.438 6.95354 188.774 6.5799 190.24 6.5799C190.671 6.5799 191.073 6.62301 191.447 6.70923C191.821 6.79546 192.108 6.91043 192.309 7.05414V9.59779C192.022 9.48282 191.677 9.39659 191.275 9.33911C190.872 9.28163 190.47 9.25289 190.067 9.25289C188.889 9.25289 187.869 9.45408 187.006 9.85646C186.173 10.2588 185.469 10.8193 184.894 11.5379C184.319 12.2277 183.888 13.0181 183.6 13.9091C183.342 14.8001 183.212 15.7485 183.212 16.7545Z" fill="currentColor" />
+  <path d="M164.872 30.335C162.745 30.335 160.92 29.8608 159.397 28.9123C157.873 27.9638 156.709 26.6129 155.904 24.8597C155.1 23.0777 154.697 20.9508 154.697 18.479C154.697 15.8922 155.1 13.7222 155.904 11.969C156.738 10.2157 157.916 8.87924 159.44 7.9595C160.963 7.03977 162.774 6.5799 164.872 6.5799C166.999 6.5799 168.81 7.05414 170.304 8.00262C171.827 8.9511 172.991 10.3163 173.796 12.0983C174.601 13.8803 175.003 16.0072 175.003 18.479C175.003 21.037 174.587 23.1927 173.753 24.9459C172.948 26.6992 171.784 28.0357 170.261 28.9554C168.766 29.8751 166.97 30.335 164.872 30.335ZM164.872 27.9207C167.229 27.9207 169.025 27.1016 170.261 25.4633C171.526 23.825 172.158 21.4969 172.158 18.479C172.158 15.4611 171.526 13.133 170.261 11.4947C168.996 9.82772 167.2 8.99421 164.872 8.99421C162.515 8.99421 160.704 9.81335 159.44 11.4516C158.175 13.0899 157.543 15.4324 157.543 18.479C157.543 21.4682 158.175 23.7962 159.44 25.4633C160.733 27.1016 162.544 27.9207 164.872 27.9207Z" fill="currentColor" />
+  <path d="M144.085 23.6094V1.79431H146.887V23.6094C146.887 25.1039 147.175 26.2105 147.749 26.929C148.353 27.6188 149.517 27.9637 151.241 27.9637H151.931V29.99C151.759 30.0763 151.5 30.1338 151.155 30.1625C150.81 30.1912 150.437 30.2056 150.034 30.2056C147.965 30.2056 146.456 29.6739 145.507 28.6104C144.559 27.547 144.085 25.88 144.085 23.6094ZM140.636 9.29593V7.05407H151.974V9.29593H140.636Z" fill="currentColor" />
+  <path d="M138.272 14.7713H135.47C135.125 12.8744 134.349 11.4373 133.142 10.46C131.963 9.48282 130.512 8.99421 128.787 8.99421C126.459 8.99421 124.677 9.81335 123.441 11.4516C122.206 13.0899 121.588 15.4324 121.588 18.479C121.588 21.4969 122.22 23.825 123.485 25.4633C124.778 27.1016 126.589 27.9207 128.917 27.9207C130.641 27.9207 132.093 27.4608 133.271 26.5411C134.45 25.5926 135.24 24.1843 135.642 22.316H138.445C137.899 25.1327 136.763 27.1734 135.039 28.4381C133.343 29.7027 131.274 30.335 128.831 30.335C126.732 30.335 124.922 29.8608 123.398 28.9123C121.904 27.9638 120.754 26.6129 119.949 24.8597C119.145 23.0777 118.742 20.9508 118.742 18.479C118.742 15.8922 119.145 13.7222 119.949 11.969C120.754 10.2157 121.904 8.87924 123.398 7.9595C124.922 7.03977 126.718 6.5799 128.787 6.5799C130.454 6.5799 131.949 6.89606 133.271 7.52838C134.593 8.13195 135.685 9.05169 136.548 10.2876C137.439 11.4947 138.014 12.9893 138.272 14.7713Z" fill="currentColor" />
+  <path d="M113.122 16.7545L111.569 18.2634C111.569 15.3318 110.937 13.0612 109.672 11.4516C108.408 9.81335 106.64 8.99421 104.37 8.99421C102.042 8.99421 100.245 9.81335 98.9805 11.4516C97.7446 13.0899 97.1267 15.4324 97.1267 18.479C97.1267 21.4682 97.7734 23.7962 99.0668 25.4633C100.389 27.1016 102.228 27.9207 104.585 27.9207C106.396 27.9207 107.905 27.4608 109.112 26.5411C110.348 25.6214 111.196 24.2561 111.656 22.4454H114.544C113.912 25.1184 112.719 27.1016 110.966 28.3949C109.213 29.6883 107.086 30.335 104.585 30.335C102.43 30.335 100.576 29.8608 99.0237 28.9123C97.5003 27.9638 96.3219 26.6129 95.4884 24.8597C94.6836 23.0777 94.2812 20.9508 94.2812 18.479C94.2812 15.8922 94.6836 13.7222 95.4884 11.969C96.3219 10.2157 97.486 8.87924 98.9805 7.9595C100.504 7.03977 102.3 6.5799 104.37 6.5799C106.468 6.5799 108.264 7.05414 109.759 8.00262C111.253 8.92235 112.403 10.2445 113.208 11.969C114.013 13.6648 114.415 15.7198 114.415 18.1341V18.9101H95.4884V16.7545H113.122Z" fill="currentColor" />
+  <path d="M79.7526 29.8607L71.0869 7.05408H74.1048L81.0028 25.6788L81.822 28.2224H81.3477L82.1238 25.6788L89.0218 7.05408H91.8241L83.1585 29.8607H79.7526Z" fill="currentColor" />
+  <defs>
+    <clipPath id="clip0_40000002_15659">
+      <rect width="65.2835" height="32" fill="currentColor" />
+    </clipPath>
+  </defs>
+</svg></a></p>
+  <p>
+  <a href="https://cytir.org" rel="noopener">cytir.org</a>
+  <span aria-hidden="true"> · </span>
+  <span data-i18n="footer_oss">open &amp; self-hostable · Apache-2.0</span>
+  <span aria-hidden="true"> · </span>
+  <a href="/privacy" data-i18n="footer_privacy">Privacy</a>
+  </p>
+</footer>
+
+<script>
+const $ = s => document.querySelector(s);
+
+/* ============================================================
+   i18n dictionary
+   ------------------------------------------------------------
+   All UI copy lives here, keyed by string id, per language.
+   EN and FR are populated now. DE and IT are first-class per
+   the constitution (EN/DE/FR/IT) and slot in as drop-ins:
+   add a `de: { ... }` and `it: { ... }` block with the same
+   keys, then add the matching <button data-lang="de">DE</button>
+   to .lang-switch in the header. No other code changes needed.
+
+   Markup conventions used by setLang():
+     data-i18n="key"            -> sets element.textContent
+     data-i18n-html="key"       -> sets element.innerHTML (use
+                                   only for trusted strings that
+                                   contain inline markup below)
+     data-i18n-attr="attr"      -> with data-i18n, sets that
+                                   attribute (e.g. placeholder,
+                                   content) instead of textContent
+   ============================================================ */
+const I18N = {
+  en: {
+    meta_title: "Cytir — open web search for agents · websear.ch",
+    h1: "open web search for agents",
+    meta_desc: "An open, self-hostable search index that surfaces the authoritative source URL for a fact — built for AI agents to ground on, legible to humans. A Cytir demo by the impactIA Foundation.",
+    entity_org: "Company — official site",
+    entity_person: "Person — official site",
+    entity_official: "verified official website",
+    subtag: "the hosted demo of Cytir by the impactIA Foundation × Vector8",
+    mcp_title: "Add to your AI agent (MCP)",
+    mcp_desc: "Give your agent authoritative-source grounding via the Streamable-HTTP MCP endpoint (tools: search, find_authority).",
+    mcp_copy: "Copy",
+    mcp_cfg: "Config snippet",
+    // Footer. The /privacy page itself is EN-only for now (task 390); the
+    // link label is localized so the way in reads native in all four.
+    footer_collab: "Cytir is a collaboration of",
+    footer_oss: "open & self-hostable · Apache-2.0",
+    footer_privacy: "Privacy",
+    hero_h1: "Search that returns the authoritative source — not an answer.",
+    hero_lede: 'An open, self-hostable search index whose primary user is an AI&nbsp;<em>agent</em>. Ask a precise question; get back the <em>URL of the authoritative source</em> to fetch and read. Curated · consent-respecting · multilingual.',
+    search_placeholder: "e.g. durée de protection du droit d'auteur en Suisse",
+    search_btn: "Search",
+    lang_label: "language",
+    lang_any: "any",
+    country_label: "jurisdiction",
+    country_none: "none",
+    k_label: "results",
+    try_label: "Try:",
+    banner: 'A curated, multilingual index of <b>authoritative sources</b> — Swiss federal law via Fedlex, plus reference and official government / documentation sources, in English, German, French and Italian. Curated and growing.',
+    s1_kicker: "What it is",
+    s1_h2: "A finder of authoritative URLs.",
+    s1_p1: 'Large language models hold a lossy copy of the web. On precise, authoritative facts — a legal deadline, a statutory definition, an official figure — they confabulate. The authoritative web (<b>AW</b>) surfaces the <b>URL of the authoritative source</b> so the agent, or a person, can fetch and read the real thing.',
+    s1_p2: 'It is deliberately <b>not</b> a content host and <b>not</b> an answer engine. It does not mirror full pages and it does not generate prose. The result is a link to the source — you read the source, or your agent does.',
+    s2_kicker: "Why it matters",
+    s2_h2: "Principles we build by.",
+    card1_h: "Open as a common good",
+    card1_p: "Apache-2.0 and forkable. The index is a public good, not a moat — anyone can run, audit, and extend it.",
+    card2_h: "Authoritativeness over coverage",
+    card2_p: "We rank by trust, transparently tiered, rather than chasing the largest possible crawl.",
+    card3_h: "Consent &amp; author dignity",
+    card3_p: "Consent is re-resolved live and opt-outs are honoured. We never mirror an author's full content.",
+    card4_h: "Self-hostable &amp; frugal",
+    card4_p: "Buildable on a 4×A6000 box in days and servable on a ~20k&nbsp;CHF machine. No hyperscale required.",
+    card5_h: "Query sovereignty",
+    card5_p: "Self-host it and the query never leaves your infrastructure — built for regulated and privacy-sensitive operators.",
+    card6_h: "Multilingual by design",
+    card6_p: "English, German, French and Italian are first-class, not an afterthought.",
+    s3_kicker: "How it works",
+    s3_h2: "Honest mechanics.",
+    step1_h: "Hybrid retrieval",
+    step1_p: "Dense and sparse vectors fused with BM25, so both meaning and exact terms count.",
+    step2_h: "Trust-tiered ranking",
+    step2_p: "Results are ordered by a transparent source-trust tier, not by popularity or ad spend.",
+    step3_h: "Minimal records",
+    step3_p: 'We store only <code>url</code>, <code>title</code>, <code>snippet</code>, embedding, <code>lang</code>, trust tier and consent flags — never a full-text mirror.',
+    exposed_intro: "AW is exposed three ways:",
+    pill1: "Human search page",
+    pill2: 'JSON <code>/search</code> API',
+    pill3: "MCP server — call it as an agent tool",
+    foot_brand: 'A Cytir demo by the <b>impactIA Foundation</b><br />Making AI a common good',
+    foot_meta: 'Open source · Apache-2.0<br /><a href="https://impactia.org">impactia.org</a>',
+    foot_note: "Cytir · websear.ch — the result is a URL to read; the agent (or you) opens the source.",
+    /* dynamic search-results strings */
+    js_searching: "searching…",
+    js_none: "No authoritative source found.",
+    js_results: n => n + " results",
+    js_failed: "Search failed: ",
+    tier_official: "official",
+    tier_reference: "reference",
+    tier_docs: "docs",
+    tier_entity_self: "first-party",
+    tag_source: "source",
+    tag_trust: "trust",
+    tag_score: "score",
+    tag_seen: "seen",
+    /* authority-card strip */
+    auth_indexed: "authoritative source",
+    auth_not_indexed: "not indexed — search on site",
+    auth_go: name => "Search on " + name + " →"
+  },
+  fr: {
+    meta_title: "Cytir — recherche web ouverte pour les agents · websear.ch",
+    h1: "recherche web ouverte pour les agents",
+    meta_desc: "Un index de recherche ouvert et auto-hébergeable qui renvoie l'URL de la source faisant autorité pour un fait — conçu pour ancrer les agents IA, lisible par les humains. Une démo de Cytir par la Fondation impactIA.",
+    entity_org: "Entreprise — site officiel",
+    entity_person: "Personne — site officiel",
+    entity_official: "site web officiel vérifié",
+    subtag: "la démo hébergée de Cytir par la Fondation impactIA × Vector8",
+    mcp_title: "Ajouter à votre agent IA (MCP)",
+    mcp_desc: "Offrez à votre agent un ancrage sur des sources faisant autorité via le point d'accès MCP Streamable-HTTP (outils : search, find_authority).",
+    mcp_copy: "Copier",
+    mcp_cfg: "Extrait de configuration",
+    footer_collab: "Cytir est une collaboration de",
+    footer_oss: "ouvert et auto-hébergeable · Apache-2.0",
+    footer_privacy: "Confidentialité",
+    hero_h1: "Une recherche qui renvoie la source faisant autorité — pas une réponse.",
+    hero_lede: 'Un index de recherche ouvert et auto-hébergeable dont l\'utilisateur principal est un <em>agent</em>&nbsp;IA. Posez une question précise&nbsp;; recevez l\'<em>URL de la source faisant autorité</em> à consulter et à lire. Sélectionné · respectueux du consentement · multilingue.',
+    search_placeholder: "ex. durée de protection du droit d'auteur en Suisse",
+    search_btn: "Rechercher",
+    lang_label: "langue",
+    lang_any: "toutes",
+    country_label: "juridiction",
+    country_none: "aucune",
+    k_label: "résultats",
+    try_label: "Essayez :",
+    banner: 'Un index sélectionné et multilingue de <b>sources faisant autorité</b> — le droit fédéral suisse via Fedlex, ainsi que des sources de référence et des sources gouvernementales / de documentation officielles, en anglais, allemand, français et italien. Sélectionné et en croissance.',
+    s1_kicker: "Ce que c'est",
+    s1_h2: "Un repère d'URL faisant autorité.",
+    s1_p1: 'Les grands modèles de langage détiennent une copie imparfaite du web. Sur les faits précis et qui font autorité — une échéance légale, une définition statutaire, un chiffre officiel — ils fabulent. The authoritative web (<b>AW</b>) fait remonter l\'<b>URL de la source faisant autorité</b> afin que l\'agent, ou une personne, puisse aller consulter et lire la source réelle.',
+    s1_p2: 'Ce n\'est délibérément <b>pas</b> un hébergeur de contenu ni <b>pas</b> un moteur de réponses. Il ne reproduit pas les pages intégrales et ne génère pas de texte. Le résultat est un lien vers la source — vous lisez la source, ou votre agent le fait.',
+    s2_kicker: "Pourquoi c'est important",
+    s2_h2: "Les principes qui nous guident.",
+    card1_h: "Ouvert comme bien commun",
+    card1_p: "Sous licence Apache-2.0 et forkable. L'index est un bien public, pas une douve — chacun peut l'exécuter, l'auditer et l'étendre.",
+    card2_h: "L'autorité avant la couverture",
+    card2_p: "Nous classons par fiabilité, selon des paliers transparents, plutôt que de courir après le plus vaste crawl possible.",
+    card3_h: "Consentement &amp; dignité des auteurs",
+    card3_p: "Le consentement est revérifié en direct et les retraits sont respectés. Nous ne reproduisons jamais le contenu intégral d'un auteur.",
+    card4_h: "Auto-hébergeable &amp; sobre",
+    card4_p: "Constructible sur une machine 4×A6000 en quelques jours et exploitable sur une machine à ~20k&nbsp;CHF. Aucune infrastructure hyperscale requise.",
+    card5_h: "Souveraineté des requêtes",
+    card5_p: "Auto-hébergez-le et la requête ne quitte jamais votre infrastructure — conçu pour les opérateurs réglementés et sensibles à la confidentialité.",
+    card6_h: "Multilingue par conception",
+    card6_p: "L'anglais, l'allemand, le français et l'italien sont de premier rang, pas une réflexion après coup.",
+    s3_kicker: "Comment ça marche",
+    s3_h2: "Une mécanique honnête.",
+    step1_h: "Recherche hybride",
+    step1_p: "Vecteurs denses et creux fusionnés avec BM25, pour que le sens comme les termes exacts comptent.",
+    step2_h: "Classement par palier de fiabilité",
+    step2_p: "Les résultats sont ordonnés selon un palier de fiabilité de source transparent, et non par popularité ou budget publicitaire.",
+    step3_h: "Enregistrements minimaux",
+    step3_p: 'Nous ne stockons que <code>url</code>, <code>title</code>, <code>snippet</code>, l\'embedding, <code>lang</code>, le palier de fiabilité et les indicateurs de consentement — jamais une copie intégrale du texte.',
+    exposed_intro: "AW est exposé de trois façons :",
+    pill1: "Page de recherche humaine",
+    pill2: 'API JSON <code>/search</code>',
+    pill3: "Serveur MCP — appelez-le comme un outil d'agent",
+    foot_brand: 'Une démo de Cytir par la <b>Fondation impactIA</b><br />Faire de l\'IA un bien commun',
+    foot_meta: 'Open source · Apache-2.0<br /><a href="https://impactia.org">impactia.org</a>',
+    foot_note: "Cytir · websear.ch — le résultat est une URL à lire ; l'agent (ou vous) ouvre la source.",
+    /* dynamic search-results strings */
+    js_searching: "recherche en cours…",
+    js_none: "Aucune source faisant autorité trouvée.",
+    js_results: n => n + (n > 1 ? " résultats" : " résultat"),
+    js_failed: "Échec de la recherche : ",
+    tier_official: "officiel",
+    tier_reference: "référence",
+    tier_docs: "documentation",
+    tier_entity_self: "première partie",
+    tag_source: "source",
+    tag_trust: "fiabilité",
+    tag_score: "score",
+    tag_seen: "vu",
+    /* authority-card strip */
+    auth_indexed: "source faisant autorité",
+    auth_not_indexed: "non indexé — chercher sur le site",
+    auth_go: name => "Chercher sur " + name + " →"
+  },
+  de: {
+    meta_title: "Cytir — offene Websuche für Agenten · websear.ch",
+    h1: "offene Websuche für Agenten",
+    meta_desc: "Ein offener, selbst hostbarer Suchindex, der die URL der massgeblichen Quelle für einen Fakt liefert — für KI-Agenten zur Verankerung, für Menschen lesbar. Eine Cytir-Demo der Stiftung impactIA.",
+    entity_org: "Unternehmen — offizielle Website",
+    entity_person: "Person — offizielle Website",
+    entity_official: "verifizierte offizielle Website",
+    subtag: "die gehostete Demo von Cytir der Stiftung impactIA × Vector8",
+    mcp_title: "Zu Ihrem KI-Agenten hinzufügen (MCP)",
+    mcp_desc: "Verankern Sie Ihren Agenten in massgeblichen Quellen über den Streamable-HTTP-MCP-Endpunkt (Tools: search, find_authority).",
+    mcp_copy: "Kopieren",
+    mcp_cfg: "Konfigurations-Snippet",
+    footer_collab: "Cytir ist eine Zusammenarbeit von",
+    footer_oss: "offen & selbst hostbar · Apache-2.0",
+    footer_privacy: "Datenschutz",
+    hero_h1: "Eine Suche, die die massgebliche Quelle liefert — keine Antwort.",
+    hero_lede: 'Ein offener, selbst hostbarer Suchindex, dessen primärer Nutzer ein&nbsp;KI-<em>Agent</em> ist. Stellen Sie eine präzise Frage; erhalten Sie die <em>URL der massgeblichen Quelle</em> zum Abrufen und Lesen zurück. Kuratiert · einwilligungskonform · mehrsprachig.',
+    search_placeholder: "z. B. Schutzdauer des Urheberrechts in der Schweiz",
+    search_btn: "Suchen",
+    lang_label: "Sprache",
+    lang_any: "alle",
+    country_label: "Jurisdiktion",
+    country_none: "keine",
+    k_label: "Ergebnisse",
+    try_label: "Versuchen Sie:",
+    banner: 'Ein kuratierter, mehrsprachiger Index <b>massgeblicher Quellen</b> — das Schweizer Bundesrecht über Fedlex sowie Referenz- und offizielle behördliche / Dokumentationsquellen, auf Englisch, Deutsch, Französisch und Italienisch. Kuratiert und wachsend.',
+    s1_kicker: "Was es ist",
+    s1_h2: "Ein Finder massgeblicher URLs.",
+    s1_p1: 'Grosse Sprachmodelle besitzen eine verlustbehaftete Kopie des Webs. Bei präzisen, massgeblichen Fakten — einer gesetzlichen Frist, einer gesetzlichen Definition, einer amtlichen Zahl — fabulieren sie. The authoritative web (<b>AW</b>) liefert die <b>URL der massgeblichen Quelle</b>, damit der Agent oder eine Person das Original abrufen und lesen kann.',
+    s1_p2: 'Es ist bewusst <b>kein</b> Content-Host und <b>keine</b> Antwortmaschine. Es spiegelt keine vollständigen Seiten und generiert keinen Text. Das Ergebnis ist ein Link zur Quelle — Sie lesen die Quelle, oder Ihr Agent tut es.',
+    s2_kicker: "Warum es wichtig ist",
+    s2_h2: "Grundsätze, nach denen wir bauen.",
+    card1_h: "Offen als Gemeingut",
+    card1_p: "Apache-2.0 und forkbar. Der Index ist ein öffentliches Gut, kein Burggraben — jede und jeder kann ihn betreiben, prüfen und erweitern.",
+    card2_h: "Massgeblichkeit vor Abdeckung",
+    card2_p: "Wir ranken nach Vertrauen, transparent gestuft, statt dem grösstmöglichen Crawl hinterherzujagen.",
+    card3_h: "Einwilligung &amp; Würde der Urheber",
+    card3_p: "Die Einwilligung wird live neu geprüft und Opt-outs werden respektiert. Wir spiegeln niemals den vollständigen Inhalt eines Urhebers.",
+    card4_h: "Selbst hostbar &amp; genügsam",
+    card4_p: "In Tagen auf einer 4×A6000-Maschine baubar und auf einer Maschine für ~20k&nbsp;CHF betreibbar. Kein Hyperscale erforderlich.",
+    card5_h: "Abfragesouveränität",
+    card5_p: "Hosten Sie ihn selbst, und die Abfrage verlässt niemals Ihre Infrastruktur — für regulierte und datenschutzsensible Betreiber gebaut.",
+    card6_h: "Mehrsprachig von Grund auf",
+    card6_p: "Englisch, Deutsch, Französisch und Italienisch sind erstklassig, kein nachträglicher Einfall.",
+    s3_kicker: "Wie es funktioniert",
+    s3_h2: "Ehrliche Mechanik.",
+    step1_h: "Hybrides Retrieval",
+    step1_p: "Dichte und dünnbesetzte Vektoren, fusioniert mit BM25, sodass sowohl Bedeutung als auch exakte Begriffe zählen.",
+    step2_h: "Vertrauensgestuftes Ranking",
+    step2_p: "Die Ergebnisse werden nach einer transparenten Quellenvertrauensstufe geordnet, nicht nach Popularität oder Werbebudget.",
+    step3_h: "Minimale Datensätze",
+    step3_p: 'Wir speichern nur <code>url</code>, <code>title</code>, <code>snippet</code>, Embedding, <code>lang</code>, Vertrauensstufe und Einwilligungs-Flags — niemals eine Volltextkopie.',
+    exposed_intro: "AW ist auf drei Arten zugänglich:",
+    pill1: "Suchseite für Menschen",
+    pill2: 'JSON-<code>/search</code>-API',
+    pill3: "MCP-Server — als Agenten-Tool aufrufbar",
+    foot_brand: 'Eine Cytir-Demo der <b>impactIA-Stiftung</b><br />KI zum Gemeingut machen',
+    foot_meta: 'Open Source · Apache-2.0<br /><a href="https://impactia.org">impactia.org</a>',
+    foot_note: "Cytir · websear.ch — das Ergebnis ist eine URL zum Lesen; der Agent (oder Sie) öffnet die Quelle.",
+    /* dynamic search-results strings */
+    js_searching: "Suche läuft…",
+    js_none: "Keine massgebliche Quelle gefunden.",
+    js_results: n => n + (n === 1 ? " Ergebnis" : " Ergebnisse"),
+    js_failed: "Suche fehlgeschlagen: ",
+    tier_official: "amtlich",
+    tier_reference: "Referenz",
+    tier_docs: "Doku",
+    tier_entity_self: "Erstanbieter",
+    tag_source: "Quelle",
+    tag_trust: "Vertrauen",
+    tag_score: "Score",
+    tag_seen: "gesehen",
+    /* authority-card strip */
+    auth_indexed: "massgebliche Quelle",
+    auth_not_indexed: "nicht indexiert — auf der Website suchen",
+    auth_go: name => "Auf " + name + " suchen →"
+  },
+  it: {
+    meta_title: "Cytir — ricerca web aperta per gli agenti · websear.ch",
+    h1: "ricerca web aperta per gli agenti",
+    meta_desc: "Un indice di ricerca aperto e auto-ospitabile che restituisce l'URL della fonte autorevole per un fatto — pensato per ancorare gli agenti IA, leggibile dagli umani. Una demo di Cytir della Fondazione impactIA.",
+    entity_org: "Azienda — sito ufficiale",
+    entity_person: "Persona — sito ufficiale",
+    entity_official: "sito web ufficiale verificato",
+    subtag: "la demo ospitata di Cytir della Fondazione impactIA × Vector8",
+    mcp_title: "Aggiungete al vostro agente IA (MCP)",
+    mcp_desc: "Date al vostro agente un ancoraggio a fonti autorevoli tramite l'endpoint MCP Streamable-HTTP (strumenti: search, find_authority).",
+    mcp_copy: "Copia",
+    mcp_cfg: "Snippet di configurazione",
+    footer_collab: "Cytir è una collaborazione di",
+    footer_oss: "aperto e auto-ospitabile · Apache-2.0",
+    footer_privacy: "Privacy",
+    hero_h1: "Una ricerca che restituisce la fonte autorevole — non una risposta.",
+    hero_lede: 'Un indice di ricerca aperto e auto-ospitabile il cui utente principale è un&nbsp;<em>agente</em>&nbsp;IA. Ponete una domanda precisa; ricevete l\'<em>URL della fonte autorevole</em> da recuperare e leggere. Curato · rispettoso del consenso · multilingue.',
+    search_placeholder: "es. durata della protezione del diritto d'autore in Svizzera",
+    search_btn: "Cerca",
+    lang_label: "lingua",
+    lang_any: "tutte",
+    country_label: "giurisdizione",
+    country_none: "nessuna",
+    k_label: "risultati",
+    try_label: "Provate:",
+    banner: 'Un indice curato e multilingue di <b>fonti autorevoli</b> — il diritto federale svizzero tramite Fedlex, oltre a fonti di riferimento e fonti ufficiali governative / di documentazione, in inglese, tedesco, francese e italiano. Curato e in crescita.',
+    s1_kicker: "Che cos'è",
+    s1_h2: "Un localizzatore di URL autorevoli.",
+    s1_p1: 'I grandi modelli linguistici possiedono una copia imperfetta del web. Sui fatti precisi e autorevoli — una scadenza legale, una definizione normativa, una cifra ufficiale — confabulano. The authoritative web (<b>AW</b>) restituisce l\'<b>URL della fonte autorevole</b> affinché l\'agente, o una persona, possa recuperare e leggere l\'originale.',
+    s1_p2: 'Non è deliberatamente <b>né</b> un host di contenuti <b>né</b> un motore di risposte. Non replica le pagine integrali e non genera testo. Il risultato è un link alla fonte — leggete voi la fonte, o lo fa il vostro agente.',
+    s2_kicker: "Perché è importante",
+    s2_h2: "I principi con cui costruiamo.",
+    card1_h: "Aperto come bene comune",
+    card1_p: "Con licenza Apache-2.0 e forkabile. L'indice è un bene pubblico, non un fossato — chiunque può eseguirlo, verificarlo ed estenderlo.",
+    card2_h: "Autorevolezza prima della copertura",
+    card2_p: "Classifichiamo in base all'affidabilità, con livelli trasparenti, invece di inseguire il crawl più ampio possibile.",
+    card3_h: "Consenso &amp; dignità degli autori",
+    card3_p: "Il consenso viene riverificato in tempo reale e le rinunce sono rispettate. Non replichiamo mai il contenuto integrale di un autore.",
+    card4_h: "Auto-ospitabile &amp; frugale",
+    card4_p: "Costruibile su una macchina 4×A6000 in pochi giorni ed eseguibile su una macchina da ~20k&nbsp;CHF. Nessuna infrastruttura hyperscale richiesta.",
+    card5_h: "Sovranità delle query",
+    card5_p: "Ospitatelo voi stessi e la query non lascia mai la vostra infrastruttura — pensato per operatori regolamentati e sensibili alla privacy.",
+    card6_h: "Multilingue per progettazione",
+    card6_p: "Inglese, tedesco, francese e italiano sono di prima classe, non un ripensamento.",
+    s3_kicker: "Come funziona",
+    s3_h2: "Meccanica onesta.",
+    step1_h: "Recupero ibrido",
+    step1_p: "Vettori densi e sparsi fusi con BM25, così contano sia il significato sia i termini esatti.",
+    step2_h: "Classifica per livello di affidabilità",
+    step2_p: "I risultati sono ordinati secondo un livello di affidabilità della fonte trasparente, non per popolarità o spesa pubblicitaria.",
+    step3_h: "Record minimi",
+    step3_p: 'Memorizziamo solo <code>url</code>, <code>title</code>, <code>snippet</code>, l\'embedding, <code>lang</code>, il livello di affidabilità e i flag di consenso — mai una copia integrale del testo.',
+    exposed_intro: "AW è esposto in tre modi:",
+    pill1: "Pagina di ricerca per umani",
+    pill2: 'API JSON <code>/search</code>',
+    pill3: "Server MCP — richiamatelo come strumento per agenti",
+    foot_brand: 'Una demo di Cytir della <b>Fondazione impactIA</b><br />Rendere l\'IA un bene comune',
+    foot_meta: 'Open source · Apache-2.0<br /><a href="https://impactia.org">impactia.org</a>',
+    foot_note: "Cytir · websear.ch — il risultato è un URL da leggere; l'agente (o voi) apre la fonte.",
+    /* dynamic search-results strings */
+    js_searching: "ricerca in corso…",
+    js_none: "Nessuna fonte autorevole trovata.",
+    js_results: n => n + (n > 1 ? " risultati" : " risultato"),
+    js_failed: "Ricerca non riuscita: ",
+    tier_official: "ufficiale",
+    tier_reference: "riferimento",
+    tier_docs: "documentazione",
+    tier_entity_self: "prima parte",
+    tag_source: "fonte",
+    tag_trust: "affidabilità",
+    tag_score: "punteggio",
+    tag_seen: "visto",
+    /* authority-card strip */
+    auth_indexed: "fonte autorevole",
+    auth_not_indexed: "non indicizzato — cerca sul sito",
+    auth_go: name => "Cerca su " + name + " →"
+  }
+};
+
+const SUPPORTED = Object.keys(I18N);          // ["en","fr","de","it"]
+let LANG = "en";
+const t = k => (I18N[LANG] && I18N[LANG][k] != null) ? I18N[LANG][k] : I18N.en[k];
+
+// Map raw API source_type -> dictionary tier key
+const TIER_KEY = { official:"tier_official", reference:"tier_reference",
+                   docs:"tier_docs", "entity-self":"tier_entity_self" };
+const tierName = st => {
+  const k = TIER_KEY[st];
+  return k ? t(k) : (st || t("tag_source"));
+};
+
+function setLang(lang){
+  if(!SUPPORTED.includes(lang)) lang = "en";
+  LANG = lang;
+  document.documentElement.lang = lang;
+
+  // textContent swaps
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const key = el.getAttribute("data-i18n");
+    const attr = el.getAttribute("data-i18n-attr");
+    const val = t(key);
+    if(val == null) return;
+    if(attr) el.setAttribute(attr, val);
+    else el.textContent = val;
+  });
+  // innerHTML swaps (trusted strings with inline markup)
+  document.querySelectorAll("[data-i18n-html]").forEach(el => {
+    const key = el.getAttribute("data-i18n-html");
+    const val = t(key);
+    if(val != null) el.innerHTML = val;
+  });
+  // <title> is set via data-i18n above, but ensure document.title too
+  document.title = t("meta_title");
+
+  // switcher pressed state
+  document.querySelectorAll(".lang-switch button[data-lang]").forEach(b =>
+    b.setAttribute("aria-pressed", String(b.dataset.lang === lang)));
+}
+
+// ---- resolve initial language ----
+// priority: (a) ?lang= URL param  (b) stored manual choice  (c) browser
+// language (first navigator.languages prefix we support)  (d) en fallback.
+function resolveLang(){
+  try {
+    const p = new URLSearchParams(location.search).get("lang");
+    if(p && SUPPORTED.includes(p)) return p;
+  } catch(e){}
+  try {
+    const stored = localStorage.getItem("aw_lang");
+    if(stored && SUPPORTED.includes(stored)) return stored;
+  } catch(e){}
+  const navs = (navigator.languages && navigator.languages.length)
+    ? navigator.languages : [navigator.language || ""];
+  for(const n of navs){
+    const p = String(n).slice(0, 2).toLowerCase();
+    if(SUPPORTED.includes(p)) return p;
+  }
+  return "en";
+}
+setLang(resolveLang());
+
+// Manual click sets the language AND persists it as the remembered choice.
+document.querySelectorAll(".lang-switch button[data-lang]").forEach(b =>
+  b.addEventListener("click", () => {
+    setLang(b.dataset.lang);
+    try { localStorage.setItem("aw_lang", b.dataset.lang); } catch(e){}
+  }));
+
+// ===================== SEARCH =====================
+// Authority cards (task 087 sidecar): a card links to the source's own search
+// when the navigation template is verified and has a {q} slot; otherwise to
+// the domain root. Never interleaved with ranked results (ADR-021).
+function authHref(a, q){
+  const nav = a.navigate || {};
+  const tpl = nav.search_url_template || "";
+  if(nav.confidence && nav.confidence !== "guess" && tpl.includes("{q}"))
+    return tpl.replace("{q}", encodeURIComponent(q));
+  return "https://" + (a.authority || "");
+}
+function renderAuth(list, q){
+  const el = $("#auth"); if(!el) return;
+  if(!list || !list.length){ el.innerHTML = ""; return; }
+  el.innerHTML = list.slice(0, 2).map(a => {
+    const name = a.name || a.authority || "";
+    const shortName = name.split("—")[0].trim() || a.authority;
+    const badge = a.disposition === "indexed" ? t("auth_indexed") : t("auth_not_indexed");
+    return `
+      <div class="auth-card">
+        <span class="auth-badge">${esc(badge)}</span>
+        <span class="auth-name">${esc(name)}</span>
+        <span class="auth-dom">${esc(a.authority||"")}</span>
+        <a class="auth-go" href="${esc(authHref(a, q))}" target="_blank" rel="noopener">${esc(t("auth_go")(shortName))}</a>
+      </div>`;
+  }).join("");
+}
+// Snippets are page-level (~25 words); cap defensively at ~200 chars, the
+// CSS line-clamp on .snip adds the visual ellipsis.
+function snip(s){
+  s = String(s);
+  return s.length > 200 ? s.slice(0, 200).replace(/\s+\S*$/, "") + "…" : s;
+}
+async function run(e){
+  if(e) e.preventDefault();
+  const q = $("#q").value.trim(); if(!q) return;
+  const lang = $("#lang").value;
+  const country = $("#country") ? $("#country").value : "";
+  const k = $("#k") ? ($("#k").value || "10") : "10";   // results-count dropdown (task 200)
+  $("#res").innerHTML = '<p class="empty">'+esc(t("js_searching"))+'</p>'; $("#meta").textContent = "";
+  $("#auth").innerHTML = "";
+  try{
+    const u = new URL("/search", location.origin);
+    u.searchParams.set("q", q); u.searchParams.set("k", k);
+    if(lang) u.searchParams.set("lang", lang);
+    if(country) u.searchParams.set("country", country);   // soft jurisdiction boost
+    u.searchParams.set("authorities", "1");               // opt-in card sidecar
+    // Fetch with one auto-retry: a 46M dense index practically always returns
+    // hits, so an empty/failed response is almost always a transient backend
+    // blip (e.g. qdrant reloading after a restart answers 200-but-empty). Retry
+    // once after a short backoff before telling the user "no results".
+    let d = null;
+    for(let attempt=0; attempt<2; attempt++){
+      try{
+        const r = await fetch(u);
+        if(!r.ok) throw new Error("HTTP "+r.status);
+        d = await r.json();
+        if(d.results && d.results.length) break;   // got hits → done
+      }catch(e){ if(attempt===1) throw e; }
+      if(attempt===0) await new Promise(res=>setTimeout(res,1400)); // backoff, then retry
+    }
+    renderAuth(d.authorities, q);
+    if(!d.results || !d.results.length){ $("#res").innerHTML = '<p class="empty">'+esc(t("js_none"))+'</p>'; return; }
+    $("#meta").textContent = t("js_results")(d.count);
+    $("#res").innerHTML = d.results.map(h => h.source_type === "entity_card" ? `
+      <div class="hit entity">
+        <span class="entity-badge">${esc(t(h.entity_kind==="person"?"entity_person":"entity_org"))}</span>
+        <div><a class="title" href="${h.url}" target="_blank" rel="noopener">${esc(h.title||h.url)}</a></div>
+        <div class="url">${esc(h.url)}</div>
+        ${h.snippet?`<p class="snip">${esc(snip(h.snippet))}</p>`:''}
+        <div class="entity-meta">
+          ${h.register_id?`${esc(h.register_id)} · `:''}${h.canton?`${esc(h.canton)} · `:''}${esc(t("entity_official"))}
+        </div>
+      </div>` : `
+      <div class="hit">
+        <!-- The API URL is complete; the anchor field is identity metadata. -->
+        <a class="title" href="${h.url}" target="_blank" rel="noopener">${esc(h.title||h.url)}</a>
+        <div class="url">${esc(h.url)}</div>
+        ${h.snippet?`<p class="snip">${esc(snip(h.snippet))}</p>`:''}
+        <div class="tags">
+          <span class="tag t">${esc(tierName(h.source_type))}</span>
+          ${h.lang?`<span class="tag">${esc(h.lang)}</span>`:''}
+          <span class="tag">${esc(t("tag_trust"))} ${(h.trust_tier??0).toFixed(2)}</span>
+          <span class="tag">${esc(t("tag_score"))} ${(h.score??0).toFixed(3)}</span>
+          ${h.last_seen?`<span class="tag">${esc(t("tag_seen"))} ${esc(h.last_seen)}</span>`:''}
+        </div>
+      </div>`).join("");
+  }catch(err){ $("#res").innerHTML = '<p class="err">'+esc(t("js_failed"))+esc(String(err))+'</p>'; }
+}
+function esc(s){ return String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+$("#f").addEventListener("submit", run);
+// Re-run the search when the language, jurisdiction or results-count control
+// changes, so the shown results always match the selected controls (previously
+// a filter change left stale results on screen — e.g. results from a prior
+// FR-jurisdiction search stayed visible after switching jurisdiction back to
+// "none"). The select elements keep their value across re-runs, so the chosen
+// k persists through the filter-rerun behavior.
+["#lang", "#country", "#k"].forEach(sel => {
+  const el = $(sel);
+  if (el) el.addEventListener("change", () => { if ($("#q").value.trim()) run(); });
+});
+// example query helper
+document.querySelectorAll("button.ex").forEach(b =>
+  b.addEventListener("click", () => { $("#q").value = b.dataset.q; run(); }));
+// MCP endpoint copy-to-clipboard
+(() => {
+  const btn = $("#mcpcopy"); if (!btn) return;
+  btn.addEventListener("click", async () => {
+    const url = $("#mcpurl").textContent.trim();
+    try { await navigator.clipboard.writeText(url); }
+    catch { const r = document.createRange(); r.selectNode($("#mcpurl"));
+      getSelection().removeAllRanges(); getSelection().addRange(r); document.execCommand("copy"); }
+    const prev = btn.textContent; btn.textContent = "✓";
+    setTimeout(() => { btn.textContent = prev; }, 1400);
+  });
+})();
+</script>
+</body>
+</html>

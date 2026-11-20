@@ -1,0 +1,504 @@
+{
+ "schema": "aw.task564-fedlex-pack-fixture.v1",
+ "note": "Verbatim `fedlex-r0-exact-current-v1` pack records for the fedlex golds task 562 attributed to family composition, plus the ancestor heading path re-derived from the pinned AKN XML each record names (digest checked at seal time). The candidate/twin snippets are the two collections' own payloads on 2026-09-09.",
+ "pack": "<corpus-root>/_work/task516/r0-fedlex-article-bound-pack-v3/chunks",
+ "rows": [
+  {
+   "gold_id": "ch-law-004",
+   "gold_query": "what is the general limitation period (prescription) for contractual claims under Swiss law",
+   "gold_words_lost": [
+    "contractual"
+   ],
+   "twin_snippet": "Art. 341 1 For the period of the employment relationship and for one month after its end, the employee may not waive claims arising from…",
+   "candidate_snippet": "Art. 341 {#art_341} Art. 341 paragraph {#art_341/para_1} 1 For the period of the employment relationship and for one month after its end, the employee may…",
+   "payload": {
+    "url": "https://www.fedlex.admin.ch/eli/cc/27/317_321_377/en#art_341",
+    "title": "Code of Obligations (CO; SR 220) — Art. 341 — H. No right of waiver and prescription",
+    "site_name": "Fedlex",
+    "lang": "en",
+    "source_type": "official",
+    "domain": "fedlex.admin.ch",
+    "anchor": null,
+    "prov_id": "5ce4d693be8e84d3"
+   },
+   "pack_row": {
+    "point_id": "9b71a763-28ce-5692-a628-7423a2c4a084",
+    "url": "https://www.fedlex.admin.ch/eli/cc/27/317_321_377/en#art_341",
+    "lang": "en",
+    "article_anchor": "art_341",
+    "chunk_ordinal": 0,
+    "section_heading": "Art. 341 {#art_341}",
+    "text": "Art. 341 {#art_341}\nArt. 341\n\nparagraph {#art_341/para_1}\n1 For the period of the employment relationship and for one month after its end, the employee may not waive claims arising from mandatory provisions of law or the mandatory provisions of a collective employment contract.\n\nparagraph {#art_341/para_2}\n2 General provisions governing prescriptive periods are applicable to claims under the employment relationship.",
+    "sparse_text": "Code of Obligations (CO; SR 220) — Art. 341 — H. No right of waiver and prescription > Art. 341 {#art_341}\n\nArt. 341\n\nCode of Obligations (CO; SR 220) — Art. 341 — H. No right of waiver and prescription > Art. 341 {#art_341} > paragraph {#art_341/para_1}\n\n1 For the period of the employment relationship and for one month after its end, the employee may not waive claims arising from mandatory provisions of law or the mandatory provisions of a collective employment contract.\n\nCode of Obligations (CO; SR 220) — Art. 341 — H. No right of waiver and prescription > Art. 341 {#art_341} > paragraph {#art_341/para_2}\n\n2 General provisions governing prescriptive periods are applicable to claims under the employment relationship.",
+    "canonical_text": "Code of Obligations (CO; SR 220) — Art. 341 — H. No right of waiver and prescription > Art. 341 {#art_341}\n\nArt. 341\n\nCode of Obligations (CO; SR 220) — Art. 341 — H. No right of waiver and prescription > Art. 341 {#art_341} > paragraph {#art_341/para_1}\n\n1 For the period of the employment relationship and for one month after its end, the employee may not waive claims arising from mandatory provisions of law or the mandatory provisions of a collective employment contract.\n\nCode of Obligations (CO; SR 220) — Art. 341 — H. No right of waiver and prescription > Art. 341 {#art_341} > paragraph {#art_341/para_2}\n\n2 General provisions governing prescriptive periods are applicable to claims under the employment relationship.",
+    "prov_id": "5ce4d693be8e84d3",
+    "parent_identity": {
+     "article_anchor": "art_341",
+     "eli": "cc/27/317_321_377",
+     "lang": "en",
+     "source_version": "20260101",
+     "source_version_url": "https://fedlex.data.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/en/xml/fedlex-data-admin-ch-eli-cc-27-317_321_377-20260101-en-xml.xml",
+     "xml": {
+      "bytes": 2202389,
+      "sha256": "dd9946783bb4973ac3a6739dd19cc5b6bfd2e37f97a64250bd7d3a9b131342a4",
+      "uri": "artifact://l0/wave=fedlex_task370_pinned/objects/cc_27_317_321_377/20260101.en.xml"
+     }
+    },
+    "source_metadata": {
+     "article_anchor": "art_341",
+     "baseline_production_point_ids": [
+      "69a0a726-aa9a-5480-9a3d-416678bb799f"
+     ],
+     "source_version": {
+      "eli": "cc/27/317_321_377",
+      "lang": "en",
+      "source_version_url": "https://fedlex.data.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/en/xml/fedlex-data-admin-ch-eli-cc-27-317_321_377-20260101-en-xml.xml",
+      "version": "20260101"
+     },
+     "status": "current",
+     "title": "Code of Obligations (CO; SR 220) — Art. 341 — H. No right of waiver and prescription"
+    }
+   },
+   "akn": {
+    "xml_uri": "artifact://l0/wave=fedlex_task370_pinned/objects/cc_27_317_321_377/20260101.en.xml",
+    "xml_sha256": "dd9946783bb4973ac3a6739dd19cc5b6bfd2e37f97a64250bd7d3a9b131342a4",
+    "ancestor_heading_path": [
+     "Division Two: Types of Contractual Relationship",
+     "Title Ten: The Employment Contract",
+     "Section One: The Individual Employment Contract",
+     "H. No right of waiver and prescription"
+    ],
+    "marginal": "H. No right of waiver and prescription",
+    "heading_ctx": "Division Two: Types of Contractual Relationship; Title Ten: The Employment Contract; Section One: The Individual Employment Contract; H. No right of waiver and prescription",
+    "clean_text": "Art. 341 1 For the period of the employment relationship and for one month after its end, the employee may not waive claims arising from mandatory provisions of law or the mandatory provisions of a collective employment contract. 2 General provisions governing prescriptive periods are applicable to claims under the employment relationship."
+   }
+  },
+  {
+   "gold_id": "ch-law-008",
+   "gold_query": "quelle est la procédure de divorce sur requête commune avec accord complet en droit suisse?",
+   "gold_words_lost": [
+    "droit"
+   ],
+   "twin_snippet": "Art. 112 1 Les époux peuvent demander le divorce par une requête commune et déclarer qu’ils confient au juge le soin de régler les effets…",
+   "candidate_snippet": "Art. 111 {#art_111} Art. 111 paragraph {#art_111/para_1} 1 Lorsque les époux demandent le divorce par une requête commune et produisent une convention complète sur les…",
+   "payload": {
+    "url": "https://www.fedlex.admin.ch/eli/cc/24/233_245_233/fr#art_111",
+    "title": "Code civil (CC; SR 210) — Art. 111 — I. Accord complet",
+    "site_name": "Fedlex",
+    "lang": "fr",
+    "source_type": "official",
+    "domain": "fedlex.admin.ch",
+    "anchor": null,
+    "prov_id": "5ce4d693be8e84d3"
+   },
+   "pack_row": {
+    "point_id": "656bb176-63b6-5b1d-8cc1-7afe9199e96f",
+    "url": "https://www.fedlex.admin.ch/eli/cc/24/233_245_233/fr#art_111",
+    "lang": "fr",
+    "article_anchor": "art_111",
+    "chunk_ordinal": 0,
+    "section_heading": "Art. 111 {#art_111}",
+    "text": "Art. 111 {#art_111}\nArt. 111\n\nparagraph {#art_111/para_1}\n1 Lorsque les époux demandent le divorce par une requête commune et produisent une convention complète sur les effets de leur divorce, accompagnée des documents nécessaires et de leurs conclusions communes relatives aux enfants, le juge les entend séparément et ensemble. L’audition peut avoir lieu en plusieurs séances.\n\nparagraph {#art_111/para_2}\n2 Le juge s’assure que les époux ont déposé leur requête en divorce et conclu leur convention après mûre réflexion et de leur plein gré et que la convention et les conclusions relatives aux enfants peuvent être ratifiées; il prononce alors le divorce.",
+    "sparse_text": "Code civil (CC; SR 210) — Art. 111 — I. Accord complet > Art. 111 {#art_111}\n\nArt. 111\n\nCode civil (CC; SR 210) — Art. 111 — I. Accord complet > Art. 111 {#art_111} > paragraph {#art_111/para_1}\n\n1 Lorsque les époux demandent le divorce par une requête commune et produisent une convention complète sur les effets de leur divorce, accompagnée des documents nécessaires et de leurs conclusions communes relatives aux enfants, le juge les entend séparément et ensemble. L’audition peut avoir lieu en plusieurs séances.\n\nCode civil (CC; SR 210) — Art. 111 — I. Accord complet > Art. 111 {#art_111} > paragraph {#art_111/para_2}\n\n2 Le juge s’assure que les époux ont déposé leur requête en divorce et conclu leur convention après mûre réflexion et de leur plein gré et que la convention et les conclusions relatives aux enfants peuvent être ratifiées; il prononce alors le divorce.",
+    "canonical_text": "Code civil (CC; SR 210) — Art. 111 — I. Accord complet > Art. 111 {#art_111}\n\nArt. 111\n\nCode civil (CC; SR 210) — Art. 111 — I. Accord complet > Art. 111 {#art_111} > paragraph {#art_111/para_1}\n\n1 Lorsque les époux demandent le divorce par une requête commune et produisent une convention complète sur les effets de leur divorce, accompagnée des documents nécessaires et de leurs conclusions communes relatives aux enfants, le juge les entend séparément et ensemble. L’audition peut avoir lieu en plusieurs séances.\n\nCode civil (CC; SR 210) — Art. 111 — I. Accord complet > Art. 111 {#art_111} > paragraph {#art_111/para_2}\n\n2 Le juge s’assure que les époux ont déposé leur requête en divorce et conclu leur convention après mûre réflexion et de leur plein gré et que la convention et les conclusions relatives aux enfants peuvent être ratifiées; il prononce alors le divorce.",
+    "prov_id": "5ce4d693be8e84d3",
+    "parent_identity": {
+     "article_anchor": "art_111",
+     "eli": "cc/24/233_245_233",
+     "lang": "fr",
+     "source_version": "20260701",
+     "source_version_url": "https://fedlex.data.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/24/233_245_233/20260701/fr/xml/fedlex-data-admin-ch-eli-cc-24-233_245_233-20260701-fr-xml.xml",
+     "xml": {
+      "bytes": 1623421,
+      "sha256": "a949d9f501dd527364b9ca48937937a04ac477a3ac0a7707158013e31134ce35",
+      "uri": "artifact://l0/wave=fedlex_task370_pinned/objects/cc_24_233_245_233/20260701.fr.xml"
+     }
+    },
+    "source_metadata": {
+     "article_anchor": "art_111",
+     "baseline_production_point_ids": [
+      "308573cf-6f7c-5675-af6d-6ecbbed01760"
+     ],
+     "source_version": {
+      "eli": "cc/24/233_245_233",
+      "lang": "fr",
+      "source_version_url": "https://fedlex.data.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/24/233_245_233/20260701/fr/xml/fedlex-data-admin-ch-eli-cc-24-233_245_233-20260701-fr-xml.xml",
+      "version": "20260701"
+     },
+     "status": "current",
+     "title": "Code civil (CC; SR 210) — Art. 111 — I. Accord complet"
+    }
+   },
+   "akn": {
+    "xml_uri": "artifact://l0/wave=fedlex_task370_pinned/objects/cc_24_233_245_233/20260701.fr.xml",
+    "xml_sha256": "a949d9f501dd527364b9ca48937937a04ac477a3ac0a7707158013e31134ce35",
+    "ancestor_heading_path": [
+     "Livre deuxième: Droit de la famille",
+     "Première partie: Des époux",
+     "Titre quatrième: Du divorce et de la séparation de corps",
+     "Chapitre I: Des conditions du divorce",
+     "A. Divorce sur requête commune",
+     "I. Accord complet"
+    ],
+    "marginal": "I. Accord complet",
+    "heading_ctx": "Livre deuxième: Droit de la famille; Première partie: Des époux; Titre quatrième: Du divorce et de la séparation de corps; Chapitre I: Des conditions du divorce; A. Divorce sur requête commune; I. Accord complet",
+    "clean_text": "Art. 111 1 Lorsque les époux demandent le divorce par une requête commune et produisent une convention complète sur les effets de leur divorce, accompagnée des documents nécessaires et de leurs conclusions communes relatives aux enfants, le juge les entend séparément et ensemble. L’audition peut avoir lieu en plusieurs séances. 2 Le juge s’assure que les époux ont déposé leur requête en divorce et conclu leur convention après mûre réflexion et de leur plein gré et que la convention et les conclusions relatives aux enfants peuvent être ratifiées; il prononce alors le divorce."
+   }
+  },
+  {
+   "gold_id": "le07",
+   "gold_query": "or art 754 verantwortlichkeit verwaltungsrat haftung aktiengesellschaft",
+   "gold_words_lost": [
+    "aktiengesellschaft",
+    "verantwortlichkeit"
+   ],
+   "twin_snippet": "Art. 754 1 Die Mitglieder des Verwaltungsrates und alle mit der Geschäftsführung oder mit der Liquidation befassten Personen sind sowohl der Gesellschaft als den einzelnen…",
+   "candidate_snippet": "Art. 754 {#art_754} Art. 754 paragraph {#art_754/para_1} 1 Die Mitglieder des Verwaltungsrates und alle mit der Geschäftsführung oder mit der Liquidation befassten Personen sind sowohl…",
+   "payload": {
+    "url": "https://www.fedlex.admin.ch/eli/cc/27/317_321_377/de#art_754",
+    "title": "Obligationenrecht (OR; SR 220) — Art. 754 — III. Haftung für Verwaltung, Geschäftsführung und Liquidation",
+    "site_name": "Fedlex",
+    "lang": "de",
+    "source_type": "official",
+    "domain": "fedlex.admin.ch",
+    "anchor": null,
+    "prov_id": "5ce4d693be8e84d3"
+   },
+   "pack_row": {
+    "point_id": "9936ff9b-3458-5446-bb93-647d4027fff5",
+    "url": "https://www.fedlex.admin.ch/eli/cc/27/317_321_377/de#art_754",
+    "lang": "de",
+    "article_anchor": "art_754",
+    "chunk_ordinal": 0,
+    "section_heading": "Art. 754 {#art_754}",
+    "text": "Art. 754 {#art_754}\nArt. 754\n\nparagraph {#art_754/para_1}\n1 Die Mitglieder des Verwaltungsrates und alle mit der Geschäftsführung oder mit der Liquidation befassten Personen sind sowohl der Gesellschaft als den einzelnen Aktionären und Gesellschaftsgläubigern für den Schaden verantwortlich, den sie durch absichtliche oder fahrlässige Verletzung ihrer Pflichten verursachen.\n\nparagraph {#art_754/para_2}\n2 Wer die Erfüllung einer Aufgabe befugterweise einem anderen Organ überträgt, haftet für den von diesem verursachten Schaden, sofern er nicht nachweist, dass er bei der Auswahl, Unterrichtung und Überwachung die nach den Umständen gebotene Sorgfalt angewendet hat.",
+    "sparse_text": "Obligationenrecht (OR; SR 220) — Art. 754 — III. Haftung für Verwaltung, Geschäftsführung und Liquidation > Art. 754 {#art_754}\n\nArt. 754\n\nObligationenrecht (OR; SR 220) — Art. 754 — III. Haftung für Verwaltung, Geschäftsführung und Liquidation > Art. 754 {#art_754} > paragraph {#art_754/para_1}\n\n1 Die Mitglieder des Verwaltungsrates und alle mit der Geschäftsführung oder mit der Liquidation befassten Personen sind sowohl der Gesellschaft als den einzelnen Aktionären und Gesellschaftsgläubigern für den Schaden verantwortlich, den sie durch absichtliche oder fahrlässige Verletzung ihrer Pflichten verursachen.\n\nObligationenrecht (OR; SR 220) — Art. 754 — III. Haftung für Verwaltung, Geschäftsführung und Liquidation > Art. 754 {#art_754} > paragraph {#art_754/para_2}\n\n2 Wer die Erfüllung einer Aufgabe befugterweise einem anderen Organ überträgt, haftet für den von diesem verursachten Schaden, sofern er nicht nachweist, dass er bei der Auswahl, Unterrichtung und Überwachung die nach den Umständen gebotene Sorgfalt angewendet hat.",
+    "canonical_text": "Obligationenrecht (OR; SR 220) — Art. 754 — III. Haftung für Verwaltung, Geschäftsführung und Liquidation > Art. 754 {#art_754}\n\nArt. 754\n\nObligationenrecht (OR; SR 220) — Art. 754 — III. Haftung für Verwaltung, Geschäftsführung und Liquidation > Art. 754 {#art_754} > paragraph {#art_754/para_1}\n\n1 Die Mitglieder des Verwaltungsrates und alle mit der Geschäftsführung oder mit der Liquidation befassten Personen sind sowohl der Gesellschaft als den einzelnen Aktionären und Gesellschaftsgläubigern für den Schaden verantwortlich, den sie durch absichtliche oder fahrlässige Verletzung ihrer Pflichten verursachen.\n\nObligationenrecht (OR; SR 220) — Art. 754 — III. Haftung für Verwaltung, Geschäftsführung und Liquidation > Art. 754 {#art_754} > paragraph {#art_754/para_2}\n\n2 Wer die Erfüllung einer Aufgabe befugterweise einem anderen Organ überträgt, haftet für den von diesem verursachten Schaden, sofern er nicht nachweist, dass er bei der Auswahl, Unterrichtung und Überwachung die nach den Umständen gebotene Sorgfalt angewendet hat.",
+    "prov_id": "5ce4d693be8e84d3",
+    "parent_identity": {
+     "article_anchor": "art_754",
+     "eli": "cc/27/317_321_377",
+     "lang": "de",
+     "source_version": "20260101",
+     "source_version_url": "https://fedlex.data.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de/xml/fedlex-data-admin-ch-eli-cc-27-317_321_377-20260101-de-xml.xml",
+     "xml": {
+      "bytes": 2446330,
+      "sha256": "61296c5d57f709bc6408aa9b457e41755c8a6b65c0a82c0a5b2f33b8fce5470b",
+      "uri": "artifact://l0/wave=fedlex_task370_pinned/objects/cc_27_317_321_377/20260101.de.xml"
+     }
+    },
+    "source_metadata": {
+     "article_anchor": "art_754",
+     "baseline_production_point_ids": [
+      "0e198f87-a0e7-5a44-bb11-f2fbbba2b054"
+     ],
+     "source_version": {
+      "eli": "cc/27/317_321_377",
+      "lang": "de",
+      "source_version_url": "https://fedlex.data.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de/xml/fedlex-data-admin-ch-eli-cc-27-317_321_377-20260101-de-xml.xml",
+      "version": "20260101"
+     },
+     "status": "current",
+     "title": "Obligationenrecht (OR; SR 220) — Art. 754 — III. Haftung für Verwaltung, Geschäftsführung und Liquidation"
+    }
+   },
+   "akn": {
+    "xml_uri": "artifact://l0/wave=fedlex_task370_pinned/objects/cc_27_317_321_377/20260101.de.xml",
+    "xml_sha256": "61296c5d57f709bc6408aa9b457e41755c8a6b65c0a82c0a5b2f33b8fce5470b",
+    "ancestor_heading_path": [
+     "Dritte Abteilung: Die Handelsgesellschaften und die Genossenschaft",
+     "Sechsundzwanzigster Titel: Die Aktiengesellschaft",
+     "Sechster Abschnitt: Verantwortlichkeit",
+     "A. Haftung",
+     "III. Haftung für Verwaltung, Geschäftsführung und Liquidation"
+    ],
+    "marginal": "III. Haftung für Verwaltung, Geschäftsführung und Liquidation",
+    "heading_ctx": "Dritte Abteilung: Die Handelsgesellschaften und die Genossenschaft; Sechsundzwanzigster Titel: Die Aktiengesellschaft; Sechster Abschnitt: Verantwortlichkeit; A. Haftung; III. Haftung für Verwaltung, Geschäftsführung und Liquidation",
+    "clean_text": "Art. 754 1 Die Mitglieder des Verwaltungsrates und alle mit der Geschäftsführung oder mit der Liquidation befassten Personen sind sowohl der Gesellschaft als den einzelnen Aktionären und Gesellschaftsgläubigern für den Schaden verantwortlich, den sie durch absichtliche oder fahrlässige Verletzung ihrer Pflichten verursachen. 2 Wer die Erfüllung einer Aufgabe befugterweise einem anderen Organ überträgt, haftet für den von diesem verursachten Schaden, sofern er nicht nachweist, dass er bei der Auswahl, Unterrichtung und Überwachung die nach den Umständen gebotene Sorgfalt angewendet hat."
+   }
+  },
+  {
+   "gold_id": "le20",
+   "gold_query": "lpd annonce violation sécurité données préposé pfpdt loi protection données",
+   "gold_words_lost": [
+    "données",
+    "préposé"
+   ],
+   "twin_snippet": "Fedlex: la LPD révisée (RS 235.1, adoptée le 25.9.2020) est en vigueur depuis le 1er septembre 2023, remplaçant la loi de 1992.",
+   "candidate_snippet": "Art. 24 {#art_24} Art. 24 Annonce des violations de la sécurité des données paragraph {#art_24/para_1} 1 Le responsable du traitement annonce dans les meilleurs délais…",
+   "payload": {
+    "url": "https://www.fedlex.admin.ch/eli/cc/2022/491/fr#art_24",
+    "title": "Loi sur la protection des données (LPD; SR 235.1) — Art. 24 — Chapitre 3 Obligations du responsable du traitement et du sous-traitant",
+    "site_name": "Fedlex",
+    "lang": "fr",
+    "source_type": "official",
+    "domain": "fedlex.admin.ch",
+    "anchor": null,
+    "prov_id": "5ce4d693be8e84d3"
+   },
+   "pack_row": {
+    "point_id": "4494f086-ddd3-51e3-92ed-f2cb68ab9dda",
+    "url": "https://www.fedlex.admin.ch/eli/cc/2022/491/fr#art_24",
+    "lang": "fr",
+    "article_anchor": "art_24",
+    "chunk_ordinal": 0,
+    "section_heading": "Art. 24 {#art_24}",
+    "text": "Art. 24 {#art_24}\nArt. 24 Annonce des violations de la sécurité des données\n\nparagraph {#art_24/para_1}\n1 Le responsable du traitement annonce dans les meilleurs délais au PFPDT les cas de violation de la sécurité des données entraînant vraisemblablement un risque élevé pour la personnalité ou les droits fondamentaux de la personne concernée.\n\nparagraph {#art_24/para_2}\n2 L’annonce doit indiquer au moins la nature de la violation de la sécurité des données, ses conséquences et les mesures prises ou envisagées.\n\nparagraph {#art_24/para_3}\n3 Le sous-traitant annonce dans les meilleurs délais au responsable du traitement tout cas de violation de la sécurité des données.\n\nparagraph {#art_24/para_4}\n4 Le responsable du traitement informe la personne concernée lorsque cela est nécessaire à sa protection ou lorsque le PFPDT l’exige.\n\nparagraph {#art_24/para_5}\n5\n\nlistIntroduction {#art_24/para_5/listintro}\nIl peut restreindre l’information de la personne concernée, la différer ou y renoncer, dans les cas suivants:\n\nitem {#art_24/para_5/lbl_a}\na. il existe un motif au sens de l’art. 26, al. 1, let. b, ou 2, let. b, ou un devoir légal de garder le secret qui l’interdit;\n\nitem {#art_24/para_5/lbl_b}\nb. l’information est impossible à fournir ou exige des efforts disproportionnés;\n\nitem {#art_24/para_5/lbl_c}\nc. l’information de la personne concernée peut être garantie de manière équivalente par une communication publique.\n\nparagraph {#art_24/para_5_bis}\n5bis Le PFPDT peut, avec l’accord du responsable du traitement, transmettre l’annonce à l’Office fédéral de la cybersécurité pour que celui-ci analyse l’incident. La communication peut contenir des données personnelles, y compris des données sensibles relatives à des poursuites ou à des sanctions pénales ou administratives visant le responsable du traitement.\n\nparagraph {#art_24/para_6}\n6 Une annonce fondée sur le présent article ne peut être utilisée dans le cadre d’une procédure pénale contre la personne tenue d’annoncer qu’avec son consentement.",
+    "sparse_text": "Loi sur la protection des données (LPD; SR 235.1) — Art. 24 — Chapitre 3 Obligations du responsable du traitement et du sous-traitant > Art. 24 {#art_24}\n\nArt. 24 Annonce des violations de la sécurité des données\n\nLoi sur la protection des données (LPD; SR 235.1) — Art. 24 — Chapitre 3 Obligations du responsable du traitement et du sous-traitant > Art. 24 {#art_24} > paragraph {#art_24/para_1}\n\n1 Le responsable du traitement annonce dans les meilleurs délais au PFPDT les cas de violation de la sécurité des données entraînant vraisemblablement un risque élevé pour la personnalité ou les droits fondamentaux de la personne concernée.\n\nLoi sur la protection des données (LPD; SR 235.1) — Art. 24 — Chapitre 3 Obligations du responsable du traitement et du sous-traitant > Art. 24 {#art_24} > paragraph {#art_24/para_2}\n\n2 L’annonce doit indiquer au moins la nature de la violation de la sécurité des données, ses conséquences et les mesures prises ou envisagées.\n\nLoi sur la protection des données (LPD; SR 235.1) — Art. 24 — Chapitre 3 Obligations du responsable du traitement et du sous-traitant > Art. 24 {#art_24} > paragraph {#art_24/para_3}\n\n3 Le sous-traitant annonce dans les meilleurs délais au responsable du traitement tout cas de violation de la sécurité des données.\n\nLoi sur la protection des données (LPD; SR 235.1) — Art. 24 — Chapitre 3 Obligations du responsable du traitement et du sous-traitant > Art. 24 {#art_24} > paragraph {#art_24/para_4}\n\n4 Le responsable du traitement informe la personne concernée lorsque cela est nécessaire à sa protection ou lorsque le PFPDT l’exige.\n\nLoi sur la protection des données (LPD; SR 235.1) — Art. 24 — Chapitre 3 Obligations du responsable du traitement et du sous-traitant > Art. 24 {#art_24} > paragraph {#art_24/para_5}\n\n5\n\nLoi sur la protection des données (LPD; SR 235.1) — Art. 24 — Chapitre 3 Obligations du responsable du traitement et du sous-traitant > Art. 24 {#art_24} > listIntroduction {#art_24/para_5/listintro}\n\nIl peut restreindre l’information de la personne concernée, la différer ou y renoncer, dans les cas suivants:\n\nLoi sur la protection des données (LPD; SR 235.1) — Art. 24 — Chapitre 3 Obligations du responsable du traitement et du sous-traitant > Art. 24 {#art_24} > item {#art_24/para_5/lbl_a}\n\na. il existe un motif au sens de l’art. 26, al. 1, let. b, ou 2, let. b, ou un devoir légal de garder le secret qui l’interdit;\n\nLoi sur la protection des données (LPD; SR 235.1) — Art. 24 — Chapitre 3 Obligations du responsable du traitement et du sous-traitant > Art. 24 {#art_24} > item {#art_24/para_5/lbl_b}\n\nb. l’information est impossible à fournir ou exige des efforts disproportionnés;\n\nLoi sur la protection des données (LPD; SR 235.1) — Art. 24 — Chapitre 3 Obligations du responsable du traitement et du sous-traitant > Art. 24 {#art_24} > item {#art_24/para_5/lbl_c}\n\nc. l’information de la personne concernée peut être garantie de manière équivalente par une communication publique.\n\nLoi sur la protection des données (LPD; SR 235.1) — Art. 24 — Chapitre 3 Obligations du responsable du traitement et du sous-traitant > Art. 24 {#art_24} > paragraph {#art_24/para_5_bis}\n\n5bis Le PFPDT peut, avec l’accord du responsable du traitement, transmettre l’annonce à l’Office fédéral de la cybersécurité pour que celui-ci analyse l’incident. La communication peut contenir des données personnelles, y compris des données sensibles relatives à des poursuites ou à des sanctions pénales ou administratives visant le responsable du traitement.\n\nLoi sur la protection des données (LPD; SR 235.1) — Art. 24 — Chapitre 3 Obligations du responsable du traitement et du sous-traitant > Art. 24 {#art_24} > paragraph {#art_24/para_6}\n\n6 Une annonce fondée sur le présent article ne peut être utilisée dans le cadre d’une procédure pénale contre la personne tenue d’annoncer qu’avec son consentement.",
+    "canonical_text": "Loi sur la protection des données (LPD; SR 235.1) — Art. 24 — Chapitre 3 Obligations du responsable du traitement et du sous-traitant > Art. 24 {#art_24}\n\nArt. 24 Annonce des violations de la sécurité des données\n\nLoi sur la protection des données (LPD; SR 235.1) — Art. 24 — Chapitre 3 Obligations du responsable du traitement et du sous-traitant > Art. 24 {#art_24} > paragraph {#art_24/para_1}\n\n1 Le responsable du traitement annonce dans les meilleurs délais au PFPDT les cas de violation de la sécurité des données entraînant vraisemblablement un risque élevé pour la personnalité ou les droits fondamentaux de la personne concernée.\n\nLoi sur la protection des données (LPD; SR 235.1) — Art. 24 — Chapitre 3 Obligations du responsable du traitement et du sous-traitant > Art. 24 {#art_24} > paragraph {#art_24/para_2}\n\n2 L’annonce doit indiquer au moins la nature de la violation de la sécurité des données, ses conséquences et les mesures prises ou envisagées.\n\nLoi sur la protection des données (LPD; SR 235.1) — Art. 24 — Chapitre 3 Obligations du responsable du traitement et du sous-traitant > Art. 24 {#art_24} > paragraph {#art_24/para_3}\n\n3 Le sous-traitant annonce dans les meilleurs délais au responsable du traitement tout cas de violation de la sécurité des données.\n\nLoi sur la protection des données (LPD; SR 235.1) — Art. 24 — Chapitre 3 Obligations du responsable du traitement et du sous-traitant > Art. 24 {#art_24} > paragraph {#art_24/para_4}\n\n4 Le responsable du traitement informe la personne concernée lorsque cela est nécessaire à sa protection ou lorsque le PFPDT l’exige.\n\nLoi sur la protection des données (LPD; SR 235.1) — Art. 24 — Chapitre 3 Obligations du responsable du traitement et du sous-traitant > Art. 24 {#art_24} > paragraph {#art_24/para_5}\n\n5\n\nLoi sur la protection des données (LPD; SR 235.1) — Art. 24 — Chapitre 3 Obligations du responsable du traitement et du sous-traitant > Art. 24 {#art_24} > listIntroduction {#art_24/para_5/listintro}\n\nIl peut restreindre l’information de la personne concernée, la différer ou y renoncer, dans les cas suivants:\n\nLoi sur la protection des données (LPD; SR 235.1) — Art. 24 — Chapitre 3 Obligations du responsable du traitement et du sous-traitant > Art. 24 {#art_24} > item {#art_24/para_5/lbl_a}\n\na. il existe un motif au sens de l’art. 26, al. 1, let. b, ou 2, let. b, ou un devoir légal de garder le secret qui l’interdit;\n\nLoi sur la protection des données (LPD; SR 235.1) — Art. 24 — Chapitre 3 Obligations du responsable du traitement et du sous-traitant > Art. 24 {#art_24} > item {#art_24/para_5/lbl_b}\n\nb. l’information est impossible à fournir ou exige des efforts disproportionnés;\n\nLoi sur la protection des données (LPD; SR 235.1) — Art. 24 — Chapitre 3 Obligations du responsable du traitement et du sous-traitant > Art. 24 {#art_24} > item {#art_24/para_5/lbl_c}\n\nc. l’information de la personne concernée peut être garantie de manière équivalente par une communication publique.\n\nLoi sur la protection des données (LPD; SR 235.1) — Art. 24 — Chapitre 3 Obligations du responsable du traitement et du sous-traitant > Art. 24 {#art_24} > paragraph {#art_24/para_5_bis}\n\n5bis Le PFPDT peut, avec l’accord du responsable du traitement, transmettre l’annonce à l’Office fédéral de la cybersécurité pour que celui-ci analyse l’incident. La communication peut contenir des données personnelles, y compris des données sensibles relatives à des poursuites ou à des sanctions pénales ou administratives visant le responsable du traitement.\n\nLoi sur la protection des données (LPD; SR 235.1) — Art. 24 — Chapitre 3 Obligations du responsable du traitement et du sous-traitant > Art. 24 {#art_24} > paragraph {#art_24/para_6}\n\n6 Une annonce fondée sur le présent article ne peut être utilisée dans le cadre d’une procédure pénale contre la personne tenue d’annoncer qu’avec son consentement.",
+    "prov_id": "5ce4d693be8e84d3",
+    "parent_identity": {
+     "article_anchor": "art_24",
+     "eli": "cc/2022/491",
+     "lang": "fr",
+     "source_version": "20250707",
+     "source_version_url": "https://fedlex.data.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/2022/491/20250707/fr/xml/fedlex-data-admin-ch-eli-cc-2022-491-20250707-fr-xml.xml",
+     "xml": {
+      "bytes": 169865,
+      "sha256": "f9679c6d99d92bfd4f0cc86463b7dfde42a89d8972eff410894abc0721c5ce1e",
+      "uri": "artifact://l0/wave=fedlex_task370_pinned/objects/cc_2022_491/20250707.fr.xml"
+     }
+    },
+    "source_metadata": {
+     "article_anchor": "art_24",
+     "baseline_production_point_ids": [
+      "69bb9381-d5e9-5675-b3cd-0d9cc243bbc1"
+     ],
+     "source_version": {
+      "eli": "cc/2022/491",
+      "lang": "fr",
+      "source_version_url": "https://fedlex.data.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/2022/491/20250707/fr/xml/fedlex-data-admin-ch-eli-cc-2022-491-20250707-fr-xml.xml",
+      "version": "20250707"
+     },
+     "status": "current",
+     "title": "Loi sur la protection des données (LPD; SR 235.1) — Art. 24 — Chapitre 3 Obligations du responsable du traitement et du sous-traitant"
+    }
+   },
+   "akn": {
+    "xml_uri": "artifact://l0/wave=fedlex_task370_pinned/objects/cc_2022_491/20250707.fr.xml",
+    "xml_sha256": "f9679c6d99d92bfd4f0cc86463b7dfde42a89d8972eff410894abc0721c5ce1e",
+    "ancestor_heading_path": [
+     "Chapitre 3 Obligations du responsable du traitement et du sous-traitant"
+    ],
+    "marginal": "Chapitre 3 Obligations du responsable du traitement et du sous-traitant",
+    "heading_ctx": "Chapitre 3 Obligations du responsable du traitement et du sous-traitant",
+    "clean_text": "Art. 24 Annonce des violations de la sécurité des données 1 Le responsable du traitement annonce dans les meilleurs délais au PFPDT les cas de violation de la sécurité des données entraînant vraisemblablement un risque élevé pour la personnalité ou les droits fondamentaux de la personne concernée. 2 L’annonce doit indiquer au moins la nature de la violation de la sécurité des données, ses conséquences et les mesures prises ou envisagées. 3 Le sous-traitant annonce dans les meilleurs délais au responsable du traitement tout cas de violation de la sécurité des données. 4 Le responsable du traitement informe la personne concernée lorsque cela est nécessaire à sa protection ou lorsque le PFPDT l’exige. 5 Il peut restreindre l’information de la personne concernée, la différer ou y renoncer, dans les cas suivants: a. il existe un motif au sens de l’art. 26, al. 1, let. b, ou 2, let. b, ou un devoir légal de garder le secret qui l’interdit; b. l’information est impossible à fournir ou exige des efforts disproportionnés; c. l’information de la personne concernée peut être garantie de manière équivalente par une communication publique. 5bis Le PFPDT peut, avec l’accord du responsable du traitement, transmettre l’annonce à l’Office fédéral de la cybersécurité pour que celui-ci analyse l’incident. La communication peut contenir des données personnelles, y compris des données sensibles relatives à des poursuites ou à des sanctions pénales ou administratives visant le responsable du traitement. 6 Une annonce fondée sur le présent article ne peut être utilisée dans le cadre d’une procédure pénale contre la personne tenue d’annoncer qu’avec son consentement."
+   }
+  },
+  {
+   "gold_id": "le26",
+   "gold_query": "lef art 80 rigetto definitivo opposizione titolo esecutivo esecuzione svizzera",
+   "gold_words_lost": [
+    "80",
+    "esecutivo"
+   ],
+   "twin_snippet": "Art. 80 1 Se il credito è fondato su una decisione giudiziaria esecutiva, il creditore può chiedere in giudizio il rigetto definitivo dell’opposizione.",
+   "candidate_snippet": "Art. 271 {#art_271} Art. 271 paragraph {#art_271/para_1} 1 listIntroduction {#art_271/para_1/listintro} Per i crediti scaduti, in quanto non siano garantiti da pegno, il creditore può chiedere…",
+   "payload": {
+    "url": "https://www.fedlex.admin.ch/eli/cc/11/529_488_529/it#art_271",
+    "title": "Legge sulla esecuzione e sul fallimento (LEF; SR 281.1) — Art. 271 — A. Cause di sequestro",
+    "site_name": "Fedlex",
+    "lang": "it",
+    "source_type": "official",
+    "domain": "fedlex.admin.ch",
+    "anchor": null,
+    "prov_id": "5ce4d693be8e84d3"
+   },
+   "pack_row": {
+    "point_id": "1d8cfbd1-15e6-5fcb-a241-0de8042adcd2",
+    "url": "https://www.fedlex.admin.ch/eli/cc/11/529_488_529/it#art_271",
+    "lang": "it",
+    "article_anchor": "art_271",
+    "chunk_ordinal": 0,
+    "section_heading": "Art. 271 {#art_271}",
+    "text": "Art. 271 {#art_271}\nArt. 271\n\nparagraph {#art_271/para_1}\n1\n\nlistIntroduction {#art_271/para_1/listintro}\nPer i crediti scaduti, in quanto non siano garantiti da pegno, il creditore può chiedere il sequestro dei beni del debitore che si trovano in Svizzera:\n\nitem {#art_271/para_1/lbl_1}\n1. quando il debitore non abbia domicilio fisso;\n\nitem {#art_271/para_1/lbl_2}\n2. quando il debitore, nell’intenzione di sottrarsi all’adempimento delle sue obbligazioni, trafughi i suoi beni, si renda latitante o si prepari a prendere la fuga;\n\nitem {#art_271/para_1/lbl_3}\n3. quando il debitore sia di passaggio o appartenga al ceto delle persone che frequentano le fiere ed i mercati e si tratti di crediti per loro natura immediatamente esigibili;\n\nitem {#art_271/para_1/lbl_4}\n4. quando il debitore non dimori in Svizzera, se non vi è altra causa di sequestro, ma il credito abbia un legame sufficiente con la Svizzera o si fondi su un riconoscimento di debito ai sensi dell’articolo 82 capoverso 1;\n\nitem {#art_271/para_1/lbl_5}\n5. quando al creditore sia stato rilasciato nei confronti del debitore un attestato provvisorio o definitivo di carenza di beni;\n\nitem {#art_271/para_1/lbl_6}\n6. quando il creditore possieda nei confronti del debitore un titolo definitivo di rigetto dell’opposizione.\n\nparagraph {#art_271/para_2}\n2 Nei casi contemplati ai numeri 1 e 2 il sequestro si può domandare altresì per crediti non ancora scaduti; esso produce, rimpetto al debitore, la scadenza del credito.\n\nparagraph {#art_271/para_3}\n3 Nel caso contemplato al capoverso 1 numero 6, se si tratta di una decisione straniera da eseguire secondo la Convenzione del 30 ottobre 2007 concernente la competenza giurisdizionale, il riconoscimento e l’esecuzione delle decisioni in materia civile e commerciale, il giudice pronuncia anche sull’esecutività della stessa.",
+    "sparse_text": "Legge sulla esecuzione e sul fallimento (LEF; SR 281.1) — Art. 271 — A. Cause di sequestro > Art. 271 {#art_271}\n\nArt. 271\n\nLegge sulla esecuzione e sul fallimento (LEF; SR 281.1) — Art. 271 — A. Cause di sequestro > Art. 271 {#art_271} > paragraph {#art_271/para_1}\n\n1\n\nLegge sulla esecuzione e sul fallimento (LEF; SR 281.1) — Art. 271 — A. Cause di sequestro > Art. 271 {#art_271} > listIntroduction {#art_271/para_1/listintro}\n\nPer i crediti scaduti, in quanto non siano garantiti da pegno, il creditore può chiedere il sequestro dei beni del debitore che si trovano in Svizzera:\n\nLegge sulla esecuzione e sul fallimento (LEF; SR 281.1) — Art. 271 — A. Cause di sequestro > Art. 271 {#art_271} > item {#art_271/para_1/lbl_1}\n\n1. quando il debitore non abbia domicilio fisso;\n\nLegge sulla esecuzione e sul fallimento (LEF; SR 281.1) — Art. 271 — A. Cause di sequestro > Art. 271 {#art_271} > item {#art_271/para_1/lbl_2}\n\n2. quando il debitore, nell’intenzione di sottrarsi all’adempimento delle sue obbligazioni, trafughi i suoi beni, si renda latitante o si prepari a prendere la fuga;\n\nLegge sulla esecuzione e sul fallimento (LEF; SR 281.1) — Art. 271 — A. Cause di sequestro > Art. 271 {#art_271} > item {#art_271/para_1/lbl_3}\n\n3. quando il debitore sia di passaggio o appartenga al ceto delle persone che frequentano le fiere ed i mercati e si tratti di crediti per loro natura immediatamente esigibili;\n\nLegge sulla esecuzione e sul fallimento (LEF; SR 281.1) — Art. 271 — A. Cause di sequestro > Art. 271 {#art_271} > item {#art_271/para_1/lbl_4}\n\n4. quando il debitore non dimori in Svizzera, se non vi è altra causa di sequestro, ma il credito abbia un legame sufficiente con la Svizzera o si fondi su un riconoscimento di debito ai sensi dell’articolo 82 capoverso 1;\n\nLegge sulla esecuzione e sul fallimento (LEF; SR 281.1) — Art. 271 — A. Cause di sequestro > Art. 271 {#art_271} > item {#art_271/para_1/lbl_5}\n\n5. quando al creditore sia stato rilasciato nei confronti del debitore un attestato provvisorio o definitivo di carenza di beni;\n\nLegge sulla esecuzione e sul fallimento (LEF; SR 281.1) — Art. 271 — A. Cause di sequestro > Art. 271 {#art_271} > item {#art_271/para_1/lbl_6}\n\n6. quando il creditore possieda nei confronti del debitore un titolo definitivo di rigetto dell’opposizione.\n\nLegge sulla esecuzione e sul fallimento (LEF; SR 281.1) — Art. 271 — A. Cause di sequestro > Art. 271 {#art_271} > paragraph {#art_271/para_2}\n\n2 Nei casi contemplati ai numeri 1 e 2 il sequestro si può domandare altresì per crediti non ancora scaduti; esso produce, rimpetto al debitore, la scadenza del credito.\n\nLegge sulla esecuzione e sul fallimento (LEF; SR 281.1) — Art. 271 — A. Cause di sequestro > Art. 271 {#art_271} > paragraph {#art_271/para_3}\n\n3 Nel caso contemplato al capoverso 1 numero 6, se si tratta di una decisione straniera da eseguire secondo la Convenzione del 30 ottobre 2007 concernente la competenza giurisdizionale, il riconoscimento e l’esecuzione delle decisioni in materia civile e commerciale, il giudice pronuncia anche sull’esecutività della stessa.",
+    "canonical_text": "Legge sulla esecuzione e sul fallimento (LEF; SR 281.1) — Art. 271 — A. Cause di sequestro > Art. 271 {#art_271}\n\nArt. 271\n\nLegge sulla esecuzione e sul fallimento (LEF; SR 281.1) — Art. 271 — A. Cause di sequestro > Art. 271 {#art_271} > paragraph {#art_271/para_1}\n\n1\n\nLegge sulla esecuzione e sul fallimento (LEF; SR 281.1) — Art. 271 — A. Cause di sequestro > Art. 271 {#art_271} > listIntroduction {#art_271/para_1/listintro}\n\nPer i crediti scaduti, in quanto non siano garantiti da pegno, il creditore può chiedere il sequestro dei beni del debitore che si trovano in Svizzera:\n\nLegge sulla esecuzione e sul fallimento (LEF; SR 281.1) — Art. 271 — A. Cause di sequestro > Art. 271 {#art_271} > item {#art_271/para_1/lbl_1}\n\n1. quando il debitore non abbia domicilio fisso;\n\nLegge sulla esecuzione e sul fallimento (LEF; SR 281.1) — Art. 271 — A. Cause di sequestro > Art. 271 {#art_271} > item {#art_271/para_1/lbl_2}\n\n2. quando il debitore, nell’intenzione di sottrarsi all’adempimento delle sue obbligazioni, trafughi i suoi beni, si renda latitante o si prepari a prendere la fuga;\n\nLegge sulla esecuzione e sul fallimento (LEF; SR 281.1) — Art. 271 — A. Cause di sequestro > Art. 271 {#art_271} > item {#art_271/para_1/lbl_3}\n\n3. quando il debitore sia di passaggio o appartenga al ceto delle persone che frequentano le fiere ed i mercati e si tratti di crediti per loro natura immediatamente esigibili;\n\nLegge sulla esecuzione e sul fallimento (LEF; SR 281.1) — Art. 271 — A. Cause di sequestro > Art. 271 {#art_271} > item {#art_271/para_1/lbl_4}\n\n4. quando il debitore non dimori in Svizzera, se non vi è altra causa di sequestro, ma il credito abbia un legame sufficiente con la Svizzera o si fondi su un riconoscimento di debito ai sensi dell’articolo 82 capoverso 1;\n\nLegge sulla esecuzione e sul fallimento (LEF; SR 281.1) — Art. 271 — A. Cause di sequestro > Art. 271 {#art_271} > item {#art_271/para_1/lbl_5}\n\n5. quando al creditore sia stato rilasciato nei confronti del debitore un attestato provvisorio o definitivo di carenza di beni;\n\nLegge sulla esecuzione e sul fallimento (LEF; SR 281.1) — Art. 271 — A. Cause di sequestro > Art. 271 {#art_271} > item {#art_271/para_1/lbl_6}\n\n6. quando il creditore possieda nei confronti del debitore un titolo definitivo di rigetto dell’opposizione.\n\nLegge sulla esecuzione e sul fallimento (LEF; SR 281.1) — Art. 271 — A. Cause di sequestro > Art. 271 {#art_271} > paragraph {#art_271/para_2}\n\n2 Nei casi contemplati ai numeri 1 e 2 il sequestro si può domandare altresì per crediti non ancora scaduti; esso produce, rimpetto al debitore, la scadenza del credito.\n\nLegge sulla esecuzione e sul fallimento (LEF; SR 281.1) — Art. 271 — A. Cause di sequestro > Art. 271 {#art_271} > paragraph {#art_271/para_3}\n\n3 Nel caso contemplato al capoverso 1 numero 6, se si tratta di una decisione straniera da eseguire secondo la Convenzione del 30 ottobre 2007 concernente la competenza giurisdizionale, il riconoscimento e l’esecuzione delle decisioni in materia civile e commerciale, il giudice pronuncia anche sull’esecutività della stessa.",
+    "prov_id": "5ce4d693be8e84d3",
+    "parent_identity": {
+     "article_anchor": "art_271",
+     "eli": "cc/11/529_488_529",
+     "lang": "it",
+     "source_version": "20260101",
+     "source_version_url": "https://fedlex.data.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/11/529_488_529/20260101/it/xml/fedlex-data-admin-ch-eli-cc-11-529_488_529-20260101-it-xml.xml",
+     "xml": {
+      "bytes": 692251,
+      "sha256": "f40c109463077a2654bbd312d5a79255e4f9c032dc73b0dff813309f2f347311",
+      "uri": "artifact://l0/wave=fedlex_task370_pinned/objects/cc_11_529_488_529/20260101.it.xml"
+     }
+    },
+    "source_metadata": {
+     "article_anchor": "art_271",
+     "baseline_production_point_ids": [
+      "dc68b099-f81a-55fc-9bc9-e8115a48669f"
+     ],
+     "source_version": {
+      "eli": "cc/11/529_488_529",
+      "lang": "it",
+      "source_version_url": "https://fedlex.data.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/11/529_488_529/20260101/it/xml/fedlex-data-admin-ch-eli-cc-11-529_488_529-20260101-it-xml.xml",
+      "version": "20260101"
+     },
+     "status": "current",
+     "title": "Legge sulla esecuzione e sul fallimento (LEF; SR 281.1) — Art. 271 — A. Cause di sequestro"
+    }
+   },
+   "akn": {
+    "xml_uri": "artifact://l0/wave=fedlex_task370_pinned/objects/cc_11_529_488_529/20260101.it.xml",
+    "xml_sha256": "f40c109463077a2654bbd312d5a79255e4f9c032dc73b0dff813309f2f347311",
+    "ancestor_heading_path": [
+     "Titolo ottavo: Del sequestro",
+     "A. Cause di sequestro"
+    ],
+    "marginal": "A. Cause di sequestro",
+    "heading_ctx": "Titolo ottavo: Del sequestro; A. Cause di sequestro",
+    "clean_text": "Art. 271 1 Per i crediti scaduti, in quanto non siano garantiti da pegno, il creditore può chiedere il sequestro dei beni del debitore che si trovano in Svizzera: 1. quando il debitore non abbia domicilio fisso; 2. quando il debitore, nell’intenzione di sottrarsi all’adempimento delle sue obbligazioni, trafughi i suoi beni, si renda latitante o si prepari a prendere la fuga; 3. quando il debitore sia di passaggio o appartenga al ceto delle persone che frequentano le fiere ed i mercati e si tratti di crediti per loro natura immediatamente esigibili; 4. quando il debitore non dimori in Svizzera, se non vi è altra causa di sequestro, ma il credito abbia un legame sufficiente con la Svizzera o si fondi su un riconoscimento di debito ai sensi dell’articolo 82 capoverso 1; 5. quando al creditore sia stato rilasciato nei confronti del debitore un attestato provvisorio o definitivo di carenza di beni; 6. quando il creditore possieda nei confronti del debitore un titolo definitivo di rigetto dell’opposizione. 2 Nei casi contemplati ai numeri 1 e 2 il sequestro si può domandare altresì per crediti non ancora scaduti; esso produce, rimpetto al debitore, la scadenza del credito. 3 Nel caso contemplato al capoverso 1 numero 6, se si tratta di una decisione straniera da eseguire secondo la Convenzione del 30 ottobre 2007 concernente la competenza giurisdizionale, il riconoscimento e l’esecuzione delle decisioni in materia civile e commerciale, il giudice pronuncia anche sull’esecutività della stessa."
+   }
+  },
+  {
+   "gold_id": "sb-ch-law-335c-it",
+   "gold_query": "quanto preavviso per disdire un contratto di lavoro in Svizzera dopo il periodo di prova",
+   "gold_words_lost": [
+    "contratto"
+   ],
+   "twin_snippet": "Art. 336 c 1 Dopo il tempo di prova, il datore di lavoro non può disdire il rapporto di lavoro: a.",
+   "candidate_snippet": "Art. 336 c {#art_336_c} Art. 336 c paragraph {#art_336_c/para_1} 1 listIntroduction {#art_336_c/para_1/listintro} Dopo il tempo di prova, il datore di lavoro non può disdire il…",
+   "payload": {
+    "url": "https://www.fedlex.admin.ch/eli/cc/27/317_321_377/it#art_336_c",
+    "title": "Codice delle obbligazioni (CO; SR 220) — Art. 336 c — a. da parte del datore di lavoro",
+    "site_name": "Fedlex",
+    "lang": "it",
+    "source_type": "official",
+    "domain": "fedlex.admin.ch",
+    "anchor": null,
+    "prov_id": "5ce4d693be8e84d3"
+   },
+   "pack_row": {
+    "point_id": "c1c50493-9335-58e8-b9a4-bb65b17392d0",
+    "url": "https://www.fedlex.admin.ch/eli/cc/27/317_321_377/it#art_336_c",
+    "lang": "it",
+    "article_anchor": "art_336_c",
+    "chunk_ordinal": 0,
+    "section_heading": "Art. 336 c {#art_336_c}",
+    "text": "Art. 336 c {#art_336_c}\nArt. 336 c\n\nparagraph {#art_336_c/para_1}\n1\n\nlistIntroduction {#art_336_c/para_1/listintro}\nDopo il tempo di prova, il datore di lavoro non può disdire il rapporto di lavoro:\n\nitem {#art_336_c/para_1/lbl_a}\na. allorquando il lavoratore presta servizio obbligatorio svizzero, militare o di protezione civile, oppure servizio civile svizzero e, in quanto il servizio duri più di 11 giorni, nelle quattro settimane precedenti e seguenti;\n\nitem {#art_336_c/para_1/lbl_b}\nb. allorquando il lavoratore è impedito di lavorare, in tutto o in parte, a causa di malattia o infortunio non imputabili a sua colpa, per 30 giorni nel primo anno di servizio, per 90 giorni dal secondo anno di servizio sino al quinto compreso e per 180 giorni dal sesto anno di servizio;\n\nitem {#art_336_c/para_1/lbl_c}\nc. durante la gravidanza e nelle 16 settimane dopo il parto della lavoratrice;\n\nitem {#art_336_c/para_1/lbl_cbis}\nc bis . prima del termine del congedo di maternità prolungato conformemente all’articolo 329 f capoverso 2;\n\nitem {#art_336_c/para_1/lbl_cter}\nc ter . tra l’inizio del congedo di cui all’articolo 329 f capoverso 3 e l’ultimo giorno di congedo preso, ma al massimo per tre mesi a decorrere dalla fine del periodo stabilito nella lettera c;\n\nitem {#art_336_c/para_1/lbl_cquater}\nc quater . finché sussiste il diritto al congedo di assistenza di cui all’articolo 329 i , ma al massimo per sei mesi a decorrere dall’inizio del termine quadro;\n\nitem {#art_336_c/para_1/lbl_cquinquies}\nc quinquies . durante il congedo di cui all’articolo 329 g bis ;\n\nitem {#art_336_c/para_1/lbl_d}\nd. allorquando, con il suo consenso, il lavoratore partecipa a un servizio, ordinato dall’autorità federale competente, nell’ambito dell’aiuto all’estero.\n\nparagraph {#art_336_c/para_2}\n2 La disdetta data durante uno dei periodi stabiliti nel capoverso 1 è nulla; se, invece, è data prima, il termine che non sia ancora giunto a scadenza all’inizio del periodo è sospeso e riprende a decorrere soltanto dopo la fine del periodo.\n\nparagraph {#art_336_c/para_3}\n3 Se per la cessazione di un rapporto di lavoro vale un giorno fisso, come la fine di un mese o di una settimana lavorativa, che non coincide con la scadenza del termine prorogato di disdetta, questo è protratto sino al giorno fisso immediatamente successivo.",
+    "sparse_text": "Codice delle obbligazioni (CO; SR 220) — Art. 336 c — a. da parte del datore di lavoro > Art. 336 c {#art_336_c}\n\nArt. 336 c\n\nCodice delle obbligazioni (CO; SR 220) — Art. 336 c — a. da parte del datore di lavoro > Art. 336 c {#art_336_c} > paragraph {#art_336_c/para_1}\n\n1\n\nCodice delle obbligazioni (CO; SR 220) — Art. 336 c — a. da parte del datore di lavoro > Art. 336 c {#art_336_c} > listIntroduction {#art_336_c/para_1/listintro}\n\nDopo il tempo di prova, il datore di lavoro non può disdire il rapporto di lavoro:\n\nCodice delle obbligazioni (CO; SR 220) — Art. 336 c — a. da parte del datore di lavoro > Art. 336 c {#art_336_c} > item {#art_336_c/para_1/lbl_a}\n\na. allorquando il lavoratore presta servizio obbligatorio svizzero, militare o di protezione civile, oppure servizio civile svizzero e, in quanto il servizio duri più di 11 giorni, nelle quattro settimane precedenti e seguenti;\n\nCodice delle obbligazioni (CO; SR 220) — Art. 336 c — a. da parte del datore di lavoro > Art. 336 c {#art_336_c} > item {#art_336_c/para_1/lbl_b}\n\nb. allorquando il lavoratore è impedito di lavorare, in tutto o in parte, a causa di malattia o infortunio non imputabili a sua colpa, per 30 giorni nel primo anno di servizio, per 90 giorni dal secondo anno di servizio sino al quinto compreso e per 180 giorni dal sesto anno di servizio;\n\nCodice delle obbligazioni (CO; SR 220) — Art. 336 c — a. da parte del datore di lavoro > Art. 336 c {#art_336_c} > item {#art_336_c/para_1/lbl_c}\n\nc. durante la gravidanza e nelle 16 settimane dopo il parto della lavoratrice;\n\nCodice delle obbligazioni (CO; SR 220) — Art. 336 c — a. da parte del datore di lavoro > Art. 336 c {#art_336_c} > item {#art_336_c/para_1/lbl_cbis}\n\nc bis . prima del termine del congedo di maternità prolungato conformemente all’articolo 329 f capoverso 2;\n\nCodice delle obbligazioni (CO; SR 220) — Art. 336 c — a. da parte del datore di lavoro > Art. 336 c {#art_336_c} > item {#art_336_c/para_1/lbl_cter}\n\nc ter . tra l’inizio del congedo di cui all’articolo 329 f capoverso 3 e l’ultimo giorno di congedo preso, ma al massimo per tre mesi a decorrere dalla fine del periodo stabilito nella lettera c;\n\nCodice delle obbligazioni (CO; SR 220) — Art. 336 c — a. da parte del datore di lavoro > Art. 336 c {#art_336_c} > item {#art_336_c/para_1/lbl_cquater}\n\nc quater . finché sussiste il diritto al congedo di assistenza di cui all’articolo 329 i , ma al massimo per sei mesi a decorrere dall’inizio del termine quadro;\n\nCodice delle obbligazioni (CO; SR 220) — Art. 336 c — a. da parte del datore di lavoro > Art. 336 c {#art_336_c} > item {#art_336_c/para_1/lbl_cquinquies}\n\nc quinquies . durante il congedo di cui all’articolo 329 g bis ;\n\nCodice delle obbligazioni (CO; SR 220) — Art. 336 c — a. da parte del datore di lavoro > Art. 336 c {#art_336_c} > item {#art_336_c/para_1/lbl_d}\n\nd. allorquando, con il suo consenso, il lavoratore partecipa a un servizio, ordinato dall’autorità federale competente, nell’ambito dell’aiuto all’estero.\n\nCodice delle obbligazioni (CO; SR 220) — Art. 336 c — a. da parte del datore di lavoro > Art. 336 c {#art_336_c} > paragraph {#art_336_c/para_2}\n\n2 La disdetta data durante uno dei periodi stabiliti nel capoverso 1 è nulla; se, invece, è data prima, il termine che non sia ancora giunto a scadenza all’inizio del periodo è sospeso e riprende a decorrere soltanto dopo la fine del periodo.\n\nCodice delle obbligazioni (CO; SR 220) — Art. 336 c — a. da parte del datore di lavoro > Art. 336 c {#art_336_c} > paragraph {#art_336_c/para_3}\n\n3 Se per la cessazione di un rapporto di lavoro vale un giorno fisso, come la fine di un mese o di una settimana lavorativa, che non coincide con la scadenza del termine prorogato di disdetta, questo è protratto sino al giorno fisso immediatamente successivo.",
+    "canonical_text": "Codice delle obbligazioni (CO; SR 220) — Art. 336 c — a. da parte del datore di lavoro > Art. 336 c {#art_336_c}\n\nArt. 336 c\n\nCodice delle obbligazioni (CO; SR 220) — Art. 336 c — a. da parte del datore di lavoro > Art. 336 c {#art_336_c} > paragraph {#art_336_c/para_1}\n\n1\n\nCodice delle obbligazioni (CO; SR 220) — Art. 336 c — a. da parte del datore di lavoro > Art. 336 c {#art_336_c} > listIntroduction {#art_336_c/para_1/listintro}\n\nDopo il tempo di prova, il datore di lavoro non può disdire il rapporto di lavoro:\n\nCodice delle obbligazioni (CO; SR 220) — Art. 336 c — a. da parte del datore di lavoro > Art. 336 c {#art_336_c} > item {#art_336_c/para_1/lbl_a}\n\na. allorquando il lavoratore presta servizio obbligatorio svizzero, militare o di protezione civile, oppure servizio civile svizzero e, in quanto il servizio duri più di 11 giorni, nelle quattro settimane precedenti e seguenti;\n\nCodice delle obbligazioni (CO; SR 220) — Art. 336 c — a. da parte del datore di lavoro > Art. 336 c {#art_336_c} > item {#art_336_c/para_1/lbl_b}\n\nb. allorquando il lavoratore è impedito di lavorare, in tutto o in parte, a causa di malattia o infortunio non imputabili a sua colpa, per 30 giorni nel primo anno di servizio, per 90 giorni dal secondo anno di servizio sino al quinto compreso e per 180 giorni dal sesto anno di servizio;\n\nCodice delle obbligazioni (CO; SR 220) — Art. 336 c — a. da parte del datore di lavoro > Art. 336 c {#art_336_c} > item {#art_336_c/para_1/lbl_c}\n\nc. durante la gravidanza e nelle 16 settimane dopo il parto della lavoratrice;\n\nCodice delle obbligazioni (CO; SR 220) — Art. 336 c — a. da parte del datore di lavoro > Art. 336 c {#art_336_c} > item {#art_336_c/para_1/lbl_cbis}\n\nc bis . prima del termine del congedo di maternità prolungato conformemente all’articolo 329 f capoverso 2;\n\nCodice delle obbligazioni (CO; SR 220) — Art. 336 c — a. da parte del datore di lavoro > Art. 336 c {#art_336_c} > item {#art_336_c/para_1/lbl_cter}\n\nc ter . tra l’inizio del congedo di cui all’articolo 329 f capoverso 3 e l’ultimo giorno di congedo preso, ma al massimo per tre mesi a decorrere dalla fine del periodo stabilito nella lettera c;\n\nCodice delle obbligazioni (CO; SR 220) — Art. 336 c — a. da parte del datore di lavoro > Art. 336 c {#art_336_c} > item {#art_336_c/para_1/lbl_cquater}\n\nc quater . finché sussiste il diritto al congedo di assistenza di cui all’articolo 329 i , ma al massimo per sei mesi a decorrere dall’inizio del termine quadro;\n\nCodice delle obbligazioni (CO; SR 220) — Art. 336 c — a. da parte del datore di lavoro > Art. 336 c {#art_336_c} > item {#art_336_c/para_1/lbl_cquinquies}\n\nc quinquies . durante il congedo di cui all’articolo 329 g bis ;\n\nCodice delle obbligazioni (CO; SR 220) — Art. 336 c — a. da parte del datore di lavoro > Art. 336 c {#art_336_c} > item {#art_336_c/para_1/lbl_d}\n\nd. allorquando, con il suo consenso, il lavoratore partecipa a un servizio, ordinato dall’autorità federale competente, nell’ambito dell’aiuto all’estero.\n\nCodice delle obbligazioni (CO; SR 220) — Art. 336 c — a. da parte del datore di lavoro > Art. 336 c {#art_336_c} > paragraph {#art_336_c/para_2}\n\n2 La disdetta data durante uno dei periodi stabiliti nel capoverso 1 è nulla; se, invece, è data prima, il termine che non sia ancora giunto a scadenza all’inizio del periodo è sospeso e riprende a decorrere soltanto dopo la fine del periodo.\n\nCodice delle obbligazioni (CO; SR 220) — Art. 336 c — a. da parte del datore di lavoro > Art. 336 c {#art_336_c} > paragraph {#art_336_c/para_3}\n\n3 Se per la cessazione di un rapporto di lavoro vale un giorno fisso, come la fine di un mese o di una settimana lavorativa, che non coincide con la scadenza del termine prorogato di disdetta, questo è protratto sino al giorno fisso immediatamente successivo.",
+    "prov_id": "5ce4d693be8e84d3",
+    "parent_identity": {
+     "article_anchor": "art_336_c",
+     "eli": "cc/27/317_321_377",
+     "lang": "it",
+     "source_version": "20260101",
+     "source_version_url": "https://fedlex.data.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/it/xml/fedlex-data-admin-ch-eli-cc-27-317_321_377-20260101-it-xml.xml",
+     "xml": {
+      "bytes": 2418550,
+      "sha256": "6fdc5e7352ee4de08e1eb2393b2056c4e4fe96129f24d27d59493ba2fb30569a",
+      "uri": "artifact://l0/wave=fedlex_task370_pinned/objects/cc_27_317_321_377/20260101.it.xml"
+     }
+    },
+    "source_metadata": {
+     "article_anchor": "art_336_c",
+     "baseline_production_point_ids": [
+      "4fbf3ba8-bbda-5438-836c-987ae40f8e21",
+      "89442572-b055-51e7-b43e-5c02cfc9e6e5",
+      "93b5e87a-2a0e-5194-a553-5f0b9eccea31"
+     ],
+     "source_version": {
+      "eli": "cc/27/317_321_377",
+      "lang": "it",
+      "source_version_url": "https://fedlex.data.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/it/xml/fedlex-data-admin-ch-eli-cc-27-317_321_377-20260101-it-xml.xml",
+      "version": "20260101"
+     },
+     "status": "current",
+     "title": "Codice delle obbligazioni (CO; SR 220) — Art. 336 c — a. da parte del datore di lavoro"
+    }
+   },
+   "akn": {
+    "xml_uri": "artifact://l0/wave=fedlex_task370_pinned/objects/cc_27_317_321_377/20260101.it.xml",
+    "xml_sha256": "6fdc5e7352ee4de08e1eb2393b2056c4e4fe96129f24d27d59493ba2fb30569a",
+    "ancestor_heading_path": [
+     "Parte seconda: Dei singoli contratti",
+     "Titolo decimo: Del contratto di lavoro",
+     "Capo primo: Del contratto individuale di lavoro",
+     "G. Fine del rapporto di lavoro",
+     "III. Protezione dalla disdetta",
+     "2. Disdetta in tempo inopportuno",
+     "a. da parte del datore di lavoro"
+    ],
+    "marginal": "a. da parte del datore di lavoro",
+    "heading_ctx": "Parte seconda: Dei singoli contratti; Titolo decimo: Del contratto di lavoro; Capo primo: Del contratto individuale di lavoro; G. Fine del rapporto di lavoro; III. Protezione dalla disdetta; 2. Disdetta in tempo inopportuno; a. da parte del datore di lavoro",
+    "clean_text": "Art. 336 c 1 Dopo il tempo di prova, il datore di lavoro non può disdire il rapporto di lavoro: a. allorquando il lavoratore presta servizio obbligatorio svizzero, militare o di protezione civile, oppure servizio civile svizzero e, in quanto il servizio duri più di 11 giorni, nelle quattro settimane precedenti e seguenti; b. allorquando il lavoratore è impedito di lavorare, in tutto o in parte, a causa di malattia o infortunio non imputabili a sua colpa, per 30 giorni nel primo anno di servizio, per 90 giorni dal secondo anno di servizio sino al quinto compreso e per 180 giorni dal sesto anno di servizio; c. durante la gravidanza e nelle 16 settimane dopo il parto della lavoratrice; c bis . prima del termine del congedo di maternità prolungato conformemente all’articolo 329 f capoverso 2; c ter . tra l’inizio del congedo di cui all’articolo 329 f capoverso 3 e l’ultimo giorno di congedo preso, ma al massimo per tre mesi a decorrere dalla fine del periodo stabilito nella lettera c; c quater . finché sussiste il diritto al congedo di assistenza di cui all’articolo 329 i , ma al massimo per sei mesi a decorrere dall’inizio del termine quadro; c quinquies . durante il congedo di cui all’articolo 329 g bis ; d. allorquando, con il suo consenso, il lavoratore partecipa a un servizio, ordinato dall’autorità federale competente, nell’ambito dell’aiuto all’estero. 2 La disdetta data durante uno dei periodi stabiliti nel capoverso 1 è nulla; se, invece, è data prima, il termine che non sia ancora giunto a scadenza all’inizio del periodo è sospeso e riprende a decorrere soltanto dopo la fine del periodo. 3 Se per la cessazione di un rapporto di lavoro vale un giorno fisso, come la fine di un mese o di una settimana lavorativa, che non coincide con la scadenza del termine prorogato di disdetta, questo è protratto sino al giorno fisso immediatamente successivo."
+   }
+  },
+  {
+   "gold_id": "zec-011",
+   "gold_query": "capital-actions minimum et responsabilite des actionnaires d'une societe anonyme suisse selon le Code des obligations",
+   "gold_words_lost": [
+    "anonyme"
+   ],
+   "twin_snippet": "Art. 656 b 1 La part du capital-participation composé de bons de participation cotés en bourse ne peut pas être plus de dix fois supérieure…",
+   "candidate_snippet": "Art. 656 b {#art_656_b} Art. 656 b paragraph {#art_656_b/para_1} 1 La part du capital-participation composé de bons de participation cotés en bourse ne peut pas…",
+   "payload": {
+    "url": "https://www.fedlex.admin.ch/eli/cc/27/317_321_377/fr#art_656_b",
+    "title": "Code des obligations (CO; SR 220) — Art. 656 b — II. Capital-participation et capital-actions",
+    "site_name": "Fedlex",
+    "lang": "fr",
+    "source_type": "official",
+    "domain": "fedlex.admin.ch",
+    "anchor": null,
+    "prov_id": "5ce4d693be8e84d3"
+   },
+   "pack_row": {
+    "point_id": "43a3299d-9692-58b6-8f84-71e99d70cf85",
+    "url": "https://www.fedlex.admin.ch/eli/cc/27/317_321_377/fr#art_656_b",
+    "lang": "fr",
+    "article_anchor": "art_656_b",
+    "chunk_ordinal": 0,
+    "section_heading": "Art. 656 b {#art_656_b}",
+    "text": "Art. 656 b {#art_656_b}\nArt. 656 b\n\nparagraph {#art_656_b/para_1}\n1 La part du capital-participation composé de bons de participation cotés en bourse ne peut pas être plus de dix fois supérieure au capital-actions inscrit au registre du commerce. L’autre part du capital-participation ne peut dépasser le double du capital-actions inscrit au registre du commerce.\n\nparagraph {#art_656_b/para_2}\n2 Les dispositions sur le capital minimum ne sont pas applicables.\n\nparagraph {#art_656_b/para_3}\n3\n\nlistIntroduction {#art_656_b/para_3/listintro}\nLe capital-participation s’ajoute au capital-actions:\n\nitem {#art_656_b/para_3/lbl_1}\n1. pour constituer la réserve légale issue du bénéfice;\n\nitem {#art_656_b/para_3/lbl_2}\n2. pour employer les réserves légales issues du capital et du bénéfice;\n\nitem {#art_656_b/para_3/lbl_3}\n3. pour déterminer s’il y a bilan déficitaire ou perte de capital;\n\nitem {#art_656_b/para_3/lbl_4}\n4. pour limiter l’étendue d’une augmentation de capital au moyen d’un capital conditionnel;\n\nitem {#art_656_b/para_3/lbl_5}\n5. pour déterminer la limite supérieure et la limite inférieure d’une marge de fluctuation du capital.\n\nparagraph {#art_656_b/para_4}\n4\n\nlistIntroduction {#art_656_b/para_4/listintro}\nLes seuils prévus sont calculés séparément pour les actionnaires et pour les participants pour l’exercice des droits suivants:\n\nitem {#art_656_b/para_4/lbl_1}\n1. l’institution d’un examen spécial en cas de rejet d’une proposition en ce sens par l’assemblée générale;\n\nitem {#art_656_b/para_4/lbl_2}\n2. la dissolution de la société par un jugement;\n\nitem {#art_656_b/para_4/lbl_3}\n3. l’annonce de l’ayant droit économique selon l’art. 697 j .\n\nparagraph {#art_656_b/para_5}\n5\n\nlistIntroduction {#art_656_b/para_5/listintro}\nIls sont calculés sur la base:\n\nitem {#art_656_b/para_5/lbl_1}\n1. des actions émises, pour l’acquisition par la société de ses propres actions;\n\nitem {#art_656_b/para_5/lbl_2}\n2. des bons de participation émis, pour l’acquisition par la société de ses propres bons de participation.\n\nparagraph {#art_656_b/para_6}\n6\n\nlistIntroduction {#art_656_b/para_6/listintro}\nIls sont calculés exclusivement sur la base du capital-actions en ce qui concerne:\n\nitem {#art_656_b/para_6/lbl_1}\n1. le droit de requérir la convocation de l’assemblée générale;\n\nitem {#art_656_b/para_6/lbl_2}\n2. le droit à l’inscription d’un objet à l’ordre du jour et le droit de proposition.",
+    "sparse_text": "Code des obligations (CO; SR 220) — Art. 656 b — II. Capital-participation et capital-actions > Art. 656 b {#art_656_b}\n\nArt. 656 b\n\nCode des obligations (CO; SR 220) — Art. 656 b — II. Capital-participation et capital-actions > Art. 656 b {#art_656_b} > paragraph {#art_656_b/para_1}\n\n1 La part du capital-participation composé de bons de participation cotés en bourse ne peut pas être plus de dix fois supérieure au capital-actions inscrit au registre du commerce. L’autre part du capital-participation ne peut dépasser le double du capital-actions inscrit au registre du commerce.\n\nCode des obligations (CO; SR 220) — Art. 656 b — II. Capital-participation et capital-actions > Art. 656 b {#art_656_b} > paragraph {#art_656_b/para_2}\n\n2 Les dispositions sur le capital minimum ne sont pas applicables.\n\nCode des obligations (CO; SR 220) — Art. 656 b — II. Capital-participation et capital-actions > Art. 656 b {#art_656_b} > paragraph {#art_656_b/para_3}\n\n3\n\nCode des obligations (CO; SR 220) — Art. 656 b — II. Capital-participation et capital-actions > Art. 656 b {#art_656_b} > listIntroduction {#art_656_b/para_3/listintro}\n\nLe capital-participation s’ajoute au capital-actions:\n\nCode des obligations (CO; SR 220) — Art. 656 b — II. Capital-participation et capital-actions > Art. 656 b {#art_656_b} > item {#art_656_b/para_3/lbl_1}\n\n1. pour constituer la réserve légale issue du bénéfice;\n\nCode des obligations (CO; SR 220) — Art. 656 b — II. Capital-participation et capital-actions > Art. 656 b {#art_656_b} > item {#art_656_b/para_3/lbl_2}\n\n2. pour employer les réserves légales issues du capital et du bénéfice;\n\nCode des obligations (CO; SR 220) — Art. 656 b — II. Capital-participation et capital-actions > Art. 656 b {#art_656_b} > item {#art_656_b/para_3/lbl_3}\n\n3. pour déterminer s’il y a bilan déficitaire ou perte de capital;\n\nCode des obligations (CO; SR 220) — Art. 656 b — II. Capital-participation et capital-actions > Art. 656 b {#art_656_b} > item {#art_656_b/para_3/lbl_4}\n\n4. pour limiter l’étendue d’une augmentation de capital au moyen d’un capital conditionnel;\n\nCode des obligations (CO; SR 220) — Art. 656 b — II. Capital-participation et capital-actions > Art. 656 b {#art_656_b} > item {#art_656_b/para_3/lbl_5}\n\n5. pour déterminer la limite supérieure et la limite inférieure d’une marge de fluctuation du capital.\n\nCode des obligations (CO; SR 220) — Art. 656 b — II. Capital-participation et capital-actions > Art. 656 b {#art_656_b} > paragraph {#art_656_b/para_4}\n\n4\n\nCode des obligations (CO; SR 220) — Art. 656 b — II. Capital-participation et capital-actions > Art. 656 b {#art_656_b} > listIntroduction {#art_656_b/para_4/listintro}\n\nLes seuils prévus sont calculés séparément pour les actionnaires et pour les participants pour l’exercice des droits suivants:\n\nCode des obligations (CO; SR 220) — Art. 656 b — II. Capital-participation et capital-actions > Art. 656 b {#art_656_b} > item {#art_656_b/para_4/lbl_1}\n\n1. l’institution d’un examen spécial en cas de rejet d’une proposition en ce sens par l’assemblée générale;\n\nCode des obligations (CO; SR 220) — Art. 656 b — II. Capital-participation et capital-actions > Art. 656 b {#art_656_b} > item {#art_656_b/para_4/lbl_2}\n\n2. la dissolution de la société par un jugement;\n\nCode des obligations (CO; SR 220) — Art. 656 b — II. Capital-participation et capital-actions > Art. 656 b {#art_656_b} > item {#art_656_b/para_4/lbl_3}\n\n3. l’annonce de l’ayant droit économique selon l’art. 697 j .\n\nCode des obligations (CO; SR 220) — Art. 656 b — II. Capital-participation et capital-actions > Art. 656 b {#art_656_b} > paragraph {#art_656_b/para_5}\n\n5\n\nCode des obligations (CO; SR 220) — Art. 656 b — II. Capital-participation et capital-actions > Art. 656 b {#art_656_b} > listIntroduction {#art_656_b/para_5/listintro}\n\nIls sont calculés sur la base:\n\nCode des obligations (CO; SR 220) — Art. 656 b — II. Capital-participation et capital-actions > Art. 656 b {#art_656_b} > item {#art_656_b/para_5/lbl_1}\n\n1. des actions émises, pour l’acquisition par la société de ses propres actions;\n\nCode des obligations (CO; SR 220) — Art. 656 b — II. Capital-participation et capital-actions > Art. 656 b {#art_656_b} > item {#art_656_b/para_5/lbl_2}\n\n2. des bons de participation émis, pour l’acquisition par la société de ses propres bons de participation.\n\nCode des obligations (CO; SR 220) — Art. 656 b — II. Capital-participation et capital-actions > Art. 656 b {#art_656_b} > paragraph {#art_656_b/para_6}\n\n6\n\nCode des obligations (CO; SR 220) — Art. 656 b — II. Capital-participation et capital-actions > Art. 656 b {#art_656_b} > listIntroduction {#art_656_b/para_6/listintro}\n\nIls sont calculés exclusivement sur la base du capital-actions en ce qui concerne:\n\nCode des obligations (CO; SR 220) — Art. 656 b — II. Capital-participation et capital-actions > Art. 656 b {#art_656_b} > item {#art_656_b/para_6/lbl_1}\n\n1. le droit de requérir la convocation de l’assemblée générale;\n\nCode des obligations (CO; SR 220) — Art. 656 b — II. Capital-participation et capital-actions > Art. 656 b {#art_656_b} > item {#art_656_b/para_6/lbl_2}\n\n2. le droit à l’inscription d’un objet à l’ordre du jour et le droit de proposition.",
+    "canonical_text": "Code des obligations (CO; SR 220) — Art. 656 b — II. Capital-participation et capital-actions > Art. 656 b {#art_656_b}\n\nArt. 656 b\n\nCode des obligations (CO; SR 220) — Art. 656 b — II. Capital-participation et capital-actions > Art. 656 b {#art_656_b} > paragraph {#art_656_b/para_1}\n\n1 La part du capital-participation composé de bons de participation cotés en bourse ne peut pas être plus de dix fois supérieure au capital-actions inscrit au registre du commerce. L’autre part du capital-participation ne peut dépasser le double du capital-actions inscrit au registre du commerce.\n\nCode des obligations (CO; SR 220) — Art. 656 b — II. Capital-participation et capital-actions > Art. 656 b {#art_656_b} > paragraph {#art_656_b/para_2}\n\n2 Les dispositions sur le capital minimum ne sont pas applicables.\n\nCode des obligations (CO; SR 220) — Art. 656 b — II. Capital-participation et capital-actions > Art. 656 b {#art_656_b} > paragraph {#art_656_b/para_3}\n\n3\n\nCode des obligations (CO; SR 220) — Art. 656 b — II. Capital-participation et capital-actions > Art. 656 b {#art_656_b} > listIntroduction {#art_656_b/para_3/listintro}\n\nLe capital-participation s’ajoute au capital-actions:\n\nCode des obligations (CO; SR 220) — Art. 656 b — II. Capital-participation et capital-actions > Art. 656 b {#art_656_b} > item {#art_656_b/para_3/lbl_1}\n\n1. pour constituer la réserve légale issue du bénéfice;\n\nCode des obligations (CO; SR 220) — Art. 656 b — II. Capital-participation et capital-actions > Art. 656 b {#art_656_b} > item {#art_656_b/para_3/lbl_2}\n\n2. pour employer les réserves légales issues du capital et du bénéfice;\n\nCode des obligations (CO; SR 220) — Art. 656 b — II. Capital-participation et capital-actions > Art. 656 b {#art_656_b} > item {#art_656_b/para_3/lbl_3}\n\n3. pour déterminer s’il y a bilan déficitaire ou perte de capital;\n\nCode des obligations (CO; SR 220) — Art. 656 b — II. Capital-participation et capital-actions > Art. 656 b {#art_656_b} > item {#art_656_b/para_3/lbl_4}\n\n4. pour limiter l’étendue d’une augmentation de capital au moyen d’un capital conditionnel;\n\nCode des obligations (CO; SR 220) — Art. 656 b — II. Capital-participation et capital-actions > Art. 656 b {#art_656_b} > item {#art_656_b/para_3/lbl_5}\n\n5. pour déterminer la limite supérieure et la limite inférieure d’une marge de fluctuation du capital.\n\nCode des obligations (CO; SR 220) — Art. 656 b — II. Capital-participation et capital-actions > Art. 656 b {#art_656_b} > paragraph {#art_656_b/para_4}\n\n4\n\nCode des obligations (CO; SR 220) — Art. 656 b — II. Capital-participation et capital-actions > Art. 656 b {#art_656_b} > listIntroduction {#art_656_b/para_4/listintro}\n\nLes seuils prévus sont calculés séparément pour les actionnaires et pour les participants pour l’exercice des droits suivants:\n\nCode des obligations (CO; SR 220) — Art. 656 b — II. Capital-participation et capital-actions > Art. 656 b {#art_656_b} > item {#art_656_b/para_4/lbl_1}\n\n1. l’institution d’un examen spécial en cas de rejet d’une proposition en ce sens par l’assemblée générale;\n\nCode des obligations (CO; SR 220) — Art. 656 b — II. Capital-participation et capital-actions > Art. 656 b {#art_656_b} > item {#art_656_b/para_4/lbl_2}\n\n2. la dissolution de la société par un jugement;\n\nCode des obligations (CO; SR 220) — Art. 656 b — II. Capital-participation et capital-actions > Art. 656 b {#art_656_b} > item {#art_656_b/para_4/lbl_3}\n\n3. l’annonce de l’ayant droit économique selon l’art. 697 j .\n\nCode des obligations (CO; SR 220) — Art. 656 b — II. Capital-participation et capital-actions > Art. 656 b {#art_656_b} > paragraph {#art_656_b/para_5}\n\n5\n\nCode des obligations (CO; SR 220) — Art. 656 b — II. Capital-participation et capital-actions > Art. 656 b {#art_656_b} > listIntroduction {#art_656_b/para_5/listintro}\n\nIls sont calculés sur la base:\n\nCode des obligations (CO; SR 220) — Art. 656 b — II. Capital-participation et capital-actions > Art. 656 b {#art_656_b} > item {#art_656_b/para_5/lbl_1}\n\n1. des actions émises, pour l’acquisition par la société de ses propres actions;\n\nCode des obligations (CO; SR 220) — Art. 656 b — II. Capital-participation et capital-actions > Art. 656 b {#art_656_b} > item {#art_656_b/para_5/lbl_2}\n\n2. des bons de participation émis, pour l’acquisition par la société de ses propres bons de participation.\n\nCode des obligations (CO; SR 220) — Art. 656 b — II. Capital-participation et capital-actions > Art. 656 b {#art_656_b} > paragraph {#art_656_b/para_6}\n\n6\n\nCode des obligations (CO; SR 220) — Art. 656 b — II. Capital-participation et capital-actions > Art. 656 b {#art_656_b} > listIntroduction {#art_656_b/para_6/listintro}\n\nIls sont calculés exclusivement sur la base du capital-actions en ce qui concerne:\n\nCode des obligations (CO; SR 220) — Art. 656 b — II. Capital-participation et capital-actions > Art. 656 b {#art_656_b} > item {#art_656_b/para_6/lbl_1}\n\n1. le droit de requérir la convocation de l’assemblée générale;\n\nCode des obligations (CO; SR 220) — Art. 656 b — II. Capital-participation et capital-actions > Art. 656 b {#art_656_b} > item {#art_656_b/para_6/lbl_2}\n\n2. le droit à l’inscription d’un objet à l’ordre du jour et le droit de proposition.",
+    "prov_id": "5ce4d693be8e84d3",
+    "parent_identity": {
+     "article_anchor": "art_656_b",
+     "eli": "cc/27/317_321_377",
+     "lang": "fr",
+     "source_version": "20260101",
+     "source_version_url": "https://fedlex.data.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/fr/xml/fedlex-data-admin-ch-eli-cc-27-317_321_377-20260101-fr-xml.xml",
+     "xml": {
+      "bytes": 2533127,
+      "sha256": "dfc66ef4e715c1e46c21231d445d8ba013eb9311c9ab49cb353e10cfc9939e38",
+      "uri": "artifact://l0/wave=fedlex_task370_pinned/objects/cc_27_317_321_377/20260101.fr.xml"
+     }
+    },
+    "source_metadata": {
+     "article_anchor": "art_656_b",
+     "baseline_production_point_ids": [
+      "d6ec2549-9e3d-5052-a4dd-19e5db1838ef"
+     ],
+     "source_version": {
+      "eli": "cc/27/317_321_377",
+      "lang": "fr",
+      "source_version_url": "https://fedlex.data.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/fr/xml/fedlex-data-admin-ch-eli-cc-27-317_321_377-20260101-fr-xml.xml",
+      "version": "20260101"
+     },
+     "status": "current",
+     "title": "Code des obligations (CO; SR 220) — Art. 656 b — II. Capital-participation et capital-actions"
+    }
+   },
+   "akn": {
+    "xml_uri": "artifact://l0/wave=fedlex_task370_pinned/objects/cc_27_317_321_377/20260101.fr.xml",
+    "xml_sha256": "dfc66ef4e715c1e46c21231d445d8ba013eb9311c9ab49cb353e10cfc9939e38",
+    "ancestor_heading_path": [
+     "Troisième partie: Des sociétés commerciales et de la société coopérative",
+     "Titre vingt-sixième: De la société anonyme",
+     "Chapitre I: Dispositions générales",
+     "J. Bons de participation",
+     "II. Capital-participation et capital-actions"
+    ],
+    "marginal": "II. Capital-participation et capital-actions",
+    "heading_ctx": "Troisième partie: Des sociétés commerciales et de la société coopérative; Titre vingt-sixième: De la société anonyme; Chapitre I: Dispositions générales; J. Bons de participation; II. Capital-participation et capital-actions",
+    "clean_text": "Art. 656 b 1 La part du capital-participation composé de bons de participation cotés en bourse ne peut pas être plus de dix fois supérieure au capital-actions inscrit au registre du commerce. L’autre part du capital-participation ne peut dépasser le double du capital-actions inscrit au registre du commerce. 2 Les dispositions sur le capital minimum ne sont pas applicables. 3 Le capital-participation s’ajoute au capital-actions: 1. pour constituer la réserve légale issue du bénéfice; 2. pour employer les réserves légales issues du capital et du bénéfice; 3. pour déterminer s’il y a bilan déficitaire ou perte de capital; 4. pour limiter l’étendue d’une augmentation de capital au moyen d’un capital conditionnel; 5. pour déterminer la limite supérieure et la limite inférieure d’une marge de fluctuation du capital. 4 Les seuils prévus sont calculés séparément pour les actionnaires et pour les participants pour l’exercice des droits suivants: 1. l’institution d’un examen spécial en cas de rejet d’une proposition en ce sens par l’assemblée générale; 2. la dissolution de la société par un jugement; 3. l’annonce de l’ayant droit économique selon l’art. 697 j . 5 Ils sont calculés sur la base: 1. des actions émises, pour l’acquisition par la société de ses propres actions; 2. des bons de participation émis, pour l’acquisition par la société de ses propres bons de participation. 6 Ils sont calculés exclusivement sur la base du capital-actions en ce qui concerne: 1. le droit de requérir la convocation de l’assemblée générale; 2. le droit à l’inscription d’un objet à l’ordre du jour et le droit de proposition."
+   }
+  }
+ ]
+}

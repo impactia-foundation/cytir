@@ -1,0 +1,83 @@
+# IT national consolidated law — Normattiva OpenData API (Akoma Ntoso).
+# Italy was assumed hostile to automated access. It is not.
+id: it-normattiva
+name: "Normattiva — Italian consolidated national legislation"
+country: IT
+layer: law-government
+policy_section: "§4.1"
+adapter: api
+acquisition_policy: aw-acquisition-v1
+outlink_policy: capture-and-receipt
+preservation_profiles: [anchored_law]
+provenance: authored
+trust_tier: 1.0
+freshness: amendment-driven
+
+# Task 439: acquire.params gives the consent gate an attachment point -- and here
+# it makes the BLOCKER mechanical rather than a note: effective_hosts() derives
+# api.normattiva.it, which resolves UNKNOWN/HELD, so a pack-driven run REFUSES to
+# fetch until that origin has a resolvable posture. That is the correct behaviour.
+acquire:
+  route: documented_source_api
+  rank: 3
+  params:
+    endpoint: "https://api.normattiva.it/t/normattiva.api/bff-opendata/v1"
+    dialect: json
+
+license:
+  default: CC-BY-4.0
+  notes: >
+    Licence stepped UP from CC BY-NC to CC BY 4.0 effective 2026-01-01, read
+    verbatim from the shipped SPA bundle rather than assumed.
+    UNDERLYING LEGAL FACT, which is stronger than the licence: L. 633/1941
+    art. 5 excludes "i testi degli atti ufficiali dello Stato e delle
+    Amministrazioni pubbliche, sia italiane che straniere" -- the texts of
+    official acts of public administrations, foreign ones included. Italian
+    official-act texts sit OUTSIDE copyright before any CC licence is
+    considered, the same posture as CH URG Art. 5 for fedlex.
+    PER-RECORD OBLIGATION from the avviso legale: reproductions must state
+    their non-authentic character and be free of charge. This is a record
+    contract item, not just a licence name.
+
+consent:
+  basis: live-resolve-mixed
+  train_ok_override: null
+  notes: >
+    Resolved live 2026-08-20 (task 440 (private tree)):
+    www.normattiva.it -> ok/true/true (robots allows `*`, disallows only
+    /ricerca/ and /mfr/ricerca/).
+    BLOCKER: api.normattiva.it -- the origin acquisition would actually hit --
+    resolves UNKNOWN/HELD. Its /robots.txt resets the connection on every
+    attempt (3/3 verified). The gateway itself is up and serves our honest UA
+    (an unmatched path returns a structured {"code":"404"} API error, so we are
+    not being blocked) but it publishes no readable policy endpoint.
+    Under ADR-095 consent binds PER ORIGIN, and a sibling host's robots is
+    evidence in neither direction. ADR-024 amendment 3 deliberately does NOT
+    rescue this: the code excludes sub-class (b) by name
+    ("robots itself unreadable => sub-class (b), not (a)").
+    See the PR's open question I2.
+    RE-PROBED 2026-10-02T06:22Z from the crawl host: api.normattiva.it still unknown/HELD (robots.txt ConnectError). The route stays BLOCKED; no family is declared for it in task 695.
+
+status: planned
+
+admission:
+  channel: official-api
+  evidence:
+    - "task 440: documented unauthenticated OpenData API at https://api.normattiva.it/t/normattiva.api/bff-opendata/v1, exporting Akoma Ntoso, XML, JSON, PDF, EPUB and ELI. Discovery path was entirely internal -- nav page -> SPA env.js -> published OpenAPI at dati.normattiva.it/assets/openapi-bff-opendata.json. No search engine was used."
+    - "task 440: two independent volume derivations -- 286,546 (sum with overlap) vs 205,068 (deduplicated universe). The discrepancy is EXPLAINED (overlap between collezioni), not averaged."
+    - "task 440: licence read verbatim from the shipped bundle; CC BY 4.0 effective 2026-01-01."
+  decision: escalated
+  policy: "POLICY.md@v3 §4.1"
+  date: "2026-08-20"
+
+notes:
+  - >
+    LICENCE IS PHASE-DATED AND LIVES IN A JS BUNDLE, so it will drift silently.
+    Two hard consequences: (a) any capture made BEFORE 2026-01-01 is
+    NC-encumbered and must be RE-FETCHED, never reused; (b) the licence must be
+    RE-VERIFIED AT INGEST, not pinned once at admission.
+  - >
+    205,068 / 286,546 are SOURCE act counts, not point projections.
+  - >
+    Do not promise the API route until api.normattiva.it has a resolvable
+    consent posture. The www host's clean robots does not transfer to it.

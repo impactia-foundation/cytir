@@ -1,0 +1,198 @@
+# Vendor AI blogs -- task 661 F5 follow-up (industry-site refresh, Tim
+# 2026-09-22: "we should also be rechecking major industry sites like
+# Hugging Face for fresh news regularly"). Same admission shape as
+# sources/us/github-releases-tracked.yaml and
+# sources/us/huggingface-orgs-tracked.yaml (task 661 F5, #383) -- see
+# those packs' headers for the shared `country: US` / STATUS reasoning.
+# This pack covers the announcement/blog leg (product launches, research
+# posts, policy posts) rather than release notes or model cards.
+#
+# STATUS: ingested. First live refresh landed in the promotion queue
+# 2026-09-28 (a private pipeline module, task 661 F5
+# follow-up) -- consent live-resolved for both hosts (search_ok=true,
+# train_ok=true, no opt-out signal). Runs weekly via
+# aw-refresh-lane-direct-compose.timer (Sunday 03:00 UTC).
+#
+# openai.com/index/* article pages sit behind a Cloudflare MANAGED
+# CHALLENGE (`cf-mitigated: challenge`, confirmed UA-independent -- NOT
+# a robots/consent signal, openai.com's own robots.txt already resolves
+# search_ok=true). Per the coordinator's ruling (2026-09-28,
+# consent-probe-vantage): a challenge response is the site's own access
+# control and is NEVER circumvented, including for the content fetch
+# itself, not only for a consent probe. A same-day headless-browser
+# render fallback that bypassed it was built, then reversed within the
+# hour once flagged -- see decisions.md / log.md for the record. The
+# composer now records a challenged page as `consent_state: "unreadable
+# (challenge)"` and indexes ONLY the item's own openly-published RSS
+# metadata (title, description, link, pubDate --
+# `source_extract: "feed_item"`) for it, never the page body. This is
+# why openai.com rows in this pack carry noticeably shorter text than
+# blog.google's (whose pages are not challenged).
+id: us-vendor-ai-blogs-tracked
+name: "Vendor AI blogs — curated list (RSS 2.0, no auth)"
+country: US
+layer: tech-docs
+policy_section: "§4.4"
+adapter: api
+acquisition_policy: aw-acquisition-v1
+outlink_policy: capture-and-receipt
+preservation_profiles: [web_html]
+provenance: authored
+trust_tier: 0.8
+freshness: weekly
+
+license:
+  default: unknown-per-post
+  notes: >
+    A vendor blog post's own text carries whatever licence/terms the
+    vendor's site declares (site-wide ToS, rarely a per-post licence).
+    Same ADR-111/ADR-112 minimum-record basis as the GitHub/HF sibling
+    packs: served/distributed on opt-out + minimum-record basis unless a
+    specific host's robots.txt/AIPREF/TDMRep/ai.txt opts out — resolved
+    live per host at admission time, never inferred from the licence
+    field (memory: licence-basis-from-the-instrument).
+
+consent:
+  basis: live-resolve-open
+  train_ok_override: null
+  notes: >
+    Resolved live 2026-09-28 (a private pipeline module, from
+    the crawl host): openai.com and blog.google both search_ok=true,
+    train_ok=true, "no opt-out signal found" -- resolved independently
+    per host. Re-resolved live again on every fetch
+    (consent_gate.py --direct-crawl --search-indexing), never cached
+    past this note.
+
+status: ingested
+
+# Fanned out one route per tracked blog (schema: routes[] is for a pack
+# that fans out over many same-shape hosts/items -- task 434), same
+# pattern as github-releases-tracked.yaml: the pack schema's root
+# `acquire.params` has a fixed `source_owned_incremental_feed` shape
+# (`url` singular) with no room for a flat list, so each tracked blog is
+# its own `routes[]` entry.
+# `a private pipeline module`'s `discover()` reads this pack's
+# `routes[].acquire.params.url` (label = `routes[].host`) via `pack_path`
+# in the refresh-cadence row -- see that module's own doc comment. Expand
+# the tracked list by adding a route entry, by PR, never by hand-editing
+# prod -- this pack is the source of truth for what gets tracked.
+routes:
+  - host: openai.com/news
+    canonical_domain: openai.com
+    lang: [en]
+    status: ingested
+    acquire:
+      route: source_owned_incremental_feed
+      params:
+        url: "https://openai.com/news/rss.xml"
+        kind: rss
+    evidence: "2026-09-26: verified live (RSS 2.0, 1230 items at verification time, no auth)."
+  - host: blog.google/technology/ai
+    canonical_domain: blog.google
+    lang: [en]
+    status: ingested
+    acquire:
+      route: source_owned_incremental_feed
+      params:
+        url: "https://blog.google/technology/ai/rss/"
+        kind: rss
+    evidence: "2026-09-26: verified live (RSS 2.0, redirects to .../innovation-and-ai/technology/ai/rss/, 20 items, no auth)."
+  # Gemini model announcements; carries gemini-4-argon (2026-09-30), which the /technology/ai/ feed does not.
+  - host: blog.google/innovation-and-ai/models-and-research/gemini-models
+    canonical_domain: blog.google
+    lang: [en]
+    status: ingested
+    acquire:
+      route: source_owned_incremental_feed
+      params:
+        url: "https://blog.google/innovation-and-ai/models-and-research/gemini-models/rss/"
+        kind: rss
+    evidence: "2026-10-07 task 715: listed in the section page's own rss link tag at https://blog.google/innovation-and-ai/models-and-research/gemini-models/; 200, RSS 2.0, 20 items, robots.txt allows (only /search is disallowed)."
+  # Google DeepMind cross-posts.
+  - host: blog.google/innovation-and-ai/models-and-research/google-deepmind
+    canonical_domain: blog.google
+    lang: [en]
+    status: ingested
+    acquire:
+      route: source_owned_incremental_feed
+      params:
+        url: "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/rss/"
+        kind: rss
+    evidence: "2026-10-07 task 715: listed in the section page's own rss link tag at https://blog.google/innovation-and-ai/models-and-research/google-deepmind/; 200, RSS 2.0, 20 items, robots.txt allows (only /search is disallowed)."
+  # Gemini product posts (the page /products/gemini/ redirects here).
+  - host: blog.google/products-and-platforms/products/gemini
+    canonical_domain: blog.google
+    lang: [en]
+    status: ingested
+    acquire:
+      route: source_owned_incremental_feed
+      params:
+        url: "https://blog.google/products-and-platforms/products/gemini/rss/"
+        kind: rss
+    evidence: "2026-10-07 task 715: listed in the section page's own rss link tag at https://blog.google/products-and-platforms/products/gemini/; 200, RSS 2.0, 20 items, robots.txt allows (only /search is disallowed)."
+  # Gemini app posts.
+  - host: blog.google/innovation-and-ai/products/gemini-app
+    canonical_domain: blog.google
+    lang: [en]
+    status: ingested
+    acquire:
+      route: source_owned_incremental_feed
+      params:
+        url: "https://blog.google/innovation-and-ai/products/gemini-app/rss/"
+        kind: rss
+    evidence: "2026-10-07 task 715: listed in the section page's own rss link tag at https://blog.google/innovation-and-ai/products/gemini-app/; 200, RSS 2.0, 20 items, robots.txt allows (only /search is disallowed)."
+  # Developer-tool and open-model posts (e.g. embeddinggemma-2, 2026-10-06).
+  - host: blog.google/innovation-and-ai/technology/developers-tools
+    canonical_domain: blog.google
+    lang: [en]
+    status: ingested
+    acquire:
+      route: source_owned_incremental_feed
+      params:
+        url: "https://blog.google/innovation-and-ai/technology/developers-tools/rss/"
+        kind: rss
+    evidence: "2026-10-07 task 715: listed in the section page's own rss link tag at https://blog.google/innovation-and-ai/technology/developers-tools/; 200, RSS 2.0, 20 items, robots.txt allows (only /search is disallowed)."
+
+admission:
+  channel: refresh-cadence-new-refs
+  evidence:
+    - "task 661 F5 follow-up (2026-09-26): industry-site refresh — vendor AI blogs (OpenAI, Google)."
+    - "a private pipeline module, verified live against both real feeds."
+  decision: escalated
+  policy: "POLICY.md@v1 §6 (a NEW family/host runs the assessment band; queued for Tim)"
+  date: "2026-09-26"
+
+notes:
+  - >
+    Same "new declared source, not a tranche" reasoning as the GitHub/HF
+    sibling packs (task 661 F5, #383) — a dedicated, curated, source-owned
+    -feed pack with its own consent/admission provenance, not the generic
+    multi-host CC-discovery frontier.
+  - >
+    Tracked-blog list is a starting proposal (the two companies AW's own
+    build most directly depends on / benchmarks against: the live
+    production embedder's and the bake-off runner-up's vendors both
+    publish primary-source model announcements here) — expand by PR, same
+    discipline as the GitHub repo / HF org lists.
+  - >
+    Proposed as a FOLLOW-UP POLICY PR to #383 (task 661 F5), not folded
+    into it — #383 was already in flight with Tim when this pack was
+    scoped and built; keeping them separate avoids re-opening a PR Tim is
+    already reviewing.
+  - >
+    Task 715 (2026-10-07), same-host feed additions. The blog.google
+    /technology/ai/ feed does not carry the Gemini model announcements
+    (Gemini 4 Argon, 2026-09-30, lives under /models-and-research/gemini-models/).
+    Five section feeds were added, each found in the page's own link tag.
+    Checked and NOT added: /rss/ (site-wide, 20 items per 1.5 days,
+    mostly education/search/company news), google-research, google-labs,
+    safety-security (research and policy posts, not model announcements),
+    and /feed (HTML, not RSS). A post that appears in several feeds is
+    fetched once (the adapter dedups by URL). openai.com has ONE feed
+    (/news/rss.xml); its section pages answer a Cloudflare challenge and
+    its sitemap lists no other feed, so nothing was added there.
+    Drain arithmetic: there is no per-pack candidate cap. A run fetches
+    every candidate inside the since-days window (default 3, grown to the
+    time since the last success, capped at 30) at 1 request/s, so a
+    30-day backlog drains in ONE run (about 60 URLs, about 1 minute of
+    fetching).

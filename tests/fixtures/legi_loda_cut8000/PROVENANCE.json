@@ -1,0 +1,10 @@
+{
+  "what": "one real, in-force DILA LEGI article (LODA / TNC_en_vigueur branch) whose embed text is 8,015 characters: the task-633 formula cut it at 8,000 and lost its last 15 characters (task 706 review fix 2). The smallest class of cut: at the module default coverage 0.98 the guard lets it pass; loda declares 1.0",
+  "licence": "Etalab-2.0 (DILA open data, Legifrance consolidated law)",
+  "natural_person_data": "none found: the article is the annex of the arrete of 17 February 1986 on urban-planning and housing vocabulary (terms, definitions, English equivalents). The whole text was scanned for civility titles (M., Mme, Madame, Monsieur), e-mail addresses and phone numbers (0 hits); the head and tail were read: no named individual",
+  "source_dump": "DILA LEGI global dump, extracted view `legi/global/code_et_TNC_en_vigueur` on the operator build box, the root the task-633 run read",
+  "copied": "2026-10-05, read-only copy from the build box; bytes unchanged",
+  "files": {
+    "TNC_en_vigueur/LEGI/TEXT/00/00/06/07/40/LEGITEXT000006074088/article/LEGI/ARTI/00/00/06/82/38/LEGIARTI000006823812.xml": {"sha256": "3c6efbd8ab143c6f2421ce1744a0385810e116cf554a1410b3c6ae6987be98dd", "embed_chars": 8015, "why": "embed text 8,015 chars (title + markdown): one cut at 8,000 loses 15 chars; picked from the 197 articles of 8,001-8,100 chars in the whole dump"}
+  }
+}

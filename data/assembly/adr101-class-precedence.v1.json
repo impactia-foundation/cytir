@@ -1,0 +1,64 @@
+{
+ "schema": "aw.adr101-class-precedence.v1",
+ "title": "ADR-101 / 101b / 101c precedence, as a rank over set CLASSES",
+ "why": "ADR-101 Ruling 1, ADR-101b Ruling 2 and ADR-101c Ruling 2 are all written as CLASS rules ('whatever sets carry them'), but every machine-readable artifact so far keys precedence by literal pair string. A pair the ledger never enumerated therefore reaches a guard or a loader with no ruling, even though a ratified class rule decides it. This file is that class rule as data, so a new pair between already-classified sets needs no new ADR line. Pairs that ARE enumerated in data/r0-427-collision-ledger-adr101c-supplement.v1.json remain authoritative and are consulted first; this table only decides what the enumeration does not reach.",
+ "ranks": [
+  {
+   "rank": 0,
+   "classes": [
+    "tombstone"
+   ],
+   "basis": "ADR-101 Ruling 1.3 -- an ADR-091 tombstoned point accepts no replacement; ADR-101a Correction 2 extends it to every row on a tombstoned URL.",
+   "note": "present for completeness; tombstone exclusivity is guard G4's job, not this table's."
+  },
+  {
+   "rank": 1,
+   "classes": [
+    "entity_card_reembed_1024_preserved_row",
+    "reembed_epoch3_in_place",
+    "rii_dump_basis_backfill_1024_reembed",
+    "narrow_lane_d_content_digest_less_remainder",
+    "news_daily_lane_tier2_pack"
+   ],
+   "basis": "In-place re-embeds bind on a row whose evidence unit is preserved, and accept no replacement. ADR-101b Ruling 1 (card-typed points bind on the preserved card row, ADR-094 s6a via ADR-024 am.4 s5); ADR-101a Correction 1 (413-A's in-place rows belong to 413-A); ADR-024 am.4 s4 (rii: the retained rii.jsonl is the only input for those points, forever); task 505 s1.1 (narrow lane D's text is PROVEN from the point's own retained bytes -- an in-place re-embed changes the vector and nothing else).",
+   "note": "`news_daily_lane_tier2_pack` covers both the in-place news re-embed and the two net-new addition sets; an addition set cannot lose a point it never claimed, so its rank only ever matters for a convergent-identity tie, where being at rank 1 means the news row keeps the id."
+  },
+  {
+   "rank": 2,
+   "classes": [
+    "exact_epoch4",
+    "cc_materializer_epoch4_chunk_1024_embed",
+    "f2_l0_html_epoch4_chunk_1024_embed",
+    "direct_capture_epoch4_chunk",
+    "cc_consent_supplement_epoch4_chunk",
+    "f2_l0_consent_supplement_epoch4_chunk",
+    "crawl30_capture_epoch4_chunk",
+    "fourcrawl_capture_epoch4_chunk",
+    "r7_stale_supplement_epoch4_chunk",
+    "f2_pdf_docling_epoch4_chunk",
+    "named_slice_payload_rule"
+   ],
+   "basis": "ADR-101 Ruling 1.1 + ADR-101b Ruling 2 + ADR-101c Ruling 2 restated as a class rule -- a replacement whose chunks derive from PRESERVED ORIGINAL BYTES at the pinned epoch-4 policy beats a replacement re-chunked from derived wave text, whatever sets carry them.",
+   "tie_break": "ADR-101c equal-rank tie-break: where both sets are original-bytes epoch-4 producers, the LATER sealed consent generation wins (the more corrected consent record). Where no ordering evidence separates them, ADR-101b Ruling 3a's bookkeeping label applies: lexicographically-first set_id."
+  },
+  {
+   "rank": 3,
+   "classes": [
+    "rechunk_epoch4_from_l1b",
+    "narrow_lane_b2_track1a_retained_residual",
+    "atomic_epoch1",
+    "adr092_remainder"
+   ],
+   "basis": "ADR-101 Ruling 1.2 + ADR-101c Ruling 2 -- the ADR-093 re-chunk campaign's output is a re-chunk of DERIVED wave text and loses to any original-bytes epoch-4 producer. task 456 s6 measured that the Track-1A retained bind (census bucket B2) re-chunks task 427's own L1-b output, so it sits in the same class, not in rank 2.",
+   "note": "atomic_epoch1 and adr092_remainder are carried from produce_assembly_artifacts.WINNER_BY_CLASS, where ADR-101 Ruling 1.2 gives them to task427 -- i.e. task427 outranks them. They are listed at the same rank here only because no measured pair in this build puts them against task427; if one ever appears, it needs its own line rather than a silent read of this table."
+  }
+ ],
+ "rank_note": "LOWER rank number wins. Ranks 0-2 are ratified orderings. Rank 3 exists only to place the re-chunk class BELOW rank 2; it does not order the classes listed inside it against each other.",
+ "consulted_by": [],
+ "evidence": [
+  "decisions.md :: ADR-101 Ruling 1, ADR-101a Correction 1/2, ADR-101b Ruling 1/2/3a, ADR-101c Ruling 2 + equal-rank tie-break",
+  "data/r0-427-collision-ledger-adr101c-supplement.v1.json :: lines[] (13 enumerated pairs) and row_id_lines[] (ADR-101b.3a)",
+  "s6 (Track-1A re-chunks task 427's own L1-b output)",
+  ":: WINNER_BY_CLASS"
+ ]
+}

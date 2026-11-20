@@ -1,0 +1,45 @@
+{
+ "base_path": "/administrative-appeals-tribunal-decisions/mr-yitzchok-feiner-v-secretary-of-state-for-work-and-pensions-uc-2026-ukut-255-aac",
+ "title": "Mr Yitzchok Feiner v Secretary of State for Work and Pensions (UC): [2026] UKUT 255 (AAC)",
+ "description": "Upper Tribunal Administrative Appeals Chamber decision by Judge Markus on 02 July 2026.",
+ "document_type": "utaac_decision",
+ "schema_name": "specialist_document",
+ "locale": "en",
+ "public_updated_at": "2026-08-03T15:59:47+01:00",
+ "details": {
+  "attachments": [
+   {
+    "attachment_type": "file",
+    "content_id": "2b61bacc-a843-4d92-bef6-34ca8c8ae00f",
+    "content_type": "application/pdf",
+    "created_at": "2026-08-03T15:59:09+01:00",
+    "id": "2b61bacc-a843-4d92-bef6-34ca8c8ae00f",
+    "title": "UA-2025-001060-USTA",
+    "updated_at": "2026-08-03T15:59:09+01:00",
+    "url": "https://assets.publishing.service.gov.uk/media/6a70acbde348732cfe958bdd/UA-2025-001060-USTA.pdf"
+   }
+  ],
+  "body": "<p>Read the full decision in <span id=\"attachment_2b61bacc-a843-4d92-bef6-34ca8c8ae00f\" class=\"attachment-inline\"><a href=\"https://assets.publishing.service.gov.uk/media/6a70acbde348732cfe958bdd/UA-2025-001060-USTA.pdf\">UA-2025-001060-USTA</a></span>.</p>\n\n<p>Judicial Summary</p>\n\n<p>One of the conditions of entitlement to the childcare element of Universal Credit is the work condition. Regulation 32(1)(b) of the Universal Credit Regulations 2013 means that, in the case of a joint claim, the non-working parent must not only have regular and substantial caring responsibilities for a severely disabled person but must also be unable to provide childcare due to those responsibilities. In the present case, the FtT had correctly approached the regulation accordingly and decided that work condition was not satisfied where he cared for a severely disabled child who was in childcare during the same periods as the other children for whom childcare costs were incurred.  </p>\n\n<p>The Upper Tribunal also comments on the risks of using AI to draft submissions.</p>\n",
+  "change_history": [
+   {
+    "note": "First published.",
+    "public_timestamp": "2026-08-03T14:59:47Z"
+   }
+  ],
+  "max_cache_time": 10,
+  "metadata": {
+   "hidden_indexable_content": "Neutral Citation Number: [2026] UKUT 255 (AAC)\r\nAppeal No. UA-2025-001060-USTA\r\n\r\nIN THE UPPER TRIBUNAL \r\nADMINISTRATIVE APPEALS CHAMBER\r\n\r\nBetween:\r\n\r\nMr Yitzchok Feiner\r\nAppellant\r\n- v -\r\n\r\nSecretary of State for Work and Pensions\r\nRespondent\r\n\r\nBefore: Upper Tribunal Judge Markus KC (Sitting in retirement)\r\nDecision date: 2nd July 2026\r\nDecided on consideration of the papers\r\n\r\nRepresentation:\r\nAppellant:\t\tMr Michael Posen\r\nRespondent:\tMs Clare Gratrex\r\n\r\nOn appeal from:\tFirst-tier Tribunal (Social Entitlement Chamber)\r\nTribunal:\t\tJudge A Dilks\r\nTribunal Case No:\tSC/946/24/01693\r\nDigital Case No.:\t1720482907275462\r\nTribunal Venue:\tPreston\r\nDecision Date:\t18 March 2025\r\n\r\nSUMMARY OF DECISION \r\nOne of the conditions of entitlement to the childcare element of Universal Credit is the work condition. Regulation 32(1)(b) of the Universal Credit Regulations 2013 means that, in the case of a joint claim, the non-working parent must not only have regular and substantial caring responsibilities for a severely disabled person but must also be unable to provide childcare due to those responsibilities. In the present case, the FtT had correctly approached the regulation accordingly and decided that work condition was not satisfied where he cared for a severely disabled child who was in childcare during the same periods as the other children for whom childcare costs were incurred.  \r\nThe Upper Tribunal also comments on the risks of using AI to draft submissions. \r\n\r\nKEYWORDS \r\n45 \tUnive",
+   "tribunal_decision_categories": [
+    "universal-credit"
+   ],
+   "tribunal_decision_decision_date": "2026-07-02",
+   "tribunal_decision_judges": [
+    "markus-k"
+   ],
+   "tribunal_decision_sub_categories": [
+    "universal-credit-child-care"
+   ]
+  },
+  "temporary_update_type": false
+ }
+}

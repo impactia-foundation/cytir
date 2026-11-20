@@ -1,0 +1,596 @@
+[
+ {
+  "_family": "gesetze",
+  "_row_sha256": "dfbf71b7ede7378464ce6d400d369407db3fa5633fd0d68928541955edebd743",
+  "canonical_text": "Gesetz über die Ausprägung einer 1-DM-Goldmünze\n\nund die Errichtung der Stiftung \"Geld und Währung\" — § 1\n\nGesetz über die Ausprägung einer 1-DM-Goldmünze > Article identity\n\n- Canonical URL: https://www.gesetze-im-internet.de/1-dm-goldm_nzg/__1.html\n- Source record: 24145549c57c27190eb852078d4fba2a4154dc39bf1e3eadf636158ea1668a1b\n- Jurisdiction: Germany (federal)\n- Article anchor: __1\n- Law abbreviation: 1-DM-GoldmünzG\n- Official build date: 20260506175647\n- Promulgation date: 2000-12-27\n- Archive member: BJNR204500000.xml\n- Archive SHA-256: d898ae7eeb716fb657a436484d0a535c2035df136359cee64aa06c75a75cf563\n\nGesetz über die Ausprägung einer 1-DM-Goldmünze > Version and status\n\n- Source status: unspecified in official XML\n\nGesetz über die Ausprägung einer 1-DM-Goldmünze > Legal hierarchy\n\n- Gesetz über die Ausprägung einer 1-DM-Goldmünze\n\nund die Errichtung der Stiftung \"Geld und Währung\" — 1-DM-GoldmünzG\n\nGesetz über die Ausprägung einer 1-DM-Goldmünze > § 1 {#__1}\n\nDie Deutsche Bundesbank wird ermächtigt, zum Gedenken an die Deutsche Mark im eigenen Namen im Jahre 2001 eine Münze in Gold über 1 Deutsche Mark (1-DM-Goldmünze) mit einer Auflage von bis zu einer Million Stück herauszugeben.",
+  "chunk_ordinal": 0,
+  "document_id": "24145549c57c27190eb852078d4fba2a4154dc39bf1e3eadf636158ea1668a1b",
+  "lang": "de",
+  "parent_identity": {
+   "archive": {
+    "bytes": 3699,
+    "sha256": "d898ae7eeb716fb657a436484d0a535c2035df136359cee64aa06c75a75cf563",
+    "uri": "artifact://_preservation/gesetze-official-xml-l0-20260815/assets/1-dm-goldm_nzg.xml.zip"
+   },
+   "law_document_number": "BJNR204500000",
+   "member": {
+    "bytes": 13972,
+    "path": "BJNR204500000.xml",
+    "sha256": "fea8c6bc8080c7d023f385191c55846ead53fcabb6877a67ae6cd183c07044b6"
+   }
+  },
+  "parent_markdown_sha256": "9a29386972bb5aa8c6951e06aaba7fd45bc884613c6bbba64348fe94177d8574",
+  "point_id": "f2dfae4f-14dd-5e7b-a67c-9db7b0ed63c0",
+  "prov_id": "6370ee1d65a21add",
+  "section_heading": "Gesetz über die Ausprägung einer 1-DM-Goldmünze",
+  "source_links": [],
+  "source_metadata": {
+   "parent_source_sha256": "fea8c6bc8080c7d023f385191c55846ead53fcabb6877a67ae6cd183c07044b6",
+   "source_version": {
+    "effective_date": null,
+    "effective_date_status": "not-explicit-in-source-record",
+    "norm_build_date": "20260506175647",
+    "promulgation_date": "2000-12-27",
+    "release_build_date": "20260506175647",
+    "source_status": []
+   },
+   "title": "Gesetz über die Ausprägung einer 1-DM-Goldmünze\nund die Errichtung der Stiftung \"Geld und Währung\" — § 1"
+  },
+  "source_profile": "anchored_law",
+  "source_record_id": "24145549c57c27190eb852078d4fba2a4154dc39bf1e3eadf636158ea1668a1b",
+  "sparse_text": "Gesetz über die Ausprägung einer 1-DM-Goldmünze\n\nund die Errichtung der Stiftung \"Geld und Währung\" — § 1\n\nGesetz über die Ausprägung einer 1-DM-Goldmünze > Article identity\n\n- Canonical URL: https://www.gesetze-im-internet.de/1-dm-goldm_nzg/__1.html\n- Source record: 24145549c57c27190eb852078d4fba2a4154dc39bf1e3eadf636158ea1668a1b\n- Jurisdiction: Germany (federal)\n- Article anchor: __1\n- Law abbreviation: 1-DM-GoldmünzG\n- Official build date: 20260506175647\n- Promulgation date: 2000-12-27\n- Archive member: BJNR204500000.xml\n- Archive SHA-256: d898ae7eeb716fb657a436484d0a535c2035df136359cee64aa06c75a75cf563\n\nGesetz über die Ausprägung einer 1-DM-Goldmünze > Version and status\n\n- Source status: unspecified in official XML\n\nGesetz über die Ausprägung einer 1-DM-Goldmünze > Legal hierarchy\n\n- Gesetz über die Ausprägung einer 1-DM-Goldmünze\n\nund die Errichtung der Stiftung \"Geld und Währung\" — 1-DM-GoldmünzG\n\nGesetz über die Ausprägung einer 1-DM-Goldmünze > § 1 {#__1}\n\nDie Deutsche Bundesbank wird ermächtigt, zum Gedenken an die Deutsche Mark im eigenen Namen im Jahre 2001 eine Münze in Gold über 1 Deutsche Mark (1-DM-Goldmünze) mit einer Auflage von bis zu einer Million Stück herauszugeben.",
+  "text": "Gesetz über die Ausprägung einer 1-DM-Goldmünze\nund die Errichtung der Stiftung \"Geld und Währung\" — § 1\n\nArticle identity\n- Canonical URL: https://www.gesetze-im-internet.de/1-dm-goldm_nzg/__1.html\n- Source record: 24145549c57c27190eb852078d4fba2a4154dc39bf1e3eadf636158ea1668a1b\n- Jurisdiction: Germany (federal)\n- Article anchor: __1\n- Law abbreviation: 1-DM-GoldmünzG\n- Official build date: 20260506175647\n- Promulgation date: 2000-12-27\n- Archive member: BJNR204500000.xml\n- Archive SHA-256: d898ae7eeb716fb657a436484d0a535c2035df136359cee64aa06c75a75cf563\n\nVersion and status\n- Source status: unspecified in official XML\n\nLegal hierarchy\n- Gesetz über die Ausprägung einer 1-DM-Goldmünze\n\nund die Errichtung der Stiftung \"Geld und Währung\" — 1-DM-GoldmünzG\n\n§ 1 {#__1}\nDie Deutsche Bundesbank wird ermächtigt, zum Gedenken an die Deutsche Mark im eigenen Namen im Jahre 2001 eine Münze in Gold über 1 Deutsche Mark (1-DM-Goldmünze) mit einer Auflage von bis zu einer Million Stück herauszugeben.",
+  "url": "https://www.gesetze-im-internet.de/1-dm-goldm_nzg/__1.html"
+ },
+ {
+  "_family": "gesetze",
+  "_row_sha256": "98c15c43cf534807d0be971dfb22e5fc5cf72daeb96c5a0d534f04ab8da530a2",
+  "canonical_text": "Verordnung zur Durchführung des Öko-Landbaugesetzes — § 9 > Article identity\n\n- Canonical URL: https://www.gesetze-im-internet.de/_lg-dv/__9.html\n- Source record: 04e99ebf67bc2e9f60ecb288e56b1ac5d26dbb789ed28a6ebfad32ca4f724c4a\n- Jurisdiction: Germany (federal)\n- Article anchor: __9\n- Law abbreviation: ÖLG-DV\n- Official build date: 20230823214018\n- Promulgation date: 2023-07-26\n- Archive member: BJNR0CE0B0023.xml\n- Archive SHA-256: e8857d83b5dc42b910d50a18c22757fb34c59d673491e38309dbd02b8f2c26b3\n\nVerordnung zur Durchführung des Öko-Landbaugesetzes — § 9 > Version and status\n\n- Source status: unspecified in official XML\n\nVerordnung zur Durchführung des Öko-Landbaugesetzes — § 9 > Legal hierarchy\n\n- Verordnung zur Durchführung des Öko-Landbaugesetzes — ÖLG-DV\n\nVerordnung zur Durchführung des Öko-Landbaugesetzes — § 9 > § 9 {#__9}\n\n(1) Dem Antrag ist ein Muster für den Kontrollvertrag (Musterkontrollvertrag) beizufügen, den die Kontrollstelle mit den Unternehmern abzuschließen beabsichtigt. (2) Dem Antrag ist ein Muster des Zertifikats nach Anhang VI der Verordnung (EU) 2018/848 beizufügen, in dessen Teil II mindestens die Angabe des Datums der Kontrolle, auf deren Grundlage das Zertifikat nach Artikel 35 Absatz 1 der Verordnung (EU) 2018/848 erteilt wurde, vorgesehen ist.",
+  "chunk_ordinal": 0,
+  "document_id": "04e99ebf67bc2e9f60ecb288e56b1ac5d26dbb789ed28a6ebfad32ca4f724c4a",
+  "lang": "de",
+  "parent_identity": {
+   "archive": {
+    "bytes": 32359,
+    "sha256": "e8857d83b5dc42b910d50a18c22757fb34c59d673491e38309dbd02b8f2c26b3",
+    "uri": "artifact://_preservation/gesetze-official-xml-l0-20260815/assets/_lg-dv.xml.zip"
+   },
+   "law_document_number": "BJNR0CE0B0023",
+   "member": {
+    "bytes": 197933,
+    "path": "BJNR0CE0B0023.xml",
+    "sha256": "97584eab1bf2f8d6ec152afd2008d6430a13dce822836e92535cb36efd4f46ba"
+   }
+  },
+  "parent_markdown_sha256": "7baa441cdede604215cedd6359112f95b1eeff37e09be34cbec796eb9aaf9bda",
+  "point_id": "cd0d3cb5-e657-5add-b3bc-0bbee70c075c",
+  "prov_id": "6370ee1d65a21add",
+  "section_heading": "Article identity",
+  "source_links": [
+   {
+    "article_anchor": "__9",
+    "context": "r des Zertifikats nach Anhang VI der Verordnung (EU) 2018/848 beizufügen, in dessen Teil II mindestens die Angabe des Datums der Kontrolle, auf deren Grundlage das Zertifikat nach Artikel 35 Absatz 1 der Verordnung (EU) 2018/848 erteilt wurde, vorgesehen ist.",
+    "extraction": "exact-source-text-reference",
+    "label": "Artikel 35",
+    "relation": "same-law-statutory-reference",
+    "source_version": {
+     "effective_date": null,
+     "effective_date_status": "not-explicit-in-source-record",
+     "norm_build_date": "20230823214018",
+     "promulgation_date": "2023-07-26",
+     "release_build_date": "20230823214018",
+     "source_status": []
+    },
+    "target": "https://www.gesetze-im-internet.de/_lg-dv/art_35.html"
+   }
+  ],
+  "source_metadata": {
+   "parent_source_sha256": "97584eab1bf2f8d6ec152afd2008d6430a13dce822836e92535cb36efd4f46ba",
+   "source_version": {
+    "effective_date": null,
+    "effective_date_status": "not-explicit-in-source-record",
+    "norm_build_date": "20230823214018",
+    "promulgation_date": "2023-07-26",
+    "release_build_date": "20230823214018",
+    "source_status": []
+   },
+   "title": "Verordnung zur Durchführung des Öko-Landbaugesetzes — § 9"
+  },
+  "source_profile": "anchored_law",
+  "source_record_id": "04e99ebf67bc2e9f60ecb288e56b1ac5d26dbb789ed28a6ebfad32ca4f724c4a",
+  "sparse_text": "Verordnung zur Durchführung des Öko-Landbaugesetzes — § 9 > Article identity\n\n- Canonical URL: https://www.gesetze-im-internet.de/_lg-dv/__9.html\n- Source record: 04e99ebf67bc2e9f60ecb288e56b1ac5d26dbb789ed28a6ebfad32ca4f724c4a\n- Jurisdiction: Germany (federal)\n- Article anchor: __9\n- Law abbreviation: ÖLG-DV\n- Official build date: 20230823214018\n- Promulgation date: 2023-07-26\n- Archive member: BJNR0CE0B0023.xml\n- Archive SHA-256: e8857d83b5dc42b910d50a18c22757fb34c59d673491e38309dbd02b8f2c26b3\n\nVerordnung zur Durchführung des Öko-Landbaugesetzes — § 9 > Version and status\n\n- Source status: unspecified in official XML\n\nVerordnung zur Durchführung des Öko-Landbaugesetzes — § 9 > Legal hierarchy\n\n- Verordnung zur Durchführung des Öko-Landbaugesetzes — ÖLG-DV\n\nVerordnung zur Durchführung des Öko-Landbaugesetzes — § 9 > § 9 {#__9}\n\n(1) Dem Antrag ist ein Muster für den Kontrollvertrag (Musterkontrollvertrag) beizufügen, den die Kontrollstelle mit den Unternehmern abzuschließen beabsichtigt. (2) Dem Antrag ist ein Muster des Zertifikats nach Anhang VI der Verordnung (EU) 2018/848 beizufügen, in dessen Teil II mindestens die Angabe des Datums der Kontrolle, auf deren Grundlage das Zertifikat nach Artikel 35 Absatz 1 der Verordnung (EU) 2018/848 erteilt wurde, vorgesehen ist.",
+  "text": "Article identity\n- Canonical URL: https://www.gesetze-im-internet.de/_lg-dv/__9.html\n- Source record: 04e99ebf67bc2e9f60ecb288e56b1ac5d26dbb789ed28a6ebfad32ca4f724c4a\n- Jurisdiction: Germany (federal)\n- Article anchor: __9\n- Law abbreviation: ÖLG-DV\n- Official build date: 20230823214018\n- Promulgation date: 2023-07-26\n- Archive member: BJNR0CE0B0023.xml\n- Archive SHA-256: e8857d83b5dc42b910d50a18c22757fb34c59d673491e38309dbd02b8f2c26b3\n\nVersion and status\n- Source status: unspecified in official XML\n\nLegal hierarchy\n- Verordnung zur Durchführung des Öko-Landbaugesetzes — ÖLG-DV\n\n§ 9 {#__9}\n(1) Dem Antrag ist ein Muster für den Kontrollvertrag (Musterkontrollvertrag) beizufügen, den die Kontrollstelle mit den Unternehmern abzuschließen beabsichtigt. (2) Dem Antrag ist ein Muster des Zertifikats nach Anhang VI der Verordnung (EU) 2018/848 beizufügen, in dessen Teil II mindestens die Angabe des Datums der Kontrolle, auf deren Grundlage das Zertifikat nach Artikel 35 Absatz 1 der Verordnung (EU) 2018/848 erteilt wurde, vorgesehen ist.",
+  "url": "https://www.gesetze-im-internet.de/_lg-dv/__9.html"
+ },
+ {
+  "_family": "legifrance",
+  "_row_sha256": "fdf93da2bfaf8e4e688343d918b375b42b24e15232194ea730d06966777e39e3",
+  "canonical_text": "Code de commerce > Article identity\n\n- Article ID: `LEGIARTI000006219126`\n- Article number: L110-2\n- Status: VIGUEUR\n- Effective from: 2000-09-21\n- Effective until: 2999-01-01\n- Type: AUTONOME\n- Archive member: `legi/global/code_et_TNC_en_vigueur/code_en_vigueur/LEGI/TEXT/00/00/05/63/43/LEGITEXT000005634379/article/LEGI/ARTI/00/00/06/21/91/LEGIARTI000006219126.xml`\n- Archive SHA-256: `f862b4a2238e11ec3c48ec70f3b1c68bac0bb1985907841666b98608653d4eca`\n- Source release: global-archive\n\nCode de commerce > Legal hierarchy\n\n- Partie législative (`LEGISCTA000006083281`, 2000-09-21–2999-01-01)\n  - LIVRE Ier : Du commerce en général. (`LEGISCTA000006113738`, 2000-09-21–2999-01-01)\n    - TITRE Ier : De l'acte de commerce. (`LEGISCTA000006133171`, 2000-09-21–2999-01-01)\n\nCode de commerce > Article L110-2 {#LEGIARTI000006219126} > Paragraph 1 {#LEGIARTI000006219126-p1}\n\nLa loi répute pareillement actes de commerce :\n\nCode de commerce > Article L110-2 {#LEGIARTI000006219126} > Paragraph 2 {#LEGIARTI000006219126-p2}\n\n1° Toute entreprise de construction, et tous achats, ventes et reventes de bâtiments pour la navigation intérieure et extérieure ;\n\nCode de commerce > Article L110-2 {#LEGIARTI000006219126} > Paragraph 3 {#LEGIARTI000006219126-p3}\n\n2° Toutes expéditions maritimes ;\n\nCode de commerce > Article L110-2 {#LEGIARTI000006219126} > Paragraph 4 {#LEGIARTI000006219126-p4}\n\n3° Tout achat et vente d'agrès, apparaux et avitaillements ;\n\nCode de commerce > Article L110-2 {#LEGIARTI000006219126} > Paragraph 5 {#LEGIARTI000006219126-p5}\n\n4° Tout affrètement ou nolisement, emprunt ou prêt à la grosse ;\n\nCode de commerce > Article L110-2 {#LEGIARTI000006219126} > Paragraph 6 {#LEGIARTI000006219126-p6}\n\n5° Toutes assurances et autres contrats concernant le commerce de mer ;\n\nCode de commerce > Article L110-2 {#LEGIARTI000006219126} > Paragraph 7 {#LEGIARTI000006219126-p7}\n\n6° Tous accords et conventions pour salaires et loyers d'équipages ;\n\nCode de commerce > Article L110-2 {#LEGIARTI000006219126} > Paragraph 8 {#LEGIARTI000006219126-p8}\n\n7° Tous engagements de gens de mer pour le service de bâtiments de commerce.",
+  "chunk_ordinal": 0,
+  "document_id": "d7b03290-d018-579f-83df-8826393556a9",
+  "lang": "fr",
+  "parent_identity": {
+   "member": "legi/global/code_et_TNC_en_vigueur/code_en_vigueur/LEGI/TEXT/00/00/05/63/43/LEGITEXT000005634379/article/LEGI/ARTI/00/00/06/21/91/LEGIARTI000006219126.xml",
+   "release": null,
+   "sha256": "f862b4a2238e11ec3c48ec70f3b1c68bac0bb1985907841666b98608653d4eca"
+  },
+  "parent_markdown_sha256": "d97fdfcbb390fc0f41bdae5f169223bba42cd49acf702ffcc917913cde78a591",
+  "point_id": "ab1cc949-1d4c-5d98-b08f-0b866ca0122d",
+  "prov_id": "6370ee1d65a21add",
+  "section_heading": "Article identity",
+  "source_links": [
+   {
+    "article_anchor": "LEGIARTI000006219126",
+    "context": "Ordonnance 2000-912 2000-09-18",
+    "direction": "source",
+    "relation": "codification",
+    "source_version": {
+     "effective_from": "2000-09-21",
+     "effective_until": "2999-01-01",
+     "source_release": null,
+     "status": "VIGUEUR"
+    },
+    "target": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000219662",
+    "target_id": "JORFTEXT000000219662"
+   },
+   {
+    "article_anchor": "LEGIARTI000006219126",
+    "context": "Loi n°2003-7 du 3 janvier 2003 (V)",
+    "direction": "source",
+    "relation": "codification",
+    "source_version": {
+     "effective_from": "2000-09-21",
+     "effective_until": "2999-01-01",
+     "source_release": null,
+     "status": "VIGUEUR"
+    },
+    "target": "https://www.legifrance.gouv.fr/loda/id/LEGITEXT000005633838",
+    "target_id": "LEGITEXT000005633838"
+   },
+   {
+    "article_anchor": "LEGIARTI000006219126",
+    "context": "Code de commerce - art. 633 (Ab)",
+    "direction": "cible",
+    "relation": "concorde",
+    "source_version": {
+     "effective_from": "2000-09-21",
+     "effective_until": "2999-01-01",
+     "source_release": null,
+     "status": "VIGUEUR"
+    },
+    "target": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000006283615",
+    "target_id": "LEGIARTI000006283615"
+   },
+   {
+    "article_anchor": "LEGIARTI000006219126",
+    "context": "Code de commerce 633",
+    "direction": "source",
+    "relation": "concordance",
+    "source_version": {
+     "effective_from": "2000-09-21",
+     "effective_until": "2999-01-01",
+     "source_release": null,
+     "status": "VIGUEUR"
+    },
+    "target": "https://www.legifrance.gouv.fr/loda/id/LEGITEXT000005634379",
+    "target_id": "LEGITEXT000005634379"
+   }
+  ],
+  "source_metadata": {
+   "source_version": {
+    "effective_from": "2000-09-21",
+    "effective_until": "2999-01-01",
+    "source_release": null,
+    "status": "VIGUEUR"
+   },
+   "title": "Code de commerce — Article L110-2"
+  },
+  "source_profile": "anchored_law",
+  "source_record_id": "LEGIARTI000006219126",
+  "sparse_text": "Code de commerce > Article identity\n\n- Article ID: `LEGIARTI000006219126`\n- Article number: L110-2\n- Status: VIGUEUR\n- Effective from: 2000-09-21\n- Effective until: 2999-01-01\n- Type: AUTONOME\n- Archive member: `legi/global/code_et_TNC_en_vigueur/code_en_vigueur/LEGI/TEXT/00/00/05/63/43/LEGITEXT000005634379/article/LEGI/ARTI/00/00/06/21/91/LEGIARTI000006219126.xml`\n- Archive SHA-256: `f862b4a2238e11ec3c48ec70f3b1c68bac0bb1985907841666b98608653d4eca`\n- Source release: global-archive\n\nCode de commerce > Legal hierarchy\n\n- Partie législative (`LEGISCTA000006083281`, 2000-09-21–2999-01-01)\n  - LIVRE Ier : Du commerce en général. (`LEGISCTA000006113738`, 2000-09-21–2999-01-01)\n    - TITRE Ier : De l'acte de commerce. (`LEGISCTA000006133171`, 2000-09-21–2999-01-01)\n\nCode de commerce > Article L110-2 {#LEGIARTI000006219126} > Paragraph 1 {#LEGIARTI000006219126-p1}\n\nLa loi répute pareillement actes de commerce :\n\nCode de commerce > Article L110-2 {#LEGIARTI000006219126} > Paragraph 2 {#LEGIARTI000006219126-p2}\n\n1° Toute entreprise de construction, et tous achats, ventes et reventes de bâtiments pour la navigation intérieure et extérieure ;\n\nCode de commerce > Article L110-2 {#LEGIARTI000006219126} > Paragraph 3 {#LEGIARTI000006219126-p3}\n\n2° Toutes expéditions maritimes ;\n\nCode de commerce > Article L110-2 {#LEGIARTI000006219126} > Paragraph 4 {#LEGIARTI000006219126-p4}\n\n3° Tout achat et vente d'agrès, apparaux et avitaillements ;\n\nCode de commerce > Article L110-2 {#LEGIARTI000006219126} > Paragraph 5 {#LEGIARTI000006219126-p5}\n\n4° Tout affrètement ou nolisement, emprunt ou prêt à la grosse ;\n\nCode de commerce > Article L110-2 {#LEGIARTI000006219126} > Paragraph 6 {#LEGIARTI000006219126-p6}\n\n5° Toutes assurances et autres contrats concernant le commerce de mer ;\n\nCode de commerce > Article L110-2 {#LEGIARTI000006219126} > Paragraph 7 {#LEGIARTI000006219126-p7}\n\n6° Tous accords et conventions pour salaires et loyers d'équipages ;\n\nCode de commerce > Article L110-2 {#LEGIARTI000006219126} > Paragraph 8 {#LEGIARTI000006219126-p8}\n\n7° Tous engagements de gens de mer pour le service de bâtiments de commerce.",
+  "text": "Article identity\n- Article ID: `LEGIARTI000006219126`\n- Article number: L110-2\n- Status: VIGUEUR\n- Effective from: 2000-09-21\n- Effective until: 2999-01-01\n- Type: AUTONOME\n- Archive member: `legi/global/code_et_TNC_en_vigueur/code_en_vigueur/LEGI/TEXT/00/00/05/63/43/LEGITEXT000005634379/article/LEGI/ARTI/00/00/06/21/91/LEGIARTI000006219126.xml`\n- Archive SHA-256: `f862b4a2238e11ec3c48ec70f3b1c68bac0bb1985907841666b98608653d4eca`\n- Source release: global-archive\n\nLegal hierarchy\n- Partie législative (`LEGISCTA000006083281`, 2000-09-21–2999-01-01)\n  - LIVRE Ier : Du commerce en général. (`LEGISCTA000006113738`, 2000-09-21–2999-01-01)\n    - TITRE Ier : De l'acte de commerce. (`LEGISCTA000006133171`, 2000-09-21–2999-01-01)\n\nParagraph 1 {#LEGIARTI000006219126-p1}\nLa loi répute pareillement actes de commerce :\n\nParagraph 2 {#LEGIARTI000006219126-p2}\n1° Toute entreprise de construction, et tous achats, ventes et reventes de bâtiments pour la navigation intérieure et extérieure ;\n\nParagraph 3 {#LEGIARTI000006219126-p3}\n2° Toutes expéditions maritimes ;\n\nParagraph 4 {#LEGIARTI000006219126-p4}\n3° Tout achat et vente d'agrès, apparaux et avitaillements ;\n\nParagraph 5 {#LEGIARTI000006219126-p5}\n4° Tout affrètement ou nolisement, emprunt ou prêt à la grosse ;\n\nParagraph 6 {#LEGIARTI000006219126-p6}\n5° Toutes assurances et autres contrats concernant le commerce de mer ;\n\nParagraph 7 {#LEGIARTI000006219126-p7}\n6° Tous accords et conventions pour salaires et loyers d'équipages ;\n\nParagraph 8 {#LEGIARTI000006219126-p8}\n7° Tous engagements de gens de mer pour le service de bâtiments de commerce.",
+  "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000006219126"
+ },
+ {
+  "_family": "legifrance",
+  "_row_sha256": "1f94e68f90d26d3ea712d622fca25f29f6cf7e24e320a3b45bf9fbcc1d2a92a2",
+  "canonical_text": "Code de commerce > Article identity\n\n- Article ID: `LEGIARTI000006230187`\n- Article number: L239-3\n- Status: VIGUEUR\n- Effective from: 2005-08-03\n- Effective until: 2999-01-01\n- Type: AUTONOME\n- Archive member: `legi/global/code_et_TNC_en_vigueur/code_en_vigueur/LEGI/TEXT/00/00/05/63/43/LEGITEXT000005634379/article/LEGI/ARTI/00/00/06/23/01/LEGIARTI000006230187.xml`\n- Archive SHA-256: `f862b4a2238e11ec3c48ec70f3b1c68bac0bb1985907841666b98608653d4eca`\n- Source release: global-archive\n\nCode de commerce > Legal hierarchy\n\n- Partie législative (`LEGISCTA000006083281`, 2000-09-21–2999-01-01)\n  - LIVRE II : Des sociétés commerciales et des groupements d'intérêt économique. (`LEGISCTA000006113739`, 2000-09-21–2999-01-01)\n    - TITRE III : Dispositions communes aux diverses sociétés commerciales. (`LEGISCTA000006133177`, 2000-09-21–2999-01-01)\n      - Chapitre IX : De la location d'actions et de parts sociales (`LEGISCTA000006146060`, 2005-08-03–2999-01-01)\n\nCode de commerce > Article L239-3 {#LEGIARTI000006230187} > Paragraph 1 {#LEGIARTI000006230187-p1}\n\nLes dispositions légales ou statutaires prévoyant l'agrément du cessionnaire de parts ou d'actions sont applicables dans les mêmes conditions au locataire.\n\nCode de commerce > Article L239-3 {#LEGIARTI000006230187} > Paragraph 2 {#LEGIARTI000006230187-p2}\n\nLe droit de vote attaché à l'action ou à la part sociale louée appartient au bailleur dans les assemblées statuant sur les modifications statutaires ou le changement de nationalité de la société et au locataire dans les autres assemblées. Pour l'exercice des autres droits attachés aux actions et parts sociales louées, le bailleur est considéré comme le nu-propriétaire et le locataire comme l'usufruitier.\n\nCode de commerce > Article L239-3 {#LEGIARTI000006230187} > Paragraph 3 {#LEGIARTI000006230187-p3}\n\nPour l'application des dispositions du livre IV du présent code, le bailleur et le locataire sont considérés comme détenteurs d'actions ou de parts sociales.",
+  "chunk_ordinal": 0,
+  "document_id": "ee9e6f42-4324-5535-b6e8-c5d282cb6110",
+  "lang": "fr",
+  "parent_identity": {
+   "member": "legi/global/code_et_TNC_en_vigueur/code_en_vigueur/LEGI/TEXT/00/00/05/63/43/LEGITEXT000005634379/article/LEGI/ARTI/00/00/06/23/01/LEGIARTI000006230187.xml",
+   "release": null,
+   "sha256": "f862b4a2238e11ec3c48ec70f3b1c68bac0bb1985907841666b98608653d4eca"
+  },
+  "parent_markdown_sha256": "d19e5f1639a9e0ad543f79ac210c54566fdb73d85d80ec50d9d712ec0d6f5187",
+  "point_id": "181bc542-d0cd-5c12-943d-834955ac6d07",
+  "prov_id": "6370ee1d65a21add",
+  "section_heading": "Article identity",
+  "source_links": [
+   {
+    "article_anchor": "LEGIARTI000006230187",
+    "context": "Ordonnance 2000-912 2000-09-18",
+    "direction": "source",
+    "relation": "codification",
+    "source_version": {
+     "effective_from": "2005-08-03",
+     "effective_until": "2999-01-01",
+     "source_release": null,
+     "status": "VIGUEUR"
+    },
+    "target": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000219662",
+    "target_id": "JORFTEXT000000219662"
+   },
+   {
+    "article_anchor": "LEGIARTI000006230187",
+    "context": "Loi 2003-7 2003-01-03 art. 50 I (ratification)",
+    "direction": "source",
+    "relation": "codification",
+    "source_version": {
+     "effective_from": "2005-08-03",
+     "effective_until": "2999-01-01",
+     "source_release": null,
+     "status": "VIGUEUR"
+    },
+    "target": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000595061",
+    "target_id": "JORFTEXT000000595061"
+   },
+   {
+    "article_anchor": "LEGIARTI000006230187",
+    "context": "Loi n°2005-882 du 2 août 2005 - art. 26 (V) JORF 3 août 2005",
+    "direction": "source",
+    "relation": "creation",
+    "source_version": {
+     "effective_from": "2005-08-03",
+     "effective_until": "2999-01-01",
+     "source_release": null,
+     "status": "VIGUEUR"
+    },
+    "target": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000006522501",
+    "target_id": "LEGIARTI000006522501"
+   },
+   {
+    "article_anchor": "LEGIARTI000006230187",
+    "context": "Code de commerce - art. L239-2 (V)",
+    "direction": "cible",
+    "relation": "citation",
+    "source_version": {
+     "effective_from": "2005-08-03",
+     "effective_until": "2999-01-01",
+     "source_release": null,
+     "status": "VIGUEUR"
+    },
+    "target": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000006230184",
+    "target_id": "LEGIARTI000006230184"
+   }
+  ],
+  "source_metadata": {
+   "source_version": {
+    "effective_from": "2005-08-03",
+    "effective_until": "2999-01-01",
+    "source_release": null,
+    "status": "VIGUEUR"
+   },
+   "title": "Code de commerce — Article L239-3"
+  },
+  "source_profile": "anchored_law",
+  "source_record_id": "LEGIARTI000006230187",
+  "sparse_text": "Code de commerce > Article identity\n\n- Article ID: `LEGIARTI000006230187`\n- Article number: L239-3\n- Status: VIGUEUR\n- Effective from: 2005-08-03\n- Effective until: 2999-01-01\n- Type: AUTONOME\n- Archive member: `legi/global/code_et_TNC_en_vigueur/code_en_vigueur/LEGI/TEXT/00/00/05/63/43/LEGITEXT000005634379/article/LEGI/ARTI/00/00/06/23/01/LEGIARTI000006230187.xml`\n- Archive SHA-256: `f862b4a2238e11ec3c48ec70f3b1c68bac0bb1985907841666b98608653d4eca`\n- Source release: global-archive\n\nCode de commerce > Legal hierarchy\n\n- Partie législative (`LEGISCTA000006083281`, 2000-09-21–2999-01-01)\n  - LIVRE II : Des sociétés commerciales et des groupements d'intérêt économique. (`LEGISCTA000006113739`, 2000-09-21–2999-01-01)\n    - TITRE III : Dispositions communes aux diverses sociétés commerciales. (`LEGISCTA000006133177`, 2000-09-21–2999-01-01)\n      - Chapitre IX : De la location d'actions et de parts sociales (`LEGISCTA000006146060`, 2005-08-03–2999-01-01)\n\nCode de commerce > Article L239-3 {#LEGIARTI000006230187} > Paragraph 1 {#LEGIARTI000006230187-p1}\n\nLes dispositions légales ou statutaires prévoyant l'agrément du cessionnaire de parts ou d'actions sont applicables dans les mêmes conditions au locataire.\n\nCode de commerce > Article L239-3 {#LEGIARTI000006230187} > Paragraph 2 {#LEGIARTI000006230187-p2}\n\nLe droit de vote attaché à l'action ou à la part sociale louée appartient au bailleur dans les assemblées statuant sur les modifications statutaires ou le changement de nationalité de la société et au locataire dans les autres assemblées. Pour l'exercice des autres droits attachés aux actions et parts sociales louées, le bailleur est considéré comme le nu-propriétaire et le locataire comme l'usufruitier.\n\nCode de commerce > Article L239-3 {#LEGIARTI000006230187} > Paragraph 3 {#LEGIARTI000006230187-p3}\n\nPour l'application des dispositions du livre IV du présent code, le bailleur et le locataire sont considérés comme détenteurs d'actions ou de parts sociales.",
+  "text": "Article identity\n- Article ID: `LEGIARTI000006230187`\n- Article number: L239-3\n- Status: VIGUEUR\n- Effective from: 2005-08-03\n- Effective until: 2999-01-01\n- Type: AUTONOME\n- Archive member: `legi/global/code_et_TNC_en_vigueur/code_en_vigueur/LEGI/TEXT/00/00/05/63/43/LEGITEXT000005634379/article/LEGI/ARTI/00/00/06/23/01/LEGIARTI000006230187.xml`\n- Archive SHA-256: `f862b4a2238e11ec3c48ec70f3b1c68bac0bb1985907841666b98608653d4eca`\n- Source release: global-archive\n\nLegal hierarchy\n- Partie législative (`LEGISCTA000006083281`, 2000-09-21–2999-01-01)\n  - LIVRE II : Des sociétés commerciales et des groupements d'intérêt économique. (`LEGISCTA000006113739`, 2000-09-21–2999-01-01)\n    - TITRE III : Dispositions communes aux diverses sociétés commerciales. (`LEGISCTA000006133177`, 2000-09-21–2999-01-01)\n      - Chapitre IX : De la location d'actions et de parts sociales (`LEGISCTA000006146060`, 2005-08-03–2999-01-01)\n\nParagraph 1 {#LEGIARTI000006230187-p1}\nLes dispositions légales ou statutaires prévoyant l'agrément du cessionnaire de parts ou d'actions sont applicables dans les mêmes conditions au locataire.\n\nParagraph 2 {#LEGIARTI000006230187-p2}\nLe droit de vote attaché à l'action ou à la part sociale louée appartient au bailleur dans les assemblées statuant sur les modifications statutaires ou le changement de nationalité de la société et au locataire dans les autres assemblées. Pour l'exercice des autres droits attachés aux actions et parts sociales louées, le bailleur est considéré comme le nu-propriétaire et le locataire comme l'usufruitier.\n\nParagraph 3 {#LEGIARTI000006230187-p3}\nPour l'application des dispositions du livre IV du présent code, le bailleur et le locataire sont considérés comme détenteurs d'actions ou de parts sociales.",
+  "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000006230187"
+ },
+ {
+  "_family": "dila-loda",
+  "_row_sha256": "602a62ce0207d83aa05b8e5193a314ebf0f5daae2e4463f7170607efae5c083c",
+  "canonical_text": "Décret n°94-53 du 20 janvier 1994 modifiant et complétant le décret n° 91-157 du 11 février 1991 relatif à la maîtrise de la production de lait de vache et aux modalités de recouvrement d'un prélèvement supplémentaire à la charge des acheteurs et des producteurs de lait de vache > Article identity\n\n- Article ID: `LEGIARTI000006603399`\n- Article number: 20\n- Status: VIGUEUR\n- Effective from: 2006-01-01\n- Effective until: 2999-01-01\n- Type: AUTONOME\n- Archive member: `legi/global/code_et_TNC_en_vigueur/TNC_en_vigueur/JORF/TEXT/00/00/00/18/16/JORFTEXT000000181609/article/LEGI/ARTI/00/00/06/60/33/LEGIARTI000006603399.xml`\n- Archive SHA-256: `f862b4a2238e11ec3c48ec70f3b1c68bac0bb1985907841666b98608653d4eca`\n- Source release: 2025-07-13-global\n\nDécret n°94-53 du 20 janvier 1994 modifiant et complétant le décret n° 91-157 du 11 février 1991 relatif à la maîtrise de la production de lait de vache et aux modalités de recouvrement d'un prélèvement supplémentaire à la charge des acheteurs et des producteurs de lait de vache > Legal hierarchy\n\n- No intermediate section in the official article context\n\nDécret n°94-53 du 20 janvier 1994 modifiant et complétant le décret n° 91-157 du 11 février 1991 relatif à la maîtrise de la production de lait de vache et aux modalités de recouvrement d'un prélèvement supplémentaire à la charge des acheteurs et des producteurs de lait de vache > Article 20 {#LEGIARTI000006603399} > Paragraph 1 {#LEGIARTI000006603399-p1}\n\nUne quantité de référence laitière est attribuée le 1er avril 1993, en application de l'article 4 du règlement (C.E.E.) n° 3950-92, au producteur au sens de l'article 9 c dudit règlement qui remplissait à cette date l'ensemble des conditions suivantes :\n\nDécret n°94-53 du 20 janvier 1994 modifiant et complétant le décret n° 91-157 du 11 février 1991 relatif à la maîtrise de la production de lait de vache et aux modalités de recouvrement d'un prélèvement supplémentaire à la charge des acheteurs et des producteurs de lait de vache > Article 20 {#LEGIARTI000006603399} > Paragraph 2 {#LEGIARTI000006603399-p2}\n\nmettre en valeur une exploitation laitière, définie à l'article 9 d, dudit règlement ;\n\nDécret n°94-53 du 20 janvier 1994 modifiant et complétant le décret n° 91-157 du 11 février 1991 relatif à la maîtrise de la production de lait de vache et aux modalités de recouvrement d'un prélèvement supplémentaire à la charge des acheteurs et des producteurs de lait de vache > Article 20 {#LEGIARTI000006603399} > Paragraph 3 {#LEGIARTI000006603399-p3}\n\nlivrer ou vendre directement à la consommation du lait ou d'autres produits laitiers ;\n\nDécret n°94-53 du 20 janvier 1994 modifiant et complétant le décret n° 91-157 du 11 février 1991 relatif à la maîtrise de la production de lait de vache et aux modalités de recouvrement d'un prélèvement supplémentaire à la charge des acheteurs et des producteurs de lait de vache > Article 20 {#LEGIARTI000006603399} > Paragraph 4 {#LEGIARTI000006603399-p4}\n\ndisposer au titre de la neuvième période d'application de l'article 5 quater du règlement (C.E.E.) n° 804-68 modifié, d'une quantité de référence laitière notifiée par un acheteur ou par l'Office national interprofessionnel de l'élevage et de ses productions selon les cas prévus respectivement au 1° et 2° de l'article 1er du décret n° 2002-1000 du 17 juillet 2002 :\n\nDécret n°94-53 du 20 janvier 1994 modifiant et complétant le décret n° 91-157 du 11 février 1991 relatif à la maîtrise de la production de lait de vache et aux modalités de recouvrement d'un prélèvement supplémentaire à la charge des acheteurs et des producteurs de lait de vache > Article 20 {#LEGIARTI000006603399} > Paragraph 5 {#LEGIARTI000006603399-p5}\n\nUn arrêté du ministre chargé de l'agriculture, pris en application du dernier alinéa de l'article 1er du décret n° 2002-1000 du 17 juillet 2002, fixe les modalités de calcul des quantités de référence individuelles.",
+  "chunk_ordinal": 0,
+  "document_id": "6a7060fe-e017-5e0c-bb10-848ca56d7aa8",
+  "lang": "fr",
+  "parent_identity": {
+   "member": "legi/global/code_et_TNC_en_vigueur/TNC_en_vigueur/JORF/TEXT/00/00/00/18/16/JORFTEXT000000181609/article/LEGI/ARTI/00/00/06/60/33/LEGIARTI000006603399.xml",
+   "release": "2025-07-13-global",
+   "sha256": "f862b4a2238e11ec3c48ec70f3b1c68bac0bb1985907841666b98608653d4eca"
+  },
+  "parent_markdown_sha256": "ab12b55cf683d041e8ba0c318c93127d6648e53918c031fffad32c6ef2af5ec8",
+  "point_id": "04f08b46-2811-5396-895e-95a033efde83",
+  "prov_id": "6370ee1d65a21add",
+  "section_heading": "Article identity",
+  "source_links": [
+   {
+    "article_anchor": "LEGIARTI000006603399",
+    "context": "Décret n°2002-1000 du 17 juillet 2002 - art. 1, v. init.",
+    "direction": "source",
+    "relation": "citation",
+    "source_version": {
+     "effective_from": "2006-01-01",
+     "effective_until": "2999-01-01",
+     "source_release": "2025-07-13-global",
+     "status": "VIGUEUR"
+    },
+    "target": "https://www.legifrance.gouv.fr/loda/id/JORFARTI000002445341",
+    "target_id": "JORFARTI000002445341"
+   },
+   {
+    "article_anchor": "LEGIARTI000006603399",
+    "context": "Décret n°2005-1780 du 30 décembre 2005 - art. 3 (V) JORF 31 décembre 2005 en vigueur le 1er janvier 2006",
+    "direction": "source",
+    "relation": "modification",
+    "source_version": {
+     "effective_from": "2006-01-01",
+     "effective_until": "2999-01-01",
+     "source_release": "2025-07-13-global",
+     "status": "VIGUEUR"
+    },
+    "target": "https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000006248452",
+    "target_id": "LEGIARTI000006248452"
+   }
+  ],
+  "source_metadata": {
+   "source_version": {
+    "effective_from": "2006-01-01",
+    "effective_until": "2999-01-01",
+    "source_release": "2025-07-13-global",
+    "status": "VIGUEUR"
+   },
+   "title": "Décret n°94-53 du 20 janvier 1994 modifiant et complétant le décret n° 91-157 du 11 février 1991 relatif à la maîtrise de la production de lait de vache et aux modalités de recouvrement d'un prélèvement supplémentaire à la charge des acheteurs et des producteurs de lait de vache — Article 20"
+  },
+  "source_profile": "anchored_law",
+  "source_record_id": "LEGIARTI000006603399",
+  "sparse_text": "Décret n°94-53 du 20 janvier 1994 modifiant et complétant le décret n° 91-157 du 11 février 1991 relatif à la maîtrise de la production de lait de vache et aux modalités de recouvrement d'un prélèvement supplémentaire à la charge des acheteurs et des producteurs de lait de vache > Article identity\n\n- Article ID: `LEGIARTI000006603399`\n- Article number: 20\n- Status: VIGUEUR\n- Effective from: 2006-01-01\n- Effective until: 2999-01-01\n- Type: AUTONOME\n- Archive member: `legi/global/code_et_TNC_en_vigueur/TNC_en_vigueur/JORF/TEXT/00/00/00/18/16/JORFTEXT000000181609/article/LEGI/ARTI/00/00/06/60/33/LEGIARTI000006603399.xml`\n- Archive SHA-256: `f862b4a2238e11ec3c48ec70f3b1c68bac0bb1985907841666b98608653d4eca`\n- Source release: 2025-07-13-global\n\nDécret n°94-53 du 20 janvier 1994 modifiant et complétant le décret n° 91-157 du 11 février 1991 relatif à la maîtrise de la production de lait de vache et aux modalités de recouvrement d'un prélèvement supplémentaire à la charge des acheteurs et des producteurs de lait de vache > Legal hierarchy\n\n- No intermediate section in the official article context\n\nDécret n°94-53 du 20 janvier 1994 modifiant et complétant le décret n° 91-157 du 11 février 1991 relatif à la maîtrise de la production de lait de vache et aux modalités de recouvrement d'un prélèvement supplémentaire à la charge des acheteurs et des producteurs de lait de vache > Article 20 {#LEGIARTI000006603399} > Paragraph 1 {#LEGIARTI000006603399-p1}\n\nUne quantité de référence laitière est attribuée le 1er avril 1993, en application de l'article 4 du règlement (C.E.E.) n° 3950-92, au producteur au sens de l'article 9 c dudit règlement qui remplissait à cette date l'ensemble des conditions suivantes :\n\nDécret n°94-53 du 20 janvier 1994 modifiant et complétant le décret n° 91-157 du 11 février 1991 relatif à la maîtrise de la production de lait de vache et aux modalités de recouvrement d'un prélèvement supplémentaire à la charge des acheteurs et des producteurs de lait de vache > Article 20 {#LEGIARTI000006603399} > Paragraph 2 {#LEGIARTI000006603399-p2}\n\nmettre en valeur une exploitation laitière, définie à l'article 9 d, dudit règlement ;\n\nDécret n°94-53 du 20 janvier 1994 modifiant et complétant le décret n° 91-157 du 11 février 1991 relatif à la maîtrise de la production de lait de vache et aux modalités de recouvrement d'un prélèvement supplémentaire à la charge des acheteurs et des producteurs de lait de vache > Article 20 {#LEGIARTI000006603399} > Paragraph 3 {#LEGIARTI000006603399-p3}\n\nlivrer ou vendre directement à la consommation du lait ou d'autres produits laitiers ;\n\nDécret n°94-53 du 20 janvier 1994 modifiant et complétant le décret n° 91-157 du 11 février 1991 relatif à la maîtrise de la production de lait de vache et aux modalités de recouvrement d'un prélèvement supplémentaire à la charge des acheteurs et des producteurs de lait de vache > Article 20 {#LEGIARTI000006603399} > Paragraph 4 {#LEGIARTI000006603399-p4}\n\ndisposer au titre de la neuvième période d'application de l'article 5 quater du règlement (C.E.E.) n° 804-68 modifié, d'une quantité de référence laitière notifiée par un acheteur ou par l'Office national interprofessionnel de l'élevage et de ses productions selon les cas prévus respectivement au 1° et 2° de l'article 1er du décret n° 2002-1000 du 17 juillet 2002 :\n\nDécret n°94-53 du 20 janvier 1994 modifiant et complétant le décret n° 91-157 du 11 février 1991 relatif à la maîtrise de la production de lait de vache et aux modalités de recouvrement d'un prélèvement supplémentaire à la charge des acheteurs et des producteurs de lait de vache > Article 20 {#LEGIARTI000006603399} > Paragraph 5 {#LEGIARTI000006603399-p5}\n\nUn arrêté du ministre chargé de l'agriculture, pris en application du dernier alinéa de l'article 1er du décret n° 2002-1000 du 17 juillet 2002, fixe les modalités de calcul des quantités de référence individuelles.",
+  "text": "Article identity\n- Article ID: `LEGIARTI000006603399`\n- Article number: 20\n- Status: VIGUEUR\n- Effective from: 2006-01-01\n- Effective until: 2999-01-01\n- Type: AUTONOME\n- Archive member: `legi/global/code_et_TNC_en_vigueur/TNC_en_vigueur/JORF/TEXT/00/00/00/18/16/JORFTEXT000000181609/article/LEGI/ARTI/00/00/06/60/33/LEGIARTI000006603399.xml`\n- Archive SHA-256: `f862b4a2238e11ec3c48ec70f3b1c68bac0bb1985907841666b98608653d4eca`\n- Source release: 2025-07-13-global\n\nLegal hierarchy\n- No intermediate section in the official article context\n\nParagraph 1 {#LEGIARTI000006603399-p1}\nUne quantité de référence laitière est attribuée le 1er avril 1993, en application de l'article 4 du règlement (C.E.E.) n° 3950-92, au producteur au sens de l'article 9 c dudit règlement qui remplissait à cette date l'ensemble des conditions suivantes :\n\nParagraph 2 {#LEGIARTI000006603399-p2}\nmettre en valeur une exploitation laitière, définie à l'article 9 d, dudit règlement ;\n\nParagraph 3 {#LEGIARTI000006603399-p3}\nlivrer ou vendre directement à la consommation du lait ou d'autres produits laitiers ;\n\nParagraph 4 {#LEGIARTI000006603399-p4}\ndisposer au titre de la neuvième période d'application de l'article 5 quater du règlement (C.E.E.) n° 804-68 modifié, d'une quantité de référence laitière notifiée par un acheteur ou par l'Office national interprofessionnel de l'élevage et de ses productions selon les cas prévus respectivement au 1° et 2° de l'article 1er du décret n° 2002-1000 du 17 juillet 2002 :\n\nParagraph 5 {#LEGIARTI000006603399-p5}\nUn arrêté du ministre chargé de l'agriculture, pris en application du dernier alinéa de l'article 1er du décret n° 2002-1000 du 17 juillet 2002, fixe les modalités de calcul des quantités de référence individuelles.",
+  "url": "https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000006603399"
+ },
+ {
+  "_family": "dila-loda",
+  "_row_sha256": "ebb2f89eacad1f9f6f5e6393ce69969289145f6fe67473d66a016c7e87e28c2a",
+  "canonical_text": "Décret n°93-1450 du 31 décembre 1993 relatif à la fixation des cotisations au régime de protection sociale des personnes non salariées des professions agricoles dans les départements d'outre-mer pour 1993 > Article identity\n\n- Article ID: `LEGIARTI000006777103`\n- Article number: 5\n- Status: VIGUEUR\n- Effective from: 1994-01-11\n- Effective until: 2999-01-01\n- Type: AUTONOME\n- Archive member: `legi/global/code_et_TNC_en_vigueur/TNC_en_vigueur/JORF/TEXT/00/00/00/18/12/JORFTEXT000000181289/article/LEGI/ARTI/00/00/06/77/71/LEGIARTI000006777103.xml`\n- Archive SHA-256: `f862b4a2238e11ec3c48ec70f3b1c68bac0bb1985907841666b98608653d4eca`\n- Source release: 2025-07-13-global\n\nDécret n°93-1450 du 31 décembre 1993 relatif à la fixation des cotisations au régime de protection sociale des personnes non salariées des professions agricoles dans les départements d'outre-mer pour 1993 > Legal hierarchy\n\n- No intermediate section in the official article context\n\nDécret n°93-1450 du 31 décembre 1993 relatif à la fixation des cotisations au régime de protection sociale des personnes non salariées des professions agricoles dans les départements d'outre-mer pour 1993 > Article 5 {#LEGIARTI000006777103} > Paragraph 1 {#LEGIARTI000006777103-p1}\n\nLe montant de la cotisation prévue à l'article 1142-6 (premier alinéa) du code rural est fixé comme suit :\n\nDécret n°93-1450 du 31 décembre 1993 relatif à la fixation des cotisations au régime de protection sociale des personnes non salariées des professions agricoles dans les départements d'outre-mer pour 1993 > Article 5 {#LEGIARTI000006777103} > Paragraph 2 {#LEGIARTI000006777103-p2}\n\nTranches de superficie réelle pondérée : Supérieure à 120 hectares\n\nDécret n°93-1450 du 31 décembre 1993 relatif à la fixation des cotisations au régime de protection sociale des personnes non salariées des professions agricoles dans les départements d'outre-mer pour 1993 > Article 5 {#LEGIARTI000006777103} > Paragraph 3 {#LEGIARTI000006777103-p3}\n\nMontant (en francs) : 1 842\n\nDécret n°93-1450 du 31 décembre 1993 relatif à la fixation des cotisations au régime de protection sociale des personnes non salariées des professions agricoles dans les départements d'outre-mer pour 1993 > Article 5 {#LEGIARTI000006777103} > Paragraph 4 {#LEGIARTI000006777103-p4}\n\nTranches de superficie réelle pondérée : De 80,01 à 120 hectares\n\nDécret n°93-1450 du 31 décembre 1993 relatif à la fixation des cotisations au régime de protection sociale des personnes non salariées des professions agricoles dans les départements d'outre-mer pour 1993 > Article 5 {#LEGIARTI000006777103} > Paragraph 5 {#LEGIARTI000006777103-p5}\n\nMontant (en francs) : 1 664\n\nDécret n°93-1450 du 31 décembre 1993 relatif à la fixation des cotisations au régime de protection sociale des personnes non salariées des professions agricoles dans les départements d'outre-mer pour 1993 > Article 5 {#LEGIARTI000006777103} > Paragraph 6 {#LEGIARTI000006777103-p6}\n\nTranches de superficie réelle pondérée : De 28,01 à 80 hectares\n\nDécret n°93-1450 du 31 décembre 1993 relatif à la fixation des cotisations au régime de protection sociale des personnes non salariées des professions agricoles dans les départements d'outre-mer pour 1993 > Article 5 {#LEGIARTI000006777103} > Paragraph 7 {#LEGIARTI000006777103-p7}\n\nMontant (en francs) : 1 060\n\nDécret n°93-1450 du 31 décembre 1993 relatif à la fixation des cotisations au régime de protection sociale des personnes non salariées des professions agricoles dans les départements d'outre-mer pour 1993 > Article 5 {#LEGIARTI000006777103} > Paragraph 8 {#LEGIARTI000006777103-p8}\n\nTranches de superficie réelle pondérée : De 13,01 à 28 hectares\n\nDécret n°93-1450 du 31 décembre 1993 relatif à la fixation des cotisations au régime de protection sociale des personnes non salariées des professions agricoles dans les départements d'outre-mer pour 1993 > Article 5 {#LEGIARTI000006777103} > Paragraph 9 {#LEGIARTI000006777103-p9}\n\nMontant (en francs) : 624\n\nDécret n°93-1450 du 31 décembre 1993 relatif à la fixation des cotisations au régime de protection sociale des personnes non salariées des professions agricoles dans les départements d'outre-mer pour 1993 > Article 5 {#LEGIARTI000006777103} > Paragraph 10 {#LEGIARTI000006777103-p10}\n\nTranches de superficie réelle pondérée : De 7,01 à 13 hectares\n\nDécret n°93-1450 du 31 décembre 1993 relatif à la fixation des cotisations au régime de protection sociale des personnes non salariées des professions agricoles dans les départements d'outre-mer pour 1993 > Article 5 {#LEGIARTI000006777103} > Paragraph 11 {#LEGIARTI000006777103-p11}\n\nMontant (en francs) : 392\n\nDécret n°93-1450 du 31 décembre 1993 relatif à la fixation des cotisations au régime de protection sociale des personnes non salariées des professions agricoles dans les départements d'outre-mer pour 1993 > Article 5 {#LEGIARTI000006777103} > Paragraph 12 {#LEGIARTI000006777103-p12}\n\nTranches de superficie réelle pondérée : Au plus égale à 7 hectares\n\nDécret n°93-1450 du 31 décembre 1993 relatif à la fixation des cotisations au régime de protection sociale des personnes non salariées des professions agricoles dans les départements d'outre-mer pour 1993 > Article 5 {#LEGIARTI000006777103} > Paragraph 13 {#LEGIARTI000006777103-p13}\n\nMontant (en francs) : 290",
+  "chunk_ordinal": 0,
+  "document_id": "3fdebb0b-0bc1-5927-b9fc-b2dc81e1257a",
+  "lang": "fr",
+  "parent_identity": {
+   "member": "legi/global/code_et_TNC_en_vigueur/TNC_en_vigueur/JORF/TEXT/00/00/00/18/12/JORFTEXT000000181289/article/LEGI/ARTI/00/00/06/77/71/LEGIARTI000006777103.xml",
+   "release": "2025-07-13-global",
+   "sha256": "f862b4a2238e11ec3c48ec70f3b1c68bac0bb1985907841666b98608653d4eca"
+  },
+  "parent_markdown_sha256": "1a02537f4e138c2076a1e3143b3bb5d60d55bd4db0c27ca08e88c80c5a4ff09d",
+  "point_id": "c87bc177-c6ed-51f0-b371-d98bc72d182e",
+  "prov_id": "6370ee1d65a21add",
+  "section_heading": "Article identity",
+  "source_links": [],
+  "source_metadata": {
+   "source_version": {
+    "effective_from": "1994-01-11",
+    "effective_until": "2999-01-01",
+    "source_release": "2025-07-13-global",
+    "status": "VIGUEUR"
+   },
+   "title": "Décret n°93-1450 du 31 décembre 1993 relatif à la fixation des cotisations au régime de protection sociale des personnes non salariées des professions agricoles dans les départements d'outre-mer pour 1993 — Article 5"
+  },
+  "source_profile": "anchored_law",
+  "source_record_id": "LEGIARTI000006777103",
+  "sparse_text": "Décret n°93-1450 du 31 décembre 1993 relatif à la fixation des cotisations au régime de protection sociale des personnes non salariées des professions agricoles dans les départements d'outre-mer pour 1993 > Article identity\n\n- Article ID: `LEGIARTI000006777103`\n- Article number: 5\n- Status: VIGUEUR\n- Effective from: 1994-01-11\n- Effective until: 2999-01-01\n- Type: AUTONOME\n- Archive member: `legi/global/code_et_TNC_en_vigueur/TNC_en_vigueur/JORF/TEXT/00/00/00/18/12/JORFTEXT000000181289/article/LEGI/ARTI/00/00/06/77/71/LEGIARTI000006777103.xml`\n- Archive SHA-256: `f862b4a2238e11ec3c48ec70f3b1c68bac0bb1985907841666b98608653d4eca`\n- Source release: 2025-07-13-global\n\nDécret n°93-1450 du 31 décembre 1993 relatif à la fixation des cotisations au régime de protection sociale des personnes non salariées des professions agricoles dans les départements d'outre-mer pour 1993 > Legal hierarchy\n\n- No intermediate section in the official article context\n\nDécret n°93-1450 du 31 décembre 1993 relatif à la fixation des cotisations au régime de protection sociale des personnes non salariées des professions agricoles dans les départements d'outre-mer pour 1993 > Article 5 {#LEGIARTI000006777103} > Paragraph 1 {#LEGIARTI000006777103-p1}\n\nLe montant de la cotisation prévue à l'article 1142-6 (premier alinéa) du code rural est fixé comme suit :\n\nDécret n°93-1450 du 31 décembre 1993 relatif à la fixation des cotisations au régime de protection sociale des personnes non salariées des professions agricoles dans les départements d'outre-mer pour 1993 > Article 5 {#LEGIARTI000006777103} > Paragraph 2 {#LEGIARTI000006777103-p2}\n\nTranches de superficie réelle pondérée : Supérieure à 120 hectares\n\nDécret n°93-1450 du 31 décembre 1993 relatif à la fixation des cotisations au régime de protection sociale des personnes non salariées des professions agricoles dans les départements d'outre-mer pour 1993 > Article 5 {#LEGIARTI000006777103} > Paragraph 3 {#LEGIARTI000006777103-p3}\n\nMontant (en francs) : 1 842\n\nDécret n°93-1450 du 31 décembre 1993 relatif à la fixation des cotisations au régime de protection sociale des personnes non salariées des professions agricoles dans les départements d'outre-mer pour 1993 > Article 5 {#LEGIARTI000006777103} > Paragraph 4 {#LEGIARTI000006777103-p4}\n\nTranches de superficie réelle pondérée : De 80,01 à 120 hectares\n\nDécret n°93-1450 du 31 décembre 1993 relatif à la fixation des cotisations au régime de protection sociale des personnes non salariées des professions agricoles dans les départements d'outre-mer pour 1993 > Article 5 {#LEGIARTI000006777103} > Paragraph 5 {#LEGIARTI000006777103-p5}\n\nMontant (en francs) : 1 664\n\nDécret n°93-1450 du 31 décembre 1993 relatif à la fixation des cotisations au régime de protection sociale des personnes non salariées des professions agricoles dans les départements d'outre-mer pour 1993 > Article 5 {#LEGIARTI000006777103} > Paragraph 6 {#LEGIARTI000006777103-p6}\n\nTranches de superficie réelle pondérée : De 28,01 à 80 hectares\n\nDécret n°93-1450 du 31 décembre 1993 relatif à la fixation des cotisations au régime de protection sociale des personnes non salariées des professions agricoles dans les départements d'outre-mer pour 1993 > Article 5 {#LEGIARTI000006777103} > Paragraph 7 {#LEGIARTI000006777103-p7}\n\nMontant (en francs) : 1 060\n\nDécret n°93-1450 du 31 décembre 1993 relatif à la fixation des cotisations au régime de protection sociale des personnes non salariées des professions agricoles dans les départements d'outre-mer pour 1993 > Article 5 {#LEGIARTI000006777103} > Paragraph 8 {#LEGIARTI000006777103-p8}\n\nTranches de superficie réelle pondérée : De 13,01 à 28 hectares\n\nDécret n°93-1450 du 31 décembre 1993 relatif à la fixation des cotisations au régime de protection sociale des personnes non salariées des professions agricoles dans les départements d'outre-mer pour 1993 > Article 5 {#LEGIARTI000006777103} > Paragraph 9 {#LEGIARTI000006777103-p9}\n\nMontant (en francs) : 624\n\nDécret n°93-1450 du 31 décembre 1993 relatif à la fixation des cotisations au régime de protection sociale des personnes non salariées des professions agricoles dans les départements d'outre-mer pour 1993 > Article 5 {#LEGIARTI000006777103} > Paragraph 10 {#LEGIARTI000006777103-p10}\n\nTranches de superficie réelle pondérée : De 7,01 à 13 hectares\n\nDécret n°93-1450 du 31 décembre 1993 relatif à la fixation des cotisations au régime de protection sociale des personnes non salariées des professions agricoles dans les départements d'outre-mer pour 1993 > Article 5 {#LEGIARTI000006777103} > Paragraph 11 {#LEGIARTI000006777103-p11}\n\nMontant (en francs) : 392\n\nDécret n°93-1450 du 31 décembre 1993 relatif à la fixation des cotisations au régime de protection sociale des personnes non salariées des professions agricoles dans les départements d'outre-mer pour 1993 > Article 5 {#LEGIARTI000006777103} > Paragraph 12 {#LEGIARTI000006777103-p12}\n\nTranches de superficie réelle pondérée : Au plus égale à 7 hectares\n\nDécret n°93-1450 du 31 décembre 1993 relatif à la fixation des cotisations au régime de protection sociale des personnes non salariées des professions agricoles dans les départements d'outre-mer pour 1993 > Article 5 {#LEGIARTI000006777103} > Paragraph 13 {#LEGIARTI000006777103-p13}\n\nMontant (en francs) : 290",
+  "text": "Article identity\n- Article ID: `LEGIARTI000006777103`\n- Article number: 5\n- Status: VIGUEUR\n- Effective from: 1994-01-11\n- Effective until: 2999-01-01\n- Type: AUTONOME\n- Archive member: `legi/global/code_et_TNC_en_vigueur/TNC_en_vigueur/JORF/TEXT/00/00/00/18/12/JORFTEXT000000181289/article/LEGI/ARTI/00/00/06/77/71/LEGIARTI000006777103.xml`\n- Archive SHA-256: `f862b4a2238e11ec3c48ec70f3b1c68bac0bb1985907841666b98608653d4eca`\n- Source release: 2025-07-13-global\n\nLegal hierarchy\n- No intermediate section in the official article context\n\nParagraph 1 {#LEGIARTI000006777103-p1}\nLe montant de la cotisation prévue à l'article 1142-6 (premier alinéa) du code rural est fixé comme suit :\n\nParagraph 2 {#LEGIARTI000006777103-p2}\nTranches de superficie réelle pondérée : Supérieure à 120 hectares\n\nParagraph 3 {#LEGIARTI000006777103-p3}\nMontant (en francs) : 1 842\n\nParagraph 4 {#LEGIARTI000006777103-p4}\nTranches de superficie réelle pondérée : De 80,01 à 120 hectares\n\nParagraph 5 {#LEGIARTI000006777103-p5}\nMontant (en francs) : 1 664\n\nParagraph 6 {#LEGIARTI000006777103-p6}\nTranches de superficie réelle pondérée : De 28,01 à 80 hectares\n\nParagraph 7 {#LEGIARTI000006777103-p7}\nMontant (en francs) : 1 060\n\nParagraph 8 {#LEGIARTI000006777103-p8}\nTranches de superficie réelle pondérée : De 13,01 à 28 hectares\n\nParagraph 9 {#LEGIARTI000006777103-p9}\nMontant (en francs) : 624\n\nParagraph 10 {#LEGIARTI000006777103-p10}\nTranches de superficie réelle pondérée : De 7,01 à 13 hectares\n\nParagraph 11 {#LEGIARTI000006777103-p11}\nMontant (en francs) : 392\n\nParagraph 12 {#LEGIARTI000006777103-p12}\nTranches de superficie réelle pondérée : Au plus égale à 7 hectares\n\nParagraph 13 {#LEGIARTI000006777103-p13}\nMontant (en francs) : 290",
+  "url": "https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000006777103"
+ },
+ {
+  "_family": "pubmed",
+  "_row_sha256": "0832f18062baa4a82dc1b3dbb55c4608c85ddebd50bef3a3cfadd9e176628620",
+  "canonical_text": "[Biochemical studies on camomile components/III. In vitro studies about the antipeptic activity of (--)-alpha-bisabolol (author's transl)]. > Record identity\n\n- PMID: `21`\n- Parent archive: `_dumps/pubmed/pubmed26n0001.xml.gz`\n- Parent archive SHA-256: `ff52cc95450982f0910e16ae2e5042236abeba8ebddb7e47091db42230e62890`\n\n[Biochemical studies on camomile components/III. In vitro studies about the antipeptic activity of (--)-alpha-bisabolol (author's transl)]. > Abstract\n\n(--)-alpha-Bisabolol has a primary antipeptic action depending on dosage, which is not caused by an alteration of the pH-value. The proteolytic activity of pepsin is reduced by 50 percent through addition of bisabolol in the ratio of 1/0.5. The antipeptic action of bisabolol only occurs in case of direct contact. In case of a previous contact with the substrate, the inhibiting effect is lost.",
+  "chunk_ordinal": 0,
+  "document_id": "09342b31-ae68-5ede-8292-b298cf50e153",
+  "lang": "en",
+  "parent_identity": {
+   "member": "_dumps/pubmed/pubmed26n0001.xml.gz",
+   "sha256": "ff52cc95450982f0910e16ae2e5042236abeba8ebddb7e47091db42230e62890"
+  },
+  "parent_markdown_sha256": "9da5002e326ab3613cb328f0b376b187b69a8ece67fee41123db895ca4af63bf",
+  "point_id": "78816eae-7133-5f99-b8ca-edd45aae42bb",
+  "prov_id": "6370ee1d65a21add",
+  "section_heading": "Record identity",
+  "source_links": [],
+  "source_metadata": {
+   "title": "[Biochemical studies on camomile components/III. In vitro studies about the antipeptic activity of (--)-alpha-bisabolol (author's transl)]."
+  },
+  "source_profile": "academic_dump",
+  "source_record_id": "21",
+  "sparse_text": "[Biochemical studies on camomile components/III. In vitro studies about the antipeptic activity of (--)-alpha-bisabolol (author's transl)]. > Record identity\n\n- PMID: `21`\n- Parent archive: `_dumps/pubmed/pubmed26n0001.xml.gz`\n- Parent archive SHA-256: `ff52cc95450982f0910e16ae2e5042236abeba8ebddb7e47091db42230e62890`\n\n[Biochemical studies on camomile components/III. In vitro studies about the antipeptic activity of (--)-alpha-bisabolol (author's transl)]. > Abstract\n\n(--)-alpha-Bisabolol has a primary antipeptic action depending on dosage, which is not caused by an alteration of the pH-value. The proteolytic activity of pepsin is reduced by 50 percent through addition of bisabolol in the ratio of 1/0.5. The antipeptic action of bisabolol only occurs in case of direct contact. In case of a previous contact with the substrate, the inhibiting effect is lost.",
+  "text": "Record identity\n- PMID: `21`\n- Parent archive: `_dumps/pubmed/pubmed26n0001.xml.gz`\n- Parent archive SHA-256: `ff52cc95450982f0910e16ae2e5042236abeba8ebddb7e47091db42230e62890`\n\nAbstract\n(--)-alpha-Bisabolol has a primary antipeptic action depending on dosage, which is not caused by an alteration of the pH-value. The proteolytic activity of pepsin is reduced by 50 percent through addition of bisabolol in the ratio of 1/0.5. The antipeptic action of bisabolol only occurs in case of direct contact. In case of a previous contact with the substrate, the inhibiting effect is lost.",
+  "url": "https://pubmed.ncbi.nlm.nih.gov/21/"
+ },
+ {
+  "_family": "pubmed",
+  "_row_sha256": "9ac0b95c21db5d21b976b8d55c9d5824cf8462b0b1d7a7f2b00177bec62b3ef5",
+  "canonical_text": "Improved specificity of serum albumin determination and estimation of \"acute phase reactants\" by use of the bromcresol green reaction. > Record identity\n\n- PMID: `4238`\n- Parent archive: `_dumps/pubmed/pubmed26n0001.xml.gz`\n- Parent archive SHA-256: `ff52cc95450982f0910e16ae2e5042236abeba8ebddb7e47091db42230e62890`\n\nImproved specificity of serum albumin determination and estimation of \"acute phase reactants\" by use of the bromcresol green reaction. > Abstract\n\nThe reaction of serum samples with bromcresol green proceeds in two steps. Albumin is responsible for the faster (less than 1 min) reaction; the slower (30-min) reaction is a measure of \"acute phase reactant(s)\" in serum. Serum is simply mixed with bromcresol green reagent and the absorbance is measured twice, immediately and at 60 min. Albumin concentrations, determined from the absorbance at 0 min, correlate well with those determined by Laurell \"rocket\" immunoelectrophoresis; r = 0.95 with no certain deviation from unity for the slope and with a negligible difference at zero concentration. The slow reaction was expressed as deltaA% = 100 (deltaAs/deltaAv) where deltaAs and delta Av are the changes in absorbance between 60 and 0 min for the sample and a commercial control serum, respectively. The value for deltaA% correlates well with the percentage of alpha2-fraction as determined by electrophoresis on cellulose acetate, as well as with orosomucoid and ceruloplasmin, all of which are acute phase reactant(s). Whether these proteins or other acute phase reactant(s) actually cause the slow reaction has not yet been established.",
+  "chunk_ordinal": 0,
+  "document_id": "3f3b80b5-32d5-50f9-8118-08f3adb2f9dd",
+  "lang": "en",
+  "parent_identity": {
+   "member": "_dumps/pubmed/pubmed26n0001.xml.gz",
+   "sha256": "ff52cc95450982f0910e16ae2e5042236abeba8ebddb7e47091db42230e62890"
+  },
+  "parent_markdown_sha256": "b846fe360af35e4e3c4ec23c5ffd3ad2135658174a654ea5b2ebb93aa83f8658",
+  "point_id": "27e7b083-fd82-5358-bb08-5df9b957f125",
+  "prov_id": "6370ee1d65a21add",
+  "section_heading": "Record identity",
+  "source_links": [],
+  "source_metadata": {
+   "title": "Improved specificity of serum albumin determination and estimation of \"acute phase reactants\" by use of the bromcresol green reaction."
+  },
+  "source_profile": "academic_dump",
+  "source_record_id": "4238",
+  "sparse_text": "Improved specificity of serum albumin determination and estimation of \"acute phase reactants\" by use of the bromcresol green reaction. > Record identity\n\n- PMID: `4238`\n- Parent archive: `_dumps/pubmed/pubmed26n0001.xml.gz`\n- Parent archive SHA-256: `ff52cc95450982f0910e16ae2e5042236abeba8ebddb7e47091db42230e62890`\n\nImproved specificity of serum albumin determination and estimation of \"acute phase reactants\" by use of the bromcresol green reaction. > Abstract\n\nThe reaction of serum samples with bromcresol green proceeds in two steps. Albumin is responsible for the faster (less than 1 min) reaction; the slower (30-min) reaction is a measure of \"acute phase reactant(s)\" in serum. Serum is simply mixed with bromcresol green reagent and the absorbance is measured twice, immediately and at 60 min. Albumin concentrations, determined from the absorbance at 0 min, correlate well with those determined by Laurell \"rocket\" immunoelectrophoresis; r = 0.95 with no certain deviation from unity for the slope and with a negligible difference at zero concentration. The slow reaction was expressed as deltaA% = 100 (deltaAs/deltaAv) where deltaAs and delta Av are the changes in absorbance between 60 and 0 min for the sample and a commercial control serum, respectively. The value for deltaA% correlates well with the percentage of alpha2-fraction as determined by electrophoresis on cellulose acetate, as well as with orosomucoid and ceruloplasmin, all of which are acute phase reactant(s). Whether these proteins or other acute phase reactant(s) actually cause the slow reaction has not yet been established.",
+  "text": "Record identity\n- PMID: `4238`\n- Parent archive: `_dumps/pubmed/pubmed26n0001.xml.gz`\n- Parent archive SHA-256: `ff52cc95450982f0910e16ae2e5042236abeba8ebddb7e47091db42230e62890`\n\nAbstract\nThe reaction of serum samples with bromcresol green proceeds in two steps. Albumin is responsible for the faster (less than 1 min) reaction; the slower (30-min) reaction is a measure of \"acute phase reactant(s)\" in serum. Serum is simply mixed with bromcresol green reagent and the absorbance is measured twice, immediately and at 60 min. Albumin concentrations, determined from the absorbance at 0 min, correlate well with those determined by Laurell \"rocket\" immunoelectrophoresis; r = 0.95 with no certain deviation from unity for the slope and with a negligible difference at zero concentration. The slow reaction was expressed as deltaA% = 100 (deltaAs/deltaAv) where deltaAs and delta Av are the changes in absorbance between 60 and 0 min for the sample and a commercial control serum, respectively. The value for deltaA% correlates well with the percentage of alpha2-fraction as determined by electrophoresis on cellulose acetate, as well as with orosomucoid and ceruloplasmin, all of which are acute phase reactant(s). Whether these proteins or other acute phase reactant(s) actually cause the slow reaction has not yet been established.",
+  "url": "https://pubmed.ncbi.nlm.nih.gov/4238/"
+ },
+ {
+  "_family": "arxiv",
+  "_row_sha256": "f27aa1b866a614a7b5afee8a61d8fdca4d7f4981774d75ad7026d3b35c70406b",
+  "canonical_text": "Sparsity-certifying Graph Decompositions > Record identity\n\n- arXiv ID: `0704.0002`\n- OAI identifier: `oai:arXiv.org:0704.0002`\n- OAI datestamp: `2008-12-13`\n- Parent OAI page: `_dumps/arxiv/arxiv_raw/page_00209300.xml.gz`\n- Parent page SHA-256: `c49bd20dd69c178763ab301cccaa6ab07dc36cc7205f3e7b0a502e417f845f71`\n\nSparsity-certifying Graph Decompositions > Authors\n\n- Ileana Streinu\n- Louis Theran\n\nSparsity-certifying Graph Decompositions > Abstract\n\nWe describe a new algorithm, the $(k,\\ell)$-pebble game with colors, and use it obtain a characterization of the family of $(k,\\ell)$-sparse graphs and algorithmic solutions to a family of problems concerning tree decompositions of graphs. Special instances of sparse graphs appear in rigidity theory and have received increased attention in recent years. In particular, our colored pebbles generalize and strengthen the previous results of Lee and Streinu and give a new proof of the Tutte-Nash-Williams characterization of arboricity. We also present a new decomposition that certifies sparsity based on the $(k,\\ell)$-pebble game with colors. Our work also exposes connections between pebble game algorithms and previous sparse graph algorithms by Gabow, Gabow and Westermann and Hendrickson.\n\nSparsity-certifying Graph Decompositions > Metadata\n\n- OAI sets: math:math:CO, cs:cs:CG\n- Categories: math.CO cs.CG\n- Created: 2008-12-13\n- Updated: 2009-12-01\n- Comments: To appear in Graphs and Combinatorics\n- License: http://arxiv.org/licenses/nonexclusive-distrib/1.0/\n- MSC class: 05C85; 05C70; 68R10; 05B35",
+  "chunk_ordinal": 0,
+  "document_id": "9ca58cae-88c9-52d4-b1cd-242bbea5c393",
+  "lang": null,
+  "parent_identity": {
+   "member": "_dumps/arxiv/arxiv_raw/page_00209300.xml.gz",
+   "sha256": "c49bd20dd69c178763ab301cccaa6ab07dc36cc7205f3e7b0a502e417f845f71"
+  },
+  "parent_markdown_sha256": "83d43498f5bbece4c8d12cbe71a384cd919c1f49912c1233a635846d1c2c7287",
+  "point_id": "1ff749d6-6be3-5e0f-b1cf-ed0a456130cf",
+  "prov_id": "6370ee1d65a21add",
+  "section_heading": "Record identity",
+  "source_links": [
+   {
+    "context": "arXiv OAI license",
+    "relation": "license",
+    "url": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/"
+   }
+  ],
+  "source_metadata": {
+   "title": "Sparsity-certifying Graph Decompositions"
+  },
+  "source_profile": "academic_dump",
+  "source_record_id": "0704.0002",
+  "sparse_text": "Sparsity-certifying Graph Decompositions > Record identity\n\n- arXiv ID: `0704.0002`\n- OAI identifier: `oai:arXiv.org:0704.0002`\n- OAI datestamp: `2008-12-13`\n- Parent OAI page: `_dumps/arxiv/arxiv_raw/page_00209300.xml.gz`\n- Parent page SHA-256: `c49bd20dd69c178763ab301cccaa6ab07dc36cc7205f3e7b0a502e417f845f71`\n\nSparsity-certifying Graph Decompositions > Authors\n\n- Ileana Streinu\n- Louis Theran\n\nSparsity-certifying Graph Decompositions > Abstract\n\nWe describe a new algorithm, the $(k,\\ell)$-pebble game with colors, and use it obtain a characterization of the family of $(k,\\ell)$-sparse graphs and algorithmic solutions to a family of problems concerning tree decompositions of graphs. Special instances of sparse graphs appear in rigidity theory and have received increased attention in recent years. In particular, our colored pebbles generalize and strengthen the previous results of Lee and Streinu and give a new proof of the Tutte-Nash-Williams characterization of arboricity. We also present a new decomposition that certifies sparsity based on the $(k,\\ell)$-pebble game with colors. Our work also exposes connections between pebble game algorithms and previous sparse graph algorithms by Gabow, Gabow and Westermann and Hendrickson.\n\nSparsity-certifying Graph Decompositions > Metadata\n\n- OAI sets: math:math:CO, cs:cs:CG\n- Categories: math.CO cs.CG\n- Created: 2008-12-13\n- Updated: 2009-12-01\n- Comments: To appear in Graphs and Combinatorics\n- License: http://arxiv.org/licenses/nonexclusive-distrib/1.0/\n- MSC class: 05C85; 05C70; 68R10; 05B35",
+  "text": "Record identity\n- arXiv ID: `0704.0002`\n- OAI identifier: `oai:arXiv.org:0704.0002`\n- OAI datestamp: `2008-12-13`\n- Parent OAI page: `_dumps/arxiv/arxiv_raw/page_00209300.xml.gz`\n- Parent page SHA-256: `c49bd20dd69c178763ab301cccaa6ab07dc36cc7205f3e7b0a502e417f845f71`\n\nAuthors\n- Ileana Streinu\n- Louis Theran\n\nAbstract\nWe describe a new algorithm, the $(k,\\ell)$-pebble game with colors, and use it obtain a characterization of the family of $(k,\\ell)$-sparse graphs and algorithmic solutions to a family of problems concerning tree decompositions of graphs. Special instances of sparse graphs appear in rigidity theory and have received increased attention in recent years. In particular, our colored pebbles generalize and strengthen the previous results of Lee and Streinu and give a new proof of the Tutte-Nash-Williams characterization of arboricity. We also present a new decomposition that certifies sparsity based on the $(k,\\ell)$-pebble game with colors. Our work also exposes connections between pebble game algorithms and previous sparse graph algorithms by Gabow, Gabow and Westermann and Hendrickson.\n\nMetadata\n- OAI sets: math:math:CO, cs:cs:CG\n- Categories: math.CO cs.CG\n- Created: 2008-12-13\n- Updated: 2009-12-01\n- Comments: To appear in Graphs and Combinatorics\n- License: http://arxiv.org/licenses/nonexclusive-distrib/1.0/\n- MSC class: 05C85; 05C70; 68R10; 05B35",
+  "url": "https://arxiv.org/abs/0704.0002"
+ },
+ {
+  "_family": "arxiv",
+  "_row_sha256": "483452cc1be1b56538964aaf0450aed8bca7344646235efb9d88de3ba40847fd",
+  "canonical_text": "Orbits of tori extended by finite groups and their polynomial hulls: the case of connected complex orbits > Record identity\n\n- arXiv ID: `0704.1095`\n- OAI identifier: `oai:arXiv.org:0704.1095`\n- OAI datestamp: `2009-07-14`\n- Parent OAI page: `_dumps/arxiv/arxiv_raw/page_00237900.xml.gz`\n- Parent page SHA-256: `75d8c6a8712e68a28023ed6eb286b408615b3fcfd9e210eb5e236d3db48c7ac8`\n\nOrbits of tori extended by finite groups and their polynomial hulls: the case of connected complex orbits > Authors\n\n- V. M. Gichev\n\nOrbits of tori extended by finite groups and their polynomial hulls: the case of connected complex orbits > Abstract\n\nLet $V$ be a complex linear space, $G\\subset\\GL(V)$ be a compact group. We consider the problem of description of polynomial hulls $\\wh{Gv}$ for orbits $Gv$, $v\\in V$, assuming that the identity component of $G$ is a torus $T$. The paper contains a universal construction for orbits which satisfy the inclusion $Gv\\subset T^\\bbC v$ and a characterization of pairs $(G,V)$ such that it is true for a generic $v\\in V$. The hull of a finite union of $T$-orbits in $T^\\bbC v$ can be distinguished in $\\clos T^\\bbC v$ by a finite collection of inequalities of the type $\\abs{z_1}^{s_1}...\\abs{z_n}^{s_n}\\leq c$. In particular, this is true for $Gv$. If powers in the monomials are independent of $v$, $Gv\\subset T^\\bbC v$ for a generic $v$, and either the center of $G$ is finite or $T^\\bbC$ has an open orbit, then the space $V$ and the group $G$ are products of standard ones; the latter means that $G=S_nT$, where $S_n$ is the group of all permutations of coordinates and $T$ is either $\\bbT^n$ or $\\SU(n)\\cap\\bbT^n$, where $\\bbT^n$ is the torus of all diagonal matrices in $\\rU(n)$. The paper also contains a description of polynomial hulls for orbits of isotropy groups of bounded symmetric domains. This result is already known, but we formulate it in a different form and supply with a shorter proof.\n\nOrbits of tori extended by finite groups and their polynomial hulls: the case of connected complex orbits > Metadata\n\n- OAI sets: math:math:CV\n- Categories: math.CV\n- Created: 2007-04-09\n- Updated: 2009-12-01\n- Journal reference: Contemporary Mathematics, v. 455, p. 109-130 (2008)\n- Comments: 20 pages\n- MSC class: 32E20; 32M15; 32M05",
+  "chunk_ordinal": 0,
+  "document_id": "215cb91d-322d-571f-b2b8-6fe1d663bfae",
+  "lang": null,
+  "parent_identity": {
+   "member": "_dumps/arxiv/arxiv_raw/page_00237900.xml.gz",
+   "sha256": "75d8c6a8712e68a28023ed6eb286b408615b3fcfd9e210eb5e236d3db48c7ac8"
+  },
+  "parent_markdown_sha256": "02358aa6ba4c7a314b6d3d6e4fb7467ecac2ce45f15e8a0a393944ccd0fbecdd",
+  "point_id": "5523bcb4-32f2-5640-b9d5-aa4d4f3e6e91",
+  "prov_id": "6370ee1d65a21add",
+  "section_heading": "Record identity",
+  "source_links": [],
+  "source_metadata": {
+   "title": "Orbits of tori extended by finite groups and their polynomial hulls: the case of connected complex orbits"
+  },
+  "source_profile": "academic_dump",
+  "source_record_id": "0704.1095",
+  "sparse_text": "Orbits of tori extended by finite groups and their polynomial hulls: the case of connected complex orbits > Record identity\n\n- arXiv ID: `0704.1095`\n- OAI identifier: `oai:arXiv.org:0704.1095`\n- OAI datestamp: `2009-07-14`\n- Parent OAI page: `_dumps/arxiv/arxiv_raw/page_00237900.xml.gz`\n- Parent page SHA-256: `75d8c6a8712e68a28023ed6eb286b408615b3fcfd9e210eb5e236d3db48c7ac8`\n\nOrbits of tori extended by finite groups and their polynomial hulls: the case of connected complex orbits > Authors\n\n- V. M. Gichev\n\nOrbits of tori extended by finite groups and their polynomial hulls: the case of connected complex orbits > Abstract\n\nLet $V$ be a complex linear space, $G\\subset\\GL(V)$ be a compact group. We consider the problem of description of polynomial hulls $\\wh{Gv}$ for orbits $Gv$, $v\\in V$, assuming that the identity component of $G$ is a torus $T$. The paper contains a universal construction for orbits which satisfy the inclusion $Gv\\subset T^\\bbC v$ and a characterization of pairs $(G,V)$ such that it is true for a generic $v\\in V$. The hull of a finite union of $T$-orbits in $T^\\bbC v$ can be distinguished in $\\clos T^\\bbC v$ by a finite collection of inequalities of the type $\\abs{z_1}^{s_1}...\\abs{z_n}^{s_n}\\leq c$. In particular, this is true for $Gv$. If powers in the monomials are independent of $v$, $Gv\\subset T^\\bbC v$ for a generic $v$, and either the center of $G$ is finite or $T^\\bbC$ has an open orbit, then the space $V$ and the group $G$ are products of standard ones; the latter means that $G=S_nT$, where $S_n$ is the group of all permutations of coordinates and $T$ is either $\\bbT^n$ or $\\SU(n)\\cap\\bbT^n$, where $\\bbT^n$ is the torus of all diagonal matrices in $\\rU(n)$. The paper also contains a description of polynomial hulls for orbits of isotropy groups of bounded symmetric domains. This result is already known, but we formulate it in a different form and supply with a shorter proof.\n\nOrbits of tori extended by finite groups and their polynomial hulls: the case of connected complex orbits > Metadata\n\n- OAI sets: math:math:CV\n- Categories: math.CV\n- Created: 2007-04-09\n- Updated: 2009-12-01\n- Journal reference: Contemporary Mathematics, v. 455, p. 109-130 (2008)\n- Comments: 20 pages\n- MSC class: 32E20; 32M15; 32M05",
+  "text": "Record identity\n- arXiv ID: `0704.1095`\n- OAI identifier: `oai:arXiv.org:0704.1095`\n- OAI datestamp: `2009-07-14`\n- Parent OAI page: `_dumps/arxiv/arxiv_raw/page_00237900.xml.gz`\n- Parent page SHA-256: `75d8c6a8712e68a28023ed6eb286b408615b3fcfd9e210eb5e236d3db48c7ac8`\n\nAuthors\n- V. M. Gichev\n\nAbstract\nLet $V$ be a complex linear space, $G\\subset\\GL(V)$ be a compact group. We consider the problem of description of polynomial hulls $\\wh{Gv}$ for orbits $Gv$, $v\\in V$, assuming that the identity component of $G$ is a torus $T$. The paper contains a universal construction for orbits which satisfy the inclusion $Gv\\subset T^\\bbC v$ and a characterization of pairs $(G,V)$ such that it is true for a generic $v\\in V$. The hull of a finite union of $T$-orbits in $T^\\bbC v$ can be distinguished in $\\clos T^\\bbC v$ by a finite collection of inequalities of the type $\\abs{z_1}^{s_1}...\\abs{z_n}^{s_n}\\leq c$. In particular, this is true for $Gv$. If powers in the monomials are independent of $v$, $Gv\\subset T^\\bbC v$ for a generic $v$, and either the center of $G$ is finite or $T^\\bbC$ has an open orbit, then the space $V$ and the group $G$ are products of standard ones; the latter means that $G=S_nT$, where $S_n$ is the group of all permutations of coordinates and $T$ is either $\\bbT^n$ or $\\SU(n)\\cap\\bbT^n$, where $\\bbT^n$ is the torus of all diagonal matrices in $\\rU(n)$. The paper also contains a description of polynomial hulls for orbits of isotropy groups of bounded symmetric domains. This result is already known, but we formulate it in a different form and supply with a shorter proof.\n\nMetadata\n- OAI sets: math:math:CV\n- Categories: math.CV\n- Created: 2007-04-09\n- Updated: 2009-12-01\n- Journal reference: Contemporary Mathematics, v. 455, p. 109-130 (2008)\n- Comments: 20 pages\n- MSC class: 32E20; 32M15; 32M05",
+  "url": "https://arxiv.org/abs/0704.1095"
+ },
+ {
+  "_family": "fedlex",
+  "_row_sha256": "c63a082290ef80d8ddbd0954422d456e75d2cae50cbb0f9956d6e6d92b173b34",
+  "article_anchor": "art_1",
+  "baseline_production_point_ids": [
+   "5ab4ae5a-a271-5be2-8d4b-91735fc149b6"
+  ],
+  "canonical_text": "Bundesgesetz über Schuldbetreibung und Konkurs — Art. 1 > Official source identity\n\n- ELI: `cc/11/529_488_529`\n- Language: `de`\n- Consolidated source version: `20260101`\n- XML SHA-256: `bd2c1beda667d9269a8a1153f58dac690812654c50f3e070b5b349dbc3a9151f`\n- [Open official Fedlex article](https://www.fedlex.admin.ch/eli/cc/11/529_488_529/de#art_1)\n\nBundesgesetz über Schuldbetreibung und Konkurs — Art. 1 > Art. 1 {#art_1}\n\nArt. 1\n\nBundesgesetz über Schuldbetreibung und Konkurs — Art. 1 > Art. 1 {#art_1} > paragraph {#art_1/para_1}\n\n1 Das Gebiet jedes Kantons bildet für die Durchführung der Schuldbetreibungen und der Konkurse einen oder mehrere Kreise.\n\nBundesgesetz über Schuldbetreibung und Konkurs — Art. 1 > Art. 1 {#art_1} > paragraph {#art_1/para_2}\n\n2 Die Kantone bestimmen die Zahl und die Grösse dieser Kreise.\n\nBundesgesetz über Schuldbetreibung und Konkurs — Art. 1 > Art. 1 {#art_1} > paragraph {#art_1/para_3}\n\n3 Ein Konkurskreis kann mehrere Betreibungskreise umfassen.",
+  "chunk_ordinal": 0,
+  "document_id": "511f6a92-15c2-5fee-a8b1-593169524ec0",
+  "jurisdiction": "CH",
+  "lang": "de",
+  "parent_identity": {
+   "article_anchor": "art_1",
+   "eli": "cc/11/529_488_529",
+   "lang": "de",
+   "source_version": "20260101",
+   "source_version_url": "https://fedlex.data.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/11/529_488_529/20260101/de/xml/fedlex-data-admin-ch-eli-cc-11-529_488_529-20260101-de-xml.xml",
+   "xml": {
+    "bytes": 697115,
+    "sha256": "bd2c1beda667d9269a8a1153f58dac690812654c50f3e070b5b349dbc3a9151f",
+    "uri": "artifact://l0/wave=fedlex_task370_pinned/objects/cc_11_529_488_529/20260101.de.xml"
+   }
+  },
+  "parent_markdown_sha256": "d6f6bfa081835723cd3ee53b9c86cf6c85357e9aea1d3132ff5e6e219f48fcea",
+  "point_id": "3ee21aa2-90f7-5d0d-a923-d2b25d117c60",
+  "prov_id": "5ce4d693be8e84d3",
+  "section_heading": "Official source identity",
+  "source_links": [
+   {
+    "article_anchor": "art_1",
+    "context": "Official Fedlex article",
+    "relation": "official-source-self",
+    "source_link_ordinal": 1,
+    "target": "https://www.fedlex.admin.ch/eli/cc/11/529_488_529/de#art_1"
+   }
+  ],
+  "source_metadata": {
+   "article_anchor": "art_1",
+   "baseline_production_point_ids": [
+    "5ab4ae5a-a271-5be2-8d4b-91735fc149b6"
+   ],
+   "source_version": {
+    "eli": "cc/11/529_488_529",
+    "lang": "de",
+    "source_version_url": "https://fedlex.data.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/11/529_488_529/20260101/de/xml/fedlex-data-admin-ch-eli-cc-11-529_488_529-20260101-de-xml.xml",
+    "version": "20260101"
+   },
+   "status": "current",
+   "title": "Bundesgesetz über Schuldbetreibung und Konkurs — Art. 1"
+  },
+  "source_profile": "anchored_law",
+  "source_record_id": "cc/11/529_488_529|de|art_1",
+  "sparse_text": "Bundesgesetz über Schuldbetreibung und Konkurs — Art. 1 > Official source identity\n\n- ELI: `cc/11/529_488_529`\n- Language: `de`\n- Consolidated source version: `20260101`\n- XML SHA-256: `bd2c1beda667d9269a8a1153f58dac690812654c50f3e070b5b349dbc3a9151f`\n- [Open official Fedlex article](https://www.fedlex.admin.ch/eli/cc/11/529_488_529/de#art_1)\n\nBundesgesetz über Schuldbetreibung und Konkurs — Art. 1 > Art. 1 {#art_1}\n\nArt. 1\n\nBundesgesetz über Schuldbetreibung und Konkurs — Art. 1 > Art. 1 {#art_1} > paragraph {#art_1/para_1}\n\n1 Das Gebiet jedes Kantons bildet für die Durchführung der Schuldbetreibungen und der Konkurse einen oder mehrere Kreise.\n\nBundesgesetz über Schuldbetreibung und Konkurs — Art. 1 > Art. 1 {#art_1} > paragraph {#art_1/para_2}\n\n2 Die Kantone bestimmen die Zahl und die Grösse dieser Kreise.\n\nBundesgesetz über Schuldbetreibung und Konkurs — Art. 1 > Art. 1 {#art_1} > paragraph {#art_1/para_3}\n\n3 Ein Konkurskreis kann mehrere Betreibungskreise umfassen.",
+  "text": "Official source identity\n- ELI: `cc/11/529_488_529`\n- Language: `de`\n- Consolidated source version: `20260101`\n- XML SHA-256: `bd2c1beda667d9269a8a1153f58dac690812654c50f3e070b5b349dbc3a9151f`\n- [Open official Fedlex article](https://www.fedlex.admin.ch/eli/cc/11/529_488_529/de#art_1)\n\nArt. 1 {#art_1}\nArt. 1\n\nparagraph {#art_1/para_1}\n1 Das Gebiet jedes Kantons bildet für die Durchführung der Schuldbetreibungen und der Konkurse einen oder mehrere Kreise.\n\nparagraph {#art_1/para_2}\n2 Die Kantone bestimmen die Zahl und die Grösse dieser Kreise.\n\nparagraph {#art_1/para_3}\n3 Ein Konkurskreis kann mehrere Betreibungskreise umfassen.",
+  "url": "https://www.fedlex.admin.ch/eli/cc/11/529_488_529/de#art_1"
+ },
+ {
+  "_family": "fedlex",
+  "_row_sha256": "88952ba136b5ea7b8594d8468036d498b25de8bc52bbd730b9856338bc65bc38",
+  "article_anchor": "disp_u1/art_1",
+  "baseline_production_point_ids": [
+   "ced52d0b-8093-5494-9b04-9865b8d1626c"
+  ],
+  "canonical_text": "Bundesgesetz über Schuldbetreibung und Konkurs — Art. 1 > Official source identity\n\n- ELI: `cc/11/529_488_529`\n- Language: `de`\n- Consolidated source version: `20260101`\n- XML SHA-256: `bd2c1beda667d9269a8a1153f58dac690812654c50f3e070b5b349dbc3a9151f`\n- [Open official Fedlex article](https://www.fedlex.admin.ch/eli/cc/11/529_488_529/de#disp_u1/art_1)\n\nBundesgesetz über Schuldbetreibung und Konkurs — Art. 1 > Art. 1 {#disp_u1/art_1}\n\nArt. 1\n\nBundesgesetz über Schuldbetreibung und Konkurs — Art. 1 > Art. 1 {#disp_u1/art_1} > paragraph {#disp_u1/art_1/para}\n\nDer Bundesrat, das Bundesgericht und die Kantone erlassen die Ausführungsbestimmungen.",
+  "chunk_ordinal": 0,
+  "document_id": "e5e5c145-c3dd-58eb-90eb-866c98af6bda",
+  "jurisdiction": "CH",
+  "lang": "de",
+  "parent_identity": {
+   "article_anchor": "disp_u1/art_1",
+   "eli": "cc/11/529_488_529",
+   "lang": "de",
+   "source_version": "20260101",
+   "source_version_url": "https://fedlex.data.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/11/529_488_529/20260101/de/xml/fedlex-data-admin-ch-eli-cc-11-529_488_529-20260101-de-xml.xml",
+   "xml": {
+    "bytes": 697115,
+    "sha256": "bd2c1beda667d9269a8a1153f58dac690812654c50f3e070b5b349dbc3a9151f",
+    "uri": "artifact://l0/wave=fedlex_task370_pinned/objects/cc_11_529_488_529/20260101.de.xml"
+   }
+  },
+  "parent_markdown_sha256": "bb269870a312ca71fa59ad01ed45a298ea47e98930ac246ebda8c419cad960ba",
+  "point_id": "ddc503ef-b9f9-5db0-9979-65a15b7bc501",
+  "prov_id": "5ce4d693be8e84d3",
+  "section_heading": "Official source identity",
+  "source_links": [
+   {
+    "article_anchor": "disp_u1/art_1",
+    "context": "Official Fedlex article",
+    "relation": "official-source-self",
+    "source_link_ordinal": 1,
+    "target": "https://www.fedlex.admin.ch/eli/cc/11/529_488_529/de#disp_u1/art_1"
+   }
+  ],
+  "source_metadata": {
+   "article_anchor": "disp_u1/art_1",
+   "baseline_production_point_ids": [
+    "ced52d0b-8093-5494-9b04-9865b8d1626c"
+   ],
+   "source_version": {
+    "eli": "cc/11/529_488_529",
+    "lang": "de",
+    "source_version_url": "https://fedlex.data.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/11/529_488_529/20260101/de/xml/fedlex-data-admin-ch-eli-cc-11-529_488_529-20260101-de-xml.xml",
+    "version": "20260101"
+   },
+   "status": "current",
+   "title": "Bundesgesetz über Schuldbetreibung und Konkurs — Art. 1"
+  },
+  "source_profile": "anchored_law",
+  "source_record_id": "cc/11/529_488_529|de|disp_u1/art_1",
+  "sparse_text": "Bundesgesetz über Schuldbetreibung und Konkurs — Art. 1 > Official source identity\n\n- ELI: `cc/11/529_488_529`\n- Language: `de`\n- Consolidated source version: `20260101`\n- XML SHA-256: `bd2c1beda667d9269a8a1153f58dac690812654c50f3e070b5b349dbc3a9151f`\n- [Open official Fedlex article](https://www.fedlex.admin.ch/eli/cc/11/529_488_529/de#disp_u1/art_1)\n\nBundesgesetz über Schuldbetreibung und Konkurs — Art. 1 > Art. 1 {#disp_u1/art_1}\n\nArt. 1\n\nBundesgesetz über Schuldbetreibung und Konkurs — Art. 1 > Art. 1 {#disp_u1/art_1} > paragraph {#disp_u1/art_1/para}\n\nDer Bundesrat, das Bundesgericht und die Kantone erlassen die Ausführungsbestimmungen.",
+  "text": "Official source identity\n- ELI: `cc/11/529_488_529`\n- Language: `de`\n- Consolidated source version: `20260101`\n- XML SHA-256: `bd2c1beda667d9269a8a1153f58dac690812654c50f3e070b5b349dbc3a9151f`\n- [Open official Fedlex article](https://www.fedlex.admin.ch/eli/cc/11/529_488_529/de#disp_u1/art_1)\n\nArt. 1 {#disp_u1/art_1}\nArt. 1\n\nparagraph {#disp_u1/art_1/para}\nDer Bundesrat, das Bundesgericht und die Kantone erlassen die Ausführungsbestimmungen.",
+  "url": "https://www.fedlex.admin.ch/eli/cc/11/529_488_529/de#disp_u1/art_1"
+ }
+]

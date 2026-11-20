@@ -1,0 +1,32 @@
+[
+  {
+    "domain": "www.swissinfo.ch",
+    "wave": "news",
+    "class": "news",
+    "cap": 40000,
+    "include": [],
+    "sitemaps": [
+      "https://www.swissinfo.ch/eng/sitemap.xml",
+      "https://www.swissinfo.ch/eng/sitemap-2025.xml",
+      "https://www.swissinfo.ch/ger/sitemap.xml",
+      "https://www.swissinfo.ch/ger/sitemap-2025.xml",
+      "https://www.swissinfo.ch/fre/sitemap.xml",
+      "https://www.swissinfo.ch/fre/sitemap-2025.xml",
+      "https://www.swissinfo.ch/ita/sitemap.xml",
+      "https://www.swissinfo.ch/ita/sitemap-2025.xml"
+    ]
+  },
+  {
+    "domain": "www.srf.ch", "wave": "news", "class": "news", "cap": 8000,
+    "include": [],
+    "sitemaps": ["https://www.srf.ch/new-news-sitemap", "https://www.srf.ch/sitemap/index/srf"]
+  },
+  {
+    "domain": "www.rts.ch", "wave": "news", "class": "news", "cap": 8000,
+    "include": [], "sitemaps": ["https://www.rts.ch/sitemaps/pages.xml"]
+  },
+  {
+    "domain": "www.rsi.ch", "wave": "news", "class": "news", "cap": 8000,
+    "include": [], "sitemaps": ["https://www.rsi.ch/generic-static/sitemap/sitemapindex.xml"]
+  }
+]

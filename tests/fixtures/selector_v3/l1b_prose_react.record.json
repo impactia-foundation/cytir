@@ -1,0 +1,29 @@
+{
+ "anchor": null,
+ "consent_checked_at": "2026-07-08T06:58:14Z",
+ "consent_search_ok": true,
+ "consent_train_ok": true,
+ "country": null,
+ "crawl_id": null,
+ "disc_class": null,
+ "domain": "react.dev",
+ "extra": null,
+ "extraction_version": "trafilatura-2.1.0",
+ "fetched_at": null,
+ "host": "react.dev",
+ "l1b": {
+  "chain_status": "chained",
+  "chainer": "task-424 w0_chain_experiment.py chain_chunks v2",
+  "producer": "task-427 materialize_l1b.py v1",
+  "reconstructed_from_chunks": 8
+ },
+ "lang": "en",
+ "last_seen": "2026-07-01",
+ "provenance": "tech_gapfill_react_rust",
+ "source_type": "docs",
+ "tier": "B",
+ "title": "React Versions",
+ "trust_tier": 0.85,
+ "url": "https://react.dev/versions",
+ "wave": "tech_gapfill_react_rust"
+}

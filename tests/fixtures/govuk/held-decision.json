@@ -1,0 +1,77 @@
+{
+ "base_path": "/government/publications/teacher-misconduct-panel-outcome-mr-thomas-wilson",
+ "title": "Teacher misconduct panel outcome:  Mr Thomas Wilson",
+ "description": "Professional conduct panel outcome, including decision and reasons.",
+ "document_type": "decision",
+ "schema_name": "publication",
+ "locale": "en",
+ "public_updated_at": "2026-08-03T11:45:17+01:00",
+ "details": {
+  "attachments": [
+   {
+    "accessible": true,
+    "alternative_format_contact_email": "icat.tra@education.gov.uk",
+    "assets": [
+     {
+      "asset_manager_id": "6a706f61862aaf18d9c62b4f",
+      "filename": "TRATMPO_Thomas_Wilson_conduct__panel_outcome.pdf"
+     }
+    ],
+    "attachment_type": "file",
+    "command_paper_number": "",
+    "content_type": "application/pdf",
+    "file_size": 330840,
+    "filename": "TRATMPO_Thomas_Wilson_conduct__panel_outcome.pdf",
+    "hoc_paper_number": "",
+    "id": "9431966",
+    "isbn": "",
+    "number_of_pages": 35,
+    "title": "Prohibition order: Mr Thomas Wilson",
+    "unique_reference": "",
+    "unnumbered_command_paper": false,
+    "unnumbered_hoc_paper": false,
+    "url": "https://assets.publishing.service.gov.uk/media/6a706f61862aaf18d9c62b4f/TRATMPO_Thomas_Wilson_conduct__panel_outcome.pdf"
+   }
+  ],
+  "body": "<div class=\"govspeak\"><p>The Secretary of State does not make these decisions themselves. They are made by a senior official on the recommendation of an independent panel.</p>\n\n<p>Teacher’s name: Mr Thomas Wilson</p>\n\n<p>Teacher reference number: 0857813</p>\n\n<p>Teacher’s date of birth: 15 June 1988</p>\n\n<p>Location teacher worked: Manchester, North west England</p>\n\n<p>Date of professional conduct panel: 13 to 17 July 2026</p>\n\n<p>Outcome type: Prohibition order</p>\n\n<p>Notice is hereby given that, in accordance with The Teachers’ Disciplinary (England) Regulations 2012, a professional conduct panel was convened to consider the case of Mr Thomas Wilson formerly employed in Manchester, Northwest England.</p>\n\n<div class=\"contact contact\" id=\"contact_1635\">\n    <p class=\"govuk-body\">Teacher misconduct</p>\n\n    <p class=\"govuk-body govuk-!-margin-bottom-4\">\n      Ground Floor, South\n<br>Cheylesmore House\n<br>5 Quinton Road<br>Coventry<br>CV1 2WT\n    </p>\n\n    <div>\n        <p class=\"govuk-body govuk-!-margin-bottom-4\">\n          Email <a class=\"govuk-link\" href=\"mailto:TRA.Casework@education.gov.uk\">TRA.Casework@education.gov.uk</a>\n        </p>\n\n\n    </div>\n\n    <p class=\"govuk-body\">Information about regulating the teaching profession and the process for dealing with serious teacher misconduct.</p>\n\n</div>\n</div>",
+  "change_history": [
+   {
+    "note": "First published.",
+    "public_timestamp": "2026-08-03T10:45:17Z"
+   }
+  ],
+  "document_type_label": "Decision",
+  "emphasised_organisations": [
+   "2344a5fc-281e-4f49-aaac-3f3a0755638b"
+  ],
+  "featured_attachments": [
+   "9431966"
+  ],
+  "first_public_at": "2026-08-03T11:45:17.000+01:00",
+  "national_applicability": {
+   "england": {
+    "applicable": true,
+    "label": "England"
+   },
+   "northern_ireland": {
+    "alternative_url": "",
+    "applicable": false,
+    "label": "Northern Ireland"
+   },
+   "scotland": {
+    "alternative_url": "",
+    "applicable": false,
+    "label": "Scotland"
+   },
+   "wales": {
+    "alternative_url": "",
+    "applicable": false,
+    "label": "Wales"
+   }
+  },
+  "political": false,
+  "tags": {
+   "browse_pages": []
+  }
+ }
+}

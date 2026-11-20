@@ -1,0 +1,15 @@
+{
+  "body": {
+    "bytes": 97,
+    "sha256": "64cd9c9f42a7331749e3cdc3043772abb0227701fd8b0dca73772e2a8c6fdd8d"
+  },
+  "fetched_at": "2026-08-15T00:00:00Z",
+  "final_url": "https://fixture-host/bulk.zip",
+  "http_status": 200,
+  "requested_url": "https://fixture-host/bulk.zip",
+  "response_headers": {
+    "bytes": 45,
+    "sha256": "5e93b4d79dd9cd9a284ae10d7d4de3cd14ff4f347c7d0c3b7eaa3ca973f972d6"
+  },
+  "schema": "aw.http-fetch-metadata.v1"
+}

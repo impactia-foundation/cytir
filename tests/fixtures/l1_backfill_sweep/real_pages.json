@@ -1,0 +1,373 @@
+{
+ "provenance": {
+  "captured": "2026-09-29, task 653 (build box, read-only)",
+  "pages": "url + text: <work disk>/aw/work/task653/batch-00001-l1-source/pages.jsonl (the persisted L1 of real admitted pages); census_row: task 579's deficit-pages.v1.tsv.gz, verbatim; old_rows: the twin's aw_e8 rows for the url (id + curation payload subset). `provenance` is deliberately NOT carried: the live rows now carry l1_backfill_refetch (batch 00001's twin leg landed, task 673), which is the state these tests must model as NOT yet backfilled.",
+  "consent": "the task 642 consent cache record for the host, verbatim minus the raw robots body",
+  "html_page": "L0 store wave=cov351_docsites shard-0000 (pack_fetch.py v1, task 195); learn.microsoft.com docs content is CC BY 4.0"
+ },
+ "pages": [
+  {
+   "url": "https://code.claude.com/docs/fr/agents",
+   "text": "Dans chaque approche, les travailleurs sont des sessions Claude. Pour impliquer un outil différent, exposez-le à Claude en tant que serveur MCP.\nTrois autres outils soutiennent ce travail sans être une façon d’exécuter des agents eux-mêmes :\n- Les worktrees donnent à chaque session un checkout git séparé, de sorte que les sessions parallèles ne modifient jamais les mêmes fichiers. Utilisez-les pour les sessions que vous exécutez vous-même. Une session que vous dispatchez depuis la vue agent se déplace dans son propre worktree avant qu’elle ne modifie les fichiers, et les sous-agents que vous générez peuvent chacun en obtenir un aussi.\n- La messagerie inter-sessions permet à Claude de lister et de communiquer avec vos autres sessions Claude Code sur cette machine, sur une autre machine ou dans le cloud, de sorte que les sessions que vous exécutez vous-même peuvent transmettre les résultats et l’état entre elles.\n- /batchest une compétence qui a Claude diviser un grand changement en 5 à 30 sous-agents isolés par worktree. C’est une utilisation packagée de sous-agents et de worktrees, pas un style de coordination séparé.\n- Une commande bash en arrière-plan exécute une commande shell sans bloquer la conversation. Elle ne génère pas un agent.\n- Un sous-agent forké est un sous-agent qui hérite de votre contexte de conversation complet au lieu de commencer à zéro. C’est une façon de générer un sous-agent, pas une surface séparée. Démarrez-en un avec /subtask. Claude en génère également un lui-même où le mode fork est activé. Pour copier la session entière dans une nouvelle session en arrière-plan qui s’exécute à côté, utilisez/fork. Avec la vue agent désactivée, la commande de sous-agent forké est/forkà la place et/subtaskn’est pas disponible.\n- Une routine exécute une session selon un calendrier dans le cloud, pas en parallèle sur votre machine.\nL’exécution de plusieurs sessions ou sous-agents à la fois multiplie l’utilisation des tokens. Consultez Coûts pour les détails d’utilisation et de limite de débit.\nChoisir une approche\nLa bonne approche dépend de qui coordonne le travail, si les travailleurs ont besoin de communiquer et s’ils modifient les mêmes fichiers :- Qui coordonne le travail ?\n- Claude délègue et collecte les résultats dans une conversation : sous-agents\n- Vous déléguez des tâches indépendantes et les revérifiez plus tard : vue agent\n- Claude planifie, assigne et supervise un groupe de travailleurs : équipes d’agents, expérimentales et désactivées par défaut\n- Un script assure la coordination au lieu du jugement tour par tour de Claude : workflows dynamiques. Voir comment les workflows se comparent aux sous-agents et aux skills\n \n- Les travailleurs ont-ils besoin de se parler ? Claude peut transmettre les résultats avec la messagerie inter-sessions entre les sessions que vous exécutez vous-même, y compris les sessions que vous distribuez à partir de la vue agent. Les sous-agents rapportent les résultats à la conversation qui les a générés, et les sessions de vue agent rapportent uniquement à vous. Les coéquipiers dans une équipe d’agents s’envoient des messages directement et, quand ils disposent des outils Task, partagent une liste de tâches.\n- Les tâches touchent-elles les mêmes fichiers ? Isolez le travail avec worktrees. Les sous-agents et les sessions que vous exécutez vous-même peuvent chacun utiliser un worktree séparé. Les équipes d’agents n’isolent pas les coéquipiers dans les worktrees, donc partitionnez le travail pour que chaque coéquipier possède un ensemble différent de fichiers.\nVérifier le travail en cours\nLa commande pour vérifier le travail en cours dépend de l’approche que vous avez utilisée :- Pour les sessions en arrière-plan, claude agentsouvre la vue agent : un écran montrant chaque session, son état et lesquelles ont besoin de votre entrée.\n- Pour les sous-agents dans la session actuelle, les sous-agents nommés en arrière-plan apparaissent dans la saisie semi-automatique @-mention avec leur statut. À partir de la v2.1.198, /agentsn’ouvre plus un panneau ; il affiche un avis pointant vers les emplacements des fichiers de sous-agents. Pour créer et modifier des sous-agents personnalisés, demandez à Claude ou modifiez les fichiers directement. Malgré le nom similaire,/agentsest séparé declaude agents.\n- Pour tout ce qui s’exécute en arrière-plan de la session actuelle, /tasksliste chaque élément et vous permet de le vérifier, de vous y attacher ou de l’arrêter. La liste inclut également les sous-agents qui ont terminé.\n- Pour les workflows dynamiques, /workflowsliste les exécutions en cours et terminées, la phase dans laquelle chacune se trouve et le nombre d’agents qui ont terminé.\nEn savoir plus\nChaque guide ci-dessous couvre la configuration et la mise en place pour une approche :- Créer des sous-agents personnalisés : définissez des spécialistes réutilisables et contrôlez les outils qu’ils peuvent utiliser.\n- Gérer les agents avec la vue agent : dispatchez les sessions, regardez leur état et attachez-vous quand l’une d’elles a besoin de vous.\n- Orchestrer les équipes d’agents : configurez un responsable et des coéquipiers, assignez des tâches et examinez leur travail.\n- Orchestrer les workflows dynamiques : exécutez un workflow groupé ou laissez Claude en écrire un qui exécute de nombreux sous-agents et vérifie leurs résultats les uns par rapport aux autres.\n- Exécuter les sessions parallèles avec les worktrees : démarrez Claude dans un checkout isolé, contrôlez ce qui est copié et nettoyez après.",
+   "census_row": {
+    "url": "https://code.claude.com/docs/fr/agents",
+    "prod_rows": "8",
+    "cand_rows": "4",
+    "cand_ep1": "0",
+    "cand_epmax": "5",
+    "prod_words": "1200",
+    "prod_words_measured": "0",
+    "cand_words_est": "768",
+    "retained_ub": "0.64",
+    "class": "RE-CHUNKED-PARTIAL"
+   },
+   "old_rows": [
+    {
+     "id": "1ae75929-22ad-5305-986a-41ab448160fb",
+     "payload": {
+      "title": "Exécuter des agents en parallèle - Claude Code Docs",
+      "lang": "fr",
+      "domain": "code.claude.com",
+      "source_type": "docs",
+      "trust_tier": 0.75,
+      "tier": "B",
+      "url": "https://code.claude.com/docs/fr/agents",
+      "snippet": "La bonne approche dépend de qui coordonne le travail, si les travailleurs ont besoin de communiquer et s’ils modifient les mêmes fichiers :- Qui coordonne…"
+     }
+    },
+    {
+     "id": "27f4f23a-d39d-54df-af2c-8fbac230b9e2",
+     "payload": {
+      "title": "Exécuter des agents en parallèle - Claude Code Docs",
+      "lang": "fr",
+      "domain": "code.claude.com",
+      "source_type": "docs",
+      "trust_tier": 0.75,
+      "tier": "B",
+      "url": "https://code.claude.com/docs/fr/agents",
+      "snippet": "- La messagerie inter-sessions permet à Claude de lister et de communiquer avec vos autres sessions Claude Code sur cette machine, sur une autre machine…"
+     }
+    },
+    {
+     "id": "4ad3dca5-778c-50f8-8dae-4fbbfe89e28c",
+     "payload": {
+      "title": "Exécuter des agents en parallèle - Claude Code Docs",
+      "lang": "fr",
+      "domain": "code.claude.com",
+      "source_type": "docs",
+      "trust_tier": 0.75,
+      "tier": "B",
+      "url": "https://code.claude.com/docs/fr/agents",
+      "snippet": "- Claude planifie, assigne et supervise un groupe de travailleurs : équipes d’agents, expérimentales et désactivées par défaut - Un script assure la coordination au…"
+     }
+    },
+    {
+     "id": "614d2996-0f98-5e88-a311-047d8662a1ba",
+     "payload": {
+      "title": "Exécuter des agents en parallèle - Claude Code Docs",
+      "lang": "fr",
+      "domain": "code.claude.com",
+      "source_type": "docs",
+      "trust_tier": 0.75,
+      "tier": "B",
+      "url": "https://code.claude.com/docs/fr/agents",
+      "snippet": "La commande pour vérifier le travail en cours dépend de l’approche que vous avez utilisée :- Pour les sessions en arrière-plan, claude agentsouvre la vue…"
+     }
+    },
+    {
+     "id": "664af500-fcb5-5bbf-b18d-cab40aceaa8b",
+     "payload": {
+      "title": "Exécuter des agents en parallèle - Claude Code Docs",
+      "lang": "fr",
+      "domain": "code.claude.com",
+      "source_type": "docs",
+      "trust_tier": 0.75,
+      "tier": "B",
+      "url": "https://code.claude.com/docs/fr/agents",
+      "snippet": "- Les travailleurs ont-ils besoin de se parler ? Claude peut transmettre les résultats avec la messagerie inter-sessions entre les sessions que vous exécutez vous-même,…"
+     }
+    },
+    {
+     "id": "85a41333-532e-5d40-bfa7-199dc928e19c",
+     "payload": {
+      "title": "Exécuter des agents en parallèle - Claude Code Docs",
+      "lang": "fr",
+      "domain": "code.claude.com",
+      "source_type": "docs",
+      "trust_tier": 0.75,
+      "tier": "B",
+      "url": "https://code.claude.com/docs/fr/agents",
+      "snippet": "- Un sous-agent forké est un sous-agent qui hérite de votre contexte de conversation complet au lieu de commencer à zéro."
+     }
+    },
+    {
+     "id": "a214e246-0e0d-5e03-ad32-5d17e7a11cb8",
+     "payload": {
+      "title": "Exécuter des agents en parallèle - Claude Code Docs",
+      "lang": "fr",
+      "domain": "code.claude.com",
+      "source_type": "docs",
+      "trust_tier": 0.75,
+      "tier": "B",
+      "url": "https://code.claude.com/docs/fr/agents",
+      "snippet": "Dans chaque approche, les travailleurs sont des sessions Claude. Pour impliquer un outil différent, exposez-le à Claude en tant que serveur MCP."
+     }
+    },
+    {
+     "id": "d887867f-35d4-594e-9686-1fa845b0cb5c",
+     "payload": {
+      "title": "Exécuter des agents en parallèle - Claude Code Docs",
+      "lang": "fr",
+      "domain": "code.claude.com",
+      "source_type": "docs",
+      "trust_tier": 0.75,
+      "tier": "B",
+      "url": "https://code.claude.com/docs/fr/agents",
+      "snippet": "- Pour tout ce qui s’exécute en arrière-plan de la session actuelle, /tasksliste chaque élément et vous permet de le vérifier, de vous y attacher…"
+     }
+    },
+    {
+     "id": "dd5f7f78-5983-5301-8c50-be57d1b2b321",
+     "payload": {
+      "title": "Exécuter des agents en parallèle - Claude Code Docs",
+      "lang": "fr",
+      "domain": "code.claude.com",
+      "source_type": "docs",
+      "trust_tier": 0.75,
+      "tier": "B",
+      "url": "https://code.claude.com/docs/fr/agents",
+      "snippet": "- Orchestrer les workflows dynamiques : exécutez un workflow groupé ou laissez Claude en écrire un qui exécute de nombreux sous-agents et vérifie leurs résultats…"
+     }
+    }
+   ]
+  },
+  {
+   "url": "https://code.claude.com/docs/fr/zero-data-retention",
+   "text": "ZDR n’est pas inclus dans le plan standard Claude for Enterprise et ne peut pas être activé à partir de vos paramètres d’administration. Il est disponible pour les comptes qualifiés et nécessite une activation distincte par Anthropic. Si votre organisation nécessite ZDR, contactez l’équipe commerciale ou votre équipe de compte Anthropic pour confirmer l’admissibilité.\n- Contrôles des coûts par utilisateur\n- Tableau de bord Analytics\n- Paramètres gérés par le serveur\n- Journaux d’audit\nPortée de ZDR\nZDR couvre l’inférence Claude Code sur Claude for Enterprise.Acheminer le trafic Claude Code vers votre organisation ZDR\nZDR s’applique aux demandes qui s’authentifient dans une organisation activée pour ZDR. Si un développeur se connecte à Claude Code avec un compte personnel ou avec une clé API d’une organisation différente, ces sessions ne sont pas couvertes. Pour exiger que les connexions claude.ai des développeurs appartiennent à votre organisation ZDR, déployez les paramètres gérésforceLoginMethod et forceLoginOrgUUID ; voir Restreindre la connexion à votre organisation, qui explique également comment ces clés traitent les connexions Claude Console.\nCe que ZDR couvre\nZDR couvre les appels d’inférence du modèle effectués via Claude Code sur Claude for Enterprise. Lorsque vous utilisez Claude Code dans votre terminal, les invites que vous envoyez et les réponses que Claude génère ne sont pas conservées par Anthropic. Cela s’applique à chaque modèle disponible pour votre organisation ZDR. Certains modèles nécessitent la conservation des données par défaut ; voir Disponibilité des modèles sous ZDR.Ce que ZDR ne couvre pas\nZDR ne s’étend pas aux éléments suivants, même pour les organisations avec ZDR activée. Ces fonctionnalités suivent les politiques standard de conservation des données :Fonctionnalités désactivées sous ZDR\nLorsque ZDR est activée pour une organisation Claude Code sur Claude for Enterprise, certaines fonctionnalités qui nécessitent de stocker les invites ou les complétions sont automatiquement désactivées au niveau du backend :\nCes fonctionnalités sont bloquées au niveau du backend quel que soit l’affichage côté client. Si vous voyez une fonctionnalité désactivée dans le terminal Claude Code au démarrage, toute tentative d’utilisation retourne une erreur indiquant que les politiques de l’organisation ne permettent pas cette action.\nLes futures fonctionnalités peuvent également être désactivées si elles nécessitent de stocker les invites ou les complétions.\nDisponibilité des modèles sous ZDR\nClaude Fable 5.1 et Fable 5 sont des modèles couverts qui nécessitent la rétention de données par défaut, et la possibilité pour une organisation ou un espace de travail ZDR de les utiliser est régie par les politiques des modèles couverts plutôt que par Claude Code. Lorsque votre organisation ne peut pas les utiliser, les modèles sont soit absents du sélecteur/model, soit affichés comme désactivés, et le serveur rejette les demandes pour ceux-ci quel que soit la configuration du client.\nLes autres modèles restent disponibles sous ZDR. Les modèles Fable ne sont pas le modèle par défaut, et l’alias best, qui se résout en dernier modèle Fable où il est disponible, se résout en Opus pour les organisations où il ne l’est pas.",
+   "census_row": {
+    "url": "https://code.claude.com/docs/fr/zero-data-retention",
+    "prod_rows": "4",
+    "cand_rows": "3",
+    "cand_ep1": "0",
+    "cand_epmax": "5",
+    "prod_words": "600",
+    "prod_words_measured": "0",
+    "cand_words_est": "576",
+    "retained_ub": "0.96",
+    "class": "RE-CHUNKED-FULL"
+   },
+   "old_rows": [
+    {
+     "id": "437fe2be-147b-5f6f-9c26-1e6355dd95c0",
+     "payload": {
+      "title": "Zéro conservation des données - Claude Code Docs",
+      "lang": "fr",
+      "domain": "code.claude.com",
+      "source_type": "docs",
+      "trust_tier": 0.75,
+      "tier": "B",
+      "url": "https://code.claude.com/docs/fr/zero-data-retention",
+      "snippet": "ZDR couvre les appels d’inférence du modèle effectués via Claude Code sur Claude for Enterprise."
+     }
+    },
+    {
+     "id": "56a4a9b0-7d1b-58fc-8e0e-85c56f5f835f",
+     "payload": {
+      "title": "Zéro conservation des données - Claude Code Docs",
+      "lang": "fr",
+      "domain": "code.claude.com",
+      "source_type": "docs",
+      "trust_tier": 0.75,
+      "tier": "B",
+      "url": "https://code.claude.com/docs/fr/zero-data-retention",
+      "snippet": "Ces fonctionnalités sont bloquées au niveau du backend quel que soit l’affichage côté client."
+     }
+    },
+    {
+     "id": "5fbd1e5f-f576-5487-9f87-81b0186ca672",
+     "payload": {
+      "title": "Zéro conservation des données - Claude Code Docs",
+      "lang": "fr",
+      "domain": "code.claude.com",
+      "source_type": "docs",
+      "trust_tier": 0.75,
+      "tier": "B",
+      "url": "https://code.claude.com/docs/fr/zero-data-retention",
+      "snippet": "Claude Fable 5.1 et Fable 5 sont des modèles couverts qui nécessitent la rétention de données par défaut, et la possibilité pour une organisation ou…"
+     }
+    },
+    {
+     "id": "8e609330-4025-523e-ad0b-bbec360d2324",
+     "payload": {
+      "title": "Zéro conservation des données - Claude Code Docs",
+      "lang": "fr",
+      "domain": "code.claude.com",
+      "source_type": "docs",
+      "trust_tier": 0.75,
+      "tier": "B",
+      "url": "https://code.claude.com/docs/fr/zero-data-retention",
+      "snippet": "ZDR s’applique aux demandes qui s’authentifient dans une organisation activée pour ZDR."
+     }
+    },
+    {
+     "id": "af0a5dc2-ad6e-5393-9feb-36eb07407e16",
+     "payload": {
+      "title": "Zéro conservation des données - Claude Code Docs",
+      "lang": "fr",
+      "domain": "code.claude.com",
+      "source_type": "docs",
+      "trust_tier": 0.75,
+      "tier": "B",
+      "url": "https://code.claude.com/docs/fr/zero-data-retention",
+      "snippet": "ZDR n’est pas inclus dans le plan standard Claude for Enterprise et ne peut pas être activé à partir de vos paramètres d’administration."
+     }
+    }
+   ]
+  },
+  {
+   "url": "https://code.claude.com/docs/id/agents",
+   "text": "Dalam setiap pendekatan, pekerja adalah sesi Claude. Untuk melibatkan alat yang berbeda, paparkan ke Claude sebagai MCP server.\nTiga alat lagi mendukung pekerjaan ini tanpa menjadi cara untuk menjalankan agen sendiri:\n- Worktrees memberikan setiap sesi checkout git terpisah, sehingga sesi paralel tidak pernah mengedit file yang sama. Gunakan untuk sesi yang Anda jalankan sendiri. Sesi yang Anda kirim dari agent view berpindah ke worktree-nya sendiri sebelum mengedit file, dan subagents yang Anda hasilkan dapat masing-masing mendapatkan satu juga.\n- Cross-session messaging memungkinkan Claude untuk membuat daftar dan mengirim pesan ke sesi Claude Code lain Anda di mesin ini, di mesin lain, atau di cloud, sehingga sesi yang Anda jalankan sendiri dapat melewatkan temuan dan status di antara mereka.\n- /batchadalah skill yang membuat Claude membagi satu perubahan besar menjadi 5 hingga 30 subagents terisolasi worktree. Ini adalah penggunaan subagents dan worktrees yang dikemas, bukan gaya koordinasi terpisah.\n- Perintah bash latar belakang menjalankan satu perintah shell tanpa memblokir percakapan. Ini tidak menghasilkan agen.\n- Subagent yang di-fork adalah subagent yang mewarisi konteks percakapan lengkap Anda alih-alih memulai dari awal. Ini adalah cara untuk menghasilkan subagent, bukan permukaan terpisah. Mulai satu dengan /subtask. Claude juga menghasilkan satu sendiri di mana fork mode aktif. Untuk menyalin seluruh sesi ke sesi latar belakang baru yang berjalan bersampingannya, gunakan/fork. Dengan agent view dimatikan, perintah subagent yang di-fork adalah/forksebagai gantinya dan/subtasktidak tersedia.\n- Routine menjalankan sesi sesuai jadwal di cloud, bukan secara paralel di mesin Anda.\nMenjalankan beberapa sesi atau subagents sekaligus mengalikan penggunaan token. Lihat Costs untuk detail penggunaan dan batas laju.\nPilih pendekatan\nPendekatan yang tepat tergantung pada siapa yang mengoordinasikan pekerjaan, apakah pekerja perlu berkomunikasi, dan apakah mereka mengedit file yang sama:- Siapa yang mengoordinasikan pekerjaan?\n- Claude mendelegasikan dan mengumpulkan hasil di dalam satu percakapan: subagents\n- Anda menyerahkan tugas independen dan memeriksa kembali nanti: agent view\n- Claude merencanakan, menugaskan, dan mengawasi sekelompok pekerja: agent teams, eksperimental dan dinonaktifkan secara default\n- Skrip memegang rencana alih-alih penilaian giliran demi giliran Claude: dynamic workflows. Lihat bagaimana workflows dibandingkan dengan subagents dan skills\n \n- Apakah pekerja perlu berbicara satu sama lain? Claude dapat meneruskan temuan dengan cross-session messaging antara sesi yang Anda jalankan sendiri, termasuk sesi yang Anda kirimkan dari agent view. Subagents melaporkan hasil kembali ke percakapan yang menghasilkannya, dan sesi agent view hanya melaporkan kepada Anda. Rekan satu tim dalam agent team saling mengirim pesan secara langsung dan, ketika mereka memiliki Task tools, berbagi daftar tugas.\n- Apakah tugas menyentuh file yang sama? Isolasi pekerjaan dengan worktrees. Subagents dan sesi yang Anda jalankan sendiri dapat masing-masing menggunakan worktree terpisah. Agent teams tidak mengisolasi rekan satu tim dalam worktrees, jadi partisi pekerjaan sehingga setiap rekan satu tim memiliki set file yang berbeda.\nPeriksa pekerjaan yang sedang berjalan\nPerintah untuk memeriksa pekerjaan yang sedang berjalan tergantung pada pendekatan mana yang Anda gunakan:- Untuk sesi latar belakang, claude agentsmembuka agent view: satu layar menampilkan setiap sesi, statusnya, dan mana yang membutuhkan input Anda.\n- Untuk subagents dalam sesi saat ini, subagents latar belakang bernama muncul dalam typeahead @-mention dengan statusnya. Mulai dari v2.1.198, /agentstidak lagi membuka panel; ini mencetak pemberitahuan yang menunjuk ke lokasi file subagent. Untuk membuat dan mengedit subagents kustom, tanyakan kepada Claude atau edit file secara langsung. Meskipun nama serupa,/agentsterpisah dariclaude agents.\n- Untuk apa pun yang berjalan di latar belakang sesi saat ini, /tasksmencantumkan setiap item dan memungkinkan Anda memeriksa, melampirkan, atau menghentikannya. Daftar ini juga mencakup subagents yang telah selesai.\n- Untuk dynamic workflows, /workflowsmencantumkan runs yang sedang berjalan dan yang telah selesai, fase yang masing-masing berada di dalamnya, dan berapa banyak agents yang telah selesai.\nPelajari lebih lanjut\nSetiap panduan di bawah mencakup pengaturan dan konfigurasi untuk satu pendekatan:- Buat subagents kustom: tentukan spesialis yang dapat digunakan kembali dan kontrol alat mana yang dapat mereka gunakan.\n- Kelola agen dengan agent view: kirim sesi, pantau statusnya, dan lampirkan ketika salah satunya membutuhkan Anda.\n- Orkestrasi agent teams: atur pemimpin dan rekan satu tim, tugaskan tugas, dan tinjau pekerjaan mereka.\n- Orkestrasi alur kerja dinamis: jalankan alur kerja bundel atau biarkan Claude menulis satu yang menjalankan banyak subagents dan memverifikasi temuan mereka satu sama lain.\n- Jalankan sesi paralel dengan worktrees: mulai Claude dalam checkout terisolasi, kontrol apa yang disalin, dan bersihkan setelahnya.",
+   "census_row": {
+    "url": "https://code.claude.com/docs/id/agents",
+    "prod_rows": "6",
+    "cand_rows": "3",
+    "cand_ep1": "0",
+    "cand_epmax": "5",
+    "prod_words": "900",
+    "prod_words_measured": "0",
+    "cand_words_est": "576",
+    "retained_ub": "0.64",
+    "class": "RE-CHUNKED-PARTIAL"
+   },
+   "old_rows": [
+    {
+     "id": "6f320214-ff8d-55fd-9f1a-acb2154876c6",
+     "payload": {
+      "title": "Jalankan agen secara paralel - Claude Code Docs",
+      "lang": "en",
+      "domain": "code.claude.com",
+      "source_type": "docs",
+      "trust_tier": 0.75,
+      "tier": "B",
+      "url": "https://code.claude.com/docs/id/agents",
+      "snippet": "- /batchadalah skill yang membuat Claude membagi satu perubahan besar menjadi 5 hingga 30 subagents terisolasi worktree."
+     }
+    },
+    {
+     "id": "8b78c387-2500-54f8-b1f1-054ab084cfc7",
+     "payload": {
+      "title": "Jalankan agen secara paralel - Claude Code Docs",
+      "lang": "en",
+      "domain": "code.claude.com",
+      "source_type": "docs",
+      "trust_tier": 0.75,
+      "tier": "B",
+      "url": "https://code.claude.com/docs/id/agents",
+      "snippet": "Pendekatan yang tepat tergantung pada siapa yang mengoordinasikan pekerjaan, apakah pekerja perlu berkomunikasi, dan apakah mereka mengedit file yang sama:- Siapa yang mengoordinasikan pekerjaan?"
+     }
+    },
+    {
+     "id": "a3f71437-9dd0-5743-86db-0c19ba6516bb",
+     "payload": {
+      "title": "Jalankan agen secara paralel - Claude Code Docs",
+      "lang": "en",
+      "domain": "code.claude.com",
+      "source_type": "docs",
+      "trust_tier": 0.75,
+      "tier": "B",
+      "url": "https://code.claude.com/docs/id/agents",
+      "snippet": "Pelajari lebih lanjut Setiap panduan di bawah mencakup pengaturan dan konfigurasi untuk satu pendekatan:- Buat subagents kustom: tentukan spesialis yang dapat digunakan kembali dan kontrol…"
+     }
+    },
+    {
+     "id": "dedbb42d-93de-55a1-996c-e8922087c848",
+     "payload": {
+      "title": "Jalankan agen secara paralel - Claude Code Docs",
+      "lang": "en",
+      "domain": "code.claude.com",
+      "source_type": "docs",
+      "trust_tier": 0.75,
+      "tier": "B",
+      "url": "https://code.claude.com/docs/id/agents",
+      "snippet": "- Apakah pekerja perlu berbicara satu sama lain? Claude dapat meneruskan temuan dengan cross-session messaging antara sesi yang Anda jalankan sendiri, termasuk sesi yang Anda…"
+     }
+    },
+    {
+     "id": "ee94e99f-5577-52cd-b562-d95575b452eb",
+     "payload": {
+      "title": "Jalankan agen secara paralel - Claude Code Docs",
+      "lang": "en",
+      "domain": "code.claude.com",
+      "source_type": "docs",
+      "trust_tier": 0.75,
+      "tier": "B",
+      "url": "https://code.claude.com/docs/id/agents",
+      "snippet": "Dalam setiap pendekatan, pekerja adalah sesi Claude. Untuk melibatkan alat yang berbeda, paparkan ke Claude sebagai MCP server."
+     }
+    },
+    {
+     "id": "fd8beaa9-e8cf-5c8d-92be-94668c9b4941",
+     "payload": {
+      "title": "Jalankan agen secara paralel - Claude Code Docs",
+      "lang": "en",
+      "domain": "code.claude.com",
+      "source_type": "docs",
+      "trust_tier": 0.75,
+      "tier": "B",
+      "url": "https://code.claude.com/docs/id/agents",
+      "snippet": "Perintah untuk memeriksa pekerjaan yang sedang berjalan tergantung pada pendekatan mana yang Anda gunakan:- Untuk sesi latar belakang, claude agentsmembuka agent view: satu layar menampilkan…"
+     }
+    }
+   ]
+  }
+ ],
+ "consent": {
+  "code.claude.com": {
+   "host": "code.claude.com",
+   "status": "ok",
+   "search_ok": true,
+   "train_ok": true,
+   "mode": "cc",
+   "reasons": [
+    "Content-Signal: search=yes — EXPLICIT grant for building a search index and returning hyperlinks + short excerpts",
+    "no opt-out signal found"
+   ],
+   "signals": {
+    "robots": {
+     "fetched": true,
+     "http_status": 200,
+     "our_agent_root": true,
+     "wildcard_root": true,
+     "ccbot_root": true,
+     "train_tokens_disallowed": [],
+     "noai": false,
+     "tdm_reservation_in_robots": false,
+     "content_usage": {},
+     "content_signal": {
+      "ai-train": "yes",
+      "search": "yes",
+      "ai-input": "yes"
+     },
+     "content_signal_search_grant": true,
+     "ua_tokens_seen": [
+      "*"
+     ]
+    },
+    "tdmrep": {
+     "fetched": true,
+     "http_status": 404
+    }
+   },
+   "checked_at": "2026-07-20T17:16:33Z"
+  }
+ },
+ "html_page": {
+  "url": "https://learn.microsoft.com/en-us/previous-versions/sql/sql-server-2012/ms187184(v=sql.110)",
+  "final_url": "https://learn.microsoft.com/en-us/previous-versions/sql/sql-server-2012/ms187184(v=sql.110)",
+  "status": 200,
+  "content_type": "text/html",
+  "fetched_at": "2026-07-30T12:34:56Z",
+  "sha256": "05783c3257dec7c1cdbae09ef622e12f8de4b9297f43c5d7100d6c2dab4ab0cc",
+  "tool": "pack_fetch.py v1 (task 195)"
+ }
+}

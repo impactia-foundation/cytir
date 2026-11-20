@@ -1,0 +1,6 @@
+UUID;STATUS;SPRACHCODE;NAMEN_TYP;NAME_UUID;NAMENGRUPPE_UUID;OBJEKTART;OBJEKTKLASSE_TLM;KUNSTBAUTE;NAME;E;N;Z
+{U1};offiziell;Hochdeutsch;einfacher Name;{N1};{G1};Ort;TLM_SIEDLUNGSNAME;k_W;Bern;2600000.0;1200000.0;540.0
+{U2};offiziell;Franzoesisch;einfacher Name;{N2};;See;TLM_FLIESSGEWAESSER;k_W;Lac Léman;2540000;1140000;372
+{U3};offiziell;Italienisch;einfacher Name;{N3};{G3};Gipfel;TLM_NAME_PUNKT;k_W;Piz Bernina;2789500;1143500;4049
+{U4};offiziell;Hochdeutsch;einfacher Name;{N4};;Ort;TLM_SIEDLUNGSNAME;k_W;;2600000;1200000;500
+{U5};offiziell;mehrsprachig;einfacher Name;{N5};;Ort;TLM_SIEDLUNGSNAME;k_W;Ohne Koordinaten;;;

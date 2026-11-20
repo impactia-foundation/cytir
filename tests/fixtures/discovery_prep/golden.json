@@ -1,0 +1,143 @@
+{
+ "SEED_TRUST": {
+  "cantonal": 0.9,
+  "disc-edu": 0.8,
+  "disc-gov": 0.85,
+  "disc-health": 0.8,
+  "disc-news": 0.5,
+  "disc-other": 0.4,
+  "disc-ref": 0.75,
+  "disc-tech": 0.7,
+  "federal-gov": 1.0,
+  "health": 0.9,
+  "portals": 0.8,
+  "reference-cultural": 0.85,
+  "universities-research": 0.9
+ },
+ "TRUST": {
+  "cantonal": 0.9,
+  "federal-gov": 1.0,
+  "health": 0.9,
+  "portals": 0.8,
+  "reference-cultural": 0.85,
+  "universities-research": 0.9
+ },
+ "build_queue": {
+  "host": {
+   "indexed": [],
+   "kept": [
+    {
+     "authority": 1.5,
+     "by_classes": [],
+     "class": "gov",
+     "class_basis": "self-signal",
+     "domain": "admin.ch",
+     "endorse_score": 2.0,
+     "n_endorser_regs": 0,
+     "reg": "admin.ch",
+     "score": 3.0,
+     "swiss": true,
+     "why": "gov TLD/keyword"
+    },
+    {
+     "authority": 1.5,
+     "by_classes": [
+      "federal-gov"
+     ],
+     "class": "gov",
+     "class_basis": "self-signal",
+     "domain": "parlament.ch",
+     "endorse_score": 1.0,
+     "n_endorser_regs": 0,
+     "reg": "parlament.ch",
+     "score": 1.5,
+     "swiss": true,
+     "why": "gov TLD/keyword"
+    },
+    {
+     "authority": 1.5,
+     "by_classes": [
+      "federal-gov"
+     ],
+     "class": "gov",
+     "class_basis": "endorsed",
+     "domain": "eidgenoessischegerichte.ch",
+     "endorse_score": 1.0,
+     "n_endorser_regs": 1,
+     "reg": "eidgenoessischegerichte.ch",
+     "score": 1.5,
+     "swiss": true,
+     "why": "endorsed-by federal-gov seed(s)"
+    }
+   ],
+   "noise": [
+    [
+     "foo.blogspot.com",
+     "blogspot."
+    ]
+   ]
+  },
+  "registrable": {
+   "indexed": [
+    "admin.ch"
+   ],
+   "kept": [
+    {
+     "authority": 1.5,
+     "by_classes": [
+      "federal-gov"
+     ],
+     "class": "gov",
+     "class_basis": "self-signal",
+     "domain": "parlament.ch",
+     "endorse_score": 3.0,
+     "n_endorser_regs": 0,
+     "reg": "parlament.ch",
+     "score": 4.5,
+     "swiss": true,
+     "why": "gov TLD/keyword"
+    }
+   ],
+   "noise": [
+    [
+     "foo.blogspot.com",
+     "blogspot."
+    ]
+   ]
+  }
+ },
+ "cands": [
+  {
+   "domain": "parlament.ch",
+   "endorse_score": 3.0
+  },
+  {
+   "domain": "admin.ch",
+   "endorse_score": 2.0
+  },
+  {
+   "domain": "foo.blogspot.com",
+   "endorse_score": 1.0
+  }
+ ],
+ "classify_federal_gov": {
+  "eidgenoessischegerichte.ch": [
+   "gov",
+   "endorsed-by federal-gov seed(s)"
+  ],
+  "parlament.ch": [
+   "gov",
+   "gov TLD/keyword"
+  ]
+ },
+ "process_seed": {
+  "domain": "admin.ch",
+  "kept": {
+   "https://www.eidgenoessischegerichte.ch/": 1,
+   "https://www.parlament.ch/de": 1
+  },
+  "n_pages": 1,
+  "n_recs": 1,
+  "status": "ok"
+ }
+}

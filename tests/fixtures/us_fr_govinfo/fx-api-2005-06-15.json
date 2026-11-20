@@ -1,0 +1,103 @@
+{
+ "date": "2005-06-15",
+ "api_results": [
+  {
+   "document_number": "05-11541",
+   "title": "Procedures To Govern the Use of Satellite Earth Stations on Board Vessels in the 5925-6425 MHz/3700-4200 MHz Bands and 14.0-14.5 GHz/11.7-12.2 GHz Bands",
+   "abstract": "This document announces the effective date of the rule published on January 31, 2005. The rules adopted licensing and service rules for satellite earth stations on vessels (ESVs) in the C- and Ku- bands that will provide regulatory certainty to ESV licensees, while protecting existing users in the bands.",
+   "type": "Rule",
+   "publication_date": "2005-06-15",
+   "raw_text_url": "https://www.federalregister.gov/documents/full_text/text/2005/06/15/05-11541.txt",
+   "html_url": "https://www.federalregister.gov/documents/2005/06/15/05-11541/procedures-to-govern-the-use-of-satellite-earth-stations-on-board-vessels-in-the-5925-6425",
+   "citation": "70 FR 34665",
+   "agencies": [
+    {
+     "raw_name": "FEDERAL COMMUNICATIONS COMMISSION",
+     "name": "Federal Communications Commission",
+     "id": 161,
+     "url": "https://www.federalregister.gov/agencies/federal-communications-commission",
+     "json_url": "https://www.federalregister.gov/api/v1/agencies/161",
+     "parent_id": null,
+     "slug": "federal-communications-commission"
+    }
+   ]
+  },
+  {
+   "document_number": "05-11891",
+   "title": "Determination Related to the Participation of the Magen David Adom Society of Israel in the Activities of the International Red Cross and Red Crescent Movement",
+   "abstract": null,
+   "type": "Notice",
+   "publication_date": "2005-06-15",
+   "raw_text_url": "https://www.federalregister.gov/documents/full_text/text/2005/06/15/05-11891.txt",
+   "html_url": "https://www.federalregister.gov/documents/2005/06/15/05-11891/determination-related-to-the-participation-of-the-magen-david-adom-society-of-israel-in-the",
+   "citation": "70 FR 34806",
+   "agencies": [
+    {
+     "raw_name": "DEPARTMENT OF STATE",
+     "name": "State Department",
+     "id": 476,
+     "url": "https://www.federalregister.gov/agencies/state-department",
+     "json_url": "https://www.federalregister.gov/api/v1/agencies/476",
+     "parent_id": null,
+     "slug": "state-department"
+    }
+   ]
+  },
+  {
+   "document_number": "05-11810",
+   "title": "Announcement of the Fall 2005 Unsolicited Grant Competition Grant Program",
+   "abstract": "The Agency announces its Upcoming Unsolicited Grant Program, which offers support for research, education and training, and the dissemination of information on international peace and conflict resolution. The Unsolicited competition is open to any project that falls within the Institute's broad mandate of international conflict resolution. Deadline: October 1, 2005. Application Material Available on Request and at http://www.usip.org/grants.",
+   "type": "Notice",
+   "publication_date": "2005-06-15",
+   "raw_text_url": "https://www.federalregister.gov/documents/full_text/text/2005/06/15/05-11810.txt",
+   "html_url": "https://www.federalregister.gov/documents/2005/06/15/05-11810/announcement-of-the-fall-2005-unsolicited-grant-competition-grant-program",
+   "citation": "70 FR 34816",
+   "agencies": [
+    {
+     "raw_name": "UNITED STATES INSTITUTE OF PEACE",
+     "name": "United States Institute of Peace",
+     "id": 511,
+     "url": "https://www.federalregister.gov/agencies/united-states-institute-of-peace",
+     "json_url": "https://www.federalregister.gov/api/v1/agencies/511",
+     "parent_id": null,
+     "slug": "united-states-institute-of-peace"
+    }
+   ]
+  },
+  {
+   "document_number": "E5-3082",
+   "title": "University of California, Lawrence Livermore National Laboratory et al., Notice of Consolidated Decision on Applications, for Duty-Free Entry of Electron Microscopes",
+   "abstract": null,
+   "type": "Notice",
+   "publication_date": "2005-06-15",
+   "raw_text_url": "https://www.federalregister.gov/documents/full_text/text/2005/06/15/E5-3082.txt",
+   "html_url": "https://www.federalregister.gov/documents/2005/06/15/E5-3082/university-of-california-lawrence-livermore-national-laboratory-et-al-notice-of-consolidated",
+   "citation": "70 FR 34745",
+   "agencies": [
+    {
+     "raw_name": "DEPARTMENT OF COMMERCE",
+     "name": "Commerce Department",
+     "id": 54,
+     "url": "https://www.federalregister.gov/agencies/commerce-department",
+     "json_url": "https://www.federalregister.gov/api/v1/agencies/54",
+     "parent_id": null,
+     "slug": "commerce-department"
+    },
+    {
+     "raw_name": "International Trade Administration",
+     "name": "International Trade Administration",
+     "id": 261,
+     "url": "https://www.federalregister.gov/agencies/international-trade-administration",
+     "json_url": "https://www.federalregister.gov/api/v1/agencies/261",
+     "parent_id": 54,
+     "slug": "international-trade-administration"
+    }
+   ]
+  }
+ ],
+ "in_xml": [
+  "05-11541",
+  "05-11891",
+  "05-11810"
+ ]
+}

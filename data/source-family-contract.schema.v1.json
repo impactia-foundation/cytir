@@ -1,0 +1,268 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "aw.source-family-contract.v1",
+  "title": "AW source-family onboarding contract",
+  "description": "What a source family MUST declare before pipeline/assembly_binder.py will plan or stage it (task 529). The unit is the family: the set_id the claim manifests, the ADR-101 guards and payload_shape_contract.unit_of all already reason about, because that is the unit a producer owns. Every field here exists because an undeclared version of it shipped: the representation surfaces (task 526/527 -- the rebuild changed WHAT TEXT is embedded in at least two families without a ruling), the chunk policy id (only 2 of 86 sealed families declare one), the consent terminal schema version (task 502 defect 1 / task 521: 28,477 points sealed as `declined` under a v5 reading of `robots_unreadable`), the licence instrument (never inferred from hosting -- 2026-08-20), the title shape (task 516: fedlex, 22,913 of 22,928 rows), the point-id minting rule (ADR-101 Ruling 2: the sealed id wins, the binder does not re-mint), the ADR-039 payload minimum, the gate classes the family must not regress, and the guards that apply. A declaration is the family's own statement of intent; the validator checks it against the ratified ADRs and the artifacts on disk, and refuses when they disagree. It never derives the declaration from the evidence -- a declaration derived from what it reports is a tautology (assembly_guards.py, 'The plan is not derived from the ledger').",
+  "type": "object",
+  "required": ["schema", "roster_source", "families"],
+  "additionalProperties": true,
+  "properties": {
+    "schema": {"enum": ["aw.source-family-contract.v2", "aw.source-family-contract.v1"]},
+    "why": {"type": "array", "items": {"type": "string"}},
+    "ratified_by": {
+      "type": "string",
+      "description": "The PR whose merge by Tim ratified this document. Contract schemas are legislative (memory: legislative-prs) -- never self-merged."
+    },
+    "roster_source": {
+      "description": "Where the family roster comes from. Derived from a manifest, never a hand-list (memory: census-roster-from-manifest -- three blind spots in one week, 2026-08-28).",
+      "type": "object",
+      "required": ["uri", "sha256", "families"],
+      "properties": {
+        "uri": {"type": "string"},
+        "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "families": {"type": "integer"},
+        "note": {"type": "string"}
+      }
+    },
+    "families": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/family"}
+    }
+  },
+  "$defs": {
+    "unknown": {
+      "const": "unknown",
+      "description": "The sentinel for a value the sealed evidence does not carry. Never a guess: a guessed value is worse than an absent one because it reads as measured. Every path holding this sentinel MUST also appear in the family's `unknowns` list, and a family with a non-empty `unknowns` cannot have status `declared`."
+    },
+    "evidence": {
+      "type": "array",
+      "description": "The paths actually read to fill this block. `Only artifacts are evidence` (verification-doctrine 5).",
+      "items": {"type": "string"}
+    },
+    "family": {
+      "type": "object",
+      "required": [
+        "family_id", "status", "population", "mode", "representation",
+        "chunk_policy", "consent", "licence", "title_shape", "identity",
+        "payload_minimum", "gate_classes", "guards", "contracts", "unknowns"
+      ],
+      "additionalProperties": true,
+      "properties": {
+        "family_id": {
+          "type": "string",
+          "description": "The set_id. Must be a key of the roster source, and must be the id the binder stages by."
+        },
+        "canonical_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9]*(_[a-z0-9]+)*$",
+          "description": "Optional real name by alias (RULING 78, task 2855). Unique across rows; never another row's family_id or legacy id; never task/scratch-named. Sealed data stays keyed by family_id."
+        },
+        "legacy_ids": {
+          "type": "array",
+          "items": {"type": "string"},
+          "description": "Required when canonical_id is set; must contain this row's own family_id."
+        },
+        "status": {
+          "enum": ["declared", "backfilled", "retired"],
+          "description": "`declared` = a complete declaration, zero unknowns; the only status a NEW family may carry. `backfilled` = reconstructed from sealed evidence for a family that shipped before this contract existed, and is allowed to carry unknowns -- the grandfathering is DATA, ratified by Tim's merge, not a waiver granted in code (memory: gate-waivers-escalate-to-tim). `retired` = no longer contributes vectors."
+        },
+        "population": {
+          "type": "string",
+          "description": "The set_id in data/assembly/sealed-populations.v1.json whose shard triplet carries this family's vectors. For a family pooled into `task417_families`, that pool id."
+        },
+        "lane": {"type": ["string", "null"]},
+        "route": {
+          "description": "How the bytes were obtained. `bulk-direct` = direct fetch of the publisher's own bulk files (POLICY v3.2, ruling 25.2 and ruling 26 item 20a); the licence or statute, not a robots probe of the host, is the consent instrument. `unknown` is legal only for a backfilled family.",
+          "anyOf": [
+            {"enum": ["cc", "direct", "pack", "api", "bulk-dump", "bulk-direct", "synthesized", "reembed-in-place"]},
+            {"$ref": "#/$defs/unknown"}
+          ]
+        },
+        "mode": {"enum": ["replacement", "in_place_reembed", "net_new_addition", "tombstone", "cancelled"]},
+        "representation": {
+          "description": "WHAT TEXT is embedded and WHAT TEXT is posted. The embedding surface is a contract: task 526/527 found the rebuild had silently changed it for fedlex (anchor-scaffolded article body, no law name/abbreviation/SR) and for entity cards (a 1,600-char website blurb, officers truncated, NO sparse surface at all), and full-stack scoring masked both because BM25 carried the query. Task 527 owns the per-family reconstruction and the prov_id pin; this block is where its result lands.",
+          "type": "object",
+          "required": ["dense_surface", "sparse_surface", "ruling"],
+          "properties": {
+            "dense_surface": {
+              "description": "The composition of the text handed to the embedder, stated so a reader can reproduce it (e.g. 'title + \\\"\\\\n\\\\n\\\" + chunk body, chunk body verbatim from the sealed materializer').",
+              "anyOf": [{"type": "string", "minLength": 8}, {"$ref": "#/$defs/unknown"}]
+            },
+            "sparse_surface": {
+              "description": "The composition of the BM25 surface. The literal string `none` is a legal value ONLY with a `ruling` that names the ADR or task that ruled it -- an absent sparse surface is exactly the entity-card defect.",
+              "anyOf": [{"type": "string", "minLength": 4}, {"$ref": "#/$defs/unknown"}]
+            },
+            "prov_id": {
+              "description": "The provenance id that pins this pair of surfaces, so a later build can be proven to embed the same thing.",
+              "type": ["string", "null"]
+            },
+            "ruling": {
+              "enum": ["IDENTICAL", "RULED", "UNRULED", "unknown"],
+              "description": "IDENTICAL = provably the same surfaces as the incumbent. RULED = different, and a named ruling authorises the difference. UNRULED = different with no ruling -- the task-526/527 defect class; a family may not FLIP while UNRULED."
+            },
+            "ruling_cite": {"type": ["string", "null"]},
+            "declared_by": {"type": ["string", "null"]},
+            "evidence": {"$ref": "#/$defs/evidence"}
+          }
+        },
+        "chunk_policy": {
+          "description": "Which chunk policy produced the rows, pinned by digest. Key names mirror `text_recipe.chunk_policy` in the claim manifests rather than forking a second vocabulary (engineering-doctrine 1).",
+          "type": "object",
+          "required": ["policy_id", "epoch"],
+          "properties": {
+            "policy_id": {"anyOf": [{"type": "string"}, {"$ref": "#/$defs/unknown"}]},
+            "policy_family": {
+              "description": "Which chunker family the policy serves: a key of `policy_families` in data/chunk-policy-registry.v1.json (chunk.generic / chunk.law / chunk.news / chunk.reference / chunk.atomic / chunk.preserved). ADR-090 §3/§4 split `chunk` into chunk.generic and chunk.law and scoped 'standardize on 1152' to the generic path alone; specs/epochs.md §5 says a third family is split FORMALLY, not absorbed. Before that registry existed this had no machine-readable home at all, which is why task 535's 3.73x granularity change across 82 hosts was invisible to every check in the repo. NOT the same axis as chunk_provenance.FAMILIES, which names the PRODUCER (generic-structured, law-article-117, ...) rather than the boundary rule set; a chunk.reference row is produced by `generic-structured` exactly like a chunk.generic row. Checked against the registry by pipeline/source_family_contract._check_chunk_policy_registry.",
+              "anyOf": [{"type": "string"}, {"$ref": "#/$defs/unknown"}]
+            },
+            "sha256": {"anyOf": [{"type": "string", "pattern": "^[0-9a-f]{64}$"}, {"$ref": "#/$defs/unknown"}, {"type": "null"}]},
+            "epoch": {"anyOf": [{"type": "integer"}, {"$ref": "#/$defs/unknown"}, {"type": "null"}]},
+            "tokenizer_revision": {"type": ["string", "null"]},
+            "evidence": {"$ref": "#/$defs/evidence"}
+          }
+        },
+        "consent": {
+          "description": "ADR-024 / ADR-073 / ADR-092 / ADR-103. Consent is re-resolved live per source and never inherited from Common Crawl (CLAUDE.md constraint). The terminal schema version is load-bearing: task 521 measured 28,477 of 129,120 lost points sealed as `declined` when 18 of the 20 hosts were admissible -- the rollout ran at terminal v5, before v6 split `robots_unreadable` out of `declined`.",
+          "type": "object",
+          "required": ["basis", "terminal_schema_version", "resolution"],
+          "properties": {
+            "basis": {
+              "description": "e.g. 'robots.txt live per origin', 'API terms of service', 'bulk-dump licence + robots'.",
+              "anyOf": [{"type": "string", "minLength": 4}, {"$ref": "#/$defs/unknown"}]
+            },
+            "terminal_schema_version": {
+              "anyOf": [
+                {"enum": ["adr092-direct-terminal.v5", "adr092-direct-terminal.v6", "adr092-direct-terminal.v7"]},
+                {"$ref": "#/$defs/unknown"}
+              ]
+            },
+            "resolution": {
+              "enum": ["live-per-origin", "explicit-grant", "not-applicable-synthesized", "unknown"],
+              "description": "`inherited-from-common-crawl` is deliberately absent from this enum: it is prohibited, and an enum that cannot express it cannot ship it."
+            },
+            "search_ok": {"type": ["boolean", "string", "null"]},
+            "train_ok": {"type": ["boolean", "string", "null"]},
+            "evidence": {"$ref": "#/$defs/evidence"}
+          }
+        },
+        "licence": {
+          "description": "The instrument, never the host. 'Never infer a legal basis from where a document is hosted; consent and licence are independent gates' (memory: licence-basis-from-the-instrument, 2026-08-20).",
+          "type": "object",
+          "required": ["instrument", "basis", "inferred_from_hosting"],
+          "properties": {
+            "instrument": {
+              "description": "The named licence, statute, or terms document. `unknown` is an ADR-039 licensing EXCEPTION -- counted, never hidden (pipeline/aw_b1_license.py).",
+              "anyOf": [{"type": "string", "minLength": 2}, {"$ref": "#/$defs/unknown"}]
+            },
+            "spdx": {"type": ["string", "null"]},
+            "instrument_url": {"type": ["string", "null"]},
+            "basis": {
+              "enum": ["instrument", "statute", "explicit-grant", "unknown"],
+              "description": "`hosting` is deliberately absent: inferring a licence from the host is the prohibited move."
+            },
+            "inferred_from_hosting": {
+              "const": false,
+              "description": "There is exactly one legal value. The field exists so the prohibition is asserted per family rather than remembered."
+            },
+            "evidence": {"$ref": "#/$defs/evidence"}
+          }
+        },
+        "title_shape": {
+          "description": "payload_shape_contract's title contract, per family. Deliberately opt-in: task 516 measured five families whose production titles never carried a pattern, and inventing one would fail a build over a rule nobody needed. Opting out therefore requires a `why`.",
+          "type": "object",
+          "required": ["mode"],
+          "properties": {
+            "mode": {"enum": ["declared", "opted_out", "unknown"]},
+            "pattern": {"type": ["string", "null"]},
+            "min_share": {"type": ["number", "null"]},
+            "why": {
+              "description": "Carried verbatim from data/payload-shape-contract.v1.json, which writes a multi-line rationale as an array of lines. Both shapes are legal so the two files never have to be reformatted to agree.",
+              "type": ["string", "array", "null"],
+              "items": {"type": "string"}
+            },
+            "evidence": {"$ref": "#/$defs/evidence"}
+          }
+        },
+        "identity": {
+          "description": "How a point id is minted, and by whom. ADR-101 Ruling 2: the sealed point id wins and the binder does not re-mint -- re-minting produces a different identity space and invalidates the whole guard chain.",
+          "type": "object",
+          "required": ["point_id_rule", "minted_by"],
+          "properties": {
+            "point_id_rule": {
+              "anyOf": [
+                {"enum": [
+                  "uuid5(canonical_url||anchor)",
+                  "uuid5(canonical_url||anchor||chunk_index)",
+                  "sealed-by-lane",
+                  "carried-from-incumbent"
+                ]},
+                {"$ref": "#/$defs/unknown"}
+              ]
+            },
+            "minted_by": {"anyOf": [{"type": "string"}, {"$ref": "#/$defs/unknown"}]},
+            "prov_id": {"type": ["string", "null"]},
+            "rebinds_at_assembly": {
+              "const": false,
+              "description": "ADR-101 Ruling 2. One legal value, asserted per family."
+            },
+            "evidence": {"$ref": "#/$defs/evidence"}
+          }
+        },
+        "payload_minimum": {
+          "description": "ADR-039. The compact redistributable dump carries per-record `license`; owner/attribution and license_version are master-only and stripped from the dump.",
+          "type": "object",
+          "required": ["fields"],
+          "properties": {
+            "fields": {"type": "array", "items": {"type": "string"}},
+            "master_only": {"type": "array", "items": {"type": "string"}},
+            "adr": {"type": "string"},
+            "evidence": {"$ref": "#/$defs/evidence"}
+          }
+        },
+        "gate_classes": {
+          "description": "The eval classes this family serves and must therefore not regress. Drawn from the ratified 629-query instrument's class taxonomy.",
+          "type": "array",
+          "items": {"enum": ["civic", "coding", "entity", "legal", "reference", "research", "standards", "unknown"]}
+        },
+        "guards": {
+          "description": "The ADR-101 guards that must evaluate this family. A replacement owes G1 (point-level claims), G3 (one disposition per membership point), G5 (rows whose bound old points all lost are never loaded) and G7 (distinct loaded ids, replaced ids upserted not deleted) -- assembly_guards.py states that burden itself.",
+          "type": "array",
+          "items": {"enum": ["G1", "G2", "G3", "G4", "G5", "G6", "G7", "G8"]}
+        },
+        "contracts": {
+          "description": "The pipeline contracts that must evaluate this family at stage/verify.",
+          "type": "array",
+          "items": {"enum": [
+            "payload_shape", "title_shape", "provenance_head", "extraction_collapse",
+            "direct_terminal", "preservation", "news_stage", "fedlex", "consent_gate",
+            "source_family"
+          ]}
+        },
+        "unknowns": {
+          "description": "Every dotted path in this declaration whose value is the `unknown` sentinel. The validator recomputes this set and refuses when the list disagrees -- a family cannot hide an unknown by omitting it, and cannot inflate one to look thorough.",
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "notes": {"type": ["string", "null"]},
+        "producer_ids": {
+          "description": "Optional. Producer labels this family's rows carry (a frozen string written into served rows or sealed receipts), keyed by the string itself. The string never changes; the entry records its meaning and where the code that writes it lives (task 1316 / D6).",
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "required": ["status", "meaning", "code_home", "declared", "date"],
+            "additionalProperties": false,
+            "properties": {
+              "status": {"enum": ["frozen-label"]},
+              "meaning": {"type": "string"},
+              "code_home": {"type": "string"},
+              "declared": {"type": "string"},
+              "date": {"type": "string"}
+            }
+          }
+        },
+        "evidence": {"$ref": "#/$defs/evidence"}
+      }
+    }
+  }
+}

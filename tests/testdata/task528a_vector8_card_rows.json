@@ -1,0 +1,70 @@
+{
+ "schema": "aw.task528a-card-fixture.v1",
+ "note": "VERBATIM preserved source-evidence rows for the Vector8 card (2a5bc752-ce61-58e7-9453-d63302b86e06), in the task-467 producer PRIORITY order. Projected to the fields the resolver and the representation contract read; no value edited or truncated.",
+ "point_id": "2a5bc752-ce61-58e7-9453-d63302b86e06",
+ "url": "https://www.vector8.com/en",
+ "source": "_preservation/entity-card-current-lineage-witness-v3/source-evidence",
+ "rows": [
+  {
+   "source_label": "task393_apply",
+   "row": {
+    "adr060_phase": "task393-website-content",
+    "dense_text": "Vector8 AG — Our mission is to elevate organizations by unlocking the true value of AI, getting the best from Human-Machine collaboration. Trusted by We help you grow your business by identifying and capitalizing on opportunities for innovation and revenue growth through the use of AI and automation. Our business, data and technology experts can help find the innovative idea that will ensure you beat the competition. We help you achieve efficiency and competitiveness by transforming your processes with automation and operational optimization. Our AI-driven solutions are tailored to streamline your workflows, elevate your productivity and enhance your competitive edge. We help organizations thrive in the AI era through AI transformation consulting, change management, staff training and capability building. We ensure you are future ready, today. We're Hiring Are you passionate about helping current and future leading enterprises transition to the AI era? Come and join our team. Vector8 stands as a benchmark in AI-driven solutions and transformation, distinguishing itself in a crowded AI marketplace. Here's what sets us apart: Entwicklung massgeschneiderter Softwarelösungen und Produktinnovationen; Management-, Technologie- und Prozessberatung sowie Schulungen, Forschung und Entwicklung als Dienstleistung und Handel mit Produkten auf diesen Gebieten. Die Gesellschaft kann Zweignie Registered signatories/officers: Emanuele Diquattro (von Schaffhausen, in Bülach, Mitglied des Verwaltungsrates); Marc Maret (von Val-de-Travers, in Küsnacht (ZH), Präsident des Verwaltungsrates); Ni",
+    "description_source": "homepage+register_field",
+    "lang": "de",
+    "point_id": "2a5bc752-ce61-58e7-9453-d63302b86e06",
+    "provenance": "zefix_ccjoin",
+    "register_id": "CHE-341.859.062",
+    "snippet": "Vector8 AG: Our mission is to elevate organizations by unlocking the true value of AI, getting the best from Human-Machine collaboration. Trusted by We help",
+    "sparse_text": "Vector8 AG 2024 05 13 CH Emanuele Diquattro Schaffhausen Bülach Mitglied Verwaltungsrates Marc Maret Val Travers Küsnacht ZH Präsident Niclas Delfs schwedischer Staatsangehöriger Kilchberg Raphael Schwarz Bischofszell Thundorf Vector\n␞\nVector8 AG Our mission elevate organizations unlocking true value AI getting best from Human Machine collaboration Trusted We help you grow your business identifying capitalizing opportunities innovation revenue growth through use automation data technology experts can find innovative idea will ensure beat competition achieve efficiency competitiveness transforming processes operational optimization driven solutions tailored streamline workflows productivity enhance competitive edge thrive era transformation consulting change management staff training capability building future ready today We're Hiring passionate about helping current leading enterprises transition Come join team stands benchmark distinguishing itself crowded marketplace Here's what sets us apart Entwicklung massgeschneiderter Softwarelösungen Produktinnovationen Technologie Prozessberatung sowie Schulungen Forschung als Dienstleistung Handel Produkten diesen Gebieten Gesellschaft kann Zweignie Registered signatories officers Emanuele Diquattro Schaffhausen Bülach Mitglied Verwaltungsrates Marc Maret Val Travers Küsnacht ZH Präsident Ni\n␞\n2024 05 13\n␞\nCH\n␞\nAG\n␞\nEmanuele Diquattro Schaffhausen Bülach Mitglied Verwaltungsrates\n␞\nMarc Maret Val Travers Küsnacht ZH Präsident Verwaltungsrates\n␞\nNiclas Delfs schwedischer Staatsangehöriger Kilchberg ZH\n␞\nRaphael Schwarz Bischofszell Thundorf\n␞\nOur mission elevate organizations unlocking true value AI getting best from Human Machine collaboration Trusted We help you grow your business identifying capitalizing opportunities innovation revenue growth through use automation data technology experts can find innovative idea will ensure beat competition achieve efficiency competitiveness transforming processes operational optimization driven solutions tailored streamline workflows productivity enhance competitive edge thrive era transformation consulting change management staff training capability building future ready today We're Hiring passionate about helping current leading enterprises transition Come join team Vector8 stands benchmark distinguishing itself crowded marketplace Here's what sets us apart\n␞\nEntwicklung massgeschneiderter Softwarelösungen Produktinnovationen Management Technologie Prozessberatung sowie Schulungen Forschung als Dienstleistung Handel Produkten diesen Gebieten Gesellschaft kann Zweigniederlassungen Tochtergesellschaften Ausland errichten",
+    "text": "Vector8 AG — Our mission is to elevate organizations by unlocking the true value of AI, getting the best from Human-Machine collaboration. Trusted by We help you grow your business by identifying and capitalizing on opportunities for innovation and revenue growth through the use of AI and automation. Our business, data and technology experts can help find the innovative idea that will ensure you beat the competition. We help you achieve efficiency and competitiveness by transforming your processes with automation and operational optimization. Our AI-driven solutions are tailored to streamline your workflows, elevate your productivity and enhance your competitive edge. We help organizations thrive in the AI era through AI transformation consulting, change management, staff training and capability building. We ensure you are future ready, today. We're Hiring Are you passionate about helping current and future leading enterprises transition to the AI era? Come and join our team. Vector8 stands as a benchmark in AI-driven solutions and transformation, distinguishing itself in a crowded AI marketplace. Here's what sets us apart: Entwicklung massgeschneiderter Softwarelösungen und Produktinnovationen; Management-, Technologie- und Prozessberatung sowie Schulungen, Forschung und Entwicklung als Dienstleistung und Handel mit Produkten auf diesen Gebieten. Die Gesellschaft kann Zweignie Registered signatories/officers: Emanuele Diquattro (von Schaffhausen, in Bülach, Mitglied des Verwaltungsrates); Marc Maret (von Val-de-Travers, in Küsnacht (ZH), Präsident des Verwaltungsrates); Ni",
+    "title": "Vector8 AG",
+    "url": "https://www.vector8.com/en"
+   }
+  },
+  {
+   "source_label": "task363_people",
+   "row": {
+    "point_id": "2a5bc752-ce61-58e7-9453-d63302b86e06",
+    "url": "https://www.vector8.com/en",
+    "register_id": "CHE-341.859.062",
+    "uid": "CHE341859062",
+    "title": "Vector8 AG",
+    "people": {
+     "marc|maret": "Marc Maret (von Val-de-Travers, in Küsnacht (ZH), Präsident des Verwaltungsrates)",
+     "emanuele|diquattro": "Emanuele Diquattro (von Schaffhausen, in Bülach, Mitglied des Verwaltungsrates)",
+     "niclas|delfs": "Niclas Delfs (schwedischer Staatsangehöriger, in Kilchberg (ZH))",
+     "raphael|schwarz": "Raphael Schwarz (von Bischofszell, in Thundorf)"
+    },
+    "people_tokens": [
+     "marc",
+     "maret",
+     "marc maret",
+     "emanuele",
+     "diquattro",
+     "emanuele diquattro",
+     "niclas",
+     "delfs",
+     "niclas delfs",
+     "raphael",
+     "schwarz",
+     "raphael schwarz"
+    ],
+    "new_dense_text": "Vector8 AG — Entwicklung massgeschneiderter Softwarelösungen und Produktinnovationen; Management-, Technologie- und Prozessberatung sowie Schulungen, Forschung und Entwicklung als Dienstleistung und Handel mit Produkten auf diesen Gebieten. Registered signatories/officers (commercial register): Marc Maret (von Val-de-Travers, in Küsnacht (ZH), Präsident des Verwaltungsrates); Emanuele Diquattro (von Schaffhausen, in Bülach, Mitglied des Verwaltungsrates); Niclas Delfs (schwedischer Staatsangehöriger, in Kilchberg (ZH)); Raphael Schwarz (von Bischofszell, in Thundorf).",
+    "new_sparse_text": "Vector8 AG CHE341859062 marc maret emanuele diquattro niclas delfs raphael schwarz"
+   }
+  },
+  {
+   "source_label": "task363_register",
+   "row": {
+    "point_id": "2a5bc752-ce61-58e7-9453-d63302b86e06",
+    "url": "https://www.vector8.com/en",
+    "register_id": "CHE-341.859.062",
+    "title": "Vector8 AG",
+    "provenance": "zefix_ccjoin",
+    "lang": "de",
+    "snippet": "Entwicklung massgeschneiderter Softwarelösungen und Produktinnovationen; Management-, Technologie- und Prozessberatung sowie Schulungen, Forschung und Entwicklung als Dienstleistung und Handel mit Produkten auf diesen Gebieten."
+   }
+  }
+ ]
+}

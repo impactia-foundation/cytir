@@ -1,0 +1,138 @@
+# Energy & climate transition — international authority layer.
+# The CH leg (bfe.admin.ch) already serves CH-scoped energy queries well
+# (task 395 §5a control); this pack is the INTERNATIONAL layer that the same
+# spot-check found missing.
+id: energy-climate-intl
+name: "Energy & climate transition (IEA/IPCC-class international authorities)"
+country: multi
+layer: statistics-data
+policy_section: "§4.5"
+adapter: sitemap
+acquisition_policy: aw-acquisition-v1
+outlink_policy: capture-and-receipt
+preservation_profiles: [web_html, web_pdf]
+extractor: cytir/sources/families/authority_packs.py
+provenance: authored
+tier: A
+trust_tier: 0.95
+density_tier: T2
+freshness: static
+theme: [energy-climate]
+
+license:
+  default: per-route
+  notes: >
+    Heterogeneous, stamped per record: ipcc-reports-terms, iea-terms,
+    uba-terms, eu-reuse-2011-833 (energy.ec.europa.eu, Decision 2011/833/EU),
+    us-gov-public-domain (eia.gov). Minimum-content records only (ADR-039);
+    never a full-text mirror.
+
+consent:
+  basis: live-resolve-open
+  train_ok_override: null
+  notes: >
+    Re-resolved live per host in DIRECT-crawl mode (our own polite fetch under
+    our own UA), not CC-provenance mode. All shipped hosts
+    resolved search_ok=true AND train_ok=true on 2026-08-07.
+    irena.org and ademe.fr resolved search_ok=FALSE and are DECLINED, not
+    deferred.
+
+routes:
+  - host: www.ipcc.ch
+    lang: [en]
+    license: ipcc-reports-terms
+    route: "BFS from the report hubs — IPCC publishes NO sitemap at any common location (verified: all 404) but robots.txt permits everything except /site/wp-admin/. Indexes /report/<slug>/… + the SR shortcuts"
+    status: staged
+    evidence: "task 399 recon; AR6 WG1 SPM extracts to 130 passages / 164k chars"
+    notes: "held only 3 points before this wave — the single most-cited absence in task 395 §5a. NB aw_country was stamping this host CH (Geneva hosting); fixed to INTL in e9156eb8."
+    acquire:
+      route: direct_origin_crawl
+      rank: 6
+      params:
+        seeds: ["https://www.ipcc.ch/reports/", "https://www.ipcc.ch/report/sixth-assessment-report-cycle/", "https://www.ipcc.ch/report/ar6/syr/", "https://www.ipcc.ch/report/ar6/wg1/", "https://www.ipcc.ch/report/ar6/wg2/", "https://www.ipcc.ch/report/ar6/wg3/", "https://www.ipcc.ch/sr15/", "https://www.ipcc.ch/srccl/", "https://www.ipcc.ch/srocc/"]
+        hub_path_regex: "(?i)^/(report|reports|sr15|srccl|srocc)(/|$)"
+        hub_depth: 4
+      select: {path_regex: "(?i)^/(report/[^/]+/.+|(sr15|srccl|srocc)/.+)$", deny_preset: generic-apparatus}
+      lang: {const: en}
+      delay_s: 2.0
+      cap: 2500
+      reason_receipt:
+        higher_priority_routes_checked: [source_owned_bulk_dump, documented_source_api, source_owned_incremental_feed, source_owned_sitemap_fetch, common_crawl]
+        reason_selected_route_is_needed: "IPCC publishes no sitemap or documented corpus API; the report hubs are the source-owned enumeration route."
+        consent_and_robots_result: "direct-mode live resolve allowed at task-399 recon; re-resolve at run time"
+  - host: www.iea.org
+    lang: [en]
+    license: iea-terms
+    trust_tier: 0.90
+    route: "sitemap.xml (27,692 locs) → /reports|/analysis|/commentaries|/policies|/articles items; /data-and-statistics/charts (7,084) excluded as chart furniture"
+    status: staged
+    evidence: "task 399 recon 2026-08-07"
+    notes: "sources/igo/igo-core.yaml recorded this host as fully bot-blocked on 2026-07-28; re-verification 2026-08-07 found robots 200 and extractable pages."
+    acquire: &energy_sitemap
+      route: source_owned_sitemap_fetch
+      rank: 5
+      params: {urls: ["https://www.iea.org/sitemap.xml"]}
+      select: {segment1_in: [reports, analysis, commentaries, policies, articles], deny_preset: generic-apparatus, min_path_segments: 2}
+      lang: {const: en}
+      delay_s: 2.0
+      cap: 6000
+      reason_receipt: {higher_priority_routes_checked: [source_owned_bulk_dump, documented_source_api, common_crawl], reason_selected_route_is_needed: "Publisher-owned sitemap is the enumerated route measured in task 399.", consent_and_robots_result: "live re-resolve required"}
+  - host: energy.ec.europa.eu
+    lang: [en]
+    license: eu-reuse-2011-833
+    trust_tier: 0.90
+    route: "sitemap.xml (2,194 locs), /topics + /resources"
+    status: staged
+    evidence: "task 399 recon"
+    acquire:
+      <<: *energy_sitemap
+      params: {urls: ["https://energy.ec.europa.eu/sitemap.xml"]}
+      select: {deny_preset: generic-apparatus, min_path_segments: 2}
+      cap: 2200
+  - host: www.umweltbundesamt.de
+    lang: [de, en]
+    license: uba-terms
+    trust_tier: 0.90
+    route: "sitemap.xml (35,992 locs) → publikationen + klima-energie topic tree; crawl-delay 10s so deliberately capped"
+    status: staged
+    evidence: "task 399 recon"
+    acquire:
+      <<: *energy_sitemap
+      params: {urls: ["https://www.umweltbundesamt.de/sitemap.xml"]}
+      select: {path_regex: "(?i)^/(en/publikationen|en/topics|themen/klima-energie|publikationen|themen/nachhaltigkeit-strategien-internationales)(/|$)", deny_preset: generic-apparatus, min_path_segments: 2}
+      lang: {by_path_segment: {en: en}, default: de}
+      cap: 700
+  - host: www.eia.gov
+    lang: [en]
+    license: us-gov-public-domain
+    trust_tier: 0.90
+    route: "sitemap.xml (133 locs)"
+    status: staged
+    evidence: "task 399 recon"
+    acquire:
+      <<: *energy_sitemap
+      params: {urls: ["https://www.eia.gov/sitemap.xml"]}
+      select: {deny_preset: generic-apparatus, min_path_segments: 0}
+      cap: 400
+  - {host: www.eea.europa.eu, lang: [en], route: "sitemap (robots-declared)", status: deferred, evidence: "task 399 recon", notes: "VIABLE at recon; not included in wave 1's cap allocation", recheck_after: "2026-11-07"}
+  - {host: www.irena.org, route: "—", status: declined, evidence: "task 399 recon", notes: "live consent search_ok=false in direct mode — DECLINED, not a routing problem", recheck_after: "2027-08-07"}
+  - {host: www.ademe.fr, route: "—", status: declined, evidence: "task 399 recon", notes: "live consent search_ok=false in direct mode", recheck_after: "2027-08-07"}
+  - {host: www.unep.org, route: "—", status: deferred, evidence: "task 399 recon", notes: "sitemap enumerates but content pages return 403 (WAF)", recheck_after: "2026-11-07"}
+  - {host: unfccc.int, route: "—", status: deferred, evidence: "task 399 recon", notes: "sitemap enumerates but sampled pages extract EMPTY — JS-composed; needs a bespoke route", recheck_after: "2026-11-07"}
+  - {host: www.iaea.org, route: "—", status: deferred, evidence: "task 399 recon", notes: "no sitemap at any common location; robots.txt returns 405", recheck_after: "2026-11-07"}
+  - {host: www.nrel.gov, route: "—", status: deferred, evidence: "task 399 recon", notes: "robots fail-closed (WAF/JS-shell on robots.txt itself); not spoofed around", recheck_after: "2026-11-07"}
+
+status: staged
+
+admission:
+  channel: demand-evidence
+  evidence:
+    - "PORTFOLIO §3b row 'energy & climate transition' — PROPOSED from demand evidence and RATIFIED ON MERGE of PR #56 (2026-08-07), which names IEA/IPCC/IRENA-class sources explicitly"
+  decision: escalated
+  policy: "POLICY.md@v3 §4.5"
+  date: "2026-08-07"
+
+notes:
+  - "Decision 'escalated' (schema enum): escalation resolved by board — PR #56 merge = ratification (POLICY §9)."
+  - "density_tier T2 cites the §3b ratification + task-395 demand evidence; T2+ is never granted at admission alone (POLICY §5 T-rules)."
+  - "RECHECK the deferred routes on a date, not on memory: two stale blockers were found in this task alone (IEA here; the torch/GPU note in task 398's gate script)."

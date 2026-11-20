@@ -1,0 +1,227 @@
+{
+ "gate": {
+  "[\"008fdf21348517fa027ba13843e7268857410bd150294c54c494c3c753d16cc4\", \"https://www3.ti.ch/CAN/RLeggi/public/index.php/raccolta-leggi/legge/numero/2.1.1.1\", \"it\"]": [
+   "it",
+   true
+  ],
+  "[\"133eb4289806e36ec96911ace9746b6f0bc795151b5f2bb941a39dc170a09509\", \"https://rsn.ne.ch/DATA/program/books/rsne/htm/12201.htm\", \"fr\"]": [
+   "fr",
+   true
+  ],
+  "[\"20812b97a05d7e15f7b3864cb0c128600b64c7b3219171181d44b69aba04c317\", \"https://www.silgeneve.ch/legis/data/rsg_b6_05.html\", \"fr\"]": [
+   "fr",
+   true
+  ],
+  "[\"8b273f74c93e6901f18adde7798867c2a5da6474c3aad9a0251d58bc0114c2cd\", \"https://www.sz.ch/public/upload/assets/gesetze/en_summary.html\", \"de\"]": [
+   "en",
+   true
+  ],
+  "[\"b5c5235537904686621ea844b4fa3866304e6d330a7da5561008780aab582c08\", \"https://rsju.jura.ch/fr/viewdocument.html?idn=19284&id=34562\", \"fr\"]": [
+   "fr",
+   true
+  ],
+  "[\"b676ff3cd1e920629158891b8a5fefebe4ef041097cba2e40a539a4d93571b17\", \"https://www4.ti.ch/can/rleggi/legge-piatta?id=1234\", \"it\"]": [
+   "it",
+   true
+  ],
+  "[\"dfe5194d56537189c62b5e52921d3961112b947518fc5ae60f2068fb09c21ed9\", \"https://silgeneve.ch/legis/data/rsg_a2_00.html\", \"fr\"]": [
+   "fr",
+   true
+  ],
+  "[\"e8cac6fd79b6eb8527c21c92471fa174e7202661d1a57c08a5a2412241119b2b\", \"https://www.sz.ch/public/upload/assets/gesetze/SRSZ_101_100.html\", \"de\"]": [
+   "de",
+   true
+  ]
+ },
+ "provenance": {
+  "checkout_app": "redacted-checkout",
+  "command": "redacted-command",
+  "driver_sha256": "3192c4e9295414ffbafe3416b032f728349cbcdb0fee454346b71f1a28e3c85a",
+  "git_sha": "81f3e3cfa409c28170a3bf872dffa82a54e7a17d",
+  "host": "redacted-build-host",
+  "lid_model": "redacted-model-path",
+  "lid_sha256": "7e69ec5451bc261cc7844e49e4792a85d7f09c06789ec800fc4a44aec362764e",
+  "recorded_at_utc": "2026-10-24T01:38:55Z",
+  "tape_sha256": "6aeb65e51ec2bd459136c0e21813c5b9921f197a6945f0456aa559056dd5aed5",
+  "today_frozen": "2026-10-23",
+  "tokenizer": "Snowflake/snowflake-arctic-embed-l-v2.0",
+  "tokenizer_class": "XLMRobertaTokenizer",
+  "tokenizer_is_fast": true,
+  "tokenizer_revision": null,
+  "tokenizer_status": "ok"
+ },
+ "rows": [
+  {
+   "canton": "TI",
+   "content_digest": "3dbc5a7e850d6721b48b4502c9c534da",
+   "country": "CH",
+   "domain": "www4.ti.ch",
+   "lang": "it",
+   "last_seen": "2026-10-23",
+   "point_id": "0d1f1a7b-0524-58f6-b81b-b740c222225c",
+   "provenance": "ch_cantonal_law",
+   "snippet": "# Legge sulla giustizia amministrativa La presente legge disciplina l'organizzazione e il funzionamento dei servizi cantonali e stabilisce i compiti, le competenze e le responsabilità…",
+   "source_type": "official",
+   "stamps": {
+    "chunk": 1,
+    "prov_id": "d8a962c4796858f4"
+   },
+   "text": "# Legge sulla giustizia amministrativa\nLa presente legge disciplina l'organizzazione e il funzionamento dei servizi cantonali e stabilisce i compiti, le competenze e le responsabilità delle autorità incaricate dell'esecuzione, nonché le modalità di ricorso contro le decisioni prese.\n### Art. 1\nIl ricorso al Tribunale cantonale amministrativo deve essere presentato entro trenta giorni dalla notificazione della decisione impugnata, in due esemplari e con le prove.",
+   "tier": "A",
+   "title": "Legge sulla giustizia amministrativa",
+   "trust_tier": 1.0,
+   "url": "https://www3.ti.ch/CAN/RLeggi/public/index.php/raccolta-leggi/legge/numero/2.1.1.1"
+  },
+  {
+   "canton": "GE",
+   "content_digest": "f483c06b5c1935c54180d7e5b30e440b",
+   "country": "CH",
+   "domain": "silgeneve.ch",
+   "lang": "fr",
+   "last_seen": "2026-10-23",
+   "point_id": "1803895d-6703-565a-b2c1-f0f8a3ee78c1",
+   "provenance": "ch_cantonal_law",
+   "site_name": "Silgeneve",
+   "snippet": "# A 2 00 Loi sur la forme, la publication et la promulgation des actes officiels Le présent règlement fixe les conditions dans lesquelles le…",
+   "source_type": "official",
+   "stamps": {
+    "chunk": 1,
+    "prov_id": "d8a962c4796858f4"
+   },
+   "text": "# A 2 00 Loi sur la forme, la publication et la promulgation des actes officiels\nLe présent règlement fixe les conditions dans lesquelles le Conseil d'État exerce la surveillance sur les communes, les fondations de droit public et les établissements autonomes du canton, ainsi que les mesures qu'il peut ordonner en cas de violation grave et répétée des dispositions légales applicables.\n### Art. 1\nLes lois sont publiées dans la Feuille d'avis officielle et entrent en vigueur le huitième jour qui suit leur publication, sauf disposition contraire expresse figurant dans le texte lui-même.",
+   "tier": "A",
+   "title": "A 2 00 Loi sur la forme, la publication et la promulgation des actes officiels – Silgeneve",
+   "trust_tier": 1.0,
+   "url": "https://silgeneve.ch/legis/data/rsg_a2_00.html"
+  },
+  {
+   "canton": "TI",
+   "content_digest": "973c75fbb932137fa9542e2b3a4e4b83",
+   "country": "CH",
+   "domain": "www4.ti.ch",
+   "lang": "it",
+   "last_seen": "2026-10-23",
+   "point_id": "6ff9a920-b62a-5ddf-ad9c-afd2f310af79",
+   "provenance": "ch_cantonal_law",
+   "snippet": "# Legge organica comunale (LOC) La presente legge disciplina l'organizzazione e il funzionamento dei servizi cantonali e stabilisce i compiti, le competenze e le responsabilità…",
+   "source_type": "official",
+   "stamps": {
+    "chunk": 1,
+    "prov_id": "d8a962c4796858f4"
+   },
+   "text": "# Legge organica comunale (LOC)\nLa presente legge disciplina l'organizzazione e il funzionamento dei servizi cantonali e stabilisce i compiti, le competenze e le responsabilità delle autorità incaricate dell'esecuzione, nonché le modalità di ricorso contro le decisioni prese.\n### Art. 1\nLa presente legge disciplina l'organizzazione e il funzionamento dei servizi cantonali e stabilisce i compiti, le competenze e le responsabilità delle autorità incaricate dell'esecuzione, nonché le modalità di ricorso contro le decisioni prese.\n### Art. 2\nIl Municipio rappresenta il Comune, esegue le decisioni del Consiglio comunale e amministra il patrimonio comunale secondo le norme della presente legge.",
+   "tier": "A",
+   "title": "Legge organica comunale (LOC)",
+   "trust_tier": 1.0,
+   "url": "https://www4.ti.ch/can/rleggi/legge-piatta?id=1234"
+  },
+  {
+   "canton": "SZ",
+   "content_digest": "602b88edb365e36db0bb9adcb5d1071c",
+   "country": "CH",
+   "domain": "www.sz.ch",
+   "lang": "de",
+   "last_seen": "2026-10-23",
+   "point_id": "76983e6f-c185-5c11-9364-436c5a14bb97",
+   "provenance": "ch_cantonal_law",
+   "snippet": "# Summary of the cantonal act on public administration This summary explains in plain English how the cantonal authorities decide on permits and how residents…",
+   "source_type": "official",
+   "stamps": {
+    "chunk": 1,
+    "prov_id": "d8a962c4796858f4"
+   },
+   "text": "# Summary of the cantonal act on public administration\nThis summary explains in plain English how the cantonal authorities decide on permits and how residents can appeal against a decision taken by the municipality.\n### Art. 1\nThe municipality decides on the application within thirty days of receiving a complete file and informs the applicant in writing of the outcome and of the available legal remedies.",
+   "tier": "A",
+   "title": "Summary of the cantonal act on public administration",
+   "trust_tier": 1.0,
+   "url": "https://www.sz.ch/public/upload/assets/gesetze/en_summary.html"
+  },
+  {
+   "canton": "SZ",
+   "content_digest": "2e249f490745a77b918aedc117701a78",
+   "country": "CH",
+   "domain": "www.sz.ch",
+   "lang": "de",
+   "last_seen": "2026-10-23",
+   "point_id": "be29fb23-e3a6-527d-ba7e-99fb1179a94f",
+   "provenance": "ch_cantonal_law",
+   "snippet": "# SRSZ 101.100 Gesetz über die Organisation der Gemeinden Dieses Gesetz regelt die Aufgaben, die Zuständigkeiten und das Verfahren der kantonalen Behörden bei der Erteilung…",
+   "source_type": "official",
+   "stamps": {
+    "chunk": 1,
+    "prov_id": "d8a962c4796858f4"
+   },
+   "text": "# SRSZ 101.100 Gesetz über die Organisation der Gemeinden\nDieses Gesetz regelt die Aufgaben, die Zuständigkeiten und das Verfahren der kantonalen Behörden bei der Erteilung von Bewilligungen und bei der Aufsicht über die Gemeinden sowie die Rechtsmittel gegen die erlassenen Verfügungen.\n### Art. 1\nDieses Gesetz regelt die Aufgaben, die Zuständigkeiten und das Verfahren der kantonalen Behörden bei der Erteilung von Bewilligungen und bei der Aufsicht über die Gemeinden sowie die Rechtsmittel gegen die erlassenen Verfügungen.\n### Art. 2\nDer Gemeinderat vollzieht die Beschlüsse der Gemeindeversammlung und führt die laufenden Geschäfte der Gemeinde nach den Vorschriften des kantonalen Rechts.",
+   "tier": "A",
+   "title": "SRSZ 101.100 Gesetz über die Organisation der Gemeinden",
+   "trust_tier": 1.0,
+   "url": "https://www.sz.ch/public/upload/assets/gesetze/SRSZ_101_100.html"
+  },
+  {
+   "canton": "GE",
+   "content_digest": "e5917902e42f490795c4b701cea24475",
+   "country": "CH",
+   "domain": "silgeneve.ch",
+   "lang": "fr",
+   "last_seen": "2026-10-23",
+   "point_id": "e712f0b9-d1af-5452-b10c-fd2c88d982f7",
+   "provenance": "ch_cantonal_law",
+   "site_name": "Silgeneve",
+   "snippet": "# B 6 05 Loi sur l'administration des communes Le présent règlement fixe les conditions dans lesquelles le Conseil d'État exerce la surveillance sur les…",
+   "source_type": "official",
+   "stamps": {
+    "chunk": 1,
+    "prov_id": "d8a962c4796858f4"
+   },
+   "text": "# B 6 05 Loi sur l'administration des communes\nLe présent règlement fixe les conditions dans lesquelles le Conseil d'État exerce la surveillance sur les communes, les fondations de droit public et les établissements autonomes du canton, ainsi que les mesures qu'il peut ordonner en cas de violation grave et répétée des dispositions légales applicables.\n### Art. 1\nLe présent règlement fixe les conditions dans lesquelles le Conseil d'État exerce la surveillance sur les communes, les fondations de droit public et les établissements autonomes du canton, ainsi que les mesures qu'il peut ordonner en cas de violation grave et répétée des dispositions légales applicables.\n### Art. 2\nLe présent règlement fixe les conditions dans lesquelles le Grand Conseil exerce la surveillance sur les communes, les fondations de droit public et les établissements autonomes du canton, ainsi que les mesures qu'il peut ordonner en cas de violation grave et répétée des dispositions légales applicables.\n### Art. 3\nLes communes tiennent une comptabilité conforme aux normes arrêtées par le département et la soumettent chaque année à un organe de révision indépendant.",
+   "tier": "A",
+   "title": "B 6 05 Loi sur l'administration des communes – Silgeneve",
+   "trust_tier": 1.0,
+   "url": "https://www.silgeneve.ch/legis/data/rsg_b6_05.html"
+  },
+  {
+   "canton": "NE",
+   "content_digest": "ff0d29324e2e2155018ce7f32f40fa63",
+   "country": "CH",
+   "domain": "rsn.ne.ch",
+   "lang": "fr",
+   "last_seen": "2026-10-23",
+   "point_id": "ea41ae4d-83fd-5d39-b470-6cb9c17ff6b5",
+   "provenance": "ch_cantonal_law",
+   "snippet": "# RSN 122.01 Loi sur les communes Le présent règlement fixe les conditions dans lesquelles le Conseil d'État exerce la surveillance sur les communes, les…",
+   "source_type": "official",
+   "stamps": {
+    "chunk": 1,
+    "prov_id": "d8a962c4796858f4"
+   },
+   "text": "# RSN 122.01 Loi sur les communes\nLe présent règlement fixe les conditions dans lesquelles le Conseil d'État exerce la surveillance sur les communes, les fondations de droit public et les établissements autonomes du canton, ainsi que les mesures qu'il peut ordonner en cas de violation grave et répétée des dispositions légales applicables.\n### Art. 1\nLe présent règlement fixe les conditions dans lesquelles le Conseil d'État exerce la surveillance sur les communes, les fondations de droit public et les établissements autonomes du canton, ainsi que les mesures qu'il peut ordonner en cas de violation grave et répétée des dispositions légales applicables.\n### Art. 2\nLe Conseil général est l'organe législatif de la commune ; il délibère sur le budget, les comptes et les emprunts selon la procédure fixée par le règlement général.",
+   "tier": "A",
+   "title": "RSN 122.01 Loi sur les communes",
+   "trust_tier": 1.0,
+   "url": "https://rsn.ne.ch/DATA/program/books/rsne/htm/12201.htm"
+  },
+  {
+   "canton": "JU",
+   "content_digest": "502d6782109c6ca2224aea9b5e39140d",
+   "country": "CH",
+   "domain": "rsju.jura.ch",
+   "lang": "fr",
+   "last_seen": "2026-10-23",
+   "point_id": "f351a369-4c13-5b11-89f2-02a6e68f9bab",
+   "provenance": "ch_cantonal_law",
+   "site_name": "Jura",
+   "snippet": "# RSJU 190.11 Loi sur les communes Le présent règlement fixe les conditions dans lesquelles le Conseil d'État exerce la surveillance sur les communes, les…",
+   "source_type": "official",
+   "stamps": {
+    "chunk": 1,
+    "prov_id": "d8a962c4796858f4"
+   },
+   "text": "# RSJU 190.11 Loi sur les communes\nLe présent règlement fixe les conditions dans lesquelles le Conseil d'État exerce la surveillance sur les communes, les fondations de droit public et les établissements autonomes du canton, ainsi que les mesures qu'il peut ordonner en cas de violation grave et répétée des dispositions légales applicables.\n### Art. 1\nLe présent règlement fixe les conditions dans lesquelles le Conseil d'État exerce la surveillance sur les communes, les fondations de droit public et les établissements autonomes du canton, ainsi que les mesures qu'il peut ordonner en cas de violation grave et répétée des dispositions légales applicables.\n### Art. 2\nLes autorités communales sont tenues de renseigner la population sur les affaires importantes de la commune dans les limites du droit applicable.",
+   "tier": "A",
+   "title": "RSJU 190.11 Loi sur les communes – Jura",
+   "trust_tier": 1.0,
+   "url": "https://rsju.jura.ch/fr/viewdocument.html?idn=19284&id=34562"
+  }
+ ],
+ "tokens": {}
+}

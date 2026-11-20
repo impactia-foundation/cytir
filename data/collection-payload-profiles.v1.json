@@ -1,0 +1,102 @@
+{
+ "schema": "aw.collection-payload-profiles/v1",
+ "about": "Which payload form each PHYSICAL collection stores. Read by cytir.index.payload_profile; a writer never infers it from a row, and an undeclared collection is refused. A collection is declared here when it is built, by a reviewed PR. Aliases (aw_prod) are not declared: writers resolve the alias to the physical name first. Every declared collection MUST carry a `sparse_rule` key (task 717): the BM25 prune rule it takes, or an explicit null for none; a declared collection without the key is refused by the drain, so a collection never takes raw sparse vectors by omission.",
+ "collections": {
+  "aw_e8": {
+   "profile": "prod",
+   "role": "twin (the build box, :6457), raw payloads; retired from the serving box 2026-09-19; twin until 2026-10-16; kept read-only as the raw archive",
+   "sparse_rule": null,
+   "decided": "task 675"
+  },
+  "aw_e9": {
+   "profile": "normalized",
+   "serving": false,
+   "role": "prod (aw_prod alias since 2026-09-29T11:39Z), built by `cyt index build --from-collection` on PROD_E9 with --payload-profile normalized (task 637 S6, task 1256); retired from the serving box 2026-10-16T15:09Z; rollback copy on the scratch volume until A4",
+   "tables": "data/payload-enum-tables.v1.json",
+   "tables_sha256": "833e3b8c89a9590bdb59273e4cb965718916be6a1efc963b518e2aba3d00f7e3",
+   "open_keys": [
+    "consent_source"
+   ],
+   "open_keys_why": "consent_source is a per-host sentence: 31 values at the base build, 683 by the 2026-09-29 catch-up, and 198 new values in ONE pack (l1-backfill-batch-00002) after the flip. A closed key would refuse that pack. Known values are coded, unknown values are written raw; no writer assigns a code., section Unknown values.",
+   "decided": "task 675 (Tim to confirm by merging)",
+   "sparse_rule": {
+    "id": "aw_e9-df-prune",
+    "epoch": 1,
+    "rule_epochs_key": "bm25_prune",
+    "df_gt_frac": 0.02,
+    "df_lt_abs": 2,
+    "df_n": 33737287,
+    "terms": 57776275,
+    "drop_terms_sha256": "0af303262d606aa627dc05e486b3b79df8d5226dd3d75be490799791c5571ebc",
+    "source": "task 637 S6: the aw_e9 build's own df map (df-full.json of the build, n = 33,737,287, 81,682,538 terms) through cytir.index.sparse_rule.build_prune_set(df_gt=0.02, df_lt=2): 57,776,275 terms = the manifest's lever.prune_terms",
+    "file": "a sorted little-endian uint32 file, 231,105,100 bytes; its path is the operator setting sparse_rule_drop_terms (env AW_SPARSE_RULE_DROP_TERMS), never a default. Rebuild: python -m cytir.index.sparse_rule build-drop-terms --df <df-full.json> --out <file> --df-gt 0.02 --df-lt 2",
+    "decided": "task 717 (ruling 27, T3 Q1, Tim 2026-10-07): the drain writes prod under this rule; the twin (aw_e8) declares none and stays raw"
+   },
+   "tables_note_1361": "tables_sha256 changed 2026-10-26: six rule_epochs codes (6-11) appended, each earlier combination plus prov_id=2, with and without bm25_prune=1 (ADR-117 am.1, task 1361)",
+   "tables_note_717": "tables_sha256 changed 2026-10-07: three rule_epochs codes (3-5) appended, the aw_e9 combinations plus bm25_prune=1"
+  },
+  "aw_e10": {
+   "profile": "rebuild_e10",
+   "state": "live",
+   "serving": true,
+   "role": "prod via aw_prod since 2026-10-16T15:09Z (task 962, flip commit 1efde933f). Built by the aw_e10 builder from the twin (see git history at 41d5bb14b; spec specs/archive/aw-e10-rebuild.md; ruling 27 T3, ruling 29 T8).",
+   "tables": "data/payload-enum-tables.v1.json",
+   "tables_sha256": "833e3b8c89a9590bdb59273e4cb965718916be6a1efc963b518e2aba3d00f7e3",
+   "open_keys": [
+    "consent_source"
+   ],
+   "open_keys_why": "as aw_e9: the build codes every consent_source value it reads (closed at build), but a live writer meets new per-host sentences every day; an unknown one is written raw, never assigned a code by a writer",
+   "id_rule": "I1",
+   "id_rule_why": "ADR-067 I1 + am.1 (cards per entity): every aw_e10 row is keyed by the I1 id of its own row; the drain refuses a batch with any other id (cytir.index.id_rule, task 847)",
+   "sparse_rule": {
+    "id": "aw_e9-df-prune",
+    "epoch": 1,
+    "rule_epochs_key": "bm25_prune",
+    "df_gt_frac": 0.02,
+    "df_lt_abs": 2,
+    "df_n": 33737287,
+    "terms": 57776275,
+    "drop_terms_sha256": "0af303262d606aa627dc05e486b3b79df8d5226dd3d75be490799791c5571ebc",
+    "source": "task 637 S6: the aw_e9 build's own df map (df-full.json of the build, n = 33,737,287, 81,682,538 terms) through cytir.index.sparse_rule.build_prune_set(df_gt=0.02, df_lt=2): 57,776,275 terms = the manifest's lever.prune_terms",
+    "file": "a sorted little-endian uint32 file, 231,105,100 bytes; its path is the operator setting sparse_rule_drop_terms (env AW_SPARSE_RULE_DROP_TERMS), never a default. Rebuild: python -m cytir.index.sparse_rule build-drop-terms --df <df-full.json> --out <file> --df-gt 0.02 --df-lt 2",
+    "decided": "ruling 27 T3 (Tim 2026-10-07) + spec aw-e10-rebuild E1: aw_e10 is built and drained under the SAME frozen aw_e9 rule (same id, epoch and term set); after the flip both legs take it (Q1, ruling 29 T8)"
+   },
+   "decided": "task 847 (aw_e10 slice 3): staged declaration; the writer contract switches on with state live"
+  },
+  "aw_e10_twin": {
+   "profile": "rebuild_e10",
+   "state": "live",
+   "serving": false,
+   "role": "twin (the twin box, port 6486), the ship stage renamed (tasks 856/963); raw bytes of the shipped aw_e10",
+   "tables": "data/payload-enum-tables.v1.json",
+   "tables_sha256": "833e3b8c89a9590bdb59273e4cb965718916be6a1efc963b518e2aba3d00f7e3",
+   "open_keys": [
+    "consent_source"
+   ],
+   "open_keys_why": "as aw_e9: the build codes every consent_source value it reads (closed at build), but a live writer meets new per-host sentences every day; an unknown one is written raw, never assigned a code by a writer",
+   "id_rule": "I1",
+   "id_rule_why": "ADR-067 I1 + am.1 (cards per entity): every aw_e10 row is keyed by the I1 id of its own row; the drain refuses a batch with any other id (cytir.index.id_rule, task 847)",
+   "sparse_rule": {
+    "id": "aw_e9-df-prune",
+    "epoch": 1,
+    "rule_epochs_key": "bm25_prune",
+    "df_gt_frac": 0.02,
+    "df_lt_abs": 2,
+    "df_n": 33737287,
+    "terms": 57776275,
+    "drop_terms_sha256": "0af303262d606aa627dc05e486b3b79df8d5226dd3d75be490799791c5571ebc",
+    "source": "task 637 S6: the aw_e9 build's own df map (df-full.json of the build, n = 33,737,287, 81,682,538 terms) through cytir.index.sparse_rule.build_prune_set(df_gt=0.02, df_lt=2): 57,776,275 terms = the manifest's lever.prune_terms",
+    "file": "a sorted little-endian uint32 file, 231,105,100 bytes; its path is the operator setting sparse_rule_drop_terms (env AW_SPARSE_RULE_DROP_TERMS), never a default. Rebuild: python -m cytir.index.sparse_rule build-drop-terms --df <df-full.json> --out <file> --df-gt 0.02 --df-lt 2",
+    "decided": "ruling 27 T3 (Tim 2026-10-07) + spec aw-e10-rebuild E1: aw_e10 is built and drained under the SAME frozen aw_e9 rule (same id, epoch and term set); after the flip both legs take it (Q1, ruling 29 T8)"
+   },
+   "decided": "task 847 (aw_e10 slice 3): staged declaration; the writer contract switches on with state live"
+  },
+  "aw_gate_fixture": {
+   "profile": "prod",
+   "role": "twin-fixture (the index-serve-gate CI job's throwaway collection on its own Qdrant; stand-in vectors; never a twin, never serving: cytir.retune.guard accepts it only when an operator overlay names the endpoint, task 2254)",
+   "serving": false,
+   "decided": "task 2254 (ruling 60(c), orchestrator 2026-11-03)",
+   "sparse_rule": null
+  }
+ }
+}

@@ -1,0 +1,47 @@
+{
+ "base_path": "/asylum-support-tribunal-decisions/ml-v-secretary-of-state-for-the-home-department-as-slash-25-slash-10-slash-50033",
+ "title": "ML v Secretary of State for the Home Department: AS/25/10/50033",
+ "description": "Asylum Support Tribunal decision of Judge King on 20 March 2026. ",
+ "document_type": "asylum_support_decision",
+ "schema_name": "specialist_document",
+ "locale": "en",
+ "public_updated_at": "2026-06-03T10:51:54+01:00",
+ "details": {
+  "attachments": [
+   {
+    "attachment_type": "file",
+    "content_id": "d6dbbc0f-3194-440c-b49e-16d32fefaf23",
+    "content_type": "application/pdf",
+    "created_at": "2026-06-03T10:38:33+01:00",
+    "id": "d6dbbc0f-3194-440c-b49e-16d32fefaf23",
+    "title": "ML v Secretary of State for the Home Department",
+    "updated_at": "2026-06-03T10:38:33+01:00",
+    "url": "https://assets.publishing.service.gov.uk/media/6a1ff619c7335e2ca6daaee0/ML_v_Secretary_of_State_for_the_Home_Department_-_AS-25-10-50033.pdf"
+   }
+  ],
+  "body": "<p>Read the full decision <span id=\"attachment_d6dbbc0f-3194-440c-b49e-16d32fefaf23\" class=\"attachment-inline\"><a href=\"https://assets.publishing.service.gov.uk/media/6a1ff619c7335e2ca6daaee0/ML_v_Secretary_of_State_for_the_Home_Department_-_AS-25-10-50033.pdf\">ML v Secretary of State for the Home Department</a></span></p>\n",
+  "change_history": [
+   {
+    "note": "First published.",
+    "public_timestamp": "2026-06-03T09:51:54Z"
+   }
+  ],
+  "max_cache_time": 10,
+  "metadata": {
+   "hidden_indexable_content": " \r\n\r\n \r\n\r\nFIRST-TIER TRIBUNAL \r\nSOCIAL ENTITLEMENT CHAMBER \r\nASYLUM SUPPORT \r\n\r\n \r\n\r\nHeld at: East London Tribunal Appellant: ML \r\nOn: 13 January 2026 Tribunal Ref: AS/25/10/50033 \r\nBefore: Judge King HO Refs: 16/03/00147&WMD/4936214 \r\n\r\n \r\n\r\nRespondent: Secretary of State for the Home Department \r\n\r\n \r\n\r\nStatement of Reasons for Decision\r\nThis statement is to be read together with the decision notice issued by the Tribunal. \r\n1. This Statement of Reasons is made in accordance with Rule 34(1) of the \r\nTribunal Procedure (First-tier Tribunal) (Social Entitlement Chamber) \r\nRules 2008 (“the TPR”) and gives reasons for my decision of 20 March \r\n2026 that the power provided in section 103(3)(b) of the Immigration and \r\nAsylum Act 1999 permits the Tribunal to make a decision awarding section \r\n95 support to a person who has appealed against a decision to discontinue \r\nsection 4 support. \r\n\r\n \r\n\r\nRule 14 Anonymity Order: \r\n  \r\n2. By Rule 14(1)(b) of the TPR, the appellant’s name is not to be published. \r\nShe is referred to in this Statement of Reasons as ML. Any application \r\nto vary this direction may be made on notice to the parties to the appeal. \r\n\r\n \r\n\r\nRule 18 Lead Case Order:  \r\n\r\n \r\n\r\n3. On 7 November 2025, this appeal was designated as a lead case pursuant \r\nto Rule 18 of the TPR and, as at today’s date, forty-four appeals are stayed \r\nbehind it. \r\n\r\n \r\n\r\n4. The common issue to be decided in the appeals is whether, in \r\ncircumstances where: \r\n\r\n \r\n\r\n\r\nAppellant: ML Tribuna",
+   "tribunal_decision_categories": [
+    "section-95-support-for-asylum-seekers"
+   ],
+   "tribunal_decision_decision_date": "2026-03-20",
+   "tribunal_decision_judges": [
+    "king-v"
+   ],
+   "tribunal_decision_landmark": "landmark",
+   "tribunal_decision_reference_number": "AS/25/10/50033",
+   "tribunal_decision_sub_categories": [
+    "section-95-other"
+   ]
+  },
+  "temporary_update_type": false
+ }
+}

@@ -1,0 +1,190 @@
+{
+ "schema": "aw.task584-payload-carry-fixture.v1",
+ "note": "REAL records, sealed 2026-09-12 from the build box. `cache_580_payload` is verbatim from task 580's own materialiser payload cache (_work/task580/{a,b}/payloads.jsonl.gz); `live_aw_e8_payload` is the payload aw_e8 (:6457) holds for the same page, read with with_payload=True. `materialized_580_record` is the first row of task 580's roster-B materialisation -- the row it actually staged and applied. These are the two sides of the defect, not a reconstruction of it.",
+ "sealed_from": {
+  "cache": "the build box: <corpus disk>/aw-corpus/_work/task580/{a,b}/payloads.jsonl.gz",
+  "live": "the build box qdrant :6457 aw_e8",
+  "records": "the build box: <corpus disk>/.../_work/task580/b/mat/records/*.records.jsonl.gz"
+ },
+ "pairs": [
+  {
+   "url": "https://20min.ch/fr",
+   "roster": "b",
+   "cache_580_payload": {
+    "url": "https://www.20min.ch/fr",
+    "source_type": "reference"
+   },
+   "live_aw_e8_payload": {
+    "url": "https://www.20min.ch/fr",
+    "title": "Confédération8 fois l'Everest: Berne achète 600 millions de feuilles de papier",
+    "snippet": "20 minutes — quotidien d'information générale distribué gratuitement en Suisse. Industry: daily newspaper. Headquarters/market: CH. Official website of 20 minutes (20min.",
+    "lang": "fr",
+    "domain": "20min.ch",
+    "tier": "B",
+    "source_type": "reference",
+    "trust_tier": 0.9,
+    "last_seen": "2026-07-10",
+    "country": "INTL",
+    "license": "CC0-1.0",
+    "content_digest": "605cd7ab6fa1333b0f244293eccef2525ef0c35285a2e605b45152ddf3259cf5",
+    "point_id": "ba880fce-19b9-514e-a926-77846a478c29",
+    "rule_epochs": {
+     "extract": 1,
+     "chunk": 1,
+     "embed": 1,
+     "tok": 2,
+     "country": 2,
+     "trust": 1,
+     "card": 1
+    },
+    "build_id": "aw_b1",
+    "provenance": "wikidata_ch",
+    "entity_kind": "org",
+    "qid": "Q2814749"
+   }
+  },
+  {
+   "url": "https://2assistu.ch/",
+   "roster": "b",
+   "cache_580_payload": {
+    "url": "https://2assistu.ch/",
+    "source_type": "official"
+   },
+   "live_aw_e8_payload": {
+    "url": "https://2assistu.ch/",
+    "title": "Wir feiern Geburtstag! 15 Jahre 2assistU",
+    "snippet": "2assistU AG — Die Gesellschaft bezweckt die Erbringung von Beratungen und Schulungen für Private, Firmen und die öffentliche Hand.",
+    "lang": "de",
+    "domain": "2assistu.ch",
+    "tier": "B",
+    "source_type": "official",
+    "trust_tier": 0.85,
+    "last_seen": "2026-07-10",
+    "country": "CH",
+    "license": "Swiss public commercial register (Zefix/LINDAS, OGD)",
+    "content_digest": "0a127ea0f5a9621bc6c44f260f3cf84cb226dfd085f884759b2c98d026b70c48",
+    "point_id": "60621408-bad9-56d4-9999-6f8095c4ce23",
+    "rule_epochs": {
+     "extract": 1,
+     "chunk": 1,
+     "embed": 1,
+     "tok": 2,
+     "country": 2,
+     "trust": 1,
+     "card": 1
+    },
+    "build_id": "aw_b1",
+    "register_id": "CHE-232.349.318",
+    "register_scheme": "CHE-UID",
+    "provenance": "zefix_ccjoin",
+    "entity_kind": "org",
+    "published": "2025-02-03"
+   }
+  },
+  {
+   "url": "https://admin.ch/fr/membres-conseil-federal",
+   "roster": "a",
+   "cache_580_payload": {
+    "url": "https://admin.ch/fr/membres-conseil-federal",
+    "title": "Les sept membres du Conseil fédéral",
+    "lang": "en",
+    "domain": "admin.ch",
+    "source_type": "official",
+    "trust_tier": 1.0,
+    "last_seen": "2026-09-11",
+    "provenance": "task580_refetch",
+    "tier": "A",
+    "search_ok": true,
+    "train_ok": true,
+    "consent_state": "resolved",
+    "consent_basis": "robots-search-ok",
+    "consent_source": "admin.ch robots.txt (task580 build-box reprobe 2026-09-11)",
+    "consent_checked_at": "2026-09-11T22:16:02Z",
+    "status": "current"
+   },
+   "live_aw_e8_payload": null
+  },
+  {
+   "url": "https://bvger.ch/de/rechtsprechung/entscheiddatenbank",
+   "roster": "a",
+   "cache_580_payload": {
+    "source_type": "official",
+    "url": "https://www.bvger.ch/de/rechtsprechung/entscheiddatenbank"
+   },
+   "live_aw_e8_payload": {
+    "title": "Entscheiddatenbank | BVGer",
+    "lang": "de",
+    "domain": "bvger.ch",
+    "source_type": "official",
+    "trust_tier": 0.85,
+    "last_seen": "2026-07-20",
+    "country": "CH",
+    "provenance": "endorsement-discovery",
+    "url": "https://www.bvger.ch/de/rechtsprechung/entscheiddatenbank",
+    "snippet": "Hilfeseite der Entscheidpublikation des Bundesverwaltungsgerichts > Wichtiger Hinweis Volltextsuche und SuchoperatorenEin **Leerschlag**(Abstand) zwischen Suchbegriffen wirkt wie ein**AND**Suchoperator.",
+    "tier": "B",
+    "license": "gov-open",
+    "content_digest": "007cec1d5b9aec227079708d7a71bfbb873629ba02a27816ed3ad42df7500813",
+    "point_id": "4ee8fa14-2188-52d7-b9ca-e9b1d6f41991",
+    "rule_epochs": {
+     "extract": 1,
+     "chunk": 5,
+     "embed": 1,
+     "tok": 2,
+     "country": 2,
+     "trust": 1,
+     "card": 1
+    },
+    "build_id": "aw_b1",
+    "consent_state": "carried",
+    "consent_basis": "carried-from-superseded-row",
+    "consent_source": "task565-chunk-width-delta (ADR-090 amendment 1); consent carried from the superseded row, re-cut not re-fetched",
+    "consent_checked_at": "2026-09-09",
+    "stamps": {
+     "prov_id": "fdef86754a970989",
+     "chunk": 5
+    }
+   }
+  }
+ ],
+ "materialized_580_record": {
+  "source_type": "official",
+  "url": "https://www.aegerten.ch/de/verwaltung/onlineschalter.php",
+  "canonical_url": "https://aegerten.ch/de/verwaltung/onlineschalter.php",
+  "text": "| Dienstleistung | Dokumente | Bestellen | Formular/Link | ||||||||||\n|---|---|---|---|---|---|---|---|---|---|---|---|---|---|\n| Abfallentsorgung Weitere Abfallarten können bei den regionalen Abfallentsorgungsstellen entsorgt werden. Die Abfallsammelstelle befindet sich auf dem Dorfplatz vor dem Restaurant Toronto. Entsorgt werden können Glas, Textilien, Kleider und Schuhe, Stahlblech/Alu und Kaffeekapseln (keine PET-flaschen). Die Sammeldaten können dem Abfallmerkblatt entnommen werden. Für die Entsorgung von Papier und Karton wird jeweils einmal pro Monat auf dem Schulhausplatz ein Container aufgestellt. Das Papier (gebündelt) wird direkt in den Quartieren eingesammelt. | CHF 0.00 | Direkt zu Abfall.ch | |||||||||||\n| AHV-Zweigstellen - Informationen einholen Die AHV-Zweigstelle ist die Verbindungsstelle zwischen Abrechnungspflichtigen, Leistungsbezügern und der Ausgleichskasse des Kantons Bern. Die Zweigstelle Brügg-Aegerten ist Ihre direkte Anlaufstelle und befindet an der Mettgasse 1 in Brügg. Verantwortliche Leiterin ist Frau Jeannette Keiser.\n| Infos zur AHV-Zweigstelle auf der Website der Sitzgemeinde Brügg | ||||||||||||",
+  "dense_text": "| Dienstleistung | Dokumente | Bestellen | Formular/Link | ||||||||||\n|---|---|---|---|---|---|---|---|---|---|---|---|---|---|\n| Abfallentsorgung Weitere Abfallarten können bei den regionalen Abfallentsorgungsstellen entsorgt werden. Die Abfallsammelstelle befindet sich auf dem Dorfplatz vor dem Restaurant Toronto. Entsorgt werden können Glas, Textilien, Kleider und Schuhe, Stahlblech/Alu und Kaffeekapseln (keine PET-flaschen). Die Sammeldaten können dem Abfallmerkblatt entnommen werden. Für die Entsorgung von Papier und Karton wird jeweils einmal pro Monat auf dem Schulhausplatz ein Container aufgestellt. Das Papier (gebündelt) wird direkt in den Quartieren eingesammelt. | CHF 0.00 | Direkt zu Abfall.ch | |||||||||||\n| AHV-Zweigstellen - Informationen einholen Die AHV-Zweigstelle ist die Verbindungsstelle zwischen Abrechnungspflichtigen, Leistungsbezügern und der Ausgleichskasse des Kantons Bern. Die Zweigstelle Brügg-Aegerten ist Ihre direkte Anlaufstelle und befindet an der Mettgasse 1 in Brügg. Verantwortliche Leiterin ist Frau Jeannette Keiser.\n| Infos zur AHV-Zweigstelle auf der Website der Sitzgemeinde Brügg | ||||||||||||",
+  "sparse_text": "| Dienstleistung | Dokumente | Bestellen | Formular/Link | ||||||||||\n|---|---|---|---|---|---|---|---|---|---|---|---|---|---|\n| Abfallentsorgung Weitere Abfallarten können bei den regionalen Abfallentsorgungsstellen entsorgt werden. Die Abfallsammelstelle befindet sich auf dem Dorfplatz vor dem Restaurant Toronto. Entsorgt werden können Glas, Textilien, Kleider und Schuhe, Stahlblech/Alu und Kaffeekapseln (keine PET-flaschen). Die Sammeldaten können dem Abfallmerkblatt entnommen werden. Für die Entsorgung von Papier und Karton wird jeweils einmal pro Monat auf dem Schulhausplatz ein Container aufgestellt. Das Papier (gebündelt) wird direkt in den Quartieren eingesammelt. | CHF 0.00 | Direkt zu Abfall.ch | |||||||||||\n| AHV-Zweigstellen - Informationen einholen Die AHV-Zweigstelle ist die Verbindungsstelle zwischen Abrechnungspflichtigen, Leistungsbezügern und der Ausgleichskasse des Kantons Bern. Die Zweigstelle Brügg-Aegerten ist Ihre direkte Anlaufstelle und befindet an der Mettgasse 1 in Brügg. Verantwortliche Leiterin ist Frau Jeannette Keiser.\n| Infos zur AHV-Zweigstelle auf der Website der Sitzgemeinde Brügg | ||||||||||||",
+  "document_id": null,
+  "parent_markdown_sha256": null,
+  "content_digest": "9ef76e9c5b6a99bcf92f591715daf0ac115f922a216152324abfaba4ae4f0d31",
+  "identity_tier": "B",
+  "chunk_ordinal": 0,
+  "chunk_n_words": 141,
+  "chunk_unit": "adjacent_sections_part",
+  "chunk_header_path": "",
+  "chunk_rule": "struct-md-192w-o0-adjacent-sections-tail-288-tok2560@5",
+  "chunk_selector": {
+   "policy_family": "chunk.reference",
+   "selector_config_sha256": "5b5fa4117e5f0aaacffd5d1c8a619c394ece2f4570a695bad128f66a7ce72630",
+   "selection_mode": "whole-density-class",
+   "generic_policy_sha256": "7dcb54c497e1855ad91ddafe80ff34b1da14f3d23b3af26dc7c7b53ab70ce6bf",
+   "reference_policy_sha256": "73507461445b7a78602b0f3fc2f03f905f8fb59f74420d6e02b92b7df07de9b8"
+  },
+  "rule_epochs": {
+   "chunk": 5
+  },
+  "stamps": {
+   "prov_id": "83c33c681c1986c2"
+  },
+  "prov_id": "83c33c681c1986c2",
+  "_set_id": "task580_l2_restore:aegerten.ch",
+  "_superseded_point_ids": [
+   "284be3da-54a0-5b8f-bc81-d55557224ae4",
+   "43d99c5d-8e85-5e29-9100-835e4ad541ee",
+   "68f30ac2-b416-5191-a4c0-7a5a5c7dfd36",
+   "a50b2cef-c47f-55ef-aa67-1c1c9ed589d2",
+   "b8754516-267e-5a32-a8a3-51b7ef60eb03"
+  ],
+  "_store_kind": "url_keyed"
+ }
+}

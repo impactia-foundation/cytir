@@ -1,0 +1,58 @@
+{
+ "schema": "aw.already-served-urls-fixture.v1",
+ "task": 629,
+ "why": "The guard's whole content is the contrast between a pack whose pages the target already serves and one whose pages it does not. Both sides here are real urls from the real packs, with the twin's exact row count for each, measured read-only.",
+ "measured": {
+  "url": "the twin on the build box, 127.0.0.1:6457",
+  "collection": "aw_e8",
+  "at_utc": "2026-09-23T04:29:50Z"
+ },
+ "b02_service_public_fiche": [
+  {
+   "url": "https://entreprendre.service-public.gouv.fr/vosdroits/F10522",
+   "twin_rows": 11
+  },
+  {
+   "url": "https://entreprendre.service-public.gouv.fr/vosdroits/F11299",
+   "twin_rows": 5
+  },
+  {
+   "url": "https://entreprendre.service-public.gouv.fr/vosdroits/F15252",
+   "twin_rows": 4
+  }
+ ],
+ "b05_rfc_editor_net_new": [
+  {
+   "url": "https://www.rfc-editor.org/rfc/rfc570.txt",
+   "twin_rows": 0
+  },
+  {
+   "url": "https://www.rfc-editor.org/rfc/rfc1119.txt",
+   "twin_rows": 0
+  },
+  {
+   "url": "https://www.rfc-editor.org/rfc/rfc1124.txt",
+   "twin_rows": 0
+  }
+ ],
+ "totals_measured_this_task": {
+  "b02": {
+   "pack_urls": 2997,
+   "already_served": 2958,
+   "pack_rows": 8324,
+   "pack_rows_on_served_urls": 8285
+  },
+  "b05": {
+   "pack_urls": 5259,
+   "already_served": 0,
+   "pack_rows": 61212,
+   "pack_rows_on_served_urls": 0
+  },
+  "b03": {
+   "pack_urls": 10136,
+   "already_served": 10040,
+   "pack_rows": 10136,
+   "pack_rows_on_served_urls": 10040
+  }
+ }
+}

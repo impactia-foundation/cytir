@@ -1,0 +1,525 @@
+eval:
+- id: t01
+  type: coding
+  lang: en
+  source: docs.python.org
+  task: 'Coding: writing a Python script to list files in a directory'
+  query: python list files in directory
+  target_url: https://docs.python.org/3/library/os.html
+  target_note: os module — os.listdir()/os.scandir()
+- id: t10
+  type: legal
+  lang: it
+  source: fedlex.admin.ch
+  task: 'Legal: formal requirements for contract formation'
+  query: conclusione del contratto forma scritta codice delle obbligazioni
+  target_url: https://www.fedlex.admin.ch/eli/cc/27/317_321_377/it
+  target_note: CO RS 220, conclusione/forma
+- id: t25
+  type: civic
+  lang: en
+  source: swissmedic.ch
+  task: 'Health: how a medicinal product gets authorised'
+  query: swissmedic authorisation human medicines marketing approval
+  target_url: https://www.swissmedic.ch/swissmedic/en/home/humanarzneimittel/authorisations.html
+  target_note: Swissmedic — authorisation of human medicines
+- id: co03
+  type: coding
+  lang: en
+  source: docs.python.org
+  task: 'Coding: defining a class with @dataclass and a mutable default field'
+  query: python dataclass field default_factory decorator
+  target_url: https://docs.python.org/3/library/dataclasses.html
+  target_note: dataclasses — @dataclass, field(default_factory=...)
+- id: co11
+  type: coding
+  lang: en
+  source: docs.python.org
+  task: 'Coding: memoizing a pure function and preserving wrapper metadata'
+  query: python functools lru_cache wraps partial
+  target_url: https://docs.python.org/3/library/functools.html
+  target_note: functools — lru_cache, wraps, partial, reduce
+- id: co21
+  type: coding
+  lang: fr
+  source: developer.mozilla.org
+  task: 'Coding: utiliser async/await pour enchaîner des appels asynchrones en JavaScript'
+  query: javascript async await fonction asynchrone promesse
+  target_url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function
+  target_note: async function declaration — await, returns Promise
+- id: co30
+  type: coding
+  lang: en
+  source: docs.rs
+  task: 'Coding: propagating errors with ? and attaching context in a Rust app'
+  query: rust anyhow Result context bail error handling
+  target_url: https://docs.rs/anyhow/latest/anyhow/
+  target_note: anyhow crate — Result, Context, anyhow!/bail!
+- id: co38
+  type: coding
+  lang: en
+  source: pypi.org
+  task: 'Coding: confirming the current version and install name of the requests package'
+  query: requests pypi package version install
+  target_url: https://pypi.org/project/requests/
+  target_note: PyPI — requests project page (version, metadata)
+- id: le02
+  type: legal
+  lang: fr
+  source: fedlex.admin.ch
+  task: 'Legal: deadline to give notice of defects when accepting delivered goods'
+  query: co art 201 avis des défauts vérification chose vendue délai obligations
+  target_url: https://www.fedlex.admin.ch/eli/cc/27/317_321_377/fr
+  target_note: CO RS 220, art. 201 avis des défauts
+- id: le15
+  type: legal
+  lang: it
+  source: fedlex.admin.ch
+  task: 'Legal: money-laundering offence definition for an AML file'
+  query: cp art 305bis riciclaggio di denaro elementi codice penale svizzero
+  target_url: https://www.fedlex.admin.ch/eli/cc/54/757_781_799/it
+  target_note: CP RS 311.0, art. 305bis riciclaggio
+- id: le27
+  type: legal
+  lang: it
+  source: fedlex.admin.ch
+  task: 'Legal: mandatory conciliation attempt before filing a civil claim'
+  query: cpc art 197 procedura di conciliazione obbligatoria autorità codice procedura
+    civile
+  target_url: https://www.fedlex.admin.ch/eli/cc/2010/262/it
+  target_note: CPC RS 272, art. 197 ss procedura di conciliazione
+- id: le37
+  type: legal
+  lang: it
+  source: fedlex.admin.ch
+  task: 'Legal: requirements for granting a settlement permit C'
+  query: lstri art 34 permesso di domicilio C condizioni stranieri integrazione svizzera
+  target_url: https://www.fedlex.admin.ch/eli/cc/2007/758/it
+  target_note: LStrI RS 142.20, art. 34 permesso di domicilio
+- id: ci18
+  type: civic
+  lang: fr
+  source: ch.ch
+  task: 'Civic: laid-off worker needs to register for unemployment correctly'
+  query: s'inscrire chômage ORP assurance-chômage suisse
+  target_url: https://www.ch.ch/fr/assurances/assurance-chomage/
+  target_note: ch.ch — comment et où s'inscrire au chômage (ORP)
+- id: ci26
+  type: civic
+  lang: fr
+  source: opendata.swiss
+  task: 'Civic: finding an open dataset on resident population by canton'
+  query: opendata.swiss jeu de données population résidante étrangère permanente
+  target_url: https://opendata.swiss/fr/dataset/bestand-der-standigen-und-nicht-standigen-auslandischen-wohnbevolkerung
+  target_note: opendata.swiss — effectif population résidante étrangère permanente
+    et non permanente (OFS)
+- id: ci34
+  type: civic
+  lang: it
+  source: ch.ch
+  task: 'Civic: someone who just lost their job checking how to claim benefits'
+  query: assicurazione contro la disoccupazione annunciarsi urc indennità
+  target_url: https://www.ch.ch/it/assicurazioni/assicurazione-contro-la-disoccupazione/
+  target_note: ch.ch — unemployment insurance, registering with the URC
+- id: ci42
+  type: civic
+  lang: it
+  source: parlament.ch
+  task: 'Civic: looking up the status of a pending federal parliamentary affair by
+    object number'
+  query: curia vista affari parlamentari ricerca numero oggetto
+  target_url: https://www.parlament.ch/it/ratsbetrieb/curia-vista
+  target_note: parlament.ch — Curia Vista database of parliamentary affairs
+- id: re05
+  type: research
+  lang: en
+  source: arxiv.org
+  task: 'Research: the U-Net biomedical segmentation architecture'
+  query: u-net convolutional networks biomedical image segmentation paper
+  target_url: https://arxiv.org/abs/1505.04597
+  target_note: Ronneberger et al. 2015 — U-Net
+- id: re13
+  type: research
+  lang: en
+  source: arxiv.org
+  task: 'Research: the DDPM denoising diffusion paper'
+  query: denoising diffusion probabilistic models ddpm paper
+  target_url: https://arxiv.org/abs/2006.11239
+  target_note: Ho et al. 2020 — DDPM
+- id: re21
+  type: research
+  lang: en
+  source: arxiv.org
+  task: 'Research: Perelman''s Ricci flow entropy paper (Poincaré/geometrization)'
+  query: perelman entropy formula ricci flow geometric applications paper
+  target_url: https://arxiv.org/abs/math/0211159
+  target_note: Perelman 2002 — Ricci flow / geometrization
+- id: re29
+  type: research
+  lang: en
+  source: research-collection.ethz.ch
+  task: 'Research: ETH thesis on safety and robustness in RL'
+  query: safety and robustness in reinforcement learning eth thesis
+  target_url: https://www.research-collection.ethz.ch/handle/20.500.11850/540581
+  target_note: ETH thesis — safety/robustness in RL
+- id: re37
+  type: research
+  lang: en
+  source: infoscience.epfl.ch
+  task: 'Research: EPFL work on genuinely distributed Byzantine machine learning'
+  query: byzantine machine learning distributed sgd epfl thesis
+  target_url: https://infoscience.epfl.ch/record/274248
+  target_note: EPFL — Byzantine-resilient distributed ML
+- id: re45
+  type: research
+  lang: en
+  source: ncbi.nlm.nih.gov
+  task: 'Research: PMC review on the p53 tumor suppressor in cancer'
+  query: p53 mediated tumor suppression dna damage response review pmc
+  target_url: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6966539/
+  target_note: PMC — p53-mediated tumor suppression review
+- id: wk08
+  type: reference
+  lang: en
+  source: en.wikipedia.org
+  task: 'Reference: facts on the Swiss currency for a finance note'
+  query: swiss franc currency CHF
+  target_url: https://en.wikipedia.org/wiki/Swiss_franc
+  target_note: en.wikipedia — Swiss franc
+- id: wk31
+  type: reference
+  lang: fr
+  source: fr.wikipedia.org
+  task: 'Reference: country profile of Switzerland for a report'
+  query: suisse état fédéral cantons wikipedia
+  target_url: https://fr.wikipedia.org/wiki/Suisse
+  target_note: fr.wikipedia — Switzerland
+- id: wk39
+  type: reference
+  lang: fr
+  source: fr.wikipedia.org
+  task: 'Reference: background on the Swiss Red Cross society'
+  query: croix-rouge suisse crs
+  target_url: https://fr.wikipedia.org/wiki/Croix-Rouge_suisse
+  target_note: fr.wikipedia — Swiss Red Cross
+- id: wk47
+  type: reference
+  lang: it
+  source: it.wikipedia.org
+  task: 'Reference: country profile of Switzerland for a report'
+  query: svizzera confederazione cantoni
+  target_url: https://it.wikipedia.org/wiki/Svizzera
+  target_note: it.wikipedia — Switzerland
+- id: wk55
+  type: reference
+  lang: it
+  source: it.wikipedia.org
+  task: 'Reference: profile of the capital of Canton Ticino'
+  query: bellinzona capoluogo ticino castelli
+  target_url: https://it.wikipedia.org/wiki/Bellinzona
+  target_note: it.wikipedia — Bellinzona
+- id: en12
+  type: entity
+  lang: fr
+  source: fr.wikipedia.org
+  task: 'Entity: confirming CFF as the railway entity in a French-language briefing'
+  query: chemins de fer fédéraux suisses cff entreprise berne
+  target_url: https://fr.wikipedia.org/wiki/Chemins_de_fer_fédéraux_suisses
+  target_note: fr.wikipedia — CFF, Bern
+- id: ca04
+  type: legal
+  lang: en
+  source: laws-lois.justice.gc.ca
+  task: 'Legal: a separated couple disputes how much parenting time each gets and
+    you need the federal best-interests-of-the-child test'
+  query: Divorce Act best interests of the child parenting order
+  target_url: https://laws-lois.justice.gc.ca/eng/acts/D-3.4/
+  target_note: Divorce Act (R.S.C. 1985, c. 3 (2nd Supp.)) governs parenting and best-interests
+    factors
+- id: ca12
+  type: legal
+  lang: en
+  source: laws-lois.justice.gc.ca
+  task: 'Legal: a debtor is filing for bankruptcy and you need the rules on exempt
+    property and the order of distribution to creditors'
+  query: Bankruptcy and Insolvency Act distribution creditors priority
+  target_url: https://laws-lois.justice.gc.ca/eng/acts/B-3/
+  target_note: Bankruptcy and Insolvency Act (R.S.C. 1985, c. B-3) sets creditor priority
+    and distribution
+- id: ca20
+  type: legal
+  lang: en
+  source: laws-lois.justice.gc.ca
+  task: 'Legal: advising on sponsorship of a spouse and need the family-class sponsorship
+    provisions'
+  query: IRPA spousal sponsorship family class permanent resident
+  target_url: https://laws-lois.justice.gc.ca/eng/acts/I-2.5/
+  target_note: Immigration and Refugee Protection Act (S.C. 2001, c. 27) governs family
+    sponsorship
+- id: ca28
+  type: legal
+  lang: en
+  source: laws-lois.justice.gc.ca
+  task: 'Legal: advising a First Nation on reserve land designation and band membership
+    under federal law'
+  query: Indian Act band membership reserve land designation
+  target_url: https://laws-lois.justice.gc.ca/eng/acts/I-5/
+  target_note: Indian Act (R.S.C. 1985, c. I-5) governs band membership and reserve
+    lands
+- id: ca36
+  type: legal
+  lang: en
+  source: laws-lois.justice.gc.ca
+  task: 'Legal: a 16-year-old is charged with an offence and you need the federal
+    youth sentencing and extrajudicial measures provisions'
+  query: Youth Criminal Justice Act youth sentence extrajudicial measures
+  target_url: https://laws-lois.justice.gc.ca/eng/acts/Y-1.5/
+  target_note: Youth Criminal Justice Act (S.C. 2002, c. 1) governs youth offences
+    and sentencing
+- id: ca44
+  type: legal
+  lang: en
+  source: laws-lois.justice.gc.ca
+  task: 'Legal: assessing whether a proposed industrial chemical is a toxic substance
+    subject to federal environmental controls'
+  query: Canadian Environmental Protection Act toxic substance assessment
+  target_url: https://laws-lois.justice.gc.ca/eng/acts/C-15.31/
+  target_note: Canadian Environmental Protection Act, 1999 (S.C. 1999, c. 33) regulates
+    toxic substances
+- id: ts02
+  type: standards
+  lang: en
+  source: rfc-editor.org
+  task: 'Standards: debugging a connection setup and need the canonical TCP three-way
+    handshake state machine'
+  query: tcp three way handshake state machine rfc
+  target_url: https://www.rfc-editor.org/rfc/rfc793.txt
+  target_note: RFC 793 Transmission Control Protocol (TCP)
+- id: ts10
+  type: standards
+  lang: en
+  source: rfc-editor.org
+  task: 'Standards: implementing NAT and need the basic translation behavior definition'
+  query: network address translation nat rfc 3022
+  target_url: https://www.rfc-editor.org/rfc/rfc3022.txt
+  target_note: RFC 3022 Traditional IP Network Address Translator (NAT)
+- id: ts18
+  type: standards
+  lang: en
+  source: rfc-editor.org
+  task: 'Standards: writing an FTP client and need the command list and data connection
+    rules'
+  query: ftp file transfer protocol commands rfc 959
+  target_url: https://www.rfc-editor.org/rfc/rfc959.txt
+  target_note: RFC 959 File Transfer Protocol (FTP)
+- id: ts26
+  type: standards
+  lang: en
+  source: rfc-editor.org
+  task: 'Standards: encoding UTF-8 and need the byte sequence rules for code points'
+  query: utf-8 encoding byte sequences rfc 3629
+  target_url: https://www.rfc-editor.org/rfc/rfc3629.txt
+  target_note: RFC 3629 UTF-8, a transformation format of ISO 10646
+- id: ts34
+  type: standards
+  lang: en
+  source: datatracker.ietf.org
+  task: 'Standards: implementing HTTP/3 and need the mapping of HTTP over QUIC'
+  query: http/3 over quic specification rfc 9114
+  target_url: https://datatracker.ietf.org/doc/html/rfc9114
+  target_note: RFC 9114 HTTP/3
+- id: ts42
+  type: standards
+  lang: en
+  source: datatracker.ietf.org
+  task: 'Standards: parsing the IPv6 addressing architecture for prefix and scope
+    handling'
+  query: ipv6 addressing architecture prefix rfc 4291
+  target_url: https://datatracker.ietf.org/doc/html/rfc4291
+  target_note: RFC 4291 IP Version 6 Addressing Architecture
+- id: ts50
+  type: standards
+  lang: en
+  source: w3.org
+  task: 'Standards: auditing against the latest WCAG and need the 2.2 additional success
+    criteria'
+  query: wcag 2.2 new success criteria focus appearance
+  target_url: https://www.w3.org/TR/WCAG22
+  target_note: W3C Web Content Accessibility Guidelines (WCAG) 2.2
+- id: ts58
+  type: standards
+  lang: en
+  source: w3.org
+  task: 'Standards: writing responsive media queries and need the Media Queries Level
+    4 feature syntax'
+  query: css media queries level 4 prefers-color-scheme spec
+  target_url: https://www.w3.org/TR/mediaqueries-4
+  target_note: W3C Media Queries Level 4
+- id: ts66
+  type: standards
+  lang: en
+  source: w3.org
+  task: 'Standards: building a WebRTC peer connection and need the RTCPeerConnection
+    API and ICE definitions'
+  query: webrtc rtcpeerconnection ice specification
+  target_url: https://www.w3.org/TR/webrtc
+  target_note: 'W3C WebRTC: Real-Time Communication Between Browsers'
+- id: ts74
+  type: standards
+  lang: en
+  source: w3.org
+  task: 'Standards: applying ARIA roles in HTML and need the host-language requirements
+    mapping'
+  query: aria in html allowed roles specification
+  target_url: https://www.w3.org/TR/html-aria
+  target_note: W3C ARIA in HTML
+- id: ch02
+  type: legal
+  lang: fr
+  source: fedlex.admin.ch
+  task: 'Legal: a client wants the duration of copyright protection after the author''s
+    death in Switzerland'
+  query: LDA durée protection droit d'auteur 70 ans après décès
+  target_url: https://www.fedlex.admin.ch/eli/cc/1993/1798_1798_1798/fr
+  target_note: LDA (RS 231.1) art. 29-32 term of protection; authoritative Fedlex
+    text
+- id: ch14
+  type: legal
+  lang: fr
+  source: fedlex.admin.ch
+  task: 'Legal: eligibility for a disability pension, the LAI degrees of invalidity
+    for the pension'
+  query: LAI droit à la rente degré d'invalidité art 28
+  target_url: https://www.fedlex.admin.ch/eli/cc/1959/827_857_845/fr
+  target_note: LAI (RS 831.20) art. 28 right to disability pension; authoritative
+    Fedlex text
+- id: ch26
+  type: legal
+  lang: fr
+  source: fedlex.admin.ch
+  task: 'Legal: a startup wants the annual turnover threshold for VAT registration
+    under the LTVA'
+  query: LTVA libération assujettissement chiffre d'affaires art 10
+  target_url: https://www.fedlex.admin.ch/eli/cc/2009/615/fr
+  target_note: LTVA (RS 641.20) art. 10 tax liability threshold; authoritative Fedlex
+    text
+- id: ch36
+  type: legal
+  lang: it
+  source: fedlex.admin.ch
+  task: 'Legal: the advance directive (mandato precauzionale) for incapacity under
+    the Civil Code'
+  query: CC mandato precauzionale incapacità di discernimento art 360
+  target_url: https://www.fedlex.admin.ch/eli/cc/24/233_245_233/it
+  target_note: CC (RS 210) art. 360 advance care directive/mandate; authoritative
+    Fedlex text
+- id: ch48
+  type: legal
+  lang: it
+  source: fedlex.admin.ch
+  task: 'Legal: the CPC rule on the mandatory conciliation attempt before the conciliation
+    authority'
+  query: CPC procedura di conciliazione tentativo autorità art 197
+  target_url: https://www.fedlex.admin.ch/eli/cc/2010/262/it
+  target_note: CPC (RS 272) art. 197 mandatory conciliation; authoritative Fedlex
+    text
+- id: gx07
+  type: reference
+  lang: en
+  source: en.wikipedia.org
+  task: 'Reference: need an overview of the theory describing three of the four fundamental
+    forces and elementary particles'
+  query: Standard Model particle physics fundamental forces
+  target_url: https://en.wikipedia.org/wiki/Standard_Model
+  target_note: Wikipedia article on the Standard Model of particle physics
+- id: gx15
+  type: reference
+  lang: en
+  source: en.wikipedia.org
+  task: 'Reference: report on the world''s largest coral reef system off Queensland
+    and its bleaching threats'
+  query: Great Barrier Reef coral bleaching Queensland
+  target_url: https://en.wikipedia.org/wiki/Great_Barrier_Reef
+  target_note: Wikipedia article on the Great Barrier Reef
+- id: gx30
+  type: reference
+  lang: fr
+  source: fr.wikipedia.org
+  task: 'Reference: explication de l''objet céleste si compact que la lumière ne peut
+    s''en échapper'
+  query: trou noir objet céleste champ gravitationnel
+  target_url: https://fr.wikipedia.org/wiki/Trou_noir
+  target_note: French Wikipedia article on black holes
+- id: gx38
+  type: reference
+  lang: it
+  source: it.wikipedia.org
+  task: 'Reference: spiegazione del processo con cui le piante producono carboidrati
+    dalla luce'
+  query: fotosintesi clorofilliana piante carboidrati luce
+  target_url: https://it.wikipedia.org/wiki/Fotosintesi_clorofilliana
+  target_note: Italian Wikipedia article on photosynthesis
+- id: gx46
+  type: research
+  lang: en
+  source: arxiv.org
+  task: 'Research: find the unified text-to-text transfer learning paper that introduced
+    T5'
+  query: T5 text-to-text transfer learning transformer
+  target_url: https://arxiv.org/abs/1910.10683
+  target_note: 'arXiv: Exploring the Limits of Transfer Learning with a Unified Text-to-Text
+    Transformer (T5)'
+- id: gx54
+  type: research
+  lang: en
+  source: arxiv.org
+  task: 'Research: need the paper introducing the Vision Transformer applying transformers
+    to image patches'
+  query: vision transformer image worth 16x16 words
+  target_url: https://arxiv.org/abs/2010.11929
+  target_note: 'arXiv: An Image is Worth 16x16 Words: Transformers for Image Recognition
+    at Scale (ViT)'
+- id: gx62
+  type: research
+  lang: en
+  source: pubmed.ncbi.nlm.nih.gov
+  task: 'Research: looking for the citable reference describing the ImageJ image-analysis
+    software'
+  query: NIH Image to ImageJ image analysis Schneider
+  target_url: https://pubmed.ncbi.nlm.nih.gov/22930834/
+  target_note: 'PubMed: NIH Image to ImageJ: 25 years of image analysis (Schneider
+    et al., 2012)'
+- id: gx70
+  type: coding
+  lang: en
+  source: developer.mozilla.org
+  task: 'Coding: selecting the first DOM element matching a CSS selector and need
+    the return/null behavior'
+  query: document querySelector CSS selector first element MDN
+  target_url: https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector
+  target_note: 'MDN: Document.querySelector()'
+- id: fr04
+  type: legal
+  lang: fr
+  source: legifrance.gouv.fr
+  task: 'Legal: agir contre une publication portant atteinte à la vie privée du client
+    et citer le texte'
+  query: article 9 code civil respect vie privée
+  target_url: https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000006419288
+  target_note: Code civil art. 9 — droit au respect de la vie privée
+- id: fr12
+  type: legal
+  lang: fr
+  source: legifrance.gouv.fr
+  task: 'Legal: caractériser une escroquerie par manœuvres frauduleuses dans une plainte'
+  query: article 313-1 code pénal escroquerie définition
+  target_url: https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000006418192
+  target_note: Code pénal art. 313-1 — escroquerie
+- id: fr20
+  type: legal
+  lang: fr
+  source: legifrance.gouv.fr
+  task: 'Legal: déterminer l''indemnité minimale en cas de licenciement nul'
+  query: article L1235-3-1 code du travail indemnité licenciement nul
+  target_url: https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000036762026
+  target_note: Code du travail art. L1235-3-1 — indemnité du licenciement nul

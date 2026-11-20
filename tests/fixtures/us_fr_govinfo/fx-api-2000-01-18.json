@@ -1,0 +1,134 @@
+{
+ "date": "2000-01-18",
+ "api_results": [
+  {
+   "document_number": "00-1025",
+   "title": "Federal Travel Regulation; Mandatory Use of the Travel Charge Card; Correction",
+   "abstract": "This document makes corrections to FTR Interim Rule 8 appearing in the Federal Register of Friday, July 16, 1999 (64 FR 38528), which amends the Federal Travel Regulation (FTR) provisions pertaining to payment by the Government of expenses connected with official Government travel.",
+   "type": "Rule",
+   "publication_date": "2000-01-18",
+   "raw_text_url": "https://www.federalregister.gov/documents/full_text/text/2000/01/18/00-1025.txt",
+   "html_url": "https://www.federalregister.gov/documents/2000/01/18/00-1025/federal-travel-regulation-mandatory-use-of-the-travel-charge-card-correction",
+   "citation": "65 FR 2541",
+   "agencies": [
+    {
+     "raw_name": "GENERAL SERVICES ADMINISTRATION",
+     "name": "General Services Administration",
+     "id": 210,
+     "url": "https://www.federalregister.gov/agencies/general-services-administration",
+     "json_url": "https://www.federalregister.gov/api/v1/agencies/210",
+     "parent_id": null,
+     "slug": "general-services-administration"
+    }
+   ]
+  },
+  {
+   "document_number": "00-1099",
+   "title": "Public Workshop on Proposed Rule-Establishing Oil Value for Royalty Due on Indian Leases",
+   "abstract": "The Minerals Management Service (MMS) is giving notice of a public workshop concerning the supplementary proposed Indian oil value rule published in the Federal Register on January 5, 2000, (65 FR 403). The proposed rule would amend the royalty valuation regulations for crude oil produced from Indian leases.",
+   "type": "Proposed Rule",
+   "publication_date": "2000-01-18",
+   "raw_text_url": "https://www.federalregister.gov/documents/full_text/text/2000/01/18/00-1099.txt",
+   "html_url": "https://www.federalregister.gov/documents/2000/01/18/00-1099/public-workshop-on-proposed-rule-establishing-oil-value-for-royalty-due-on-indian-leases",
+   "citation": "65 FR 2557",
+   "agencies": [
+    {
+     "raw_name": "DEPARTMENT OF THE INTERIOR",
+     "name": "Interior Department",
+     "id": 253,
+     "url": "https://www.federalregister.gov/agencies/interior-department",
+     "json_url": "https://www.federalregister.gov/api/v1/agencies/253",
+     "parent_id": null,
+     "slug": "interior-department"
+    },
+    {
+     "raw_name": "Minerals Management Service",
+     "name": "Minerals Management Service",
+     "id": 289,
+     "url": "https://www.federalregister.gov/agencies/minerals-management-service",
+     "json_url": "https://www.federalregister.gov/api/v1/agencies/289",
+     "parent_id": 253,
+     "slug": "minerals-management-service"
+    }
+   ]
+  },
+  {
+   "document_number": "00-1167",
+   "title": "Sunshine Act Meeting",
+   "abstract": null,
+   "type": "Notice",
+   "publication_date": "2000-01-18",
+   "raw_text_url": "https://www.federalregister.gov/documents/full_text/text/2000/01/18/00-1167.txt",
+   "html_url": "https://www.federalregister.gov/documents/2000/01/18/00-1167/sunshine-act-meeting",
+   "citation": "65 FR 2617",
+   "agencies": [
+    {
+     "raw_name": "FEDERAL HOUSING FINANCE BOARD",
+     "name": "Federal Housing Finance Board",
+     "id": 175,
+     "url": "https://www.federalregister.gov/agencies/federal-housing-finance-board",
+     "json_url": "https://www.federalregister.gov/api/v1/agencies/175",
+     "parent_id": null,
+     "slug": "federal-housing-finance-board"
+    }
+   ]
+  },
+  {
+   "document_number": "00-1003",
+   "title": "Notice of Availability",
+   "abstract": null,
+   "type": "Notice",
+   "publication_date": "2000-01-18",
+   "raw_text_url": "https://www.federalregister.gov/documents/full_text/text/2000/01/18/00-1003.txt",
+   "html_url": "https://www.federalregister.gov/documents/2000/01/18/00-1003/notice-of-availability",
+   "citation": "65 FR 2630",
+   "agencies": [
+    {
+     "raw_name": "GENERAL SERVICES ADMINISTRATION",
+     "name": "General Services Administration",
+     "id": 210,
+     "url": "https://www.federalregister.gov/agencies/general-services-administration",
+     "json_url": "https://www.federalregister.gov/api/v1/agencies/210",
+     "parent_id": null,
+     "slug": "general-services-administration"
+    }
+   ]
+  },
+  {
+   "document_number": "00-999",
+   "title": "Homestead National Monument of America",
+   "abstract": "Pursuant to section 102(2)(c) of the National Environmental Policy Act of 1969, as amended, and the regulations promulgated by the Council on Environmental Quality (40 CFR 1505.2), the Department of the Interior, National Park Service, has prepared a Record of Decision on the Final General Management Plan and Final Environmental Impact Statement for the Homestead National Monument of America in Gage County, Nebraska.",
+   "type": "Notice",
+   "publication_date": "2000-01-18",
+   "raw_text_url": "https://www.federalregister.gov/documents/full_text/text/2000/01/18/00-999.txt",
+   "html_url": "https://www.federalregister.gov/documents/2000/01/18/00-999/homestead-national-monument-of-america",
+   "citation": "65 FR 2641",
+   "agencies": [
+    {
+     "raw_name": "DEPARTMENT OF THE INTERIOR",
+     "name": "Interior Department",
+     "id": 253,
+     "url": "https://www.federalregister.gov/agencies/interior-department",
+     "json_url": "https://www.federalregister.gov/api/v1/agencies/253",
+     "parent_id": null,
+     "slug": "interior-department"
+    },
+    {
+     "raw_name": "National Park Service",
+     "name": "National Park Service",
+     "id": 362,
+     "url": "https://www.federalregister.gov/agencies/national-park-service",
+     "json_url": "https://www.federalregister.gov/api/v1/agencies/362",
+     "parent_id": 253,
+     "slug": "national-park-service"
+    }
+   ]
+  }
+ ],
+ "in_xml": [
+  "00-1025",
+  "00-1099",
+  "00-1167",
+  "00-1003"
+ ]
+}

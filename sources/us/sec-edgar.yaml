@@ -1,0 +1,71 @@
+# US corporate disclosure — SEC EDGAR. Publisher grants reuse in writing and
+# publishes an explicit automated-access rate limit; this pack honours both.
+id: us-sec-edgar
+name: "SEC EDGAR — U.S. corporate disclosure filings"
+country: US
+layer: law-government
+policy_section: "§4.1"
+adapter: dump
+acquisition_policy: aw-acquisition-v1
+outlink_policy: capture-and-receipt
+preservation_profiles: [web_html, entity_registry]
+provenance: authored
+trust_tier: 0.95
+freshness: daily
+
+# Task 439: acquire.params gives the consent gate an attachment point.
+acquire:
+  route: source_owned_bulk_dump
+  rank: 2
+  params:
+    url_template: "https://www.sec.gov/Archives/edgar/full-index/{year}/{qtr}/form.idx"
+    index_endpoint: "https://www.sec.gov/Archives/edgar/full-index/index.json"
+    format: text
+
+license:
+  default: public-domain
+  notes: >
+    Verbatim from https://www.sec.gov/privacy.htm section "Website
+    Dissemination" (HTTP 200, 2026-08-20): "Information presented on sec.gov is
+    considered public information and may be copied or further distributed by
+    users of the web site without the SEC's permission. Please consider
+    appropriate citation to the SEC as the source." The SEC seal, logos and the
+    "SEC"/"EDGAR" marks are NOT licensed; text and URLs are.
+
+consent:
+  basis: live-resolve-open
+  train_ok_override: null
+  notes: >
+    Resolved live 2026-08-20: www.sec.gov -> ok/true/true; data.sec.gov ->
+    ok/true/true. The SEC publishes an explicit automated-access policy that
+    this pack MUST honour, verbatim from https://www.sec.gov/privacy.htm:
+    "Current guidelines limit users to a total of no more than 10 requests per
+    second, regardless of the number of machines used to submit requests." and
+    "The SEC does not allow 'unclassified' bots or automated tools to crawl the
+    site."
+    OPEN ITEM: the SEC's webmaster FAQ requests a specific UA shape --
+    "Sample Company Name AdminContact@<sample company domain>.com". Our UA
+    carries a contact address but not that shape. See the PR's open question
+    U1: this is a shared-identity question (a private pipeline module is the ONE
+    home for crawler identity), not a per-pack override.
+
+status: planned
+
+admission:
+  channel: official-dump
+  evidence:
+    - "task 440: full-index tree (https://www.sec.gov/Archives/edgar/full-index/index.json) -> per-year/per-quarter form.idx enumerations; 2025Q1 exact 340,037 filings."
+    - "task 440: submissions.zip = 1.56 GB, re-cut daily."
+    - "task 440: reuse grant + 10 req/s limit + no-unclassified-bots rule quoted verbatim from sec.gov/privacy.htm (HTTP 200)."
+  decision: escalated
+  policy: "POLICY.md@v3 §4.1"
+  date: "2026-08-20"
+
+notes:
+  - >
+    ~25-28M filings is a SOURCE-side order-of-magnitude, NOT a measured document
+    count and NOT a point projection; only 2025Q1 (340,037) is exact. A bounded
+    tranche must be measured before any budget is set.
+  - >
+    Corporate disclosure ranks below statute/regulation for the grounding
+    mission; sequence this after us-govinfo and us-ecfr-fedreg.

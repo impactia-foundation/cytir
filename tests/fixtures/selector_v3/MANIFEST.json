@@ -1,0 +1,75 @@
+{
+ "schema": "aw.task575-fixtures.v1",
+ "fixtures": [
+  {
+   "name": "l1b_prose_react",
+   "where": {
+    "store": "<corpus-store>/_work/task427/l1b-run-0001/tech_gapfill_react_rust/l1-markdown-00000.jsonl.gz",
+    "line": 0
+   },
+   "record_file": "l1b_prose_react.record.json",
+   "markdown_file": "l1b_prose_react.md",
+   "record_sha256": "e21a4166edd4e261cb65e655160e6d87589cd62d30e1f2db663c7862e90e2e1c",
+   "markdown_sha256": "9856d856bc8dc76ba6f8d8cba41c5018b68c05b72fb985ee678460a5b8041049",
+   "markdown_words": 1153,
+   "url": "https://react.dev/versions",
+   "source_type": "docs",
+   "anchor": null,
+   "identity_anchor_component": null,
+   "content_digest": null
+  },
+  {
+   "name": "l1b_prose_gov",
+   "where": {
+    "store": "<corpus-store>/_work/task427/l1b-run-0001/swissauth/l1-markdown-00000.jsonl.gz",
+    "line": 24
+   },
+   "record_file": "l1b_prose_gov.record.json",
+   "markdown_file": "l1b_prose_gov.md",
+   "record_sha256": "9f5ea971afa07b24d4351ff1a2a2baba7b25f649ad44c8c6e4ba77acdd86046b",
+   "markdown_sha256": "4514eccafee215116595c423f4f3a48bfe540aa9f6932ac32b9b4587f633aad6",
+   "markdown_words": 530,
+   "url": "https://swissethics.ch/aktuell",
+   "source_type": "health",
+   "anchor": null,
+   "identity_anchor_component": null,
+   "content_digest": null
+  },
+  {
+   "name": "law_fedlex_article",
+   "where": {
+    "part": "<corpus-store>/wave=p0-era-fw/part-0000.parquet",
+    "batch": 0,
+    "row": 0
+   },
+   "record_file": "law_fedlex_article.record.json",
+   "markdown_file": "law_fedlex_article.md",
+   "record_sha256": "fb9f2507534c8ae15108c02fe50787c33bbbb79108aadbc1be8ad564c31035a0",
+   "markdown_sha256": "e894eef6661f58c7b5cc4ff6b0a9c5c16775f1ef1d3e18cc1e2111b7572820b7",
+   "markdown_words": 46,
+   "url": "https://www.fedlex.admin.ch/eli/cc/1999/404/de",
+   "source_type": "official",
+   "anchor": "#art_1",
+   "identity_anchor_component": null,
+   "content_digest": null
+  },
+  {
+   "name": "staged_digest_anchor",
+   "where": {
+    "store": "<corpus-store>/_work/task427/post-consent-embedding-stage-f78b4b75-r2/shard-0000.records.jsonl.gz",
+    "line": 0
+   },
+   "record_file": "staged_digest_anchor.record.json",
+   "markdown_file": "staged_digest_anchor.md",
+   "record_sha256": "80039426de21ec570fa2397b7b3d134839c6a3ea92a3f3234304112a0735ebf5",
+   "markdown_sha256": "67d4a1bff6c271997c18a8ae145a024f5473e1f138c4bb5b11136ac0d229062d",
+   "markdown_words": 218,
+   "url": "https://suchthilfe-ost.ch/praevention/wenn-ich-stress-habe-unterrichtsmodul-fuer-den-zyklus-3",
+   "source_type": "reference",
+   "anchor": null,
+   "identity_anchor_component": "e182058bbd08d577250e9311eb7fae38362515a7c5b6a10c6cc5ac3baed70850",
+   "content_digest": "e182058bbd08d577250e9311eb7fae38362515a7c5b6a10c6cc5ac3baed70850"
+  }
+ ],
+ "law_by_source_type_note": "DELIBERATELY ABSENT. The chunk.law source_type deny list (ch_cantonal_law, ch_zh_fulltext, fedlex, law, statute) matches 0 of the 53,990,262 rows in the corpus store: every law family in the store carries source_type 'official' (fedlex 61,176, ch_cantonal 311,326, legifrance_dila 654,395, gesetze_im_internet 222,781, justice_gc_ca 217,374, bger 25,950, de_laender 10,928). There is therefore no real record to seal for this fixture, and sealing one would mean inventing it. test_law_by_source_type_is_still_refused instead takes the REAL l1b_prose_react record and overrides its source_type, and says so in its own name and docstring. The inertness of the deny list is a finding (the task-575 p3-split artifact), not a gap in the fixtures."
+}

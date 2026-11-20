@@ -1,0 +1,13 @@
+# Sealed fixture (task 548 / ADR-104): a tier-D entry for the override tests.
+allowlist:
+- domain: tier-d-fixture.example
+  tier: D
+  languages:
+  - en
+  fetch_method: crawl
+  consent: open
+  authoritative_for: 'sealed task-548 fixture: a tier-D entity homepage'
+  seeds:
+  - https://tier-d-fixture.example
+  notes: 'Sealed fixture for tests/test_aw_register_stamps.py: a tier-D register
+    entry that no ruling moves.'

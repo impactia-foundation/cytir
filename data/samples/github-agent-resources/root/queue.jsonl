@@ -1,0 +1,4 @@
+{"owner_repo": "acme/widgets", "branch": "main", "license": "MIT", "mode": "deep"}
+{"owner_repo": "acme/fallback", "branch": "main", "license": "Apache-2.0", "mode": "deep"}
+{"owner_repo": "acme/nodocs", "branch": "main", "license": "MIT", "mode": "deep"}
+{"owner_repo": "acme/pointer", "branch": "main", "license": "GPL-3.0", "mode": "deep"}

@@ -1,0 +1,137 @@
+{
+ "alpiq.com": [
+  {
+   "id": "0e5cfb14-ae3b-5f30-98e4-c5be2389e073",
+   "payload": {
+    "entity_kind": "org",
+    "provenance": "wikidata_ch",
+    "qid": "Q27483377",
+    "source_type": "entity_card",
+    "url": "https://www.alpiq.com"
+   }
+  },
+  {
+   "id": "f161af89-6b50-5d19-909f-43ee475f7512",
+   "payload": {
+    "country": "CH",
+    "entity_kind": "org",
+    "provenance": "wikidata_ch",
+    "qid": "Q67860352",
+    "register_id": "CHE-105.974.401",
+    "register_scheme": "CHE-UID",
+    "source_type": "entity_card",
+    "url": "http://www.alpiq.com"
+   }
+  }
+ ],
+ "autoneum.com": [
+  {
+   "id": "96eab228-9440-51a9-afdf-c75c607708e1",
+   "payload": {
+    "entity_kind": "org",
+    "provenance": "wikidata_ch",
+    "qid": "Q142720",
+    "source_type": "entity_card",
+    "url": "http://www.autoneum.com/"
+   }
+  },
+  {
+   "id": "dd2d13ee-d9fc-52d1-a03f-848caa707317",
+   "payload": {
+    "country": "CH",
+    "entity_kind": "org",
+    "provenance": "zefix_ccjoin",
+    "register_id": "CHE-116.315.303",
+    "register_scheme": "CHE-UID",
+    "source_type": "entity_card",
+    "url": "https://www.autoneum.com"
+   }
+  }
+ ],
+ "batitec.ch": [
+  {
+   "id": "25ba5779-75d7-5f7a-96e1-512fa47bce01",
+   "payload": {
+    "country": "CH",
+    "entity_kind": "org",
+    "provenance": "zefix_ccjoin",
+    "register_id": "CHE-103.883.756",
+    "register_scheme": "CHE-UID",
+    "source_type": "entity_card",
+    "url": "https://batitec.ch/"
+   }
+  },
+  {
+   "id": "2688c7ec-b118-5dd9-9adb-7efce566955f",
+   "payload": {
+    "country": "CH",
+    "entity_kind": "org",
+    "provenance": "zefix_ccjoin",
+    "register_id": "CHE-130.449.374",
+    "register_scheme": "CHE-UID",
+    "source_type": "entity_card",
+    "url": "https://batitec.ch"
+   }
+  }
+ ],
+ "billens-hennens.ch": [
+  {
+   "id": "00b752a0-2bfa-530b-aa70-02bf4b39d146",
+   "payload": {
+    "country": "CH",
+    "entity_kind": "org",
+    "provenance": "wikidata_ch",
+    "qid": "Q70454",
+    "register_id": "CHE-115.088.688",
+    "register_scheme": "CHE-UID",
+    "source_type": "official",
+    "url": "http://www.billens-hennens.ch"
+   }
+  }
+ ],
+ "careweather.com": [
+  {
+   "id": "60980d17-2e41-520f-b599-a648dd6c4ee7",
+   "payload": {
+    "entity_kind": "org",
+    "provenance": "yc_directory",
+    "source_type": "entity_card",
+    "url": "https://www.careweather.com"
+   }
+  },
+  {
+   "id": "75123347-63ed-5743-9f7b-cc2faf23a463",
+   "payload": {
+    "entity_kind": "org",
+    "provenance": "startup_ca",
+    "source_type": "entity_card",
+    "url": "https://careweather.com/"
+   }
+  }
+ ],
+ "oberriet.ch": [
+  {
+   "id": "0f141880-923c-5806-a58d-947ab5411e05",
+   "payload": {
+    "entity_kind": "org",
+    "provenance": "wikidata_ch",
+    "qid": "Q27485387",
+    "source_type": "entity_card",
+    "url": "http://www.oberriet.ch"
+   }
+  },
+  {
+   "id": "7093cd5f-ce4f-5581-9d1a-8808e5d2ba50",
+   "payload": {
+    "country": "CH",
+    "entity_kind": "org",
+    "provenance": "wikidata_ch",
+    "qid": "Q65263",
+    "register_id": "CHE-115.050.390",
+    "register_scheme": "CHE-UID",
+    "source_type": "entity_card",
+    "url": "https://www.oberriet.ch"
+   }
+  }
+ ]
+}

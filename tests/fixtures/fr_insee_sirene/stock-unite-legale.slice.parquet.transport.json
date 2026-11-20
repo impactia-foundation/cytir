@@ -1,0 +1,15 @@
+{
+  "body": {
+    "bytes": 11422,
+    "sha256": "9df9a91961727eb43401c82390a1cb71dc52795d7114784a5207d50df910b0c5"
+  },
+  "fetched_at": "2026-11-12T07:25:10Z",
+  "final_url": "https://static.data.gouv.fr/resources/base-sirene-des-entreprises-et-de-leurs-etablissements-siren-siret/20261103-095402/stock-stockunitelegale-parquet.parquet",
+  "http_status": 200,
+  "requested_url": "https://www.data.gouv.fr/api/1/datasets/r/350182c9-148a-46e0-8389-76c2ec1374a3",
+  "response_headers": {
+    "bytes": 1394,
+    "sha256": "658bd72ad56356abf9e2feb42f8bf102ed5f76db8cf5e16bc4c85a9f4f931de6"
+  },
+  "schema": "aw.http-fetch-metadata.v1"
+}

@@ -1,0 +1,1663 @@
+{
+ "schema": "aw.unpersisted-legacy-register.v1",
+ "version": "2026-09-16",
+ "why": "ADR-105 / task 581. The DEBT against ADR-026's rule that every collection is rebuildable from the store by replay, with no re-fetching. Each family below holds production rows whose page has no persisted L1 record. This register grants NOTHING: `cytir.corpus.persisted` does not read it, and no applier is relaxed by an entry in it. It exists so the size of the debt is a number somebody has to look at, and so a NEW family cannot join it silently - pipeline/test_unpersisted_legacy_register.py fails when the census and this file disagree.",
+ "not_a_waiver": true,
+ "totals": {
+  "families": 81,
+  "pages_none": 1598437,
+  "points_none": 4086361,
+  "pages_l2_only": 11439020,
+  "points_l2_only": 16625602
+ },
+ "dump_backed_l0": {
+  "measured_on": "2026-09-16",
+  "instrument": "tasks/581-scripts/unpersisted_domains_581.py",
+  "why": "ADR-026 keeps dump archives permanently under `_dumps/` with a sha256 beside each. A page whose ORIGINAL is a retained dump does not need a crawl -- it needs a local re-extract, which is ADR-026's cheap class and, for Wikipedia, the route ADR-016 already names (raw multistream XML). Pricing it as a re-fetch would be wrong by orders of magnitude, so the two are separated here and the roster is globbed from the tree.",
+  "dumps_retained": 40,
+  "dumps_bytes": 107124209241,
+  "largest_dumps": [
+   {
+    "rel": "_dumps/wiki/enwiki-latest-pages-articles-multistream.xml.bz2",
+    "bytes": 26437250146,
+    "meta_sha_present": true
+   },
+   {
+    "rel": "_dumps/wiki/dewiki-latest-pages-articles-multistream.xml.bz2",
+    "bytes": 8160136607,
+    "meta_sha_present": true
+   },
+   {
+    "rel": "_dumps/wiki/frwiki-latest-pages-articles-multistream.xml.bz2",
+    "bytes": 7158261832,
+    "meta_sha_present": true
+   },
+   {
+    "rel": "_dumps/wiki/itwiki-latest-pages-articles-multistream.xml.bz2",
+    "bytes": 4382179634,
+    "meta_sha_present": true
+   },
+   {
+    "rel": "_dumps/dila140/Freemium_jorf_global_20250713-140000.tar.gz",
+    "bytes": 1674608486,
+    "meta_sha_present": false
+   },
+   {
+    "rel": "_dumps/dila140/Freemium_jade_global_20250713-140000.tar.gz",
+    "bytes": 1244039806,
+    "meta_sha_present": false
+   },
+   {
+    "rel": "_dumps/dila140/Freemium_legi_global_20250713-140000.tar.gz",
+    "bytes": 1171027316,
+    "meta_sha_present": false
+   },
+   {
+    "rel": "_dumps/wiki/indices/enwiki-20260601-pages-articles-multistream-index.txt.bz2",
+    "bytes": 281979710,
+    "meta_sha_present": false
+   }
+  ],
+  "top_unpersisted_domains": [
+   {
+    "domain": "github.com",
+    "pages_unpersisted": 252567,
+    "points_unpersisted": 252581,
+    "pages_total": 252626,
+    "points_total": 252640
+   },
+   {
+    "domain": "en.wikipedia.org",
+    "pages_unpersisted": 126413,
+    "points_unpersisted": 230118,
+    "pages_total": 6963977,
+    "points_total": 9511623
+   },
+   {
+    "domain": "de.wikipedia.org",
+    "pages_unpersisted": 82179,
+    "points_unpersisted": 106043,
+    "pages_total": 3021242,
+    "points_total": 3854802
+   },
+   {
+    "domain": "fr.wikipedia.org",
+    "pages_unpersisted": 79282,
+    "points_unpersisted": 92782,
+    "pages_total": 2682129,
+    "points_total": 3562217
+   },
+   {
+    "domain": "legifrance.gouv.fr",
+    "pages_unpersisted": 63940,
+    "points_unpersisted": 63958,
+    "pages_total": 559455,
+    "points_total": 559685
+   },
+   {
+    "domain": "math.stackexchange.com",
+    "pages_unpersisted": 28254,
+    "points_unpersisted": 28254,
+    "pages_total": 28254,
+    "points_total": 28254
+   },
+   {
+    "domain": "fedlex.admin.ch",
+    "pages_unpersisted": 23869,
+    "points_unpersisted": 23872,
+    "pages_total": 23869,
+    "points_total": 23872
+   },
+   {
+    "domain": "eur-lex.europa.eu",
+    "pages_unpersisted": 22506,
+    "points_unpersisted": 52258,
+    "pages_total": 22544,
+    "points_total": 52333
+   },
+   {
+    "domain": "iris.who.int",
+    "pages_unpersisted": 19612,
+    "points_unpersisted": 19612,
+    "pages_total": 19612,
+    "points_total": 19612
+   },
+   {
+    "domain": "superuser.com",
+    "pages_unpersisted": 18256,
+    "points_unpersisted": 18256,
+    "pages_total": 18256,
+    "points_total": 18256
+   },
+   {
+    "domain": "askubuntu.com",
+    "pages_unpersisted": 15637,
+    "points_unpersisted": 15637,
+    "pages_total": 15637,
+    "points_total": 15637
+   },
+   {
+    "domain": "unix.stackexchange.com",
+    "pages_unpersisted": 13178,
+    "points_unpersisted": 13178,
+    "pages_total": 13178,
+    "points_total": 13178
+   },
+   {
+    "domain": "ec.europa.eu",
+    "pages_unpersisted": 10844,
+    "points_unpersisted": 35574,
+    "pages_total": 10845,
+    "points_total": 35576
+   },
+   {
+    "domain": "serverfault.com",
+    "pages_unpersisted": 9301,
+    "points_unpersisted": 9301,
+    "pages_total": 9301,
+    "points_total": 9301
+   },
+   {
+    "domain": "softwareengineering.stackexchange.com",
+    "pages_unpersisted": 7868,
+    "points_unpersisted": 7868,
+    "pages_total": 7868,
+    "points_total": 7868
+   },
+   {
+    "domain": "hug.ch",
+    "pages_unpersisted": 7542,
+    "points_unpersisted": 7542,
+    "pages_total": 7639,
+    "points_total": 7670
+   },
+   {
+    "domain": "stats.stackexchange.com",
+    "pages_unpersisted": 7077,
+    "points_unpersisted": 7077,
+    "pages_total": 7077,
+    "points_total": 7077
+   },
+   {
+    "domain": "federalreserve.gov",
+    "pages_unpersisted": 5867,
+    "points_unpersisted": 52338,
+    "pages_total": 5867,
+    "points_total": 52338
+   },
+   {
+    "domain": "cochrane.org",
+    "pages_unpersisted": 5653,
+    "points_unpersisted": 53716,
+    "pages_total": 6000,
+    "points_total": 56569
+   },
+   {
+    "domain": "security.stackexchange.com",
+    "pages_unpersisted": 5205,
+    "points_unpersisted": 5205,
+    "pages_total": 5205,
+    "points_total": 5205
+   },
+   {
+    "domain": "apple.stackexchange.com",
+    "pages_unpersisted": 4978,
+    "points_unpersisted": 4978,
+    "pages_total": 4978,
+    "points_total": 4978
+   },
+   {
+    "domain": "electronics.stackexchange.com",
+    "pages_unpersisted": 4554,
+    "points_unpersisted": 4554,
+    "pages_total": 4554,
+    "points_total": 4554
+   },
+   {
+    "domain": "hudoc.echr.coe.int",
+    "pages_unpersisted": 4178,
+    "points_unpersisted": 4178,
+    "pages_total": 4178,
+    "points_total": 4178
+   },
+   {
+    "domain": "dba.stackexchange.com",
+    "pages_unpersisted": 3660,
+    "points_unpersisted": 3660,
+    "pages_total": 3660,
+    "points_total": 3660
+   },
+   {
+    "domain": "wallonie.be",
+    "pages_unpersisted": 3636,
+    "points_unpersisted": 15529,
+    "pages_total": 3636,
+    "points_total": 15529
+   }
+  ],
+  "pages_unpersisted": 1598437,
+  "points_unpersisted": 4086361,
+  "domains_with_unpersisted_pages": 356738
+ },
+ "work_list": {
+  "refetch": "pages at terminal `none`. A re-fetch is a fresh consent resolution per origin (ADR-024/ADR-103) and a fresh capture, not a replay; it cannot be priced from GPU time. Task 579 section 6 declined to price it for the same reason and this register does not either.",
+  "chain_adr093": "pages at terminal `l2_only`. Reconstructable by the ratified L1-b overlap chainer at its measured 99.843% chain fidelity / 0.135% material loss; the output must land in l1/, not in a _work tree.",
+  "promote_unpromoted_stores": "Independently of the two above: task 581's exhaustive walk (tasks/581-scripts/store_discovery_581.py) found 885,805 url-and-text-bearing files, 405,518,700,363 bytes, under `_work/` - outside every ADR-026 layer, in scratch trees named after tasks. That text is NOT lost, it is unfiled, and no store registry can see it. Promoting it into l1/release=... is the cheapest item on this list and the one that shrinks the other two."
+ },
+ "unpromoted_stores": {
+  "measured_on": "2026-09-16",
+  "instrument": "tasks/581-scripts/store_discovery_581.py",
+  "by_top_level": {
+   "_work": {
+    "files": 885805,
+    "bytes": 405518700363
+   },
+   "l1": {
+    "files": 155155,
+    "bytes": 160465485538
+   },
+   "_preservation": {
+    "files": 601,
+    "bytes": 19502893169
+   },
+   "l0": {
+    "files": 74,
+    "bytes": 32406264566
+   },
+   "stages": {
+    "files": 49,
+    "bytes": 1453428086
+   },
+   "wave=l1_pubmed_2026baseline": {
+    "files": 36,
+    "bytes": 19014667577
+   },
+   "wave=l1_wiki_en_20260601": {
+    "files": 22,
+    "bytes": 12069140857
+   },
+   "l2": {
+    "files": 20,
+    "bytes": 6063925299
+   },
+   "wave=l1_wiki_de_20260601": {
+    "files": 11,
+    "bytes": 5594681286
+   },
+   "_incoming": {
+    "files": 10,
+    "bytes": 1919563848
+   },
+   "wave=l1_wiki_fr_20260601": {
+    "files": 8,
+    "bytes": 4211329500
+   },
+   "wave=l1_wiki_it_20260601": {
+    "files": 5,
+    "bytes": 2649371345
+   },
+   "wave=l1_arxiv_meta": {
+    "files": 4,
+    "bytes": 1636148771
+   },
+   "wave=p0-era-wiki_1m": {
+    "files": 2,
+    "bytes": 559136655
+   },
+   "wave=ai_autodoc_reference": {
+    "files": 1,
+    "bytes": 3770366
+   },
+   "wave=ai_framework_docs": {
+    "files": 1,
+    "bytes": 5741143
+   },
+   "wave=ai_hf_model_cards": {
+    "files": 1,
+    "bytes": 9585780
+   },
+   "wave=ai_vendor_cc": {
+    "files": 1,
+    "bytes": 50341101
+   },
+   "wave=bespoke_api_insee_defs": {
+    "files": 1,
+    "bytes": 920268
+   },
+   "wave=bfs": {
+    "files": 1,
+    "bytes": 375369
+   },
+   "wave=ca_boc_valet": {
+    "files": 1,
+    "bytes": 23481
+   },
+   "wave=ca_canadaca_cc": {
+    "files": 1,
+    "bytes": 69896154
+   },
+   "wave=ca_laws_bilingual": {
+    "files": 1,
+    "bytes": 25407734
+   },
+   "wave=ca_scc_si975": {
+    "files": 1,
+    "bytes": 3550568
+   },
+   "wave=ca_statcan_wds": {
+    "files": 1,
+    "bytes": 1275470
+   },
+   "wave=canlaw": {
+    "files": 1,
+    "bytes": 5875331
+   },
+   "wave=cc_phase2": {
+    "files": 1,
+    "bytes": 140212931
+   },
+   "wave=ch_agency_cc": {
+    "files": 1,
+    "bytes": 10407396
+   },
+   "wave=ch_bfs_dam": {
+    "files": 1,
+    "bytes": 17764415
+   },
+   "wave=ch_business": {
+    "files": 1,
+    "bytes": 15020655
+   },
+   "wave=ch_cantonal_law": {
+    "files": 1,
+    "bytes": 78110952
+   },
+   "wave=ch_cantonal_law_2": {
+    "files": 1,
+    "bytes": 166143
+   },
+   "wave=ch_cantonal_law_3": {
+    "files": 1,
+    "bytes": 2315771
+   },
+   "wave=ch_courts": {
+    "files": 1,
+    "bytes": 10689304
+   },
+   "wave=ch_depth258": {
+    "files": 1,
+    "bytes": 48659897
+   },
+   "wave=ch_zh_fulltext": {
+    "files": 1,
+    "bytes": 6240540
+   },
+   "wave=de_agency_cc": {
+    "files": 1,
+    "bytes": 36023436
+   },
+   "wave=de_courts_rii": {
+    "files": 1,
+    "bytes": 12548266
+   },
+   "wave=de_genesis_stats": {
+    "files": 1,
+    "bytes": 285964
+   },
+   "wave=de_laender_juris": {
+    "files": 1,
+    "bytes": 1080571
+   },
+   "wave=de_laender_law": {
+    "files": 1,
+    "bytes": 752734
+   },
+   "wave=discovery_w0_gated": {
+    "files": 1,
+    "bytes": 70223507
+   },
+   "wave=discovery_w0_partial": {
+    "files": 1,
+    "bytes": 20722255
+   },
+   "wave=fr_dila_deep": {
+    "files": 1,
+    "bytes": 162955109
+   },
+   "wave=fr_insee": {
+    "files": 1,
+    "bytes": 60578
+   },
+   "wave=fr_vosdroits": {
+    "files": 1,
+    "bytes": 14054794
+   },
+   "wave=gesetze_v0": {
+    "files": 1,
+    "bytes": 2959820
+   },
+   "wave=gesetze_v1": {
+    "files": 1,
+    "bytes": 44856400
+   },
+   "wave=gesetze_v1_partial_mt": {
+    "files": 1,
+    "bytes": 3917123
+   },
+   "wave=gesetze_v2": {
+    "files": 1,
+    "bytes": 46046439
+   },
+   "wave=hn_cc_b1000": {
+    "files": 1,
+    "bytes": 196542
+   },
+   "wave=hn_discuss_b500": {
+    "files": 1,
+    "bytes": 28813221
+   },
+   "wave=legifrance": {
+    "files": 1,
+    "bytes": 50122988
+   },
+   "wave=loc_lcsh": {
+    "files": 1,
+    "bytes": 50940164
+   },
+   "wave=p0-era-arxiv": {
+    "files": 1,
+    "bytes": 30693236
+   },
+   "wave=p0-era-cc": {
+    "files": 1,
+    "bytes": 10324672
+   },
+   "wave=p0-era-cc_canon": {
+    "files": 1,
+    "bytes": 9538833
+   },
+   "wave=p0-era-fw": {
+    "files": 1,
+    "bytes": 3722214
+   },
+   "wave=p0-era-mdn": {
+    "files": 1,
+    "bytes": 11126318
+   },
+   "wave=p0-era-passages": {
+    "files": 1,
+    "bytes": 4061173
+   },
+   "wave=p0-era-passages_canon": {
+    "files": 1,
+    "bytes": 13252644
+   },
+   "wave=p0-era-passages_cc": {
+    "files": 1,
+    "bytes": 14050105
+   },
+   "wave=p0-era-passages_large": {
+    "files": 1,
+    "bytes": 16144204
+   },
+   "wave=p0-era-pydocs": {
+    "files": 1,
+    "bytes": 1092888
+   },
+   "wave=p0-era-wiki_en": {
+    "files": 1,
+    "bytes": 12649848
+   },
+   "wave=p0_index_payloads": {
+    "files": 1,
+    "bytes": 183098282
+   },
+   "wave=phase2_all": {
+    "files": 1,
+    "bytes": 196178596
+   },
+   "wave=r4_ca_scc": {
+    "files": 1,
+    "bytes": 3661737
+   },
+   "wave=r4_ch_court": {
+    "files": 1,
+    "bytes": 78074
+   },
+   "wave=r4_ch_edu": {
+    "files": 1,
+    "bytes": 2479
+   },
+   "wave=r4_ch_egov": {
+    "files": 1,
+    "bytes": 3961268
+   },
+   "wave=r4_de_benefit": {
+    "files": 1,
+    "bytes": 299897
+   },
+   "wave=r4_de_grundsteuer": {
+    "files": 1,
+    "bytes": 517527
+   },
+   "wave=r4_fr_inst": {
+    "files": 1,
+    "bytes": 12579829
+   },
+   "wave=r4_metrology": {
+    "files": 1,
+    "bytes": 263955
+   },
+   "wave=se_genai": {
+    "files": 1,
+    "bytes": 18809
+   },
+   "wave=swissauth": {
+    "files": 1,
+    "bytes": 12572669
+   },
+   "wave=swissauth_health_boost": {
+    "files": 1,
+    "bytes": 1228194
+   },
+   "wave=swisstopo": {
+    "files": 1,
+    "bytes": 45671229
+   },
+   "wave=tech_gapfill_react_rust": {
+    "files": 1,
+    "bytes": 1536042
+   },
+   "wave=wave1a_gated": {
+    "files": 1,
+    "bytes": 5683014
+   },
+   "wave=wave1b_gated": {
+    "files": 1,
+    "bytes": 30664231
+   },
+   "wave=wave2_gated": {
+    "files": 1,
+    "bytes": 45039295
+   },
+   "wave=wave3_gated": {
+    "files": 1,
+    "bytes": 34232672
+   },
+   "wave=wave4_gated": {
+    "files": 1,
+    "bytes": 11647040
+   }
+  },
+  "largest": [
+   {
+    "rel": "_work/task375-w2-full/run-pool-slash-be51e7e-20260802T1425Z/w2/en",
+    "files": 64,
+    "bytes": 37062766327,
+    "url_field": "url",
+    "text_field": "text"
+   },
+   {
+    "rel": "l1/release=aw-e3-rebuild-20260815/source=pubmed-2026baseline-academic-markdown-v2",
+    "files": 1,
+    "bytes": 33671144637,
+    "url_field": "url",
+    "text_field": "text"
+   },
+   {
+    "rel": "l1/release=aw-e3-rebuild-20260815/source=wikipedia-markdown-v3/lang=it",
+    "files": 64,
+    "bytes": 20600035378,
+    "url_field": "url",
+    "text_field": "text"
+   },
+   {
+    "rel": "l1/release=aw-e3-rebuild-20260815/source=wikipedia-markdown-v2/lang=it",
+    "files": 64,
+    "bytes": 20589415492,
+    "url_field": "url",
+    "text_field": "text"
+   },
+   {
+    "rel": "wave=l1_pubmed_2026baseline",
+    "files": 36,
+    "bytes": 19014667577,
+    "url_field": "url",
+    "text_field": "text"
+   },
+   {
+    "rel": "_work/task565/split/packs",
+    "files": 3,
+    "bytes": 18669486321,
+    "url_field": "url",
+    "text_field": "text"
+   },
+   {
+    "rel": "l1/release=aw-task588-unfiled-promotion-v1/source=task375-w2-full",
+    "files": 217,
+    "bytes": 16795983976,
+    "url_field": "url",
+    "text_field": "markdown"
+   },
+   {
+    "rel": "_work/task375-w2-full/run-pool-slash-be51e7e-20260802T1425Z/w2/de",
+    "files": 64,
+    "bytes": 16347139447,
+    "url_field": "url",
+    "text_field": "text"
+   },
+   {
+    "rel": "l0/wave=cov351_regdocs3",
+    "files": 29,
+    "bytes": 15330108590,
+    "url_field": "url",
+    "text_field": "body_b64"
+   },
+   {
+    "rel": "_work/task375-token-boundary-recovery-0f93480/materialization/en",
+    "files": 64,
+    "bytes": 15115335915,
+    "url_field": "url",
+    "text_field": "text"
+   },
+   {
+    "rel": "_work/task375-w2-full/run-pool-slash-be51e7e-20260802T1425Z/chunk2/en",
+    "files": 64,
+    "bytes": 15115335915,
+    "url_field": "url",
+    "text_field": "text"
+   },
+   {
+    "rel": "_work/task375-w2-full/run-pool-slash-be51e7e-20260802T1425Z/w2/fr",
+    "files": 64,
+    "bytes": 13588967886,
+    "url_field": "url",
+    "text_field": "text"
+   },
+   {
+    "rel": "_work/task389-w2-1152-fixed-feff1f09/materializations/en",
+    "files": 64,
+    "bytes": 13162831175,
+    "url_field": "url",
+    "text_field": "text"
+   },
+   {
+    "rel": "_work/task389-w2-1152-full-resume3-638d0520/materializations/en",
+    "files": 64,
+    "bytes": 13162596823,
+    "url_field": "url",
+    "text_field": "text"
+   },
+   {
+    "rel": "wave=l1_wiki_en_20260601",
+    "files": 22,
+    "bytes": 12069140857,
+    "url_field": "url",
+    "text_field": "text"
+   },
+   {
+    "rel": "_work/task375-w2-full/run-pool-slash-be51e7e-20260802T1425Z/w2/it",
+    "files": 64,
+    "bytes": 8429760236,
+    "url_field": "url",
+    "text_field": "text"
+   },
+   {
+    "rel": "l1/release=aw-e3-rebuild-20260815/source=pubmed-exact-production-academic-markdown-v3/stages/markdown/data",
+    "files": 1,
+    "bytes": 7434691547,
+    "url_field": "url",
+    "text_field": "markdown"
+   },
+   {
+    "rel": "_work/task528b/resurfaced.superseded/pubmed",
+    "files": 100,
+    "bytes": 7408850121,
+    "url_field": "url",
+    "text_field": "text"
+   },
+   {
+    "rel": "_work/task528b/resurfaced/pubmed",
+    "files": 100,
+    "bytes": 7408850121,
+    "url_field": "url",
+    "text_field": "text"
+   },
+   {
+    "rel": "_work/task417/pubmed/exact-production-field-aware-pack-v3-413a-stage-portable-v3",
+    "files": 100,
+    "bytes": 7359391736,
+    "url_field": "url",
+    "text_field": "text"
+   },
+   {
+    "rel": "_work/task417/pubmed/exact-production-field-aware-pack-v3/chunks",
+    "files": 100,
+    "bytes": 7359391736,
+    "url_field": "url",
+    "text_field": "text"
+   },
+   {
+    "rel": "_work/task375-token-boundary-recovery-0f93480/materialization/de",
+    "files": 64,
+    "bytes": 6760412442,
+    "url_field": "url",
+    "text_field": "text"
+   },
+   {
+    "rel": "_work/task375-w2-full/run-pool-slash-be51e7e-20260802T1425Z/chunk2/de",
+    "files": 64,
+    "bytes": 6760412442,
+    "url_field": "url",
+    "text_field": "text"
+   },
+   {
+    "rel": "l1/release=aw-e3-rebuild-20260815/source=pubmed",
+    "files": 2,
+    "bytes": 6724335448,
+    "url_field": "url",
+    "text_field": "markdown"
+   },
+   {
+    "rel": "l2/wave=n2-openalex",
+    "files": 20,
+    "bytes": 6063925299,
+    "url_field": "url",
+    "text_field": "text"
+   }
+  ]
+ },
+ "families": [
+  {
+   "provenance": "(none)",
+   "registered_on": "2026-09-16",
+   "pages_total": 22098919,
+   "points_total": 27141948,
+   "pages_none": 430846,
+   "points_none": 572228,
+   "pages_l2_only": 10588736,
+   "points_l2_only": 14312616,
+   "disposition": "refetch_and_chain"
+  },
+  {
+   "provenance": "endorsement-discovery",
+   "registered_on": "2026-09-16",
+   "pages_total": 519344,
+   "points_total": 3170590,
+   "pages_none": 333473,
+   "points_none": 2324856,
+   "pages_l2_only": 181338,
+   "points_l2_only": 819972,
+   "disposition": "refetch_and_chain"
+  },
+  {
+   "provenance": "ch_cantonal_law",
+   "registered_on": "2026-09-16",
+   "pages_total": 14729,
+   "points_total": 335893,
+   "pages_none": 879,
+   "points_none": 20179,
+   "pages_l2_only": 13850,
+   "points_l2_only": 315714,
+   "disposition": "refetch_and_chain"
+  },
+  {
+   "provenance": "context7-github",
+   "registered_on": "2026-09-16",
+   "pages_total": 250850,
+   "points_total": 250850,
+   "pages_none": 250850,
+   "points_none": 250850,
+   "pages_l2_only": 0,
+   "points_l2_only": 0,
+   "disposition": "refetch"
+  },
+  {
+   "provenance": "ca_canadaca_cc",
+   "registered_on": "2026-09-16",
+   "pages_total": 10452,
+   "points_total": 239348,
+   "pages_none": 0,
+   "points_none": 0,
+   "pages_l2_only": 10452,
+   "points_l2_only": 239348,
+   "disposition": "chain_adr093"
+  },
+  {
+   "provenance": "bfs_dam",
+   "registered_on": "2026-09-16",
+   "pages_total": 158499,
+   "points_total": 158499,
+   "pages_none": 0,
+   "points_none": 0,
+   "pages_l2_only": 158499,
+   "points_l2_only": 158499,
+   "disposition": "chain_adr093"
+  },
+  {
+   "provenance": "ca_laws_bilingual",
+   "registered_on": "2026-09-16",
+   "pages_total": 7806,
+   "points_total": 148568,
+   "pages_none": 0,
+   "points_none": 0,
+   "pages_l2_only": 7806,
+   "points_l2_only": 148568,
+   "disposition": "chain_adr093"
+  },
+  {
+   "provenance": "kali_article",
+   "registered_on": "2026-09-16",
+   "pages_total": 128058,
+   "points_total": 128058,
+   "pages_none": 14852,
+   "points_none": 14852,
+   "pages_l2_only": 113206,
+   "points_l2_only": 113206,
+   "disposition": "refetch_and_chain"
+  },
+  {
+   "provenance": "loda",
+   "registered_on": "2026-09-16",
+   "pages_total": 100088,
+   "points_total": 100095,
+   "pages_none": 7889,
+   "points_none": 7889,
+   "pages_l2_only": 92199,
+   "points_l2_only": 92206,
+   "disposition": "refetch_and_chain"
+  },
+  {
+   "provenance": "wikidata_de",
+   "registered_on": "2026-09-16",
+   "pages_total": 83198,
+   "points_total": 83250,
+   "pages_none": 83147,
+   "points_none": 83153,
+   "pages_l2_only": 48,
+   "points_l2_only": 92,
+   "disposition": "refetch_and_chain"
+  },
+  {
+   "provenance": "r4-coverage",
+   "registered_on": "2026-09-16",
+   "pages_total": 11655,
+   "points_total": 82749,
+   "pages_none": 675,
+   "points_none": 1227,
+   "pages_l2_only": 10980,
+   "points_l2_only": 81522,
+   "disposition": "refetch_and_chain"
+  },
+  {
+   "provenance": "zefix_slug_live",
+   "registered_on": "2026-09-16",
+   "pages_total": 77996,
+   "points_total": 78006,
+   "pages_none": 77987,
+   "points_none": 77990,
+   "pages_l2_only": 9,
+   "points_l2_only": 16,
+   "disposition": "refetch_and_chain"
+  },
+  {
+   "provenance": "aw399_biomed",
+   "registered_on": "2026-09-16",
+   "pages_total": 9528,
+   "points_total": 86858,
+   "pages_none": 8396,
+   "points_none": 77204,
+   "pages_l2_only": 0,
+   "points_l2_only": 0,
+   "disposition": "refetch"
+  },
+  {
+   "provenance": "eu_pack",
+   "registered_on": "2026-09-16",
+   "pages_total": 34820,
+   "points_total": 75682,
+   "pages_none": 34820,
+   "points_none": 75682,
+   "pages_l2_only": 0,
+   "points_l2_only": 0,
+   "disposition": "refetch"
+  },
+  {
+   "provenance": "jorf_recent",
+   "registered_on": "2026-09-16",
+   "pages_total": 75217,
+   "points_total": 75217,
+   "pages_none": 22209,
+   "points_none": 22209,
+   "pages_l2_only": 53008,
+   "points_l2_only": 53008,
+   "disposition": "refetch_and_chain"
+  },
+  {
+   "provenance": "be_fr_pack",
+   "registered_on": "2026-09-16",
+   "pages_total": 17844,
+   "points_total": 74766,
+   "pages_none": 17844,
+   "points_none": 74766,
+   "pages_l2_only": 0,
+   "points_l2_only": 0,
+   "disposition": "refetch"
+  },
+  {
+   "provenance": "zefix_ccjoin",
+   "registered_on": "2026-09-16",
+   "pages_total": 72460,
+   "points_total": 72516,
+   "pages_none": 72414,
+   "points_none": 72425,
+   "pages_l2_only": 46,
+   "points_l2_only": 91,
+   "disposition": "refetch_and_chain"
+  },
+  {
+   "provenance": "us_fed_cc",
+   "registered_on": "2026-09-16",
+   "pages_total": 8206,
+   "points_total": 67263,
+   "pages_none": 8187,
+   "points_none": 67184,
+   "pages_l2_only": 19,
+   "points_l2_only": 79,
+   "disposition": "refetch_and_chain"
+  },
+  {
+   "provenance": "wikidata_fr",
+   "registered_on": "2026-09-16",
+   "pages_total": 61066,
+   "points_total": 61096,
+   "pages_none": 61047,
+   "points_none": 61061,
+   "pages_l2_only": 18,
+   "points_l2_only": 33,
+   "disposition": "refetch_and_chain"
+  },
+  {
+   "provenance": "sitemap-ingest",
+   "registered_on": "2026-09-16",
+   "pages_total": 18957,
+   "points_total": 105542,
+   "pages_none": 8700,
+   "points_none": 34280,
+   "pages_l2_only": 4941,
+   "points_l2_only": 25281,
+   "disposition": "refetch_and_chain"
+  },
+  {
+   "provenance": "ce_juri",
+   "registered_on": "2026-09-16",
+   "pages_total": 58498,
+   "points_total": 58549,
+   "pages_none": 17765,
+   "points_none": 17779,
+   "pages_l2_only": 40733,
+   "points_l2_only": 40770,
+   "disposition": "refetch_and_chain"
+  },
+  {
+   "provenance": "entscheidsuche",
+   "registered_on": "2026-09-16",
+   "pages_total": 38279,
+   "points_total": 38279,
+   "pages_none": 0,
+   "points_none": 0,
+   "pages_l2_only": 38279,
+   "points_l2_only": 38279,
+   "disposition": "chain_adr093"
+  },
+  {
+   "provenance": "rii_courts",
+   "registered_on": "2026-09-16",
+   "pages_total": 38159,
+   "points_total": 38159,
+   "pages_none": 0,
+   "points_none": 0,
+   "pages_l2_only": 38159,
+   "points_l2_only": 38159,
+   "disposition": "chain_adr093"
+  },
+  {
+   "provenance": "ch_business",
+   "registered_on": "2026-09-16",
+   "pages_total": 9151,
+   "points_total": 37968,
+   "pages_none": 0,
+   "points_none": 0,
+   "pages_l2_only": 9151,
+   "points_l2_only": 37968,
+   "disposition": "chain_adr093"
+  },
+  {
+   "provenance": "rights_canon",
+   "registered_on": "2026-09-16",
+   "pages_total": 9951,
+   "points_total": 36937,
+   "pages_none": 9897,
+   "points_none": 36076,
+   "pages_l2_only": 54,
+   "points_l2_only": 861,
+   "disposition": "refetch_and_chain"
+  },
+  {
+   "provenance": "cc_blocked_batch",
+   "registered_on": "2026-09-16",
+   "pages_total": 8281,
+   "points_total": 37272,
+   "pages_none": 7106,
+   "points_none": 34026,
+   "pages_l2_only": 0,
+   "points_l2_only": 0,
+   "disposition": "refetch"
+  },
+  {
+   "provenance": "cass_juri",
+   "registered_on": "2026-09-16",
+   "pages_total": 31806,
+   "points_total": 31977,
+   "pages_none": 1188,
+   "points_none": 1191,
+   "pages_l2_only": 30618,
+   "points_l2_only": 30786,
+   "disposition": "refetch_and_chain"
+  },
+  {
+   "provenance": "ai_hf_model_cards",
+   "registered_on": "2026-09-16",
+   "pages_total": 4805,
+   "points_total": 30709,
+   "pages_none": 0,
+   "points_none": 0,
+   "pages_l2_only": 4805,
+   "points_l2_only": 30709,
+   "disposition": "chain_adr093"
+  },
+  {
+   "provenance": "wikidata_ca",
+   "registered_on": "2026-09-16",
+   "pages_total": 24809,
+   "points_total": 24824,
+   "pages_none": 24794,
+   "points_none": 24796,
+   "pages_l2_only": 14,
+   "points_l2_only": 27,
+   "disposition": "refetch_and_chain"
+  },
+  {
+   "provenance": "aw399_education",
+   "registered_on": "2026-09-16",
+   "pages_total": 3844,
+   "points_total": 22868,
+   "pages_none": 3824,
+   "points_none": 22724,
+   "pages_l2_only": 0,
+   "points_l2_only": 0,
+   "disposition": "refetch"
+  },
+  {
+   "provenance": "iris_meta",
+   "registered_on": "2026-09-16",
+   "pages_total": 19612,
+   "points_total": 19612,
+   "pages_none": 19612,
+   "points_none": 19612,
+   "pages_l2_only": 0,
+   "points_l2_only": 0,
+   "disposition": "refetch"
+  },
+  {
+   "provenance": "scc_a2aj_si975",
+   "registered_on": "2026-09-16",
+   "pages_total": 15841,
+   "points_total": 15841,
+   "pages_none": 0,
+   "points_none": 0,
+   "pages_l2_only": 15841,
+   "points_l2_only": 15841,
+   "disposition": "chain_adr093"
+  },
+  {
+   "provenance": "wikidata_ch",
+   "registered_on": "2026-09-16",
+   "pages_total": 14156,
+   "points_total": 14606,
+   "pages_none": 13762,
+   "points_none": 13823,
+   "pages_l2_only": 383,
+   "points_l2_only": 761,
+   "disposition": "refetch_and_chain"
+  },
+  {
+   "provenance": "zefix_cc_join",
+   "registered_on": "2026-09-16",
+   "pages_total": 14212,
+   "points_total": 14224,
+   "pages_none": 14207,
+   "points_none": 14214,
+   "pages_l2_only": 5,
+   "points_l2_only": 10,
+   "disposition": "refetch_and_chain"
+  },
+  {
+   "provenance": "zefix_lindas_join",
+   "registered_on": "2026-09-16",
+   "pages_total": 13025,
+   "points_total": 13046,
+   "pages_none": 13005,
+   "points_none": 13006,
+   "pages_l2_only": 20,
+   "points_l2_only": 40,
+   "disposition": "refetch_and_chain"
+  },
+  {
+   "provenance": "wave6_cc",
+   "registered_on": "2026-09-16",
+   "pages_total": 5297,
+   "points_total": 11889,
+   "pages_none": 5282,
+   "points_none": 11874,
+   "pages_l2_only": 15,
+   "points_l2_only": 15,
+   "disposition": "refetch_and_chain"
+  },
+  {
+   "provenance": "statcan_wds",
+   "registered_on": "2026-09-16",
+   "pages_total": 10040,
+   "points_total": 10040,
+   "pages_none": 0,
+   "points_none": 0,
+   "pages_l2_only": 10040,
+   "points_l2_only": 10040,
+   "disposition": "chain_adr093"
+  },
+  {
+   "provenance": "sitemap-deep-crawl",
+   "registered_on": "2026-09-16",
+   "pages_total": 7556,
+   "points_total": 7569,
+   "pages_none": 7540,
+   "points_none": 7540,
+   "pages_l2_only": 16,
+   "points_l2_only": 29,
+   "disposition": "refetch_and_chain"
+  },
+  {
+   "provenance": "wave7_cc",
+   "registered_on": "2026-09-16",
+   "pages_total": 6387,
+   "points_total": 6424,
+   "pages_none": 6248,
+   "points_none": 6256,
+   "pages_l2_only": 139,
+   "points_l2_only": 168,
+   "disposition": "refetch_and_chain"
+  },
+  {
+   "provenance": "tech_gapfill_react_rust",
+   "registered_on": "2026-09-16",
+   "pages_total": 310,
+   "points_total": 5225,
+   "pages_none": 0,
+   "points_none": 0,
+   "pages_l2_only": 310,
+   "points_l2_only": 5225,
+   "disposition": "chain_adr093"
+  },
+  {
+   "provenance": "de_laender_law",
+   "registered_on": "2026-09-16",
+   "pages_total": 4921,
+   "points_total": 4921,
+   "pages_none": 0,
+   "points_none": 0,
+   "pages_l2_only": 4921,
+   "points_l2_only": 4921,
+   "disposition": "chain_adr093"
+  },
+  {
+   "provenance": "yc_directory",
+   "registered_on": "2026-09-16",
+   "pages_total": 4517,
+   "points_total": 4525,
+   "pages_none": 4516,
+   "points_none": 4523,
+   "pages_l2_only": 1,
+   "points_l2_only": 2,
+   "disposition": "refetch_and_chain"
+  },
+  {
+   "provenance": "de_laender_juris",
+   "registered_on": "2026-09-16",
+   "pages_total": 3679,
+   "points_total": 3679,
+   "pages_none": 0,
+   "points_none": 0,
+   "pages_l2_only": 3679,
+   "points_l2_only": 3679,
+   "disposition": "chain_adr093"
+  },
+  {
+   "provenance": "wave7_direct",
+   "registered_on": "2026-09-16",
+   "pages_total": 3622,
+   "points_total": 3623,
+   "pages_none": 3622,
+   "points_none": 3623,
+   "pages_l2_only": 0,
+   "points_l2_only": 0,
+   "disposition": "refetch"
+  },
+  {
+   "provenance": "cc-s3-columnar-292",
+   "registered_on": "2026-09-16",
+   "pages_total": 379,
+   "points_total": 2521,
+   "pages_none": 379,
+   "points_none": 2521,
+   "pages_l2_only": 0,
+   "points_l2_only": 0,
+   "disposition": "refetch"
+  },
+  {
+   "provenance": "genesis_stats",
+   "registered_on": "2026-09-16",
+   "pages_total": 2453,
+   "points_total": 2453,
+   "pages_none": 0,
+   "points_none": 0,
+   "pages_l2_only": 2453,
+   "points_l2_only": 2453,
+   "disposition": "chain_adr093"
+  },
+  {
+   "provenance": "insee_definition",
+   "registered_on": "2026-09-16",
+   "pages_total": 2449,
+   "points_total": 2449,
+   "pages_none": 0,
+   "points_none": 0,
+   "pages_l2_only": 2449,
+   "points_l2_only": 2449,
+   "disposition": "chain_adr093"
+  },
+  {
+   "provenance": "zec_pack",
+   "registered_on": "2026-09-16",
+   "pages_total": 1788,
+   "points_total": 15219,
+   "pages_none": 123,
+   "points_none": 2183,
+   "pages_l2_only": 0,
+   "points_l2_only": 0,
+   "disposition": "refetch"
+  },
+  {
+   "provenance": "ctgov_psy",
+   "registered_on": "2026-09-16",
+   "pages_total": 2147,
+   "points_total": 2165,
+   "pages_none": 2143,
+   "points_none": 2150,
+   "pages_l2_only": 4,
+   "points_l2_only": 15,
+   "disposition": "refetch_and_chain"
+  },
+  {
+   "provenance": "wave6_direct",
+   "registered_on": "2026-09-16",
+   "pages_total": 1760,
+   "points_total": 2816,
+   "pages_none": 1424,
+   "points_none": 1819,
+   "pages_l2_only": 0,
+   "points_l2_only": 0,
+   "disposition": "refetch"
+  },
+  {
+   "provenance": "chmedia-ingest",
+   "registered_on": "2026-09-16",
+   "pages_total": 1411,
+   "points_total": 1724,
+   "pages_none": 757,
+   "points_none": 1070,
+   "pages_l2_only": 654,
+   "points_l2_only": 654,
+   "disposition": "refetch_and_chain"
+  },
+  {
+   "provenance": "github-coverage-300",
+   "registered_on": "2026-09-16",
+   "pages_total": 1627,
+   "points_total": 1627,
+   "pages_none": 1627,
+   "points_none": 1627,
+   "pages_l2_only": 0,
+   "points_l2_only": 0,
+   "disposition": "refetch"
+  },
+  {
+   "provenance": "finma_register",
+   "registered_on": "2026-09-16",
+   "pages_total": 1232,
+   "points_total": 1233,
+   "pages_none": 1232,
+   "points_none": 1233,
+   "pages_l2_only": 0,
+   "points_l2_only": 0,
+   "disposition": "refetch"
+  },
+  {
+   "provenance": "hn-freshness",
+   "registered_on": "2026-09-16",
+   "pages_total": 989,
+   "points_total": 992,
+   "pages_none": 974,
+   "points_none": 977,
+   "pages_l2_only": 1,
+   "points_l2_only": 1,
+   "disposition": "refetch_and_chain"
+  },
+  {
+   "provenance": "kali_conv",
+   "registered_on": "2026-09-16",
+   "pages_total": 932,
+   "points_total": 932,
+   "pages_none": 36,
+   "points_none": 36,
+   "pages_l2_only": 896,
+   "points_l2_only": 896,
+   "disposition": "refetch_and_chain"
+  },
+  {
+   "provenance": "startup_ca",
+   "registered_on": "2026-09-16",
+   "pages_total": 923,
+   "points_total": 926,
+   "pages_none": 923,
+   "points_none": 926,
+   "pages_l2_only": 0,
+   "points_l2_only": 0,
+   "disposition": "refetch"
+  },
+  {
+   "provenance": "startup_ch",
+   "registered_on": "2026-09-16",
+   "pages_total": 578,
+   "points_total": 582,
+   "pages_none": 574,
+   "points_none": 574,
+   "pages_l2_only": 4,
+   "points_l2_only": 8,
+   "disposition": "refetch_and_chain"
+  },
+  {
+   "provenance": "startup_be",
+   "registered_on": "2026-09-16",
+   "pages_total": 502,
+   "points_total": 502,
+   "pages_none": 502,
+   "points_none": 502,
+   "pages_l2_only": 0,
+   "points_l2_only": 0,
+   "disposition": "refetch"
+  },
+  {
+   "provenance": "startup_de",
+   "registered_on": "2026-09-16",
+   "pages_total": 413,
+   "points_total": 413,
+   "pages_none": 413,
+   "points_none": 413,
+   "pages_l2_only": 0,
+   "points_l2_only": 0,
+   "disposition": "refetch"
+  },
+  {
+   "provenance": "insee_melodi",
+   "registered_on": "2026-09-16",
+   "pages_total": 53,
+   "points_total": 288,
+   "pages_none": 0,
+   "points_none": 0,
+   "pages_l2_only": 53,
+   "points_l2_only": 288,
+   "disposition": "chain_adr093"
+  },
+  {
+   "provenance": "oakbv_pension",
+   "registered_on": "2026-09-16",
+   "pages_total": 162,
+   "points_total": 247,
+   "pages_none": 162,
+   "points_none": 247,
+   "pages_l2_only": 0,
+   "points_l2_only": 0,
+   "disposition": "refetch"
+  },
+  {
+   "provenance": "mh_authority_pack",
+   "registered_on": "2026-09-16",
+   "pages_total": 7778,
+   "points_total": 38621,
+   "pages_none": 53,
+   "points_none": 185,
+   "pages_l2_only": 0,
+   "points_l2_only": 0,
+   "disposition": "refetch"
+  },
+  {
+   "provenance": "skills_transition",
+   "registered_on": "2026-09-16",
+   "pages_total": 12235,
+   "points_total": 55825,
+   "pages_none": 111,
+   "points_none": 184,
+   "pages_l2_only": 0,
+   "points_l2_only": 0,
+   "disposition": "refetch"
+  },
+  {
+   "provenance": "freshness-backfill",
+   "registered_on": "2026-09-16",
+   "pages_total": 217,
+   "points_total": 218,
+   "pages_none": 169,
+   "points_none": 170,
+   "pages_l2_only": 0,
+   "points_l2_only": 0,
+   "disposition": "refetch"
+  },
+  {
+   "provenance": "statcan_daily",
+   "registered_on": "2026-09-16",
+   "pages_total": 160,
+   "points_total": 160,
+   "pages_none": 0,
+   "points_none": 0,
+   "pages_l2_only": 160,
+   "points_l2_only": 160,
+   "disposition": "chain_adr093"
+  },
+  {
+   "provenance": "boc_valet",
+   "registered_on": "2026-09-16",
+   "pages_total": 7,
+   "points_total": 135,
+   "pages_none": 0,
+   "points_none": 0,
+   "pages_l2_only": 7,
+   "points_l2_only": 135,
+   "disposition": "chain_adr093"
+  },
+  {
+   "provenance": "startup_fr",
+   "registered_on": "2026-09-16",
+   "pages_total": 127,
+   "points_total": 127,
+   "pages_none": 127,
+   "points_none": 127,
+   "pages_l2_only": 0,
+   "points_l2_only": 0,
+   "disposition": "refetch"
+  },
+  {
+   "provenance": "tech_blogs",
+   "registered_on": "2026-09-16",
+   "pages_total": 5894,
+   "points_total": 81808,
+   "pages_none": 9,
+   "points_none": 66,
+   "pages_l2_only": 0,
+   "points_l2_only": 0,
+   "disposition": "refetch"
+  },
+  {
+   "provenance": "yc_library",
+   "registered_on": "2026-09-16",
+   "pages_total": 2448,
+   "points_total": 16849,
+   "pages_none": 7,
+   "points_none": 61,
+   "pages_l2_only": 0,
+   "points_l2_only": 0,
+   "disposition": "refetch"
+  },
+  {
+   "provenance": "dei_pack",
+   "registered_on": "2026-09-16",
+   "pages_total": 5775,
+   "points_total": 58811,
+   "pages_none": 3,
+   "points_none": 56,
+   "pages_l2_only": 0,
+   "points_l2_only": 0,
+   "disposition": "refetch"
+  },
+  {
+   "provenance": "nyt_class_card",
+   "registered_on": "2026-09-16",
+   "pages_total": 36,
+   "points_total": 48,
+   "pages_none": 35,
+   "points_none": 46,
+   "pages_l2_only": 1,
+   "points_l2_only": 2,
+   "disposition": "refetch_and_chain"
+  },
+  {
+   "provenance": "aw399_energy",
+   "registered_on": "2026-09-16",
+   "pages_total": 9658,
+   "points_total": 27075,
+   "pages_none": 9,
+   "points_none": 20,
+   "pages_l2_only": 0,
+   "points_l2_only": 0,
+   "disposition": "refetch"
+  },
+  {
+   "provenance": "retailer_card",
+   "registered_on": "2026-09-16",
+   "pages_total": 19,
+   "points_total": 19,
+   "pages_none": 19,
+   "points_none": 19,
+   "pages_l2_only": 0,
+   "points_l2_only": 0,
+   "disposition": "refetch"
+  },
+  {
+   "provenance": "court_portals",
+   "registered_on": "2026-09-16",
+   "pages_total": 14,
+   "points_total": 14,
+   "pages_none": 14,
+   "points_none": 14,
+   "pages_l2_only": 0,
+   "points_l2_only": 0,
+   "disposition": "refetch"
+  },
+  {
+   "provenance": "task383_zefix_resurrection",
+   "registered_on": "2026-09-16",
+   "pages_total": 5,
+   "points_total": 10,
+   "pages_none": 5,
+   "points_none": 10,
+   "pages_l2_only": 0,
+   "points_l2_only": 0,
+   "disposition": "refetch"
+  },
+  {
+   "provenance": "exp227",
+   "registered_on": "2026-09-16",
+   "pages_total": 6,
+   "points_total": 6,
+   "pages_none": 6,
+   "points_none": 6,
+   "pages_l2_only": 0,
+   "points_l2_only": 0,
+   "disposition": "refetch"
+  },
+  {
+   "provenance": "publication_card",
+   "registered_on": "2026-09-16",
+   "pages_total": 5,
+   "points_total": 5,
+   "pages_none": 5,
+   "points_none": 5,
+   "pages_l2_only": 0,
+   "points_l2_only": 0,
+   "disposition": "refetch"
+  },
+  {
+   "provenance": "canonical_source",
+   "registered_on": "2026-09-16",
+   "pages_total": 5,
+   "points_total": 5,
+   "pages_none": 5,
+   "points_none": 5,
+   "pages_l2_only": 0,
+   "points_l2_only": 0,
+   "disposition": "refetch"
+  },
+  {
+   "provenance": "newspaper_card",
+   "registered_on": "2026-09-16",
+   "pages_total": 4,
+   "points_total": 5,
+   "pages_none": 4,
+   "points_none": 5,
+   "pages_l2_only": 0,
+   "points_l2_only": 0,
+   "disposition": "refetch"
+  },
+  {
+   "provenance": "wave6_card",
+   "registered_on": "2026-09-16",
+   "pages_total": 3,
+   "points_total": 4,
+   "pages_none": 3,
+   "points_none": 4,
+   "pages_l2_only": 0,
+   "points_l2_only": 0,
+   "disposition": "refetch"
+  },
+  {
+   "provenance": "manual_curation_zefix",
+   "registered_on": "2026-09-16",
+   "pages_total": 1,
+   "points_total": 2,
+   "pages_none": 1,
+   "points_none": 2,
+   "pages_l2_only": 0,
+   "points_l2_only": 0,
+   "disposition": "refetch"
+  }
+ ]
+}

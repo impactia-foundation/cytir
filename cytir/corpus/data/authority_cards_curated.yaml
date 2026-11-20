@@ -1,0 +1,382 @@
+# Curated authority cards (task 2659) -- the REGISTER for authorities (ADR-033/041: the curated tiered
+# allowlist is our register; discovery-built cards are the fallback). Merged by
+# `cyt ops source-cards merge`; a curated card WINS a host collision (source: curated); a discovery
+# card's consent-declined disposition is kept (stricter wins). Tier comes from data/allowlist.yaml where
+# the host is listed there (a test pins it); otherwise it is declared here. A=1.0 official register /
+# primary legal source, B=0.82, C=0.72 (cytir.core.common.TIER_TRUST). Disposition is NEVER written here: it is derived at merge time
+# from the consent registry (data/consent_declined_hosts.json) -> `consent-declined`, else `card`
+# (the floor; no index claim). Carded for navigation; fetchability is not membership (admin.ch, legifrance.gouv.fr, eur-lex.europa.eu and
+# bundesverwaltungsgericht.ch were unreadable from the probe host on 2026-11-10 and are carded anyway).
+#
+# NOT CARDED (stand-ins): m3.ti.ch (403; ti.ch stands in), prestations.vd.ch (login redirect and a
+#   registry decline; vd.ch stands in). A WAF 403/202 or a TLS miss from one vantage is `unreadable`, never
+#   `declined`: it does not remove a card (a card names a source for navigation; it never fetches).
+# bger.ch: the probe host lacks the issuer cert (curl rc 60); answers 200 with -k; kept.
+cards:
+# ---- Swiss federal law, courts, offices ---------------------------------------------------------
+- domain: fedlex.admin.ch
+  tier: A
+  jurisdiction: CH
+  name: {de: Fedlex - Publikationsplattform des Bundesrechts, fr: Fedlex - plateforme de publication du droit federal, it: Fedlex - piattaforma di pubblicazione del diritto federale, en: Fedlex - Swiss federal law publication platform}
+  authoritative_for: [Swiss federal law, Classified Compilation SR RS, Systematische Rechtssammlung, Bundesgesetze Verordnungen, Bundesverfassung, Obligationenrecht OR, Zivilgesetzbuch ZGB, Strafgesetzbuch StGB, Datenschutzgesetz DSG, loi federale, recueil systematique, Code civil suisse, Code des obligations, Codice penale svizzero, Codice civile svizzero, legge federale, Amtliche Sammlung AS, Bundesblatt BBl]
+  description: "Official publisher of Swiss federal statutes, ordinances and the Federal Constitution in German, French and Italian (SR/RS, AS/RO/RU, BBl/FF/FF)."
+- domain: bger.ch
+  tier: A
+  jurisdiction: CH
+  name: {de: Bundesgericht, fr: Tribunal federal, it: Tribunale federale, en: Swiss Federal Supreme Court}
+  authoritative_for: [Swiss federal case law, Bundesgerichtsentscheide BGE, arrets du Tribunal federal ATF, sentenze del Tribunale federale DTF, court decisions, Rechtsprechung, jurisprudence, giurisprudenza, leading decisions]
+  description: "The Federal Supreme Court's own site with leading decisions (BGE/ATF/DTF) and all published rulings."
+- domain: bj.admin.ch
+  tier: A
+  jurisdiction: CH
+  name: {de: Bundesamt fuer Justiz BJ, fr: Office federal de la justice OFJ, it: Ufficio federale di giustizia UFG, en: Federal Office of Justice}
+  authoritative_for: [Swiss federal law drafting, legislation, Gesetzgebung, civil law, criminal law, data protection law, Datenschutz, private international law, legislative projects, Vernehmlassung, droit civil, droit penal, diritto civile]
+  description: "Federal office responsible for federal legislation, civil, criminal and data protection law and the legal explanations behind them."
+- domain: estv.admin.ch
+  tier: A
+  jurisdiction: CH
+  name: {de: Eidgenoessische Steuerverwaltung ESTV, fr: Administration federale des contributions AFC, it: Amministrazione federale delle contribuzioni AFC, en: Federal Tax Administration}
+  authoritative_for: [Swiss federal taxes, Mehrwertsteuer MWST, TVA taux normal, IVA aliquota, Verrechnungssteuer, direct federal tax, Steuern Schweiz, impots federaux, imposte federali, Stempelabgaben, tax rates]
+  description: "Federal tax authority: VAT rates and practice, withholding tax, stamp duties, direct federal tax."
+- domain: seco.admin.ch
+  tier: A
+  jurisdiction: CH
+  name: {de: Staatssekretariat fuer Wirtschaft SECO, fr: Secretariat d'Etat a l'economie SECO, it: Segreteria di Stato dell'economia SECO, en: State Secretariat for Economic Affairs}
+  authoritative_for: [Swiss economic policy, unemployment insurance, Arbeitslosenversicherung, labour law Arbeitsrecht, Arbeitsgesetz, sanctions, Sanktionen, foreign trade, Aussenwirtschaft, export controls, Arbeitslosenquote, taux de chomage]
+  description: "Federal office for economic policy, labour market, labour law, unemployment figures, trade and sanctions."
+- domain: bag.admin.ch
+  tier: A
+  jurisdiction: CH
+  name: {de: Bundesamt fuer Gesundheit BAG, fr: Office federal de la sante publique OFSP, it: Ufficio federale della sanita pubblica UFSP, en: Federal Office of Public Health}
+  authoritative_for: [Swiss public health, health insurance Krankenversicherung KVG, assurance maladie LAMal, infectious diseases, vaccination, Impfplan, epidemics, health statistics, Gesundheit, sante, salute]
+  description: "Federal public health office: health insurance, vaccination plan, communicable diseases, health policy."
+- domain: bfs.admin.ch
+  tier: A
+  jurisdiction: CH
+  name: {de: Bundesamt fuer Statistik BFS, fr: Office federal de la statistique OFS, it: Ufficio federale di statistica UST, en: Federal Statistical Office}
+  authoritative_for: [Swiss official statistics, population Bevoelkerung, statistique population suisse, popolazione, unemployment rate, Arbeitslosenquote, economy statistics, census, Volkszaehlung, Statistik Schweiz, statistiques, statistica, gross domestic product GDP BIP, prices Landesindex der Konsumentenpreise]
+  description: "Switzerland's official statistics producer: population, labour, economy, prices, education, health."
+- domain: bsv.admin.ch
+  tier: A
+  jurisdiction: CH
+  name: {de: Bundesamt fuer Sozialversicherungen BSV, fr: Office federal des assurances sociales OFAS, it: Ufficio federale delle assicurazioni sociali UFAS, en: Federal Social Insurance Office}
+  authoritative_for: [Swiss social insurance, AHV old-age pension, AVS, AI invalidity insurance IV, Pensionskasse BVG, berufliche Vorsorge, prevoyance professionnelle, Ergaenzungsleistungen, family allowances, EO, Sozialversicherungen]
+  description: "Federal office for old-age, survivors, invalidity, occupational pension and family allowance schemes."
+- domain: sem.admin.ch
+  tier: A
+  jurisdiction: CH
+  name: {de: Staatssekretariat fuer Migration SEM, fr: Secretariat d'Etat aux migrations SEM, it: Segreteria di Stato della migrazione SEM, en: State Secretariat for Migration}
+  authoritative_for: [Swiss migration, asylum, Asyl, residence permits, Aufenthaltsbewilligung, citizenship naturalisation Einbuergerung, visas, permis de sejour, permesso di dimora, Auslaender- und Integrationsgesetz]
+  description: "Federal migration authority: asylum, residence permits, visas, naturalisation and integration."
+- domain: bafu.admin.ch
+  tier: A
+  jurisdiction: CH
+  name: {de: Bundesamt fuer Umwelt BAFU, fr: Office federal de l'environnement OFEV, it: Ufficio federale dell'ambiente UFAM, en: Federal Office for the Environment}
+  authoritative_for: [Swiss environment, climate policy, Klima, CO2 law, water protection, Gewaesserschutz, air quality, waste Abfall, natural hazards, biodiversity, forests Wald, environnement, ambiente]
+  description: "Federal office for environmental law and data: climate, air, water, waste, natural hazards, biodiversity."
+- domain: bk.admin.ch
+  tier: A
+  jurisdiction: CH
+  name: {de: Bundeskanzlei BK, fr: Chancellerie federale ChF, it: Cancelleria federale CaF, en: Federal Chancellery}
+  authoritative_for: [Swiss federal votes, Abstimmungen, popular initiatives, Volksinitiativen, referendums, federal elections, Wahlen, Bundesrat decisions, Bundesblatt, votations, votazioni, political rights]
+  description: "Federal Chancellery: popular votes, elections, political rights and the Federal Council's staff office."
+- domain: edoeb.admin.ch
+  tier: A
+  jurisdiction: CH
+  name: {de: Eidgenoessischer Datenschutz- und Oeffentlichkeitsbeauftragter EDOEB, fr: Prepose federal a la protection des donnees et a la transparence PFPDT, it: Incaricato federale della protezione dei dati e della trasparenza IFPDT, en: Federal Data Protection and Information Commissioner}
+  authoritative_for: [Swiss data protection, Datenschutz, Bundesgesetz ueber den Datenschutz DSG, nDSG, protection des donnees LPD, protezione dei dati LPD, privacy, freedom of information Oeffentlichkeitsprinzip, GDPR Switzerland]
+  description: "Federal supervisory authority for the Data Protection Act (DSG/LPD) with guidance on its application."
+- domain: parlament.ch
+  tier: A
+  jurisdiction: CH
+  name: {de: Das Schweizer Parlament, fr: Le Parlement suisse, it: Il Parlamento svizzero, en: Swiss Parliament}
+  authoritative_for: [Swiss Parliament, Bundesversammlung, Nationalrat, Staenderat, parliamentary business Geschaefte, motions, interpellations, Curia Vista, legislative process, Amtliches Bulletin, Federal Assembly, Assemblee federale, Assemblea federale]
+  description: "Official site of the Federal Assembly: business database Curia Vista, debates, committees, members."
+- domain: zefix.ch
+  tier: A
+  jurisdiction: CH
+  name: {de: Zefix - Zentraler Firmenindex, fr: Zefix - Index central des raisons de commerce, it: Zefix - Indice centrale delle ditte, en: Zefix - Central Business Names Index}
+  authoritative_for: [Swiss company register, Handelsregister, commercial register, registre du commerce, registro di commercio, company search Firmensuche, UID, company names, legal form, registered office Sitz, Firmen Schweiz]
+  description: "Federal index of all companies in the Swiss cantonal commercial registers."
+- domain: shab.ch
+  tier: A
+  jurisdiction: CH
+  name: {de: Schweizerisches Handelsamtsblatt SHAB, fr: Feuille officielle suisse du commerce FOSC, it: Foglio ufficiale svizzero di commercio FUSC, en: Swiss Official Gazette of Commerce}
+  authoritative_for: [Swiss Official Gazette of Commerce, commercial register publications, Handelsregister Publikationen, bankruptcies Konkurse, debt enforcement notices, company mutations, insolvency, faillites, fallimenti, Nachlassstundung, Firmenpublikationen]
+  description: "Official gazette in which commercial register entries, bankruptcies and other legal notices are published."
+# ---- Cross-cantonal finder and the 26 cantonal law collections -------------------------------------
+- domain: lexfind.ch
+  tier: A
+  jurisdiction: CH
+  name: {de: LexFind - Gesetzessammlungen der Kantone, fr: LexFind - recueils de lois des cantons, it: LexFind - raccolte di leggi dei cantoni, en: LexFind - cantonal legislation finder}
+  authoritative_for: [cantonal law, Kantonales Recht, droit cantonal, diritto cantonale, cantonal legislation search across all 26 cantons, Gesetzessammlungen, Kantone, cantons, canton legislation finder, Kantonsgesetze]
+  description: "Cross-cantonal search over the official legislation collections of all Swiss cantons and some communes."
+- domain: zh.ch
+  tier: A
+  jurisdiction: CH-ZH
+  name: {de: Kanton Zuerich - Gesetzessammlung ZH-Lex und Steuern, fr: Canton de Zurich - recueil des lois ZH-Lex et impots, it: Cantone di Zurigo - raccolta delle leggi ZH-Lex e imposte, en: Canton of Zurich - ZH-Lex legislation and taxes}
+  authoritative_for: [Kanton Zuerich law, ZH-Lex, Zuercher Gesetzessammlung, Kanton Zuerich Steuern, cantonal taxes Zurich, Steueramt, Steuergesetz, canton of Zurich, Kantonales Recht Zuerich]
+  description: "Cantonal portal of Zurich with the ZH-Lex legislation collection and the cantonal tax office (Kantonales Steueramt)."
+- domain: belex.sites.be.ch
+  tier: A
+  jurisdiction: CH-BE
+  name: {de: BELEX - Berner Gesetzessammlung, fr: BELEX - recueil des lois bernoises, it: BELEX - raccolta delle leggi bernesi, en: BELEX - Bernese legislation}
+  authoritative_for: [Kanton Bern law, BSG Bernische Systematische Gesetzessammlung, canton de Berne droit, cantonal law Bern]
+  description: "Official legislation database of the canton of Bern (BSG)."
+- domain: srl.lu.ch
+  tier: A
+  jurisdiction: CH-LU
+  name: {de: Systematische Rechtssammlung des Kantons Luzern SRL, fr: Recueil systematique du canton de Lucerne SRL, it: Raccolta sistematica del cantone di Lucerna SRL, en: Canton of Lucerne systematic legislation}
+  authoritative_for: [Kanton Luzern law, SRL, cantonal law Lucerne, Luzerner Gesetze]
+  description: "Official systematic legislation of the canton of Lucerne."
+- domain: ur.ch
+  tier: A
+  jurisdiction: CH-UR
+  name: {de: Kanton Uri - Rechtsbuch, fr: Canton d'Uri - recueil du droit, it: Cantone di Uri - raccolta del diritto, en: Canton of Uri legislation}
+  authoritative_for: [Kanton Uri law, Urner Rechtsbuch, cantonal law Uri, Kanton Uri]
+  description: "Cantonal portal of Uri, home of the Urner Rechtsbuch."
+- domain: gesetzsammlung.sz.ch
+  tier: A
+  jurisdiction: CH-SZ
+  name: {de: Gesetzessammlung des Kantons Schwyz SRSZ, fr: Recueil des lois du canton de Schwytz SRSZ, it: Raccolta delle leggi del cantone di Svitto SRSZ, en: Canton of Schwyz legislation}
+  authoritative_for: [Kanton Schwyz law, SRSZ, cantonal law Schwyz, Schwyzer Gesetze]
+  description: "Official systematic legislation of the canton of Schwyz."
+- domain: gdb.ow.ch
+  tier: A
+  jurisdiction: CH-OW
+  name: {de: Gesetzesdatenbank des Kantons Obwalden GDB, fr: Banque de donnees legislatives d'Obwald GDB, it: Banca dati delle leggi di Obvaldo GDB, en: Canton of Obwalden legislation}
+  authoritative_for: [Kanton Obwalden law, GDB, cantonal law Obwalden, Obwaldner Gesetze]
+  description: "Official legislation database of the canton of Obwalden."
+- domain: gesetze.nw.ch
+  tier: A
+  jurisdiction: CH-NW
+  name: {de: Gesetzessammlung des Kantons Nidwalden NG, fr: Recueil des lois de Nidwald NG, it: Raccolta delle leggi di Nidvaldo NG, en: Canton of Nidwalden legislation}
+  authoritative_for: [Kanton Nidwalden law, NG, cantonal law Nidwalden, Nidwaldner Gesetze]
+  description: "Official legislation of the canton of Nidwalden."
+- domain: gesetze.gl.ch
+  tier: A
+  jurisdiction: CH-GL
+  name: {de: Gesetzessammlung des Kantons Glarus GS, fr: Recueil des lois du canton de Glaris GS, it: Raccolta delle leggi del cantone di Glarona GS, en: Canton of Glarus legislation}
+  authoritative_for: [Kanton Glarus law, GS, cantonal law Glarus, Glarner Gesetze]
+  description: "Official legislation of the canton of Glarus."
+- domain: bgs.zg.ch
+  tier: A
+  jurisdiction: CH-ZG
+  name: {de: Bereinigte Gesetzessammlung des Kantons Zug BGS, fr: Recueil systematique du canton de Zoug BGS, it: Raccolta sistematica del cantone di Zugo BGS, en: Canton of Zug legislation}
+  authoritative_for: [Kanton Zug law, BGS, cantonal law Zug, Zuger Gesetze]
+  description: "Official consolidated legislation of the canton of Zug."
+- domain: bdlf.fr.ch
+  tier: A
+  jurisdiction: CH-FR
+  name: {de: Amtliche Gesetzessammlung des Kantons Freiburg BDLF, fr: Banque de donnees des lois fribourgeoises BDLF, it: Banca dati delle leggi friburghesi BDLF, en: Canton of Fribourg legislation}
+  authoritative_for: [canton de Fribourg droit, BDLF, Kanton Freiburg law, cantonal law Fribourg, lois fribourgeoises, Freiburger Gesetze]
+  description: "Official bilingual legislation database of the canton of Fribourg."
+- domain: bgs.so.ch
+  tier: A
+  jurisdiction: CH-SO
+  name: {de: Bereinigte Gesetzessammlung des Kantons Solothurn BGS, fr: Recueil systematique du canton de Soleure BGS, it: Raccolta sistematica del cantone di Soletta BGS, en: Canton of Solothurn legislation}
+  authoritative_for: [Kanton Solothurn law, BGS, cantonal law Solothurn, Solothurner Gesetze]
+  description: "Official consolidated legislation of the canton of Solothurn."
+- domain: gesetzessammlung.bs.ch
+  tier: A
+  jurisdiction: CH-BS
+  name: {de: Systematische Gesetzessammlung des Kantons Basel-Stadt SG, fr: Recueil systematique de Bale-Ville SG, it: Raccolta sistematica di Basilea Citta SG, en: Canton of Basel-Stadt legislation}
+  authoritative_for: [Kanton Basel-Stadt law, SG, cantonal law Basel-Stadt, Basler Gesetze]
+  description: "Official systematic legislation of the canton of Basel-Stadt."
+- domain: bl.clex.ch
+  tier: A
+  jurisdiction: CH-BL
+  name: {de: Systematische Gesetzessammlung des Kantons Basel-Landschaft SGS, fr: Recueil systematique de Bale-Campagne SGS, it: Raccolta sistematica di Basilea Campagna SGS, en: Canton of Basel-Landschaft legislation}
+  authoritative_for: [Kanton Basel-Landschaft law, SGS, cantonal law Basel-Landschaft, Baselbieter Gesetze]
+  description: "Official systematic legislation of the canton of Basel-Landschaft."
+- domain: rechtsbuch.sh.ch
+  tier: A
+  jurisdiction: CH-SH
+  name: {de: Rechtsbuch des Kantons Schaffhausen, fr: Recueil du droit du canton de Schaffhouse, it: Raccolta del diritto del cantone di Sciaffusa, en: Canton of Schaffhausen legislation}
+  authoritative_for: [Kanton Schaffhausen law, SHR, cantonal law Schaffhausen, Schaffhauser Rechtsbuch]
+  description: "Official legislation of the canton of Schaffhausen."
+- domain: ar.clex.ch
+  tier: A
+  jurisdiction: CH-AR
+  name: {de: Bereinigte Gesetzessammlung des Kantons Appenzell Ausserrhoden bGS, fr: Recueil systematique d'Appenzell Rhodes-Exterieures bGS, it: Raccolta sistematica di Appenzello Esterno bGS, en: Canton of Appenzell Ausserrhoden legislation}
+  authoritative_for: [Kanton Appenzell Ausserrhoden law, bGS, cantonal law Appenzell Ausserrhoden]
+  description: "Official consolidated legislation of the canton of Appenzell Ausserrhoden."
+- domain: ai.clex.ch
+  tier: A
+  jurisdiction: CH-AI
+  name: {de: Gesetzessammlung des Kantons Appenzell Innerrhoden GS, fr: Recueil des lois d'Appenzell Rhodes-Interieures GS, it: Raccolta delle leggi di Appenzello Interno GS, en: Canton of Appenzell Innerrhoden legislation}
+  authoritative_for: [Kanton Appenzell Innerrhoden law, GS, cantonal law Appenzell Innerrhoden]
+  description: "Official legislation of the canton of Appenzell Innerrhoden."
+- domain: gesetzessammlung.sg.ch
+  tier: A
+  jurisdiction: CH-SG
+  name: {de: Gesetzessammlung des Kantons St.Gallen sGS, fr: Recueil des lois de Saint-Gall sGS, it: Raccolta delle leggi di San Gallo sGS, en: Canton of St. Gallen legislation}
+  authoritative_for: [Kanton St.Gallen law, sGS, cantonal law St. Gallen, St.Galler Gesetze]
+  description: "Official legislation of the canton of St. Gallen."
+- domain: gr-lex.gr.ch
+  home: https://www.gr-lex.gr.ch/
+  tier: A
+  jurisdiction: CH-GR
+  name: {de: Buendner Rechtsbuch BR, fr: Recueil du droit grison BR, it: Raccolta del diritto grigionese CSC, en: Canton of Graubuenden legislation}
+  authoritative_for: [Kanton Graubuenden law, BR, CSC, Buendner Rechtsbuch, cantonal law Graubuenden, Grisons, Grigioni]
+  description: "Official legislation of the canton of Graubuenden, in German, Italian and Romansh sources."
+- domain: gesetzessammlungen.ag.ch
+  tier: A
+  jurisdiction: CH-AG
+  name: {de: Aargauische Gesetzessammlungen AGS/SAR, fr: Recueils des lois argoviennes AGS/SAR, it: Raccolte delle leggi argoviesi AGS/SAR, en: Canton of Aargau legislation}
+  authoritative_for: [Kanton Aargau law, SAR, AGS, cantonal law Aargau, Aargauer Gesetze]
+  description: "Official legislation of the canton of Aargau."
+- domain: rechtsbuch.tg.ch
+  home: https://www.rechtsbuch.tg.ch/
+  tier: A
+  jurisdiction: CH-TG
+  name: {de: Rechtsbuch des Kantons Thurgau RB, fr: Recueil du droit thurgovien RB, it: Raccolta del diritto turgoviese RB, en: Canton of Thurgau legislation}
+  authoritative_for: [Kanton Thurgau law, RB, cantonal law Thurgau, Thurgauer Rechtsbuch]
+  description: "Official legislation of the canton of Thurgau."
+- domain: ti.ch
+  tier: A
+  jurisdiction: CH-TI
+  name: {de: Kanton Tessin - Gesetzessammlung RL, fr: Canton du Tessin - recueil des lois RL, it: Cantone Ticino - Raccolta delle leggi RL, en: Canton of Ticino legislation}
+  authoritative_for: [Cantone Ticino legge, Raccolta leggi RL, Kanton Tessin law, cantonal law Ticino, leggi ticinesi, diritto cantonale ticinese]
+  description: "Cantonal portal of Ticino (the law portal m3.ti.ch answers 403 to plain requests, so the portal host is carded)."
+- domain: vd.ch
+  tier: A
+  jurisdiction: CH-VD
+  name: {de: Kanton Waadt - Gesetzessammlung RSV, fr: Canton de Vaud - recueil systematique RSV, it: Cantone di Vaud - raccolta sistematica RSV, en: Canton of Vaud legislation}
+  authoritative_for: [canton de Vaud droit, RSV, Kanton Waadt law, cantonal law Vaud, lois vaudoises, legislation vaudoise]
+  description: "Cantonal portal of Vaud (the legislation database prestations.vd.ch is consent-declined, so the portal host is carded)."
+- domain: lex.vs.ch
+  tier: A
+  jurisdiction: CH-VS
+  name: {de: Gesetzessammlung des Kantons Wallis SGS, fr: Recueil systematique valaisan RSVS, it: Raccolta sistematica vallesana RSVS, en: Canton of Valais legislation}
+  authoritative_for: [canton du Valais droit, RSVS, Kanton Wallis law, cantonal law Valais, lois valaisannes, Walliser Gesetze]
+  description: "Official legislation of the canton of Valais."
+- domain: rsn.ne.ch
+  tier: A
+  jurisdiction: CH-NE
+  name: {de: Systematische Gesetzessammlung des Kantons Neuenburg RSN, fr: Recueil systematique de la legislation neuchateloise RSN, it: Raccolta sistematica del cantone di Neuchatel RSN, en: Canton of Neuchatel legislation}
+  authoritative_for: [canton de Neuchatel droit, RSN, Kanton Neuenburg law, cantonal law Neuchatel, legislation neuchateloise]
+  description: "Official legislation of the canton of Neuchatel."
+- domain: silgeneve.ch
+  tier: A
+  jurisdiction: CH-GE
+  name: {de: Genfer Gesetzessammlung SIL, fr: Systeme d'information legislative genevois SIL, it: Sistema d'informazione legislativa ginevrino SIL, en: Canton of Geneva legislation}
+  authoritative_for: [canton de Geneve droit, SIL, RSG, Kanton Genf law, cantonal law Geneva, legislation genevoise, lois genevoises]
+  description: "Official legislation of the canton of Geneva."
+- domain: rsju.jura.ch
+  tier: A
+  jurisdiction: CH-JU
+  name: {de: Systematische Rechtssammlung des Kantons Jura RSJU, fr: Recueil systematique jurassien RSJU, it: Raccolta sistematica del cantone del Giura RSJU, en: Canton of Jura legislation}
+  authoritative_for: [canton du Jura droit, RSJU, Kanton Jura law, cantonal law Jura, legislation jurassienne]
+  description: "Official legislation of the canton of Jura."
+# ---- EU and neighbour-country law, securities regulator ----------------------------------------------
+- domain: admin.ch
+  tier: A
+  jurisdiction: CH
+  name: {de: Die Bundesbehoerden der Schweizerischen Eidgenossenschaft, fr: Les autorites de la Confederation suisse, it: Le autorita della Confederazione svizzera, en: Swiss federal authorities portal}
+  authoritative_for: [Swiss federal government, Bundesverwaltung, Bundesrat, Federal Council, departments, federal administration, administration federale, amministrazione federale, official portal, federal offices directory]
+  description: "Entry portal to the Swiss federal administration, the Federal Council, the departments and all federal offices."
+- domain: bundesverwaltungsgericht.ch
+  tier: A
+  jurisdiction: CH
+  name: {de: Bundesverwaltungsgericht, fr: Tribunal administratif federal, it: Tribunale amministrativo federale, en: Swiss Federal Administrative Court}
+  authoritative_for: [Federal Administrative Court decisions, BVGE, ATAF, DTAF, Rechtsprechung Bundesverwaltungsgericht, asylum appeals, Asylbeschwerden, administrative case law, jurisprudence administrative, giurisprudenza amministrativa]
+  description: "The Federal Administrative Court's decisions (BVGE/ATAF/DTAF) in administrative, asylum and public-law appeals."
+- domain: eur-lex.europa.eu
+  tier: A
+  jurisdiction: INTL
+  name: {de: EUR-Lex - Zugang zum EU-Recht, fr: EUR-Lex - acces au droit de l'Union europeenne, it: EUR-Lex - accesso al diritto dell'Unione europea, en: EUR-Lex - access to European Union law}
+  authoritative_for: [EU law, European Union law, EU regulation text, GDPR text, Regulation (EU) 2016/679, directives, Official Journal of the European Union, CELEX, Verordnung EU, droit de l'Union, diritto dell'Unione, case law of the Court of Justice]
+  description: "Official portal for European Union legal texts: regulations, directives, treaties, Official Journal, Court of Justice case law."
+- domain: legifrance.gouv.fr
+  tier: A
+  jurisdiction: FR
+  name: {de: Legifrance - franzoesisches Recht, fr: Legifrance - le service public de la diffusion du droit, it: Legifrance - diritto francese, en: Legifrance - French law}
+  authoritative_for: [French law, droit francais, Code civil, Code penal, Code du travail, Journal officiel, lois et reglements, jurisprudence francaise, franzoesisches Recht, diritto francese]
+  description: "Official French public service for the dissemination of law: codes, statutes, Journal officiel, case law."
+- domain: gesetze-im-internet.de
+  tier: A
+  jurisdiction: DE
+  name: {de: Gesetze im Internet - Bundesrecht, fr: Lois sur Internet - droit federal allemand, it: Leggi in Internet - diritto federale tedesco, en: German federal law online}
+  authoritative_for: [German federal law, deutsches Bundesrecht, BGB, StGB, Grundgesetz, GG, Bundesgesetze und Verordnungen, droit allemand, diritto tedesco]
+  description: "German Federal Ministry of Justice portal with the consolidated text of German federal statutes and ordinances."
+- domain: normattiva.it
+  tier: A
+  jurisdiction: IT
+  name: {de: Normattiva - italienisches Recht, fr: Normattiva - droit italien, it: Normattiva - il portale della legge vigente, en: Normattiva - Italian legislation}
+  authoritative_for: [Italian law, legge italiana, codice civile, codice penale, Costituzione italiana, leggi e decreti dello Stato, Gazzetta Ufficiale, droit italien, italienisches Recht]
+  description: "Italian State portal for consolidated national legislation (leggi, decreti, codici)."
+- domain: ris.bka.gv.at
+  train_ok: false          # July robots record: training-only tokens disallowed; search stays ok (ADR-024 am.5)
+  train_ok_checked_at: "2026-07-05T16:37:42Z"
+  tier: A
+  jurisdiction: AT
+  name: {de: Rechtsinformationssystem des Bundes RIS, fr: Systeme d'information juridique federal autrichien RIS, it: Sistema informativo giuridico federale austriaco RIS, en: Austrian Legal Information System}
+  authoritative_for: [Austrian law, oesterreichisches Recht, Bundesrecht Oesterreich, ABGB, Bundesgesetzblatt, Landesrecht Oesterreich, Judikatur, droit autrichien]
+  description: "Austrian federal legal information system: federal and state law, case law, gazettes."
+- domain: consob.it
+  tier: A
+  jurisdiction: IT
+  name: {de: CONSOB - italienische Boersenaufsicht, fr: CONSOB - autorite italienne des marches financiers, it: CONSOB - Commissione nazionale per le societa e la Borsa, en: CONSOB - Italian securities regulator}
+  authoritative_for: [societa quotate, listed companies Italy, Italian securities regulation, Borsa italiana supervision, emittenti, prospetti, Consob, financial markets regulator Italy, Wertpapieraufsicht Italien]
+  description: "Italian supervisory authority for listed companies, issuers and securities markets."
+# ---- Software documentation ----------------------------------------------------------------------------------
+- domain: docs.python.org
+  tier: C
+  jurisdiction: INTL
+  name: {de: Python-Dokumentation, fr: Documentation Python, it: Documentazione Python, en: Python documentation}
+  authoritative_for: [Python language reference, Python standard library, Python documentation, library function signatures, PEP, built-in functions, asyncio, typing, pathlib, json module, CPython]
+  description: "The official Python language and standard-library documentation."
+  navigation: {search_url_template: "https://docs.python.org/3/search.html?q={q}", query_format: "?q=<urlencoded terms>"}
+- domain: pypi.org
+  tier: C
+  jurisdiction: INTL
+  name: {de: Python Package Index PyPI, fr: Python Package Index PyPI, it: Python Package Index PyPI, en: Python Package Index}
+  authoritative_for: [Python packages, PyPI, pip install, package versions, Python library releases, requests library, numpy package, project metadata, Python third-party libraries]
+  description: "The official registry of Python packages with current versions, metadata and project links."
+  navigation: {search_url_template: "https://pypi.org/search/?q={q}", query_format: "?q=<urlencoded terms>"}
+- domain: requests.readthedocs.io
+  tier: C
+  jurisdiction: INTL
+  name: {de: Dokumentation der Python-Bibliothek requests, fr: Documentation de la bibliotheque Python requests, it: Documentazione della libreria Python requests, en: Requests library documentation}
+  authoritative_for: [Python requests library documentation, HTTP for humans, requests.get, requests.post, Session, HTTP client Python, requests API]
+  description: "Official documentation of the Python requests HTTP library."
+- domain: developer.mozilla.org
+  tier: C
+  jurisdiction: INTL
+  name: {de: MDN Web Docs, fr: MDN Web Docs, it: MDN Web Docs, en: MDN Web Docs}
+  authoritative_for: [web platform documentation, JavaScript reference, HTML, CSS, Web APIs, fetch API, DOM, HTTP headers, browser compatibility, MDN]
+  description: "Mozilla's reference documentation for the open web platform."
+  navigation: {search_url_template: "https://developer.mozilla.org/en-US/search?q={q}", query_format: "?q=<urlencoded terms>"}
+- domain: docs.rs
+  tier: C
+  jurisdiction: INTL
+  name: {de: docs.rs - Rust-Crate-Dokumentation, fr: docs.rs - documentation des crates Rust, it: docs.rs - documentazione dei crate Rust, en: docs.rs - Rust crate documentation}
+  authoritative_for: [Rust crate documentation, Rust library API docs, crates.io packages, serde, tokio, Rust function signatures, rustdoc]
+  description: "Automatically built API documentation for every published Rust crate."
+  navigation: {search_url_template: "https://docs.rs/releases/search?query={q}", query_format: "?query=<urlencoded terms>"}
+- domain: pkg.go.dev
+  tier: C
+  jurisdiction: INTL
+  name: {de: Go-Paketdokumentation, fr: Documentation des paquets Go, it: Documentazione dei pacchetti Go, en: Go packages documentation}
+  authoritative_for: [Go packages documentation, Go standard library, Golang module API, net/http, Go function signatures, Go modules]
+  description: "The Go project's package and module documentation index."
+  navigation: {search_url_template: "https://pkg.go.dev/search?q={q}", query_format: "?q=<urlencoded terms>"}
+- domain: nodejs.org
+  tier: C
+  jurisdiction: INTL
+  name: {de: Node.js, fr: Node.js, it: Node.js, en: Node.js}
+  authoritative_for: [Node.js documentation, Node.js API reference, Node releases, JavaScript runtime, fs module, npm, Node.js LTS versions]
+  description: "Official Node.js site with the API reference and release schedule."
+- domain: numpy.org
+  tier: C
+  jurisdiction: INTL
+  name: {de: NumPy, fr: NumPy, it: NumPy, en: NumPy}
+  authoritative_for: [NumPy documentation, numpy array API, numerical computing Python, ndarray, linear algebra, NumPy reference, NumPy releases]
+  description: "Official NumPy project site and documentation."
+- domain: pytorch.org
+  tier: C
+  jurisdiction: INTL
+  name: {de: PyTorch, fr: PyTorch, it: PyTorch, en: PyTorch}
+  authoritative_for: [PyTorch documentation, torch API, tensors, autograd, deep learning framework, torch.nn, PyTorch install, PyTorch releases]
+  description: "Official PyTorch site with installation guide and API documentation."

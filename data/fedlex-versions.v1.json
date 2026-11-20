@@ -1,0 +1,39 @@
+{
+ "_comment": "ELI -> in-force consolidation date (YYYYMMDD) for the filestore HTML twin behind `read_url`. _langs: languages verified; _dropped: <eli>/<lang> pairs whose twin failed the content check (HTTP 200, an id=art_ anchor, no SPA shell). Regenerate with `aw source fedlex-versions`.",
+ "schema": "aw.fedlex-versions.v1",
+ "built_at": "2026-11-12T10:08:48+00:00",
+ "_langs": [
+  "de",
+  "fr",
+  "it",
+  "en"
+ ],
+ "_dropped": [
+  "cc/1959/679_705_685/en",
+  "cc/1959/827_857_845/en",
+  "cc/1991/1184_1184_1184/en",
+  "cc/1999/358/en",
+  "cc/2002/510/en",
+  "cc/2015/493/en",
+  "cc/63/837_843_843/en"
+ ],
+ "_verified": 65,
+ "cc/11/529_488_529": "20260101",
+ "cc/1959/679_705_685": "20260701",
+ "cc/1959/827_857_845": "20260101",
+ "cc/1991/1184_1184_1184": "20260902",
+ "cc/1993/1798_1798_1798": "20250701",
+ "cc/1999/358": "20260612",
+ "cc/1999/404": "20240303",
+ "cc/2002/510": "20240101",
+ "cc/2007/758": "20261101",
+ "cc/2009/615": "20250331",
+ "cc/2010/262": "20260701",
+ "cc/2010/267": "20250401",
+ "cc/2015/493": "20161001",
+ "cc/2022/491": "20250707",
+ "cc/24/233_245_233": "20260701",
+ "cc/27/317_321_377": "20261001",
+ "cc/54/757_781_799": "20261101",
+ "cc/63/837_843_843": "20260101"
+}

@@ -1,0 +1,198 @@
+# CI for the exported public tree (task 997, slice 13 of specs/oss-refactor-scoreboard.md).
+# GitHub-hosted runners only. No secrets, no tokens, no self-hosted labels.
+# What a hosted runner CANNOT do (so it is not here): the real-embedder path (torch plus 2.3 GB of
+# weights; GPU for any real corpus) and any run against a live index. The vectors in the
+# smoke job are stand-ins, so that job proves plumbing, not ranking (see QUICKSTART.md).
+name: ci
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+env:
+  QDRANT_IMAGE: qdrant/qdrant:v1.18.3   # the release our own boxes run
+
+jobs:
+  test:
+    name: tests, python ${{ matrix.python }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ["3.11", "3.12"]
+    services:
+      qdrant:
+        image: qdrant/qdrant:v1.18.3
+        ports: ["18333:6333"]   # the tests refuse the default Qdrant ports (6333, 16333)
+    env:
+      AW_TEST_QDRANT_URL: http://127.0.0.1:18333
+      AW_REQUIRE_QDRANT: "1"   # a missing Qdrant FAILS the Qdrant tests, never skips them
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Install minisign (the release rehearsal and some tests refuse to run without it)
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq minisign
+      - run: python -m pip install --no-input '.[dev]' "uvicorn==0.54.0" "charsplit @ https://github.com/dtuggener/CharSplit/archive/9710624ef0b0df0edd12a721c33533ff1d07b557.tar.gz"
+      - name: Fetch the pinned German splitter table (sha256-verified)
+        run: python -m cytir.embed.fetch_models --asset charsplit-ngram
+      - name: Cache the pinned embedder tokenizer (22 MB)
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface
+          key: hf-tokenizer-${{ hashFiles('cytir/embed/model_assets.py') }}
+      - name: Fetch the pinned embedder tokenizer (22 MB tokenizer files, NOT the 2.3 GB weights)
+        # Task 2289/2362: the chunker refuses to write word-only chunks, so the cut needs the pinned
+        # embedder's tokenizer. It needs no weights, so a hosted runner can fetch it; no env makes
+        # the refusal a skip. Retried: huggingface.co on shared hosted IPs may throttle (specs/public-ci-hosted.md R3).
+        run: |
+          python -m pip install --no-input 'transformers==4.57.1'
+          for i in 1 2 3; do python -m cytir.embed.fetch_models --tokenizer && exit 0; sleep 20; done; exit 1
+      - run: aw --version
+      - name: Host-literal and private-path scan (the cut's own check)
+        run: python -m cytir.cli ops cut --check
+      - name: pytest
+        # Task 2362: serial was ~50 min against the 40-min cap; hosted runners have 4 vCPU.
+        run: python -m pytest -n 4 --dist loadfile -q -ra --timeout=300 -p no:cacheprovider
+      - name: Release rehearsal (dump, sign, apply, query on the sealed fixture)
+        run: python -m cytir.cli rehearse run
+
+  secrets:
+    name: secret scan
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Install gitleaks
+        run: |
+          curl -fsSL --retry 5 --retry-delay 5 --retry-all-errors -o "$RUNNER_TEMP/g.tgz" \
+            "https://github.com/gitleaks/gitleaks/releases/download/v8.21.2/gitleaks_8.21.2_linux_x64.tar.gz"
+          tar -xzf "$RUNNER_TEMP/g.tgz" -C "$RUNNER_TEMP" gitleaks
+      - name: gitleaks (tree and history)
+        run: '"$RUNNER_TEMP/gitleaks" detect --source . --config .gitleaks.toml --no-banner --redact -v'
+
+  quickstart-smoke:
+    name: QUICKSTART path (source run, index build, serve, gate), stand-in vectors
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    services:
+      qdrant:
+        image: qdrant/qdrant:v1.18.3
+        ports: ["6333:6333"]
+    env:
+      QDRANT: http://127.0.0.1:6333
+      AW_WORK_ROOT: ${{ github.workspace }}/../aw-work
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install --no-input -e '.[dev]' "uvicorn==0.54.0" "charsplit @ https://github.com/dtuggener/CharSplit/archive/9710624ef0b0df0edd12a721c33533ff1d07b557.tar.gz"
+      - run: python -m cytir.embed.fetch_models --asset charsplit-ngram
+      - name: Cache the pinned embedder tokenizer (22 MB)
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface
+          key: hf-tokenizer-${{ hashFiles('cytir/embed/model_assets.py') }}
+      - name: Fetch the pinned embedder tokenizer (22 MB tokenizer files, NOT the 2.3 GB weights)
+        # Task 2289/2362: the chunker refuses to write word-only chunks, so the cut needs the pinned
+        # embedder's tokenizer. It needs no weights, so a hosted runner can fetch it; no env makes
+        # the refusal a skip. Retried: huggingface.co on shared hosted IPs may throttle (specs/public-ci-hosted.md R3).
+        run: |
+          python -m pip install --no-input 'transformers==4.57.1'
+          for i in 1 2 3; do python -m cytir.embed.fetch_models --tokenizer && exit 0; sleep 20; done; exit 1
+      - name: Stages and stand-in vectors
+        run: |
+          set -eu
+          F="$AW_WORK_ROOT/fixture"; mkdir -p "$F" "$AW_WORK_ROOT/consent-cache"
+          cp -r data/index-fixture/loda_exact data/index-fixture/fedlex_exact "$F/"
+          cyt source run dila_kali --from data/samples/dila-kali --out "$F/dila_kali" --today 2026-10-03
+          cyt source run service_public_fiche --from data/samples/service-public-fiche --out "$F/service_public_fiche" --today 2026-10-03
+          cyt source run stackexchange_nonso_qa_p0 --from data/samples/stackexchange-nonso --out "$F/stackexchange_nonso_qa_p0" --today 2026-10-03
+          cyt source run openalex_academic_dump --from data/samples/openalex-academic --out "$F/openalex_academic_dump" --today 2026-10-03
+          cyt source run stackoverflow_qa --from data/samples/stackoverflow-qa --out "$F/stackoverflow_qa" --today 2026-10-03
+          python tests/standin_embedder.py vectors "$F"/loda_exact "$F"/fedlex_exact "$F"/dila_kali \
+            "$F"/service_public_fiche "$F"/stackexchange_nonso_qa_p0 "$F"/openalex_academic_dump "$F"/stackoverflow_qa
+      - name: cyt index build
+        run: |
+          set -eu
+          F="$AW_WORK_ROOT/fixture"; args=""
+          for p in loda_exact fedlex_exact dila_kali service_public_fiche stackexchange_nonso_qa_p0 openalex_academic_dump stackoverflow_qa; do args="$args --pack $F/$p"; done
+          cyt index build $args --qdrant "$QDRANT" --collection aw_gate_fixture --out "$AW_WORK_ROOT/run" \
+            --as-of 2026-10-03T00:00:00Z --consent-cache-dir "$AW_WORK_ROOT/consent-cache" --recreate
+      - name: cyt serve, one query, cyt gate
+        run: |
+          set -eu
+          python tests/standin_embedder.py tei 18081 & 
+          cyt serve --collection aw_gate_fixture --qdrant "$QDRANT" --tei-url http://127.0.0.1:18081 \
+            --idf-table "$AW_WORK_ROOT/run/bm25_idf.json" --port 18080 \
+            --receipt "$AW_WORK_ROOT/serve-receipt.json" &
+          timeout 120 bash -c 'until curl -fs http://127.0.0.1:18080/health | grep -q "\"status\":\"ok\""; do sleep 3; done'
+          curl -fs "http://127.0.0.1:18080/search?q=Art.+336+CO+Kuendigung&k=3" | head -c 400; echo
+          cyt gate --api http://127.0.0.1:18080 --slice data/gate-slices/ci-fixture.v1.json \
+            --baseline data/gate-slices/ci-fixture.baseline.v1.json \
+            --serve-receipt "$AW_WORK_ROOT/serve-receipt.json" --verdict-out "$AW_WORK_ROOT/verdict.json"
+
+  serving-profile:
+    name: serving profile on a real Qdrant (path-gated)
+    # specs/public-ci-hosted.md section 3. The Qdrant-backed serving and drain tests, alone, so a change
+    # to the serving path shows its own red job. They also run inside `test`; this job is the fast signal.
+    # On a pull request it runs only when a serving input changed (git diff against the base).
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    services:
+      qdrant:
+        image: qdrant/qdrant:v1.18.3
+        ports: ["18334:6333"]
+    env:
+      AW_TEST_QDRANT_URL: http://127.0.0.1:18334
+      AW_REQUIRE_QDRANT: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Path gate
+        id: gate
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: |
+          if [ "$GITHUB_EVENT_NAME" != "pull_request" ]; then echo "run=true" >> "$GITHUB_OUTPUT"; exit 0; fi
+          if git diff --name-only "$BASE_SHA"...HEAD | grep -Eq '^(cytir/(serve|index|embed|core|corpus|chunk|consent|gates)/|data/serving-profiles/|tests/(test_aw_serve|test_drain_|test_aw_index_mirror_guards|throwaway_qdrant)|conftest\.py|pytest\.ini|pyproject\.toml|\.github/workflows/ci\.yml)'; then
+            echo "run=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "run=false" >> "$GITHUB_OUTPUT"; echo "no serving input changed: skipping (counts as green)"
+          fi
+      - uses: actions/setup-python@v5
+        if: steps.gate.outputs.run == 'true'
+        with:
+          python-version: "3.12"
+      - if: steps.gate.outputs.run == 'true'
+        run: python -m pip install --no-input '.[dev]' "uvicorn==0.54.0" 'transformers==4.57.1' "charsplit @ https://github.com/dtuggener/CharSplit/archive/9710624ef0b0df0edd12a721c33533ff1d07b557.tar.gz"
+      - if: steps.gate.outputs.run == 'true'
+        run: python -m cytir.embed.fetch_models --asset charsplit-ngram
+      - uses: actions/cache@v4
+        if: steps.gate.outputs.run == 'true'
+        with:
+          path: ~/.cache/huggingface
+          key: hf-tokenizer-${{ hashFiles('cytir/embed/model_assets.py') }}
+      - name: Fetch the pinned embedder tokenizer (22 MB)
+        if: steps.gate.outputs.run == 'true'
+        run: for i in 1 2 3; do python -m cytir.embed.fetch_models --tokenizer && exit 0; sleep 20; done; exit 1
+      - name: Serving profile tests (a missing Qdrant FAILS, never skips)
+        if: steps.gate.outputs.run == 'true'
+        run: python -m pytest tests/test_aw_serve.py tests/test_drain_transaction.py tests/test_drain_single.py tests/test_drain_build_identity.py tests/test_drain_build_guards.py tests/test_drain_single_no_overlay.py tests/test_aw_index_mirror_guards.py -q -ra --timeout=240 -p no:cacheprovider
+
+  # Signature check of a release dump. DISABLED: the cut ships no public key yet (Q7 in
+  # specs/oss-refactor-scoreboard.md). Enable it by setting the repository variable
+  # AW_MINISIGN_PUBKEY_PRESENT=1 once the key file is in the tree and the command is filled in.
+  minisign-verify:
+    name: minisign verify (disabled until the key ships, Q7)
+    if: ${{ vars.AW_MINISIGN_PUBKEY_PRESENT == '1' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python -m pip install --no-input '.[dev]' && python -m cytir.cli rehearse run

@@ -1,0 +1,15 @@
+{
+  "schema": "aw.chunk-policy.v1",
+  "policy_id": "legacy-180w-o30",
+  "policy_version": 1,
+  "algorithm": "legacy-fixed-window-pack-v1",
+  "epoch": 1,
+  "rule_legend": "legacy-180w-o30@1",
+  "window_words": 180,
+  "overlap_words": 30,
+  "producer": {
+    "module": "pipeline/fetch_process.py",
+    "function": "chunk",
+    "git_revision": "a8933b9c42998a870826113b9a0025618a87e208"
+  }
+}

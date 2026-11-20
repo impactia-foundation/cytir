@@ -1,0 +1,85 @@
+# opencode.ai docs -- task 972: the first DOCS delta pack of the refresh-cadence lane.
+# The index already holds this site (774 rows, one crawl of 2026-07-20 by the cov351 docs
+# campaign: data/cov351_routes.yaml route `opencode_ai_docs`). This pack re-crawls it weekly
+# through the docs_sitemap refresh adapter and rewrites only the pages whose chunks changed.
+#
+# Scope fields are the cov351 route's (tier A, trust 0.75, docs, licence
+# `docs-index-only-unstated`, cap 400, delay 1.5 s). One change: the cov351 pass indexed 492
+# locale mirrors of 774 rows. Locale pages are translations of the English page, so the refresh
+# leaves them out (select.path_deny_regex). The list is explicit: a two-letter rule would also
+# drop /go, a real product page, and miss zh-cn / pt-br.
+#
+# The sitemap lists NO /v2/ page (0 of 684, read 2026-10-17), yet opencode.ai/v2/docs/ is
+# live. The second route reads ONE level of links from that docs landing page.
+id: us-opencode-ai-docs
+name: "opencode.ai docs (sitemap + v2 docs landing page)"
+country: US
+layer: tech-docs
+policy_section: "§4.4"
+adapter: sitemap
+acquisition_policy: aw-acquisition-v1
+outlink_policy: capture-and-receipt
+preservation_profiles: [web_html]
+provenance: authored
+tier: A
+trust_tier: 0.75
+freshness: weekly
+
+license:
+  default: docs-index-only-unstated
+  notes: >
+    No per-site content-licence research was done for the cov351 docs pass; the conservative
+    index-only default stays (data/cov351_routes.yaml, same string). The repository behind the
+    site is MIT (github.com/anomalyco/opencode, see sources/us/github-repo-docs-tracked.yaml),
+    but the website text is not the repository, so the repo licence is not inferred for it.
+
+consent:
+  basis: live-resolve-open
+  train_ok_override: null
+  notes: >
+    Resolved live per fetch (consent_gate.py --direct-crawl --search-indexing), never cached.
+    opencode.ai/robots.txt read 2026-10-17: `Allow: /`, `Disallow: /s/`, `/share/`.
+
+status: ingested
+
+routes:
+  - host: opencode.ai
+    canonical_domain: opencode.ai
+    lang: [en]
+    status: ingested
+    acquire:
+      route: source_owned_sitemap_fetch
+      rank: 5
+      params: {urls: ["https://opencode.ai/sitemap.xml"]}
+      select:
+        path_deny_regex: '^/(docs/)?(zh-cn|zh-tw|zht|zh|pt-br|br|ko|de|es|fr|it|da|ja|pl|ru|uk|ar|nb|no|th|tr)(/|$)'
+      delay_s: 1.5
+      cap: 400
+    evidence: "2026-10-17: sitemap.xml 200, 684 URLs, no <lastmod>; 17 locale prefixes x 5 root pages + 17 x 33 docs pages."
+  - host: opencode.ai/v2
+    canonical_domain: opencode.ai
+    lang: [en]
+    status: ingested
+    acquire:
+      route: direct_origin_crawl
+      rank: 6
+      params: {seeds: ["https://opencode.ai/v2/docs/"], hub_depth: 1}
+      select:
+        path_regex: '^/v2/docs/'
+        path_deny_regex: '^/v2/docs/(zh-cn|zh-tw|zht|zh|pt-br|br|ko|de|es|fr|it|da|ja|pl|ru|uk|ar|nb|no|th|tr)(/|$)'
+      delay_s: 1.5
+      cap: 100
+      reason_receipt:
+        higher_priority_routes_checked:
+          - "source_owned_sitemap_fetch: opencode.ai/sitemap.xml lists 0 /v2/ URLs; /v2/sitemap.xml, /v2/sitemap-index.xml, /sitemap-index.xml answer 404 (2026-10-17)"
+        reason_selected_route_is_needed: "the v2 docs tree is live (200) but no sitemap lists it; one level of the landing page's own links is the smallest source-owned enumeration"
+    evidence: "2026-10-17: https://opencode.ai/v2/docs/migrate-v1/ answers 200 and is linked from the v2 docs landing page."
+
+admission:
+  channel: refresh-cadence-new-refs
+  evidence:
+    - "task 970: the index holds opencode.ai (774 rows, 2026-07-20), no refresh path existed."
+    - "task 972: the docs_sitemap refresh adapter; sitemap and robots read from the build box 2026-10-17."
+  decision: auto-admit
+  policy: "POLICY.md@v1 §4.4; Tim 2026-09-22 'periodic (weekly) refresh for existing targets'; target already in the index"
+  date: "2026-10-17"

@@ -1,0 +1,81 @@
+{
+ "config": {
+  "hnsw_config": {
+   "ef_construct": 100,
+   "full_scan_threshold": 10000,
+   "m": 0,
+   "max_indexing_threads": 0,
+   "on_disk": true
+  },
+  "optimizer_config": {
+   "default_segment_number": 0,
+   "deleted_threshold": 0.2,
+   "flush_interval_sec": 5,
+   "indexing_threshold": 10000,
+   "max_optimization_threads": null,
+   "max_segment_size": null,
+   "memmap_threshold": null,
+   "prevent_unoptimized": null,
+   "vacuum_min_vector_number": 1000
+  },
+  "params": {
+   "on_disk_payload": true,
+   "replication_factor": 1,
+   "shard_number": 1,
+   "sparse_vectors": {
+    "bm25": {
+     "modifier": "idf"
+    }
+   },
+   "vectors": {
+    "dense": {
+     "distance": "Cosine",
+     "on_disk": true,
+     "size": 128
+    }
+   },
+   "write_consistency_factor": 1
+  },
+  "quantization_config": {
+   "scalar": {
+    "always_ram": false,
+    "type": "int8"
+   }
+  },
+  "wal_config": {
+   "wal_capacity_mb": 32,
+   "wal_retain_closed": 1,
+   "wal_segments_ahead": 0
+  }
+ },
+ "payload_schema": {
+  "domain": {
+   "data_type": "keyword",
+   "points": 9069
+  },
+  "lang": {
+   "data_type": "keyword",
+   "points": 9069
+  },
+  "provenance": {
+   "data_type": "keyword",
+   "points": 9069
+  },
+  "tier": {
+   "data_type": "keyword",
+   "points": 9069
+  },
+  "trust_tier": {
+   "data_type": "float",
+   "points": 9069
+  }
+ },
+ "schema": "aw.qdrant-collection-config.v1",
+ "source": {
+  "collection": "aw_dnews_20260921_chmedia",
+  "note": "config + payload_schema only; counts, status and segment numbers are not creation parameters and are dropped",
+  "points_count_at_capture": 9069,
+  "qdrant_version": "1.18.3",
+  "read": "GET /collections/aw_dnews_20260921_chmedia, read-only, on the live staging Qdrant, by the independent review of PR 530, 2026-10-03 ~13:20Z; created by current main (stage_pack_b1 via collection_stage), NOT by this PR"
+ }
+}

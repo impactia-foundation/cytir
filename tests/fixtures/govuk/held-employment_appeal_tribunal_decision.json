@@ -1,0 +1,42 @@
+{
+ "base_path": "/employment-appeal-tribunal-decisions/university-of-bristol-v-dr-david-miller-2026-eat-84",
+ "title": "University of Bristol v Dr David Miller: [2026] EAT 84",
+ "description": "Employment Appeal Tribunal judgment of Lord Fairley on 04 August 2026.",
+ "document_type": "employment_appeal_tribunal_decision",
+ "schema_name": "specialist_document",
+ "locale": "en",
+ "public_updated_at": "2026-08-04T10:41:47+01:00",
+ "details": {
+  "attachments": [
+   {
+    "attachment_type": "file",
+    "content_id": "1da89702-afda-462a-93c3-0c5f099f1cf4",
+    "content_type": "application/pdf",
+    "created_at": "2026-08-04T10:41:12+01:00",
+    "id": "1da89702-afda-462a-93c3-0c5f099f1cf4",
+    "title": "University of Bristol v Dr David Miller: [2026] EAT 84",
+    "updated_at": "2026-08-04T10:41:12+01:00",
+    "url": "https://assets.publishing.service.gov.uk/media/6a71b3b8331a9965a2ed46a9/University_of_Bristol_v_Dr_David_Miller__2026__EAT_84.pdf"
+   }
+  ],
+  "body": "<p>Read the full judgment in <span id=\"attachment_1da89702-afda-462a-93c3-0c5f099f1cf4\" class=\"attachment-inline\"><a href=\"https://assets.publishing.service.gov.uk/media/6a71b3b8331a9965a2ed46a9/University_of_Bristol_v_Dr_David_Miller__2026__EAT_84.pdf\">University of Bristol v Dr David Miller: [2026] EAT 84</a></span>.</p>\n",
+  "change_history": [
+   {
+    "note": "First published.",
+    "public_timestamp": "2026-08-04T09:41:47Z"
+   }
+  ],
+  "max_cache_time": 10,
+  "metadata": {
+   "hidden_indexable_content": "Neutral Citation Number: [2026] EAT 84   \r\nCase No: EA-2024-000324-RS\r\n\r\n\r\nEMPLOYMENT APPEAL TRIBUNAL  \r\n\r\nRolls Building\r\nFetter Lane, London\r\nEC4A 1NL\r\n\r\nDate: 04 August 2026\r\n\r\nBefore:\r\n\r\nTHE HON. LORD FAIRLEY, PRESIDENT\r\nMR NICK AZIZ\r\nDR GILLIAN SMITH MBE\r\n- - - - - - - - - - - - - - - - - - - - -\r\nBetween:\r\n\r\nUniversity of Bristol\r\nAppellant\r\n- and -\r\n\t\r\nDr David Miller\r\nRespondent\r\n\r\n- - - - - - - - - - - - - - - - - - - - -\r\n- - - - - - - - - - - - - - - - - - - - -\r\n\r\nChristopher Milsom and Danielle Worden, of Counsel, (instructed by Burges Salmon LLP) for the Appellant\r\nZac Sammour and Gianna Seglias, of Counsel, (instructed by Rahman Lowe, Solicitors) \r\nfor the Respondent\r\n\r\n\r\nHearing dates: 12 and 13 November 2025\r\n- - - - - - - - - - - - - - - - - - - - -\r\nJUDGMENT\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nSUMMARY\r\n\r\nDiscrimination; philosophical belief; harassment; unfair dismissal; remedy\r\n\r\nThe claimant was summarily dismissed for the stated reason of gross misconduct. He brought complaints in the Employment Tribunal of (i) direct philosophical belief discrimination contrary to sections 10 and 13 of the Equality Act 2010 (“EqA”); (ii) harassment related to belief contrary to section 26 EqA; (iii) unfair dismissal contrary to section 98 of the Employment Rights Act 1996 (“ERA”); and (iv) wrongful dismissal at common law. \r\n\r\nThe Tribunal concluded that the claimant was dismissed because of comments made by him on three occasions during February 2021 in which, amongst other matters, ",
+   "tribunal_decision_categories": [
+    "harassment",
+    "religion-or-belief-discrimination",
+    "unfair-dismissal"
+   ],
+   "tribunal_decision_decision_date": "2026-08-04",
+   "tribunal_decision_landmark": "not-landmark"
+  },
+  "temporary_update_type": false
+ }
+}

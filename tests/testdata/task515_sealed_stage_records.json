@@ -1,0 +1,72 @@
+{
+ "task417_pack": {
+  "canonical_text": "Sparsity-certifying Graph Decompositions > Record identity\n\n- arXiv ID: `0704.0002`\n- OAI identifier: `oai:arXiv.org:0704.0002`\n- OAI datestamp: `2008-12-13`\n- Parent OAI page: `_dumps/arxiv/arxiv_raw/page_00209300.xml.gz`\n- Parent page SHA-256: `c49bd20dd69c178763ab301cccaa6ab07dc36cc7205f3e7b0a502e417f845f71`\n\nSparsity-certifying Graph Decompositions > Authors\n\n- Ileana Streinu\n- Louis Theran\n\nS",
+  "chunk_ordinal": 0,
+  "document_id": "9ca58cae-88c9-52d4-b1cd-242bbea5c393",
+  "lang": null,
+  "parent_identity": {
+   "member": "_dumps/arxiv/arxiv_raw/page_00209300.xml.gz",
+   "sha256": "c49bd20dd69c178763ab301cccaa6ab07dc36cc7205f3e7b0a502e417f845f71"
+  },
+  "parent_markdown_sha256": "83d43498f5bbece4c8d12cbe71a384cd919c1f49912c1233a635846d1c2c7287",
+  "point_id": "1ff749d6-6be3-5e0f-b1cf-ed0a456130cf",
+  "prov_id": "6370ee1d65a21add",
+  "section_heading": "Record identity",
+  "source_links": [
+   {
+    "context": "arXiv OAI license",
+    "relation": "license",
+    "url": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/"
+   }
+  ],
+  "source_metadata": {
+   "title": "Sparsity-certifying Graph Decompositions"
+  },
+  "source_profile": "academic_dump",
+  "source_record_id": "0704.0002",
+  "sparse_text": "Sparsity-certifying Graph Decompositions > Record identity\n\n- arXiv ID: `0704.0002`\n- OAI identifier: `oai:arXiv.org:0704.0002`\n- OAI datestamp: `2008-12-13`\n- Parent OAI page: `_dumps/arxiv/arxiv_raw/page_00209300.xml.gz`\n- Parent page SHA-256: `c49bd20dd69c178763ab301cccaa6ab07dc36cc7205f3e7b0a502e417f845f71`\n\nSparsity-certifying Graph Decompositions > Authors\n\n- Ileana Streinu\n- Louis Theran\n\nS",
+  "text": "Record identity\n- arXiv ID: `0704.0002`\n- OAI identifier: `oai:arXiv.org:0704.0002`\n- OAI datestamp: `2008-12-13`\n- Parent OAI page: `_dumps/arxiv/arxiv_raw/page_00209300.xml.gz`\n- Parent page SHA-256: `c49bd20dd69c178763ab301cccaa6ab07dc36cc7205f3e7b0a502e417f845f71`\n\nAuthors\n- Ileana Streinu\n- Louis Theran\n\nAbstract\nWe describe a new algorithm, the $(k,\\ell)$-pebble game with colors, and use it ",
+  "url": "https://arxiv.org/abs/0704.0002"
+ },
+ "task472_materializer": {
+  "_source_partition_dir": "r0-adr092-cc-parents-1d22ba19-p1",
+  "_source_partition_index": 1,
+  "anchor_component": "b5d2ce76812fcbf27de8ec5714c0619d8617aa867cabc036eb08acf303d5a53a",
+  "canonical_text": "Jest uses \"matchers\" to let you test values in different ways. This document will introduce some commonly used matchers. For the full list, see the `expect` API doc.\n\nCommon Matchers\n\nThe simplest way to test a value is with exact equality.\n\n```\ntest('two plus two is four', () => {\n  expect(2 + 2).toBe(4);\n});\n```\n\nIn this code, `expect(2 + 2)` returns an \"expectation\" object. You typically won't ",
+  "canonical_url": "https://jestjs.io/zh-Hans/docs/next/using-matchers",
+  "chunk_ordinal": 0,
+  "content_digest": "b5d2ce76812fcbf27de8ec5714c0619d8617aa867cabc036eb08acf303d5a53a",
+  "dense_tokens": 1548,
+  "document_id": "46d58d7c7ebd434fd2074a388a761ce8aa66ba9b4e7fd76876d5e93790885149",
+  "identity_tier": "B",
+  "parent_markdown_sha256": "c1aeafc7f70a4c36d740ddf2b94ca92c5ca3ad063da0335be6b215756194e8e5",
+  "point_id": "0000444a-76b3-5905-a253-f33523a285e6",
+  "prov_id": "a3b02e0855e1c43a",
+  "rule_epochs": {
+   "chunk": 4,
+   "prov_id": "a3b02e0855e1c43a"
+  },
+  "sparse_text": "Jest uses \"matchers\" to let you test values in different ways. This document will introduce some commonly used matchers. For the full list, see the `expect` API doc.\n\nCommon Matchers\n\nThe simplest way to test a value is with exact equality.\n\n```\ntest('two plus two is four', () => {\n  expect(2 + 2).toBe(4);\n});\n```\n\nIn this code, `expect(2 + 2)` returns an \"expectation\" object. You typically won't ",
+  "text": "Jest uses \"matchers\" to let you test values in different ways. This document will introduce some commonly used matchers. For the full list, see the `expect` API doc.\n\nCommon Matchers\nThe simplest way to test a value is with exact equality.\n\n```\ntest('two plus two is four', () => {\n  expect(2 + 2).toBe(4);\n});\n```\n\nIn this code, `expect(2 + 2)` returns an \"expectation\" object. You typically won't d",
+  "url": "https://jestjs.io/zh-Hans/docs/next/using-matchers"
+ },
+ "task467_entity_card": {
+  "card_recipe": "task363_register:recovered-title-snippet-v1",
+  "card_recipe_join_basis": "point_id",
+  "card_recipe_source": "task363_register",
+  "card_recipe_tier": 3,
+  "country": "CH",
+  "dense_text": "Kairos Holding SA — La société a pour but la prise de participation (majoritaire ou minoritaire) dans des sociétés actives dans le commerce de biens culturels et de loisirs,…",
+  "dissolved": false,
+  "domain": "kairos.ch",
+  "entity_kind": "org",
+  "point_id": "00004f66-9c3f-5b71-bba2-1b6277959fa8",
+  "provenance": "zefix_cc_join",
+  "qid": null,
+  "reg_status": "EXISTIEREND",
+  "register_id": "CHE327147809",
+  "register_scheme": "CHE",
+  "url": "https://kairos.ch/",
+  "_provenance_note": "task 516: the first register-bearing row of _work/task467/card-1024-embedding-stage-v1/shard-0000.records.jsonl.gz, verbatim, dense_text truncated."
+ }
+}

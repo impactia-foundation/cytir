@@ -1,0 +1,29 @@
+{
+ "anchor": null,
+ "consent_checked_at": null,
+ "consent_search_ok": null,
+ "consent_train_ok": null,
+ "country": "CH",
+ "crawl_id": null,
+ "disc_class": "health",
+ "domain": "swissethics.ch",
+ "extra": "{\"jurisdiction\": \"CH\"}",
+ "extraction_version": "unknown-2026-06",
+ "fetched_at": null,
+ "host": "swissethics.ch",
+ "l1b": {
+  "chain_status": "chained",
+  "chainer": "task-424 w0_chain_experiment.py chain_chunks v2",
+  "producer": "task-427 materialize_l1b.py v1",
+  "reconstructed_from_chunks": 4
+ },
+ "lang": "de",
+ "last_seen": "2026-06-30",
+ "provenance": "endorsement-discovery",
+ "source_type": "health",
+ "tier": "C",
+ "title": "swissethics",
+ "trust_tier": 0.82,
+ "url": "https://swissethics.ch/aktuell",
+ "wave": "swissauth"
+}

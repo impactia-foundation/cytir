@@ -1,0 +1,13 @@
+{
+ "chunks_sha256": "84c8c2034c84e36692ddb228a70c0aaabb5504d17e7368380160373f85969856",
+ "dropped_served": 0,
+ "family_id": "de_openlegaldata_v1",
+ "pack_id": "de-openlegaldata-v1-v1-local-56935a1eac7f",
+ "row_start": 0,
+ "rows": 4,
+ "schema": "aw.family-stage.v1",
+ "shard": 0,
+ "slice_rows": 150000,
+ "source_records_sha256": "56935a1eac7f4c428d1b588add9e6dcc40c9e7c8f79d55e86a3dc62f01343173",
+ "source_rows": 4
+}

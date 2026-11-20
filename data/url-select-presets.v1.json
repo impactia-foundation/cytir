@@ -1,0 +1,18 @@
+{
+  "schema": "aw.url-select-presets.v1",
+  "description": "Named, versioned URL-selection presets for source packs (task 434). Generic apparatus filtering is NOT source config: every authority pack wants it, and it should not be restated in each pack's YAML. It also should not live privately in a script. Origin: these rules were defined only inside the authority-packs ingest script (_GENERIC_DENY, _deep), where four packs depended on them and nothing else could reach them. Moving them here makes them data with a schema, per doctrine 4 (scripts are cattle, curated knowledge is stock).",
+  "migration_note": "The authority-packs ingest script still holds its own private copy of these rules. Until it imports this file, the two are a fork — deliberately recorded here rather than silently created. Filed as follow-up by task 434; the fix is a one-line import, but that file is in another lane's active path and is not touched here.",
+  "presets": {
+    "generic-apparatus": {
+      "description": "Site furniture that is never an authoritative document: search, login, feeds, calendars, contact and legal boilerplate. Multilingual (de/fr/it) because AW's targets are.",
+      "deny_regex": "(?i)/(search|suche|recherche|ricerca|login|user|node/add|print|newsletter|rss|feed|calendar|termine|contact|kontakt|sitemap|privacy|disclaimer|copyright|cookie)(/|$|\\?)",
+      "source": "the authority-packs ingest script, _GENERIC_DENY, verbatim"
+    }
+  },
+  "defaults": {
+    "min_path_segments": {
+      "value": 2,
+      "description": "A URL with fewer than N path segments is a section landing page, not an item. Evidence (smoke run 2026-08-07, recorded in the authority-packs ingest script (_deep)): https://www.iea.org/analysis — the bare section hub — extracted 84 passages of pure navigation furniture. Packs override per route where a source genuinely publishes items at depth 1."
+    }
+  }
+}

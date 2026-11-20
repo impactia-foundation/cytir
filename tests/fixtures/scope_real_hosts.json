@@ -1,0 +1,100 @@
+{
+ "served": {
+  "www.gnu.org": 0,
+  "gnu.org": 28,
+  "w3.org": 29139,
+  "www.w3.org": 0,
+  "datatracker.ietf.org": 39269,
+  "www.datatracker.ietf.org": 0,
+  "www.doc.rust-lang.org": 0,
+  "doc.rust-lang.org": 12904,
+  "gnu.huihoo.com": 0,
+  "www.gnu.huihoo.com": 0,
+  "mirrors.aliyun.com": 0,
+  "www.mirrors.aliyun.com": 0,
+  "spring.pleiades.io": 0,
+  "www.spring.pleiades.io": 0,
+  "www.docs.redhat.com": 0,
+  "docs.redhat.com": 0,
+  "www.docs.junit.org": 0,
+  "docs.junit.org": 0,
+  "dansanderson.com": 0,
+  "www.dansanderson.com": 0,
+  "www.hexdocs.pm": 0,
+  "hexdocs.pm": 0,
+  "docs.enterprise.spring.io": 0,
+  "www.docs.enterprise.spring.io": 0
+ },
+ "cases": [
+  {
+   "url": "https://www.gnu.org/software/bash/manual/",
+   "klass": "in",
+   "rule_prefix": "served-on-twin(28)"
+  },
+  {
+   "url": "https://www.w3.org/TR/css-grid-2/",
+   "klass": "in",
+   "rule_prefix": "served-on-twin"
+  },
+  {
+   "url": "https://datatracker.ietf.org/doc/html/rfc9110",
+   "klass": "in",
+   "rule_prefix": "served-on-twin"
+  },
+  {
+   "url": "https://doc.rust-lang.org/std/",
+   "klass": "in",
+   "rule_prefix": "served-on-twin"
+  },
+  {
+   "url": "https://gnu.huihoo.com/textutils-1.22/html_mono/textutils.html",
+   "klass": "out",
+   "rule_prefix": "docs-mirror"
+  },
+  {
+   "url": "https://mirrors.aliyun.com/gnu/",
+   "klass": "out",
+   "rule_prefix": "docs-mirror"
+  },
+  {
+   "url": "https://spring.pleiades.io/spring-framework/reference/",
+   "klass": "out",
+   "rule_prefix": "docs-mirror"
+  },
+  {
+   "url": "https://docs.redhat.com/en/documentation/x",
+   "klass": "in",
+   "rule_prefix": "docs-subdomain"
+  },
+  {
+   "url": "https://docs.junit.org/current/user-guide/",
+   "klass": "in",
+   "rule_prefix": "docs-subdomain"
+  },
+  {
+   "url": "https://dansanderson.com/post",
+   "klass": "undecided",
+   "rule_prefix": "no-rule"
+  },
+  {
+   "url": "https://hexdocs.pm/ecto/",
+   "klass": "undecided",
+   "rule_prefix": "no-rule"
+  },
+  {
+   "url": "https://docs.enterprise.spring.io/x",
+   "klass": "undecided",
+   "rule_prefix": "gated-vendor-docs"
+  },
+  {
+   "url": "https://www.nytimes.com/a",
+   "klass": "out",
+   "rule_prefix": "paywalled"
+  },
+  {
+   "url": "https://twitter.com/x",
+   "klass": "out",
+   "rule_prefix": "social"
+  }
+ ]
+}

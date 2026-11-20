@@ -1,0 +1,149 @@
+{
+ "schema": "aw.chunk-reference-selector.v1",
+ "selector_id": "whole-density-class-source-native-p3-v4",
+ "supersedes": "data/chunk-reference-selector.v3.json",
+ "why": [
+  "PROPOSED, task 575 / E575-1. NOT ratified: ratification is Tim's merge of",
+  "the POLICY PR, and until then this artifact is registered `proposed` and",
+  "only an experiment arm may select it.",
+  "",
+  "v2 is unchanged in every predicate that decides WIDTH. The one change is",
+  "what P3 means. P3 exists to keep `chunk.law` out of the re-chunk campaign",
+  "(ADR-090 4, in both directions). It was written as a CALLER-ASSERTED",
+  "boolean -- `has_native_anchor` -- on the reasoning that the caller has the",
+  "record and the selector has only the markdown. Three callers then spelled",
+  "that boolean three different ways:",
+  "",
+  "    pipeline/chunk_reference_plan.py    bool(rec.anchor or rec.anchor_component)",
+  "    (two experiment scripts)             bool(page.has_anchor or payload.anchor)",
+  "",
+  "and `page.has_anchor` is `build_pages_565.py`'s",
+  "`bool(rec.anchor or rec.identity_anchor_component)`.",
+  "`identity_anchor_component` is the TIER-RESOLVED component from",
+  "`aw_b1_identity.classify_tier`: the native anchor for Tier A, the CONTENT",
+  "DIGEST for Tier B, \"\" for Tier C. For a Tier-B row it is never empty. So on",
+  "the staged rows that carry that field, P3's predicate evaluates",
+  "`bool(content_digest)` -- true of every row that has text.",
+  "",
+  "WHAT THAT COST, MEASURED (task 575):",
+  "  * task 572's own materialize.MANIFEST.json: P3 refused 206,707 pages, and",
+  "    the per-store roll-up puts 206,707 of them -- 100.0%, across all 31",
+  "    ADR-093 L1-b waves, no exception -- in the url-keyed L1-b lane, while",
+  "    refusing 0 of the 19,762 sha256-keyed pages. A 100%/0% split across 46",
+  "    independently built waves is structural, not a property of anchors.",
+  "  * NOT ONE of the refused pages is a law family. Their source_types are",
+  "    official (126,597), reference (41,240), docs (38,295), gov-tax, gov,",
+  "    health, edu, entity-self; none is in the chunk.law deny list, and no law",
+  "    wave is in the population at all.",
+  "  * Four independent stages agree the lane carries NO source-native anchor:",
+  "    the L1-b markdown records carry `anchor: null`; the corpus store's own",
+  "    `anchor` column is empty on 100% of the rows of all 25 domains the 33",
+  "    named golds sit on (53,990,262 rows cross-tabbed, conserved 1:1);",
+  "    the staged rows carry `anchor` non-empty ZERO times in 1.8M rows over 62",
+  "    shards; and `aw_e8` payloads carry no `anchor` key at all (390/390).",
+  "  * The lane refused is at `rule_epochs.chunk: 4` -- the epoch-4 generic",
+  "    width whose 3.73x granularity drop is the entire reason `chunk.reference`",
+  "    exists. P3 was refusing the population the policy was written for.",
+  "",
+  "So the predicate did not detect a source-native anchor; it detected which",
+  "staging era wrote which field name (`identity_anchor_component` vs",
+  "`anchor_component`). This artifact fixes the CLASS rather than the lane: the",
+  "question moves from the caller's spelling to the record's own anchor field,",
+  "read through the one home for the predicate.",
+  "",
+  "THIS IS STILL NOT A HOST LIST AND STILL NOT CIRCULAR. P3' reads one field on",
+  "the record. It does not read the gold set, the incumbent collection, a",
+  "retrieval rank, a host name or a row count, and",
+  "`test_the_selector_reads_no_outcome_signal` still asserts that against the",
+  "module's own source."
+ ],
+ "ratified_by": "PENDING -- Tim's merge of the task-575 POLICY PR. Registered `proposed`; `assert_selector_selectable` refuses it for a normal lane.",
+ "evaluated_by": "the chunk-reference selector module",
+ "selection_mode": "whole-density-class",
+ "native_anchor_rule": "source-native-only",
+ "generic_policy": {
+  "file": "data/chunk-policy-struct-md-768w-o0-adjacent-sections-tail-1152-tok2560.v1.json",
+  "sha256": "7dcb54c497e1855ad91ddafe80ff34b1da14f3d23b3af26dc7c7b53ab70ce6bf",
+  "note": "Unchanged from v2. The incumbent rule; every width predicate is stated relative to what THIS policy does to the page."
+ },
+ "reference_policy": {
+  "file": "data/chunk-policy-struct-md-192w-o0-adjacent-sections-tail-288-tok2560.v1.json",
+  "sha256": "73507461445b7a78602b0f3fc2f03f905f8fb59f74420d6e02b92b7df07de9b8",
+  "note": "Unchanged from v1 and v2. This amendment changes WHICH PAGES are eligible, not how wide the policy cuts, so the A/B still has one variable."
+ },
+ "predicates": {
+  "P3_no_source_native_anchor": {
+   "rule": "the record carries no SOURCE-NATIVE anchor and its source_type is not in the chunk.law deny list",
+   "supersedes_in_v2": "P3_no_native_anchor -- 'the record carries no source-native anchor', decided from a caller-asserted boolean",
+   "what_counts_as_a_source_native_anchor": [
+    "The fragment THE SOURCE gave the passage: a fedlex Akoma Ntoso eId",
+    "(`art_336`), a legifrance article id, a cantonal `#art-2-3-5`. Read from",
+    "the record's own `anchor`/`native_anchor` field, with exactly the guards",
+    "`classify_tier` applies before it returns Tier A: non-empty, not the",
+    "literal string 'None', not positional (`chunk-5` shifts on any insertion",
+    "above it), and not equal to the record's own title (a page label is never",
+    "a chunk anchor -- the A33 trap).",
+    "",
+    "A TIER-RESOLVED IDENTITY COMPONENT IS NOT ONE.",
+    "`anchor_component` and `identity_anchor_component` hold the output of",
+    "`classify_tier`, which is the content DIGEST for Tier B and \"\" for Tier",
+    "C. They are not read at all under this rule. That single sentence is the",
+    "whole amendment."
+   ],
+   "derivation": [
+    "ADR-090 4's scope bound is unchanged and is the reason P3 exists:",
+    "'standardize on 1152' is scoped to chunk.generic and 'may never be read as",
+    "authority to sweep chunk.law into the generic policy'; the same bound binds",
+    "this policy in the other direction. What the bound names is a family whose",
+    "boundaries ARE its own article anchors. A page with no anchor anywhere in",
+    "its record has no such boundary to protect, so refusing it protects",
+    "nothing and costs the whole density class it was written for.",
+    "",
+    "The deny list on `source_type` is UNCHANGED and still decides on its own,",
+    "so a law family remains out of scope by name even where a record's anchor",
+    "field is empty for some other reason.",
+    "",
+    "No threshold is introduced. This predicate has no number in it."
+   ],
+   "one_home": "pipeline/aw_b1_identity.has_source_native_anchor -- the same module that owns classify_tier, so the selector and the identity minter cannot disagree about what a native anchor is. The selector does not re-implement it (engineering-doctrine 1/6).",
+   "refuses_rather_than_defaults": "Under this rule `classify()` without a `record=` raises. A default of False would silently ADMIT every law article whose caller forgot to pass the record -- the failure this predicate exists to prevent, arrived at from the other side (verification-doctrine 6)."
+  },
+  "P4_reference_cuts_finer": {
+   "rule": "reference_chunks - generic_chunks >= 1",
+   "unchanged_from": "data/chunk-reference-selector.v2.json",
+   "derivation": [
+    "ADR-090 amendment 1's mechanism, carried over verbatim. At a gain of 0 the",
+    "two policies produce the same boundaries, the same text and the same",
+    "content-bound point ids, so there is nothing to supersede. Not re-derived",
+    "here: this artifact changes P3 and only P3."
+   ]
+  }
+ },
+ "retired_predicates": {
+  "P1_partitioned": {
+   "rule_in_v1": "generic_chunks >= 2",
+   "retired_by": "ADR-090 amendment 1 -- 'short pages are in scope, deliberately'.",
+   "note": "Still evaluated and REPORTED on every verdict, unchanged from v2."
+  },
+  "P2_sections_merged": {
+   "rule_in_v1": "n_sections / generic_chunks >= 2",
+   "retired_by": "ADR-090 amendment 1 -- the ruling is the whole density class.",
+   "note": "Still evaluated and REPORTED on every verdict, unchanged from v2."
+  }
+ },
+ "excluded_by_construction": {
+  "chunk.law_by_source_type": "The deny list (ch_cantonal_law, ch_zh_fulltext, fedlex, law, statute) is unchanged and refuses on its own, before any anchor is read.",
+  "chunk.law_by_anchor": "A record that DOES carry a source-native anchor is refused exactly as v1 and v2 refused it. Measured corpus-wide, that is 383,375 of 53,990,262 rows (0.71%): fedlex 61,176 at 100.00% anchored, ch_cantonal 311,326 at 99.98%, de_laender 10,928 at 100.00%, plus 19,409 non-law rows that genuinely carry one -- huggingface.co 6,039, pytorch.org 5,675, scikit-learn.org 3,150, insee.fr 2,737, docs.jax.dev 1,672. Those stay refused, and that is the point: P3' is narrower than 'admit everything', it is 'admit what has no anchor'.",
+  "chunk.news": "Unchanged from v2: the exclusion is by FAMILY at the roster, not by a row's `source_type`.",
+  "chunk.atomic": "The source record IS the passage boundary. There is no markdown page to re-cut.",
+  "chunk.preserved": "The text was recovered, not produced (task 505).",
+  "pages with zero sections": "parse_sections returns [] and chunk_markdown returns []; there is nothing to classify."
+ },
+ "reporting": {
+  "every_page_gets_one_verdict": "chunk.reference | chunk.generic, with the failing predicate named. ADR-086's shape applied to a classifier.",
+  "p3_evidence_is_carried": "Every verdict's reasons name the `native_anchor_rule` in force and the anchor value it read, so a run under this artifact and a run under v2 are distinguishable from the verdict alone rather than from the config path.",
+  "v1_predicates_still_reported": "Unchanged from v2.",
+  "tokenizer_required": true,
+  "tokenizer_note": "Unchanged from v2. `generic_chunks` is tokenizer-sensitive; a run without the real tokenizer classifies a different corpus and must refuse rather than report (verification-doctrine 6)."
+ }
+}

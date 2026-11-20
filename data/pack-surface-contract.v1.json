@@ -1,0 +1,146 @@
+{
+  "schema": "aw.pack-surface-contract.v1",
+  "task": "528b",
+  "note": "Per pack source: which of the materializer's own Markdown sections are machine identity (they leave BOTH retrieval channels and become record metadata), which are hierarchy (they leave the DENSE channel and stay in sparse, where BM25 can use them), and which sealed field supplies the short legal citation the composed title must carry. Consumed by cytir/index/pack_surface.py. Section names are the chunker's breadcrumb LEAF, i.e. the Markdown heading text, measured over sealed rows -- never guessed: task 528b records the observed leaves per source and their counts. An undeclared source is REFUSED, not defaulted. `site_name` is stated per source because task 526 proved production's fedlex dense surface is compose_index_text(title, \"Fedlex\", body); it is READ off production (task 528b read-only probe of the twin aw_e3, n=40 per host) and never invented. `title_citation` gates the abbreviation/article-number addition, which is a second variable on top of 526's proven arm and therefore has its own A/B arm.",
+  "evidence": "task 527 §4.1 measured the provenance share of the embedded surface's non-blank lines: legifrance 0.816, gesetze 0.815, pubmed 0.667, dila-loda 0.540, fedlex 0.439, arxiv 0.345. task 516 §1.1 is the precedent: fedlex's preamble moved to `official_source_identity` record metadata and the token p50 fell 265 -> 144.",
+  "sources": {
+    "gesetze-official-current-v1": {
+      "family": "law_article_pack",
+      "provenance_headings": [
+        "Article identity",
+        "Version and status"
+      ],
+      "sparse_only_headings": [
+        "Legal hierarchy"
+      ],
+      "citation_from_identity": [
+        "Article identity/Law abbreviation"
+      ],
+      "sparse_prepends_title": true,
+      "producer": "task 417 script derive_gesetze_current_anchored_markdown.py",
+      "max_quarantine_rate": 0.001,
+      "site_name": null,
+      "title_citation": true
+    },
+    "gesetze-historical-direct-v4": {
+      "family": "law_article_pack",
+      "provenance_headings": [
+        "Article identity",
+        "Version and status"
+      ],
+      "sparse_only_headings": [
+        "Legal hierarchy"
+      ],
+      "citation_from_identity": [
+        "Article identity/Law abbreviation"
+      ],
+      "sparse_prepends_title": true,
+      "producer": "task 417 script derive_gesetze_historical_direct_markdown.py",
+      "max_quarantine_rate": 0.001,
+      "site_name": null,
+      "title_citation": true
+    },
+    "legifrance-dila-exact-production-v4": {
+      "family": "law_article_pack",
+      "provenance_headings": [
+        "Article identity"
+      ],
+      "sparse_only_headings": [
+        "Legal hierarchy"
+      ],
+      "citation_from_identity": [
+        "Article identity/Article number"
+      ],
+      "sparse_prepends_title": true,
+      "producer": "aw/extract/legi.py",
+      "producer_modules": ["cytir.extract.legi"],
+      "max_quarantine_rate": 0.001,
+      "site_name": null,
+      "title_citation": true
+    },
+    "dila-loda-exact-production-v1": {
+      "family": "law_article_pack",
+      "provenance_headings": [
+        "Article identity"
+      ],
+      "sparse_only_headings": [
+        "Legal hierarchy"
+      ],
+      "citation_from_identity": [
+        "Article identity/Article number"
+      ],
+      "sparse_prepends_title": true,
+      "producer": "aw/sources/families/loda.py",
+      "max_quarantine_rate": 0.001,
+      "site_name": null,
+      "title_citation": true
+    },
+    "pubmed-exact-production-academic-markdown-v3": {
+      "family": "academic_record_pack",
+      "provenance_headings": [
+        "Record identity"
+      ],
+      "sparse_only_headings": [],
+      "citation_from_identity": [
+        "Record identity/PMID"
+      ],
+      "sparse_prepends_title": true,
+      "producer": "task 417 script derive_pubmed_academic_markdown.py",
+      "max_quarantine_rate": 0.001,
+      "site_name": null,
+      "title_citation": true
+    },
+    "arxiv-academic-markdown-v2-exact": {
+      "family": "academic_record_pack",
+      "provenance_headings": [
+        "Record identity"
+      ],
+      "sparse_only_headings": [
+        "Metadata"
+      ],
+      "citation_from_identity": [
+        "Record identity/arXiv ID"
+      ],
+      "sparse_prepends_title": true,
+      "producer": "task 417 script derive_arxiv_academic_markdown.py",
+      "max_quarantine_rate": 0.001,
+      "site_name": null,
+      "title_citation": true
+    },
+    "fedlex-r0-exact-current-v1": {
+      "family": "law_article_pack",
+      "provenance_headings": [
+        "Official source identity"
+      ],
+      "sparse_only_headings": [],
+      "citation_from_identity": [],
+      "sparse_prepends_title": true,
+      "producer": "task 417 script materialize_r0_fedlex_anchored.py",
+      "max_quarantine_rate": 0.001,
+      "owner": "task 526; the shipped fedlex rows in aw_e8 come from release=aw-task516-fedlex-titles, whose materializer ALREADY moved this block to record metadata (task 516 §1.1). This entry describes the superseded 417 v1 pack and is declared for completeness only -- task 528b does not re-surface fedlex.",
+      "site_name": "Fedlex",
+      "title_citation": true
+    }
+  },
+  "site_name_evidence": {
+    "measured": "2026-09-06, twin aw_e3, 40 payloads per host",
+    "artifact": "_work/task528b/twin-site-names.json",
+    "fedlex.admin.ch": "Fedlex (40/40)",
+    "gesetze-im-internet.de": null,
+    "legifrance.gouv.fr": null,
+    "pubmed.ncbi.nlm.nih.gov": null,
+    "arxiv.org": null,
+    "laws-lois.justice.gc.ca": null,
+    "reading": "For every source this file governs except fedlex, production carried no site_name, so task 274's composition is '<title>. <body>' by itself. Nothing here decides the corpus-wide site_name question task 526 sec.5.1 routes to its own experiment."
+  },
+  "amendments": [
+    {
+      "date": "2026-10-25",
+      "task": "task 1309 / D24",
+      "change": "1 quoted retired shim paths repointed to the cytir/ module that holds the code (parse_legi, promote_sealed_pack, prep_discovery_queue, direct_terminal_contract, source_family_contract, trust_model, chunk_policy_registry, stage_structured_markdown_for_embedding); no other byte changed",
+      "old_file_sha256": "267961eb59f933e7c08a046873c5a34ef5a51db2d0a9ef5a481d17c3767e5585",
+      "repointed_file_sha256": "868a79f62b028eaf30b8efda8d29436d43791da59ed615d4a91be5b5e1bbc12d",
+      "note": "repointed_file_sha256 is the file before this amendments row was appended (git show of the repoint commit); receipts stamped before this amendment keep old_file_sha256 as their record"
+    }
+  ]
+}

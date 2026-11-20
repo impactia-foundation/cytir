@@ -1,0 +1,69 @@
+{
+ "base_path": "/traffic-commissioner-regulatory-decisions/decision-for-walls-truck-services-ltd-and-michael-wall-transport-manager",
+ "title": "Decision for Walls Truck Services Ltd and Michael Wall (Transport Manager)",
+ "description": "Confirmation of Oral Decision of the Deputy Traffic Commissioner",
+ "document_type": "traffic_commissioner_regulatory_decision",
+ "schema_name": "specialist_document",
+ "locale": "en",
+ "public_updated_at": "2026-08-03T11:30:22+01:00",
+ "details": {
+  "body": "<h3 id=\"in-the-welsh-traffic-area\">IN THE WELSH TRAFFIC AREA</h3>\n\n<h2 id=\"walls-truck-services-ltd-og1018489-applicant-and-michael-wall-transport-manager\">WALLS TRUCK SERVICES LTD, OG1018489 (Applicant) and MICHAEL WALL (Transport Manager)</h2>\n\n<h2 id=\"before-gerallt-evans-dtc\">BEFORE: GERALLT EVANS (DTC)</h2>\n\n<h2 id=\"public-inquiry-held-at-pontypridd-on-30-june-2026-at-10am\">PUBLIC INQUIRY HELD AT PONTYPRIDD ON 30 JUNE 2026 AT 10AM</h2>\n\n<h2 id=\"confirmation-of-oral-decision-of-the-deputy-traffic-commissioner\">CONFIRMATION OF ORAL DECISION OF THE DEPUTY TRAFFIC COMMISSIONER</h2>\n\n<div class=\"call-to-action\">\n  <h2 id=\"decision\">DECISION</h2>\n\n  <p>On findings in accordance with Sections 26(1)(b), 26(1)(c)(iii), 26(1)(f), and 26(1)(h) of the Goods Vehicles (Licensing of Operators) Act 1995, I direct that the standard national goods vehicle operator’s licence of Walls Truck Services Ltd OG1018489 is curtailed from 6 vehicles and 2 trailers to 4 vehicles and 2 trailers for a period of 7 days from 23:45 hours on Tuesday 30 June 2026 until 23:45 hours on Tuesday 7 July 2026.</p>\n\n  <p>In accordance with the provisions of section 26(6) of the Act, I direct that vehicles GK12 SJX and WA15 REC should not be used under the goods vehicle operator’s licence of Walls Truck Services Ltd OG1018489 or any other operator licence during the period the curtailment is in force from Tuesday 30 June 2026 until Tuesday 7 July 2026.</p>\n\n  <p>I find the requirement of professional competence is",
+  "change_history": [
+   {
+    "note": "First published.",
+    "public_timestamp": "2026-08-03T10:30:22Z"
+   }
+  ],
+  "headers": [
+   {
+    "id": "walls-truck-services-ltd-og1018489-applicant-and-michael-wall-transport-manager",
+    "level": 2,
+    "text": "WALLS TRUCK SERVICES LTD, OG1018489 (Applicant) and MICHAEL WALL (Transport Manager)"
+   },
+   {
+    "id": "before-gerallt-evans-dtc",
+    "level": 2,
+    "text": "BEFORE: GERALLT EVANS (DTC)"
+   },
+   {
+    "id": "public-inquiry-held-at-pontypridd-on-30-june-2026-at-10am",
+    "level": 2,
+    "text": "PUBLIC INQUIRY HELD AT PONTYPRIDD ON 30 JUNE 2026 AT 10AM"
+   },
+   {
+    "id": "confirmation-of-oral-decision-of-the-deputy-traffic-commissioner",
+    "level": 2,
+    "text": "CONFIRMATION OF ORAL DECISION OF THE DEPUTY TRAFFIC COMMISSIONER"
+   },
+   {
+    "id": "decision",
+    "level": 2,
+    "text": "DECISION"
+   },
+   {
+    "id": "transport-manager-michael-wall",
+    "level": 2,
+    "text": "TRANSPORT MANAGER MICHAEL WALL"
+   }
+  ],
+  "max_cache_time": 10,
+  "metadata": {
+   "case_type": [
+    "regulatory"
+   ],
+   "decision_subject": [
+    "hgv-operator",
+    "transport-manager"
+   ],
+   "first_published_at": "2026-08-03",
+   "outcome_type": [
+    "formal-warning",
+    "curtailment"
+   ],
+   "regions": [
+    "wales"
+   ]
+  },
+  "temporary_update_type": false
+ }
+}

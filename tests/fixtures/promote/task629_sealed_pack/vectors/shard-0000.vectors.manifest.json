@@ -1,0 +1,11 @@
+{
+ "n": 3,
+ "dim": 1024,
+ "dtype": "float16",
+ "ordering": "row i of vectors.f16 == line i of row_ids.jsonl == line i of the staged texts.jsonl.gz",
+ "derived_from": {
+  "pack": "the build box, packs/admitted-products-v2",
+  "vectors": "the build box, vectors/source=technical-manufacturer-admitted-products-v2",
+  "note": "first 3 rows in row_ids order, task 629 fixture"
+ }
+}

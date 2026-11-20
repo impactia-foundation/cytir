@@ -1,0 +1,576 @@
+{
+  "profiles": {
+    "academic_dump": {
+      "chunks": {
+        "boundary": "within-source-record",
+        "family": "source-record-local-structured",
+        "requirements": [
+          "never merge different source records",
+          "parent Markdown digest",
+          "every embedding text within pinned model token maximum"
+        ]
+      },
+      "description": "PubMed, arXiv, OAI, and comparable bulk academic records.",
+      "markdown": {
+        "family": "record-markdown",
+        "requirements": [
+          "title/abstract/body field boundaries",
+          "record metadata",
+          "parent archive/member identity"
+        ]
+      },
+      "original": {
+        "media_types": [
+          "application/xml",
+          "application/json",
+          "application/gzip",
+          "application/vnd.apache.parquet"
+        ],
+        "requirements": [
+          "complete upstream pages or archives",
+          "source record identity",
+          "checksums"
+        ]
+      },
+      "outlinks": {
+        "family": "record-citations-code-and-data-links",
+        "requirements": [
+          "source record identity and relation/context",
+          "DOI, code, data, and cited-source targets where present",
+          "receipted empty output when none exist"
+        ]
+      },
+      "required_stages": [
+        "original",
+        "markdown",
+        "chunks",
+        "outlinks",
+        "vectors"
+      ]
+    },
+    "anchored_law": {
+      "chunks": {
+        "boundary": "legal-article",
+        "family": "source-native-anchored",
+        "requirements": [
+          "never merge across article anchors",
+          "canonical, dense, and sparse channel provenance",
+          "parent Markdown digest and source version"
+        ]
+      },
+      "description": "Fedlex Akoma Ntoso, DILA, Gesetze, cantonal law, and other article-addressed legal sources.",
+      "markdown": {
+        "family": "legal-structure-markdown",
+        "requirements": [
+          "article and paragraph anchors",
+          "hierarchy",
+          "version/effective dates",
+          "parent source digest"
+        ]
+      },
+      "original": {
+        "media_types": [
+          "application/xml",
+          "text/html",
+          "application/pdf",
+          "application/gzip"
+        ],
+        "requirements": [
+          "exact official source",
+          "version/effective-date identity",
+          "language and jurisdiction"
+        ]
+      },
+      "outlinks": {
+        "family": "legal-cross-references-and-external-citations",
+        "requirements": [
+          "source version and article anchor",
+          "relation type and target",
+          "receipted empty output when none exist"
+        ]
+      },
+      "required_stages": [
+        "original",
+        "markdown",
+        "chunks",
+        "outlinks",
+        "vectors"
+      ]
+    },
+    "community_qa": {
+      "chunks": {
+        "boundary": "question-with-related-answers",
+        "family": "source-native-question-answer",
+        "requirements": [
+          "never merge different questions",
+          "preserve question and answer relations and source post identities",
+          "parent Markdown digest, stable chunk ordinal, canonical point identity, and pinned policy/tokenizer",
+          "every embedding text within pinned model token maximum"
+        ]
+      },
+      "description": "Source-owned community question and answer archives with exact per-post license and attribution evidence.",
+      "markdown": {
+        "family": "source-native-question-answer-markdown",
+        "requirements": [
+          "full uncapped question and answer principal content including code, lists, links, and quotations",
+          "question, answer, score, tag, creation-time, license, and attribution boundaries",
+          "parent source XML row and archive digests",
+          "explicit rejection record when required content, license, or attribution identity is absent"
+        ]
+      },
+      "original": {
+        "media_types": [
+          "application/xml",
+          "application/x-7z-compressed"
+        ],
+        "requirements": [
+          "complete source-owned question, answer, and user archives with checksums and member CRC",
+          "exact selected source XML rows for questions, answers, and users",
+          "stable source post, parent-question, accepted-answer, and user identities",
+          "exact per-post license, score, and creation time"
+        ]
+      },
+      "outlinks": {
+        "family": "question-answer-citations-and-attribution",
+        "requirements": [
+          "parent question and answer identities with canonical source URLs",
+          "author attribution profiles and cited external targets with anchor/context",
+          "receipted empty output when none exist"
+        ]
+      },
+      "required_stages": [
+        "original",
+        "markdown",
+        "chunks",
+        "outlinks",
+        "vectors"
+      ]
+    },
+    "entity_registry": {
+      "chunks": {
+        "boundary": "entity",
+        "family": "atomic-entity-card",
+        "requirements": [
+          "one entity per record",
+          "dense/sparse channel recipe",
+          "parent Markdown digest"
+        ]
+      },
+      "description": "Privacy-safe legal-person entity cards grounded in official registry records, with optional separately verified first-party websites.",
+      "markdown": {
+        "family": "evidence-composed-card-markdown",
+        "requirements": [
+          "field-level evidence pointers",
+          "official registry/entity/filing URL is retained",
+          "registry purpose is retained when optional website prose is appended",
+          "all parent response/body digests"
+        ]
+      },
+      "original": {
+        "media_types": [
+          "application/json",
+          "application/xml",
+          "text/html"
+        ],
+        "requirements": [
+          "raw registry responses",
+          "active legal-person and privacy selection evidence",
+          "website evidence when used",
+          "entity and register identity"
+        ]
+      },
+      "outlinks": {
+        "family": "entity-evidence-and-official-links",
+        "requirements": [
+          "entity/register identity and official registry/entity/filing URL",
+          "optional official website and evidence relations",
+          "receipted empty output when none exist"
+        ]
+      },
+      "required_stages": [
+        "original",
+        "markdown",
+        "chunks",
+        "outlinks",
+        "vectors"
+      ]
+    },
+    "news_article": {
+      "chunks": {
+        "boundary": "article",
+        "family": "short-document-evaluated",
+        "requirements": [
+          "pinned news-specific policy",
+          "parent Markdown digest",
+          "retention/supersession receipt"
+        ]
+      },
+      "description": "Dated news and release-feed articles with supersession/retention semantics.",
+      "markdown": {
+        "family": "news-article-markdown",
+        "requirements": [
+          "headline, byline, publication time, and body",
+          "parent response digest"
+        ]
+      },
+      "original": {
+        "media_types": [
+          "text/html",
+          "application/json",
+          "application/xml"
+        ],
+        "requirements": [
+          "exact article/feed response",
+          "publication and fetch times",
+          "publisher identity"
+        ]
+      },
+      "outlinks": {
+        "family": "article-cited-sources",
+        "requirements": [
+          "publisher/article identity and publication time",
+          "resolved cited targets with anchor/context",
+          "receipted empty output when none exist"
+        ]
+      },
+      "required_stages": [
+        "original",
+        "markdown",
+        "chunks",
+        "outlinks",
+        "vectors"
+      ]
+    },
+    "retained_wave_passage": {
+      "chunks": {
+        "boundary": "within-source-record",
+        "family": "source-declared-record",
+        "requirements": [
+          "never merge different retained records",
+          "chunk text byte-equals its parent atomic markdown row",
+          "pinned source-native-atomic-record projection recipe",
+          "every embedding text within pinned model token maximum"
+        ]
+      },
+      "description": "Legacy production passages retained byte-exact in the master wave store, rebound to current points by sealed exact-evidence scratch locators (task 423/426).",
+      "markdown": {
+        "family": "record-markdown",
+        "requirements": [
+          "composed index text equals the retained passage text without truncation",
+          "record identity (url, title, lang) and retained text sha binding",
+          "parent locator identity (file sha, row ordinal, evidence digest) on every row"
+        ]
+      },
+      "original": {
+        "media_types": [
+          "application/x-parquet"
+        ],
+        "requirements": [
+          "exact retained wave parquet bytes with per-point locator lineage",
+          "one sealed exact-evidence locator per current point from the scratch join",
+          "checksums re-verified recursively from the retained bytes"
+        ]
+      },
+      "outlinks": {
+        "requirements": [
+          "per-record outlink identity rows",
+          "no resolved external targets exist in retained wave passages",
+          "receipted explicit-empty output for every record"
+        ]
+      },
+      "required_stages": [
+        "original",
+        "markdown",
+        "chunks",
+        "outlinks",
+        "vectors"
+      ],
+      "vectors": {
+        "requirements": []
+      }
+    },
+    "software_docs": {
+      "chunks": {
+        "boundary": "documentation-page",
+        "family": "generic-structured",
+        "requirements": [
+          "path/anchor preservation",
+          "parent Markdown digest",
+          "pinned policy and tokenizer"
+        ]
+      },
+      "description": "Versioned documentation trees, standards, and repository-native Markdown.",
+      "markdown": {
+        "family": "documentation-markdown",
+        "requirements": [
+          "path and heading hierarchy",
+          "version/release identity",
+          "parent blob digest"
+        ]
+      },
+      "original": {
+        "media_types": [
+          "application/x-git-tree",
+          "application/x-tar",
+          "text/html",
+          "text/markdown"
+        ],
+        "requirements": [
+          "repository commit or release identity",
+          "exact source tree/archive or fetched bytes"
+        ]
+      },
+      "outlinks": {
+        "family": "documentation-references",
+        "requirements": [
+          "repository/release and source path identity",
+          "external documentation, dependency, code, and specification targets",
+          "receipted empty output when none exist"
+        ]
+      },
+      "required_stages": [
+        "original",
+        "markdown",
+        "chunks",
+        "outlinks",
+        "vectors"
+      ]
+    },
+    "structured_data_feed": {
+      "chunks": {
+        "boundary": "within-source-record",
+        "family": "source-declared-record",
+        "requirements": [
+          "never merge different source records",
+          "parent Markdown digest",
+          "pinned source-specific projection recipe",
+          "every embedding text within pinned model token maximum"
+        ]
+      },
+      "description": "Official bulk/API data records such as geographic gazetteers and statistical feeds.",
+      "markdown": {
+        "family": "record-markdown",
+        "requirements": [
+          "semantic field boundaries",
+          "record metadata and stable source identity",
+          "parent feed/member identity"
+        ]
+      },
+      "original": {
+        "media_types": [
+          "application/json",
+          "application/xml",
+          "text/csv",
+          "application/gzip"
+        ],
+        "requirements": [
+          "complete upstream feed or exact API responses",
+          "source record identity and upstream release",
+          "checksums"
+        ]
+      },
+      "outlinks": {
+        "family": "record-relations-and-source-links",
+        "requirements": [
+          "source record identity and relation/context",
+          "resolved external targets where present",
+          "receipted empty output when none exist"
+        ]
+      },
+      "required_stages": [
+        "original",
+        "markdown",
+        "chunks",
+        "outlinks",
+        "vectors"
+      ]
+    },
+    "technical_manufacturer_catalog": {
+      "chunks": {
+        "boundary": "product-model",
+        "family": "source-native-technical-product",
+        "requirements": [
+          "never merge different product models or SKUs",
+          "parent Markdown digest and pinned chunk policy",
+          "every embedding text within pinned model token maximum"
+        ]
+      },
+      "description": "First-party technical maker, robotics, and electronics product catalogs joined to substantive manuals, documentation, or code.",
+      "markdown": {
+        "family": "technical-product-markdown",
+        "requirements": [
+          "manufacturer, product name, stable SKU/model, supported platform, and full technical description",
+          "manual, documentation, and code relations with parent evidence digests",
+          "volatile price, availability, stock, promotion, and tracking fields excluded from durable text"
+        ]
+      },
+      "original": {
+        "media_types": [
+          "text/html",
+          "application/ld+json",
+          "application/json",
+          "application/xml",
+          "text/markdown"
+        ],
+        "requirements": [
+          "exact first-party catalog, Product JSON-LD, feed, and product-page bytes",
+          "requested and final URL, status, headers, fetch time, and content digest",
+          "machine-readable catalog surface and stable product/SKU identity",
+          "substantive first-party manual, documentation, or code linkage"
+        ]
+      },
+      "outlinks": {
+        "family": "technical-product-documentation-links",
+        "requirements": [
+          "parent product/SKU identity and official product URL",
+          "all first-party manual, documentation, tutorial, and code targets with anchor/context",
+          "receipted empty output when none exist"
+        ]
+      },
+      "required_stages": [
+        "original",
+        "markdown",
+        "chunks",
+        "outlinks",
+        "vectors"
+      ]
+    },
+    "web_html": {
+      "chunks": {
+        "boundary": "document",
+        "family": "generic-structured-or-source-declared",
+        "requirements": [
+          "parent Markdown digest",
+          "chunk ordinal and stable point identity",
+          "chunk policy identity, byte digest, tokenizer revision, and dense/sparse channel provenance"
+        ]
+      },
+      "description": "Direct or WARC-captured web pages.",
+      "markdown": {
+        "family": "principal-content-markdown",
+        "requirements": [
+          "full extracted Markdown before chunking",
+          "extractor identity, version, configuration digest, and extraction mode",
+          "parent original digest",
+          "explicit rejection record when no document is emitted"
+        ]
+      },
+      "original": {
+        "media_types": [
+          "text/html",
+          "application/xhtml+xml"
+        ],
+        "requirements": [
+          "exact response bytes",
+          "requested and final URL",
+          "status, headers, fetch time, and content digest",
+          "WARC locator plus exact bytes when sourced from Common Crawl"
+        ]
+      },
+      "outlinks": {
+        "family": "html-external-links",
+        "requirements": [
+          "all resolved external links with source URL and anchor/context",
+          "receipted empty output when none exist"
+        ]
+      },
+      "required_stages": [
+        "original",
+        "markdown",
+        "chunks",
+        "outlinks",
+        "vectors"
+      ]
+    },
+    "web_pdf": {
+      "chunks": {
+        "boundary": "document",
+        "family": "generic-structured-or-source-declared",
+        "requirements": [
+          "page/section provenance",
+          "parent Markdown digest",
+          "pinned chunk policy"
+        ]
+      },
+      "description": "Fetched PDF documents, including scanned public documents.",
+      "markdown": {
+        "family": "docling-markdown",
+        "requirements": [
+          "full Markdown including tables and headings",
+          "Docling/OCR versions and settings",
+          "page-level extraction diagnostics and parent PDF digest"
+        ]
+      },
+      "original": {
+        "media_types": [
+          "application/pdf"
+        ],
+        "requirements": [
+          "exact PDF bytes",
+          "fetch metadata and digest"
+        ]
+      },
+      "outlinks": {
+        "family": "pdf-citations-and-uris",
+        "requirements": [
+          "external URI annotations and resolved citations where extractable",
+          "receipted empty output when none exist"
+        ]
+      },
+      "required_stages": [
+        "original",
+        "markdown",
+        "chunks",
+        "outlinks",
+        "vectors"
+      ]
+    },
+    "wikipedia_xml": {
+      "chunks": {
+        "boundary": "article",
+        "family": "generic-structured",
+        "requirements": [
+          "article-local chunks",
+          "parent Markdown digest",
+          "pinned policy and tokenizer"
+        ]
+      },
+      "description": "Wikipedia multistream XML dumps.",
+      "markdown": {
+        "family": "mediawiki-heading-markdown",
+        "requirements": [
+          "article id and revision",
+          "heading hierarchy",
+          "parent dump and member identity"
+        ]
+      },
+      "original": {
+        "media_types": [
+          "application/xml",
+          "application/x-bzip2"
+        ],
+        "requirements": [
+          "complete dump files",
+          "upstream dump date and checksums",
+          "language edition"
+        ]
+      },
+      "outlinks": {
+        "family": "mediawiki-citations-and-external-links",
+        "requirements": [
+          "article identity and section/context",
+          "external targets distinct from internal wikilinks",
+          "receipted empty output when none exist"
+        ]
+      },
+      "required_stages": [
+        "original",
+        "markdown",
+        "chunks",
+        "outlinks",
+        "vectors"
+      ]
+    }
+  },
+  "schema": "aw.source-preservation-profiles.v1"
+}

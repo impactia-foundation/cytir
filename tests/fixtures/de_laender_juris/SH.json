@@ -1,0 +1,92 @@
+[
+ {
+  "docId": "jlr-SchulGSHrahmen",
+  "titleList": [
+   "SchulG SH"
+  ],
+  "subtitleList": [
+   "Landesnorm Schleswig-Holstein",
+   "Schleswig-Holsteinisches Schulgesetz",
+   "gültig ab: 01.08.2024"
+  ],
+  "date": "15.02.2007"
+ },
+ {
+  "docId": "jlr-DSGSHrahmen",
+  "titleList": [
+   "LDSG SH"
+  ],
+  "subtitleList": [
+   "Landesnorm Schleswig-Holstein",
+   "Schleswig-Holsteinisches Gesetz zum Schutz personenbezogener Daten (Landesdatenschutzgesetz)",
+   "gültig ab: 25.05.2018"
+  ],
+  "date": "02.05.2018"
+ },
+ {
+  "docId": "jlr-ÄndGSchulrahmen",
+  "titleList": [
+   ""
+  ],
+  "subtitleList": [
+   "Landesnorm Schleswig-Holstein",
+   "Gesetz zur Änderung des Schulgesetzes",
+   "gültig ab: 01.01.2020"
+  ],
+  "date": "10.12.2019"
+ },
+ {
+  "docId": "jlr-AufhVOrahmen",
+  "titleList": [
+   ""
+  ],
+  "subtitleList": [
+   "Landesnorm Schleswig-Holstein",
+   "Verordnung zur Aufhebung der Altverordnung"
+  ],
+  "date": "03.03.2015"
+ },
+ {
+  "docId": "jlr-NeufasRahmen",
+  "titleList": [
+   ""
+  ],
+  "subtitleList": [
+   "Landesnorm Schleswig-Holstein",
+   "Neufassung der Bekanntmachung"
+  ],
+  "date": "04.04.2016"
+ },
+ {
+  "docId": "jlr-KurzGrahmen",
+  "titleList": [
+   "KG"
+  ],
+  "subtitleList": [
+   "Landesnorm Schleswig-Holstein",
+   "Kg"
+  ],
+  "date": "01.01.2001"
+ },
+ {
+  "docId": "jlr-BauO SHrahmen",
+  "titleList": [
+   "LBO SH"
+  ],
+  "subtitleList": [
+   "Landesnorm Schleswig-Holstein",
+   "Landesbauordnung für das Land Schleswig-Holstein"
+  ],
+  "date": "22.01.2009"
+ },
+ {
+  "docId": "jlr-OhneDatumrahmen",
+  "titleList": [
+   "OD"
+  ],
+  "subtitleList": [
+   "Landesnorm Schleswig-Holstein",
+   "Gesetz ohne jedes Datum"
+  ]
+ }
+]

@@ -1,0 +1,1 @@
+"""KALI (DILA collective agreements) full-text producers: the sealed-archive projection to anchored Markdown, and the combine of the global run with its increment recovery. A second surface of the same source as the live `dila_kali` adapter (articles at or above the floor); these two keep the exact-production record set."""

@@ -1,0 +1,93 @@
+# Acknowledged generations of German rows that the tripwire (cytir/ops/german_parts_tripwire.py) reads
+# below 50 %, each bound to ONE MEASURED generation (never a family). One line:
+#   <generation key> ; rows=<estimated rows measured> ; share=<half-integer share measured>  # <reason>
+# Key = pool|source_type|provenance|prov_id|chunk epoch|build_id|last_seen month  (pool = a domain with
+# >= 1,000 German rows, or "(tail)"; last_seen month "-" = the payload has no last_seen). No consent field
+# is in the key: the consent backfill restamps those (2026-10-07 false GREW alarm; see the tripwire docstring).
+# Measured: task-710-artifacts/guard2-baseline-report-v2.json (twin aw_e8, 2026-10-07 06:50Z, new key;
+# 69 alarmed generations, ~6.93M rows; Wikipedia DE 3,854,804 and openlegaldata 2,074,499 rows equal the
+# exact census counts of task 710 section 1).
+# Rules (judge() in the tripwire): an alarm matching NO line is NEW. A line acknowledges its generation only
+# while the generation stays within `rows` + 20 %: a new pack the drain writes into it (a CC-w7 pack next
+# week) GROWS it. Growth whose own share (from `rows` and `share` here) reads below 50 % alarms; growth that
+# reads at or above it is GREW WITH PARTS (state result=warn): re-measure the line's rows and share (task 732).
+# Keep `share` on every line: without it growth always alarms. A line that matches nothing is STALE (state result=warn): delete it after the
+# rebuild (task 710 rebuild item 2); the list shrinks until it is empty.
+# RE-MEASURE (task 742): a line may carry `; remeasured=<YYYY-MM-DD>:<tracked tripwire report path>` after
+# `share`. Its rows and share then equal that report's values for this exact key (a test pins it), and the
+# 710 baseline must still hold the key: a re-measure updates a line, it never adds a generation.
+# EXCEPTION (task 867): a pool that crossed 1,000 German rows AFTER the baseline (a CC-w7 tranche-13 domain) has
+# no baseline key; its line then carries `remeasured` too, and the named tracked report is its only measurement. Lines
+# without `remeasured` are pinned to the 710 baseline sum.
+#
+# Sorted by rows, largest first.
+de.wikipedia.org|reference|-|-|chunk1|aw_b1|- ; rows=3854804 ; share=0.14%  # Wikipedia DE, W2 vast.ai worker image without compound_split
+de.openlegaldata.io|official|-|-|chunk1|aw_b1|- ; rows=2074499 ; share=0.13%  # openlegaldata DE, sealed-pack drain under /usr/bin/python3 without the splitter
+(tail)|official|endorsement-discovery|-|chunk1|aw_b1|2026-09 ; rows=355382 ; share=1.97%  # CC-w7 tranche, sealed-pack drain without the splitter, Sept window
+(tail)|reference|endorsement-discovery|-|chunk1|aw_b1|2026-09 ; rows=191128 ; share=1.67%  # CC-w7 tranche, sealed-pack drain without the splitter, Sept window
+(tail)|reference|endorsement-discovery|-|chunk1|aw_b1|2026-10 ; rows=120683 ; share=1.37%  # CC-w7 tranche, sealed-pack drain without the splitter, Oct window (drain still writing)
+(tail)|official|endorsement-discovery|-|chunk1|aw_b1|2026-10 ; rows=147891 ; share=36.29% ; remeasured=2026-10-08:task-732-artifacts/tripwire-20261008-october-cc.json  # CC-w7 tranche, sealed-pack drain without the splitter, Oct window (drain still writing); re-measured after task 732: grew by 59,751 tranche-13 rows that carry parts (95.9 %), PR #670
+bazl.admin.ch|official|bazl_docs|-|chunk5|aw_b1|2026-07 ; rows=62760 ; share=41.50%  # writer WITH parts, rows with few long words: lattice reading, not a defect (task 710 baseline)
+openalex.org|reference|-|-|chunk1|aw_b1|- ; rows=29394 ; share=0.06%  # openalex DE, sealed-pack drain without the splitter
+(tail)|docs|endorsement-discovery|-|chunk1|aw_b1|2026-10 ; rows=29373 ; share=0.86%  # CC-w7 tranche, sealed-pack drain without the splitter, Oct window (drain still writing)
+(tail)|docs|endorsement-discovery|-|chunk1|aw_b1|2026-09 ; rows=8503 ; share=1.60%  # CC-w7 tranche, sealed-pack drain without the splitter, Sept window
+doku.iab.de|official|endorsement-discovery|-|chunk1|aw_b1|2026-09 ; rows=7311 ; share=0.03%  # CC-w7 tranche, sealed-pack drain without the splitter, Sept window
+fedlex.admin.ch|official|-|5ce4d693|chunk1|aw_b1|2026-08 ; rows=6509 ; share=0.09%  # fedlex DE, task-564 surface delta written without the splitter
+kriegsfilm.philgeist.fu-berlin.de|reference|endorsement-discovery|-|chunk1|aw_b1|2026-09 ; rows=5147 ; share=3.73%  # CC-w7 tranche, sealed-pack drain without the splitter, Sept window
+kalieber.de|official|endorsement-discovery|-|chunk1|aw_b1|2026-09 ; rows=4407 ; share=11.94%  # CC-w7 tranche, sealed-pack drain without the splitter, Sept window
+rote-liste.de|reference|endorsement-discovery|-|chunk1|aw_b1|2026-09 ; rows=4067 ; share=0.03%  # CC-w7 tranche, sealed-pack drain without the splitter, Sept window
+eckhart.de|reference|endorsement-discovery|-|chunk1|aw_b1|2026-09 ; rows=3706 ; share=0.00%  # CC-w7 tranche, sealed-pack drain without the splitter, Sept window
+omr.podigee.io|reference|endorsement-discovery|-|chunk1|aw_b1|2026-10 ; rows=3543 ; share=0.04%  # CC-w7 tranche, sealed-pack drain without the splitter, Oct window (drain still writing)
+anmeldestelle.admin.ch|official|anmeldestelle_docs|-|chunk5|aw_b1|2026-07 ; rows=3331 ; share=49.60%  # writer WITH parts, rows with few long words: lattice reading, not a defect (task 710 baseline)
+gleichstellung2030.ch|official|endorsement-discovery|-|chunk1|aw_b1|2026-09 ; rows=3265 ; share=8.26%  # CC-w7 tranche, sealed-pack drain without the splitter, Sept window
+fallrecht.de|reference|endorsement-discovery|-|chunk1|aw_b1|2026-09 ; rows=2718 ; share=0.19%  # CC-w7 tranche, sealed-pack drain without the splitter, Sept window
+gretil.sub.uni-goettingen.de|reference|endorsement-discovery|-|chunk1|aw_b1|2026-09 ; rows=2528 ; share=0.72%  # CC-w7 tranche, sealed-pack drain without the splitter, Sept window
+ausstellungen.deutsche-digitale-bibliothek.de|reference|endorsement-discovery|-|chunk1|aw_b1|2026-09 ; rows=2501 ; share=2.74%  # CC-w7 tranche, sealed-pack drain without the splitter, Sept window
+aufwachen-podcast.de|docs|endorsement-discovery|-|chunk1|aw_b1|2026-10 ; rows=2442 ; share=0.00%  # CC-w7 tranche, sealed-pack drain without the splitter, Oct window (drain still writing)
+mwg-digital.badw.de|reference|endorsement-discovery|-|chunk1|aw_b1|2026-10 ; rows=2383 ; share=0.89%  # CC-w7 tranche, sealed-pack drain without the splitter, Oct window (drain still writing)
+files.eric.ed.gov|reference|-|-|chunk1|aw_b1|- ; rows=2365 ; share=0.09%  # ERIC DE, sealed-pack drain without the splitter
+matthias-kunz.com|official|endorsement-discovery|-|chunk1|aw_b1|2026-10 ; rows=2291 ; share=2.50%  # CC-w7 tranche, sealed-pack drain without the splitter, Oct window (drain still writing)
+elwis.de|official|endorsement-discovery|-|chunk1|aw_b1|2026-09 ; rows=2061 ; share=21.91%  # CC-w7 tranche, sealed-pack drain without the splitter, Sept window
+goethezeitportal.de|reference|endorsement-discovery|-|chunk1|aw_b1|2026-10 ; rows=2047 ; share=0.05%  # CC-w7 tranche, sealed-pack drain without the splitter, Oct window (drain still writing)
+vhs-chemnitz.de|official|endorsement-discovery|-|chunk1|aw_b1|2026-09 ; rows=1979 ; share=1.77%  # CC-w7 tranche, sealed-pack drain without the splitter, Sept window
+graz.at|official|endorsement-discovery|-|chunk1|aw_b1|2026-10 ; rows=1914 ; share=0.16%  # CC-w7 tranche, sealed-pack drain without the splitter, Oct window (drain still writing)
+vhs-cham.de|reference|endorsement-discovery|-|chunk1|aw_b1|2026-09 ; rows=1910 ; share=4.24%  # CC-w7 tranche, sealed-pack drain without the splitter, Sept window
+intergator.de|official|endorsement-discovery|-|chunk1|aw_b1|2026-09 ; rows=1747 ; share=0.00%  # CC-w7 tranche, sealed-pack drain without the splitter, Sept window
+iwwb.de|official|endorsement-discovery|-|chunk1|aw_b1|2026-09 ; rows=1708 ; share=2.05%  # CC-w7 tranche, sealed-pack drain without the splitter, Sept window
+agitano.com|reference|endorsement-discovery|-|chunk1|aw_b1|2026-10 ; rows=1647 ; share=0.12%  # CC-w7 tranche, sealed-pack drain without the splitter, Oct window (drain still writing)
+ifs.tuwien.ac.at|reference|endorsement-discovery|-|chunk1|aw_b1|2026-10 ; rows=1539 ; share=5.47% ; remeasured=2026-10-08:task-732-artifacts/tripwire-20261008-october-cc.json  # English pages tagged de by the .at default (1,522 of 1,539 rows); the writer is sighted (all sampled rows store the WITH posting), 94 % of rows have nothing to split: a lattice reading, not a defect (tasks 732, 867)
+datenschutz-generator.de|reference|endorsement-discovery|-|chunk1|aw_b1|2026-09 ; rows=1497 ; share=0.00%  # CC-w7 tranche, sealed-pack drain without the splitter, Sept window
+seo-textagentur.at|reference|endorsement-discovery|-|chunk1|aw_b1|2026-10 ; rows=1488 ; share=0.00%  # CC-w7 tranche, sealed-pack drain without the splitter, Oct window (drain still writing)
+outbrain.com|reference|endorsement-discovery|-|chunk1|aw_b1|2026-10 ; rows=1475 ; share=0.14%  # CC-w7 tranche, sealed-pack drain without the splitter, Oct window (drain still writing)
+denk-doch-mal.de|official|endorsement-discovery|-|chunk1|aw_b1|2026-09 ; rows=1460 ; share=0.07%  # CC-w7 tranche, sealed-pack drain without the splitter, Sept window
+bxl.sachsen.de|reference|endorsement-discovery|-|chunk1|aw_b1|2026-10 ; rows=1435 ; share=0.00%  # CC-w7 tranche, sealed-pack drain without the splitter, Oct window (drain still writing)
+mawi-on.de|official|endorsement-discovery|-|chunk1|aw_b1|2026-09 ; rows=1420 ; share=0.21%  # CC-w7 tranche, sealed-pack drain without the splitter, Sept window
+blog.lehofer.at|reference|endorsement-discovery|-|chunk1|aw_b1|2026-10 ; rows=1414 ; share=0.57%  # CC-w7 tranche, sealed-pack drain without the splitter, Oct window (drain still writing)
+peter-spork.de|official|endorsement-discovery|-|chunk1|aw_b1|2026-09 ; rows=1387 ; share=0.07%  # CC-w7 tranche, sealed-pack drain without the splitter, Sept window
+iwb.gmbh|official|endorsement-discovery|-|chunk1|aw_b1|2026-10 ; rows=1374 ; share=0.36%  # CC-w7 tranche, sealed-pack drain without the splitter, Oct window (drain still writing)
+hessischer-lohnatlas.de|official|endorsement-discovery|-|chunk1|aw_b1|2026-09 ; rows=1350 ; share=0.22%  # CC-w7 tranche, sealed-pack drain without the splitter, Sept window
+de.actionbound.com|official|endorsement-discovery|-|chunk1|aw_b1|2026-10 ; rows=1335 ; share=0.00%  # CC-w7 tranche, sealed-pack drain without the splitter, Oct window (drain still writing)
+healthytravel.ch|official|endorsement-discovery|ba7c57a4|chunk1|aw_b1|2026-07 ; rows=1334 ; share=12.44%  # writer WITH parts, rows with few long words: lattice reading, not a defect (task 710 baseline)
+wfg-pb.de|official|endorsement-discovery|-|chunk1|aw_b1|2026-09 ; rows=1333 ; share=0.68%  # CC-w7 tranche, sealed-pack drain without the splitter, Sept window
+megadigital.bbaw.de|reference|endorsement-discovery|-|chunk1|aw_b1|2026-10 ; rows=1315 ; share=0.08%  # CC-w7 tranche, sealed-pack drain without the splitter, Oct window (drain still writing)
+audible.de|reference|endorsement-discovery|-|chunk1|aw_b1|2026-10 ; rows=1304 ; share=0.61%  # CC-w7 tranche, sealed-pack drain without the splitter, Oct window (drain still writing)
+jurpc.de|official|endorsement-discovery|-|chunk1|aw_b1|2026-09 ; rows=1286 ; share=0.39%  # CC-w7 tranche, sealed-pack drain without the splitter, Sept window
+winmedio.net|official|endorsement-discovery|-|chunk1|aw_b1|2026-10 ; rows=1266 ; share=0.00%  # CC-w7 tranche, sealed-pack drain without the splitter, Oct window (drain still writing)
+vhs-weiden-neustadt.de|official|endorsement-discovery|-|chunk1|aw_b1|2026-09 ; rows=1252 ; share=3.35%  # CC-w7 tranche, sealed-pack drain without the splitter, Sept window
+kunsthalle-bremen.de|reference|endorsement-discovery|-|chunk1|aw_b1|2026-09 ; rows=1217 ; share=0.00%  # CC-w7 tranche, sealed-pack drain without the splitter, Sept window
+kieler-woche.de|official|endorsement-discovery|-|chunk1|aw_b1|2026-09 ; rows=1209 ; share=0.08%  # CC-w7 tranche, sealed-pack drain without the splitter, Sept window
+ravensburg.dhbw.de|reference|endorsement-discovery|-|chunk1|aw_b1|2026-09 ; rows=1192 ; share=0.67%  # CC-w7 tranche, sealed-pack drain without the splitter, Sept window
+geladen.podigee.io|reference|endorsement-discovery|-|chunk1|aw_b1|2026-10 ; rows=1160 ; share=0.00%  # CC-w7 tranche, sealed-pack drain without the splitter, Oct window (drain still writing)
+jugend-check.de|official|endorsement-discovery|-|chunk1|aw_b1|2026-09 ; rows=1134 ; share=0.18%  # CC-w7 tranche, sealed-pack drain without the splitter, Sept window
+ghr-leonberg.de|official|endorsement-discovery|-|chunk1|aw_b1|2026-09 ; rows=1098 ; share=0.00%  # CC-w7 tranche, sealed-pack drain without the splitter, Sept window
+libreas.eu|reference|endorsement-discovery|-|chunk1|aw_b1|2026-10 ; rows=1081 ; share=0.00%  # CC-w7 tranche, sealed-pack drain without the splitter, Oct window (drain still writing)
+dipex.ch|official|endorsement-discovery|-|chunk1|aw_b1|2026-09 ; rows=1061 ; share=0.38%  # CC-w7 tranche, sealed-pack drain without the splitter, Sept window
+open-next.de|reference|endorsement-discovery|-|chunk1|aw_b1|2026-09 ; rows=1049 ; share=0.10%  # CC-w7 tranche, sealed-pack drain without the splitter, Sept window
+studibucht.de|reference|endorsement-discovery|-|chunk1|aw_b1|2026-09 ; rows=1041 ; share=0.00%  # CC-w7 tranche, sealed-pack drain without the splitter, Sept window
+lowerclassmag.com|reference|endorsement-discovery|-|chunk1|aw_b1|2026-10 ; rows=1038 ; share=0.10%  # CC-w7 tranche, sealed-pack drain without the splitter, Oct window (drain still writing)
+edition-w3c.de|docs|endorsement-discovery|-|chunk1|aw_b1|2026-10 ; rows=1036 ; share=0.00%  # CC-w7 tranche, sealed-pack drain without the splitter, Oct window (drain still writing)
+jba-essen.de|official|endorsement-discovery|-|chunk1|aw_b1|2026-09 ; rows=1016 ; share=0.00%  # CC-w7 tranche, sealed-pack drain without the splitter, Sept window
+weltbuerger-stipendien.de|official|endorsement-discovery|-|chunk1|aw_b1|2026-09 ; rows=1016 ; share=0.30%  # CC-w7 tranche, sealed-pack drain without the splitter, Sept window
+zielbar.de|reference|endorsement-discovery|-|chunk1|aw_b1|2026-09 ; rows=1013 ; share=0.00%  # CC-w7 tranche, sealed-pack drain without the splitter, Sept window
+krebsinformationsdienst.de|reference|endorsement-discovery|-|chunk1|aw_b1|2026-09 ; rows=1010 ; share=0.00%  # CC-w7 tranche, sealed-pack drain without the splitter, Sept window
+songlexikon.de|reference|endorsement-discovery|-|chunk1|aw_b1|2026-09 ; rows=1010 ; share=0.00%  # CC-w7 tranche, sealed-pack drain without the splitter, Sept window

@@ -1,0 +1,44 @@
+{
+ "models": [
+  {
+   "id": "sample-org/Sample-8B-Instruct",
+   "reasons": [
+    "downloads"
+   ],
+   "row": {},
+   "dl_rank": 12
+  },
+  {
+   "id": "meta-llama/Gated-Model",
+   "reasons": [
+    "org:meta-llama"
+   ],
+   "row": {},
+   "dl_rank": null
+  },
+  {
+   "id": "TheBloke/Sample-8B-Instruct-GGUF",
+   "reasons": [
+    "downloads"
+   ],
+   "row": {},
+   "dl_rank": null
+  },
+  {
+   "id": "tiny-org/Tiny-Card",
+   "reasons": [
+    "downloads"
+   ],
+   "row": {},
+   "dl_rank": null
+  },
+  {
+   "id": "ghost-org/No-Detail",
+   "reasons": [
+    "downloads"
+   ],
+   "row": {},
+   "dl_rank": null
+  }
+ ]
+}

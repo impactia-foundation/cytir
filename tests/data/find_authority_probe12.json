@@ -1,0 +1,342 @@
+{
+ "floor": 0.45,
+ "source": "prod /find_authority k=5, 2026-11-10 (probe 12)",
+ "queries": [
+  {
+   "q": "Obligationenrecht Schweiz",
+   "top5": [
+    {
+     "domain": "schulden-ag-so.ch",
+     "trust_tier": 0.85,
+     "disposition": "deep-index",
+     "similarity": 0.5207
+    },
+    {
+     "domain": "schuldenfragen.ch",
+     "trust_tier": 0.85,
+     "disposition": "deep-index",
+     "similarity": 0.5009
+    },
+    {
+     "domain": "swiss-pledge.ch",
+     "trust_tier": 0.85,
+     "disposition": "deep-index",
+     "similarity": 0.4992
+    },
+    {
+     "domain": "schulden.ch",
+     "trust_tier": 0.85,
+     "disposition": "deep-index",
+     "similarity": 0.4979
+    },
+    {
+     "domain": "prestations.vd.ch",
+     "trust_tier": 1.0,
+     "disposition": "consent-declined",
+     "similarity": 0.4855
+    }
+   ],
+   "expect_top1": "schulden-ag-so.ch",
+   "expect_top1_weak": false,
+   "expect_response_weak": false
+  },
+  {
+   "q": "Bundesgesetz Datenschutz DSG",
+   "top5": [
+    {
+     "domain": "gbssg.ch",
+     "trust_tier": 0.85,
+     "disposition": "deep-index",
+     "similarity": 0.369
+    },
+    {
+     "domain": "sbsag.ch",
+     "trust_tier": 0.85,
+     "disposition": "deep-index",
+     "similarity": 0.3374
+    },
+    {
+     "domain": "bsmg.ch",
+     "trust_tier": 0.85,
+     "disposition": "deep-index",
+     "similarity": 0.3282
+    },
+    {
+     "domain": "ldsg.ch",
+     "trust_tier": 0.85,
+     "disposition": "deep-index",
+     "similarity": 0.3176
+    },
+    {
+     "domain": "bfgs.ch",
+     "trust_tier": 0.85,
+     "disposition": "deep-index",
+     "similarity": 0.3058
+    }
+   ],
+   "expect_top1": "gbssg.ch",
+   "expect_top1_weak": true,
+   "expect_response_weak": true
+  },
+  {
+   "q": "Code civil suisse",
+   "top5": [
+    {
+     "domain": "rsn.ne.ch",
+     "trust_tier": 1.0,
+     "disposition": "consent-declined",
+     "similarity": 0.4881
+    },
+    {
+     "domain": "ch.ch",
+     "trust_tier": 0.9,
+     "disposition": "card",
+     "similarity": 0.4869
+    },
+    {
+     "domain": "swisslawyer.ch",
+     "trust_tier": 0.85,
+     "disposition": "deep-index",
+     "similarity": 0.4784
+    },
+    {
+     "domain": "prestations.vd.ch",
+     "trust_tier": 1.0,
+     "disposition": "consent-declined",
+     "similarity": 0.4729
+    },
+    {
+     "domain": "suisse-epolice.ch",
+     "trust_tier": 0.85,
+     "disposition": "deep-index",
+     "similarity": 0.4524
+    }
+   ],
+   "expect_top1": "rsn.ne.ch",
+   "expect_top1_weak": false,
+   "expect_response_weak": false
+  },
+  {
+   "q": "Codice penale svizzero",
+   "top5": [
+    {
+     "domain": "cybercrimepolice.ch",
+     "trust_tier": 0.85,
+     "disposition": "deep-index",
+     "similarity": 0.45
+    },
+    {
+     "domain": "rsn.ne.ch",
+     "trust_tier": 1.0,
+     "disposition": "consent-declined",
+     "similarity": 0.4465
+    },
+    {
+     "domain": "suisse-epolice.ch",
+     "trust_tier": 0.85,
+     "disposition": "deep-index",
+     "similarity": 0.4463
+    },
+    {
+     "domain": "ssp-law.ch",
+     "trust_tier": 0.85,
+     "disposition": "deep-index",
+     "similarity": 0.442
+    },
+    {
+     "domain": "prestations.vd.ch",
+     "trust_tier": 1.0,
+     "disposition": "consent-declined",
+     "similarity": 0.4332
+    }
+   ],
+   "expect_top1": "cybercrimepolice.ch",
+   "expect_top1_weak": false,
+   "expect_response_weak": false
+  },
+  {
+   "q": "Arbeitslosenquote Statistik Schweiz",
+   "top5": [
+    {
+     "domain": "bfs.admin.ch",
+     "trust_tier": 0.9,
+     "disposition": "deep-index",
+     "similarity": 0.502
+    },
+    {
+     "domain": "infostellearbeit.ch",
+     "trust_tier": 0.85,
+     "disposition": "deep-index",
+     "similarity": 0.4367
+    },
+    {
+     "domain": "arbeit.swiss",
+     "trust_tier": 0.85,
+     "disposition": "deep-index",
+     "similarity": 0.4353
+    },
+    {
+     "domain": "arbeitgeber.ch",
+     "trust_tier": 0.85,
+     "disposition": "deep-index",
+     "similarity": 0.4307
+    },
+    {
+     "domain": "stat.ch",
+     "trust_tier": 0.75,
+     "disposition": "consent-declined",
+     "similarity": 0.4167
+    }
+   ],
+   "expect_top1": "bfs.admin.ch",
+   "expect_top1_weak": false,
+   "expect_response_weak": false
+  },
+  {
+   "q": "statistique population suisse OFS",
+   "top5": [
+    {
+     "domain": "bfs.admin.ch",
+     "trust_tier": 0.9,
+     "disposition": "deep-index",
+     "similarity": 0.6436
+    },
+    {
+     "domain": "stat.ch",
+     "trust_tier": 0.75,
+     "disposition": "consent-declined",
+     "similarity": 0.5156
+    },
+    {
+     "domain": "ffs-schwyz.ch",
+     "trust_tier": 0.85,
+     "disposition": "deep-index",
+     "similarity": 0.4858
+    },
+    {
+     "domain": "ogfs.ch",
+     "trust_tier": 0.85,
+     "disposition": "deep-index",
+     "similarity": 0.4844
+    },
+    {
+     "domain": "sff.ch",
+     "trust_tier": 0.85,
+     "disposition": "deep-index",
+     "similarity": 0.4686
+    }
+   ],
+   "expect_top1": "bfs.admin.ch",
+   "expect_top1_weak": false,
+   "expect_response_weak": false
+  },
+  {
+   "q": "Kanton Zürich Steuern",
+   "top5": [
+    {
+     "domain": "swiss-tax.ch",
+     "trust_tier": 0.85,
+     "disposition": "deep-index",
+     "similarity": 0.4874
+    },
+    {
+     "domain": "steuern-nw.ch",
+     "trust_tier": 0.85,
+     "disposition": "deep-index",
+     "similarity": 0.4775
+    },
+    {
+     "domain": "steuerrevue.ch",
+     "trust_tier": 0.85,
+     "disposition": "deep-index",
+     "similarity": 0.4518
+    },
+    {
+     "domain": "steuern-easy.ch",
+     "trust_tier": 0.85,
+     "disposition": "deep-index",
+     "similarity": 0.4514
+    },
+    {
+     "domain": "stadt-zuerich.ch",
+     "trust_tier": 0.85,
+     "disposition": "deep-index",
+     "similarity": 0.4423
+    }
+   ],
+   "expect_top1": "swiss-tax.ch",
+   "expect_top1_weak": false,
+   "expect_response_weak": false
+  },
+  {
+   "q": "Consob società quotate",
+   "top5": [
+    {
+     "domain": "shab.ch",
+     "trust_tier": 0.45,
+     "disposition": "consent-declined",
+     "similarity": 0.3306
+    }
+   ],
+   "expect_top1": "shab.ch",
+   "expect_top1_weak": true,
+   "expect_response_weak": true
+  },
+  {
+   "q": "Bundesverfassung Artikel 8",
+   "top5": [
+    {
+     "domain": "a8-ow.ch",
+     "trust_tier": 0.85,
+     "disposition": "deep-index",
+     "similarity": 0.3441
+    }
+   ],
+   "expect_top1": "a8-ow.ch",
+   "expect_top1_weak": true,
+   "expect_response_weak": true
+  },
+  {
+   "q": "EU regulation GDPR text",
+   "top5": [
+    {
+     "domain": "op.europa.eu",
+     "trust_tier": 0.85,
+     "disposition": "consent-declined",
+     "similarity": 0.3499
+    }
+   ],
+   "expect_top1": "op.europa.eu",
+   "expect_top1_weak": true,
+   "expect_response_weak": true
+  },
+  {
+   "q": "Python requests library documentation",
+   "top5": [
+    {
+     "domain": "platform.openai.com",
+     "trust_tier": 0.7,
+     "disposition": "card",
+     "similarity": 0.303
+    }
+   ],
+   "expect_top1": "platform.openai.com",
+   "expect_top1_weak": true,
+   "expect_response_weak": true
+  },
+  {
+   "q": "Nestlé",
+   "top5": [
+    {
+     "domain": "nestle.ch",
+     "trust_tier": 0.75,
+     "disposition": "deep-index",
+     "similarity": 0.4777
+    }
+   ],
+   "expect_top1": "nestle.ch",
+   "expect_top1_weak": false,
+   "expect_response_weak": false
+  }
+ ]
+}

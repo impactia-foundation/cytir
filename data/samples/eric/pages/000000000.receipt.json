@@ -1,0 +1,37 @@
+{
+ "artifacts": {
+  "body": {
+   "bytes": 14444,
+   "sha256": "f1310f315fb5aa79245cf2323a17e1409d8f6f5a928979eef59455c8231b3835",
+   "uri": "artifact://pages/000000000.body.json"
+  },
+  "curl_metrics": {
+   "bytes": 663,
+   "sha256": "18e982e5c5ca81aff0c0e75f736fe8e6b24cff0e26aff978679a5ce4a96c37d5",
+   "uri": "artifact://pages/000000000.curl.json"
+  },
+  "response_headers": {
+   "bytes": 250,
+   "sha256": "6ca39bb3a46d3f8c11f596c94b1dd232c64b7310392e6a65651af8084ecc3f8e",
+   "uri": "artifact://pages/000000000.headers"
+  },
+  "transport_metadata": {
+   "bytes": 1584,
+   "sha256": "3b1ad7aed4c02ee4c3e36fa4a522489b7c9e530b25e26565438f7def2cb3e828",
+   "uri": "artifact://pages/000000000.metadata.json"
+  }
+ },
+ "document_ids": [
+  "ED659153",
+  "ED659156",
+  "ED659161",
+  "ED659172",
+  "ED659173"
+ ],
+ "fields": "id,title,author,source,publicationdateyear,description,subject,peerreviewed,abstractor,audience,authorxlink,e_datemodified,e_fulltextauth,e_yearadded,educationlevel,identifiersgeo,identifierslaw,identifierstest,iescited,iesfunded,iesgrantcontractnum,iesgrantcontractnumxlink,ieslinkpublication,ieslinkwwcreviewguide,ieswwcreviewed,institution,isbn,issn,language,publicationtype,publisher,sourceid,sponsor,url",
+ "num_found": 5,
+ "rows": 5,
+ "schema": "aw.eric-api-page-receipt.v1",
+ "search": "e_fulltextauth:1",
+ "start": 0
+}

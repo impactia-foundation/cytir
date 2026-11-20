@@ -1,0 +1,140 @@
+# CA federal commercial register — entity cards from Corporations Canada's
+# open bulk CSVs (ISED). Register-native (ADR-040); websites attach via
+# CC-join / slug-verify exactly as CH does, never via a search API.
+id: ca-corporations-canada
+name: "Corporations Canada federal register cards (Federal Corporations, ISED)"
+country: CA
+layer: commercial
+policy_section: "§4.9"
+adapter: dump
+acquisition_policy: aw-acquisition-v1
+outlink_policy: capture-and-receipt
+preservation_profiles: [entity_registry]
+provenance: authored
+tier: A
+trust_tier: 0.85
+density_tier: T1
+freshness: daily
+theme: []
+
+card_recipe:
+  name: adr060-cbca-dense-v1
+  ref_adr: ADR-060
+  dense: >
+    "{Corporate name - form 1} — {City/town}, {Province/territory}, Canada.
+    Federally incorporated under the {Governing legislation}; status {Status}."
+    Canada publishes NO purpose/objects field and NO industry code in the bulk,
+    so the dense channel is thinner than CH (Zweck) or FR (NAF). This is an
+    honest ceiling, not a build defect — see notes.
+  sparse: >
+    name + cleaned-name + domain token + corporation number + business number
+    (BN, formatted + bare digits), function-word stopword-filtered.
+
+license:
+  default: "OGL-Canada-2.0"
+  notes: >
+    Open Government Licence – Canada, asserted on the dataset record itself
+    (open.canada.ca CKAN `license_id: ca-ogl-lgo`, verified 2026-08-20).
+    Grant verbatim: "a worldwide, royalty-free, perpetual, non-exclusive licence
+    to use the Information, including for commercial purposes" with freedom to
+    "Copy, modify, publish, translate, adapt, distribute or otherwise use the
+    Information in any medium, mode or format for any lawful purpose."
+    Attribution-only, no share-alike. Required statement when no provider-specific
+    one is given: "Contains information licensed under the Open Government
+    Licence – Canada." ADR-039: per-record `license: OGL-Canada-2.0` in the
+    compact dump; owner/attribution (ISED) master-only.
+    CRITICAL CARVE-OUT — the licence expressly does not grant the right to use
+    "Personal Information". That is a field-level constraint, not a footnote:
+    see the consent notes and the address rule below.
+
+consent:
+  basis: official-no-copyright
+  notes: >
+    Official open bulk distribution under an explicit open licence — the ADR-076
+    admission basis, and here the canonical host cooperates too: ised-isde.canada.ca
+    serves a permissive robots.txt (per-bot crawl-delays, no blanket disallow,
+    verified 2026-08-20) and the bulk files are CDN-hosted with no bot defence.
+    Records carry consent_state=dump. train_ok follows the licence.
+
+status: planned
+
+admission:
+  channel: official-dump
+  evidence:
+    - "task 435 (2026-08-20): dataset located register-native via the open.canada.ca CKAN API — package 0032ce54-c5dd-4b66-99a0-320a7b5e99f2 'Federal Corporations' (ISED), license_id ca-ogl-lgo. Licence grant and the Personal Information exemption quoted verbatim from the canonical licence page."
+    - "task 435: volumes by HEAD on the CDN — active CBCA 102,591,814 B (97.8 MB), active non-CBCA 9,084,232 B, inactive CBCA 147,841,777 B, inactive non-CBCA 8,081,598 B. Cards need the two ACTIVE files only = 111,676,046 B (106.5 MB). Last-modified 2026-08-19, i.e. daily as the dataset notes state."
+    - "task 435: record count derived TWO independent ways without downloading the large files. A stratified estimator (55-60 strata x 128 KB) was calibrated against exact ground truth on the two small subsets (predicted 50,831 vs 50,828 actual; 42,314 vs 42,341 actual — bias <0.1%), then run separately over the EN and FR files, which are distinct objects with the same record set: 642,170 (EN) vs 641,626 (FR) active CBCA, diverging 0.015% across ~1.558M total records. ACTIVE FEDERAL = ~642,170 CBCA + 50,828 other = ~693,000."
+    - "task 435: field list read from a 3 KB ranged header fetch — 17 columns, no director names, no website, no industry code. Cross-verified through an independent channel: the per-corporation JSON API returned byte-identical identity for corporation 8660115 (MINDANGLER CAPITAL INC., BN 835752437, Ottawa ON)."
+    - "task 435: authoritative URL ised-isde.canada.ca/cc/lgcy/fdrlCrpDtls.html?corpId={n} verified HTTP 200 with the correct company in <title> on three corporations; server-rendered, no session token required. robots.txt read in full (108 lines) — no rule touches /cc/, and no crawl-delay applies to User-agent: *. Corporation number joins 1:1 from CSV column 1; note the page title hyphenates (866011-5) where the CSV does not (8660115)."
+    - "ADR-076: explicit open licence on an official bulk distribution = admission basis."
+  decision: escalated
+  policy: "POLICY.md@v3 §4.9"
+  date: "2026-08-20"
+  would_pass_today: true
+
+notes:
+  - >
+    Personal-data read — CA is the mildest of the four, and better than the
+    brief assumed. The open bulk contains NO director names: only "Minimum
+    number of directors" and "Maximum number of directors" as integers. The
+    Corporations Canada web UI and the per-corporation JSON API do expose
+    richer detail, but the OPEN BULK does not, and we build from the bulk.
+    So no people facet exists for CA and none is proposed.
+  - >
+    The one genuine personal-data exposure is the registered-office address:
+    Street/Street 2/City/Postal code. For a small corporation this is routinely
+    the director's home. OGL-Canada does not license Personal Information, so
+    the street address is DROPPED at ingest. We keep only City/town +
+    Province/territory + Country — enough to disambiguate two same-named
+    corporations, not enough to be a home address. This rule falls directly out
+    of the licence text; it is not discretionary.
+  - >
+    ADR-091 filter for CA: the federal register is a register of CORPORATIONS —
+    every row is a legal person by construction. There is no natural-person
+    class to exclude, which is why CA needs no equivalent of FR's
+    categorieJuridique == '1000' filter. Sole proprietorships are provincial
+    and are not in this dataset at all.
+  - >
+    Scope caveat the dataset states itself: it excludes corporations created
+    under financial legislation (banks, insurance, loan and trust companies).
+    Those need a separate source; do not read ~647k as "all Canadian companies".
+    It is also FEDERAL only — most Canadian companies incorporate provincially,
+    so this pack is a floor, not national coverage. Provincial registries
+    (Ontario, Quebec REQ, BC OrgBook, Alberta) are unassessed and are the
+    obvious next scout.
+  - >
+    Authoritative URL: the per-corporation record is addressable both as HTML
+    and as JSON (ic.gc.ca/app/scr/cc/CorporationsCanada/api/corporations/{id}.json),
+    the JSON verified live and anonymous. Deterministic construction from the
+    corporation number; no crawl needed at build time.
+  - >
+    DELIBERATE PRIVACY-PROTECTIVE CHOICE, not merely licence compliance. Nothing
+    technical stops AW fetching the per-corporation HTML page for anchor/title
+    text the way other lanes routinely do. We are choosing not to. The register
+    URL is a locator we NEVER fetch. Consequence under GDPR-by-conviction: a
+    subject-access request from a Canadian director is answerable "we hold
+    nothing about you" truthfully — not because Canada withheld it, but because
+    we declined to collect it. Recorded as a decision so it is visible, and so a
+    later lane does not silently reverse it for a small recall gain.
+  - >
+    BUILD FROM THE CSV ONLY — never crawl the per-corporation HTML page. The
+    bulk CSV and the JSON API both omit directors, but the HTML detail page
+    renders a director's name and full RESIDENTIAL street address plus an
+    Individual with Significant Control (name, residential address, share
+    percentage, control type). Fetching it for anchor or title text would pull
+    personal data into the index and cross OGL-Canada's Personal Information
+    exemption. Constructing the URL as a locator is safe; fetching it is not.
+    Canada offers directors no opt-out (only residential address vs address for
+    service), disclosure survives dissolution, and ISED states it "cannot remove
+    information from these sites" — so any takedown burden lands on AW.
+  - >
+    Provincial expansion is NOT available and should not be budgeted: Quebec REQ
+    publishes bulk but under CC BY-NC-SA 4.0 (NonCommercial AND ShareAlike —
+    disqualified twice over); BC OrgBook is licensed "Access Only" with
+    robots.txt disallowing both /entity/ and /api/; Ontario and Alberta publish
+    nothing (Alberta has no free public search at all). Canada's Business
+    Registries (CBR/MRAS) forbids automated access in its accepted terms.
+  - >
+    OPEN ITEM — no exact ground truth exists for the two large subsets (CKAN
+    reports no datastore backing; the search tool refuses an empty query).
+    Confirm by exact line count at acquisition before publishing any count.

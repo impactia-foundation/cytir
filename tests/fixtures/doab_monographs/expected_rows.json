@@ -1,0 +1,69 @@
+[
+ {
+  "url": "https://direct.mit.edu/books/book/2821/Democratizing-Innovation",
+  "anchor": null,
+  "title": "Democratizing Innovation",
+  "authors": [
+   "Hippel, Eric von"
+  ],
+  "subjects": [
+   "Entrepreneurship / Start-ups",
+   "Machine learning"
+  ],
+  "snippet": "Democratizing Innovation Hippel, Eric von Entrepreneurship / Start-ups; Machine learning",
+  "text": "Democratizing Innovation\nHippel, Eric von\nEntrepreneurship / Start-ups; Machine learning",
+  "dense_text": "Democratizing Innovation\nHippel, Eric von\nEntrepreneurship / Start-ups; Machine learning",
+  "sparse_text": "Democratizing Innovation Hippel, Eric von The MIT Press 20.500.12854/1",
+  "lang": "en",
+  "domain": "direct.mit.edu",
+  "tier": "B",
+  "source_type": "oa-monograph",
+  "trust_tier": 0.82,
+  "last_seen": "2026-10-01",
+  "content_digest": "168eefcd090a269b643e8bdf273effb8f5a884b5",
+  "license": "CC-BY-NC-ND-4.0",
+  "publisher": "The MIT Press",
+  "doab_id": "20.500.12854/1",
+  "_master": {
+   "attribution": "The MIT Press (open-access monograph; register: DOAB/OAPEN)",
+   "license_version": "4.0",
+   "doi": "10.7551/mitpress/2333.001.0001",
+   "doab_handle_uri": "https://directory.doabooks.org/handle/20.500.12854/1",
+   "doab_catalogue_license": "CC-BY-4.0"
+  }
+ },
+ {
+  "url": "https://direct.mit.edu/books/book/5590/Distributional-Reinforcement-Learning",
+  "anchor": null,
+  "title": "Distributional Reinforcement Learning",
+  "authors": [
+   "Bellemare, Marc G.",
+   "Dabney, Will"
+  ],
+  "subjects": [
+   "Entrepreneurship / Start-ups",
+   "Machine learning"
+  ],
+  "snippet": "Distributional Reinforcement Learning Bellemare, Marc G.; Dabney, Will Entrepreneurship / Start-ups; Machine learning",
+  "text": "Distributional Reinforcement Learning\nBellemare, Marc G.; Dabney, Will\nEntrepreneurship / Start-ups; Machine learning",
+  "dense_text": "Distributional Reinforcement Learning\nBellemare, Marc G.; Dabney, Will\nEntrepreneurship / Start-ups; Machine learning",
+  "sparse_text": "Distributional Reinforcement Learning Bellemare, Marc G.; Dabney, Will The MIT Press 20.500.12854/2",
+  "lang": "de",
+  "domain": "direct.mit.edu",
+  "tier": "B",
+  "source_type": "oa-monograph",
+  "trust_tier": 0.82,
+  "last_seen": "2026-10-01",
+  "content_digest": "27aeaf20af9dae05ab67f1665a4c714f0be72779",
+  "license": "CC-BY-NC-ND-4.0",
+  "publisher": "The MIT Press",
+  "doab_id": "20.500.12854/2",
+  "_master": {
+   "attribution": "The MIT Press (open-access monograph; register: DOAB/OAPEN)",
+   "license_version": "4.0",
+   "doi": "10.7551/mitpress/14207.001.0001",
+   "doab_handle_uri": "https://directory.doabooks.org/handle/20.500.12854/2",
+   "doab_catalogue_license": "CC-BY-4.0"
+  }
+ }
+]

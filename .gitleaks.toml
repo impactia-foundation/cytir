@@ -1,0 +1,33 @@
+# gitleaks config for the public cut (data/public-cut.v1.json). The CI "cut rehearsal" job
+# runs `gitleaks detect --no-git --config .gitleaks.toml` on the exported tree.
+title = "authoritative-web public cut"
+
+[extend]
+useDefault = true
+
+[allowlist]
+description = "tokenizer_revision (JSON key or shell variable) is a 40-hex git commit of a public Hugging Face tokenizer repo (a model pin), not a credential"
+regexTarget = "line"
+# probes/runs/ holds the daily probe's result snippets: text of public web pages that our own
+# search returned (e.g. "API UUID: ..." in a catalogue page). Not our credentials. The probe
+# auto-commits them to main, and a finding there failed the secret scan of every open PR
+# (2026-10-04 and 2026-10-05). The directory is not in the public cut.
+paths = [
+  '''(^|/)probes/runs/''',
+  # tasks/<N>-artifacts/ holds probe evidence the same way (results_sliceb.jsonl = result snippets of
+  # public web pages, e.g. a catalogue page's "API UUID: ..."), committed with the probe task doc.
+  # Not our credentials; tasks/ is not in the public cut. Found on #1488's secret scan, 2026-10-31.
+  '''(^|/)tasks/[0-9]+-artifacts/''',
+]
+regexes = [
+  '''tokenizer_revision"\s*:\s*"[0-9a-f]{40}"''',
+  '''TOKENIZER_REVISION="[0-9a-f]{40}"''',
+  '''TOKENIZER_REVISION\s*=\s*"[0-9a-f]{40}"''',
+  # gitleaks 8.30 reports the generic-api-key match as `TOKENIZER = "<40-hex>"` (keyword cut
+  # from TOKENIZER_REVISION), so the line regex above does not cover it. Same pin, task 1396.
+  '''TOKENIZER\w*\s*=\s*"[0-9a-f]{40}"''',
+  # A Swiss enterprise UID (CHE-nnn.nnn.nnn) is a PUBLIC register identifier (Zefix/UID register),
+  # not a credential; gitleaks' generic-api-key rule matched the docstring example in
+  # cytir/corpus/card_channels.py:uid_token once the module shipped in the cut (task 1885 / batch 2).
+  '''CHE-[0-9]{3}\.[0-9]{3}\.[0-9]{3}''',
+]

@@ -1,0 +1,13 @@
+{
+  "what": "four real, in-force DILA LEGI articles (LODA / TNC_en_vigueur branch) whose embed text is longer than 8000 characters: the shape task 633 staged through [:8000] (task 706)",
+  "licence": "Etalab-2.0 (DILA open data, Legifrance consolidated law)",
+  "natural_person_data": "none found: the head and tail of each article were read and the whole text was scanned for civility titles (M., Mme, Madame, Monsieur), e-mail addresses and phone numbers (0 hits). The articles are a council-composition list of functions, a standards list, a market-authority rulebook repeal list and a civil-service exam programme: roles and texts, no named individual",
+  "source_dump": "DILA LEGI global dump, extracted view `legi/global/code_et_TNC_en_vigueur` on the operator build box (the root the task-633 run read; the L1 release aw-task633-dila-loda-full-v1 was built from it)",
+  "copied": "2026-10-05, read-only copy from the build box; bytes unchanged",
+  "files": {
+    "TNC_en_vigueur/JORF/TEXT/00/00/24/09/57/JORFTEXT000024095757/article/LEGI/ARTI/00/00/49/86/49/LEGIARTI000049864993.xml": {"sha256": "ec266cca653f9737b74fc32c75fbaaf4dc4f1bfb0f4c103d188b3867346e2d66", "embed_chars": 55001, "why": "many paragraphs, several chunks"},
+    "TNC_en_vigueur/JORF/TEXT/00/00/00/21/18/JORFTEXT000000211852/article/LEGI/ARTI/00/00/39/23/36/LEGIARTI000039233648.xml": {"sha256": "3b90b1095aff40e21389e2c6201c1cbc774446a1aa6ee8641eea0e7bfa233f39", "embed_chars": 8502, "why": "barely over the bound, 65 short paragraphs: the smallest split"},
+    "TNC_en_vigueur/JORF/TEXT/00/00/00/56/76/JORFTEXT000000567673/article/LEGI/ARTI/00/00/06/68/00/LEGIARTI000006680074.xml": {"sha256": "1b2ddc7da52d2a1086955f721a9f4b08a67ae25d4c8f61de43e20f71fa3c8a23", "embed_chars": 14651, "why": "task 706 proof article 1"},
+    "TNC_en_vigueur/JORF/TEXT/00/00/00/60/65/JORFTEXT000000606599/article/LEGI/ARTI/00/00/22/73/26/LEGIARTI000022732629.xml": {"sha256": "1370665ce1457fd0e67c372e586f91977003ca6eea2186713587601edfa557b3", "embed_chars": 11903, "why": "ONE paragraph of 11,017 chars: a paragraph larger than one chunk is split on spaces"}
+  }
+}

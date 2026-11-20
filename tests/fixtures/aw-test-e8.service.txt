@@ -1,0 +1,33 @@
+[Unit]
+Description=AW test-serving CANDIDATE (aw_e8, candidate533 weights) on the build box
+Documentation=file:///srv/aw-serve/app/authoritative-web-app/587-test-serving.md
+After=docker.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/srv/aw-serve/app/authoritative-web-app
+# Same prod-env base as the twin unit, plus the candidate's dense-rescore
+# policy (256-dim rescore, 3x oversampling) and the candidate533 fusion
+# weights file, tracked at cytir/serve/fusion_weights.candidate533.json
+# in THIS checkout — matches the old orchestration box's historical port-8399 command (task 516)
+# byte-for-byte. A weights swap here is a file-path change to a tracked,
+# versioned artifact, never an edit to weights in place.
+ExecStart=/srv/aw-serve/venv/bin/python \
+    cytir/ops/prod_env_run.py \
+    --collection aw_e8 \
+    --qdrant-url http://localhost:6457 \
+    --mrl-dim 256 \
+    --tei-url http://localhost:8899 \
+    --extra AW_DENSE_RESCORE=1 \
+    --extra AW_DENSE_OVERSAMPLING=3.0 \
+    --extra AW_FUSION_WEIGHTS=/srv/aw-serve/app/authoritative-web-app/cytir/serve/fusion_weights.candidate533.json \
+    --extra AW_QDRANT_TIMEOUT=60 \
+    --extra AW_WEBAPP=/srv/aw-serve/app/authoritative-web-app/webapp/index.html \
+    -- /srv/aw-serve/venv/bin/python -m uvicorn cytir.serve.app:api --host 127.0.0.1 --port 8399
+Restart=always
+RestartSec=5
+User=root
+
+[Install]
+WantedBy=multi-user.target

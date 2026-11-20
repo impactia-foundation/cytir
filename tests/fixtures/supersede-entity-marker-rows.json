@@ -1,0 +1,120 @@
+[
+ {
+  "id": "3de105d5-6b9f-5bc1-8bb6-a3deefe556c5",
+  "payload": {
+   "url": "https://www.rsi.ch",
+   "title": "Radiotelevisione Svizzera",
+   "snippet": "Radiotelevisione Svizzera — Radio- und Fernsehsender in Lugano, Schweiz. Industry: business, radio network, organization. Headquarters/market: CH. Official website of Radiotelevisione Svizzera (rsi.",
+   "domain": "rsi.ch",
+   "source_type": "reference",
+   "entity_kind": "org",
+   "qid": "Q114794"
+  }
+ },
+ {
+  "id": "32e7ba21-a51f-5dd5-9903-2688f5af3438",
+  "payload": {
+   "url": "https://www.rsi.ch/",
+   "title": "Radiotelevisione Svizzera",
+   "snippet": "RSI - RSI Radiotelevisione svizzera. ## Cao Fei è ovunque, ed è giusto così L’artista sarà in mostra alla Fondazione Prada di Milano con il…",
+   "domain": "rsi.ch",
+   "source_type": "reference"
+  }
+ },
+ {
+  "id": "57996032-674d-5b7a-9a8b-5867d580536d",
+  "payload": {
+   "domain": "rts.ch",
+   "snippet": "#### Chaussures, casse-croûte, météo: nos conseils pour réussir un premier trail C'est une discipline à la mode qui intéresse de plus en plus d'adeptes en…",
+   "source_type": "reference",
+   "title": "Les archives de la RTS | RTS",
+   "url": "https://www.rts.ch/archives"
+  }
+ },
+ {
+  "id": "591247ea-aa12-5be8-b899-bafff54cefb3",
+  "payload": {
+   "url": "https://www.rts.ch/archives/",
+   "title": "Les archives de la RTS | RTS",
+   "snippet": "Archiv von Radio Suisse Romande — Radioarchiv in Lausanne im Kanton Waadt, Schweiz. Industry: radio archive, memory institution, Radioarchiv in Lausanne im Kanton Waadt, Schweiz.",
+   "domain": "rts.ch",
+   "source_type": "reference",
+   "entity_kind": "org",
+   "qid": "Q2860443"
+  }
+ },
+ {
+  "id": "d10b91a5-f538-5dec-ba9b-783369122a52",
+  "payload": {
+   "url": "https://www.rts.ch/archives/",
+   "title": "Les archives de la RTS",
+   "snippet": "Les archives de la RTS Byline: [not stated by publisher] Published: [not stated by publisher] Publisher: www.rts.ch Fetched: 2026-08-18T05:40:21Z Source: https://www.rts.",
+   "domain": "rts.ch",
+   "source_type": "reference"
+  }
+ },
+ {
+  "id": "301e57d0-7738-5e6f-83e0-76373854fcd9",
+  "payload": {
+   "domain": "srf.ch",
+   "snippet": "Gitarrensolos ohne Gitarre Luftgitarren-Weltmeister: «Wir fördern den Weltfrieden» In Finnland treten Menschen aus aller Welt gegeneinander an, um das Gitarrensolo ihres Lebens zu spielen.",
+   "source_type": "reference",
+   "title": "Radio SRF Virus - SRF",
+   "url": "https://www.srf.ch/radio-srf-virus"
+  }
+ },
+ {
+  "id": "a827f749-c3bb-5541-8a52-fbd3b0942916",
+  "payload": {
+   "url": "https://www.srf.ch/radio-srf-virus/",
+   "title": "Radio SRF Virus - SRF",
+   "snippet": "Radio SRF Virus - SRF Byline: [not stated by publisher] Published: [not stated by publisher] Publisher: www.srf.ch Fetched: 2026-08-18T05:47:26Z Source: https://www.srf.",
+   "domain": "srf.ch",
+   "source_type": "reference"
+  }
+ },
+ {
+  "id": "b8be0fde-c310-5ca1-9902-4054083c2fab",
+  "payload": {
+   "url": "https://www.srf.ch/radio-srf-virus/",
+   "title": "Radio SRF Virus",
+   "snippet": "Radio SRF Virus — Schweizer Hörfunksender. Industry: radio station, Schweizer Hörfunksender. Headquarters/market: CH. Official website of Radio SRF Virus (srf.",
+   "domain": "srf.ch",
+   "source_type": "reference",
+   "entity_kind": "org",
+   "qid": "Q1157784"
+  }
+ },
+ {
+  "id": "00cd1472-9c75-5fde-9f33-67e420b40789",
+  "payload": {
+   "domain": "srf.ch",
+   "snippet": "### Archivperlen aus den Gemeinden Im Laufe der Zeit gibt jeder Ort zu reden und wird Teil der Geschichte.",
+   "source_type": "reference",
+   "title": "Archiv - SRF",
+   "url": "https://www.srf.ch/sendungen/archiv"
+  }
+ },
+ {
+  "id": "64975cb7-c395-5a07-b978-ff528a3ae20f",
+  "payload": {
+   "url": "https://www.srf.ch/sendungen/archiv/",
+   "title": "Schweizer Radio und Fernsehen SRF, Dokumentation und Archiv",
+   "snippet": "Schweizer Radio und Fernsehen SRF, Dokumentation und Archiv — Radio- und Fernseharchiv in Zürich (Schweiz).",
+   "domain": "srf.ch",
+   "source_type": "reference",
+   "entity_kind": "org",
+   "qid": "Q27490292"
+  }
+ },
+ {
+  "id": "be4c23fe-7220-5dc4-97e2-4b69051f8202",
+  "payload": {
+   "url": "https://www.srf.ch/sendungen/archiv/",
+   "title": "Archiv - SRF",
+   "snippet": "Archiv - SRF Byline: [not stated by publisher] Published: [not stated by publisher] Publisher: www.srf.ch Fetched: 2026-08-18T05:56:44Z Source: https://www.srf.",
+   "domain": "srf.ch",
+   "source_type": "reference"
+  }
+ }
+]

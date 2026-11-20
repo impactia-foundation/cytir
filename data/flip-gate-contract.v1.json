@@ -1,0 +1,2417 @@
+{
+ "schema": "aw.flip-gate-contract.v1",
+ "why": [
+  "Tim, 2026-09-06, ruling OPTION 2: 'HOLD THE FLIP UNTIL NO REGRESSION vs prod",
+  "on the dense and sparse legs.' The regression-free flip contract is: no class",
+  "loses vs prod on any leg without a named, ruled reason.",
+  "",
+  "That rule needs a mechanism, because the record shows the full-stack number",
+  "alone hides the thing it is supposed to protect. Task 524 measured full-stack",
+  "build 276/629 h@1 against full-stack twin 276/629 -- identical -- while the",
+  "dense-only leg underneath was 141 against 189. Task 526/527 then found WHY on",
+  "two families: the rebuild had changed what text they embed, and BM25 carried",
+  "the query on the fused number. A gate that scores only the fusion cannot see a",
+  "leg that stopped working.",
+  "",
+  "Two instruments, because they have disagreed. Task 516 §7.2: 629 queries said",
+  "+3 golds and 1,418 said -36 on the same build. Whichever is right, a battery",
+  "that consults one of them is a coin flip.",
+  "",
+  "The bar is ADR-043's ranking/serving bar (per-gold zero-loss), not the",
+  "content bar: a flip changes the serving collection, the dense width, the",
+  "quantizer and the fusion weights at once."
+ ],
+ "ratified_by": "The battery: Tim's merge of PR #93 (task 529), 2026-09-06. Two entries in `regression_free.named_rulings`, each ratified by its own PR and nothing else in this file: FLIP-2026-09-16-aw_e8 (the 2026-09-16 ship ruling) by Tim's merge of the task-590 POLICY PR; FLIP-2026-09-23-aw_e9 by Tim's merge of the task-651 POLICY PR. `regression_free.strict_legs`, `component_arms` and `accepted_losses` (ADR-043 amendment A10): Ruling 31 (Tim 2026-10-12), by the task-873 POLICY PR.",
+ "instruments": {
+  "629": {
+   "label": "the chooser",
+   "file": "data/eval_tasks.v2.yaml",
+   "sha256": "46eefb6ccebc2321fa1defe7293ed1f8963768eb6292dd8680b9d978c42abe50",
+   "n": 629,
+   "arm_shape": "aw.arm-524",
+   "class_field": "by_type",
+   "classes": {
+    "civic": 54,
+    "coding": 63,
+    "entity": 25,
+    "legal": 232,
+    "reference": 105,
+    "research": 69,
+    "standards": 81
+   },
+   "note": "The set the fusion tuner tunes on. task 524 run_arm_524.py refuses if the file's sha256 moves; this contract re-checks it independently so an arm sealed against a moved instrument cannot be compared with one that was not.",
+   "pin_history": "v1 (data/eval_tasks.yaml, sha256 18f25a7f8e9316fde206640fac646f58cd7ee5c72109f4e9b8fa6d2d3c6b1296) -> v2 (data/eval_tasks.v2.yaml, sha256 46eefb6ccebc2321fa1defe7293ed1f8963768eb6292dd8680b9d978c42abe50) per task 542, bumping the pin PR #94/task531 left in place. The v2 digest pinned here is the file AFTER PR #104 (the /gg/Art_N.html gold repair, 7 golds); PR #104's pre-repair v2 digest was 399bed4f…6d35 (see data/CHANGELOG-eval-gold.md). PR #94 corrected 83 unreachable gold target_urls (43 gesetze-im-internet.de triple-underscore paths + 40 rfc-editor.org /info/rfcN paths) without touching query text, ids, or class counts; v1 stays byte-identical and tracked forever as the historical yardstick (verification-doctrine 2). Re-scored on the aw_e3 twin, full-stack: v1 276/629 h@1 (0.5039 MRR) vs v2 302/629 h@1 (0.5513 MRR), delta +26/+32/+38 at h@1/h@3/h@10 -- entirely the gesetze fix (rfc-editor corrections do not land live in aw_e3 yet). v1's own sealed 524-artifacts arms (this contract's pre-existing test fixtures) still carry the v1 digest and correctly fail this pin's integrity check now -- that FAIL is the pin doing its job (verification-doctrine 3: two arms scored against different query sets are not an A/B), not a defect; any future flip-gate battery must be re-run against v2 to produce v2-pinned arms."
+  },
+  "1418": {
+   "label": "the held-out authority gate",
+   "file": null,
+   "query_cache_sha256": "bd5e59e3abc4b2d324c0ee94079484b72ea6b676b345db8ead3d404902f1c417",
+   "n": 1418,
+   "n_note": "1,418 is the number of VECTORS in the pinned query cache, and it is the instrument's name in every ruling and every sealed arm, so it does not move. It was never the number of scored rows: the battery scores 1,396 rows since ADR-107 amendment 3 (1,420 before it), of which 1,065 carry golds (1,089 before it). The cache is a query->vector lookup table and the scorer iterates ROWS, so a removed row's vector is inert; it is left in the cache on purpose, because every surviving query then keeps the byte-identical vector it was scored with under gate-set v3. One cached query -- 'what does article 257 of the Swiss Code of Obligations say about rent' -- matches no row in any scored set and predates this amendment; task 602 found it, reported it, and did not remove it.",
+   "n_rows_scored": 1396,
+   "n_gold_bearing": 1065,
+   "gate_set_version": "v4",
+   "gate_set_version_source": "cytir/gates/authority.py#GATE_SET_VERSION",
+   "gate_set_version_source_modules": [
+    "cytir.gates.authority"
+   ],
+   "gate_set_version_why": "The cache digest pins the query VECTORS. It cannot see the row set, and the row set is what ADR-107 amendment 3 moved: an arm scored on the 1,396 rows and an arm scored on the 1,420 rows both carry cache digest bd5e59e3... and both report cache_miss = 0, so without this pin the instrument-integrity clause would accept the two as an A/B (verification-doctrine 3). Every leg json gate_authority.py writes stamps its GATE_SET_VERSION, every seal carries it, and `flip_gate._instrument_problems` refuses an arm whose stamp is not this value or is missing. Moving this pin is a PR, like every other pin in this file.",
+   "gate_set_version_pin_history": "v3 (tasks 531/542; the set every 584 / 591 / 594 arm was scored on) -> v4 (task 602, ADR-107 amendment 3: the 24 contaminated rows removed, 1,420 -> 1,396 rows). Arms sealed under v3 stay valid history under v3; they are refused as evidence for a flip judged under v4.",
+   "arm_shape": "aw.arm-519-seal",
+   "class_field": "sets",
+   "note": "Held out from tuning (task 519 §6.4: the levers were measured on it as a DIAGNOSTIC, never fitted to it). The instrument is the pinned query-vector cache, not a tracked file: it is 1,418 embedded vectors built once on GPU, and both legs read it so the A/B delta is the lever and not embedding noise. Pinned here by its sha256, which every arm seal carries.",
+   "tripwire_sets_without_golds": [
+    "general_flood",
+    "zero_signal",
+    "vocab_robustness",
+    "entity_cards"
+   ],
+   "contamination": {
+    "finding": "24 of the 199 entries in `data/refresh_manifest.json` carry an `eval_id`, and all 24 name a real query in THIS held-out set -- every one `intent=freshness`, in the `authoritative` sub-set. Task 106 wrote them 'one per failing freshness query', maintained 'content currency by editing the manifest's text', and recorded at the time that switching to real fetched HTML made the score WORSE ('naive raw-HTML re-extraction dilutes the curated passage text and regressed freshness dom@10 1.00 -> 0.97, hit@1 0.79 -> 0.72'). That is teaching-to-the-test: measured, preferred, and documented at the time. Tasks 107b and 148 wrote the other 175 entries under a stated no-eval-file firewall, so their overlap with the gold set is empirical, not targeted -- the two must not be flattened into one story. 24/24 match the query's `gold_domains`; 5/24 also match `gold_urls` exactly; 0 of the 24 are in the 629 v2 chooser.",
+    "cite": "frozen:task-586:manifest-authored-rows-rootcause §C.4; frozen:task-586:eval-contamination.v1",
+    "eval_ids": [
+     "ai-docs-006",
+     "ai-docs-007",
+     "ai-docs-008",
+     "ai-model-005",
+     "ai-model-006",
+     "ca-gov-003",
+     "ca-stats-001",
+     "ca-stats-003",
+     "ch-news-002",
+     "ch-stats-002",
+     "ch-stats-004",
+     "de-gov-004",
+     "de-gov-005",
+     "de-gov-006",
+     "de-health-002",
+     "de-law-008",
+     "de-stats-004",
+     "fr-gov-005",
+     "fr-gov-006",
+     "fr-health-002",
+     "fr-stats-002",
+     "fr-stats-003",
+     "fr-stats-004",
+     "sw-docs-016"
+    ],
+    "eval_ids_source": "tasks/586-artifacts/eval-contamination.v1.json `eval_id_rows`, sorted. pipeline/test_flip_gate.py re-derives this list from that artifact, so neither side can be edited alone.",
+    "gold_file": "data/eval_authoritative.yaml (the `authoritative` sub-set)",
+    "disposition": "REMOVED",
+    "ruled_by": "Tim",
+    "ruled_on": "2026-09-17",
+    "ruled_via": "chat \"2. remove\"",
+    "ratified_by": "Tim's merge of the ADR-107 amendment 3 PR (task 602). Merging it ratifies this removal and nothing else; until it is merged this file is on a branch and no flip can read it.",
+    "removed_in": "ADR-107 amendment 3, task 602: data/eval_authoritative.yaml 478 -> 454 rows, gate-set v3 -> v4, tasks/602-remove-contaminated-queries.md.",
+    "not_covered": "data/refresh_manifest.json. The 199 authored entries -- the 24 that name these eval ids included -- are task 586's finding and ADR-106's territory (authored text in the corpus). Removing a query from the yardstick does not remove a row from the index, and this amendment does not rule on the rows.",
+    "disposition_note": "RULED AND EXECUTED 2026-09-17. The 24 queries have left data/eval_authoritative.yaml. The timing this item recommended when it was opened was honoured: the contamination flattered the INCUMBENT -- production carried all 370 authored rows and aw_e8 carries 0 -- so the queries stayed in for the flip battery, which held the candidate to the harder bar, and they leave after it. Consequence, stated rather than worked around: every arm sealed under gate-set v3 (tasks 584, 591, 594 and data/flip-gate-verdict.v1.json) was scored on the contaminated set. Those seals remain valid history under the version they name; this gate refuses them as evidence for a flip judged under v4, because two arms scored on two row sets are not an A/B. The next battery is re-run on the 1,396-row set, against the same pinned query cache, and re-sealed."
+   },
+   "tripwire_note": "These sets carry n_gold = 0, so h@1/h@10 are 0 on every arm by construction and the regression rule has nothing to compare. They are excluded from it BY NAME rather than by a `mrr is null` heuristic — a rule that silently skips whatever it cannot parse is how a class stops being checked."
+  }
+ },
+ "legs": {
+  "full-stack": {
+   "why": "what a user gets",
+   "weights": "the ratified fusion weights for the side being scored",
+   "candidate_weights_source": "cytir/core/serving_config.py#FLIP_FUSION_WEIGHTS_FILE / FLIP_FUSION_WEIGHTS_SHA256 -- the ONE home for which fusion weights the flip ships with (task 552). A pointer, not a copied sha256, for the same reason `latency.source` below points at deploy/aw-monitor.env instead of duplicating a number: a second copy is exactly the fork that went stale (candidate519 pinned here while task 538's gate arms measured candidate533). pipeline/flip_gate.py's assert_sealed_pass reads this constant directly and refuses a sealed verdict whose candidate full-stack arm served a different sha256.",
+   "candidate_weights_source_modules": [
+    "cytir.core.serving_config"
+   ]
+  },
+  "dense-only": {
+   "why": "the leg the rebuild was supposed to improve. Task 524: 141/629 build vs 189/629 twin on h@1, invisible in the fused number.",
+   "weights": "dense-only weights, floor/head flags off, dense policy otherwise identical to the side being scored (tasks/524-artifacts/fusion_weights.dense_only.json)"
+  },
+  "sparse-only": {
+   "why": "the leg that was CARRYING the fused number while dense regressed. Never scored in isolation before this contract; that is why the representation regression survived a green full-stack gate.",
+   "weights": "sparse-only weights, dense weight zero (data/gates/fusion_weights.sparse_only.v1.json): the mirror of the dense-only file -- dense 0.0, bm25 1.0, every other key equal to it; the floor/head flags off EXCEPT AW_BM25_PER_TOKEN (part of the BM25 leg itself), sparse policy otherwise identical to the side being scored",
+   "weights_file": "data/gates/fusion_weights.sparse_only.v1.json",
+   "weights_sha256_source": "cytir/gates/leg_definition.py#SPARSE_ONLY_WEIGHTS_SHA256 -- the one home of the file's sha256 (a pointer, not a copy: task 552)",
+   "weights_sha256_source_modules": [
+    "cytir.gates.leg_definition"
+   ],
+   "flags": "cytir.gates.leg_definition.SPARSE_ONLY_OFF (= FLOOR_HEAD_OFF without SPARSE_LEG_FLAGS)",
+   "k": 10,
+   "defined_by": "task 863 POLICY PR (sparse-only arm definition); before it the contract named no file and no flags and cytir.gates.leg_definition refused the leg (task 865)"
+  }
+ },
+ "sides": {
+  "incumbent": "the collection production serves today, or its exact twin",
+  "candidate": "the collection the flip would serve"
+ },
+ "required_arms": [
+  {
+   "instrument": "629",
+   "leg": "full-stack",
+   "side": "incumbent"
+  },
+  {
+   "instrument": "629",
+   "leg": "full-stack",
+   "side": "candidate"
+  },
+  {
+   "instrument": "629",
+   "leg": "dense-only",
+   "side": "incumbent"
+  },
+  {
+   "instrument": "629",
+   "leg": "dense-only",
+   "side": "candidate"
+  },
+  {
+   "instrument": "629",
+   "leg": "sparse-only",
+   "side": "incumbent"
+  },
+  {
+   "instrument": "629",
+   "leg": "sparse-only",
+   "side": "candidate"
+  },
+  {
+   "instrument": "1418",
+   "leg": "full-stack",
+   "side": "incumbent"
+  },
+  {
+   "instrument": "1418",
+   "leg": "full-stack",
+   "side": "candidate"
+  },
+  {
+   "instrument": "1418",
+   "leg": "dense-only",
+   "side": "incumbent"
+  },
+  {
+   "instrument": "1418",
+   "leg": "dense-only",
+   "side": "candidate"
+  },
+  {
+   "instrument": "1418",
+   "leg": "sparse-only",
+   "side": "incumbent"
+  },
+  {
+   "instrument": "1418",
+   "leg": "sparse-only",
+   "side": "candidate"
+  }
+ ],
+ "required_arms_note": "Twelve. As of task 529 the record holds four of them (task 524 ran full-stack and dense-only on the 629 for both sides) and none of the sparse-only arms. That is the point: the battery is stated in full so the missing arms are a visible refusal rather than a question nobody asked.",
+ "regression_free": {
+  "rule": "For every leg, every instrument and every class with golds, the candidate's h@1, h@10 and MRR must be >= the incumbent's. A single class losing on a single leg refuses the flip unless a named ruling covers exactly that (leg, instrument, class, metric). Amended by Ruling 31 (Tim 2026-10-12), ADR-043 A10: this rule binds the legs in `strict_legs`; the component legs are read by `component_arms` (informational), and an `accepted_losses` entry can cover a strict cell.",
+  "metrics": [
+   "hit1",
+   "hitk",
+   "mrr"
+  ],
+  "tolerance": 0.0,
+  "tolerance_why": "ADR-043's ranking/serving bar is per-gold zero-loss: there, one regressed gold is a real defect. A flip is the largest ranking change this system makes, so it meets the strict bar, not the content bar's net-non-negative one.",
+  "mrr_epsilon": 0.0005,
+  "mrr_epsilon_why": "MRR is reported rounded to 4 decimals in every sealed arm, so a difference smaller than half of the last published digit is a rounding artifact, not a measurement. Counts have no such epsilon.",
+  "strict_legs": [
+   "full-stack"
+  ],
+  "strict_legs_why": "Ruling 31 (Tim 2026-10-12, plan.md T21 option (c)): the FULL STACK is what a user gets and stays under the strict bar above, per class, tolerance 0. The component legs (dense-only, sparse-only) are read by `component_arms` instead. A contract without this key is the contract before ruling 31 (every leg strict), and the gate reads it that way.",
+  "component_arms": {
+   "legs": [
+    "dense-only",
+    "sparse-only"
+   ],
+   "bar": "informational",
+   "ruled_by": "Ruling 31 (Tim 2026-10-12)",
+   "ruled_via": "chat 2026-10-12 15:50Z, 'OK, you can do everything as recommended' -- executes plan.md T21's recommendation: '(c) for the component arms'",
+   "adr": "ADR-043 amendment A10",
+   "why": "Task 863 measured two NULL pairs on 1.9M-row component arms -- a rebuild null (the same rows built twice) and an id null (the same rows under other ids, i.e. another HNSW graph). Each moves one gold, or one reciprocal rank, in single classes: rebuild null ch-stats-010 (held-out full-stack authoritative h@10 -1) and ho-fr-009 (held-out sparse-only freshness h@10 -1); id null en14 rank 1 -> 2 (629 entity and held-out dom_entity, h@1 -1 / MRR -1.0, full-stack and dense-only). A zero-tolerance bar applied to a component arm on its own therefore flags the instrument, not the change. The component arms stay REQUIRED (`required_arms`) and keep every integrity clause (`arm_integrity`); they lose only the power to refuse.",
+   "rule": "A component cell (instrument x component leg x class x metric) whose candidate is below the incumbent is FLAGGED only when it is worse than BOTH null pairs' cells of the same instrument x leg x class by more than the nulls' own spread: flagged <=> d < min(0, d_null_a, d_null_b) - spread - eps. Units are GOLD UNITS: h@1 and h@10 as gold counts, MRR as the reciprocal-rank SUM (the class's mean MRR x its gold count). `spread` = the largest |d| either null pair shows in ANY class of the same instrument x leg x metric (which class a null's noisy gold lands in is chance). `eps` = mrr_epsilon x the class's gold count for MRR, 0 for counts. The 0 inside the min makes the reading one-sided, as ADR-043 A3 rule 4: a null that GAINED is noise, not a raised bar.",
+   "flag_means": "Informational. A flag refuses nothing: every losing component cell, flagged or not, is printed and sealed in the verdict's `component_readings` with its nulls, spread and bar, and the flagged cells are named in the report to Tim. A flagged cell is a ranking item (e.g. ADR-043 A1's eviction by volume), never a waiver.",
+   "null_pairs": "Two null pairs per component instrument x leg, supplied to the gate as pairs of sealed arms of that instrument x leg (`--null-pair NAME:KIND:INSTRUMENT:LEG=A,B`; the gate computes B - A itself). Each arm of a pair meets the instrument clauses of a battery arm (pinned digest, gate-set version, n_errors = 0); a pair that does not is reported in `null_pair_notes` and not used. A cell with fewer than two usable null readings is FLAGGED with that reason: an unread cell is reported, never silently passed.",
+   "null_pair_kinds": [
+    "rebuild",
+    "id",
+    "reread"
+   ],
+   "null_pair_kinds_why": "Closed list (ADR-043 A3 rule 6). rebuild = the same rows built twice by the same code (task 863 e1null); id = the same rows under another id set, i.e. another HNSW graph (task 863 e1idnull); reread = one physical state read twice in the same hours (spec specs/aw-e10-rebuild.md section 5 (c): each side of the flip battery is read twice). A new way of producing a null is an ADR change.",
+   "worked_example": {
+    "source": "task 863 component arms (its `arms/cmp-*.json` artifacts): arm e863_e1e2 (E2, German compound parts) against control e863_e1, null pairs e863_e1null (rebuild) and e863_e1idnull (id). Instruments there are the 629 chooser and cytir.gates.authority.SETS live-embedded (NOT this contract's pinned 1418 cache): the numbers illustrate the rule, they are not a flip-gate battery.",
+    "spreads": "629/sparse-only: h@1 1 (both nulls: reference +1), h@10 0, MRR 0.5; held-out/sparse-only: h@1 1, h@10 1 (rebuild null: freshness ho-fr-009 -1), MRR 0.5; 629/dense-only and held-out/dense-only: h@1 1, h@10 1, MRR 1.0 (id null: en14 1 -> 2).",
+    "flagged_e2": [
+     "629 sparse-only legal h@1 -2 (nulls 0 / 0, bar -1): de14 1 -> 4, de17 1 -> 2, de18 2 -> 4, court decisions above the BGB",
+     "629 sparse-only legal MRR -1.50 (nulls -0.01 / 0, bar -0.51)",
+     "held-out sparse-only authoritative h@1 -3, h@10 -3 (nulls 0 / 0, bar -1), MRR -2.29 (bar -0.53): de-law-001 BGB 622 rank 1 -> out, 8 of 10 slots de.openlegaldata.io",
+     "held-out sparse-only jurisdiction MRR -1.00 (nulls -0.01 / -0.01, bar -0.51)"
+    ],
+    "inside_the_null_band": [
+     "E2 held-out sparse-only jurisdiction h@1 -1 and h@10 -1 (nulls 0 / 0, spread 1, bar -1): inside -- the same size as the nulls' own one-gold moves",
+     "E3 held-out dense-only authoritative h@1 -1, MRR -0.50 (bb-028 1 -> 2; nulls 0 / 0, spread 1, bar -1): inside -- the id null itself moved en14 1 -> 2 on this leg",
+     "every E3 and payload-arm sparse-only cell (largest: freshness h@10 -1, the rebuild null's own ho-fr-009)"
+    ],
+    "count": "E2: 6 of its 8 losing component cells flagged. E3: 0 of 7. Payload: 0 of 3."
+   }
+  },
+  "accepted_losses_rule": "A strict cell that loses is COVERED when every accepted loss naming it (same instrument, leg, class, and the candidate collection when the entry names one) applies, and the class's loss with those golds' own rank changes removed clears the strict bar (>= 0 for counts, >= -mrr_epsilon x gold count for the MRR sum). An entry applies only when both arms carry per-gold ranks for the class (run_arm rows, or the held-out leg json pinned by the seal's leg_sha256) and the gold ranks no lower on the candidate than `shown.candidate_rank`: a re-run where it falls further is a fresh refusal. A covered cell is printed and sealed with its raw numbers in `regressions` and `accepted`, and `measured_verdict` stays FAIL. An entry is Tim's, by ruling, by PR (memory: gate-waivers-escalate-to-tim); a builder or gate-runner never adds one.",
+  "accepted_losses": [
+   {
+    "gold": "de-law-017",
+    "query": "Wie ist Betrug im Strafgesetzbuch definiert?",
+    "instrument": "1418",
+    "leg": "full-stack",
+    "class": "authoritative",
+    "ruling": "Ruling 31 (Tim 2026-10-12)",
+    "ruled_via": "chat 2026-10-12 15:50Z, 'OK, you can do everything as recommended' -- plan.md T21: '(a) for the full-stack authoritative -1'",
+    "candidate_collection": "aw_e10",
+    "shown": {
+     "incumbent_rank": 1,
+     "candidate_rank": 2,
+     "measured_on": "task 863 arms e863_e1 -> e863_e1e2, held-out full-stack; both null pairs keep it at rank 1"
+    },
+    "what": "German StGB 263 (gesetze-im-internet.de/stgb/__263.html) falls from rank 1 to 2 behind Swiss StGB Art. 146 (fedlex) when E2 gives German compound parts to the families written without them (BM25 leg: the de.wikipedia.org article 'Strafgesetzbuch' enters at rank 1 and StGB 263 drops 1 -> 2; the dense leg already ranks Art. 146 first). The query names no jurisdiction: 'Strafgesetzbuch' is the criminal code of Germany, Switzerland and Austria.",
+    "why_accepted": "E2 is correctness (rows must carry their parts; ruling 27 T1); the displacement is by another jurisdiction's equally authoritative statute, and it is a ranking item, not a reason to keep a known defect (T21 option (b) not recommended).",
+    "cite": "decisions.md#adr-043-amendment-a10",
+    "evidence": "task 873 (T21) doc; task 863 section 4.2; review 870 section 1 item 3e"
+   },
+   {
+    "gold": "ci29",
+    "query": "permis de construire vaud demande autorisation construire",
+    "instrument": "629",
+    "leg": "full-stack",
+    "class": "civic",
+    "ruling": "Ruling 35 (Tim 2026-10-15)",
+    "ruled_via": "chat 2026-10-15 ≈ 16:35Z, 'Accept the 9 full-stack losses, dense flag stands' -- plan.md T29 (a)",
+    "candidate_collection": "aw_e10",
+    "shown": {
+     "incumbent_rank": 1,
+     "candidate_rank": 2,
+     "measured_on": "task 926/941 arms prod-r1 (aw_e9, state C 61,728,699) vs cand-r1 (aw_e10), one prod reading per leg (ruling 32)"
+    },
+    "what": "Gold ci29 (https://www.vd.ch/territoire-et-construction/permis-de-construire) ranks 1 on the incumbent and 2 on the candidate. Ahead of it on the candidate: https://www.vd.ch/territoire-et-construction/permis-de-construire/permis-de-construire-questionnaires-particuliers.",
+    "why_accepted": "ADR-043 net-non-negative: aw_e10 full-stack net +90.7 gold units (36 win / 21 tie / 9 lose, task 926 doc 'Both sides, every cell'); one gold's one-position-or-more move in one cell; no class loses in both instruments except civic/dom_civic (same class, two instruments).",
+    "cite": "decisions.md#aw-e10-flip-gate-9-full-stack-losses-r35",
+    "evidence": "task 946 doc; task 926 artifacts verdict-r1"
+   },
+   {
+    "gold": "wk07",
+    "query": "lake geneva lac leman facts",
+    "instrument": "629",
+    "leg": "full-stack",
+    "class": "reference",
+    "ruling": "Ruling 35 (Tim 2026-10-15)",
+    "ruled_via": "chat 2026-10-15 ≈ 16:35Z, 'Accept the 9 full-stack losses, dense flag stands' -- plan.md T29 (a)",
+    "candidate_collection": "aw_e10",
+    "shown": {
+     "incumbent_rank": 1,
+     "candidate_rank": 3,
+     "measured_on": "task 926/941 arms prod-r1 (aw_e9, state C 61,728,699) vs cand-r1 (aw_e10), one prod reading per leg (ruling 32)"
+    },
+    "what": "Gold wk07 (https://en.wikipedia.org/wiki/Lake_Geneva) ranks 1 on the incumbent and 3 on the candidate. Ahead of it on the candidate: https://www.lausanneuniversityhospital.com/health-valley; https://www.aboutswitzerland.eda.admin.ch/en/lakes-and-rivers.",
+    "why_accepted": "ADR-043 net-non-negative: aw_e10 full-stack net +90.7 gold units (36 win / 21 tie / 9 lose, task 926 doc 'Both sides, every cell'); one gold's one-position-or-more move in one cell; no class loses in both instruments except civic/dom_civic (same class, two instruments).",
+    "cite": "decisions.md#aw-e10-flip-gate-9-full-stack-losses-r35",
+    "evidence": "task 946 doc; task 926 artifacts verdict-r1"
+   },
+   {
+    "gold": "wk57",
+    "query": "vaccino immunità tipi wikipedia",
+    "instrument": "629",
+    "leg": "full-stack",
+    "class": "reference",
+    "ruling": "Ruling 35 (Tim 2026-10-15)",
+    "ruled_via": "chat 2026-10-15 ≈ 16:35Z, 'Accept the 9 full-stack losses, dense flag stands' -- plan.md T29 (a)",
+    "candidate_collection": "aw_e10",
+    "shown": {
+     "incumbent_rank": 1,
+     "candidate_rank": 2,
+     "measured_on": "task 926/941 arms prod-r1 (aw_e9, state C 61,728,699) vs cand-r1 (aw_e10), one prod reading per leg (ruling 32)"
+    },
+    "what": "Gold wk57 (https://it.wikipedia.org/wiki/Vaccino) ranks 1 on the incumbent and 2 on the candidate. Ahead of it on the candidate: https://www.swissmedic.ch/swissmedic/it/home/chi-siamo/pubblicazioni/video/different-types-of-vaccine.html.",
+    "why_accepted": "ADR-043 net-non-negative: aw_e10 full-stack net +90.7 gold units (36 win / 21 tie / 9 lose, task 926 doc 'Both sides, every cell'); one gold's one-position-or-more move in one cell; no class loses in both instruments except civic/dom_civic (same class, two instruments).",
+    "cite": "decisions.md#aw-e10-flip-gate-9-full-stack-losses-r35",
+    "evidence": "task 946 doc; task 926 artifacts verdict-r1"
+   },
+   {
+    "gold": "gx19",
+    "query": "general relativity Einstein spacetime curvature gravity",
+    "instrument": "629",
+    "leg": "full-stack",
+    "class": "reference",
+    "ruling": "Ruling 35 (Tim 2026-10-15)",
+    "ruled_via": "chat 2026-10-15 ≈ 16:35Z, 'Accept the 9 full-stack losses, dense flag stands' -- plan.md T29 (a)",
+    "candidate_collection": "aw_e10",
+    "shown": {
+     "incumbent_rank": 1,
+     "candidate_rank": 5,
+     "measured_on": "task 926/941 arms prod-r1 (aw_e9, state C 61,728,699) vs cand-r1 (aw_e10), one prod reading per leg (ruling 32)"
+    },
+    "what": "Gold gx19 (https://en.wikipedia.org/wiki/General_relativity) ranks 1 on the incumbent and 5 on the candidate. Ahead of it on the candidate: https://ligo.org/science-summaries; https://openalex.org/W3161937596; https://en.wikipedia.org/wiki/Introduction_to_general_relativity; https://openalex.org/W3168282556.",
+    "why_accepted": "ADR-043 net-non-negative: aw_e10 full-stack net +90.7 gold units (36 win / 21 tie / 9 lose, task 926 doc 'Both sides, every cell'); one gold's one-position-or-more move in one cell; no class loses in both instruments except civic/dom_civic (same class, two instruments).",
+    "cite": "decisions.md#aw-e10-flip-gate-9-full-stack-losses-r35",
+    "evidence": "task 946 doc; task 926 artifacts verdict-r1"
+   },
+   {
+    "gold": "ci29",
+    "query": "permis de construire vaud demande autorisation construire",
+    "instrument": "1418",
+    "leg": "full-stack",
+    "class": "dom_civic",
+    "ruling": "Ruling 35 (Tim 2026-10-15)",
+    "ruled_via": "chat 2026-10-15 ≈ 16:35Z, 'Accept the 9 full-stack losses, dense flag stands' -- plan.md T29 (a)",
+    "candidate_collection": "aw_e10",
+    "shown": {
+     "incumbent_rank": 1,
+     "candidate_rank": 2,
+     "measured_on": "task 926/941 arms prod-r1 (aw_e9, state C 61,728,699) vs cand-r1 (aw_e10), one prod reading per leg (ruling 32)"
+    },
+    "what": "Gold dom_civic|ci29 (https://www.vd.ch/territoire-et-construction/permis-de-construire) ranks 1 on the incumbent and 2 on the candidate. Ahead of it on the candidate: https://www.vd.ch/territoire-et-construction/permis-de-construire/permis-de-construire-questionnaires-particuliers.",
+    "why_accepted": "ADR-043 net-non-negative: aw_e10 full-stack net +90.7 gold units (36 win / 21 tie / 9 lose, task 926 doc 'Both sides, every cell'); one gold's one-position-or-more move in one cell; no class loses in both instruments except civic/dom_civic (same class, two instruments).",
+    "cite": "decisions.md#aw-e10-flip-gate-9-full-stack-losses-r35",
+    "evidence": "task 946 doc; task 926 artifacts verdict-r1"
+   },
+   {
+    "gold": "n01",
+    "query": "Tim O'Hear",
+    "instrument": "1418",
+    "leg": "full-stack",
+    "class": "names",
+    "ruling": "Ruling 35 (Tim 2026-10-15)",
+    "ruled_via": "chat 2026-10-15 ≈ 16:35Z, 'Accept the 9 full-stack losses, dense flag stands' -- plan.md T29 (a)",
+    "candidate_collection": "aw_e10",
+    "shown": {
+     "incumbent_rank": 1,
+     "candidate_rank": 2,
+     "measured_on": "task 926/941 arms prod-r1 (aw_e9, state C 61,728,699) vs cand-r1 (aw_e10), one prod reading per leg (ruling 32)"
+    },
+    "what": "Gold names|n01 (https://impactia.org/conseil-de-fondation/) ranks 1 on the incumbent and 2 on the candidate. Ahead of it on the candidate: https://fr.wikipedia.org/wiki/Anthony_O'Hear.",
+    "why_accepted": "ADR-043 net-non-negative: aw_e10 full-stack net +90.7 gold units (36 win / 21 tie / 9 lose, task 926 doc 'Both sides, every cell'); one gold's one-position-or-more move in one cell; no class loses in both instruments except civic/dom_civic (same class, two instruments).",
+    "cite": "decisions.md#aw-e10-flip-gate-9-full-stack-losses-r35",
+    "evidence": "task 946 doc; task 926 artifacts verdict-r1"
+   },
+   {
+    "gold": "le25",
+    "query": "lp art 93 saisie salaire minimum vital insaisissable poursuite suisse",
+    "instrument": "1418",
+    "leg": "full-stack",
+    "class": "dom_legal",
+    "ruling": "Ruling 35 (Tim 2026-10-15)",
+    "ruled_via": "chat 2026-10-15 ≈ 16:35Z, 'Accept the 9 full-stack losses, dense flag stands' -- plan.md T29 (a)",
+    "candidate_collection": "aw_e10",
+    "shown": {
+     "incumbent_rank": 2,
+     "candidate_rank": 5,
+     "measured_on": "task 926/941 arms prod-r1 (aw_e9, state C 61,728,699) vs cand-r1 (aw_e10), one prod reading per leg (ruling 32)"
+    },
+    "what": "Gold dom_legal|le25 (https://www.fedlex.admin.ch/eli/cc/11/529_488_529/fr#art_93) ranks 2 on the incumbent and 5 on the candidate. Ahead of it on the candidate: https://search.bger.ch/ext/eurospider/live/de/php/clir/http/index.php?highlight_docid=atf%3A%2F%2F81-III-96%3Ade&lang=de&type=show_document; https://search.bger.ch/ext/eurospider/live/de/php/clir/http/index.php?highlight_docid=atf%3A%2F%2F117-III-26%3Ade&lang=de&type=show_document; https://justice.ge.ch/apps/decis/fr/dcso/show/3467933?doc=; https://justice.ge.ch/apps/decis/fr/dcso/show/3467934?doc=.",
+    "why_accepted": "ADR-043 net-non-negative: aw_e10 full-stack net +90.7 gold units (36 win / 21 tie / 9 lose, task 926 doc 'Both sides, every cell'); one gold's one-position-or-more move in one cell; no class loses in both instruments except civic/dom_civic (same class, two instruments).",
+    "cite": "decisions.md#aw-e10-flip-gate-9-full-stack-losses-r35",
+    "evidence": "task 946 doc; task 926 artifacts verdict-r1"
+   },
+   {
+    "gold": "le32",
+    "query": "ltva art 25 taux tva taxe sur la valeur ajoutée taux normal suisse",
+    "instrument": "1418",
+    "leg": "full-stack",
+    "class": "dom_legal",
+    "ruling": "Ruling 35 (Tim 2026-10-15)",
+    "ruled_via": "chat 2026-10-15 ≈ 16:35Z, 'Accept the 9 full-stack losses, dense flag stands' -- plan.md T29 (a)",
+    "candidate_collection": "aw_e10",
+    "shown": {
+     "incumbent_rank": 7,
+     "candidate_rank": 8,
+     "measured_on": "task 926/941 arms prod-r1 (aw_e9, state C 61,728,699) vs cand-r1 (aw_e10), one prod reading per leg (ruling 32)"
+    },
+    "what": "Gold dom_legal|le32 (https://www.fedlex.admin.ch/eli/cc/2009/615/fr#art_25) ranks 7 on the incumbent and 8 on the candidate. Ahead of it on the candidate: https://www.kmu.admin.ch/fr/taxe-sur-la-valeur-ajoutee-tva-a-limportation; https://www.estv.admin.ch/fr/taxe-sur-la-valeur-ajoutee; https://www.estv.admin.ch/fr/taux-de-la-tva-suisse; https://www.estv.admin.ch/fr/evolution-des-taux-de-tva-en-suisse; https://www.kmu.admin.ch/fr/taxe-sur-la-valeur-ajoutee-tva-fonctionnement; https://www.estv.admin.ch/fr/statistiques-sur-la-taxe-sur-la-valeur-ajoutee; https://www.admin.ch/fr/nsb?id=102139.",
+    "why_accepted": "ADR-043 net-non-negative: aw_e10 full-stack net +90.7 gold units (36 win / 21 tie / 9 lose, task 926 doc 'Both sides, every cell'); one gold's one-position-or-more move in one cell; no class loses in both instruments except civic/dom_civic (same class, two instruments).",
+    "cite": "decisions.md#aw-e10-flip-gate-9-full-stack-losses-r35",
+    "evidence": "task 946 doc; task 926 artifacts verdict-r1"
+   },
+   {
+    "gold": "gx46",
+    "query": "T5 text-to-text transfer learning transformer",
+    "instrument": "629",
+    "leg": "full-stack",
+    "class": "research",
+    "ruling": "Ruling 35 (Tim 2026-10-15)",
+    "ruled_via": "chat 2026-10-15 ~16:35Z, 'Accept the 9 full-stack losses, dense flag stands' -- plan.md T29 (a)",
+    "candidate_collection": "aw_e10",
+    "shown": {
+     "incumbent_rank": 6,
+     "candidate_rank": null,
+     "candidate_outside_top_k": true,
+     "measured_on": "task 926/941 arms prod-r1 (aw_e9, state C 61,728,699) vs cand-r1 (aw_e10), one prod reading per leg (ruling 32)"
+    },
+    "what": "Gold research|gx46 (T5 paper, https://openalex.org/W2981852735) ranks 6 on the incumbent and falls outside the top 10 on the candidate (task 946 doc, row gx46). The gate takes an integer candidate rank only, so this entry carries rank null with candidate_outside_top_k true (task 947 form).",
+    "why_accepted": "ADR-043 net-non-negative: aw_e10 full-stack net +90.7 gold units (task 926 doc 'Both sides, every cell'); one gold moves out of the top k in one cell; the 629 research hitk count moves 47 -> 46.",
+    "cite": "decisions.md#aw-e10-flip-gate-9-full-stack-losses-r35",
+    "evidence": "task 946 doc; task 947 doc; task 926 artifacts verdict-r1"
+   }
+  ],
+  "named_rulings": [
+   {
+    "id": "FLIP-2026-09-16-aw_e8",
+    "ruling": "SHIP aw_e8. Tim accepts, as measured, the held-out 1,418-query losses this battery reports -- full-stack h@1 429 -> 403 (-26) and sparse-only h@1 239 -> 218 (-21) overall, and the 87 per-class (leg, instrument, class, metric) cells enumerated in `overrides` -- against the 629-query chooser's +33 full-stack / +49 dense-only / +53 sparse-only and the held-out dense leg's +16. The rebuild's stated goals are met: the dense leg is up on both instruments, the sparse leg is up on the chooser, and latency is at parity inside prod's own deadline. The flip is the decision; the remaining held-out gap is work, and it is named below as post-flip obligations. [ADR-107 amendment 2, task 592, PENDING Tim's merge: the battery was re-run and sealed on 2026-09-16 (task 591) and this ruling is RE-BOUND to the 82 per-class cells that run measured, which are the `overrides` below. The 87 cells of the 584 seal stay derivable from tasks/584-artifacts/flip-gate-verdict.v1.json; what moved between the two, and what the re-bind narrows, is in `rebound`. Tim's sentence above is left exactly as he ruled it -- the '87' in it is the number he was shown, not a description of this file.]",
+    "ruled_by": "Tim",
+    "ruled_on": "2026-09-16",
+    "ruled_via": "chat, 'Then I think we can kick off the prod switch'",
+    "ratified_by": "Tim's merge of PR #162, 2026-09-16 (ADR-107). This entry's `pending_evidence` was landed by the task-590 evidence PR after task 586 reported.",
+    "cite": "frozen:task-590:flip-ruling-and-deploy",
+    "candidate_collection": "aw_e8",
+    "accepted_totals": [
+     {
+      "instrument": "1418",
+      "leg": "full-stack",
+      "metric": "hit1",
+      "incumbent": 429,
+      "candidate": 403,
+      "delta": -26
+     },
+     {
+      "instrument": "1418",
+      "leg": "sparse-only",
+      "metric": "hit1",
+      "incumbent": 239,
+      "candidate": 218,
+      "delta": -21
+     }
+    ],
+    "accepted_totals_remeasured": "Task 591 re-ran the same comparison: held-out full-stack h@1 424 -> 402 and sparse-only 235 -> 215, against the chooser's 304 -> 341 / 223 -> 271 / 130 -> 180. Both ends moved; the direction did not. These are recorded next to the accepted totals rather than replacing them, because what Tim accepted was the first pair (tasks/591-flip-battery-seal.md).",
+    "accepted_totals_note": "The two overall numbers Tim ruled on, as reported in plan.md's post-584 table. They are NOT gate cells -- the gate scores per class, and the 87 `overrides` below are what it actually refuses on. They are recorded here because they are what the ruling was about, and a reader who only sees 87 small per-class deltas would not know what number the founder accepted.",
+    "gained": [
+     {
+      "instrument": "629",
+      "leg": "full-stack",
+      "metric": "hit1",
+      "incumbent": 306,
+      "candidate": 339,
+      "delta": 33
+     },
+     {
+      "instrument": "629",
+      "leg": "dense-only",
+      "metric": "hit1",
+      "incumbent": 222,
+      "candidate": 271,
+      "delta": 49
+     },
+     {
+      "instrument": "629",
+      "leg": "sparse-only",
+      "metric": "hit1",
+      "incumbent": 134,
+      "candidate": 187,
+      "delta": 53
+     },
+     {
+      "instrument": "1418",
+      "leg": "dense-only",
+      "metric": "hit1",
+      "incumbent": 323,
+      "candidate": 339,
+      "delta": 16
+     }
+    ],
+    "evidence": [
+     "tasks/584-text-restore-measured.md -- the battery this ruling is granted over; `tasks/584-artifacts/flip-gate-verdict.v1.json` is the sealed verdict the 87 `overrides` below are read out of (tasks/590-scripts/build_named_ruling_590.py, asserted by pipeline/test_flip_gate.py so the two cannot drift).",
+     "tasks/583-what-prod-does-differently.md -- the held-out -26 decomposed per gold: 76 gross losers, 0 residual. DENSE 20 (the gold page's own embedding ranks worse on the candidate; real, not MRL width) / RAW-ROW 15 (prod's 389 unsaturated BM25 rows, i.e. prod's own defect) / COMP-NEW 11 (rank-1 page absent from prod) / TRUST 10 / COVER 7 / BM25 4 / REFCANON 3 / SURF 3 / other 3.",
+     "tasks/577-resaturation-executed.md -- capping prod's 389 unsaturated rows costs prod 56 golds, so the RAW-ROW 15 are prod scoring on a defect, not the candidate losing ground. The twin re-saturation was executed and restored.",
+     "tasks/578-authority-signal.md -- no authority lever exists to recover the gap, and the 629 chooser holds 1 of the 106 addressable golds, so no re-tune of the shipped weights can see this population. That is why the fusion work is a post-flip lane on a NEW slice, not a pre-flip fix.",
+     "Tim's five hand checks on the candidate (plan.md, 2026-09-12): BGB 433 MISS -> 1, L110-2 1 -> 1, Art. 336 CO 2 -> 2, StPO 5 -> 2, Marc Maret 15 -> 24. Legal 3/3 held.",
+     "Latency: candidate full-stack p95 inside prod's own deadline (deploy/aw-monitor.env#AW_MONITOR_MAX_SMOKE_LATENCY), measured on NVMe -- the gate's own latency clause passes on this battery.",
+     "tasks/586-manifest-authored-rows-rootcause.md (PR #163, merged 2026-09-16) -- the restated battery: read-only, 18 arms in one window on heimdall, 1,089 gold-bearing queries, pre-registered as E586-1 BEFORE the arm script existed. See `restated_battery` below for the numbers and for the two instrument defects it found."
+    ],
+    "known_unresolved": {
+     "summary": "What is KNOWN about the -26 as of 2026-09-16, stated so the ruling is not read later as 'the losses were understood and harmless'. They are measured, decomposed, and 15 + 29 of them are traced to one population whose disposition is still open.",
+     "authored_rows": "ANSWERED by task 586 (2026-09-16). The population is 370 rows of hand-authored prose written on 2026-07-08 (tasks 106/107b/148) and then carried forward by the aw_b1 rebuild, which replayed the freshness lane's text as content. Three lanes read the manifest and not one of them can replace an entry's text with the page's, so `last_seen` was refreshed and the prose never was. Production scores 37 held-out golds off them; aw_e8 scores 0 and holds 0. 7 of 9 claims checked against the live page today are false. The guard now lives in pipeline/authored_text_guard.py on all three write paths (PR #163).",
+     "leg_to_fusion": "Both legs improved on the chooser and the held-out fused rank-1 did not move (403 before and after task 584). The leg-to-fusion gap is the last unexplained piece of the held-out number and has no mechanism yet (verification-doctrine 10: it is UNEXPLAINED, not narrated).",
+     "instrument_reproducibility": "OPENED by task 586. The twin side of the held-out instrument does not reproduce its own sealed numbers (see `restated_battery.instrument_defects_found`). That is a defect in the yardstick, not in either collection, and it bounds how thin a per-class cell can be before it is noise. It does not change this ruling's direction -- every arm 586 ran moves in the candidate's favour -- but it is why the flip-day battery must be freshly run and sealed.",
+     "coverage_not_ranking": "OPENED by task 586. 100 of the 199 manifest URLs have NO row in aw_e8 at all, and 98 of those 100 are UNEXPLAINED by any gate or receipt (tasks/586-artifacts/e8-absentees.v1.json; the likeliest cause is a family that never landed). That is genuine missing coverage, distinct from the authored-prose class, and it is a post-flip lane rather than a flip blocker -- what production holds at those URLs is the wrong answer key, not the pages.",
+     "cross_side_gold_urls": "Task 583 compared DIFFERENT gold URLs across the two sides on 31 of the 76 gross losers, so its per-gold decomposition is a weaker instrument than its table suggests. Task 586's arms do not depend on it."
+    },
+    "pending_evidence": [
+     {
+      "id": "task-586-authored-rows",
+      "task": "586",
+      "status": "landed",
+      "requires": "Task 586 restates this battery with the hand-authored `data/refresh_manifest.json` rows removed from BOTH sides and reports the counterfactual held-out deltas. Its result is appended to this ruling's `evidence` -- by PR, like every other change to this file -- BEFORE the alias moves. `flip_gate.assert_sealed_pass` refuses the flip while this entry is unmet, so the battery can be sealed today and the alias still cannot move on an unanswered question.",
+      "cite": "frozen:task-586:manifest-authored-rows-rootcause",
+      "landed_on": "2026-09-16",
+      "result": "SUPPORTS the ruling, and changes what the loss IS. The held-out gap is not a corpus regression: production stands on 370 rows of hand-authored prose that aw_e8 does not carry (aw_e8 holds 0 of them). Remove them from the twin and nothing from aw_e8 and all three legs go positive. The rows are 7-of-9 factually wrong against the live pages today and 118 of the 199 bodies carry an already-expired dated claim, so this is a defect production should not keep, not ground the candidate must recover."
+     }
+    ],
+    "post_flip_obligations": [
+     "ADR-105 re-fetch campaign as the FIRST post-flip delta (Tim, 2026-09-16: the re-fetch of the ADR-105 population happens after the flip; e8 may ship carrying the chained pages). Sized work list: `data/unpersisted-legacy-register.v1.json`.",
+     "The fusion lane, on a NEW general-authority chooser slice built from fresh queries -- task 578 showed the current 629 cannot see the losing population, so a re-tune on it would be tuning against a mirror.",
+     "The three zero-test modules (`test_consent_unclear.py`, `test_postfilter_liveness.py`, `test_reachability.py`), tracked `failing` in `data/test-suite-roster.v2.jsonl` since task 585.",
+     "Re-fetch and index the 100 manifest URLs absent from aw_e8 from their own text under ADR-105 -- 98 of the 100 have no gate that explains their absence (tasks/586-artifacts/e8-absentees.v1.json). This is the coverage the candidate should gain back; the authored rows are not.",
+     "Investigate the held-out instrument's non-reproducibility on the twin side (424 against the sealed 429; sparse-only -14/-18) before the next battery is used to rule anything. A yardstick that moves is not a yardstick (verification-doctrine 2).",
+     "Remove the 24 contaminated queries from the held-out instrument -- see `instruments.1418.contamination`. Deferred to after the flip battery is sealed, deliberately: the contamination flatters the INCUMBENT, so removing it before the flip would move the bar in the candidate's favour at the moment the candidate is being judged."
+    ],
+    "overrides_source": "tasks/592-scripts/build_named_ruling_592.py, derived from data/flip-gate-verdict.v1.json -- the battery task 591 re-ran and sealed. It replaced tasks/590-scripts/build_named_ruling_590.py and the 87 cells that script derived from tasks/584-artifacts/flip-gate-verdict.v1.json; both seals are still in the repo and `--as-ruled` prints the original 87. Not hand-typed either time: pipeline/test_flip_gate.py re-derives this list from the sealed verdict and fails if either side is edited.",
+    "overrides_bound": "Each entry carries the incumbent/candidate pair it was ruled over. `flip_gate.evaluate` covers the cell only while the measured candidate-minus-incumbent delta is no worse than the ruled one; a re-run that loses MORE on a covered cell is refused and goes back to Tim. This is what makes the entry a ruling on a measurement rather than a standing waiver on 82 cells -- and it is what happened: it refused on 2026-09-16 (task 591), which is why `rebound` below exists.",
+    "overrides": [
+     {
+      "instrument": "1418",
+      "leg": "dense-only",
+      "class": "authoritative",
+      "metric": "hit1",
+      "incumbent": 149,
+      "candidate": 145
+     },
+     {
+      "instrument": "1418",
+      "leg": "dense-only",
+      "class": "authoritative",
+      "metric": "hitk",
+      "incumbent": 269,
+      "candidate": 268
+     },
+     {
+      "instrument": "1418",
+      "leg": "dense-only",
+      "class": "authoritative",
+      "metric": "mrr",
+      "incumbent": 0.3935,
+      "candidate": 0.3855
+     },
+     {
+      "instrument": "1418",
+      "leg": "dense-only",
+      "class": "commercial",
+      "metric": "hitk",
+      "incumbent": 1,
+      "candidate": 0
+     },
+     {
+      "instrument": "1418",
+      "leg": "dense-only",
+      "class": "commercial",
+      "metric": "mrr",
+      "incumbent": 0.0333,
+      "candidate": 0.0
+     },
+     {
+      "instrument": "1418",
+      "leg": "dense-only",
+      "class": "dom_civic",
+      "metric": "hit1",
+      "incumbent": 3,
+      "candidate": 2
+     },
+     {
+      "instrument": "1418",
+      "leg": "dense-only",
+      "class": "dom_civic",
+      "metric": "hitk",
+      "incumbent": 4,
+      "candidate": 2
+     },
+     {
+      "instrument": "1418",
+      "leg": "dense-only",
+      "class": "dom_civic",
+      "metric": "mrr",
+      "incumbent": 0.0741,
+      "candidate": 0.0444
+     },
+     {
+      "instrument": "1418",
+      "leg": "dense-only",
+      "class": "foundation",
+      "metric": "hitk",
+      "incumbent": 74,
+      "candidate": 67
+     },
+     {
+      "instrument": "1418",
+      "leg": "dense-only",
+      "class": "freshness",
+      "metric": "hit1",
+      "incumbent": 35,
+      "candidate": 27
+     },
+     {
+      "instrument": "1418",
+      "leg": "dense-only",
+      "class": "freshness",
+      "metric": "hitk",
+      "incumbent": 48,
+      "candidate": 43
+     },
+     {
+      "instrument": "1418",
+      "leg": "dense-only",
+      "class": "freshness",
+      "metric": "mrr",
+      "incumbent": 0.6678,
+      "candidate": 0.5474
+     },
+     {
+      "instrument": "1418",
+      "leg": "dense-only",
+      "class": "names",
+      "metric": "hit1",
+      "incumbent": 2,
+      "candidate": 1
+     },
+     {
+      "instrument": "1418",
+      "leg": "dense-only",
+      "class": "names",
+      "metric": "mrr",
+      "incumbent": 0.2857,
+      "candidate": 0.25
+     },
+     {
+      "instrument": "1418",
+      "leg": "dense-only",
+      "class": "rel_vs_trust",
+      "metric": "hit1",
+      "incumbent": 2,
+      "candidate": 1
+     },
+     {
+      "instrument": "1418",
+      "leg": "dense-only",
+      "class": "rel_vs_trust",
+      "metric": "hitk",
+      "incumbent": 14,
+      "candidate": 10
+     },
+     {
+      "instrument": "1418",
+      "leg": "dense-only",
+      "class": "rel_vs_trust",
+      "metric": "mrr",
+      "incumbent": 0.1523,
+      "candidate": 0.1183
+     },
+     {
+      "instrument": "1418",
+      "leg": "dense-only",
+      "class": "slice_b",
+      "metric": "hitk",
+      "incumbent": 18,
+      "candidate": 17
+     },
+     {
+      "instrument": "1418",
+      "leg": "full-stack",
+      "class": "authoritative",
+      "metric": "hit1",
+      "incumbent": 184,
+      "candidate": 174
+     },
+     {
+      "instrument": "1418",
+      "leg": "full-stack",
+      "class": "authoritative",
+      "metric": "mrr",
+      "incumbent": 0.4545,
+      "candidate": 0.4462
+     },
+     {
+      "instrument": "1418",
+      "leg": "full-stack",
+      "class": "commercial",
+      "metric": "hit1",
+      "incumbent": 1,
+      "candidate": 0
+     },
+     {
+      "instrument": "1418",
+      "leg": "full-stack",
+      "class": "commercial",
+      "metric": "hitk",
+      "incumbent": 1,
+      "candidate": 0
+     },
+     {
+      "instrument": "1418",
+      "leg": "full-stack",
+      "class": "commercial",
+      "metric": "mrr",
+      "incumbent": 0.1667,
+      "candidate": 0.0
+     },
+     {
+      "instrument": "1418",
+      "leg": "full-stack",
+      "class": "dom_civic",
+      "metric": "hit1",
+      "incumbent": 3,
+      "candidate": 0
+     },
+     {
+      "instrument": "1418",
+      "leg": "full-stack",
+      "class": "dom_civic",
+      "metric": "hitk",
+      "incumbent": 3,
+      "candidate": 2
+     },
+     {
+      "instrument": "1418",
+      "leg": "full-stack",
+      "class": "dom_civic",
+      "metric": "mrr",
+      "incumbent": 0.0667,
+      "candidate": 0.0185
+     },
+     {
+      "instrument": "1418",
+      "leg": "full-stack",
+      "class": "dom_reference",
+      "metric": "hit1",
+      "incumbent": 21,
+      "candidate": 20
+     },
+     {
+      "instrument": "1418",
+      "leg": "full-stack",
+      "class": "entity_card_golds",
+      "metric": "hit1",
+      "incumbent": 6,
+      "candidate": 5
+     },
+     {
+      "instrument": "1418",
+      "leg": "full-stack",
+      "class": "entity_card_golds",
+      "metric": "hitk",
+      "incumbent": 10,
+      "candidate": 8
+     },
+     {
+      "instrument": "1418",
+      "leg": "full-stack",
+      "class": "entity_card_golds",
+      "metric": "mrr",
+      "incumbent": 0.4635,
+      "candidate": 0.3485
+     },
+     {
+      "instrument": "1418",
+      "leg": "full-stack",
+      "class": "foundation",
+      "metric": "hit1",
+      "incumbent": 50,
+      "candidate": 49
+     },
+     {
+      "instrument": "1418",
+      "leg": "full-stack",
+      "class": "foundation",
+      "metric": "hitk",
+      "incumbent": 78,
+      "candidate": 77
+     },
+     {
+      "instrument": "1418",
+      "leg": "full-stack",
+      "class": "freshness",
+      "metric": "hit1",
+      "incumbent": 41,
+      "candidate": 30
+     },
+     {
+      "instrument": "1418",
+      "leg": "full-stack",
+      "class": "freshness",
+      "metric": "hitk",
+      "incumbent": 48,
+      "candidate": 44
+     },
+     {
+      "instrument": "1418",
+      "leg": "full-stack",
+      "class": "freshness",
+      "metric": "mrr",
+      "incumbent": 0.7389,
+      "candidate": 0.5895
+     },
+     {
+      "instrument": "1418",
+      "leg": "full-stack",
+      "class": "jurisdiction",
+      "metric": "mrr",
+      "incumbent": 0.7726,
+      "candidate": 0.7645
+     },
+     {
+      "instrument": "1418",
+      "leg": "full-stack",
+      "class": "names",
+      "metric": "hit1",
+      "incumbent": 5,
+      "candidate": 4
+     },
+     {
+      "instrument": "1418",
+      "leg": "full-stack",
+      "class": "names",
+      "metric": "mrr",
+      "incumbent": 0.7619,
+      "candidate": 0.7143
+     },
+     {
+      "instrument": "1418",
+      "leg": "full-stack",
+      "class": "rel_vs_trust",
+      "metric": "hit1",
+      "incumbent": 8,
+      "candidate": 6
+     },
+     {
+      "instrument": "1418",
+      "leg": "full-stack",
+      "class": "rel_vs_trust",
+      "metric": "hitk",
+      "incumbent": 23,
+      "candidate": 15
+     },
+     {
+      "instrument": "1418",
+      "leg": "full-stack",
+      "class": "rel_vs_trust",
+      "metric": "mrr",
+      "incumbent": 0.4122,
+      "candidate": 0.2801
+     },
+     {
+      "instrument": "1418",
+      "leg": "full-stack",
+      "class": "slice_b",
+      "metric": "mrr",
+      "incumbent": 0.7167,
+      "candidate": 0.6988
+     },
+     {
+      "instrument": "1418",
+      "leg": "sparse-only",
+      "class": "authoritative",
+      "metric": "hit1",
+      "incumbent": 98,
+      "candidate": 93
+     },
+     {
+      "instrument": "1418",
+      "leg": "sparse-only",
+      "class": "authoritative",
+      "metric": "mrr",
+      "incumbent": 0.2728,
+      "candidate": 0.2643
+     },
+     {
+      "instrument": "1418",
+      "leg": "sparse-only",
+      "class": "dom_civic",
+      "metric": "hit1",
+      "incumbent": 2,
+      "candidate": 0
+     },
+     {
+      "instrument": "1418",
+      "leg": "sparse-only",
+      "class": "dom_civic",
+      "metric": "hitk",
+      "incumbent": 3,
+      "candidate": 0
+     },
+     {
+      "instrument": "1418",
+      "leg": "sparse-only",
+      "class": "dom_civic",
+      "metric": "mrr",
+      "incumbent": 0.0472,
+      "candidate": 0.0
+     },
+     {
+      "instrument": "1418",
+      "leg": "sparse-only",
+      "class": "dom_coding",
+      "metric": "hitk",
+      "incumbent": 12,
+      "candidate": 10
+     },
+     {
+      "instrument": "1418",
+      "leg": "sparse-only",
+      "class": "dom_coding",
+      "metric": "mrr",
+      "incumbent": 0.0951,
+      "candidate": 0.0761
+     },
+     {
+      "instrument": "1418",
+      "leg": "sparse-only",
+      "class": "dom_entity",
+      "metric": "hit1",
+      "incumbent": 7,
+      "candidate": 6
+     },
+     {
+      "instrument": "1418",
+      "leg": "sparse-only",
+      "class": "dom_entity",
+      "metric": "hitk",
+      "incumbent": 19,
+      "candidate": 17
+     },
+     {
+      "instrument": "1418",
+      "leg": "sparse-only",
+      "class": "dom_entity",
+      "metric": "mrr",
+      "incumbent": 0.4271,
+      "candidate": 0.3792
+     },
+     {
+      "instrument": "1418",
+      "leg": "sparse-only",
+      "class": "entity_card_golds",
+      "metric": "hit1",
+      "incumbent": 3,
+      "candidate": 0
+     },
+     {
+      "instrument": "1418",
+      "leg": "sparse-only",
+      "class": "entity_card_golds",
+      "metric": "hitk",
+      "incumbent": 7,
+      "candidate": 0
+     },
+     {
+      "instrument": "1418",
+      "leg": "sparse-only",
+      "class": "entity_card_golds",
+      "metric": "mrr",
+      "incumbent": 0.3125,
+      "candidate": 0.0
+     },
+     {
+      "instrument": "1418",
+      "leg": "sparse-only",
+      "class": "freshness",
+      "metric": "hit1",
+      "incumbent": 34,
+      "candidate": 17
+     },
+     {
+      "instrument": "1418",
+      "leg": "sparse-only",
+      "class": "freshness",
+      "metric": "hitk",
+      "incumbent": 47,
+      "candidate": 42
+     },
+     {
+      "instrument": "1418",
+      "leg": "sparse-only",
+      "class": "freshness",
+      "metric": "mrr",
+      "incumbent": 0.6418,
+      "candidate": 0.4222
+     },
+     {
+      "instrument": "1418",
+      "leg": "sparse-only",
+      "class": "jurisdiction",
+      "metric": "mrr",
+      "incumbent": 0.664,
+      "candidate": 0.6514
+     },
+     {
+      "instrument": "1418",
+      "leg": "sparse-only",
+      "class": "names",
+      "metric": "hitk",
+      "incumbent": 5,
+      "candidate": 3
+     },
+     {
+      "instrument": "1418",
+      "leg": "sparse-only",
+      "class": "names",
+      "metric": "mrr",
+      "incumbent": 0.3214,
+      "candidate": 0.2619
+     },
+     {
+      "instrument": "1418",
+      "leg": "sparse-only",
+      "class": "rel_vs_trust",
+      "metric": "hit1",
+      "incumbent": 4,
+      "candidate": 1
+     },
+     {
+      "instrument": "1418",
+      "leg": "sparse-only",
+      "class": "rel_vs_trust",
+      "metric": "hitk",
+      "incumbent": 17,
+      "candidate": 11
+     },
+     {
+      "instrument": "1418",
+      "leg": "sparse-only",
+      "class": "rel_vs_trust",
+      "metric": "mrr",
+      "incumbent": 0.2961,
+      "candidate": 0.1195
+     },
+     {
+      "instrument": "1418",
+      "leg": "sparse-only",
+      "class": "slice_b",
+      "metric": "hit1",
+      "incumbent": 9,
+      "candidate": 6
+     },
+     {
+      "instrument": "1418",
+      "leg": "sparse-only",
+      "class": "slice_b",
+      "metric": "hitk",
+      "incumbent": 14,
+      "candidate": 10
+     },
+     {
+      "instrument": "1418",
+      "leg": "sparse-only",
+      "class": "slice_b",
+      "metric": "mrr",
+      "incumbent": 0.5333,
+      "candidate": 0.3655
+     },
+     {
+      "instrument": "629",
+      "leg": "dense-only",
+      "class": "civic",
+      "metric": "hitk",
+      "incumbent": 5,
+      "candidate": 3
+     },
+     {
+      "instrument": "629",
+      "leg": "dense-only",
+      "class": "civic",
+      "metric": "mrr",
+      "incumbent": 0.0679,
+      "candidate": 0.0556
+     },
+     {
+      "instrument": "629",
+      "leg": "dense-only",
+      "class": "coding",
+      "metric": "hit1",
+      "incumbent": 16,
+      "candidate": 12
+     },
+     {
+      "instrument": "629",
+      "leg": "dense-only",
+      "class": "coding",
+      "metric": "mrr",
+      "incumbent": 0.3344,
+      "candidate": 0.2673
+     },
+     {
+      "instrument": "629",
+      "leg": "full-stack",
+      "class": "civic",
+      "metric": "hit1",
+      "incumbent": 4,
+      "candidate": 2
+     },
+     {
+      "instrument": "629",
+      "leg": "full-stack",
+      "class": "civic",
+      "metric": "hitk",
+      "incumbent": 4,
+      "candidate": 3
+     },
+     {
+      "instrument": "629",
+      "leg": "full-stack",
+      "class": "civic",
+      "metric": "mrr",
+      "incumbent": 0.0741,
+      "candidate": 0.0432
+     },
+     {
+      "instrument": "629",
+      "leg": "full-stack",
+      "class": "coding",
+      "metric": "hit1",
+      "incumbent": 23,
+      "candidate": 22
+     },
+     {
+      "instrument": "629",
+      "leg": "full-stack",
+      "class": "coding",
+      "metric": "mrr",
+      "incumbent": 0.4278,
+      "candidate": 0.4105
+     },
+     {
+      "instrument": "629",
+      "leg": "sparse-only",
+      "class": "civic",
+      "metric": "hit1",
+      "incumbent": 2,
+      "candidate": 1
+     },
+     {
+      "instrument": "629",
+      "leg": "sparse-only",
+      "class": "civic",
+      "metric": "hitk",
+      "incumbent": 5,
+      "candidate": 3
+     },
+     {
+      "instrument": "629",
+      "leg": "sparse-only",
+      "class": "civic",
+      "metric": "mrr",
+      "incumbent": 0.0507,
+      "candidate": 0.0296
+     },
+     {
+      "instrument": "629",
+      "leg": "sparse-only",
+      "class": "coding",
+      "metric": "hitk",
+      "incumbent": 26,
+      "candidate": 22
+     },
+     {
+      "instrument": "629",
+      "leg": "sparse-only",
+      "class": "entity",
+      "metric": "hit1",
+      "incumbent": 6,
+      "candidate": 4
+     },
+     {
+      "instrument": "629",
+      "leg": "sparse-only",
+      "class": "entity",
+      "metric": "mrr",
+      "incumbent": 0.3774,
+      "candidate": 0.3265
+     }
+    ],
+    "rebound": {
+     "amendment": "ADR-107 amendment 2 (task 592) -- PENDING Tim's merge. Ratification is the merge; nothing here is in force until then.",
+     "what_changed": "`overrides` above is no longer the 87 cells of task 584's seal. It is the 82 cells of the battery task 591 re-ran and sealed (data/flip-gate-verdict.v1.json), each carrying the pair THAT run measured. This is the second time the ruling is put to Tim over a number, and the second number is not the first.",
+     "why": "Task 591 re-ran the ratified battery, twelve arms in one window on heimdall, against two collections that have not been written since task 584 sealed. 10 of the 87 ruled cells lost MORE than the ruling was granted over, 3 cells that did not lose before now lose, and 8 that lost before are clean. `flip_gate.evaluate` refused. That is the bound working, not a defect: a ruling is granted over the loss it was shown. The battery runner widened nothing (task 591 §5.2); an amendment Tim merges is the only way these numbers move (memory: gate-waivers-escalate-to-tim).",
+     "measured_twice": "The per-cell difference between the two seals is this instrument's run-to-run movement on unchanged data, measured. No corpus content changed between them: the candidate's points_count is identical (33,723,480) and the twin was content-verified 389/389 before and after. Task 591 names the mechanism no further than approximate-search state (HNSW / quantization / rescoring) -- reproducible WITHIN a session (3 runs, 3 identical totals per side) and not between them. It is UNEXPLAINED at that level, not narrated (verification-doctrine 10), and task 586 found the same on the twin independently (429 sealed, 424 today, 3/3).",
+     "seals": [
+      {
+       "task": "584",
+       "losing_cells": 87,
+       "note": "the battery Tim was shown on 2026-09-16 when he said 'Then I think we can kick off the prod switch'."
+      },
+      {
+       "task": "591",
+       "verdict": "data/flip-gate-verdict.v1.json",
+       "losing_cells": 82,
+       "note": "the battery in force now. Sealed FAIL; `measured_verdict` stays FAIL whatever this amendment does."
+      }
+     ],
+     "drift_summary": {
+      "cells_584": 87,
+      "cells_591": 82,
+      "in_both": 79,
+      "only_584": 8,
+      "only_591": 3,
+      "moved_worse": 10,
+      "moved_better": 15,
+      "unmoved": 54,
+      "max_count_move": 3.0,
+      "max_mrr_move": 0.0312
+     },
+     "exceeded": [
+      {
+       "instrument": "1418",
+       "leg": "full-stack",
+       "class": "authoritative",
+       "metric": "hit1",
+       "ruled_delta": -7.0,
+       "measured_delta": -10.0,
+       "moved": -3.0
+      },
+      {
+       "instrument": "1418",
+       "leg": "full-stack",
+       "class": "authoritative",
+       "metric": "mrr",
+       "ruled_delta": -0.0032,
+       "measured_delta": -0.0083,
+       "moved": -0.0051
+      },
+      {
+       "instrument": "1418",
+       "leg": "full-stack",
+       "class": "entity_card_golds",
+       "metric": "hitk",
+       "ruled_delta": -1.0,
+       "measured_delta": -2.0,
+       "moved": -1.0
+      },
+      {
+       "instrument": "1418",
+       "leg": "full-stack",
+       "class": "entity_card_golds",
+       "metric": "mrr",
+       "ruled_delta": -0.1072,
+       "measured_delta": -0.115,
+       "moved": -0.0078
+      },
+      {
+       "instrument": "1418",
+       "leg": "sparse-only",
+       "class": "authoritative",
+       "metric": "mrr",
+       "ruled_delta": -0.0072,
+       "measured_delta": -0.0085,
+       "moved": -0.0013
+      },
+      {
+       "instrument": "1418",
+       "leg": "sparse-only",
+       "class": "dom_entity",
+       "metric": "mrr",
+       "ruled_delta": -0.0316,
+       "measured_delta": -0.0479,
+       "moved": -0.0163
+      },
+      {
+       "instrument": "629",
+       "leg": "dense-only",
+       "class": "coding",
+       "metric": "hit1",
+       "ruled_delta": -3.0,
+       "measured_delta": -4.0,
+       "moved": -1.0
+      },
+      {
+       "instrument": "629",
+       "leg": "dense-only",
+       "class": "coding",
+       "metric": "mrr",
+       "ruled_delta": -0.0592,
+       "measured_delta": -0.0671,
+       "moved": -0.0079
+      },
+      {
+       "instrument": "629",
+       "leg": "full-stack",
+       "class": "coding",
+       "metric": "mrr",
+       "ruled_delta": -0.0122,
+       "measured_delta": -0.0173,
+       "moved": -0.0051
+      },
+      {
+       "instrument": "629",
+       "leg": "sparse-only",
+       "class": "entity",
+       "metric": "mrr",
+       "ruled_delta": -0.0197,
+       "measured_delta": -0.0509,
+       "moved": -0.0312
+      }
+     ],
+     "new_cells": [
+      {
+       "instrument": "1418",
+       "leg": "full-stack",
+       "class": "jurisdiction",
+       "metric": "mrr",
+       "ruled_delta": 0.0,
+       "measured_delta": -0.0081,
+       "moved": -0.0081
+      },
+      {
+       "instrument": "1418",
+       "leg": "sparse-only",
+       "class": "dom_entity",
+       "metric": "hit1",
+       "ruled_delta": 0.0,
+       "measured_delta": -1.0,
+       "moved": -1.0
+      },
+      {
+       "instrument": "629",
+       "leg": "sparse-only",
+       "class": "entity",
+       "metric": "hit1",
+       "ruled_delta": 0.0,
+       "measured_delta": -2.0,
+       "moved": -2.0
+      }
+     ],
+     "new_cells_note": "Three classes that did not lose in task 584 lose in task 591. They are not hidden inside a re-derived list: they are named here, they are in `overrides` above with their measured pairs, and merging this amendment is what rules over them. Two of the three are a single gold; the third is an MRR of 0.008. `ruled_delta: 0.0` on these rows means the cell did NOT lose in the 584 seal -- there was no ruled loss to exceed, which is why the gate reported them as unruled rather than as exceeded.",
+     "cleared": [
+      {
+       "instrument": "1418",
+       "leg": "full-stack",
+       "class": "dom_entity",
+       "metric": "hitk",
+       "ruled_delta": -2.0,
+       "measured_delta": 0.0,
+       "moved": 2.0
+      },
+      {
+       "instrument": "1418",
+       "leg": "full-stack",
+       "class": "dom_entity",
+       "metric": "mrr",
+       "ruled_delta": -0.012,
+       "measured_delta": 0.0,
+       "moved": 0.012
+      },
+      {
+       "instrument": "1418",
+       "leg": "full-stack",
+       "class": "dom_reference",
+       "metric": "mrr",
+       "ruled_delta": -0.006,
+       "measured_delta": 0.0,
+       "moved": 0.006
+      },
+      {
+       "instrument": "1418",
+       "leg": "full-stack",
+       "class": "foundation",
+       "metric": "mrr",
+       "ruled_delta": -0.0068,
+       "measured_delta": 0.0,
+       "moved": 0.0068
+      },
+      {
+       "instrument": "1418",
+       "leg": "full-stack",
+       "class": "slice_b",
+       "metric": "hit1",
+       "ruled_delta": -1.0,
+       "measured_delta": 0.0,
+       "moved": 1.0
+      },
+      {
+       "instrument": "1418",
+       "leg": "sparse-only",
+       "class": "dom_legal",
+       "metric": "hit1",
+       "ruled_delta": -1.0,
+       "measured_delta": 0.0,
+       "moved": 1.0
+      },
+      {
+       "instrument": "1418",
+       "leg": "sparse-only",
+       "class": "dom_legal",
+       "metric": "mrr",
+       "ruled_delta": -0.0124,
+       "measured_delta": 0.0,
+       "moved": 0.0124
+      },
+      {
+       "instrument": "629",
+       "leg": "sparse-only",
+       "class": "entity",
+       "metric": "hitk",
+       "ruled_delta": -1.0,
+       "measured_delta": 0.0,
+       "moved": 1.0
+      }
+     ],
+     "cleared_note": "Eight cells the ruling was granted over do not lose at all in the second seal. They are dropped from `overrides`, which NARROWS the ruling: after this amendment nothing covers them, and a future battery that loses them again is a fresh refusal. The drift runs both ways and so does the bound.",
+     "source": "tasks/592-scripts/build_named_ruling_592.py -- `overrides()` derives the list above from the 591 seal, `as_ruled()` the original 87 from the 584 seal, `drift()` this block from both. pipeline/test_flip_gate.py re-derives all of it and fails if either side is edited alone.",
+     "what_a_third_seal_would_do": "Under this amendment alone (ADR-107 am.2 Option 1) a third run may refuse again on whichever cells move next. The flip does not need a third run: task 591's twelve sealed arms are re-judged under the amended contract and re-sealed -- no collection is queried and no arm is re-scored -- and a fresh battery is required only if the candidate is re-staged or an arm artifact changes. The stored verdict document still reads FAIL until it is re-sealed; merging an amendment does not edit a file nobody re-ran the evaluator over. Option 2 is `regression_free.noise_floor`, inert unless Tim enables it."
+    },
+    "restated_battery": {
+     "task": "586",
+     "cite": "frozen:task-586:manifest-authored-rows-rootcause §C.3; frozen:task-586:arm-summary.v1",
+     "instrument": "1,418 v3 held-out, 1,089 gold-bearing queries, twin vs aw_e8, all arms in one window",
+     "legs": [
+      {
+       "leg": "full",
+       "control": {
+        "twin": 424,
+        "e8": 403,
+        "delta": -21
+       },
+       "minus_authored": {
+        "twin": 387,
+        "e8": 403,
+        "delta": 16
+       },
+       "sealed_584": {
+        "twin": 429,
+        "e8": 403,
+        "delta": -26
+       }
+      },
+      {
+       "leg": "dense-only",
+       "control": {
+        "twin": 325,
+        "e8": 338,
+        "delta": 13
+       },
+       "minus_authored": {
+        "twin": 291,
+        "e8": 338,
+        "delta": 47
+       },
+       "sealed_584": {
+        "twin": 323,
+        "e8": 339,
+        "delta": 16
+       }
+      },
+      {
+       "leg": "sparse-only",
+       "control": {
+        "twin": 225,
+        "e8": 200,
+        "delta": -25
+       },
+       "minus_authored": {
+        "twin": 189,
+        "e8": 200,
+        "delta": 11
+       },
+       "sealed_584": {
+        "twin": 239,
+        "e8": 218,
+        "delta": -21
+       }
+      }
+     ],
+     "reading": "The `minus_authored` arm removes ONLY rows whose indexed text is the manifest's authored prose -- 370 on the twin, 0 on aw_e8. aw_e8 is therefore its own control on that arm, and its own run confirms it: 403 / 338 / 200, identical to control on all three legs. All three legs go positive for the candidate.",
+     "instrument_defects_found": [
+      "THE SEALED TWIN ARM DOES NOT REPRODUCE. Re-running task 584's own twin arm -- same box, same commit, same query vectors, same collection content -- reads 424, not the sealed 429; 0 of the 22 golds that lost rank 1 are absent from the twin and 16 of the 22 are still in the top ten. aw_e8 reproduces exactly (403). The residue is the twin's approximate-search state. Sparse-only is the least reproducible leg: -14 (twin) / -18 (aw_e8) against its seal, though its DELTA moves only 4. Consequence for this gate: a per-class cell thinner than about 5 golds on the twin side is reading drift, and the flip-day battery must be re-run and re-sealed rather than assumed from task 584's numbers.",
+      "The sealed dense-only and sparse-only arms were driven with the full stack's levers, worth +32 / +29 against the seal on the two sides. The leg arms are supposed to run with every ranking lever OFF. Now corrected in the committed driver, with the measurement as its comment (task 586 §C.1)."
+     ],
+     "effect_on_this_ruling": "The 87 `overrides` below are NOT restated by this arm: they were ruled over task 584's sealed per-class cells and stay bound to them. The flip-day battery is a fresh run, and the bound does the work -- a covered cell that loses MORE than it was ruled over is refused and goes back to Tim. Given the twin's drift that is a live possibility, and it is the correct outcome if it happens."
+    }
+   },
+   {
+    "id": "FLIP-2026-09-23-aw_e9",
+    "ruling": "ACCEPT aw_e9. Tim, in chat on 2026-09-23 ~18:10Z: \"accept the aw_e9 ruling.\" What Tim was shown at that point was ONE regressed cell -- 629/full-stack/coding: hit1 22 -> 21 (-1), mrr 0.4105 -> 0.4025 (-0.0080) -- because task 637's gate crashed with FlipGateError before it could write a verdict (the crash: named ruling FLIP-2026-09-16-aw_e8 is bound to candidate collection 'aw_e8', and the pre-task-651 `_ruling_for` raised on the first cell shape it shared with 'aw_e9' -- coincidentally the same cell, 629/full-stack/coding/hit1, which ALSO regressed in the aw_e3 -> aw_e8 flip -- before the rest of the battery was ever scored). This entry supersedes that partial picture. Task 651 fixed `_ruling_for` (pipeline/flip_gate.py) so a same-collection ruling is tried before a collection-mismatch is treated as a refusal, then re-evaluated the SAME 12 sealed arms under tasks/651-artifacts/gate-e9/ (copied read-only from heimdall:/media/nvme4t/aw/work/task637/gate-e9/, produced by task 637's gate_e9.sh, not re-run) with an EMPTY named_rulings list. That unbiased pass found 71 regressed (leg, instrument, class, metric) cells, not one -- enumerated below in `overrides`, derived by tasks/651-scripts/build_named_ruling_651.py from the sealed tasks/651-artifacts/flip-gate-verdict.raw.aw_e9.json. Net movement concentrates on the SPARSE-ONLY leg (629: h@1 -27, h@10 -25, mrr -0.0393; 1418: h@1 -18, h@10 -13, mrr -0.0140) -- consistent with the shipped lever (S6, the BM25 df>2% posting prune) acting on the leg it targets -- while DENSE-ONLY is flat-to-positive on both instruments (629: h@1 -1, h@10 0; 1418: h@1 +5, h@10 0) and FULL-STACK is mixed (629: h@1 -3, h@10 -2; 1418: h@1 +6, h@10 +1). The gate's own physical-state confound -- aw_e9 natively built, the aw_e8 incumbent restored from a copy1 snapshot -- bounds how much of the full-stack and sparse-only movement is the lever versus the restore (tasks/637-index-size.md §22.5/§22.6); it is NOT resolved by this ruling, and the dense-only cells, clean of that confound, are the ones this ruling should be weighted by. This ruling accepts the measured numbers as shown; it does not adjudicate their cause.",
+    "ruled_by": "Tim",
+    "ruled_on": "2026-09-23",
+    "ruled_via": "chat, ~18:10Z: \"accept the aw_e9 ruling\"",
+    "ratified_by": "Tim's merge of the task-651 POLICY PR, which ratifies this entry and the data/production-flip-ruling-aw_e9.v1.json manifest it depends on, and nothing else in this file.",
+    "cite": "frozen:task-651:aw-e9-ruling",
+    "candidate_collection": "aw_e9",
+    "accepted_totals": [
+     {
+      "instrument": "629",
+      "leg": "full-stack",
+      "class": "coding",
+      "metric": "hit1",
+      "incumbent": 22,
+      "candidate": 21,
+      "delta": -1
+     },
+     {
+      "instrument": "629",
+      "leg": "full-stack",
+      "class": "coding",
+      "metric": "mrr",
+      "incumbent": 0.4105,
+      "candidate": 0.4025,
+      "delta": -0.008
+     }
+    ],
+    "accepted_totals_note": "The one cell named in Tim's chat ruling and in tasks/637-ship-decision.md at the time he ruled -- what he was actually shown. It is NOT the full scope of this ruling; see `overrides` for the 71 cells the sealed battery actually measures. Recorded here, as aw_e8's ruling does for its own accepted_totals, because a reader must be able to see the number the founder was shown, not just the number the ruling ended up covering.",
+    "full_battery_net_by_leg": {
+     "629/dense-only": {
+      "n": 629,
+      "incumbent_hit1": 271,
+      "candidate_hit1": 270,
+      "net_hit1": -1,
+      "net_hitk": 0,
+      "net_mrr": -0.0013
+     },
+     "629/full-stack": {
+      "n": 629,
+      "incumbent_hit1": 339,
+      "candidate_hit1": 336,
+      "net_hit1": -3,
+      "net_hitk": -2,
+      "net_mrr": -0.0019
+     },
+     "629/sparse-only": {
+      "n": 629,
+      "incumbent_hit1": 180,
+      "candidate_hit1": 153,
+      "net_hit1": -27,
+      "net_hitk": -25,
+      "net_mrr": -0.0393
+     },
+     "1418/dense-only": {
+      "n": 1065,
+      "incumbent_hit1": 326,
+      "candidate_hit1": 331,
+      "net_hit1": 5,
+      "net_hitk": 0,
+      "net_mrr": 0.0028
+     },
+     "1418/full-stack": {
+      "n": 1065,
+      "incumbent_hit1": 390,
+      "candidate_hit1": 396,
+      "net_hit1": 6,
+      "net_hitk": 1,
+      "net_mrr": 0.0036
+     },
+     "1418/sparse-only": {
+      "n": 1065,
+      "incumbent_hit1": 203,
+      "candidate_hit1": 185,
+      "net_hit1": -18,
+      "net_hitk": -13,
+      "net_mrr": -0.014
+     }
+    },
+    "full_battery_net_by_leg_source": "tasks/651-artifacts/gate-e9/regression-table.json (`net_by_leg`), task 637's own gate_e9.sh pre-check instrument, read but not re-run.",
+    "known_unresolved": {
+     "summary": "What is KNOWN about the gap between what Tim was shown and what this ruling covers, and about what this ruling does NOT settle, stated so it is not read later as 'the scope was understood and ratified'.",
+     "scope_shown_to_tim": "Tim ruled having seen ONE cell in chat. This entry covers 71 because that is what the sealed battery measures -- flagged to him in the task-651 PR body, in the open, before he merges it. Merging is the ratification of the 71, not of the 1.",
+     "sparse_leg_reversal": "The small-scale experimental arm that first measured this SAME lever (S6, df>2% BM25 posting prune) found it net RECALL-POSITIVE at 1.21M points -- h@1 +8, h@10 +1, 48 queries better / 39 worse (tasks/637-index-size.md §5.3.2). The full-scale sparse-only leg here nets NEGATIVE on both instruments (629 h@1 -27, 1418 h@1 -18) -- the opposite sign. Not reconciled here (verification-doctrine 7: a falsified prediction becomes a named finding, not a footnote) -- carried below as a post-ruling obligation.",
+     "transport_error_blocks_a_sealed_pass": "Even with this ruling and the aw_e9 rebuild-tier manifest both applied, `pipeline/flip_gate.py --evaluate` on these same 12 sealed arms still reads FAIL, not PASS: the 629/full-stack/incumbent arm carries n_errors=1 (one query timed out; tasks/651-artifacts/gate-e9-launch.log), and the gate's 'an error is not an empty' rule (verification-doctrine 6) has no named-ruling override, by design -- it may not be waived here (memory: gate-waivers-escalate-to-tim). Clearing it needs a re-score of that one arm, which is chain work and explicitly out of scope for task 651. See tasks/651-aw-e9-ruling.md for the exact verdict this produces."
+    },
+    "evidence": [
+     "tasks/637-ship-decision.md -- the decision page, including the FlipGateError crash and the S6/aw_e9 size numbers (-23% B/pt, 3,350.7 projected vs 4,336.5; measured 3,392.2, see tasks/651-aw-e9-ruling.md).",
+     "tasks/637-index-size.md §22 -- the ship runbook, §22.5/§22.6 for the physical-state confound and the three things only Tim can resolve.",
+     "tasks/637-gate-driver.md -- the battery driver (gate_e9.sh) that produced the 12 sealed arms this ruling and the raw re-evaluation both read.",
+     "tasks/651-artifacts/gate-e9/ -- the 12 sealed arms, copied read-only from heimdall:/media/nvme4t/aw/work/task637/gate-e9/ (task 637's build), not re-run by task 651.",
+     "tasks/651-artifacts/flip-gate-verdict.raw.aw_e9.json -- the same 12 arms evaluated with an EMPTY named_rulings list, sealed by task 651: 71 regressions, 3 non-regression problems (the transport error and two preservation-manifest refusals the task-651 manifest resolves).",
+     "tasks/651-artifacts/gate-e9-launch.log -- the original gate_e9.sh run: the FlipGateError crash (line ~1012) and the 629/full-stack/incumbent transport-error line.",
+     "tasks/651-aw-e9-ruling.md -- the task doc, including the verdict JSON after this ruling and the manifest are both applied."
+    ],
+    "overrides_source": "Base 71: tasks/651-scripts/build_named_ruling_651.py, derived from tasks/651-artifacts/flip-gate-verdict.raw.aw_e9.json -- the 12 sealed arms evaluated with an EMPTY named_rulings list, so every cell in it is unbiased by this ruling or by aw_e8's. Extended to 73 by tasks/664-scripts/build_named_ruling_664.py, derived from tasks/662-artifacts/flip-gate-verdict.aw_e9.json (`.regressions`) -- the same 12 arms with ONLY 629/full-stack/incumbent re-scored (its transport error cleared, n_errors 1 -> 0), evaluated under this same contract. Not hand-typed either time: pipeline/test_flip_gate.py re-derives the shipped list from the sealed artifacts and fails if any side is edited alone. See `extension` below.",
+    "overrides_bound": "Each entry carries the incumbent/candidate pair it was ruled over. `flip_gate.evaluate` covers the cell only while the measured candidate-minus-incumbent delta is no worse than the ruled one; a re-run that loses MORE on a covered cell is refused and goes back to Tim. Same mechanism as the aw_e8 ruling's `overrides_bound` (task 590/592).",
+    "overrides": [
+     {
+      "instrument": "1418",
+      "leg": "dense-only",
+      "class": "dom_coding",
+      "metric": "hitk",
+      "incumbent": 15,
+      "candidate": 14
+     },
+     {
+      "instrument": "1418",
+      "leg": "dense-only",
+      "class": "dom_coding",
+      "metric": "mrr",
+      "incumbent": 0.2017,
+      "candidate": 0.1995
+     },
+     {
+      "instrument": "1418",
+      "leg": "dense-only",
+      "class": "foundation",
+      "metric": "hitk",
+      "incumbent": 67,
+      "candidate": 66
+     },
+     {
+      "instrument": "1418",
+      "leg": "dense-only",
+      "class": "foundation",
+      "metric": "mrr",
+      "incumbent": 0.2838,
+      "candidate": 0.2809
+     },
+     {
+      "instrument": "1418",
+      "leg": "dense-only",
+      "class": "names",
+      "metric": "hitk",
+      "incumbent": 3,
+      "candidate": 2
+     },
+     {
+      "instrument": "1418",
+      "leg": "dense-only",
+      "class": "names",
+      "metric": "mrr",
+      "incumbent": 0.3214,
+      "candidate": 0.2857
+     },
+     {
+      "instrument": "1418",
+      "leg": "dense-only",
+      "class": "slice_b",
+      "metric": "mrr",
+      "incumbent": 0.7433,
+      "candidate": 0.7417
+     },
+     {
+      "instrument": "1418",
+      "leg": "full-stack",
+      "class": "commercial",
+      "metric": "hitk",
+      "incumbent": 1,
+      "candidate": 0
+     },
+     {
+      "instrument": "1418",
+      "leg": "full-stack",
+      "class": "commercial",
+      "metric": "mrr",
+      "incumbent": 0.0556,
+      "candidate": 0.0
+     },
+     {
+      "instrument": "1418",
+      "leg": "full-stack",
+      "class": "dom_coding",
+      "metric": "hit1",
+      "incumbent": 10,
+      "candidate": 9
+     },
+     {
+      "instrument": "1418",
+      "leg": "full-stack",
+      "class": "dom_coding",
+      "metric": "mrr",
+      "incumbent": 0.2537,
+      "candidate": 0.2389
+     },
+     {
+      "instrument": "1418",
+      "leg": "full-stack",
+      "class": "dom_entity",
+      "metric": "hitk",
+      "incumbent": 17,
+      "candidate": 16
+     },
+     {
+      "instrument": "1418",
+      "leg": "full-stack",
+      "class": "dom_reference",
+      "metric": "hitk",
+      "incumbent": 44,
+      "candidate": 43
+     },
+     {
+      "instrument": "1418",
+      "leg": "full-stack",
+      "class": "jurisdiction",
+      "metric": "hitk",
+      "incumbent": 27,
+      "candidate": 26
+     },
+     {
+      "instrument": "1418",
+      "leg": "full-stack",
+      "class": "jurisdiction",
+      "metric": "mrr",
+      "incumbent": 0.7645,
+      "candidate": 0.7624
+     },
+     {
+      "instrument": "1418",
+      "leg": "full-stack",
+      "class": "rel_vs_trust",
+      "metric": "hit1",
+      "incumbent": 6,
+      "candidate": 5
+     },
+     {
+      "instrument": "1418",
+      "leg": "full-stack",
+      "class": "rel_vs_trust",
+      "metric": "mrr",
+      "incumbent": 0.275,
+      "candidate": 0.2631
+     },
+     {
+      "instrument": "1418",
+      "leg": "sparse-only",
+      "class": "authoritative",
+      "metric": "hit1",
+      "incumbent": 81,
+      "candidate": 75
+     },
+     {
+      "instrument": "1418",
+      "leg": "sparse-only",
+      "class": "authoritative",
+      "metric": "hitk",
+      "incumbent": 185,
+      "candidate": 180
+     },
+     {
+      "instrument": "1418",
+      "leg": "sparse-only",
+      "class": "authoritative",
+      "metric": "mrr",
+      "incumbent": 0.2468,
+      "candidate": 0.2387
+     },
+     {
+      "instrument": "1418",
+      "leg": "sparse-only",
+      "class": "dom_coding",
+      "metric": "hit1",
+      "incumbent": 1,
+      "candidate": 0
+     },
+     {
+      "instrument": "1418",
+      "leg": "sparse-only",
+      "class": "dom_coding",
+      "metric": "hitk",
+      "incumbent": 10,
+      "candidate": 9
+     },
+     {
+      "instrument": "1418",
+      "leg": "sparse-only",
+      "class": "dom_coding",
+      "metric": "mrr",
+      "incumbent": 0.0761,
+      "candidate": 0.0539
+     },
+     {
+      "instrument": "1418",
+      "leg": "sparse-only",
+      "class": "dom_entity",
+      "metric": "hit1",
+      "incumbent": 6,
+      "candidate": 4
+     },
+     {
+      "instrument": "1418",
+      "leg": "sparse-only",
+      "class": "dom_entity",
+      "metric": "mrr",
+      "incumbent": 0.3759,
+      "candidate": 0.3213
+     },
+     {
+      "instrument": "1418",
+      "leg": "sparse-only",
+      "class": "dom_legal",
+      "metric": "hit1",
+      "incumbent": 22,
+      "candidate": 19
+     },
+     {
+      "instrument": "1418",
+      "leg": "sparse-only",
+      "class": "dom_legal",
+      "metric": "hitk",
+      "incumbent": 33,
+      "candidate": 32
+     },
+     {
+      "instrument": "1418",
+      "leg": "sparse-only",
+      "class": "dom_legal",
+      "metric": "mrr",
+      "incumbent": 0.5724,
+      "candidate": 0.5272
+     },
+     {
+      "instrument": "1418",
+      "leg": "sparse-only",
+      "class": "dom_reference",
+      "metric": "hit1",
+      "incumbent": 9,
+      "candidate": 7
+     },
+     {
+      "instrument": "1418",
+      "leg": "sparse-only",
+      "class": "dom_reference",
+      "metric": "hitk",
+      "incumbent": 28,
+      "candidate": 24
+     },
+     {
+      "instrument": "1418",
+      "leg": "sparse-only",
+      "class": "dom_reference",
+      "metric": "mrr",
+      "incumbent": 0.2304,
+      "candidate": 0.191
+     },
+     {
+      "instrument": "1418",
+      "leg": "sparse-only",
+      "class": "foundation",
+      "metric": "hit1",
+      "incumbent": 32,
+      "candidate": 29
+     },
+     {
+      "instrument": "1418",
+      "leg": "sparse-only",
+      "class": "foundation",
+      "metric": "hitk",
+      "incumbent": 63,
+      "candidate": 61
+     },
+     {
+      "instrument": "1418",
+      "leg": "sparse-only",
+      "class": "foundation",
+      "metric": "mrr",
+      "incumbent": 0.2393,
+      "candidate": 0.2237
+     },
+     {
+      "instrument": "1418",
+      "leg": "sparse-only",
+      "class": "freshness",
+      "metric": "hitk",
+      "incumbent": 42,
+      "candidate": 39
+     },
+     {
+      "instrument": "1418",
+      "leg": "sparse-only",
+      "class": "freshness",
+      "metric": "mrr",
+      "incumbent": 0.4218,
+      "candidate": 0.39
+     },
+     {
+      "instrument": "1418",
+      "leg": "sparse-only",
+      "class": "jurisdiction",
+      "metric": "hit1",
+      "incumbent": 17,
+      "candidate": 15
+     },
+     {
+      "instrument": "1418",
+      "leg": "sparse-only",
+      "class": "jurisdiction",
+      "metric": "hitk",
+      "incumbent": 26,
+      "candidate": 24
+     },
+     {
+      "instrument": "1418",
+      "leg": "sparse-only",
+      "class": "jurisdiction",
+      "metric": "mrr",
+      "incumbent": 0.6503,
+      "candidate": 0.5879
+     },
+     {
+      "instrument": "1418",
+      "leg": "sparse-only",
+      "class": "slice_b",
+      "metric": "hit1",
+      "incumbent": 6,
+      "candidate": 4
+     },
+     {
+      "instrument": "1418",
+      "leg": "sparse-only",
+      "class": "slice_b",
+      "metric": "mrr",
+      "incumbent": 0.3655,
+      "candidate": 0.2996
+     },
+     {
+      "instrument": "629",
+      "leg": "dense-only",
+      "class": "research",
+      "metric": "hit1",
+      "incumbent": 26,
+      "candidate": 25
+     },
+     {
+      "instrument": "629",
+      "leg": "dense-only",
+      "class": "research",
+      "metric": "hitk",
+      "incumbent": 39,
+      "candidate": 38
+     },
+     {
+      "instrument": "629",
+      "leg": "dense-only",
+      "class": "research",
+      "metric": "mrr",
+      "incumbent": 0.4638,
+      "candidate": 0.4493
+     },
+     {
+      "instrument": "629",
+      "leg": "dense-only",
+      "class": "standards",
+      "metric": "mrr",
+      "incumbent": 0.627,
+      "candidate": 0.6233
+     },
+     {
+      "instrument": "629",
+      "leg": "full-stack",
+      "class": "coding",
+      "metric": "hit1",
+      "incumbent": 22,
+      "candidate": 21
+     },
+     {
+      "instrument": "629",
+      "leg": "full-stack",
+      "class": "coding",
+      "metric": "mrr",
+      "incumbent": 0.4105,
+      "candidate": 0.4025
+     },
+     {
+      "instrument": "629",
+      "leg": "full-stack",
+      "class": "entity",
+      "metric": "hitk",
+      "incumbent": 17,
+      "candidate": 15
+     },
+     {
+      "instrument": "629",
+      "leg": "full-stack",
+      "class": "entity",
+      "metric": "mrr",
+      "incumbent": 0.5211,
+      "candidate": 0.5033
+     },
+     {
+      "instrument": "629",
+      "leg": "full-stack",
+      "class": "reference",
+      "metric": "hit1",
+      "incumbent": 42,
+      "candidate": 40
+     },
+     {
+      "instrument": "629",
+      "leg": "full-stack",
+      "class": "reference",
+      "metric": "hitk",
+      "incumbent": 80,
+      "candidate": 79
+     },
+     {
+      "instrument": "629",
+      "leg": "full-stack",
+      "class": "reference",
+      "metric": "mrr",
+      "incumbent": 0.529,
+      "candidate": 0.5269
+     },
+     {
+      "instrument": "629",
+      "leg": "full-stack",
+      "class": "research",
+      "metric": "hit1",
+      "incumbent": 39,
+      "candidate": 38
+     },
+     {
+      "instrument": "629",
+      "leg": "full-stack",
+      "class": "research",
+      "metric": "hitk",
+      "incumbent": 46,
+      "candidate": 45
+     },
+     {
+      "instrument": "629",
+      "leg": "full-stack",
+      "class": "research",
+      "metric": "mrr",
+      "incumbent": 0.6,
+      "candidate": 0.5842
+     },
+     {
+      "instrument": "629",
+      "leg": "full-stack",
+      "class": "standards",
+      "metric": "mrr",
+      "incumbent": 0.6199,
+      "candidate": 0.6186
+     },
+     {
+      "instrument": "629",
+      "leg": "sparse-only",
+      "class": "civic",
+      "metric": "hit1",
+      "incumbent": 1,
+      "candidate": 0
+     },
+     {
+      "instrument": "629",
+      "leg": "sparse-only",
+      "class": "civic",
+      "metric": "mrr",
+      "incumbent": 0.0296,
+      "candidate": 0.0173
+     },
+     {
+      "instrument": "629",
+      "leg": "sparse-only",
+      "class": "coding",
+      "metric": "hit1",
+      "incumbent": 6,
+      "candidate": 5
+     },
+     {
+      "instrument": "629",
+      "leg": "sparse-only",
+      "class": "coding",
+      "metric": "mrr",
+      "incumbent": 0.1647,
+      "candidate": 0.1568
+     },
+     {
+      "instrument": "629",
+      "leg": "sparse-only",
+      "class": "entity",
+      "metric": "mrr",
+      "incumbent": 0.3232,
+      "candidate": 0.2985
+     },
+     {
+      "instrument": "629",
+      "leg": "sparse-only",
+      "class": "legal",
+      "metric": "hit1",
+      "incumbent": 102,
+      "candidate": 88
+     },
+     {
+      "instrument": "629",
+      "leg": "sparse-only",
+      "class": "legal",
+      "metric": "hitk",
+      "incumbent": 184,
+      "candidate": 173
+     },
+     {
+      "instrument": "629",
+      "leg": "sparse-only",
+      "class": "legal",
+      "metric": "mrr",
+      "incumbent": 0.5566,
+      "candidate": 0.5012
+     },
+     {
+      "instrument": "629",
+      "leg": "sparse-only",
+      "class": "reference",
+      "metric": "hit1",
+      "incumbent": 22,
+      "candidate": 19
+     },
+     {
+      "instrument": "629",
+      "leg": "sparse-only",
+      "class": "reference",
+      "metric": "hitk",
+      "incumbent": 66,
+      "candidate": 58
+     },
+     {
+      "instrument": "629",
+      "leg": "sparse-only",
+      "class": "reference",
+      "metric": "mrr",
+      "incumbent": 0.33,
+      "candidate": 0.2926
+     },
+     {
+      "instrument": "629",
+      "leg": "sparse-only",
+      "class": "research",
+      "metric": "hit1",
+      "incumbent": 22,
+      "candidate": 19
+     },
+     {
+      "instrument": "629",
+      "leg": "sparse-only",
+      "class": "research",
+      "metric": "hitk",
+      "incumbent": 36,
+      "candidate": 34
+     },
+     {
+      "instrument": "629",
+      "leg": "sparse-only",
+      "class": "research",
+      "metric": "mrr",
+      "incumbent": 0.3818,
+      "candidate": 0.3537
+     },
+     {
+      "instrument": "629",
+      "leg": "sparse-only",
+      "class": "standards",
+      "metric": "hit1",
+      "incumbent": 23,
+      "candidate": 18
+     },
+     {
+      "instrument": "629",
+      "leg": "sparse-only",
+      "class": "standards",
+      "metric": "hitk",
+      "incumbent": 62,
+      "candidate": 57
+     },
+     {
+      "instrument": "629",
+      "leg": "sparse-only",
+      "class": "standards",
+      "metric": "mrr",
+      "incumbent": 0.4334,
+      "candidate": 0.3819
+     }
+    ],
+    "extension": {
+     "amendment": "task 664 -- Tim ruled \"extend\" in session, 2026-09-25 ~11:15Z. Ratified by Tim's merge of the task-664 POLICY PR.",
+     "what_changed": "`overrides` above is no longer the 71 cells task 651 derived. It is the 73 cells task 662's clean re-run measured (tasks/662-artifacts/flip-gate-verdict.aw_e9.json, `.regressions`): 70 unchanged, 1 widened, 2 new. Nothing was dropped.",
+     "why": "Task 662 re-scored ONLY the 629/full-stack/incumbent arm to clear an unwaivable transport error (n_errors=1 -> 0), verifying no physical-state drift first. Clearing it raised the incumbent's true reference-class score (verification-doctrine 6: an error is not an empty), which widened the candidate-vs-incumbent gap on reference/hit1 beyond what this ruling covered and surfaced two reference-class cells (hitk, mrr) that did not lose at all before the fix. Tim ruled to extend the ruling over the now-measured loss rather than hold the flip on it.",
+     "widened": [
+      {
+       "instrument": "629",
+       "leg": "full-stack",
+       "class": "reference",
+       "metric": "hit1",
+       "ruled_before": {
+        "incumbent": 41,
+        "candidate": 40
+       },
+       "ruled_after": {
+        "incumbent": 42,
+        "candidate": 40
+       }
+      }
+     ],
+     "new_cells": [
+      {
+       "instrument": "629",
+       "leg": "full-stack",
+       "class": "reference",
+       "metric": "hitk",
+       "incumbent": 80,
+       "candidate": 79
+      },
+      {
+       "instrument": "629",
+       "leg": "full-stack",
+       "class": "reference",
+       "metric": "mrr",
+       "incumbent": 0.529,
+       "candidate": 0.5269
+      }
+     ],
+     "dropped": [],
+     "counts": {
+      "overrides_before": 71,
+      "overrides_after": 73,
+      "widened": 1,
+      "new": 2,
+      "dropped": 0
+     },
+     "source": "tasks/664-scripts/build_named_ruling_664.py, derived from tasks/662-artifacts/flip-gate-verdict.aw_e9.json. pipeline/test_flip_gate.py re-derives it and fails if either side is edited alone.",
+     "cite": "frozen:task-664:aw-e9-extend"
+    },
+    "post_flip_obligations": [
+     "Re-score the 629/full-stack/incumbent arm (or isolate and retry the one query that timed out) to clear n_errors=1 before a sealed PASS is possible. DONE -- task 662 (2026-09-25) re-scored the arm; n_errors=0 on all 12 sealed arms. Clearing it surfaced 3 reference-class cells this ruling did not cover; task 664 extended the ruling over them (see `extension` above).",
+     "Reconcile the sparse-only leg's sign reversal against the small-scale S6 arm (tasks/637-index-size.md §5.3.2, net +8 h@1 at 1.21M points) before the next rebuild's ranking work leans on either number.",
+     "Resolve the physical-state confound named in tasks/637-index-size.md §22.6 (a same-collection, zero-residual, two-physical-state experiment) before any FUTURE ruling leans on a full-stack or sparse-only delta from a native-build-vs-restored-twin battery.",
+     "aw_e8's own five post_flip_obligations (ADR-105 re-fetch, the fusion re-tune, the three zero-test modules, the 100 absent manifest URLs, the held-out instrument's non-reproducibility) are unchanged by this entry and remain open against the corpus aw_e9 was rebuilt from."
+    ]
+   }
+  ],
+  "noise_floor": {
+   "enabled": false,
+   "status": "PROPOSED -- ADR-107 amendment 2, Option 2. Inert while `enabled` is false: `flip_gate.noise_allowance` returns 0.0 and no verdict changes. Enabling it is a one-line legislative change, Tim's, by PR.",
+   "rule": "When enabled, a named ruling covers a cell while the measured loss is no worse than (the loss it was ruled over + this cell's `allowance`). Nothing else moves: the collection binding, the mandatory cite, the pending-evidence refusal, the arm and instrument clauses, latency and preservation are untouched, and every covered cell still prints and still seals with its raw numbers under `measured_verdict: FAIL`.",
+   "basis": "Per cell, the movement measured between two seals of the SAME comparison (twin vs aw_e8, twelve arms, same pinned instruments) on collections that were not written between them -- task 584 flip-gate-verdict.v1.json and data/flip-gate-verdict.v1.json. A cell qualifies only if it lost in BOTH seals: a cell that did not lose before has no re-run pair, and a cell that STARTS losing is the thing the gate exists to catch.",
+   "derivation": "tasks/592-scripts/build_named_ruling_592.py --noise. pipeline/test_flip_gate.py re-derives `cells` from the two sealed verdicts.",
+   "weakness": "Two observations, one instrument. The allowance covers the 10 cells that refused on 2026-09-16 BY CONSTRUCTION, because it was measured on exactly those cells: it describes the second run, it does not predict a third. It is also not a fix. The instrument's non-reproducibility is already a post-flip obligation on this ruling, and the cure is a battery that reproduces, not a gate that tolerates.",
+   "would_not_cover": [
+    "any cell whose loss grows beyond (ruled loss + allowance) -- still a refusal, still named, still Tim's",
+    "any cell with no named ruling at all: the floor widens coverage, it never creates it",
+    "the 3 cells that started losing in the 591 seal -- they had no ruled loss to widen, which is why re-binding, not the floor, is what covers them",
+    "any non-regression clause: missing arms, a moved instrument digest, n_errors, cache_miss, both sides on one collection, latency over prod's deadline, the preservation tiers"
+   ],
+   "counterfactual": "Had this floor been in force on the ORIGINAL 584 bound, task 591 would have refused on 4 problems, not 14: the 10 exceeded cells covered, the 3 new class losses still refused, the preservation clause still refused. The floor alone would not have saved that battery; the re-bind is what does the work.",
+   "cells": [
+    {
+     "instrument": "1418",
+     "leg": "full-stack",
+     "class": "authoritative",
+     "metric": "hit1",
+     "allowance": 3.0,
+     "delta_584": -7.0,
+     "delta_591": -10.0
+    },
+    {
+     "instrument": "1418",
+     "leg": "full-stack",
+     "class": "authoritative",
+     "metric": "mrr",
+     "allowance": 0.0051,
+     "delta_584": -0.0032,
+     "delta_591": -0.0083
+    },
+    {
+     "instrument": "1418",
+     "leg": "full-stack",
+     "class": "entity_card_golds",
+     "metric": "hitk",
+     "allowance": 1.0,
+     "delta_584": -1.0,
+     "delta_591": -2.0
+    },
+    {
+     "instrument": "1418",
+     "leg": "full-stack",
+     "class": "entity_card_golds",
+     "metric": "mrr",
+     "allowance": 0.0078,
+     "delta_584": -0.1072,
+     "delta_591": -0.115
+    },
+    {
+     "instrument": "1418",
+     "leg": "sparse-only",
+     "class": "authoritative",
+     "metric": "mrr",
+     "allowance": 0.0013,
+     "delta_584": -0.0072,
+     "delta_591": -0.0085
+    },
+    {
+     "instrument": "1418",
+     "leg": "sparse-only",
+     "class": "dom_entity",
+     "metric": "mrr",
+     "allowance": 0.0163,
+     "delta_584": -0.0316,
+     "delta_591": -0.0479
+    },
+    {
+     "instrument": "629",
+     "leg": "dense-only",
+     "class": "coding",
+     "metric": "hit1",
+     "allowance": 1.0,
+     "delta_584": -3.0,
+     "delta_591": -4.0
+    },
+    {
+     "instrument": "629",
+     "leg": "dense-only",
+     "class": "coding",
+     "metric": "mrr",
+     "allowance": 0.0079,
+     "delta_584": -0.0592,
+     "delta_591": -0.0671
+    },
+    {
+     "instrument": "629",
+     "leg": "full-stack",
+     "class": "coding",
+     "metric": "mrr",
+     "allowance": 0.0051,
+     "delta_584": -0.0122,
+     "delta_591": -0.0173
+    },
+    {
+     "instrument": "629",
+     "leg": "sparse-only",
+     "class": "entity",
+     "metric": "mrr",
+     "allowance": 0.0312,
+     "delta_584": -0.0197,
+     "delta_591": -0.0509
+    }
+   ]
+  },
+  "named_rulings_note": "ONE ruling, Tim's, 2026-09-16 (task 590) -- it was empty until then. Two shapes are accepted. The original per-cell shape is {leg, instrument, class, metric, ruling, cite} and covers exactly one cell. Task 590's shape carries an `id` and an `overrides` LIST under one ruling, because Tim ruled once, on one battery, over 87 cells at a time: writing that as 87 unrelated waivers would lose the fact that they are one decision and would leave 86 standing if the 87th were withdrawn. Either shape must `cite` a ruling that exists -- a waiver is Tim's, by PR (memory: gate-waivers-escalate-to-tim); nothing here may be added by a builder or a gate-runner. An `overrides` entry that carries its incumbent/candidate pair binds the ruling to the loss it was SHOWN: pipeline/flip_gate.py covers the cell only while the measured delta is no worse than the ruled one, refuses when a ruling's `candidate_collection` is not the collection the candidate arms scored, and (via assert_sealed_pass) refuses the flip itself while any `pending_evidence` entry on an applied ruling has not landed. The ruling moves the VERDICT LINE only: every overridden cell still prints and still seals with its raw numbers, and the seal carries `measured_verdict: FAIL`."
+ },
+ "arm_integrity": {
+  "one_instrument": "Every arm on an instrument must carry the same instrument digest. Two arms scored against different query sets are not an A/B (verification-doctrine 3, `the experiment is the flag`).",
+  "no_errors": "An arm with n_errors > 0 is refused, not averaged over. An error is not an empty (verification-doctrine 6); a leg that timed out on 40 queries scores like a leg that answered them wrongly.",
+  "cache_miss_zero": "A 1,418 arm must report cache_miss = 0. A miss means that query was embedded by something other than the pinned cache, so the two legs no longer share vectors.",
+  "distinct_sides": "The incumbent and candidate arms must name different collections. Task 447: from 2026-08-16 to 2026-08-27 `heimdall:6334` was an SSH tunnel to production while the twin was empty, and a `url != url` check could not see it (ADR-098 Ruling 3)."
+ },
+ "latency": {
+  "source": "deploy/aw-monitor.env#AW_MONITOR_MAX_SMOKE_LATENCY",
+  "source_why": "Prod's own deadline, read from the file the monitor reads, so the gate and the alarm can never disagree about what 'too slow' means (engineering-doctrine 2).",
+  "percentile": "p95",
+  "applies_to_legs": [
+   "full-stack"
+  ],
+  "storage": "nvme",
+  "storage_why": "The candidate must be measured on the storage it will serve from. Task 518 measured a live restore degrading prod's /search from ~0.2 s to ~3.5 s -- a page-cache effect, entirely a property of where the bytes are.",
+  "measured_note": "Task 524 measured the candidate full-stack at p50 529 ms / p95 763 ms and the dense-only candidate at p95 1935 ms, both on NVMe."
+ },
+ "tier2": {
+  "required": true,
+  "scope": "incremental-content-pack-apply",
+  "scope_amended_by": "ADR-107 amendment 2 (task 592) -- PENDING Tim's merge. Before it, this clause applied to a flip too.",
+  "scope_basis": "ADR-098 Ruling 1 writes one preservation law per operation class. The incremental tier -- what pipeline/content_pack_preservation.py implements -- is 'a twin-first apply of an incremental content pack'. The rebuild tier is 'any full rebuild, ship+flip, or promotion', and Ruling 1 gates it with the sealed GLOBAL preservation manifest instead. A flip is the second kind. Demanding the first of it was the wrong law for the operation, which is why no flip battery in the record has ever satisfied it: tasks/{533,576,584}-artifacts/flip-gate-verdict*.json and data/flip-gate-verdict.v1.json all carry it in `problems` (task 591 §5.3).",
+  "instrument": "cytir/index/content_pack_preservation.py",
+  "instrument_modules": [
+   "cytir.index.content_pack_preservation"
+  ],
+  "adr": "ADR-098 Ruling 1/2",
+  "rule": "A sealed tier-2 contract PASS must be presented for an incremental content-pack apply. A failing source is excluded by REGENERATING the pack without it, never waived (ADR-098 Ruling 2).",
+  "not_evidence_for_a_flip": "The only sealed content-pack PASS this repo has produced is task 452's `task452-news-20260828`. The pack it authorized was never applied -- its own ADR-043 content gate failed it on 2026-08-29, 227 -> 222 h@1 with 29 strict per-gold losses. It says nothing about aw_e8 and is not presented as if it did.",
+  "twin_distinctness": "ADR-098 Ruling 3: the preflight must prove twin and production are physically different Qdrant instances -- instance/peer identity, not URL strings."
+ },
+ "rebuild_tier": {
+  "required": true,
+  "adr": "ADR-098 Ruling 1 -- the rebuild/promotion tier. Unchanged by that ADR ('nothing in this ADR weakens data/production-rebuild-lock.v1.json or its five gaps') and unchanged by ADR-107 am.2, which only moves the flip under the correct one of the two laws.",
+  "manifest": "data/production-rebuild-lock.v1.json",
+  "manifest_why": "The DEFAULT, and what governs every candidate NOT named in `candidate_manifests`. It is `blocked`, for aw_e3, with five open gaps, and it refuses.",
+  "candidate_manifests": {
+   "aw_e8": "data/production-flip-ruling-aw_e8.v1.json",
+   "aw_e9": "data/production-flip-ruling-aw_e9.v1.json",
+   "aw_e10": "data/production-flip-preservation-aw_e10.v1.json"
+  },
+  "candidate_manifests_why": "ADR-098 amendment 1. A named ruling is bound to ONE collection, so the manifest carrying it is bound to one collection too. `flip_gate._rebuild_tier_manifest` resolves the candidate's own entry first and falls back to `manifest`, so a ruling granted for the aw_e8 flip can never quietly become the preservation basis for the next one: every other candidate still meets the blocked global manifest.",
+  "manifest_schema": "aw.preservation-manifest.v1",
+  "instrument": "cytir/index/preservation_contract.py",
+  "instrument_modules": [
+   "cytir.index.preservation_contract"
+  ],
+  "rule": "A ship+flip requires a global preservation manifest that is `status: sealed` and names the candidate collection. `flip_gate._preservation_problems` checks those two facts at the front of the process and fails closed on a missing, unreadable, unsealed or mis-addressed manifest.",
+  "enforced_again_at": "pipeline/promote/alias_swap.sh, for alias aw_prod: `python3 pipeline/preservation_contract.py verify --manifest <file> --expect-collection <candidate> --artifact-root $AW_ARTIFACT_ROOT --deep`, exit 3 on anything but PASS. That is the DEEP check -- five profile stages, count-conserving lineage, content-fidelity, off-box durability receipts -- and it runs at the alias swap whatever this gate says. `verify_manifest` raises unless `status == 'sealed'` and `collection.name` equals the candidate.",
+  "why_here_too": "deployment-doctrine: a cheap check at the front of an expensive process. A flip refused at the alias swap is refused at 06:00 with the overlay already shipped; the same refusal from the battery costs nothing.",
+  "ruled_status": "ADR-098 amendment 1 adds `status: ruled` to aw.preservation-manifest.v1: a status that can be granted only by writing down what is still owed. This gate accepts it only when the manifest carries a `ruling` block, that block names a `ratified_by`, and it covers THIS candidate. It does not re-adjudicate the ruling. `preservation_contract.verify_manifest` checks the carried gaps, the rollback target and the reconciled membership receipts DEEPLY at the alias swap, refuses a ruled manifest verified without an --expect-collection, and prints the open obligations to stderr on every verify.",
+  "state_2026_09_16": "SATISFIED for aw_e8 by a NAMED RULING, not by a proof. data/production-flip-ruling-aw_e8.v1.json is `status: ruled`: the collection identity, the point count (33,723,480), an off-box membership receipt, the aw_e3 rollback target with its own receipt, and the destructive step withheld are all proven and deep-verified; the five gaps G2/G3/G6/G8/G9 are CARRIED by name as post-flip obligations, each with an owner and a vehicle. data/production-rebuild-lock.v1.json is untouched -- still `blocked`, still five open gaps, still aw_e3 -- and still governs every other candidate. Until 2026-09-16 this field read: \"UNSATISFIED for aw_e8. The only aw.preservation-manifest.v1 document in the repo is data/production-rebuild-lock.v1.json: `status: blocked`, five open gaps (G2/G3/G6/G8/G9), collection `aw_e3`, 34,464,401 points. No pipeline writes one -- it is hand-maintained. So scoping tier-2 correctly does NOT unblock the flip: it replaces a clause that was the wrong law with the right one, which also refuses, and which alias_swap.sh would have refused on anyway. Lifting it is a separate ruling and is not drafted here.\" Drafting that ruling is what task 593 did.",
+  "not_rechecked_at_assert_pass": "`assert_sealed_pass` re-checks the fusion-weights pointer and the named rulings against the contract in force, and deliberately does NOT re-check this manifest: alias_swap.sh verifies it deeply at the swap itself, seconds before the alias moves, which is a stronger position than re-reading it here."
+ },
+ "seal": {
+  "path": "data/flip-gate-verdict.v1.json",
+  "rule": "verify_flip_config refuses a flip whose sealed verdict is absent, not PASS, not for the serving config being verified, or not derived from the arms it names (each arm re-digested at seal time and again at verify time).",
+  "expiry_note": "A verdict is bound to the candidate collection name and the arm digests. Re-staging the candidate invalidates it, because the arms no longer describe the collection that would be served."
+ }
+}

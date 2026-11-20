@@ -1,0 +1,72 @@
+# UK government guidance — the gov.uk Content API (GDS).
+id: gb-gov-uk
+name: "GOV.UK — UK government guidance & official content (Content API)"
+country: GB
+layer: law-government
+policy_section: "§4.1"
+adapter: api
+acquisition_policy: aw-acquisition-v1
+outlink_policy: capture-and-receipt
+preservation_profiles: [web_html]
+provenance: authored
+trust_tier: 0.95
+freshness: daily
+
+# Task 439: acquire.params gives the consent gate an attachment point (www.gov.uk).
+acquire:
+  route: documented_source_api
+  rank: 3
+  params:
+    endpoint: "https://www.gov.uk/api/content"
+    dialect: json
+    paginate: cursor
+
+license:
+  default: OGL-UK-3.0
+  notes: >
+    Open Government Licence v3.0, Crown copyright. Compatible with the
+    ADR-039 minimum-content record and the compact dump.
+
+consent:
+  basis: live-resolve-open
+  train_ok_override: null
+  notes: >
+    Resolved live 2026-08-20: www.gov.uk -> ok/true/true. robots for `*`
+    disallows only /*/print$ and /search/all*; NO crawl-delay is set. No ai.txt,
+    llms.txt or TDM reservation (all 404).
+    ROUTE NOTE: content-store.publishing.service.gov.uk resolves UNKNOWN/HELD
+    (robots.txt ConnectError) and is ADR-024 amendment-3 sub-class (b), which
+    the ratified remedy deliberately does NOT rescue. It is not needed: the
+    Content API is reachable as www.gov.uk/api/content/... on the origin that
+    resolves clean. Acquisition MUST use www.gov.uk, never content-store.
+    RE-PROBED 2026-10-02T06:22Z from the crawl host (task 695 (private tree)): www.gov.uk ok/true/true, robots unchanged (no crawl-delay for `*`). Family declared: govuk_content.
+
+status: planned
+
+admission:
+  channel: official-api
+  evidence:
+    - "task 440: /api/search.json enumerates with count=1500 and unbounded deep paging; /api/content/{path} returns the full body as JSON. No key, no documented rate limit."
+    - "task 440: ~473 requests enumerate the whole corpus -- the best volume-per-effort ratio found in the UK."
+    - "task 440 consent resolve 2026-08-20: www.gov.uk ok/true/true."
+  decision: escalated
+  policy: "POLICY.md@v3 §4.1"
+  date: "2026-08-20"
+
+notes:
+  - >
+    VOLUME RECONCILED 2026-08-20 (task 440). Exact enumeration of all 35 child
+    sitemaps: 864,874 URLs / 864,783 unique. Search API total: 708,825.
+    Gap 155,958. Cause MEASURED, not assumed: a random sample of 80 sitemap URLs
+    queried by exact link found 65 present / 15 absent = 18.8% absence, implying
+    162,147 across the corpus -- within 4% of the actual gap. The absent items
+    are individually-addressable SUB-PAGES and ephemera (chapters inside
+    publications, environmental-permit advertisements, per-department privacy
+    notices), not excluded content types: the content-type hypothesis was tested
+    against filter_link and FALSIFIED.
+    The two figures are reconciled, not averaged: 708,825 = search-addressable
+    documents (the acquisition target); 864,783 = addressable URLs. The ~156k
+    sub-page tail is a later density decision, not a headline.
+  - >
+    Welsh (cy) content is present via a per-item `locale` field and is outside
+    the ratified language scope -- same treatment as gb-legislation.

@@ -1,0 +1,48 @@
+# requirements-build.lock — task 307 (aw_b1 preflight gap #10 / T33 / F12).
+#
+# The preflight audit flagged extraction libs as unpinned ("trafilatura/
+# compound_split/langdetect unpinned") — a determinism risk: the same source
+# HTML can extract to different markdown/dates across re-runs if
+# trafilatura/htmldate/docling silently pick up a minor-version behavior
+# change between the staging build and a later refresh/rebuild.
+#
+# Captured 2026-07-23 via `pip freeze` (read-only) against the GPU build box
+# build venv (Python 3.10.12) — the venv with the FULL extraction
+# stack (trafilatura, docling*, compound-split, htmldate, lxml, bs4). This is
+# the versions actually in use for the aw_b1 staging build as of this audit;
+# pin these for any re-run/refresh that must reproduce the same extraction
+# behavior. Not a full `pip install -r` lock (see caveat below) — the
+# extraction-critical subset, one version per package, as captured.
+#
+# CAVEAT (worth fixing before it bites): the lang-gate venv (the venv
+# `sitemap_ingest.py` fetch/consent stages actually run under, per
+# task 287's run_cov287.sh's $LANGVENV) carries charset-normalizer==3.4.9,
+# NOT the 3.4.7 pinned below from the build venv. Two venvs, two patch
+# versions of the same dependency, both live on the build path — pin BOTH to
+# the same version before the next build run (whichever pins the extraction
+# and fetch stage source-of-truth) to remove that determinism gap.
+
+beautifulsoup4==4.15.0
+charset-normalizer==3.4.7
+charsplit @ https://github.com/dtuggener/CharSplit/archive/9710624ef0b0df0edd12a721c33533ff1d07b557.tar.gz  # replaces compound-split 1.0.2 (ADR-121); table via fetch_models
+courlan==1.4.0
+dateparser==1.4.1
+docling==2.111.0
+docling-core==2.86.0
+docling-ibm-models==3.13.3
+docling-parse==7.7.0
+docling-slim==2.111.0
+htmldate==1.10.0
+jusText==3.0.2
+lxml==6.1.1
+lxml_html_clean==0.4.5
+pdfminer.six==20260107
+pdfplumber==0.11.10
+pypdf==6.14.2
+pypdfium2==5.11.0
+python-dateutil==2.9.0.post0
+regex==2026.5.9
+requests==2.34.2
+tld==0.13.2
+trafilatura==2.1.0
+urllib3==2.7.0

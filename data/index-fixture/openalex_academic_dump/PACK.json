@@ -1,0 +1,13 @@
+{
+ "chunks_sha256": "267d8048f4fae7060c7fd0e2750e34ceca353e401feead5615999b963c9131ce",
+ "dropped_served": 0,
+ "family_id": "openalex_academic_dump",
+ "pack_id": "openalex-academic-dump-v1-local-d75bceb26216",
+ "row_start": 0,
+ "rows": 6,
+ "schema": "aw.family-stage.v1",
+ "shard": 0,
+ "slice_rows": 150000,
+ "source_records_sha256": "d75bceb26216a6e4afeb86a14b4b8fb13df89187abbf2a6691a28c4e8f92e6a6",
+ "source_rows": 6
+}

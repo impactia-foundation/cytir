@@ -1,0 +1,349 @@
+{
+ "schema": "aw.serve-parity.v1",
+ "verdict": "FAIL",
+ "created_at": "2026-10-08T13:06:31Z",
+ "elapsed_s": 459.0,
+ "collection": "aw_e8",
+ "twin_points": {
+  "before": 61027508,
+  "after": 61027508
+ },
+ "twin_moved": false,
+ "trees": {
+  "base": "/work/base",
+  "head": "/work/head",
+  "same_server_code": false,
+  "same_aw_core": true
+ },
+ "requests": 2272,
+ "counts": {
+  "EQUAL": 2080,
+  "DIFF": 192,
+  "UNSTABLE": 0,
+  "ERROR": 0
+ },
+ "null_pair": {
+  "first_attempt_unstable": 0,
+  "unstable_after_retries": 0
+ },
+ "arm_extra_env": {},
+ "deep": false,
+ "score_tol": 1e-09,
+ "deep_max_abs_delta": 0.0,
+ "diff_max_abs_delta": 0.15800000000000003,
+ "seed_probe": null,
+ "fingerprint_diffs": [],
+ "fingerprints": {
+  "base": {
+   "effective_config": {
+    "collection": "aw_e8",
+    "mrl_dim": 256,
+    "dense_rescore": true,
+    "dense_oversampling": 3.0,
+    "dense_ignore_quant": false,
+    "rankhead": true,
+    "rankhead_v2": {
+     "requested": false,
+     "loaded": false,
+     "path": "<tree>/server/aw_server/rankhead_v2.json"
+    },
+    "primacy": {
+     "on": false,
+     "keep": 0.0,
+     "beta": 0.5,
+     "mincent": 0.3,
+     "extra_classes": [
+      "docs",
+      "model-hub"
+     ]
+    },
+    "pagecap": {
+     "on": false,
+     "cap": 0,
+     "mode": "cap",
+     "oversample": 1.0
+    },
+    "refcanon": {
+     "on": true,
+     "w": -2.0,
+     "beta": 0.35,
+     "maxbeta": 0.25,
+     "mincent": 0.0,
+     "targets": [
+      "reference"
+     ],
+     "extra_classes": []
+    },
+    "bm25_zero_guard": false,
+    "version_match": {
+     "on": true,
+     "w": 1.0
+    },
+    "fusion_weights": {
+     "path": "<tree>/server/aw_server/fusion_weights.candidate533.json",
+     "sha256": "2f1d7a654424b863d433000a35ae9a87b8979c5cddf250638a07fbdee8d3c16e"
+    }
+   },
+   "loaded": {
+    "WEIGHTS": {
+     "loaded": true,
+     "size": 22,
+     "sha256": "3616a9a602134178f32dcd5ac7a90b44472a73d28cb20b5362b2b87d4567fcb0"
+    },
+    "_RANKHEAD_MODEL": {
+     "loaded": true,
+     "size": 13,
+     "sha256": "021f130d8a12278e26090b80a8e4931d7171d4d16afebf55374747ad89bba9b8"
+    },
+    "_RANKHEAD_V2_MODEL": {
+     "loaded": false
+    },
+    "_QHEAD_MODEL": {
+     "loaded": true,
+     "size": 2,
+     "sha256": "3d192cbf4d105f608706d2ea21847b04fc0d75fc6625952e6733a83e220854cb"
+    },
+    "_SCOPE_HEAD": {
+     "loaded": true,
+     "size": 7,
+     "sha256": "d835fd94cf5ea4daff42cdf8ed0d3ec9fddac47ba1c09b79296c7d70d6ea02ef"
+    },
+    "_QUERY_POLICY_HEADS": {
+     "loaded": false
+    },
+    "_AUTH_HOSTS": {
+     "loaded": true,
+     "size": 18312,
+     "sha256": "73b8362f683f67530d4122f63be4110187189c64febb0cb4626d3f198ded4288"
+    },
+    "_HUB_HOSTS": {
+     "loaded": true,
+     "size": 20,
+     "sha256": "4c113a03d78362cf0d6f46bf06f32c111d93bd62039974c7b7540ca9e71761da"
+    },
+    "_PARASITE_HOSTS": {
+     "loaded": true,
+     "size": 10,
+     "sha256": "59af46b3b9f555d26046f58bf9e22c26d17dff467c7cae8e96e7309385ebaaba"
+    },
+    "_PARASITE_RES": {
+     "loaded": true,
+     "size": 2,
+     "sha256": "8188a729257346f73513bf832803d14f2cd2ccc3eadc1b26b00410c4366b9e65"
+    },
+    "_GAZETTEER": {
+     "loaded": true,
+     "size": 4,
+     "sha256": "c4df29e74e5db426cbe3992244e5abe48ec11ab12c2d181edc8ebbd7e0f45d55"
+    },
+    "_COUNTRY_MAP": {
+     "loaded": true,
+     "size": 0,
+     "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+    },
+    "_RANKHEAD_PATH": {
+     "file": "rankhead.json",
+     "sha256": "757bd00a8cd100bbd45cb4a7ea26f743275f96a813446ce2443d4d05ce51836b"
+    },
+    "_RANKHEAD_V2_PATH": {
+     "file": "rankhead_v2.json",
+     "sha256": null
+    },
+    "_QHEAD_PATH": {
+     "file": "qhead.json",
+     "sha256": "2896deb5fc7ae04d1170cca9b7fa8b855d586d7540791df5337d8704e1c93d0b"
+    },
+    "_HUBFLOOR_TABLE": {
+     "file": "hub_hosts.aw_b1.json",
+     "sha256": "1e2fd8b660311339aac0d7ee91c2cedf65fdd5fd79bb8a7d3b3f2ee07720c9cd"
+    },
+    "_AUTHORITY_TABLE": {
+     "file": "authority_hosts.json",
+     "sha256": "c5de2806268e87f7a442261cd35c5c96312d8babc0bb3ee466ebf2fdbb6f5439"
+    },
+    "_GAZ_PATH": {
+     "file": "geo_gazetteer.json",
+     "sha256": "9d950700a96fdc224ded2edbe338a0eb66f59e57c203d20ba8494ccafa07ad23"
+    },
+    "_COUNTRY_MAP_PATH": null,
+    "weights_file": "2f1d7a654424b863d433000a35ae9a87b8979c5cddf250638a07fbdee8d3c16e"
+   },
+   "retrieval_file": "server/aw_server/retrieval.py",
+   "server_source_sha256": "222e0e6d85af1c09e7e7be699002e620252108294d679ee5a416056d1fc87de2",
+   "aw_core_sha256": "c88ccf3c371a15527ac7cf537484920e07362f6615c6842b6aab66a547d652b1",
+   "hashseed": "0"
+  },
+  "head": {
+   "effective_config": {
+    "collection": "aw_e8",
+    "mrl_dim": 256,
+    "dense_rescore": true,
+    "dense_oversampling": 3.0,
+    "dense_ignore_quant": false,
+    "rankhead": true,
+    "rankhead_v2": {
+     "requested": false,
+     "loaded": false,
+     "path": "<tree>/server/aw_server/rankhead_v2.json"
+    },
+    "primacy": {
+     "on": false,
+     "keep": 0.0,
+     "beta": 0.5,
+     "mincent": 0.3,
+     "extra_classes": [
+      "docs",
+      "model-hub"
+     ]
+    },
+    "pagecap": {
+     "on": false,
+     "cap": 0,
+     "mode": "cap",
+     "oversample": 1.0
+    },
+    "refcanon": {
+     "on": true,
+     "w": -2.0,
+     "beta": 0.35,
+     "maxbeta": 0.25,
+     "mincent": 0.0,
+     "targets": [
+      "reference"
+     ],
+     "extra_classes": []
+    },
+    "bm25_zero_guard": false,
+    "version_match": {
+     "on": true,
+     "w": 1.0
+    },
+    "fusion_weights": {
+     "path": "<tree>/server/aw_server/fusion_weights.candidate533.json",
+     "sha256": "2f1d7a654424b863d433000a35ae9a87b8979c5cddf250638a07fbdee8d3c16e"
+    }
+   },
+   "loaded": {
+    "WEIGHTS": {
+     "loaded": true,
+     "size": 22,
+     "sha256": "3616a9a602134178f32dcd5ac7a90b44472a73d28cb20b5362b2b87d4567fcb0"
+    },
+    "_RANKHEAD_MODEL": {
+     "loaded": true,
+     "size": 13,
+     "sha256": "021f130d8a12278e26090b80a8e4931d7171d4d16afebf55374747ad89bba9b8"
+    },
+    "_RANKHEAD_V2_MODEL": {
+     "loaded": false
+    },
+    "_QHEAD_MODEL": {
+     "loaded": true,
+     "size": 2,
+     "sha256": "3d192cbf4d105f608706d2ea21847b04fc0d75fc6625952e6733a83e220854cb"
+    },
+    "_SCOPE_HEAD": {
+     "loaded": true,
+     "size": 7,
+     "sha256": "d835fd94cf5ea4daff42cdf8ed0d3ec9fddac47ba1c09b79296c7d70d6ea02ef"
+    },
+    "_QUERY_POLICY_HEADS": {
+     "loaded": false
+    },
+    "_AUTH_HOSTS": {
+     "loaded": true,
+     "size": 18312,
+     "sha256": "73b8362f683f67530d4122f63be4110187189c64febb0cb4626d3f198ded4288"
+    },
+    "_HUB_HOSTS": {
+     "loaded": true,
+     "size": 20,
+     "sha256": "4c113a03d78362cf0d6f46bf06f32c111d93bd62039974c7b7540ca9e71761da"
+    },
+    "_PARASITE_HOSTS": {
+     "loaded": true,
+     "size": 10,
+     "sha256": "59af46b3b9f555d26046f58bf9e22c26d17dff467c7cae8e96e7309385ebaaba"
+    },
+    "_PARASITE_RES": {
+     "loaded": true,
+     "size": 2,
+     "sha256": "8188a729257346f73513bf832803d14f2cd2ccc3eadc1b26b00410c4366b9e65"
+    },
+    "_GAZETTEER": {
+     "loaded": true,
+     "size": 4,
+     "sha256": "c4df29e74e5db426cbe3992244e5abe48ec11ab12c2d181edc8ebbd7e0f45d55"
+    },
+    "_COUNTRY_MAP": {
+     "loaded": true,
+     "size": 0,
+     "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+    },
+    "_RANKHEAD_PATH": {
+     "file": "rankhead.json",
+     "sha256": "757bd00a8cd100bbd45cb4a7ea26f743275f96a813446ce2443d4d05ce51836b"
+    },
+    "_RANKHEAD_V2_PATH": {
+     "file": "rankhead_v2.json",
+     "sha256": null
+    },
+    "_QHEAD_PATH": {
+     "file": "qhead.json",
+     "sha256": "2896deb5fc7ae04d1170cca9b7fa8b855d586d7540791df5337d8704e1c93d0b"
+    },
+    "_HUBFLOOR_TABLE": {
+     "file": "hub_hosts.aw_b1.json",
+     "sha256": "1e2fd8b660311339aac0d7ee91c2cedf65fdd5fd79bb8a7d3b3f2ee07720c9cd"
+    },
+    "_AUTHORITY_TABLE": {
+     "file": "authority_hosts.json",
+     "sha256": "c5de2806268e87f7a442261cd35c5c96312d8babc0bb3ee466ebf2fdbb6f5439"
+    },
+    "_GAZ_PATH": {
+     "file": "geo_gazetteer.json",
+     "sha256": "9d950700a96fdc224ded2edbe338a0eb66f59e57c203d20ba8494ccafa07ad23"
+    },
+    "_COUNTRY_MAP_PATH": null,
+    "weights_file": "2f1d7a654424b863d433000a35ae9a87b8979c5cddf250638a07fbdee8d3c16e"
+   },
+   "retrieval_file": "server/aw_server/retrieval.py",
+   "server_source_sha256": "bcb55e3462df78261c2dd99178829b9e7e435015c77cc8f12bccbd9c4875e1d7",
+   "aw_core_sha256": "c88ccf3c371a15527ac7cf537484920e07362f6615c6842b6aab66a547d652b1",
+   "hashseed": "0"
+  }
+ },
+ "data_files_sha256": {
+  "AW_HUBFLOOR_TABLE": "1e2fd8b660311339aac0d7ee91c2cedf65fdd5fd79bb8a7d3b3f2ee07720c9cd",
+  "AW_FUSION_WEIGHTS": "2f1d7a654424b863d433000a35ae9a87b8979c5cddf250638a07fbdee8d3c16e"
+ },
+ "vec_cache_sha256": "5c5a8e36e0feff0b0613c883b064348afc8f30f7a8c5451e37480168200f2b32",
+ "sets": [
+  "chooser",
+  "heldout",
+  "probe",
+  "release"
+ ],
+ "not_equal": [
+  {
+   "id": "chooser:co34",
+   "final": {
+    "state": "DIFF"
+   }
+  },
+  {
+   "id": "chooser:ci44",
+   "final": {
+    "state": "DIFF"
+   }
+  },
+  {
+   "id": "chooser:wk02",
+   "final": {
+    "state": "DIFF"
+   }
+  }
+ ],
+ "seed_sensitive_ids": [],
+ "_note": "Task 758 prod-vs-head report (a prod-vs-head tie-break run), trimmed to its first 3 not_equal rows for tests/test_aw_release_serving_gate.py. counts, verdict, fingerprint_diffs and null_pair are verbatim; the release shas and tree digests are filled in by the test."
+}

@@ -1,0 +1,86 @@
+{
+ "schema": "aw.content-gate-convergence.v1",
+ "ratified_by": "ADR-043 amendment A5",
+ "why": [
+  "A gate reading taken while the collection is in a post-insert retrieval",
+  "transient is UNKNOWN, not a verdict. Task 609 measured it: the applier's",
+  "own gate arm read core-639 h@1 206 -> 201 with 18 core losses the instant",
+  "`wait_green` returned, and THE SAME SCRIPT on THE SAME collection eight",
+  "minutes later read 206 -> 206 with 0 losses. 255 of 1,420 queries had lost",
+  "a top-10 url in the first reading and 82.8% of the 551 dropped urls were",
+  "back in the second, with nothing about the corpus changed between them.",
+  "So the gate scores TWICE, separated by the settle interval below, and only",
+  "a pair that agrees per gold yields an ADR-043 verdict.",
+  "These numbers are MEASURED DEFAULTS, not constants in code: they live here",
+  "so a future timeline can move them by PR, in one place, with the",
+  "measurement that justifies the new value beside them."
+ ],
+ "settle_seconds": 480,
+ "settle_seconds_measured_from": [
+  "Task 609: the applier's re-cut agreed with itself 8 minutes (480 s) after",
+  "the gate arm -- the only interval over which one instrument has been",
+  "measured to agree with itself across this transition.",
+  "The same run's arm B_t0, cut 3 minutes after the gate arm, already read the",
+  "settled value, so 480 s carries about 2.7x margin over the only measured",
+  "clearing time. Task 609 section 8 states plainly that the window was not",
+  "bracketed tighter than 'somewhere under 3 minutes'."
+ ],
+ "max_rounds": 3,
+ "max_rounds_measured_from": [
+  "Three settle intervals is 1,440 s of waiting. Task 608 measured the",
+  "heaviest write this lane has produced (14,819 byte-identical re-upserts,",
+  "13 -> 17 -> 13 segments) holding `wait_green` for 620 s, so the bound",
+  "exceeds the longest measured optimizer storm by about 2.3x.",
+  "The bound is not a tolerance: after it, the run stops as UNADJUDICATED. It",
+  "exists so a collection that never settles costs one bounded wait instead of",
+  "an unbounded one."
+ ],
+ "tolerance": 0,
+ "tolerance_why": [
+  "Zero, and this file may not raise it. Two readings of ONE unchanged state",
+  "that disagree on even one gold have told you the state is still moving.",
+  "`gate_convergence.load_contract` refuses a non-zero value rather than",
+  "honouring it: a standard must not be softenable from inside the run being",
+  "judged (verification-doctrine 12)."
+ ],
+ "bar_sets": [
+  "authoritative",
+  "foundation",
+  "legal",
+  "names",
+  "rel_vs_trust"
+ ],
+ "bar_sets_why": [
+  "Exactly the sets the ADR-043 verdict is computed on:",
+  "`tasks/370-scripts/compare_corpus_arms.py` GOLD663 + FLOOD. Convergence is",
+  "judged on the population the verdict rests on, never on a wider or a",
+  "narrower one, and `gate_convergence` refuses a contract that disagrees with",
+  "its own BAR_SETS."
+ ],
+ "readiness": {
+  "module": "cytir/index/readiness.py",
+  "when": "after wait_green, before the first arm",
+  "unreadable_is": "abort",
+  "not_ready_is": "recorded",
+  "why": [
+   "Task 608 recommended the predicate as an ASSERTION filed with the arm, and",
+   "task 609 measured why it cannot be the discriminator: at the failing",
+   "reading the collection was green / optimizer-ok / queue-0 and carried two",
+   "plain segments, and eight minutes later, at the passing reading, it was",
+   "green / optimizer-ok / queue-0 and carried the same two plain segments.",
+   "The predicate was false at both readings and the answers differed between",
+   "them. Refusing on it would refuse every pack that lands on a collection",
+   "carrying a routine plain segment; passing on it would have blessed the",
+   "transient. So it is evidence, filed with every verdict -- and a reading",
+   "that cannot be TAKEN at all is still an abort, because a check whose input",
+   "is unreadable must never read as clean."
+  ]
+ },
+ "measured": "2026-09-17",
+ "evidence": [
+  "tasks/609-pool-composition-lever.md sections 3, 4 and 6",
+  "tasks/609-artifacts/convergence-applier.json (NOT-CONVERGED, 31 of 691)",
+  "tasks/609-artifacts/convergence-endstate.json (CONVERGED, 0 of 691)",
+  "tasks/608-write-churn-gate.md section 4 (the settle timeline)"
+ ]
+}

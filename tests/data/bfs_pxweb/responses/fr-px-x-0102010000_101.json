@@ -1,0 +1,18 @@
+{
+ "title": "Population résidante permanente selon l'année et le canton",
+ "variables": [
+  {
+   "code": "Jahr",
+   "text": "Année",
+   "values": [
+    "2023",
+    "2024"
+   ],
+   "valueTexts": [
+    "2023",
+    "2024"
+   ],
+   "time": true
+  }
+ ]
+}

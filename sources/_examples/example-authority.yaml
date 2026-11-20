@@ -1,0 +1,40 @@
+# TEMPLATE, not a portfolio admission. Copy this file to sources/<region>/<name>.yaml and
+# change every value. The id, host and sitemap below are placeholders (example.ch does not
+# exist). See ADDING-A-SOURCE.md.
+id: example-authority
+name: "Example Authority"
+country: CH
+layer: law-government
+adapter: sitemap
+acquisition_policy: aw-acquisition-v1
+outlink_policy: capture-and-receipt
+preservation_profiles: [web_html]
+provenance: authored
+trust_tier: 0.9
+freshness: static
+license: {default: public-domain}
+consent: {basis: live-resolve-open}
+status: planned
+
+admission:
+  channel: official-dump
+  evidence: ["why we believe this source is authoritative"]
+  decision: auto-admit
+  policy: "POLICY.md@v1 §4.1"
+  date: "2026-08-20"
+
+routes:
+  - host: www.example.ch
+    lang: [de]
+    status: planned
+    acquire:
+      route: source_owned_sitemap_fetch
+      params:
+        urls: ["https://www.example.ch/sitemap.xml"]
+      select:
+        path_regex: "(?i)^/(publications|law)(/|$)"
+        deny_preset: generic-apparatus
+        min_path_segments: 2
+      lang: {const: de}
+      delay_s: 2.0
+      cap: 2000

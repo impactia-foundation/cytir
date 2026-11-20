@@ -1,0 +1,39 @@
+[
+ {
+  "consent_basis": "robots-live-resolve",
+  "consent_checked_at": "2026-11-11T06:00:00Z",
+  "consent_source": "consent_resolver",
+  "consent_state": "resolved",
+  "content_digest": "0c2dcbf8d611b73d3f69f9bbe145ef852e9e9443",
+  "disc_class": "news",
+  "domain": "example-news.ch",
+  "lang": "de",
+  "last_seen": "2026-11-11",
+  "news_document_id": "438eaa857f51c1925e011d8016ace2f8c9b375e38e7b761bcda1959db4c6c867",
+  "news_page_fetch": {
+   "body_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+   "fetched_at": "2026-11-11T06:01:00Z",
+   "final_url": "https://www.example-news.ch/politik/verkehr-neu",
+   "http_status": 200,
+   "object_id": "obj1",
+   "requested_url": "https://www.example-news.ch/politik/verkehr-neu",
+   "transport_sha256": "tttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt"
+  },
+  "point_id": "b4108754-3738-5636-8128-1c8901cfcdc4",
+  "provenance": "sitemap-ingest",
+  "published": "2026-11-10",
+  "search_ok": true,
+  "snippet": "# Gemeinde ordnet Verkehr neu Die Gemeinde hat am Montag beschlossen, den Verkehr im Zentrum neu zu ordnen.",
+  "source_type": "news",
+  "stamps": {
+   "chunk": 1,
+   "prov_id": "d8a962c4796858f4"
+  },
+  "text": "# Gemeinde ordnet Verkehr neu\nDie Gemeinde hat am Montag beschlossen, den Verkehr im Zentrum neu zu ordnen. Der Gemeinderat verabschiedete mit 31 zu 4 Stimmen ein Paket aus Tempo-30-Zonen, neuen Velowegen und einer Verlagerung von Parkplaetzen in ein Parkhaus am Stadtrand. Die Umsetzung soll im Fruehling beginnen und bis 2028 abgeschlossen sein.\nKritik kam vom Gewerbeverband, der Umsatzeinbussen befuerchtet. Der Verband verlangt eine Uebergangsfrist und eine Ausnahme fuer Lieferfahrzeuge. Die zustaendige Stadtraetin sagte, man werde die Wirkung nach einem Jahr ueberpruefen und bei Bedarf nachbessern. Die Kosten betragen rund 12 Millionen Franken.\nDie Opposition kuendigte ein Referendum an. Sie sammelt bereits Unterschriften und rechnet damit, die noetigen 1000 Stimmen innerhalb von vier Wochen zusammenzubringen. Eine Abstimmung koennte damit im Herbst stattfinden.\nMehr",
+  "tier": "C",
+  "title": "Gemeinde ordnet Verkehr neu",
+  "train_ok": false,
+  "trust_tier": 0.9,
+  "url": "https://www.example-news.ch/politik/verkehr-neu"
+ }
+]

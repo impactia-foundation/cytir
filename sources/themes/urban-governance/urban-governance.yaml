@@ -1,0 +1,103 @@
+# Urban governance / public policy.
+# Task 395 §5c: "urban governance sustainable cities framework case study"
+# returned 5/5 PubMed — a complete wipeout with no UN-Habitat/OECD-urban/
+# national-planning source competing at all.
+id: urban-governance
+name: "Urban governance / public policy (city networks + UN-Habitat class)"
+country: multi
+layer: law-government
+policy_section: "§4.1"
+adapter: sitemap
+acquisition_policy: aw-acquisition-v1
+outlink_policy: capture-and-receipt
+preservation_profiles: [web_html, web_pdf]
+extractor: cytir/sources/families/authority_packs.py
+provenance: authored
+tier: B
+trust_tier: 0.75
+density_tier: T1
+freshness: static
+theme: [urban-governance, social-contract]
+
+license:
+  default: per-route
+  notes: >
+    citiesalliance-terms, iclei-terms. Minimum-content records only (ADR-039).
+
+consent:
+  basis: live-resolve-mixed
+  train_ok_override: false
+  notes: >
+    www.citiesalliance.org disallows the training-only token family
+    (GPTBot, ClaudeBot, Google-Extended, Applebot-Extended, Bytespider,
+    meta-externalagent) => train_ok=false, while search remains permitted. It
+    is staged with its own consent stamp. It ALSO disallows CCBot, which is
+    non-binding for our direct polite crawl but WOULD block a CC-routed wave.
+    iclei.org resolved search_ok=true / train_ok=true.
+
+routes:
+  - host: www.citiesalliance.org
+    lang: [en]
+    route: "sitemap.xml (3,888 locs)"
+    status: staged
+    evidence: "task 399 recon"
+    notes: "train_ok=false — see consent notes. Inventory is news-heavy; authority density is modest and the cap reflects that."
+    license: citiesalliance-terms
+    acquire:
+      route: source_owned_sitemap_fetch
+      rank: 5
+      params: {urls: ["https://www.citiesalliance.org/sitemap.xml"]}
+      select: {deny_preset: generic-apparatus, min_path_segments: 2}
+      lang: {const: en}
+      delay_s: 2.0
+      cap: 1500
+      reason_receipt:
+        higher_priority_routes_checked: [source_owned_bulk_dump, documented_source_api, common_crawl]
+        reason_selected_route_is_needed: "no dump or API; sitemap.xml is the publisher's declared enumeration route (3,888 locs, task 399 recon)"
+        consent_and_robots_result: "search allowed; training-only token family disallowed (train_ok=false)"
+  - host: iclei.org
+    lang: [en]
+    route: "sitemap.xml (7,162 locs); FLAT site — depth-1 slugs, so the anti-hub depth rule used elsewhere is deliberately not applied here"
+    status: staged
+    evidence: "task 399 recon"
+    license: iclei-terms
+    acquire:
+      route: source_owned_sitemap_fetch
+      rank: 5
+      params: {urls: ["https://iclei.org/sitemap.xml"]}
+      select:
+        deny_preset: generic-apparatus
+        # min_path_segments 1, NOT the default 2: iclei is a FLAT site whose
+        # 7,162 sitemap URLs are mostly depth-1 slugs. The anti-hub depth rule
+        # that protects the other hosts would delete almost its whole inventory.
+        min_path_segments: 1
+        # /author/ excluded on MEASURED evidence, not taste: of 1,200 iclei URLs
+        # fetched on 2026-08-07, 474 (39.5%) were /author/ archive pages that
+        # 404 — stale entries in iclei's own sitemap. The other 726 were all 200.
+        # Re-fetching known-404s is a politeness cost, not a coverage gain.
+        path_deny_regex: "^/(wp-content|author)/"
+      lang: {const: en}
+      delay_s: 2.0
+      cap: 1200
+      reason_receipt:
+        higher_priority_routes_checked: [source_owned_bulk_dump, documented_source_api, common_crawl]
+        reason_selected_route_is_needed: "no dump or API; sitemap.xml is the publisher's declared enumeration route (7,162 locs, task 399 recon)"
+        consent_and_robots_result: "robots allows our agent"
+  - {host: unhabitat.org, route: "—", status: deferred, evidence: "task 399 recon", notes: "robots fail-closed (5xx/JS-shell/WAF-403 on robots.txt itself); holds 232 pts from an earlier route. The named UN authority for this theme — highest-value unblock here.", recheck_after: "2026-11-07"}
+  - {host: www.c40.org, route: "—", status: deferred, evidence: "task 399 recon", notes: "no sitemap at any common location", recheck_after: "2026-11-07"}
+  - {host: www.oecd.org, route: "—", status: deferred, evidence: "task 399 recon", notes: "OECD urban/public-governance directorate — blocked identically to the education pack's entry (403 to both UAs); tracked there", recheck_after: "2026-11-07"}
+
+status: staged
+
+admission:
+  channel: demand-evidence
+  evidence:
+    - "PORTFOLIO §3b row 'urban governance / public policy' — PROPOSED from demand evidence and RATIFIED ON MERGE of PR #56 (2026-08-07), naming OECD-urban/UN-Habitat-class sources"
+  decision: escalated
+  policy: "POLICY.md@v3 §4.1"
+  date: "2026-08-07"
+
+notes:
+  - "Decision 'escalated' (schema enum): escalation resolved by board — PR #56 merge = ratification (POLICY §9)."
+  - "density_tier T1, NOT T2: the two shippable hosts are membership NETWORKS, not the treaty/official publishers this theme really wants (UN-Habitat, OECD-urban) — and both of those are currently blocked. Trust 0.75 reflects that; POLICY §4.4's standing rule forbids letting a discovery-class source inherit a mission-tier default."
+  - "This pack is a partial answer by construction. The theme is not properly served until unhabitat.org and/or the OECD urban directorate are reachable."

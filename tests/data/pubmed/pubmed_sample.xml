@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PubmedArticleSet>
+<PubmedArticle><MedlineCitation><PMID>1001</PMID><Article>
+<ArticleTitle>Hand-written sample: renal outcomes after statin therapy</ArticleTitle>
+<Abstract><AbstractText>This synthetic abstract describes a cohort of adult patients followed for two years after the start of statin therapy, and it reports the change in estimated glomerular filtration rate with a confidence interval.</AbstractText></Abstract>
+<Language>eng</Language></Article></MedlineCitation></PubmedArticle>
+<PubmedArticle><MedlineCitation><PMID>1002</PMID><Article>
+<ArticleTitle>Effect of <i>BRCA1</i> variants on screening</ArticleTitle>
+<ELocationID EIdType="doi">10.1234/sample</ELocationID>
+<Abstract>
+<AbstractText Label="BACKGROUND" NlmCategory="BACKGROUND">Prior <b>inline</b> evidence establishes the context for this synthetic record, see https://example.org/protocol.</AbstractText>
+<AbstractText Label="METHODS" NlmCategory="METHODS">We describe the methods of the synthetic study in enough words to pass the length floor of the parser.</AbstractText>
+</Abstract><Language>eng</Language></Article>
+<OtherAbstract Type="publisher" Language="fre"><AbstractText Label="RESUME">Resume secondaire conserve integralement.</AbstractText></OtherAbstract></MedlineCitation>
+<PubmedData><ArticleIdList><ArticleId IdType="doi">10.1234/sample</ArticleId><ArticleId IdType="pmc">PMC987</ArticleId></ArticleIdList>
+<ReferenceList><Reference><Citation>Cited study</Citation><ArticleIdList><ArticleId IdType="pubmed">789</ArticleId></ArticleIdList></Reference></ReferenceList></PubmedData>
+</PubmedArticle>
+<PubmedArticle><MedlineCitation><PMID>1003</PMID><Article><ArticleTitle>Too short</ArticleTitle>
+<Abstract><AbstractText>Short.</AbstractText></Abstract><Language>eng</Language></Article></MedlineCitation></PubmedArticle>
+</PubmedArticleSet>

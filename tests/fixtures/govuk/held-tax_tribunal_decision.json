@@ -1,0 +1,36 @@
+{
+ "base_path": "/tax-and-chancery-tribunal-decisions/2026-ukut-00290-tcc-parvaiz-akhtar-v-hmrc",
+ "title": " [2026] UKUT 00290 (TCC) Parvaiz Akhtar v HMRC",
+ "description": "Upper Tribunal Tax and Chancery decision of Judge Tilakapala on 31 July 2026.",
+ "document_type": "tax_tribunal_decision",
+ "schema_name": "specialist_document",
+ "locale": "en",
+ "public_updated_at": "2026-08-03T11:31:22+01:00",
+ "details": {
+  "attachments": [
+   {
+    "attachment_type": "file",
+    "content_id": "146ec7e1-c66d-41f3-b67c-55117e450017",
+    "content_type": "application/pdf",
+    "created_at": "2026-07-31T13:58:25+01:00",
+    "id": "146ec7e1-c66d-41f3-b67c-55117e450017",
+    "title": "UT 2025-000140  Parvaiz Akhtar v HMRC ",
+    "updated_at": "2026-07-31T13:58:25+01:00",
+    "url": "https://assets.publishing.service.gov.uk/media/6a6c9bf18319ab05f7caa2b3/AKHTAR_DECISION_FOLLOWING_ORAL_HEARING_.pdf"
+   }
+  ],
+  "body": "<p>Read full decision:<span id=\"attachment_146ec7e1-c66d-41f3-b67c-55117e450017\" class=\"attachment-inline\"><a href=\"https://assets.publishing.service.gov.uk/media/6a6c9bf18319ab05f7caa2b3/AKHTAR_DECISION_FOLLOWING_ORAL_HEARING_.pdf\">UT 2025-000140  Parvaiz Akhtar v HMRC </a></span></p>\n\n<p>Parvaiz Akhtar (the “Applicant”) applies to the Upper Tribunal (Tax and Chancery Chamber) for permission to appeal against the decision of the First-tier Tribunal (Tax Chamber) (the “FTT”) released on 19 September 2025 (the “Decision”)</p>\n",
+  "change_history": [
+   {
+    "note": "First published.",
+    "public_timestamp": "2026-08-03T10:31:22Z"
+   }
+  ],
+  "max_cache_time": 10,
+  "metadata": {
+   "tribunal_decision_category": "tax",
+   "tribunal_decision_decision_date": "2026-07-31"
+  },
+  "temporary_update_type": false
+ }
+}

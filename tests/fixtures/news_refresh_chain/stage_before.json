@@ -1,0 +1,431 @@
+{
+ "calls": [
+  {
+   "argv": [
+    "-m",
+    "cytir.news.release_preflight",
+    "check",
+    "--release-dir",
+    "<REPO>",
+    "--release-manifest",
+    "<TMP>/m.json",
+    "--expected-git-sha",
+    "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "--expected-release-manifest-sha256",
+    "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "--langgate-python",
+    "<TMP>/bin/lg",
+    "--expected-langgate-requirements-sha256",
+    "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+   ],
+   "env": {
+    "AW_FOLD_ACCENTS": null,
+    "AW_INPROC_EXTRACT": null,
+    "AW_PIPE": null,
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "PYTHONPATH": "<REPO>"
+   },
+   "tool": "python3"
+  },
+  {
+   "argv": [
+    "-m",
+    "cytir.acquire.sitemap_ingest",
+    "fetch",
+    "--queue",
+    "<REPO>/data/news-queue.example.json",
+    "--wave",
+    "news",
+    "--out",
+    "<TMP>/work/stage-2026-01-02/news_rows.jsonl",
+    "--links-out",
+    "<TMP>/work/stage-2026-01-02/news_links.jsonl",
+    "--state",
+    "<TMP>/work/stage-2026-01-02/state.json",
+    "--raw-dir",
+    "<TMP>/work/stage-2026-01-02/raw",
+    "--preserve-dir",
+    "<TMP>/work/stage-2026-01-02/pages",
+    "--docs-out",
+    "<TMP>/work/stage-2026-01-02/news_documents.jsonl",
+    "--freshness",
+    "--window-months",
+    "12",
+    "--now",
+    "2026-01-02",
+    "--max-per-domain",
+    "1500",
+    "--max-child-sitemaps",
+    "1000",
+    "--workers",
+    "3",
+    "--host-rate",
+    "1.5",
+    "--rate",
+    "6",
+    "--direct-crawl",
+    "--recapture-twin-url",
+    "http://twin.invalid:1",
+    "--recapture-collection",
+    "twin_c"
+   ],
+   "env": {
+    "AW_FOLD_ACCENTS": null,
+    "AW_INPROC_EXTRACT": "1",
+    "AW_PIPE": null,
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "PYTHONPATH": "<REPO>"
+   },
+   "tool": "lg"
+  },
+  {
+   "argv": [
+    "-m",
+    "cytir.sources.hn.freshness_ingest",
+    "--min-points",
+    "40",
+    "--since-days",
+    "7",
+    "--now",
+    "2026-01-02",
+    "--out",
+    "<TMP>/work/stage-2026-01-02/hn_rows.jsonl",
+    "--receipt",
+    "<TMP>/work/stage-2026-01-02/hn_source_receipt.json",
+    "--host-meta",
+    "<REPO>/pipeline/news_host_meta.json",
+    "--preserve-dir",
+    "<TMP>/work/stage-2026-01-02/hn_linked"
+   ],
+   "env": {
+    "AW_FOLD_ACCENTS": null,
+    "AW_INPROC_EXTRACT": null,
+    "AW_PIPE": null,
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "PYTHONPATH": "<REPO>"
+   },
+   "tool": "lg"
+  },
+  {
+   "argv": [
+    "-m",
+    "cytir.news.enrich_tier1",
+    "<TMP>/work/stage-2026-01-02/news_rows.jsonl",
+    "<REPO>/pipeline/news_host_meta.json",
+    "<TMP>/work/stage-2026-01-02/news_rows.enriched.jsonl"
+   ],
+   "env": {
+    "AW_FOLD_ACCENTS": null,
+    "AW_INPROC_EXTRACT": null,
+    "AW_PIPE": null,
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "PYTHONPATH": "<REPO>"
+   },
+   "tool": "lg"
+  },
+  {
+   "argv": [
+    "-m",
+    "cytir.news.enrich_tier1",
+    "<TMP>/work/stage-2026-01-02/hn_rows.jsonl",
+    "<REPO>/pipeline/news_host_meta.json",
+    "<TMP>/work/stage-2026-01-02/hn_rows.enriched.jsonl"
+   ],
+   "env": {
+    "AW_FOLD_ACCENTS": null,
+    "AW_INPROC_EXTRACT": null,
+    "AW_PIPE": null,
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "PYTHONPATH": "<REPO>"
+   },
+   "tool": "lg"
+  },
+  {
+   "argv": [
+    "-m",
+    "cytir.news.stage_contract",
+    "source-boundary",
+    "--state",
+    "<TMP>/work/stage-2026-01-02/state.json",
+    "--hn-receipt",
+    "<TMP>/work/stage-2026-01-02/hn_source_receipt.json",
+    "--expected-hosts",
+    "www.srf.ch"
+   ],
+   "env": {
+    "AW_FOLD_ACCENTS": null,
+    "AW_INPROC_EXTRACT": null,
+    "AW_PIPE": null,
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "PYTHONPATH": "<REPO>"
+   },
+   "tool": "lg"
+  },
+  {
+   "argv": [
+    "-m",
+    "cytir.news.stage_contract",
+    "staging-ready",
+    "--url",
+    "http://localhost:6398"
+   ],
+   "env": {
+    "AW_FOLD_ACCENTS": null,
+    "AW_INPROC_EXTRACT": null,
+    "AW_PIPE": null,
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "PYTHONPATH": "<REPO>"
+   },
+   "tool": "python3"
+  },
+  {
+   "argv": [
+    "-m",
+    "cytir.consent.gate",
+    "gate",
+    "--passages",
+    "<TMP>/work/stage-2026-01-02/all.enriched.jsonl",
+    "--out-dir",
+    "<TMP>/work/stage-2026-01-02/gated",
+    "--cache-dir",
+    "<TMP>/work/consent-cache",
+    "--direct-crawl",
+    "--search-indexing"
+   ],
+   "env": {
+    "AW_FOLD_ACCENTS": null,
+    "AW_INPROC_EXTRACT": null,
+    "AW_PIPE": null,
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "PYTHONPATH": "<REPO>"
+   },
+   "tool": "lg"
+  },
+  {
+   "argv": [
+    "-m",
+    "cytir.news.stage_contract",
+    "routes"
+   ],
+   "env": {
+    "AW_FOLD_ACCENTS": null,
+    "AW_INPROC_EXTRACT": null,
+    "AW_PIPE": null,
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "PYTHONPATH": "<REPO>"
+   },
+   "tool": "python3"
+  },
+  {
+   "argv": [
+    "-m",
+    "cytir.news.stage_contract",
+    "status-hosts",
+    "--expected-hosts",
+    "www.srf.ch"
+   ],
+   "env": {
+    "AW_FOLD_ACCENTS": null,
+    "AW_INPROC_EXTRACT": null,
+    "AW_PIPE": null,
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "PYTHONPATH": "<REPO>"
+   },
+   "tool": "python3"
+  },
+  {
+   "argv": [
+    "-m",
+    "cytir.news.stage_contract",
+    "collection-name",
+    "--day",
+    "2026-01-02",
+    "--label",
+    "chmedia",
+    "--mrl-dim",
+    "128"
+   ],
+   "env": {
+    "AW_FOLD_ACCENTS": null,
+    "AW_INPROC_EXTRACT": null,
+    "AW_PIPE": null,
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "PYTHONPATH": "<REPO>"
+   },
+   "tool": "python3"
+  },
+  {
+   "argv": [
+    "-m",
+    "cytir.index.stage_pack_b1",
+    "--in",
+    "<TMP>/work/stage-2026-01-02/gated_chmedia.jsonl",
+    "--collection",
+    "coll-chmedia",
+    "--qdrant-url",
+    "http://localhost:6398",
+    "--mrl-dim",
+    "128",
+    "--consent-state",
+    "resolved",
+    "--consent-basis",
+    "robots-live-resolve",
+    "--consent-source",
+    "consent_gate.py direct-crawl receipt",
+    "--consent-checked-at",
+    "2026-01-02"
+   ],
+   "env": {
+    "AW_FOLD_ACCENTS": "1",
+    "AW_INPROC_EXTRACT": null,
+    "AW_PIPE": null,
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "PYTHONPATH": "<REPO>"
+   },
+   "tool": "qpy"
+  },
+  {
+   "argv": [
+    "-m",
+    "cytir.news.stage_contract",
+    "collection-name",
+    "--day",
+    "2026-01-02",
+    "--label",
+    "swissinfo",
+    "--mrl-dim",
+    "128"
+   ],
+   "env": {
+    "AW_FOLD_ACCENTS": null,
+    "AW_INPROC_EXTRACT": null,
+    "AW_PIPE": null,
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "PYTHONPATH": "<REPO>"
+   },
+   "tool": "python3"
+  },
+  {
+   "argv": [
+    "-m",
+    "cytir.index.stage_pack_b1",
+    "--in",
+    "<TMP>/work/stage-2026-01-02/gated_swissinfo.jsonl",
+    "--collection",
+    "coll-swissinfo",
+    "--qdrant-url",
+    "http://localhost:6398",
+    "--mrl-dim",
+    "128",
+    "--consent-state",
+    "resolved",
+    "--consent-basis",
+    "robots-live-resolve",
+    "--consent-source",
+    "consent_gate.py direct-crawl receipt",
+    "--consent-checked-at",
+    "2026-01-02"
+   ],
+   "env": {
+    "AW_FOLD_ACCENTS": "1",
+    "AW_INPROC_EXTRACT": null,
+    "AW_PIPE": null,
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "PYTHONPATH": "<REPO>"
+   },
+   "tool": "qpy"
+  },
+  {
+   "argv": [
+    "-m",
+    "cytir.news.stage_contract",
+    "collection-name",
+    "--day",
+    "2026-01-02",
+    "--label",
+    "hn",
+    "--mrl-dim",
+    "128"
+   ],
+   "env": {
+    "AW_FOLD_ACCENTS": null,
+    "AW_INPROC_EXTRACT": null,
+    "AW_PIPE": null,
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "PYTHONPATH": "<REPO>"
+   },
+   "tool": "python3"
+  },
+  {
+   "argv": [
+    "-m",
+    "cytir.index.stage_pack_b1",
+    "--in",
+    "<TMP>/work/stage-2026-01-02/gated_hn.jsonl",
+    "--collection",
+    "coll-hn",
+    "--qdrant-url",
+    "http://localhost:6398",
+    "--mrl-dim",
+    "128",
+    "--consent-state",
+    "resolved",
+    "--consent-basis",
+    "robots-live-resolve",
+    "--consent-source",
+    "consent_gate.py direct-crawl receipt",
+    "--consent-checked-at",
+    "2026-01-02"
+   ],
+   "env": {
+    "AW_FOLD_ACCENTS": "1",
+    "AW_INPROC_EXTRACT": null,
+    "AW_PIPE": null,
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "PYTHONPATH": "<REPO>"
+   },
+   "tool": "qpy"
+  }
+ ],
+ "digests": {
+  "all.enriched.jsonl": "4fe2c313fff01176cae9ab809da0fa7dfb95567715626c727f583ae2fe888460",
+  "gated_chmedia.jsonl": "7595552e6b831f57dd6dfd8dc19c7d9c303bc1777933b990aa58eb8e58c5452a",
+  "gated_hn.jsonl": "ae04ef90e0b6173d7fa957f82d8ea9d6f10c0f885430e158be09ad2ca79cc196",
+  "gated_swissinfo.jsonl": "f54509c6367e0e640b3fa3943311f942a5d2d4398e345f2f6ad7662e992a62c4",
+  "stage_input_manifest.json": "94c0f854656c6457e9ffc7be40b02131667f259eef3f784a8328d629fd8a139b",
+  "stage_manifest.json": "ddc548651ebd60b5b47886431a59c2b34620908983db081b6189b415f7b612ca"
+ },
+ "final_line": "STAGE DONE mode=daily day=2026-01-02 mrl_dim=128; canonical twin/prod untouched",
+ "inline": [
+  {
+   "argv": [
+    "-",
+    "<TMP>/work/stage-2026-01-02"
+   ],
+   "tool": "lg"
+  },
+  {
+   "argv": [
+    "-",
+    "<TMP>/work/stage-2026-01-02/gated/passages_ok.jsonl",
+    "<TMP>/work/stage-2026-01-02",
+    "2026-01-02",
+    "{\"srf.ch\": \"chmedia\", \"swissinfo.ch\": \"swissinfo\"}",
+    "srf.ch swissinfo.ch"
+   ],
+   "tool": "lg"
+  },
+  {
+   "argv": [
+    "-",
+    "<TMP>/work/stage-2026-01-02",
+    "http://localhost:6398",
+    "2026-01-02",
+    "daily",
+    "128"
+   ],
+   "tool": "qpy"
+  }
+ ],
+ "recorded_from": "news_refresh_stage.sh (before the port, task 1989)"
+}

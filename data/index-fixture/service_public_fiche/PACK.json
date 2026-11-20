@@ -1,0 +1,13 @@
+{
+ "chunks_sha256": "f6f3a9bfd2e078487d9caebb744a497d766dc58c3b5506fa941bb2dd46206251",
+ "dropped_served": 0,
+ "family_id": "service_public_fiche",
+ "pack_id": "service-public-fiche-v1-local-4a3a2e491a54",
+ "row_start": 0,
+ "rows": 6,
+ "schema": "aw.family-stage.v1",
+ "shard": 0,
+ "slice_rows": 150000,
+ "source_records_sha256": "4a3a2e491a54a94f324c2cd1a413e65fccd595f6c2b519f30df0950201634085",
+ "source_rows": 6
+}

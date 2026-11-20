@@ -1,0 +1,73 @@
+# watson.ch -- Swiss online news (CH Media). Admitted by Tim's ruling of 2026-10-03
+# (plan.md ruling 23.13); recorded in POLICY.md §4.7 and ADR-024 amendment 6.
+# The earlier "card-only" status came from `User-agent: *` `Disallow: /`
+# (ADR-024 amendment 2). The robots file now allows `*`.
+id: ch-watson
+name: "watson.ch (CH Media online news, DE/FR)"
+country: CH
+layer: news
+policy_section: "§4.7"
+adapter: sitemap
+acquisition_policy: aw-acquisition-v1
+outlink_policy: capture-and-receipt
+preservation_profiles: [news_article]
+provenance: authored
+tier: C
+trust_tier: 0.6
+density_tier: T2
+freshness: rolling-12mo
+theme: []
+
+license:
+  default: copyright-fairuse-snippet-pointer
+  notes: >
+    CH Media editorial copyright. The Allgemeine Nutzungsbedingungen (https://www.watson.ch/o/agb,
+    read from the AW crawl host 2026-10-03, Ziff. 4) reserve all rights, allow personal non-commercial use,
+    and allow "der automatisierte Abruf von Informationen und deren Verbreitung in anderen Systemen"
+    only with CH Media's express consent. The consent resolver reads robots.txt, TDMRep and AIPREF,
+    not these terms. AW keeps the ADR-039 minimum record only (url, title, <=25-word snippet,
+    embedding), never a mirror. The licence string is the SRG-broadcaster default, not a grant
+    from CH Media. Open question for Tim: see the POLICY PR, TO CONFIRM.
+
+consent:
+  basis: live-resolve-open
+  train_ok_override: null
+  notes: >
+    Read from the AW crawl host 2026-10-03 about 16:10Z: https://www.watson.ch/robots.txt says
+    `User-agent: *` `Allow: /`, `Disallow: /u/zoom`, `Crawl-delay: 1`; Googlebot, Bingbot,
+    Applebot, DuckDuckBot and OpenAI-SearchBot are allowed by name; PetalBot is disallowed.
+    No CCBot, GPTBot or ClaudeBot rule. Probe from the AW crawl host 2026-10-03: search_ok=true, train_ok=true.
+    The flags are re-resolved live at every build. They are not stored here.
+
+status: planned
+
+admission:
+  channel: news-sitemap-feed
+  evidence:
+    - "plan.md ruling 23.13 (Tim 2026-10-03): admit watson.ch."
+    - "probe from the AW crawl host 2026-10-03: robots.txt `Allow: /`, Crawl-delay 1; search_ok=true, train_ok=true."
+    - "task 676 (news 12-month coverage): before this, watson.ch held one row (the entity card) and was recorded as card-only."
+  decision: escalated
+  policy: "POLICY.md@v3 §4.7"
+  date: "2026-10-03"
+
+routes:
+  - host: www.watson.ch
+    lang: [de, fr]
+    route: "sitemaps named in robots.txt: /sitemap.xml and /fr/sitemap.xml"
+    status: planned
+    evidence: "robots.txt of 2026-10-03 names both"
+    acquire:
+      route: source_owned_sitemap_fetch
+      rank: 5
+      params: {urls: ["https://www.watson.ch/sitemap.xml", "https://www.watson.ch/fr/sitemap.xml"]}
+      lang: {by_path_segment: {fr: fr}, default: de}
+      delay_s: 1.0
+      cap: 8000
+
+notes:
+  - >
+    Crawl-delay 1 s is the publisher's own number. The news lane stays inside the 1 MB/s news egress share.
+  - >
+    The per-record `license` string for watson.ch is stamped by a host rule in cytir/core/license.py.
+    That rule does not exist yet: a code change, not part of the POLICY PR.

@@ -1,0 +1,90 @@
+# IT sources assessed in task 440 and NOT admitted (POLICY P5: nothing silent).
+id: it-deferred-declined
+name: "Italy — assessed, not admitted (Camera, dati.gov.it, ANAC, Cassazione)"
+country: IT
+layer: law-government
+policy_section: "§4.1"
+adapter: registry
+acquisition_policy: aw-acquisition-v1
+outlink_policy: capture-and-receipt
+preservation_profiles: [anchored_law, entity_registry]
+provenance: authored
+trust_tier: 1.0
+freshness: static
+
+license:
+  default: mixed-see-routes
+  notes: "Per-route findings with verbatim quotes in task 440 (private tree)."
+
+consent:
+  basis: live-resolve-mixed
+  train_ok_override: null
+  notes: "Verdicts resolved live 2026-08-20; records in task 440 (private tree)."
+
+status: deferred
+
+routes:
+  - host: dati.camera.it
+    lang: [it]
+    route: "Linked open data / SPARQL"
+    status: deferred
+    recheck_after: "2026-10-01"
+    evidence: "task 440: licence is CC BY-SA 4.0. Consent resolves ok/true/true. Largest Italian graph assessed."
+    notes: >
+      ESCALATED TO TIM AS A SEPARABLE DECISION -- see PR open question C1.
+      CC BY-SA 4.0 is the only COPYLEFT licence in this entire lane and it
+      collides with a DURABLE project constraint: CLAUDE.md requires
+      "permissive licences end to end (MIT/Apache) -- self-host *and*
+      redistribute". Share-alike may attach an SA obligation to the compact
+      redistributable dump (POLICY U2), which is a portfolio-wide consequence,
+      not a per-pack detail.
+      Deliberately NOT waved through despite being the largest Italian graph --
+      that size is exactly why it needs its own ruling rather than a footnote.
+      Options for Tim: (a) exclude Camera; (b) admit it behind a flag that keeps
+      it out of the shared dump; (c) accept the SA obligation knowingly.
+  - host: dati.gov.it
+    lang: [it]
+    route: "CKAN API (national open-data catalogue)"
+    status: declined
+    recheck_after: "2026-10-01"
+    evidence: "task 440: consent resolver -> DECLINED. robots.txt returns HTTP 403 to our honest UA on both the apex and www (apex redirects to the 403ing www host). 403 is an explicit access-controlled decline in the resolver, not merely an unreadable endpoint."
+    notes: >
+      CORRECTS an optimistic reading: the CKAN API answers, but a working API is
+      NOT implied permission when the host's robots explicitly 403s us. This is
+      a DECLINE, not an unresolved endpoint, so ADR-024 amendment 3 does not
+      apply. Losing it costs a discovery channel, not a content source --
+      dati.gov.it is a catalogue of other publishers' bulk distributions.
+      Not retried disguised.
+  - host: dati.anticorruzione.it
+    lang: [it]
+    route: "none -- WAF rejects our honest UA on every content path"
+    status: declined
+    recheck_after: "2026-10-01"
+    evidence: "task 440: ANAC WAF-rejects an honest UA on every content path."
+    notes: "If procurement data matters, the route is an email to ANAC, not a crawler. Technical block, short recheck horizon."
+  - host: italgiure.giustizia.it
+    lang: [it]
+    route: "none -- TLS chain incomplete (server omits an intermediate certificate)"
+    status: declined
+    recheck_after: "2026-10-01"
+    evidence: "task 440: unreachable because the server omits an intermediate certificate."
+    notes: >
+      DELIBERATELY NOT WORKED AROUND. Pinning the TI Trust chain to reach this
+      host would be a decision about whose certificates this project accepts --
+      a trust-posture question for Tim, not one an acquisition lane may settle
+      to get a corpus. Italian case law is therefore a NAMED GAP in the Italy
+      treatment, not an oversight.
+
+admission:
+  channel: official-dump
+  evidence:
+    - "task 440: per-route licence and consent evidence, quoted verbatim in task 440 (private tree)."
+  decision: escalated
+  policy: "POLICY.md@v3 §4.1"
+  date: "2026-08-20"
+
+notes:
+  - >
+    This pack admits nothing today. Camera is the one entry that could flip on a
+    single ruling from Tim; the other three are blocked on publisher behaviour
+    or on a trust decision that is not ours to make.

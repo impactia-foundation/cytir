@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ARTICLE>
+<META>
+<META_COMMUN>
+<ID>LEGIARTI000020679860</ID>
+<ANCIEN_ID/>
+<ORIGINE>LEGI</ORIGINE>
+<URL>article/LEGI/ARTI/00/00/20/67/98/LEGIARTI000020679860.xml</URL>
+<NATURE>Article</NATURE>
+</META_COMMUN>
+<META_SPEC>
+<META_ARTICLE>
+
+<NUM>1</NUM>
+
+<ETAT>VIGUEUR</ETAT>
+
+<DATE_DEBUT>1986-10-17</DATE_DEBUT>
+<DATE_FIN>2999-01-01</DATE_FIN>
+
+
+
+<TYPE>AUTONOME</TYPE>
+</META_ARTICLE>
+</META_SPEC>
+</META>
+<CONTEXTE>
+<TEXTE autorite="" cid="LEGITEXT000020679858" date_publi="2999-01-01" date_signature="1986-09-03" ministere="" nature="ARRETE" nor="" num="" num_parution_jo="">
+<TITRE_TXT c_titre_court="Arrêté du 3 septembre 1986" debut="1986-10-17" fin="2999-01-01" id_txt="LEGITEXT000020679858">Arrêté du 3 septembre 1986 portant classement de communes</TITRE_TXT>
+</TEXTE>
+</CONTEXTE>
+<VERSIONS>
+<VERSION etat="VIGUEUR">
+<LIEN_ART debut="1986-10-17" etat="VIGUEUR" fin="2999-01-01" id="LEGIARTI000020679860" num="1" origine="LEGI"/>
+</VERSION>
+</VERSIONS>
+<NOTA>
+<CONTENU/>
+</NOTA>
+<BLOC_TEXTUEL>
+<CONTENU>
+<p>
+<br/>Les territoires des communes ou parties de communes tels qu’ils
+figurent à l’annexe ci-après sont classés en zone défavorisées au
+titre de l’article 2 du décret n° 77-566 du 3 juin 1977, à compter
+de l’hivernage 85-86.</p>
+</CONTENU>
+</BLOC_TEXTUEL>
+<LIENS>
+<LIEN cidtexte="JORFTEXT000000337889" datesignatexte="1977-06-03" id="LEGIARTI000006601767" naturetexte="DECRET" nortexte="" num="2" numtexte="77-566" sens="source" typelien="CITATION">Décret n°77-566 du 3 juin 1977 - art. 2 (Ab)</LIEN>
+</LIENS>
+</ARTICLE>

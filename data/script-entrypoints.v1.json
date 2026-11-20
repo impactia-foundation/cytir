@@ -1,0 +1,6 @@
+{
+  "schema": "script-entrypoints.v1",
+  "task": 1738,
+  "doc": "Files under cytir/ that a caller starts BY PATH (python <path>.py) and so must put the repo root on sys.path before their first `cytir` import. Class A of task 1738 (script bootstrap set).Every other cytir/ script is started as `python3 -m cytir.<module>` or is a library; a new by-path start belongs here or must be changed to the module form.",
+  "by_path": []
+}

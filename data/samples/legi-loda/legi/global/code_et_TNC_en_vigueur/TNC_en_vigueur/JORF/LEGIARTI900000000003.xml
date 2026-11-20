@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ARTICLE>
+<META>
+<META_COMMUN>
+<ID>LEGIARTI000018943660</ID>
+<ANCIEN_ID/>
+<ORIGINE>LEGI</ORIGINE>
+<URL>article/LEGI/ARTI/00/00/18/94/36/LEGIARTI000018943660.xml</URL>
+<NATURE>Article</NATURE>
+</META_COMMUN>
+<META_SPEC>
+<META_ARTICLE>
+
+<NUM>8</NUM>
+
+<ETAT>VIGUEUR</ETAT>
+
+<DATE_DEBUT>1986-03-20</DATE_DEBUT>
+<DATE_FIN>2999-01-01</DATE_FIN>
+
+
+
+<TYPE>AUTONOME</TYPE>
+</META_ARTICLE>
+</META_SPEC>
+</META>
+<CONTEXTE>
+<TEXTE autorite="" cid="LEGITEXT000018943646" date_publi="2999-01-01" date_signature="1986-03-14" ministere="" nature="DECRET" nor="" num="86-687" num_parution_jo="">
+<TITRE_TXT c_titre_court="Décret n°86-687 du 14 mars 1986" debut="1986-03-20" fin="2999-01-01" id_txt="LEGITEXT000018943646">Décret n° 86-687 du 14 mars 1986 instituant le brevet d'Etat d'animateur technicien de l'éducation populaire et de la jeunesse</TITRE_TXT>
+<TM>
+<TITRE_TM debut="1986-03-20" fin="2999-01-01" id="LEGISCTA000018943653"> TITRE II : LES ETAPES DE LA FORMATION.</TITRE_TM>
+</TM>
+</TEXTE>
+</CONTEXTE>
+
+<VERSIONS>
+<VERSION etat="VIGUEUR">
+<LIEN_ART debut="1986-03-20" etat="VIGUEUR" fin="2999-01-01" id="LEGIARTI000018943660" num="8" origine="LEGI"/>
+</VERSION>
+</VERSIONS>
+<NOTA>
+<CONTENU/>
+</NOTA>
+<BLOC_TEXTUEL>
+<CONTENU>
+<p>Le candidat, après avoir suivi les unités de formation prévues à l'article 7, présente un projet de stage pratique mentionnant : <br/>- la structure d'accueil et l'identité des responsables ; <br/>- la nature des fonctions exercées par le candidat stagiaire ; <br/>- la proposition d'un conseiller de stage ; <br/>- la durée de son stage en temps de formation. <br/>Le directeur régional de la jeunesse et des sports instruit ce projet. Après examen du livret de formation, il prend ou non la décision d'agrément. <br/>Au cours du stage pratique d'une durée minimale de deux mois à temps complet ou de quatre mois à temps partiel, soit 210 heures de formation, le stagiaire est mis en situation d'animation dans la spécialité choisie, sous l'autorité d'un responsable de la structure d'accueil. <br/>Le responsable de la structure d'accueil et le conseiller de stage formulent chacun une appréciation qui est portée sur le livret de formation. <br/>Le stagiaire rédige un compte rendu de stage.</p>
+</CONTENU>
+</BLOC_TEXTUEL>
+<LIENS/>
+</ARTICLE>

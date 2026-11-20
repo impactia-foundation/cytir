@@ -1,0 +1,331 @@
+{
+ "search": [
+  "u-ok1",
+  "u-ok2",
+  "u-nodoi",
+  "u-editor",
+  "u-nobadge",
+  "u-chooser",
+  "u-other",
+  "u-badspdx"
+ ],
+ "items": {
+  "u-ok1": [
+   {
+    "key": "dc.title",
+    "value": "Democratizing Innovation"
+   },
+   {
+    "key": "dc.contributor.author",
+    "value": "Hippel, Eric von"
+   },
+   {
+    "key": "dc.subject.classification",
+    "value": "thema EDItEUR::K Economics::KJ Business::KJH Entrepreneurship / Start-ups"
+   },
+   {
+    "key": "dc.subject.classification",
+    "value": "thema EDItEUR::U Computing::UYQM Machine learning"
+   },
+   {
+    "key": "dc.language",
+    "value": "English"
+   },
+   {
+    "key": "dc.type",
+    "value": "book"
+   },
+   {
+    "key": "publisher.name",
+    "value": "The MIT Press"
+   },
+   {
+    "key": "dc.identifier.uri",
+    "value": "https://directory.doabooks.org/handle/20.500.12854/1"
+   },
+   {
+    "key": "oapen.identifier.doi",
+    "value": "10.7551/mitpress/2333.001.0001"
+   }
+  ],
+  "u-ok2": [
+   {
+    "key": "dc.title",
+    "value": "Distributional Reinforcement Learning"
+   },
+   {
+    "key": "dc.contributor.author",
+    "value": "Bellemare, Marc G."
+   },
+   {
+    "key": "dc.contributor.author",
+    "value": "Dabney, Will"
+   },
+   {
+    "key": "dc.subject.classification",
+    "value": "thema EDItEUR::K Economics::KJ Business::KJH Entrepreneurship / Start-ups"
+   },
+   {
+    "key": "dc.subject.classification",
+    "value": "thema EDItEUR::U Computing::UYQM Machine learning"
+   },
+   {
+    "key": "dc.language",
+    "value": "German"
+   },
+   {
+    "key": "dc.type",
+    "value": "book"
+   },
+   {
+    "key": "publisher.name",
+    "value": "The MIT Press"
+   },
+   {
+    "key": "dc.identifier.uri",
+    "value": "https://directory.doabooks.org/handle/20.500.12854/2"
+   },
+   {
+    "key": "oapen.identifier.doi",
+    "value": "10.7551/mitpress/14207.001.0001"
+   }
+  ],
+  "u-nodoi": [
+   {
+    "key": "dc.title",
+    "value": "Boosting"
+   },
+   {
+    "key": "dc.contributor.author",
+    "value": "Schapire, Robert E."
+   },
+   {
+    "key": "dc.subject.classification",
+    "value": "thema EDItEUR::K Economics::KJ Business::KJH Entrepreneurship / Start-ups"
+   },
+   {
+    "key": "dc.subject.classification",
+    "value": "thema EDItEUR::U Computing::UYQM Machine learning"
+   },
+   {
+    "key": "dc.language",
+    "value": "English"
+   },
+   {
+    "key": "dc.type",
+    "value": "book"
+   },
+   {
+    "key": "publisher.name",
+    "value": "The MIT Press"
+   },
+   {
+    "key": "dc.identifier.uri",
+    "value": "https://directory.doabooks.org/handle/20.500.12854/3"
+   }
+  ],
+  "u-editor": [
+   {
+    "key": "dc.title",
+    "value": "An Edited Volume"
+   },
+   {
+    "key": "dc.subject.classification",
+    "value": "thema EDItEUR::K Economics::KJ Business::KJH Entrepreneurship / Start-ups"
+   },
+   {
+    "key": "dc.subject.classification",
+    "value": "thema EDItEUR::U Computing::UYQM Machine learning"
+   },
+   {
+    "key": "dc.language",
+    "value": "English"
+   },
+   {
+    "key": "dc.type",
+    "value": "book"
+   },
+   {
+    "key": "publisher.name",
+    "value": "The MIT Press"
+   },
+   {
+    "key": "dc.identifier.uri",
+    "value": "https://directory.doabooks.org/handle/20.500.12854/4"
+   },
+   {
+    "key": "oapen.identifier.doi",
+    "value": "10.7551/mitpress/1.001.0001"
+   }
+  ],
+  "u-nobadge": [
+   {
+    "key": "dc.title",
+    "value": "Book Without Badge"
+   },
+   {
+    "key": "dc.contributor.author",
+    "value": "Author, A."
+   },
+   {
+    "key": "dc.subject.classification",
+    "value": "thema EDItEUR::K Economics::KJ Business::KJH Entrepreneurship / Start-ups"
+   },
+   {
+    "key": "dc.subject.classification",
+    "value": "thema EDItEUR::U Computing::UYQM Machine learning"
+   },
+   {
+    "key": "dc.language",
+    "value": "English"
+   },
+   {
+    "key": "dc.type",
+    "value": "book"
+   },
+   {
+    "key": "publisher.name",
+    "value": "The MIT Press"
+   },
+   {
+    "key": "dc.identifier.uri",
+    "value": "https://directory.doabooks.org/handle/20.500.12854/5"
+   },
+   {
+    "key": "oapen.identifier.doi",
+    "value": "10.7551/mitpress/2.001.0001"
+   }
+  ],
+  "u-chooser": [
+   {
+    "key": "dc.title",
+    "value": "Crossref Chooser Book"
+   },
+   {
+    "key": "dc.contributor.author",
+    "value": "Author, B."
+   },
+   {
+    "key": "dc.subject.classification",
+    "value": "thema EDItEUR::K Economics::KJ Business::KJH Entrepreneurship / Start-ups"
+   },
+   {
+    "key": "dc.subject.classification",
+    "value": "thema EDItEUR::U Computing::UYQM Machine learning"
+   },
+   {
+    "key": "dc.language",
+    "value": "English"
+   },
+   {
+    "key": "dc.type",
+    "value": "book"
+   },
+   {
+    "key": "publisher.name",
+    "value": "The MIT Press"
+   },
+   {
+    "key": "dc.identifier.uri",
+    "value": "https://directory.doabooks.org/handle/20.500.12854/6"
+   },
+   {
+    "key": "oapen.identifier.doi",
+    "value": "10.7551/mitpress/3.001.0001"
+   }
+  ],
+  "u-other": [
+   {
+    "key": "dc.title",
+    "value": "Other Press Book"
+   },
+   {
+    "key": "dc.contributor.author",
+    "value": "Author, C."
+   },
+   {
+    "key": "dc.subject.classification",
+    "value": "thema EDItEUR::K Economics::KJ Business::KJH Entrepreneurship / Start-ups"
+   },
+   {
+    "key": "dc.subject.classification",
+    "value": "thema EDItEUR::U Computing::UYQM Machine learning"
+   },
+   {
+    "key": "dc.language",
+    "value": "English"
+   },
+   {
+    "key": "dc.type",
+    "value": "book"
+   },
+   {
+    "key": "publisher.name",
+    "value": "Another Press"
+   },
+   {
+    "key": "dc.identifier.uri",
+    "value": "https://directory.doabooks.org/handle/20.500.12854/7"
+   },
+   {
+    "key": "oapen.identifier.doi",
+    "value": "10.1000/other.1"
+   }
+  ],
+  "u-badspdx": [
+   {
+    "key": "dc.title",
+    "value": "Odd Badge Book"
+   },
+   {
+    "key": "dc.contributor.author",
+    "value": "Author, D."
+   },
+   {
+    "key": "dc.subject.classification",
+    "value": "thema EDItEUR::K Economics::KJ Business::KJH Entrepreneurship / Start-ups"
+   },
+   {
+    "key": "dc.subject.classification",
+    "value": "thema EDItEUR::U Computing::UYQM Machine learning"
+   },
+   {
+    "key": "dc.language",
+    "value": "English"
+   },
+   {
+    "key": "dc.type",
+    "value": "book"
+   },
+   {
+    "key": "publisher.name",
+    "value": "The MIT Press"
+   },
+   {
+    "key": "dc.identifier.uri",
+    "value": "https://directory.doabooks.org/handle/20.500.12854/8"
+   },
+   {
+    "key": "oapen.identifier.doi",
+    "value": "10.7551/mitpress/4.001.0001"
+   }
+  ]
+ },
+ "pages": {
+  "https://directory.doabooks.org/handle/20.500.12854/1": "<html><a rel=\"license\" href=\"http://creativecommons.org/licenses/by-nc-nd/4.0\">CC</a><a href=\"https://creativecommons.org/licenses/by/4.0/\">catalogue</a></html>",
+  "https://directory.doabooks.org/handle/20.500.12854/2": "<html><a rel=\"license\" href=\"http://creativecommons.org/licenses/by-nc-nd/4.0\">CC</a><a href=\"https://creativecommons.org/licenses/by/4.0/\">catalogue</a></html>",
+  "https://directory.doabooks.org/handle/20.500.12854/3": "<html><a rel=\"license\" href=\"http://creativecommons.org/licenses/by-nc-nd/4.0\">CC</a><a href=\"https://creativecommons.org/licenses/by/4.0/\">catalogue</a></html>",
+  "https://directory.doabooks.org/handle/20.500.12854/4": "<html><a rel=\"license\" href=\"http://creativecommons.org/licenses/by-nc-nd/4.0\">CC</a><a href=\"https://creativecommons.org/licenses/by/4.0/\">catalogue</a></html>",
+  "https://directory.doabooks.org/handle/20.500.12854/6": "<html><a rel=\"license\" href=\"http://creativecommons.org/licenses/by-nc-nd/4.0\">CC</a><a href=\"https://creativecommons.org/licenses/by/4.0/\">catalogue</a></html>",
+  "https://directory.doabooks.org/handle/20.500.12854/7": "<html><a rel=\"license\" href=\"http://creativecommons.org/licenses/by-nc-nd/4.0\">CC</a><a href=\"https://creativecommons.org/licenses/by/4.0/\">catalogue</a></html>",
+  "https://directory.doabooks.org/handle/20.500.12854/8": "<a rel=\"license\" href=\"https://example.org/terms\">terms</a>",
+  "https://directory.doabooks.org/handle/20.500.12854/5": "<html>no badge here</html>"
+ },
+ "doi": {
+  "10.7551/mitpress/2333.001.0001": "https://direct.mit.edu/books/book/2821/Democratizing-Innovation",
+  "10.7551/mitpress/14207.001.0001": "https://direct.mit.edu/books/book/5590/Distributional-Reinforcement-Learning",
+  "10.7551/mitpress/3.001.0001": "https://chooser.crossref.org/?doi=10.7551%2Fmitpress%2F3.001.0001",
+  "10.7551/mitpress/4.001.0001": "https://direct.mit.edu/books/book/9/Odd",
+  "10.7551/mitpress/1.001.0001": "https://direct.mit.edu/books/book/1/Edited"
+ }
+}

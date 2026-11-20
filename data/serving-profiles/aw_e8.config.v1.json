@@ -1,0 +1,97 @@
+{
+ "config": {
+  "hnsw_config": {
+   "ef_construct": 100,
+   "full_scan_threshold": 10000,
+   "m": 16,
+   "max_indexing_threads": 0,
+   "on_disk": true
+  },
+  "optimizer_config": {
+   "default_segment_number": 0,
+   "deleted_threshold": 0.2,
+   "flush_interval_sec": 5,
+   "indexing_threshold": 10000,
+   "max_optimization_threads": 3,
+   "max_segment_size": null,
+   "memmap_threshold": null,
+   "prevent_unoptimized": null,
+   "vacuum_min_vector_number": 1000
+  },
+  "params": {
+   "on_disk_payload": true,
+   "replication_factor": 1,
+   "shard_number": 1,
+   "sparse_vectors": {
+    "bm25": {
+     "index": {
+      "datatype": "float16",
+      "on_disk": true
+     },
+     "modifier": "idf"
+    }
+   },
+   "vectors": {
+    "dense": {
+     "datatype": "float16",
+     "distance": "Cosine",
+     "on_disk": true,
+     "size": 256
+    }
+   },
+   "write_consistency_factor": 1
+  },
+  "quantization_config": {
+   "product": {
+    "always_ram": false,
+    "compression": "x8"
+   }
+  },
+  "wal_config": {
+   "wal_capacity_mb": 32,
+   "wal_retain_closed": 1,
+   "wal_segments_ahead": 0
+  }
+ },
+ "payload_schema": {
+  "country": {
+   "data_type": "keyword"
+  },
+  "domain": {
+   "data_type": "keyword"
+  },
+  "lang": {
+   "data_type": "keyword"
+  },
+  "lei": {
+   "data_type": "keyword"
+  },
+  "published": {
+   "data_type": "keyword"
+  },
+  "register_id": {
+   "data_type": "keyword"
+  },
+  "source_type": {
+   "data_type": "keyword"
+  },
+  "tier": {
+   "data_type": "keyword"
+  },
+  "trust_tier": {
+   "data_type": "float"
+  },
+  "url": {
+   "data_type": "keyword"
+  }
+ },
+ "schema": "aw.qdrant-collection-config.v1",
+ "source": {
+  "captured_at": "2026-10-03 (before 12:04Z)",
+  "collection": "aw_e8",
+  "note": "config + payload_schema only; counts, status and segment numbers are not creation parameters and are dropped",
+  "points_count_at_capture": 49033139,
+  "qdrant_version": "1.18.3",
+  "read": "GET /collections/aw_e8, read-only, on the twin box"
+ }
+}

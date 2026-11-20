@@ -1,0 +1,10 @@
+{
+ "schema": "aw.chunk-policy.v1",
+ "policy_id": "preserved-retained-passage-no-rechunk",
+ "policy_version": 1,
+ "epoch": 1,
+ "algorithm": "none",
+ "text": "The passage is the RETAINED text the production point already holds. No chunking, re-chunking, splitting, merging or normalization is applied by the producer that records this policy: the bytes are recovered from the retained store and bound to the point by re-deriving the point's own identity (ADR-I1 mint, or the ADR-I1 content_digest on the point's own URL) from those exact bytes.",
+ "rule_legend": "Recorded so a stage shard whose text was preserved rather than produced cannot be read as having been chunked under whichever policy happened to be current. The points this covers declare `rule_epochs.chunk: 1` in their own production payload -- measured, not assumed (task 505, 53,243 of 53,243) -- and the two epoch-1 policies in `data/` (legacy-180w-o30, source-native-atomic-record) cannot be told apart from the payload, so naming either one would be a guess. This policy names what is actually true.",
+ "producer": "tasks/505-scripts/build_narrow_d_stage.py"
+}

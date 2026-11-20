@@ -1,0 +1,12 @@
+{
+  "counts": {
+    "redirected_current_rfc_records": 7,
+    "redirected_current_rfc_reported_production_points": 460,
+    "route_reported_production_points": 18140,
+    "route_urls": 1325,
+    "source_parent_reported_production_points": 17680,
+    "source_parents": 1318
+  },
+  "schema": "aw.routec-pack-declaration.v1",
+  "source_id": "routec-ietf-datatracker-internet-draft-records-current"
+}

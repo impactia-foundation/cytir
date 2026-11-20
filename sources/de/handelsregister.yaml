@@ -1,0 +1,105 @@
+# DE commercial register — Handelsregister / Unternehmensregister.
+# DECLINED. Four independent disqualifiers; recorded so no future lane
+# re-scouts this and rediscovers the same walls.
+id: de-handelsregister
+name: "Handelsregister / Unternehmensregister (DE) — DECLINED, systematic retrieval statutorily prohibited"
+country: DE
+layer: commercial
+policy_section: "§4.9"
+adapter: registry
+acquisition_policy: aw-acquisition-v1
+outlink_policy: capture-and-receipt
+preservation_profiles: [entity_registry]
+provenance: authored
+trust_tier: 0.85
+density_tier: T0
+freshness: static
+theme: []
+
+license:
+  default: "proprietary-no-redistribution"
+  notes: >
+    No open licence exists for German register content. The Registerportal's
+    copyright notice requires prior consent for reproduction or publication of
+    any page or part thereof, including on the internet. § 8(2) HGB separately
+    bars circulating a derived dataset under the designation "Handelsregister"
+    (a naming bar only). The Unternehmensregister AGB § 3(3) grant a private
+    copy right ("durch Ausdruck oder als elektronische Datei kopiert werden") —
+    a permission to copy for yourself, not a licence to redistribute.
+    Germany publishes ZERO company-register open datasets: govdata.de CKAN
+    returns 5 hits for "handelsregister" (NRW retrieval statistics and Berlin
+    IHK trade data, none register content) and 73 for "unternehmensregister"
+    (all the STATISTICAL Destatis URS, a different population). Counts
+    independently reproduced twice, 2026-08-20.
+
+consent:
+  basis: declined
+  notes: >
+    Declined on statute and terms, not merely on robots (handelsregister.de
+    serves no robots.txt at all — /robots.txt is HTTP 404). Nutzungsordnung
+    Ziffer 3, in the portal's OWN official English translation: "Systematic
+    retrievals for the purpose of establishing, enhancing or updating
+    independent full or partial registers are not permitted." That sentence
+    describes AW's use case exactly. Ziffer 5 caps use at 60 searches or
+    retrievals per hour; Ziffer 6 reserves IP blocking; the portal FAQ asserts
+    that mass automated querying meets the criminal thresholds of §§ 303a/303b
+    StGB and blocks TOR outright.
+    Crucially this is NOT a permission the operator could grant: § 52 HRV
+    obliges the operator to ensure technically "dass ein Abruf ... jeweils nur
+    einzeln für jedes Registerblatt möglich ist und dass keine gezielte Suche
+    nach natürlichen Personen möglich ist" — retrieval only sheet-by-sheet, and
+    no targeted search for natural persons. § 9(1) HGB likewise permits
+    inspection only "durch einzelne Abrufe".
+
+status: declined
+
+admission:
+  channel: registry-resolve
+  evidence:
+    - "task 435 (2026-08-20): Nutzungsordnung Ziffer 3/5/6 quoted verbatim in German AND in the portal's own published English translation; § 52 HRV and § 9(1) HGB read from the official gesetze-im-internet XML."
+    - "task 435: NO STABLE PER-COMPANY URL — proven four ways. Search results live at a session-scoped JSF conversation id (?cid=N); a cold GET of that URL 302s to welcome with 0 bytes; every result-row href is literally '#'; document retrieval is a PrimeFaces form submit keyed by the row's ORDINAL POSITION in your session's result set. BRIS is no better: its Angular route table has a search/detail route that takes no company parameter and no :euid route. There is nothing for an entity card to point at."
+    - "task 435: no open-data channel. § 12a EGovG binds only federal authorities (Registergerichte are Länder courts); the DNG § 1(2) expressly creates no entitlement to data."
+    - "task 435: OffeneRegister.de is not a usable fallback — dumps carry Last-Modified 2019-02-05 (7.5 years stale), the advertised SQL API returns HTTP 502, and its CC-BY-4.0 covers only OpenCorporates' own database right while expressly disclaiming rights in the underlying data. Its upstream method was an automated scrape of handelsregister.de search listings, i.e. the act Ziffer 3 names as prohibited — we cannot launder that through a third party."
+    - "task 435: personal-data posture is the worst of the four jurisdictions. HRV §§ 24, 40 Nr. 3b, 43 Nr. 4b/5 make full name + Geburtsdatum + Wohnort MANDATORY published register content for directors, board members and Prokuristen; § 10a(3) HGB DISAPPLIES the Art. 21 GDPR right to object entirely."
+  decision: auto-reject
+  policy: "POLICY.md@v3 §4.9"
+  date: "2026-08-20"
+  would_pass_today: false
+
+notes:
+  - >
+    The GDPR-by-conviction reading makes DE worse, not better, than a pure
+    licence blocker. An AW index that lets an agent find a company by a
+    director's name is precisely the capability § 52 HRV obliges the German
+    register to prevent, and the people whose names it would carry have had
+    their right to object removed at source by § 10a(3) HGB — so AW's TAKEDOWN
+    fast-path would be offering a remedy the source itself denies, over data we
+    had no right to republish. Declining is the coherent position, not a
+    reluctant one.
+  - >
+    Re-open condition, and it is a real one: Commission Implementing Regulation
+    (EU) 2023/138 makes "Companies and company ownership" a High-Value Dataset
+    that Member States must publish "under the conditions of the Creative
+    Commons BY 4.0 licence or any equivalent or less restrictive open licence"
+    and "through APIs and bulk download", at individual company level. It has
+    applied since 9 June 2024. The mandated attribute set — name, status,
+    registration date, registered office, legal form, registration number,
+    NACE — is exactly what AW wants and pointedly excludes officers and dates
+    of birth, i.e. it would dissolve the German privacy problem as well as the
+    licence problem. Germany appears to be past the deadline without a
+    compliant channel. The route to DE company cards is advocacy and waiting
+    for HVD compliance, not engineering.
+  - >
+    Do not mistake Destatis's 3,543,865 "rechtliche Einheiten" (URS 2024) for a
+    Handelsregister count. Destatis builds the statistical URS from VAT
+    filings, Bundesagentur für Arbeit employment data, survey updates and a
+    commercial vendor — the Handelsregister is not among its sources. It counts
+    economically active units including millions of non-registered sole
+    traders, and misses dormant registered entities. No official active-
+    Rechtsträger stock figure is published register-natively.
+  - >
+    What IS free since DiRUG (2022-08-01), for the record: AD, CD, HD, DK, UT
+    and SI retrievals all cost EUR 0.00 with no registration, and SI is a
+    per-company XML built for machine processing. The raw material is ideal.
+    It is the systematic acquisition of it that is prohibited — so the block is
+    legal, not technical, and no amount of engineering resolves it.

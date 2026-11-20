@@ -1,0 +1,81 @@
+{
+  "schema": "aw.acquisition-policy.v1",
+  "policy_id": "aw-acquisition-v1",
+  "effective_date": "2026-08-15",
+  "supersedes": {
+    "effective_date": "2026-08-14",
+    "change": "The orchestration host is orchestration-only; all source retrieval, including justified direct-origin retrieval, runs on the build host."
+  },
+  "route_precedence": [
+    {
+      "rank": 1,
+      "route": "source_owned_incremental_feed",
+      "examples": ["RSS/Atom", "change feed", "OAI-PMH", "official release feed"]
+    },
+    {
+      "rank": 2,
+      "route": "source_owned_bulk_dump",
+      "examples": ["XML/JSON/CSV dump", "WARC", "registry export"]
+    },
+    {
+      "rank": 3,
+      "route": "documented_source_api",
+      "examples": ["official REST API", "SPARQL", "S3 inventory"]
+    },
+    {
+      "rank": 4,
+      "route": "common_crawl",
+      "examples": ["CDX lookup plus WARC retrieval"]
+    },
+    {
+      "rank": 5,
+      "route": "source_owned_sitemap_fetch",
+      "examples": ["sitemap index", "news sitemap"]
+    },
+    {
+      "rank": 6,
+      "route": "direct_origin_crawl",
+      "examples": ["bounded crawl after higher-priority routes are unavailable or inadequate"]
+    }
+  ],
+  "direct_fetch": {
+    "requires_reason_receipt": true,
+    "required_reason_fields": [
+      "higher_priority_routes_checked",
+      "reason_selected_route_is_needed",
+      "consent_and_robots_result",
+      "fetch_vantage"
+    ],
+    "vantage_order": ["residential_build_host"],
+    "residential_use_conditions": [
+      "all higher-priority source routes were checked and are unavailable or inadequate",
+      "the source permits ordinary public access under the recorded consent and robots result"
+    ],
+    "prohibitions": [
+      "do not bypass robots.txt",
+      "do not bypass authentication or consent controls",
+      "do not use residential fallback after an explicit source refusal"
+    ]
+  },
+  "preservation": {
+    "original_bytes_before_parse": true,
+    "required_chain": ["original", "markdown", "chunks", "outlinks", "vectors"],
+    "empty_outlinks_must_be_receipted": true,
+    "retrieval_metadata_required": true,
+    "newer_source_versions_allowed": true,
+    "newer_source_versions_must_be_classified": ["exact", "refreshed", "added", "removed"]
+  },
+  "outlinks": {
+    "capture_on_every_document": true,
+    "required_fields": ["source_url", "target_url", "anchor_or_context", "retrieved_at"],
+    "aggregation_cadence": ["after_each_completed_wave", "weekly"],
+    "candidate_route_precedence_inherits_policy": true,
+    "promotion_requires_authority_and_consent_gates": true
+  },
+  "news": {
+    "coverage_rule": "each admitted country, industry, and strategic theme has a matching news-source cell",
+    "preferred_routes": ["publisher feed", "publisher bulk/archive", "news sitemap", "Common Crawl", "direct fetch"],
+    "rolling_window": "12 months",
+    "freshness_target": "less than 2 days"
+  }
+}

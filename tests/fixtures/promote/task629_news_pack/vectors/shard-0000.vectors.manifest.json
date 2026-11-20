@@ -1,0 +1,11 @@
+{
+ "n": 3,
+ "dim": 1024,
+ "dtype": "float16",
+ "ordering": "row i of vectors.f16 == line i of row_ids.jsonl == line i of the staged texts.jsonl.gz",
+ "derived_from": {
+  "pack": "the build box, packs/current-articles-v5b-source-profile",
+  "vectors": "the build box, vectors/source=news-current-articles-v5b",
+  "note": "task 629 news fixture: rows chosen for their publication_time_status, in row_ids order"
+ }
+}

@@ -1,0 +1,102 @@
+# GitHub releases of curated, AW-relevant open-source projects -- task 661
+# F5 (industry-site refresh: "GitHub releases of tracked projects").
+# `country: US` follows sources/us/agency-guidance.yaml's own precedent
+# for a platform with no single national home (GitHub Inc. is US-based).
+#
+# STATUS: ingested. First live refresh landed in the promotion queue
+# 2026-09-28 (a private pipeline module, task 661 F5
+# follow-up) -- consent live-resolved for github.com (search_ok=true,
+# train_ok=true, no opt-out signal), 54 rows staged/packed/queued
+# (pack refresh-direct-gh-releases-20260928). Runs weekly via
+# aw-refresh-lane-direct-compose.timer (Sunday 03:00 UTC).
+id: us-github-releases-tracked
+name: "GitHub releases — curated open-source projects (Atom feed, no auth)"
+country: US
+layer: tech-docs
+policy_section: "§4.4"
+adapter: api
+acquisition_policy: aw-acquisition-v1
+outlink_policy: capture-and-receipt
+preservation_profiles: [software_docs, web_html]
+provenance: authored
+trust_tier: 0.85
+freshness: weekly
+
+license:
+  default: unknown-per-repo
+  notes: >
+    A release's own text (changelog/notes) carries whatever licence the
+    repository declares (often none, or the repo's own OSS licence for
+    code — release NOTES are rarely licensed separately). Per ADR-111/
+    ADR-112: the AW minimum record (url, title, short snippet, embedding,
+    sparse terms) is served and distributed on the opt-out + minimum-
+    record basis unless a specific repo's robots.txt/AIPREF/TDMRep/ai.txt
+    opts out — resolved live per host at admission time, never inferred
+    from the licence field (memory: licence-basis-from-the-instrument).
+
+consent:
+  basis: live-resolve-open
+  train_ok_override: null
+  notes: >
+    Resolved live 2026-09-28 (a private pipeline module, from
+    the crawl host): github.com search_ok=true, train_ok=true, "no opt-out
+    signal found". Re-resolved live again on every fetch
+    (consent_gate.py --direct-crawl --search-indexing), never cached
+    past this note.
+
+status: ingested
+
+# Fanned out one route per tracked repo (schema: routes[] is for a pack
+# that fans out over many same-shape hosts/items -- task 434). Each
+# route's own `acquire` uses `source_owned_incremental_feed` (a plain
+# per-item feed URL, `required: {url}`) rather than a pack-level
+# `documented_source_api` block, whose params contract is one fixed
+# `endpoint` -- it cannot hold a LIST of per-repo feed URLs without
+# becoming an unknown key (task 661's PR #383 CI failure, fixed here).
+# `a private pipeline module`'s `discover()` reads this pack's
+# `routes[].host` (each "github.com/<owner>/<repo>") via `pack_path` in
+# the refresh-cadence row -- see that module's own doc comment. Expand
+# the tracked list by adding a route entry, by PR, never by hand-editing
+# prod -- this pack is the source of truth for what gets tracked.
+routes:
+  - host: github.com/qdrant/qdrant
+    canonical_domain: github.com
+    lang: [en]
+    status: ingested
+    acquire:
+      route: source_owned_incremental_feed
+      params:
+        url: "https://github.com/qdrant/qdrant/releases.atom"
+        kind: atom
+    evidence: "2026-09-26: verified live (10 entries, no auth, no rate-limit signal hit)."
+  - host: github.com/huggingface/text-embeddings-inference
+    canonical_domain: github.com
+    lang: [en]
+    status: ingested
+    acquire:
+      route: source_owned_incremental_feed
+      params:
+        url: "https://github.com/huggingface/text-embeddings-inference/releases.atom"
+        kind: atom
+    evidence: "2026-09-26: same feed shape as qdrant/qdrant, not independently re-verified."
+
+admission:
+  channel: refresh-cadence-new-refs
+  evidence:
+    - "task 661 F5 (2026-09-26): industry-site refresh — GitHub releases of tracked projects."
+    - "a private pipeline module, 10 tests, verified live against a real feed."
+  decision: escalated
+  policy: "POLICY.md@v1 §6 (a NEW family/host runs the assessment band; queued for Tim)"
+  date: "2026-09-26"
+
+notes:
+  - >
+    This pack and sources/us/huggingface-orgs-tracked.yaml are proposed
+    together in ONE POLICY PR (per the coordinator's instruction) rather
+    than admitted as a tranche of an already-admitted family: PORTFOLIO
+    §4.4 names "HF cards" and "GitHub (staged 246k)" as EXISTING content
+    reached via the generic multi-host CC-discovery frontier
+    (cc_authority_frontier_w7), not via a dedicated, curated, source-
+    owned-feed pack with its own consent/admission provenance like this
+    one — treated as new declared sources, not a tranche, to stay on the
+    safe side of POLICY §6's escalation default.

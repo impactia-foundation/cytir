@@ -1,0 +1,46 @@
+{
+ "https://example.org/de/kuendigung": {
+  "extract_mode": "precision",
+  "legacy_window_sha256": "479c91af8e15a1bc316772a7c05618982a110f6d49f408de4fe37ab560d25063",
+  "links_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+  "markdown_sha256": "bfbbba269f5e8aa2be14a709e7e55fda46085833224fa4881d83e2e33b4d4776",
+  "n_passages": 6,
+  "n_units": 6,
+  "passages_sha256": "ace7c0dfa58fc98430b1cd3acb11fad25ef2795b015bcc943798fe2722d32c73",
+  "title": "Kündigung DE | Beispiel-Portal",
+  "units_sha256": "1533c5024d1835b3cf8c7722c445abccdb0f201276c424bc847054d1906b247f"
+ },
+ "https://example.org/en/kuendigung": {
+  "extract_mode": "precision",
+  "legacy_window_sha256": "242c66430bff3e74685c8687f4ae158f787f0d80b767122a72ffbac22a22be81",
+  "links_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+  "markdown_sha256": "48d96f43b50c27553ac87507b0d6aee21004e5a002936602dbeecee9ddff82e2",
+  "n_passages": 11,
+  "n_units": 11,
+  "passages_sha256": "af162c5560b7ebd60ce01bcbbb28e4db0d15d17a952c888419642a71f674ac09",
+  "title": "Kündigung EN | Beispiel-Portal",
+  "units_sha256": "9acc0edf7261e78bf2b5e208309070a93ca0e9164ef667f2fead7fab431ae5ad"
+ },
+ "https://example.org/fr/kuendigung": {
+  "extract_mode": "precision",
+  "legacy_window_sha256": "ccaaeb4ce82332b9aa1cc8da2769cb136e7a770f7eeae452ad508215f0c9c52e",
+  "links_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+  "markdown_sha256": "4fa81e93e961eda2873259e8d92a2963ffdf6965331a09674f158e87f2fae6c7",
+  "n_passages": 11,
+  "n_units": 11,
+  "passages_sha256": "13ba25fc165db4ffa1a05becaf606c506c10db5d1dd80ed75a8c53e9b5c47a80",
+  "title": "Kündigung FR | Beispiel-Portal",
+  "units_sha256": "9348b4848e6bb8f27aaa66c7838cdb81bcd3770c9d57bc24311405ddb2fcc004"
+ },
+ "https://example.org/it/kuendigung": {
+  "extract_mode": "precision",
+  "legacy_window_sha256": "e5cb3ccb73297e9385186a935247a54966ef7cd8879d1d18a68761791418aea2",
+  "links_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+  "markdown_sha256": "c8544680f1064106d98e52c5110dd999272f4210e27bc2bd1fc0900cb7e38a5a",
+  "n_passages": 11,
+  "n_units": 11,
+  "passages_sha256": "b88646d9158efbba0375ba5f3172f82e9350ed01db819e540f24b3eecbfb8ddd",
+  "title": "Kündigung IT | Beispiel-Portal",
+  "units_sha256": "76a25e6839b6537355633c5d37119bf9bbeb07bb606062270eea0fbe34f767a4"
+ }
+}

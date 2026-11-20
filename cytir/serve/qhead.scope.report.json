@@ -1,0 +1,39 @@
+{
+ "country_scope": {
+  "driver": "head",
+  "kind": "classifier",
+  "enabled": true,
+  "classes": [
+   "_NONE_",
+   "CA",
+   "CH",
+   "DE",
+   "FR",
+   "GB",
+   "IT",
+   "US"
+  ],
+  "none_class": "_NONE_",
+  "temperature": 0.9,
+  "threshold": 0.6,
+  "input_dim": 1024,
+  "train": {
+   "n": 46066,
+   "C": 1.0,
+   "val_frac": 0.15,
+   "label_dist": {
+    "CA": 1387,
+    "CH": 2698,
+    "DE": 705,
+    "FR": 458,
+    "GB": 175,
+    "IT": 98,
+    "US": 401,
+    "_NONE_": 40144
+   },
+   "scoped_reproduction": 0.9833,
+   "none_abstention": 0.9132
+  },
+  "note": "ADR-062 knob 13 (amended Q2): learned calibrated abstaining soft country scope. Cold-started from _query_jurisdiction + gazetteer; generalises to markerless forms. Serve-time precedence keyword > gazetteer > this head; confidence scales the off-country penalty."
+ }
+}

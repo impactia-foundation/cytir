@@ -1,0 +1,8423 @@
+{
+ "arms": {
+  "applier_gate": {
+   "cache_miss": 0,
+   "sets": {
+    "authoritative": {
+     "per_q": {
+      "ai-api-001": {
+       "rank": 1
+      },
+      "ai-api-002": {
+       "rank": 2
+      },
+      "ai-api-003": {
+       "rank": null
+      },
+      "ai-api-004": {
+       "rank": 1
+      },
+      "ai-api-005": {
+       "rank": 5
+      },
+      "ai-api-006": {
+       "rank": 1
+      },
+      "ai-api-007": {
+       "rank": 4
+      },
+      "ai-api-008": {
+       "rank": null
+      },
+      "ai-api-009": {
+       "rank": 1
+      },
+      "ai-api-010": {
+       "rank": null
+      },
+      "ai-deploy-001": {
+       "rank": null
+      },
+      "ai-deploy-002": {
+       "rank": null
+      },
+      "ai-deploy-003": {
+       "rank": 1
+      },
+      "ai-deploy-004": {
+       "rank": null
+      },
+      "ai-deploy-005": {
+       "rank": null
+      },
+      "ai-deploy-006": {
+       "rank": null
+      },
+      "ai-deploy-007": {
+       "rank": 3
+      },
+      "ai-docs-001": {
+       "rank": 1
+      },
+      "ai-docs-002": {
+       "rank": null
+      },
+      "ai-docs-003": {
+       "rank": null
+      },
+      "ai-docs-004": {
+       "rank": 2
+      },
+      "ai-docs-005": {
+       "rank": 2
+      },
+      "ai-docs-006": {
+       "rank": 1
+      },
+      "ai-docs-007": {
+       "rank": 2
+      },
+      "ai-docs-008": {
+       "rank": 1
+      },
+      "ai-docs-009": {
+       "rank": null
+      },
+      "ai-docs-010": {
+       "rank": 1
+      },
+      "ai-docs-011": {
+       "rank": null
+      },
+      "ai-docs-012": {
+       "rank": null
+      },
+      "ai-docs-013": {
+       "rank": null
+      },
+      "ai-docs-014": {
+       "rank": 1
+      },
+      "ai-docs-015": {
+       "rank": null
+      },
+      "ai-docs-016": {
+       "rank": 1
+      },
+      "ai-model-001": {
+       "rank": 1
+      },
+      "ai-model-002": {
+       "rank": 1
+      },
+      "ai-model-003": {
+       "rank": 1
+      },
+      "ai-model-004": {
+       "rank": 1
+      },
+      "ai-model-005": {
+       "rank": 4
+      },
+      "ai-model-006": {
+       "rank": 2
+      },
+      "ai-model-007": {
+       "rank": 1
+      },
+      "ai-model-008": {
+       "rank": 1
+      },
+      "ai-model-009": {
+       "rank": 1
+      },
+      "ai-model-010": {
+       "rank": 1
+      },
+      "ai-model-011": {
+       "rank": 2
+      },
+      "ai-model-012": {
+       "rank": 1
+      },
+      "ai-model-013": {
+       "rank": 1
+      },
+      "ai-model-014": {
+       "rank": 1
+      },
+      "ai-model-015": {
+       "rank": 1
+      },
+      "ai-model-016": {
+       "rank": 8
+      },
+      "ai-papers-001": {
+       "rank": 2
+      },
+      "ai-papers-002": {
+       "rank": 2
+      },
+      "ai-papers-003": {
+       "rank": 1
+      },
+      "ai-papers-004": {
+       "rank": 1
+      },
+      "ai-papers-005": {
+       "rank": 5
+      },
+      "ai-papers-006": {
+       "rank": 1
+      },
+      "ai-papers-007": {
+       "rank": null
+      },
+      "ai-papers-008": {
+       "rank": null
+      },
+      "ai-papers-009": {
+       "rank": 2
+      },
+      "ai-papers-010": {
+       "rank": 1
+      },
+      "ai-price-001": {
+       "rank": 1
+      },
+      "ai-price-002": {
+       "rank": 2
+      },
+      "ai-price-003": {
+       "rank": 1
+      },
+      "ai-price-004": {
+       "rank": null
+      },
+      "ai-price-005": {
+       "rank": null
+      },
+      "ai-reg-001": {
+       "rank": 1
+      },
+      "ai-reg-002": {
+       "rank": null
+      },
+      "ai-reg-003": {
+       "rank": 1
+      },
+      "ai-reg-004": {
+       "rank": 1
+      },
+      "ai-reg-005": {
+       "rank": null
+      },
+      "ai-reg-006": {
+       "rank": null
+      },
+      "bb-001": {
+       "rank": 1
+      },
+      "bb-002": {
+       "rank": 1
+      },
+      "bb-003": {
+       "rank": 3
+      },
+      "bb-004": {
+       "rank": 1
+      },
+      "bb-005": {
+       "rank": 1
+      },
+      "bb-006": {
+       "rank": 1
+      },
+      "bb-007": {
+       "rank": 1
+      },
+      "bb-008": {
+       "rank": 4
+      },
+      "bb-009": {
+       "rank": 1
+      },
+      "bb-010": {
+       "rank": 2
+      },
+      "bb-011": {
+       "rank": null
+      },
+      "bb-012": {
+       "rank": null
+      },
+      "bb-013": {
+       "rank": null
+      },
+      "bb-014": {
+       "rank": null
+      },
+      "bb-015": {
+       "rank": null
+      },
+      "bb-016": {
+       "rank": null
+      },
+      "bb-017": {
+       "rank": null
+      },
+      "bb-018": {
+       "rank": null
+      },
+      "bb-019": {
+       "rank": 3
+      },
+      "bb-020": {
+       "rank": 1
+      },
+      "bb-021": {
+       "rank": 5
+      },
+      "bb-022": {
+       "rank": 10
+      },
+      "bb-023": {
+       "rank": 1
+      },
+      "bb-024": {
+       "rank": 1
+      },
+      "bb-025": {
+       "rank": null
+      },
+      "bb-026": {
+       "rank": 1
+      },
+      "bb-027": {
+       "rank": null
+      },
+      "bb-028": {
+       "rank": 1
+      },
+      "bb-029": {
+       "rank": 2
+      },
+      "bb-030": {
+       "rank": 1
+      },
+      "ca-gov-001": {
+       "rank": null
+      },
+      "ca-gov-002": {
+       "rank": null
+      },
+      "ca-gov-003": {
+       "rank": 2
+      },
+      "ca-gov-004": {
+       "rank": 1
+      },
+      "ca-gov-005": {
+       "rank": 3
+      },
+      "ca-gov-006": {
+       "rank": null
+      },
+      "ca-gov-007": {
+       "rank": null
+      },
+      "ca-gov-008": {
+       "rank": null
+      },
+      "ca-gov-009": {
+       "rank": null
+      },
+      "ca-gov-010": {
+       "rank": 1
+      },
+      "ca-gov-011": {
+       "rank": null
+      },
+      "ca-gov-012": {
+       "rank": null
+      },
+      "ca-gov-013": {
+       "rank": 3
+      },
+      "ca-gov-014": {
+       "rank": 1
+      },
+      "ca-gov-015": {
+       "rank": 4
+      },
+      "ca-gov-016": {
+       "rank": 1
+      },
+      "ca-gov-017": {
+       "rank": 2
+      },
+      "ca-gov-018": {
+       "rank": 2
+      },
+      "ca-gov-019": {
+       "rank": 1
+      },
+      "ca-health-001": {
+       "rank": 1
+      },
+      "ca-law-001": {
+       "rank": null
+      },
+      "ca-law-002": {
+       "rank": null
+      },
+      "ca-law-003": {
+       "rank": null
+      },
+      "ca-law-004": {
+       "rank": null
+      },
+      "ca-law-005": {
+       "rank": 3
+      },
+      "ca-law-006": {
+       "rank": null
+      },
+      "ca-law-007": {
+       "rank": null
+      },
+      "ca-law-008": {
+       "rank": null
+      },
+      "ca-law-009": {
+       "rank": null
+      },
+      "ca-law-010": {
+       "rank": null
+      },
+      "ca-law-011": {
+       "rank": null
+      },
+      "ca-law-012": {
+       "rank": null
+      },
+      "ca-law-013": {
+       "rank": null
+      },
+      "ca-law-014": {
+       "rank": null
+      },
+      "ca-law-015": {
+       "rank": null
+      },
+      "ca-law-016": {
+       "rank": null
+      },
+      "ca-law-017": {
+       "rank": null
+      },
+      "ca-law-018": {
+       "rank": null
+      },
+      "ca-law-019": {
+       "rank": null
+      },
+      "ca-law-020": {
+       "rank": null
+      },
+      "ca-law-021": {
+       "rank": null
+      },
+      "ca-law-022": {
+       "rank": null
+      },
+      "ca-prov-001": {
+       "rank": null
+      },
+      "ca-prov-002": {
+       "rank": null
+      },
+      "ca-prov-003": {
+       "rank": null
+      },
+      "ca-prov-004": {
+       "rank": null
+      },
+      "ca-prov-005": {
+       "rank": null
+      },
+      "ca-prov-006": {
+       "rank": null
+      },
+      "ca-prov-007": {
+       "rank": null
+      },
+      "ca-prov-008": {
+       "rank": null
+      },
+      "ca-stats-001": {
+       "rank": 2
+      },
+      "ca-stats-002": {
+       "rank": null
+      },
+      "ca-stats-003": {
+       "rank": 1
+      },
+      "ca-stats-004": {
+       "rank": 1
+      },
+      "ca-stats-005": {
+       "rank": 1
+      },
+      "ca-tax-001": {
+       "rank": 1
+      },
+      "ca-tax-002": {
+       "rank": 1
+      },
+      "ca-tax-003": {
+       "rank": 1
+      },
+      "ca-tax-004": {
+       "rank": 1
+      },
+      "ca-tax-005": {
+       "rank": 1
+      },
+      "ch-biz-001": {
+       "rank": 3
+      },
+      "ch-biz-002": {
+       "rank": null
+      },
+      "ch-biz-003": {
+       "rank": 1
+      },
+      "ch-biz-004": {
+       "rank": null
+      },
+      "ch-biz-005": {
+       "rank": 2
+      },
+      "ch-biz-006": {
+       "rank": null
+      },
+      "ch-biz-007": {
+       "rank": 2
+      },
+      "ch-biz-008": {
+       "rank": 1
+      },
+      "ch-canton-001": {
+       "rank": null
+      },
+      "ch-canton-002": {
+       "rank": 3
+      },
+      "ch-canton-003": {
+       "rank": null
+      },
+      "ch-canton-004": {
+       "rank": null
+      },
+      "ch-canton-005": {
+       "rank": null
+      },
+      "ch-canton-006": {
+       "rank": null
+      },
+      "ch-canton-007": {
+       "rank": null
+      },
+      "ch-canton-008": {
+       "rank": null
+      },
+      "ch-canton-009": {
+       "rank": null
+      },
+      "ch-canton-010": {
+       "rank": null
+      },
+      "ch-canton-011": {
+       "rank": null
+      },
+      "ch-canton-012": {
+       "rank": null
+      },
+      "ch-canton-013": {
+       "rank": null
+      },
+      "ch-canton-014": {
+       "rank": null
+      },
+      "ch-canton-015": {
+       "rank": null
+      },
+      "ch-canton-016": {
+       "rank": null
+      },
+      "ch-canton-017": {
+       "rank": 7
+      },
+      "ch-canton-018": {
+       "rank": null
+      },
+      "ch-court-001": {
+       "rank": 1
+      },
+      "ch-court-002": {
+       "rank": 1
+      },
+      "ch-court-003": {
+       "rank": 1
+      },
+      "ch-court-004": {
+       "rank": null
+      },
+      "ch-court-005": {
+       "rank": 1
+      },
+      "ch-court-006": {
+       "rank": 1
+      },
+      "ch-edu-001": {
+       "rank": null
+      },
+      "ch-edu-002": {
+       "rank": null
+      },
+      "ch-edu-003": {
+       "rank": null
+      },
+      "ch-energy-001": {
+       "rank": null
+      },
+      "ch-energy-002": {
+       "rank": 2
+      },
+      "ch-gov-001": {
+       "rank": null
+      },
+      "ch-gov-002": {
+       "rank": null
+      },
+      "ch-gov-003": {
+       "rank": null
+      },
+      "ch-gov-004": {
+       "rank": null
+      },
+      "ch-gov-005": {
+       "rank": null
+      },
+      "ch-gov-006": {
+       "rank": 1
+      },
+      "ch-gov-007": {
+       "rank": 1
+      },
+      "ch-health-001": {
+       "rank": null
+      },
+      "ch-health-002": {
+       "rank": null
+      },
+      "ch-health-003": {
+       "rank": null
+      },
+      "ch-health-004": {
+       "rank": 1
+      },
+      "ch-health-005": {
+       "rank": null
+      },
+      "ch-health-006": {
+       "rank": 1
+      },
+      "ch-health-007": {
+       "rank": 1
+      },
+      "ch-health-008": {
+       "rank": null
+      },
+      "ch-law-001": {
+       "rank": 1
+      },
+      "ch-law-002": {
+       "rank": 1
+      },
+      "ch-law-003": {
+       "rank": 1
+      },
+      "ch-law-004": {
+       "rank": 1
+      },
+      "ch-law-005": {
+       "rank": 1
+      },
+      "ch-law-006": {
+       "rank": 8
+      },
+      "ch-law-007": {
+       "rank": 9
+      },
+      "ch-law-008": {
+       "rank": 5
+      },
+      "ch-law-009": {
+       "rank": null
+      },
+      "ch-law-010": {
+       "rank": null
+      },
+      "ch-law-011": {
+       "rank": null
+      },
+      "ch-law-012": {
+       "rank": null
+      },
+      "ch-law-013": {
+       "rank": 1
+      },
+      "ch-law-014": {
+       "rank": null
+      },
+      "ch-law-015": {
+       "rank": null
+      },
+      "ch-law-016": {
+       "rank": 1
+      },
+      "ch-law-017": {
+       "rank": 4
+      },
+      "ch-law-018": {
+       "rank": null
+      },
+      "ch-law-019": {
+       "rank": 6
+      },
+      "ch-law-020": {
+       "rank": 1
+      },
+      "ch-law-021": {
+       "rank": 1
+      },
+      "ch-law-022": {
+       "rank": null
+      },
+      "ch-law-023": {
+       "rank": 6
+      },
+      "ch-law-024": {
+       "rank": 4
+      },
+      "ch-law-025": {
+       "rank": null
+      },
+      "ch-mig-001": {
+       "rank": null
+      },
+      "ch-mig-002": {
+       "rank": 7
+      },
+      "ch-mig-003": {
+       "rank": 1
+      },
+      "ch-mig-004": {
+       "rank": 1
+      },
+      "ch-mig-005": {
+       "rank": null
+      },
+      "ch-mig-006": {
+       "rank": null
+      },
+      "ch-news-001": {
+       "rank": 1
+      },
+      "ch-news-002": {
+       "rank": null
+      },
+      "ch-news-003": {
+       "rank": 1
+      },
+      "ch-news-004": {
+       "rank": null
+      },
+      "ch-news-005": {
+       "rank": 1
+      },
+      "ch-stats-001": {
+       "rank": null
+      },
+      "ch-stats-002": {
+       "rank": 4
+      },
+      "ch-stats-003": {
+       "rank": null
+      },
+      "ch-stats-004": {
+       "rank": 1
+      },
+      "ch-stats-005": {
+       "rank": null
+      },
+      "ch-stats-006": {
+       "rank": 1
+      },
+      "ch-stats-007": {
+       "rank": null
+      },
+      "ch-stats-008": {
+       "rank": null
+      },
+      "ch-stats-009": {
+       "rank": 3
+      },
+      "ch-stats-010": {
+       "rank": null
+      },
+      "ch-stats-011": {
+       "rank": 3
+      },
+      "ch-tax-001": {
+       "rank": 5
+      },
+      "ch-tax-002": {
+       "rank": null
+      },
+      "ch-tax-003": {
+       "rank": 5
+      },
+      "ch-tax-004": {
+       "rank": 5
+      },
+      "ch-tax-005": {
+       "rank": 2
+      },
+      "ch-tax-006": {
+       "rank": 2
+      },
+      "ch-tax-007": {
+       "rank": 1
+      },
+      "ch-tax-008": {
+       "rank": 1
+      },
+      "ch-transport-001": {
+       "rank": 3
+      },
+      "ch-transport-002": {
+       "rank": 2
+      },
+      "ch-transport-003": {
+       "rank": 4
+      },
+      "de-court-001": {
+       "rank": null
+      },
+      "de-court-002": {
+       "rank": null
+      },
+      "de-eu-001": {
+       "rank": null
+      },
+      "de-eu-002": {
+       "rank": null
+      },
+      "de-eu-003": {
+       "rank": null
+      },
+      "de-fresh-001": {
+       "rank": 1
+      },
+      "de-fresh-002": {
+       "rank": 2
+      },
+      "de-fresh-003": {
+       "rank": 1
+      },
+      "de-fresh-004": {
+       "rank": 1
+      },
+      "de-fresh-005": {
+       "rank": 3
+      },
+      "de-fresh-006": {
+       "rank": null
+      },
+      "de-fresh-007": {
+       "rank": null
+      },
+      "de-fresh-008": {
+       "rank": null
+      },
+      "de-fresh-009": {
+       "rank": null
+      },
+      "de-fresh-010": {
+       "rank": null
+      },
+      "de-fresh-011": {
+       "rank": 1
+      },
+      "de-fresh-012": {
+       "rank": 1
+      },
+      "de-fresh-013": {
+       "rank": 1
+      },
+      "de-fresh-014": {
+       "rank": 2
+      },
+      "de-fresh-015": {
+       "rank": 8
+      },
+      "de-gov-001": {
+       "rank": null
+      },
+      "de-gov-002": {
+       "rank": null
+      },
+      "de-gov-003": {
+       "rank": 9
+      },
+      "de-gov-004": {
+       "rank": 1
+      },
+      "de-gov-005": {
+       "rank": 1
+      },
+      "de-gov-006": {
+       "rank": 1
+      },
+      "de-health-001": {
+       "rank": null
+      },
+      "de-health-002": {
+       "rank": 3
+      },
+      "de-land-001": {
+       "rank": null
+      },
+      "de-land-002": {
+       "rank": null
+      },
+      "de-land-003": {
+       "rank": null
+      },
+      "de-land-004": {
+       "rank": null
+      },
+      "de-land-005": {
+       "rank": 2
+      },
+      "de-law-001": {
+       "rank": 6
+      },
+      "de-law-002": {
+       "rank": null
+      },
+      "de-law-003": {
+       "rank": 2
+      },
+      "de-law-004": {
+       "rank": null
+      },
+      "de-law-005": {
+       "rank": 4
+      },
+      "de-law-006": {
+       "rank": 3
+      },
+      "de-law-007": {
+       "rank": 1
+      },
+      "de-law-008": {
+       "rank": 1
+      },
+      "de-law-009": {
+       "rank": 2
+      },
+      "de-law-010": {
+       "rank": null
+      },
+      "de-law-011": {
+       "rank": 2
+      },
+      "de-law-012": {
+       "rank": null
+      },
+      "de-law-013": {
+       "rank": 7
+      },
+      "de-law-014": {
+       "rank": 4
+      },
+      "de-law-015": {
+       "rank": null
+      },
+      "de-law-016": {
+       "rank": null
+      },
+      "de-law-017": {
+       "rank": 3
+      },
+      "de-law-018": {
+       "rank": 6
+      },
+      "de-law-019": {
+       "rank": 2
+      },
+      "de-law-020": {
+       "rank": null
+      },
+      "de-law-021": {
+       "rank": null
+      },
+      "de-law-022": {
+       "rank": 1
+      },
+      "de-law-023": {
+       "rank": 1
+      },
+      "de-law-024": {
+       "rank": 9
+      },
+      "de-law-025": {
+       "rank": 2
+      },
+      "de-social-001": {
+       "rank": null
+      },
+      "de-social-002": {
+       "rank": null
+      },
+      "de-social-003": {
+       "rank": null
+      },
+      "de-social-004": {
+       "rank": null
+      },
+      "de-stats-001": {
+       "rank": null
+      },
+      "de-stats-002": {
+       "rank": 3
+      },
+      "de-stats-003": {
+       "rank": null
+      },
+      "de-stats-004": {
+       "rank": 4
+      },
+      "de-tax-001": {
+       "rank": null
+      },
+      "de-tax-002": {
+       "rank": null
+      },
+      "de-tax-003": {
+       "rank": 1
+      },
+      "de-tax-004": {
+       "rank": 7
+      },
+      "fr-biz-001": {
+       "rank": null
+      },
+      "fr-biz-002": {
+       "rank": null
+      },
+      "fr-court-001": {
+       "rank": null
+      },
+      "fr-court-002": {
+       "rank": null
+      },
+      "fr-edu-001": {
+       "rank": null
+      },
+      "fr-gov-001": {
+       "rank": 1
+      },
+      "fr-gov-002": {
+       "rank": null
+      },
+      "fr-gov-003": {
+       "rank": 1
+      },
+      "fr-gov-004": {
+       "rank": 1
+      },
+      "fr-gov-005": {
+       "rank": 1
+      },
+      "fr-gov-006": {
+       "rank": 1
+      },
+      "fr-gov-007": {
+       "rank": 4
+      },
+      "fr-gov-008": {
+       "rank": 1
+      },
+      "fr-gov-009": {
+       "rank": 1
+      },
+      "fr-gov-010": {
+       "rank": 4
+      },
+      "fr-gov-011": {
+       "rank": 1
+      },
+      "fr-gov-012": {
+       "rank": 2
+      },
+      "fr-gov-013": {
+       "rank": 1
+      },
+      "fr-gov-014": {
+       "rank": null
+      },
+      "fr-gov-015": {
+       "rank": 3
+      },
+      "fr-gov-016": {
+       "rank": 1
+      },
+      "fr-gov-017": {
+       "rank": 2
+      },
+      "fr-gov-018": {
+       "rank": 1
+      },
+      "fr-gov-019": {
+       "rank": 1
+      },
+      "fr-gov-020": {
+       "rank": 1
+      },
+      "fr-gov-021": {
+       "rank": 3
+      },
+      "fr-gov-022": {
+       "rank": 1
+      },
+      "fr-gov-023": {
+       "rank": 1
+      },
+      "fr-gov-024": {
+       "rank": 2
+      },
+      "fr-gov-025": {
+       "rank": 1
+      },
+      "fr-gov-026": {
+       "rank": null
+      },
+      "fr-gov-027": {
+       "rank": 1
+      },
+      "fr-gov-028": {
+       "rank": 1
+      },
+      "fr-gov-029": {
+       "rank": null
+      },
+      "fr-gov-030": {
+       "rank": null
+      },
+      "fr-health-001": {
+       "rank": null
+      },
+      "fr-health-002": {
+       "rank": null
+      },
+      "fr-health-003": {
+       "rank": null
+      },
+      "fr-health-004": {
+       "rank": 7
+      },
+      "fr-law-001": {
+       "rank": null
+      },
+      "fr-law-002": {
+       "rank": 6
+      },
+      "fr-law-003": {
+       "rank": null
+      },
+      "fr-law-004": {
+       "rank": 1
+      },
+      "fr-law-005": {
+       "rank": 4
+      },
+      "fr-law-006": {
+       "rank": 4
+      },
+      "fr-law-007": {
+       "rank": 2
+      },
+      "fr-law-008": {
+       "rank": 8
+      },
+      "fr-law-009": {
+       "rank": 1
+      },
+      "fr-law-010": {
+       "rank": 1
+      },
+      "fr-law-011": {
+       "rank": 3
+      },
+      "fr-law-012": {
+       "rank": null
+      },
+      "fr-law-013": {
+       "rank": 7
+      },
+      "fr-law-014": {
+       "rank": 2
+      },
+      "fr-law-015": {
+       "rank": 3
+      },
+      "fr-stats-001": {
+       "rank": 2
+      },
+      "fr-stats-002": {
+       "rank": 3
+      },
+      "fr-stats-003": {
+       "rank": 1
+      },
+      "fr-stats-004": {
+       "rank": 1
+      },
+      "fr-stats-005": {
+       "rank": null
+      },
+      "fr-stats-006": {
+       "rank": 3
+      },
+      "fr-stats-007": {
+       "rank": 2
+      },
+      "fr-stats-008": {
+       "rank": 1
+      },
+      "fr-stats-009": {
+       "rank": 2
+      },
+      "fr-stats-010": {
+       "rank": 1
+      },
+      "fr-stats-011": {
+       "rank": 2
+      },
+      "fr-tax-001": {
+       "rank": null
+      },
+      "fr-tax-002": {
+       "rank": null
+      },
+      "fr-tax-003": {
+       "rank": 1
+      },
+      "sw-api-001": {
+       "rank": 1
+      },
+      "sw-api-002": {
+       "rank": 1
+      },
+      "sw-api-003": {
+       "rank": 1
+      },
+      "sw-api-004": {
+       "rank": 4
+      },
+      "sw-api-005": {
+       "rank": 1
+      },
+      "sw-api-006": {
+       "rank": 1
+      },
+      "sw-api-007": {
+       "rank": 1
+      },
+      "sw-api-008": {
+       "rank": 1
+      },
+      "sw-api-009": {
+       "rank": 7
+      },
+      "sw-api-010": {
+       "rank": 1
+      },
+      "sw-api-011": {
+       "rank": 1
+      },
+      "sw-api-012": {
+       "rank": 1
+      },
+      "sw-api-013": {
+       "rank": 1
+      },
+      "sw-api-014": {
+       "rank": 1
+      },
+      "sw-api-015": {
+       "rank": 1
+      },
+      "sw-api-016": {
+       "rank": null
+      },
+      "sw-api-017": {
+       "rank": null
+      },
+      "sw-api-018": {
+       "rank": null
+      },
+      "sw-api-019": {
+       "rank": 1
+      },
+      "sw-api-020": {
+       "rank": 1
+      },
+      "sw-api-021": {
+       "rank": 3
+      },
+      "sw-api-022": {
+       "rank": 1
+      },
+      "sw-api-023": {
+       "rank": null
+      },
+      "sw-api-024": {
+       "rank": null
+      },
+      "sw-api-025": {
+       "rank": 9
+      },
+      "sw-api-026": {
+       "rank": null
+      },
+      "sw-api-027": {
+       "rank": 1
+      },
+      "sw-api-028": {
+       "rank": 3
+      },
+      "sw-docs-001": {
+       "rank": null
+      },
+      "sw-docs-002": {
+       "rank": 2
+      },
+      "sw-docs-003": {
+       "rank": 5
+      },
+      "sw-docs-004": {
+       "rank": 6
+      },
+      "sw-docs-005": {
+       "rank": 1
+      },
+      "sw-docs-006": {
+       "rank": 3
+      },
+      "sw-docs-007": {
+       "rank": 1
+      },
+      "sw-docs-008": {
+       "rank": 1
+      },
+      "sw-docs-009": {
+       "rank": 6
+      },
+      "sw-docs-010": {
+       "rank": 1
+      },
+      "sw-docs-011": {
+       "rank": 2
+      },
+      "sw-docs-012": {
+       "rank": 5
+      },
+      "sw-docs-013": {
+       "rank": null
+      },
+      "sw-docs-014": {
+       "rank": 1
+      },
+      "sw-docs-015": {
+       "rank": 1
+      },
+      "sw-docs-016": {
+       "rank": 1
+      },
+      "sw-docs-017": {
+       "rank": 3
+      },
+      "sw-docs-018": {
+       "rank": null
+      },
+      "sw-docs-019": {
+       "rank": 1
+      },
+      "sw-docs-020": {
+       "rank": 1
+      },
+      "sw-docs-021": {
+       "rank": null
+      },
+      "sw-docs-022": {
+       "rank": 1
+      },
+      "sw-docs-023": {
+       "rank": 2
+      },
+      "sw-docs-024": {
+       "rank": 3
+      },
+      "sw-docs-025": {
+       "rank": 1
+      },
+      "sw-docs-026": {
+       "rank": null
+      },
+      "sw-docs-027": {
+       "rank": null
+      },
+      "sw-docs-028": {
+       "rank": 1
+      },
+      "sw-docs-029": {
+       "rank": 1
+      },
+      "sw-docs-030": {
+       "rank": 1
+      },
+      "sw-docs-031": {
+       "rank": 1
+      },
+      "sw-docs-032": {
+       "rank": 1
+      },
+      "sw-docs-033": {
+       "rank": 4
+      },
+      "sw-spec-001": {
+       "rank": 1
+      },
+      "sw-spec-002": {
+       "rank": 1
+      },
+      "sw-spec-003": {
+       "rank": 1
+      },
+      "sw-spec-004": {
+       "rank": 2
+      },
+      "sw-spec-005": {
+       "rank": null
+      },
+      "sw-spec-006": {
+       "rank": null
+      },
+      "sw-spec-007": {
+       "rank": 2
+      },
+      "sw-spec-008": {
+       "rank": 1
+      },
+      "sw-spec-009": {
+       "rank": null
+      }
+     }
+    },
+    "foundation": {
+     "per_q": {
+      "be-001": {
+       "rank": null
+      },
+      "be-002": {
+       "rank": null
+      },
+      "be-003": {
+       "rank": null
+      },
+      "be-004": {
+       "rank": null
+      },
+      "be-005": {
+       "rank": 9
+      },
+      "be-006": {
+       "rank": null
+      },
+      "be-007": {
+       "rank": null
+      },
+      "be-008": {
+       "rank": null
+      },
+      "be-009": {
+       "rank": 1
+      },
+      "be-010": {
+       "rank": null
+      },
+      "be-011": {
+       "rank": 6
+      },
+      "be-012": {
+       "rank": null
+      },
+      "be-013": {
+       "rank": null
+      },
+      "be-014": {
+       "rank": null
+      },
+      "be-015": {
+       "rank": 1
+      },
+      "be-016": {
+       "rank": null
+      },
+      "be-017": {
+       "rank": null
+      },
+      "be-018": {
+       "rank": 2
+      },
+      "be-019": {
+       "rank": null
+      },
+      "be-020": {
+       "rank": null
+      },
+      "dei-001": {
+       "rank": null
+      },
+      "dei-002": {
+       "rank": 1
+      },
+      "dei-003": {
+       "rank": 1
+      },
+      "dei-004": {
+       "rank": null
+      },
+      "dei-005": {
+       "rank": null
+      },
+      "dei-006": {
+       "rank": null
+      },
+      "dei-007": {
+       "rank": 1
+      },
+      "dei-008": {
+       "rank": 1
+      },
+      "dei-009": {
+       "rank": null
+      },
+      "dei-010": {
+       "rank": 1
+      },
+      "dei-011": {
+       "rank": null
+      },
+      "dei-012": {
+       "rank": null
+      },
+      "dei-013": {
+       "rank": 1
+      },
+      "dei-014": {
+       "rank": 1
+      },
+      "dei-015": {
+       "rank": 3
+      },
+      "dei-016": {
+       "rank": 1
+      },
+      "df-001": {
+       "rank": 1
+      },
+      "df-002": {
+       "rank": null
+      },
+      "df-003": {
+       "rank": null
+      },
+      "df-004": {
+       "rank": 2
+      },
+      "df-005": {
+       "rank": null
+      },
+      "df-006": {
+       "rank": null
+      },
+      "df-007": {
+       "rank": 1
+      },
+      "df-008": {
+       "rank": null
+      },
+      "df-009": {
+       "rank": null
+      },
+      "df-010": {
+       "rank": 2
+      },
+      "df-011": {
+       "rank": null
+      },
+      "df-012": {
+       "rank": null
+      },
+      "df-013": {
+       "rank": null
+      },
+      "df-014": {
+       "rank": 1
+      },
+      "df-015": {
+       "rank": 6
+      },
+      "df-016": {
+       "rank": 1
+      },
+      "df-017": {
+       "rank": 1
+      },
+      "df-018": {
+       "rank": 1
+      },
+      "eu-001": {
+       "rank": 3
+      },
+      "eu-002": {
+       "rank": null
+      },
+      "eu-003": {
+       "rank": 2
+      },
+      "eu-004": {
+       "rank": null
+      },
+      "eu-005": {
+       "rank": 1
+      },
+      "eu-006": {
+       "rank": null
+      },
+      "eu-007": {
+       "rank": null
+      },
+      "eu-008": {
+       "rank": null
+      },
+      "eu-009": {
+       "rank": null
+      },
+      "eu-010": {
+       "rank": 6
+      },
+      "eu-011": {
+       "rank": 3
+      },
+      "eu-012": {
+       "rank": null
+      },
+      "eu-013": {
+       "rank": null
+      },
+      "eu-014": {
+       "rank": 1
+      },
+      "eu-015": {
+       "rank": 2
+      },
+      "il-001": {
+       "rank": null
+      },
+      "il-002": {
+       "rank": 2
+      },
+      "il-003": {
+       "rank": null
+      },
+      "il-004": {
+       "rank": null
+      },
+      "il-005": {
+       "rank": null
+      },
+      "il-006": {
+       "rank": null
+      },
+      "il-007": {
+       "rank": null
+      },
+      "il-008": {
+       "rank": null
+      },
+      "il-009": {
+       "rank": null
+      },
+      "il-010": {
+       "rank": null
+      },
+      "il-011": {
+       "rank": 1
+      },
+      "il-012": {
+       "rank": null
+      },
+      "il-013": {
+       "rank": null
+      },
+      "il-014": {
+       "rank": null
+      },
+      "il-015": {
+       "rank": 2
+      },
+      "il-016": {
+       "rank": null
+      },
+      "mh-001": {
+       "rank": 1
+      },
+      "mh-002": {
+       "rank": 2
+      },
+      "mh-003": {
+       "rank": 1
+      },
+      "mh-004": {
+       "rank": 1
+      },
+      "mh-005": {
+       "rank": 1
+      },
+      "mh-006": {
+       "rank": 1
+      },
+      "mh-007": {
+       "rank": 4
+      },
+      "mh-008": {
+       "rank": null
+      },
+      "mh-009": {
+       "rank": null
+      },
+      "mh-010": {
+       "rank": 1
+      },
+      "mh-011": {
+       "rank": 2
+      },
+      "mh-012": {
+       "rank": null
+      },
+      "mh-013": {
+       "rank": 2
+      },
+      "mh-014": {
+       "rank": 1
+      },
+      "mh-015": {
+       "rank": 1
+      },
+      "mh-016": {
+       "rank": 1
+      },
+      "mh-017": {
+       "rank": 2
+      },
+      "mh-018": {
+       "rank": 2
+      },
+      "psy-001": {
+       "rank": 1
+      },
+      "psy-002": {
+       "rank": null
+      },
+      "psy-003": {
+       "rank": null
+      },
+      "psy-004": {
+       "rank": null
+      },
+      "psy-005": {
+       "rank": null
+      },
+      "psy-006": {
+       "rank": null
+      },
+      "psy-007": {
+       "rank": 1
+      },
+      "psy-008": {
+       "rank": 1
+      },
+      "psy-009": {
+       "rank": null
+      },
+      "psy-010": {
+       "rank": 1
+      },
+      "psy-011": {
+       "rank": null
+      },
+      "psy-012": {
+       "rank": 2
+      },
+      "psy-013": {
+       "rank": 1
+      },
+      "psy-014": {
+       "rank": 2
+      },
+      "psy-015": {
+       "rank": 1
+      },
+      "psy-016": {
+       "rank": null
+      },
+      "soc-001": {
+       "rank": 1
+      },
+      "soc-002": {
+       "rank": 1
+      },
+      "soc-003": {
+       "rank": 2
+      },
+      "soc-004": {
+       "rank": 3
+      },
+      "soc-005": {
+       "rank": 1
+      },
+      "soc-006": {
+       "rank": 1
+      },
+      "soc-007": {
+       "rank": 1
+      },
+      "soc-008": {
+       "rank": null
+      },
+      "soc-009": {
+       "rank": null
+      },
+      "soc-010": {
+       "rank": 3
+      },
+      "soc-011": {
+       "rank": null
+      },
+      "soc-012": {
+       "rank": null
+      },
+      "soc-013": {
+       "rank": null
+      },
+      "soc-014": {
+       "rank": 1
+      },
+      "soc-015": {
+       "rank": null
+      },
+      "soc-016": {
+       "rank": 1
+      },
+      "tc-001": {
+       "rank": null
+      },
+      "tc-002": {
+       "rank": null
+      },
+      "tc-003": {
+       "rank": null
+      },
+      "tc-004": {
+       "rank": 7
+      },
+      "tc-005": {
+       "rank": null
+      },
+      "tc-006": {
+       "rank": null
+      },
+      "tc-007": {
+       "rank": null
+      },
+      "tc-008": {
+       "rank": null
+      },
+      "tc-009": {
+       "rank": null
+      },
+      "tc-010": {
+       "rank": 6
+      },
+      "tc-011": {
+       "rank": 3
+      },
+      "tc-012": {
+       "rank": 1
+      },
+      "tc-013": {
+       "rank": null
+      },
+      "tc-014": {
+       "rank": null
+      },
+      "tc-015": {
+       "rank": null
+      },
+      "tc-016": {
+       "rank": 2
+      },
+      "tc-017": {
+       "rank": 3
+      },
+      "zec-001": {
+       "rank": null
+      },
+      "zec-002": {
+       "rank": null
+      },
+      "zec-003": {
+       "rank": null
+      },
+      "zec-004": {
+       "rank": null
+      },
+      "zec-005": {
+       "rank": null
+      },
+      "zec-006": {
+       "rank": 1
+      },
+      "zec-007": {
+       "rank": null
+      },
+      "zec-008": {
+       "rank": null
+      },
+      "zec-009": {
+       "rank": null
+      },
+      "zec-010": {
+       "rank": null
+      },
+      "zec-011": {
+       "rank": 4
+      },
+      "zec-012": {
+       "rank": null
+      },
+      "zec-013": {
+       "rank": null
+      },
+      "zec-014": {
+       "rank": 1
+      },
+      "zec-015": {
+       "rank": 2
+      },
+      "zec-016": {
+       "rank": null
+      },
+      "zec-017": {
+       "rank": null
+      },
+      "zec-018": {
+       "rank": null
+      },
+      "zec-019": {
+       "rank": null
+      },
+      "zec-020": {
+       "rank": 4
+      }
+     }
+    },
+    "legal": {
+     "per_q": {
+      "la01": {
+       "rank": 1
+      },
+      "la02": {
+       "rank": 1
+      },
+      "la03": {
+       "rank": 1
+      },
+      "la04": {
+       "rank": null
+      },
+      "la05": {
+       "rank": null
+      },
+      "la06": {
+       "rank": null
+      }
+     }
+    },
+    "names": {
+     "per_q": {
+      "n01": {
+       "rank": null
+      },
+      "n02": {
+       "rank": 3
+      },
+      "n03": {
+       "rank": 2
+      },
+      "n04": {
+       "rank": 2
+      },
+      "n05": {
+       "rank": 2
+      },
+      "n06": {
+       "rank": null
+      },
+      "n07": {
+       "rank": 1
+      }
+     }
+    },
+    "rel_vs_trust": {
+     "per_q": {
+      "rvt-01": {
+       "rank": null
+      },
+      "rvt-02": {
+       "rank": null
+      },
+      "rvt-03": {
+       "rank": 7
+      },
+      "rvt-04": {
+       "rank": 1
+      },
+      "rvt-05": {
+       "rank": null
+      },
+      "rvt-06": {
+       "rank": null
+      },
+      "rvt-07": {
+       "rank": null
+      },
+      "rvt-08": {
+       "rank": null
+      },
+      "rvt-09": {
+       "rank": null
+      },
+      "rvt-10": {
+       "rank": 1
+      },
+      "rvt-11": {
+       "rank": 5
+      },
+      "rvt-12": {
+       "rank": null
+      },
+      "rvt-13": {
+       "rank": 5
+      },
+      "rvt-14": {
+       "rank": 1
+      },
+      "rvt-15": {
+       "rank": 6
+      },
+      "rvt-16": {
+       "rank": 2
+      },
+      "rvt-17": {
+       "rank": null
+      },
+      "rvt-18": {
+       "rank": 5
+      },
+      "rvt-19": {
+       "rank": 1
+      },
+      "rvt-20": {
+       "rank": null
+      },
+      "rvt-21": {
+       "rank": 6
+      },
+      "rvt-22": {
+       "rank": null
+      },
+      "rvt-23": {
+       "rank": null
+      },
+      "rvt-24": {
+       "rank": 1
+      },
+      "rvt-25": {
+       "rank": 1
+      },
+      "rvt-26": {
+       "rank": 8
+      },
+      "rvt-27": {
+       "rank": 7
+      },
+      "rvt-28": {
+       "rank": null
+      }
+     }
+    }
+   }
+  },
+  "applier_recut": {
+   "cache_miss": 0,
+   "sets": {
+    "authoritative": {
+     "per_q": {
+      "ai-api-001": {
+       "rank": 1
+      },
+      "ai-api-002": {
+       "rank": 2
+      },
+      "ai-api-003": {
+       "rank": null
+      },
+      "ai-api-004": {
+       "rank": 1
+      },
+      "ai-api-005": {
+       "rank": 5
+      },
+      "ai-api-006": {
+       "rank": 1
+      },
+      "ai-api-007": {
+       "rank": 4
+      },
+      "ai-api-008": {
+       "rank": null
+      },
+      "ai-api-009": {
+       "rank": 1
+      },
+      "ai-api-010": {
+       "rank": null
+      },
+      "ai-deploy-001": {
+       "rank": null
+      },
+      "ai-deploy-002": {
+       "rank": null
+      },
+      "ai-deploy-003": {
+       "rank": 1
+      },
+      "ai-deploy-004": {
+       "rank": null
+      },
+      "ai-deploy-005": {
+       "rank": null
+      },
+      "ai-deploy-006": {
+       "rank": null
+      },
+      "ai-deploy-007": {
+       "rank": 3
+      },
+      "ai-docs-001": {
+       "rank": 1
+      },
+      "ai-docs-002": {
+       "rank": null
+      },
+      "ai-docs-003": {
+       "rank": null
+      },
+      "ai-docs-004": {
+       "rank": 2
+      },
+      "ai-docs-005": {
+       "rank": 2
+      },
+      "ai-docs-006": {
+       "rank": 1
+      },
+      "ai-docs-007": {
+       "rank": 2
+      },
+      "ai-docs-008": {
+       "rank": 1
+      },
+      "ai-docs-009": {
+       "rank": null
+      },
+      "ai-docs-010": {
+       "rank": 1
+      },
+      "ai-docs-011": {
+       "rank": null
+      },
+      "ai-docs-012": {
+       "rank": null
+      },
+      "ai-docs-013": {
+       "rank": null
+      },
+      "ai-docs-014": {
+       "rank": 1
+      },
+      "ai-docs-015": {
+       "rank": null
+      },
+      "ai-docs-016": {
+       "rank": 1
+      },
+      "ai-model-001": {
+       "rank": 1
+      },
+      "ai-model-002": {
+       "rank": 1
+      },
+      "ai-model-003": {
+       "rank": 1
+      },
+      "ai-model-004": {
+       "rank": 1
+      },
+      "ai-model-005": {
+       "rank": 4
+      },
+      "ai-model-006": {
+       "rank": 2
+      },
+      "ai-model-007": {
+       "rank": 1
+      },
+      "ai-model-008": {
+       "rank": 1
+      },
+      "ai-model-009": {
+       "rank": 1
+      },
+      "ai-model-010": {
+       "rank": 1
+      },
+      "ai-model-011": {
+       "rank": 2
+      },
+      "ai-model-012": {
+       "rank": 1
+      },
+      "ai-model-013": {
+       "rank": 1
+      },
+      "ai-model-014": {
+       "rank": 1
+      },
+      "ai-model-015": {
+       "rank": 1
+      },
+      "ai-model-016": {
+       "rank": 8
+      },
+      "ai-papers-001": {
+       "rank": 2
+      },
+      "ai-papers-002": {
+       "rank": 2
+      },
+      "ai-papers-003": {
+       "rank": 1
+      },
+      "ai-papers-004": {
+       "rank": 1
+      },
+      "ai-papers-005": {
+       "rank": 5
+      },
+      "ai-papers-006": {
+       "rank": 1
+      },
+      "ai-papers-007": {
+       "rank": null
+      },
+      "ai-papers-008": {
+       "rank": null
+      },
+      "ai-papers-009": {
+       "rank": 2
+      },
+      "ai-papers-010": {
+       "rank": 1
+      },
+      "ai-price-001": {
+       "rank": 1
+      },
+      "ai-price-002": {
+       "rank": 2
+      },
+      "ai-price-003": {
+       "rank": 1
+      },
+      "ai-price-004": {
+       "rank": null
+      },
+      "ai-price-005": {
+       "rank": null
+      },
+      "ai-reg-001": {
+       "rank": 1
+      },
+      "ai-reg-002": {
+       "rank": null
+      },
+      "ai-reg-003": {
+       "rank": 1
+      },
+      "ai-reg-004": {
+       "rank": 1
+      },
+      "ai-reg-005": {
+       "rank": null
+      },
+      "ai-reg-006": {
+       "rank": null
+      },
+      "bb-001": {
+       "rank": 1
+      },
+      "bb-002": {
+       "rank": 1
+      },
+      "bb-003": {
+       "rank": 3
+      },
+      "bb-004": {
+       "rank": 1
+      },
+      "bb-005": {
+       "rank": 1
+      },
+      "bb-006": {
+       "rank": 1
+      },
+      "bb-007": {
+       "rank": 1
+      },
+      "bb-008": {
+       "rank": 1
+      },
+      "bb-009": {
+       "rank": 1
+      },
+      "bb-010": {
+       "rank": 2
+      },
+      "bb-011": {
+       "rank": null
+      },
+      "bb-012": {
+       "rank": null
+      },
+      "bb-013": {
+       "rank": null
+      },
+      "bb-014": {
+       "rank": null
+      },
+      "bb-015": {
+       "rank": null
+      },
+      "bb-016": {
+       "rank": null
+      },
+      "bb-017": {
+       "rank": null
+      },
+      "bb-018": {
+       "rank": null
+      },
+      "bb-019": {
+       "rank": 3
+      },
+      "bb-020": {
+       "rank": 1
+      },
+      "bb-021": {
+       "rank": 5
+      },
+      "bb-022": {
+       "rank": 10
+      },
+      "bb-023": {
+       "rank": 1
+      },
+      "bb-024": {
+       "rank": 1
+      },
+      "bb-025": {
+       "rank": null
+      },
+      "bb-026": {
+       "rank": 1
+      },
+      "bb-027": {
+       "rank": null
+      },
+      "bb-028": {
+       "rank": 1
+      },
+      "bb-029": {
+       "rank": 2
+      },
+      "bb-030": {
+       "rank": 1
+      },
+      "ca-gov-001": {
+       "rank": null
+      },
+      "ca-gov-002": {
+       "rank": null
+      },
+      "ca-gov-003": {
+       "rank": 2
+      },
+      "ca-gov-004": {
+       "rank": 1
+      },
+      "ca-gov-005": {
+       "rank": 3
+      },
+      "ca-gov-006": {
+       "rank": null
+      },
+      "ca-gov-007": {
+       "rank": null
+      },
+      "ca-gov-008": {
+       "rank": null
+      },
+      "ca-gov-009": {
+       "rank": null
+      },
+      "ca-gov-010": {
+       "rank": 1
+      },
+      "ca-gov-011": {
+       "rank": null
+      },
+      "ca-gov-012": {
+       "rank": null
+      },
+      "ca-gov-013": {
+       "rank": 3
+      },
+      "ca-gov-014": {
+       "rank": 1
+      },
+      "ca-gov-015": {
+       "rank": 4
+      },
+      "ca-gov-016": {
+       "rank": 1
+      },
+      "ca-gov-017": {
+       "rank": 2
+      },
+      "ca-gov-018": {
+       "rank": 2
+      },
+      "ca-gov-019": {
+       "rank": 1
+      },
+      "ca-health-001": {
+       "rank": 1
+      },
+      "ca-law-001": {
+       "rank": null
+      },
+      "ca-law-002": {
+       "rank": null
+      },
+      "ca-law-003": {
+       "rank": null
+      },
+      "ca-law-004": {
+       "rank": null
+      },
+      "ca-law-005": {
+       "rank": 3
+      },
+      "ca-law-006": {
+       "rank": null
+      },
+      "ca-law-007": {
+       "rank": null
+      },
+      "ca-law-008": {
+       "rank": null
+      },
+      "ca-law-009": {
+       "rank": null
+      },
+      "ca-law-010": {
+       "rank": null
+      },
+      "ca-law-011": {
+       "rank": null
+      },
+      "ca-law-012": {
+       "rank": null
+      },
+      "ca-law-013": {
+       "rank": null
+      },
+      "ca-law-014": {
+       "rank": null
+      },
+      "ca-law-015": {
+       "rank": null
+      },
+      "ca-law-016": {
+       "rank": null
+      },
+      "ca-law-017": {
+       "rank": null
+      },
+      "ca-law-018": {
+       "rank": null
+      },
+      "ca-law-019": {
+       "rank": null
+      },
+      "ca-law-020": {
+       "rank": null
+      },
+      "ca-law-021": {
+       "rank": null
+      },
+      "ca-law-022": {
+       "rank": null
+      },
+      "ca-prov-001": {
+       "rank": null
+      },
+      "ca-prov-002": {
+       "rank": null
+      },
+      "ca-prov-003": {
+       "rank": null
+      },
+      "ca-prov-004": {
+       "rank": null
+      },
+      "ca-prov-005": {
+       "rank": null
+      },
+      "ca-prov-006": {
+       "rank": null
+      },
+      "ca-prov-007": {
+       "rank": null
+      },
+      "ca-prov-008": {
+       "rank": null
+      },
+      "ca-stats-001": {
+       "rank": 2
+      },
+      "ca-stats-002": {
+       "rank": null
+      },
+      "ca-stats-003": {
+       "rank": 1
+      },
+      "ca-stats-004": {
+       "rank": 1
+      },
+      "ca-stats-005": {
+       "rank": 1
+      },
+      "ca-tax-001": {
+       "rank": 1
+      },
+      "ca-tax-002": {
+       "rank": 1
+      },
+      "ca-tax-003": {
+       "rank": 1
+      },
+      "ca-tax-004": {
+       "rank": 1
+      },
+      "ca-tax-005": {
+       "rank": 1
+      },
+      "ch-biz-001": {
+       "rank": 3
+      },
+      "ch-biz-002": {
+       "rank": null
+      },
+      "ch-biz-003": {
+       "rank": 1
+      },
+      "ch-biz-004": {
+       "rank": null
+      },
+      "ch-biz-005": {
+       "rank": 3
+      },
+      "ch-biz-006": {
+       "rank": null
+      },
+      "ch-biz-007": {
+       "rank": 2
+      },
+      "ch-biz-008": {
+       "rank": 1
+      },
+      "ch-canton-001": {
+       "rank": null
+      },
+      "ch-canton-002": {
+       "rank": 2
+      },
+      "ch-canton-003": {
+       "rank": null
+      },
+      "ch-canton-004": {
+       "rank": null
+      },
+      "ch-canton-005": {
+       "rank": null
+      },
+      "ch-canton-006": {
+       "rank": null
+      },
+      "ch-canton-007": {
+       "rank": null
+      },
+      "ch-canton-008": {
+       "rank": null
+      },
+      "ch-canton-009": {
+       "rank": null
+      },
+      "ch-canton-010": {
+       "rank": null
+      },
+      "ch-canton-011": {
+       "rank": null
+      },
+      "ch-canton-012": {
+       "rank": null
+      },
+      "ch-canton-013": {
+       "rank": null
+      },
+      "ch-canton-014": {
+       "rank": null
+      },
+      "ch-canton-015": {
+       "rank": null
+      },
+      "ch-canton-016": {
+       "rank": null
+      },
+      "ch-canton-017": {
+       "rank": 7
+      },
+      "ch-canton-018": {
+       "rank": null
+      },
+      "ch-court-001": {
+       "rank": 1
+      },
+      "ch-court-002": {
+       "rank": 1
+      },
+      "ch-court-003": {
+       "rank": 1
+      },
+      "ch-court-004": {
+       "rank": null
+      },
+      "ch-court-005": {
+       "rank": 1
+      },
+      "ch-court-006": {
+       "rank": 1
+      },
+      "ch-edu-001": {
+       "rank": null
+      },
+      "ch-edu-002": {
+       "rank": null
+      },
+      "ch-edu-003": {
+       "rank": null
+      },
+      "ch-energy-001": {
+       "rank": null
+      },
+      "ch-energy-002": {
+       "rank": 2
+      },
+      "ch-gov-001": {
+       "rank": null
+      },
+      "ch-gov-002": {
+       "rank": null
+      },
+      "ch-gov-003": {
+       "rank": null
+      },
+      "ch-gov-004": {
+       "rank": null
+      },
+      "ch-gov-005": {
+       "rank": null
+      },
+      "ch-gov-006": {
+       "rank": 1
+      },
+      "ch-gov-007": {
+       "rank": 1
+      },
+      "ch-health-001": {
+       "rank": null
+      },
+      "ch-health-002": {
+       "rank": null
+      },
+      "ch-health-003": {
+       "rank": null
+      },
+      "ch-health-004": {
+       "rank": 1
+      },
+      "ch-health-005": {
+       "rank": null
+      },
+      "ch-health-006": {
+       "rank": 1
+      },
+      "ch-health-007": {
+       "rank": 1
+      },
+      "ch-health-008": {
+       "rank": null
+      },
+      "ch-law-001": {
+       "rank": 1
+      },
+      "ch-law-002": {
+       "rank": 1
+      },
+      "ch-law-003": {
+       "rank": 1
+      },
+      "ch-law-004": {
+       "rank": 1
+      },
+      "ch-law-005": {
+       "rank": 1
+      },
+      "ch-law-006": {
+       "rank": 7
+      },
+      "ch-law-007": {
+       "rank": 6
+      },
+      "ch-law-008": {
+       "rank": 5
+      },
+      "ch-law-009": {
+       "rank": null
+      },
+      "ch-law-010": {
+       "rank": null
+      },
+      "ch-law-011": {
+       "rank": null
+      },
+      "ch-law-012": {
+       "rank": null
+      },
+      "ch-law-013": {
+       "rank": 1
+      },
+      "ch-law-014": {
+       "rank": null
+      },
+      "ch-law-015": {
+       "rank": null
+      },
+      "ch-law-016": {
+       "rank": 1
+      },
+      "ch-law-017": {
+       "rank": 1
+      },
+      "ch-law-018": {
+       "rank": null
+      },
+      "ch-law-019": {
+       "rank": 6
+      },
+      "ch-law-020": {
+       "rank": 1
+      },
+      "ch-law-021": {
+       "rank": 1
+      },
+      "ch-law-022": {
+       "rank": null
+      },
+      "ch-law-023": {
+       "rank": 7
+      },
+      "ch-law-024": {
+       "rank": 4
+      },
+      "ch-law-025": {
+       "rank": null
+      },
+      "ch-mig-001": {
+       "rank": null
+      },
+      "ch-mig-002": {
+       "rank": 7
+      },
+      "ch-mig-003": {
+       "rank": 1
+      },
+      "ch-mig-004": {
+       "rank": 1
+      },
+      "ch-mig-005": {
+       "rank": null
+      },
+      "ch-mig-006": {
+       "rank": null
+      },
+      "ch-news-001": {
+       "rank": 1
+      },
+      "ch-news-002": {
+       "rank": null
+      },
+      "ch-news-003": {
+       "rank": 2
+      },
+      "ch-news-004": {
+       "rank": null
+      },
+      "ch-news-005": {
+       "rank": 1
+      },
+      "ch-stats-001": {
+       "rank": null
+      },
+      "ch-stats-002": {
+       "rank": 4
+      },
+      "ch-stats-003": {
+       "rank": null
+      },
+      "ch-stats-004": {
+       "rank": 1
+      },
+      "ch-stats-005": {
+       "rank": null
+      },
+      "ch-stats-006": {
+       "rank": 1
+      },
+      "ch-stats-007": {
+       "rank": null
+      },
+      "ch-stats-008": {
+       "rank": null
+      },
+      "ch-stats-009": {
+       "rank": 3
+      },
+      "ch-stats-010": {
+       "rank": null
+      },
+      "ch-stats-011": {
+       "rank": 3
+      },
+      "ch-tax-001": {
+       "rank": 9
+      },
+      "ch-tax-002": {
+       "rank": null
+      },
+      "ch-tax-003": {
+       "rank": 1
+      },
+      "ch-tax-004": {
+       "rank": 5
+      },
+      "ch-tax-005": {
+       "rank": 2
+      },
+      "ch-tax-006": {
+       "rank": 2
+      },
+      "ch-tax-007": {
+       "rank": 1
+      },
+      "ch-tax-008": {
+       "rank": 1
+      },
+      "ch-transport-001": {
+       "rank": 3
+      },
+      "ch-transport-002": {
+       "rank": 2
+      },
+      "ch-transport-003": {
+       "rank": 2
+      },
+      "de-court-001": {
+       "rank": null
+      },
+      "de-court-002": {
+       "rank": null
+      },
+      "de-eu-001": {
+       "rank": null
+      },
+      "de-eu-002": {
+       "rank": null
+      },
+      "de-eu-003": {
+       "rank": null
+      },
+      "de-fresh-001": {
+       "rank": 1
+      },
+      "de-fresh-002": {
+       "rank": 2
+      },
+      "de-fresh-003": {
+       "rank": 1
+      },
+      "de-fresh-004": {
+       "rank": 1
+      },
+      "de-fresh-005": {
+       "rank": null
+      },
+      "de-fresh-006": {
+       "rank": null
+      },
+      "de-fresh-007": {
+       "rank": null
+      },
+      "de-fresh-008": {
+       "rank": null
+      },
+      "de-fresh-009": {
+       "rank": null
+      },
+      "de-fresh-010": {
+       "rank": null
+      },
+      "de-fresh-011": {
+       "rank": 1
+      },
+      "de-fresh-012": {
+       "rank": 1
+      },
+      "de-fresh-013": {
+       "rank": 1
+      },
+      "de-fresh-014": {
+       "rank": 2
+      },
+      "de-fresh-015": {
+       "rank": 8
+      },
+      "de-gov-001": {
+       "rank": null
+      },
+      "de-gov-002": {
+       "rank": null
+      },
+      "de-gov-003": {
+       "rank": 9
+      },
+      "de-gov-004": {
+       "rank": 1
+      },
+      "de-gov-005": {
+       "rank": 1
+      },
+      "de-gov-006": {
+       "rank": 1
+      },
+      "de-health-001": {
+       "rank": null
+      },
+      "de-health-002": {
+       "rank": 3
+      },
+      "de-land-001": {
+       "rank": null
+      },
+      "de-land-002": {
+       "rank": null
+      },
+      "de-land-003": {
+       "rank": null
+      },
+      "de-land-004": {
+       "rank": null
+      },
+      "de-land-005": {
+       "rank": 2
+      },
+      "de-law-001": {
+       "rank": 4
+      },
+      "de-law-002": {
+       "rank": null
+      },
+      "de-law-003": {
+       "rank": 3
+      },
+      "de-law-004": {
+       "rank": null
+      },
+      "de-law-005": {
+       "rank": 4
+      },
+      "de-law-006": {
+       "rank": 3
+      },
+      "de-law-007": {
+       "rank": 1
+      },
+      "de-law-008": {
+       "rank": 1
+      },
+      "de-law-009": {
+       "rank": 3
+      },
+      "de-law-010": {
+       "rank": null
+      },
+      "de-law-011": {
+       "rank": 2
+      },
+      "de-law-012": {
+       "rank": null
+      },
+      "de-law-013": {
+       "rank": 1
+      },
+      "de-law-014": {
+       "rank": 2
+      },
+      "de-law-015": {
+       "rank": null
+      },
+      "de-law-016": {
+       "rank": null
+      },
+      "de-law-017": {
+       "rank": 1
+      },
+      "de-law-018": {
+       "rank": 7
+      },
+      "de-law-019": {
+       "rank": 2
+      },
+      "de-law-020": {
+       "rank": null
+      },
+      "de-law-021": {
+       "rank": null
+      },
+      "de-law-022": {
+       "rank": 1
+      },
+      "de-law-023": {
+       "rank": 3
+      },
+      "de-law-024": {
+       "rank": 10
+      },
+      "de-law-025": {
+       "rank": 1
+      },
+      "de-social-001": {
+       "rank": null
+      },
+      "de-social-002": {
+       "rank": null
+      },
+      "de-social-003": {
+       "rank": null
+      },
+      "de-social-004": {
+       "rank": null
+      },
+      "de-stats-001": {
+       "rank": null
+      },
+      "de-stats-002": {
+       "rank": 3
+      },
+      "de-stats-003": {
+       "rank": null
+      },
+      "de-stats-004": {
+       "rank": 4
+      },
+      "de-tax-001": {
+       "rank": 4
+      },
+      "de-tax-002": {
+       "rank": null
+      },
+      "de-tax-003": {
+       "rank": 1
+      },
+      "de-tax-004": {
+       "rank": 9
+      },
+      "fr-biz-001": {
+       "rank": null
+      },
+      "fr-biz-002": {
+       "rank": null
+      },
+      "fr-court-001": {
+       "rank": null
+      },
+      "fr-court-002": {
+       "rank": null
+      },
+      "fr-edu-001": {
+       "rank": null
+      },
+      "fr-gov-001": {
+       "rank": 1
+      },
+      "fr-gov-002": {
+       "rank": null
+      },
+      "fr-gov-003": {
+       "rank": 1
+      },
+      "fr-gov-004": {
+       "rank": 1
+      },
+      "fr-gov-005": {
+       "rank": 1
+      },
+      "fr-gov-006": {
+       "rank": 1
+      },
+      "fr-gov-007": {
+       "rank": 4
+      },
+      "fr-gov-008": {
+       "rank": 1
+      },
+      "fr-gov-009": {
+       "rank": 1
+      },
+      "fr-gov-010": {
+       "rank": 4
+      },
+      "fr-gov-011": {
+       "rank": 1
+      },
+      "fr-gov-012": {
+       "rank": 2
+      },
+      "fr-gov-013": {
+       "rank": 1
+      },
+      "fr-gov-014": {
+       "rank": null
+      },
+      "fr-gov-015": {
+       "rank": 3
+      },
+      "fr-gov-016": {
+       "rank": 1
+      },
+      "fr-gov-017": {
+       "rank": 2
+      },
+      "fr-gov-018": {
+       "rank": 1
+      },
+      "fr-gov-019": {
+       "rank": 1
+      },
+      "fr-gov-020": {
+       "rank": 1
+      },
+      "fr-gov-021": {
+       "rank": 3
+      },
+      "fr-gov-022": {
+       "rank": 1
+      },
+      "fr-gov-023": {
+       "rank": 1
+      },
+      "fr-gov-024": {
+       "rank": 2
+      },
+      "fr-gov-025": {
+       "rank": 1
+      },
+      "fr-gov-026": {
+       "rank": null
+      },
+      "fr-gov-027": {
+       "rank": 1
+      },
+      "fr-gov-028": {
+       "rank": 1
+      },
+      "fr-gov-029": {
+       "rank": null
+      },
+      "fr-gov-030": {
+       "rank": null
+      },
+      "fr-health-001": {
+       "rank": null
+      },
+      "fr-health-002": {
+       "rank": null
+      },
+      "fr-health-003": {
+       "rank": null
+      },
+      "fr-health-004": {
+       "rank": 7
+      },
+      "fr-law-001": {
+       "rank": null
+      },
+      "fr-law-002": {
+       "rank": 6
+      },
+      "fr-law-003": {
+       "rank": null
+      },
+      "fr-law-004": {
+       "rank": 1
+      },
+      "fr-law-005": {
+       "rank": 4
+      },
+      "fr-law-006": {
+       "rank": 4
+      },
+      "fr-law-007": {
+       "rank": 2
+      },
+      "fr-law-008": {
+       "rank": 8
+      },
+      "fr-law-009": {
+       "rank": 1
+      },
+      "fr-law-010": {
+       "rank": 1
+      },
+      "fr-law-011": {
+       "rank": 3
+      },
+      "fr-law-012": {
+       "rank": null
+      },
+      "fr-law-013": {
+       "rank": 7
+      },
+      "fr-law-014": {
+       "rank": 2
+      },
+      "fr-law-015": {
+       "rank": 3
+      },
+      "fr-stats-001": {
+       "rank": 2
+      },
+      "fr-stats-002": {
+       "rank": 3
+      },
+      "fr-stats-003": {
+       "rank": 1
+      },
+      "fr-stats-004": {
+       "rank": 1
+      },
+      "fr-stats-005": {
+       "rank": null
+      },
+      "fr-stats-006": {
+       "rank": 3
+      },
+      "fr-stats-007": {
+       "rank": 2
+      },
+      "fr-stats-008": {
+       "rank": 1
+      },
+      "fr-stats-009": {
+       "rank": 2
+      },
+      "fr-stats-010": {
+       "rank": 1
+      },
+      "fr-stats-011": {
+       "rank": 2
+      },
+      "fr-tax-001": {
+       "rank": null
+      },
+      "fr-tax-002": {
+       "rank": null
+      },
+      "fr-tax-003": {
+       "rank": 1
+      },
+      "sw-api-001": {
+       "rank": 1
+      },
+      "sw-api-002": {
+       "rank": 1
+      },
+      "sw-api-003": {
+       "rank": 1
+      },
+      "sw-api-004": {
+       "rank": 4
+      },
+      "sw-api-005": {
+       "rank": 1
+      },
+      "sw-api-006": {
+       "rank": 1
+      },
+      "sw-api-007": {
+       "rank": 1
+      },
+      "sw-api-008": {
+       "rank": 1
+      },
+      "sw-api-009": {
+       "rank": 7
+      },
+      "sw-api-010": {
+       "rank": 1
+      },
+      "sw-api-011": {
+       "rank": 1
+      },
+      "sw-api-012": {
+       "rank": 1
+      },
+      "sw-api-013": {
+       "rank": 1
+      },
+      "sw-api-014": {
+       "rank": 1
+      },
+      "sw-api-015": {
+       "rank": 1
+      },
+      "sw-api-016": {
+       "rank": null
+      },
+      "sw-api-017": {
+       "rank": null
+      },
+      "sw-api-018": {
+       "rank": null
+      },
+      "sw-api-019": {
+       "rank": 1
+      },
+      "sw-api-020": {
+       "rank": 1
+      },
+      "sw-api-021": {
+       "rank": 3
+      },
+      "sw-api-022": {
+       "rank": 1
+      },
+      "sw-api-023": {
+       "rank": null
+      },
+      "sw-api-024": {
+       "rank": null
+      },
+      "sw-api-025": {
+       "rank": 9
+      },
+      "sw-api-026": {
+       "rank": null
+      },
+      "sw-api-027": {
+       "rank": 1
+      },
+      "sw-api-028": {
+       "rank": 3
+      },
+      "sw-docs-001": {
+       "rank": null
+      },
+      "sw-docs-002": {
+       "rank": 2
+      },
+      "sw-docs-003": {
+       "rank": 5
+      },
+      "sw-docs-004": {
+       "rank": 6
+      },
+      "sw-docs-005": {
+       "rank": 1
+      },
+      "sw-docs-006": {
+       "rank": 3
+      },
+      "sw-docs-007": {
+       "rank": 1
+      },
+      "sw-docs-008": {
+       "rank": 1
+      },
+      "sw-docs-009": {
+       "rank": 6
+      },
+      "sw-docs-010": {
+       "rank": 1
+      },
+      "sw-docs-011": {
+       "rank": 2
+      },
+      "sw-docs-012": {
+       "rank": 5
+      },
+      "sw-docs-013": {
+       "rank": null
+      },
+      "sw-docs-014": {
+       "rank": 1
+      },
+      "sw-docs-015": {
+       "rank": 1
+      },
+      "sw-docs-016": {
+       "rank": 1
+      },
+      "sw-docs-017": {
+       "rank": 3
+      },
+      "sw-docs-018": {
+       "rank": null
+      },
+      "sw-docs-019": {
+       "rank": 1
+      },
+      "sw-docs-020": {
+       "rank": 1
+      },
+      "sw-docs-021": {
+       "rank": null
+      },
+      "sw-docs-022": {
+       "rank": 1
+      },
+      "sw-docs-023": {
+       "rank": 2
+      },
+      "sw-docs-024": {
+       "rank": 3
+      },
+      "sw-docs-025": {
+       "rank": 1
+      },
+      "sw-docs-026": {
+       "rank": null
+      },
+      "sw-docs-027": {
+       "rank": null
+      },
+      "sw-docs-028": {
+       "rank": 1
+      },
+      "sw-docs-029": {
+       "rank": 1
+      },
+      "sw-docs-030": {
+       "rank": 1
+      },
+      "sw-docs-031": {
+       "rank": 1
+      },
+      "sw-docs-032": {
+       "rank": 1
+      },
+      "sw-docs-033": {
+       "rank": 4
+      },
+      "sw-spec-001": {
+       "rank": 1
+      },
+      "sw-spec-002": {
+       "rank": 1
+      },
+      "sw-spec-003": {
+       "rank": 1
+      },
+      "sw-spec-004": {
+       "rank": 2
+      },
+      "sw-spec-005": {
+       "rank": null
+      },
+      "sw-spec-006": {
+       "rank": null
+      },
+      "sw-spec-007": {
+       "rank": 2
+      },
+      "sw-spec-008": {
+       "rank": 1
+      },
+      "sw-spec-009": {
+       "rank": null
+      }
+     }
+    },
+    "foundation": {
+     "per_q": {
+      "be-001": {
+       "rank": null
+      },
+      "be-002": {
+       "rank": null
+      },
+      "be-003": {
+       "rank": null
+      },
+      "be-004": {
+       "rank": null
+      },
+      "be-005": {
+       "rank": 9
+      },
+      "be-006": {
+       "rank": null
+      },
+      "be-007": {
+       "rank": null
+      },
+      "be-008": {
+       "rank": null
+      },
+      "be-009": {
+       "rank": 1
+      },
+      "be-010": {
+       "rank": null
+      },
+      "be-011": {
+       "rank": 6
+      },
+      "be-012": {
+       "rank": null
+      },
+      "be-013": {
+       "rank": null
+      },
+      "be-014": {
+       "rank": null
+      },
+      "be-015": {
+       "rank": 1
+      },
+      "be-016": {
+       "rank": null
+      },
+      "be-017": {
+       "rank": null
+      },
+      "be-018": {
+       "rank": 2
+      },
+      "be-019": {
+       "rank": null
+      },
+      "be-020": {
+       "rank": null
+      },
+      "dei-001": {
+       "rank": null
+      },
+      "dei-002": {
+       "rank": 1
+      },
+      "dei-003": {
+       "rank": 1
+      },
+      "dei-004": {
+       "rank": null
+      },
+      "dei-005": {
+       "rank": null
+      },
+      "dei-006": {
+       "rank": null
+      },
+      "dei-007": {
+       "rank": 1
+      },
+      "dei-008": {
+       "rank": 1
+      },
+      "dei-009": {
+       "rank": null
+      },
+      "dei-010": {
+       "rank": 1
+      },
+      "dei-011": {
+       "rank": null
+      },
+      "dei-012": {
+       "rank": null
+      },
+      "dei-013": {
+       "rank": 1
+      },
+      "dei-014": {
+       "rank": 1
+      },
+      "dei-015": {
+       "rank": 5
+      },
+      "dei-016": {
+       "rank": 1
+      },
+      "df-001": {
+       "rank": 1
+      },
+      "df-002": {
+       "rank": null
+      },
+      "df-003": {
+       "rank": null
+      },
+      "df-004": {
+       "rank": 2
+      },
+      "df-005": {
+       "rank": null
+      },
+      "df-006": {
+       "rank": null
+      },
+      "df-007": {
+       "rank": 1
+      },
+      "df-008": {
+       "rank": null
+      },
+      "df-009": {
+       "rank": null
+      },
+      "df-010": {
+       "rank": 2
+      },
+      "df-011": {
+       "rank": null
+      },
+      "df-012": {
+       "rank": null
+      },
+      "df-013": {
+       "rank": null
+      },
+      "df-014": {
+       "rank": 1
+      },
+      "df-015": {
+       "rank": 6
+      },
+      "df-016": {
+       "rank": 1
+      },
+      "df-017": {
+       "rank": 1
+      },
+      "df-018": {
+       "rank": 1
+      },
+      "eu-001": {
+       "rank": 3
+      },
+      "eu-002": {
+       "rank": null
+      },
+      "eu-003": {
+       "rank": 2
+      },
+      "eu-004": {
+       "rank": null
+      },
+      "eu-005": {
+       "rank": 1
+      },
+      "eu-006": {
+       "rank": null
+      },
+      "eu-007": {
+       "rank": null
+      },
+      "eu-008": {
+       "rank": null
+      },
+      "eu-009": {
+       "rank": null
+      },
+      "eu-010": {
+       "rank": 3
+      },
+      "eu-011": {
+       "rank": 3
+      },
+      "eu-012": {
+       "rank": null
+      },
+      "eu-013": {
+       "rank": null
+      },
+      "eu-014": {
+       "rank": 1
+      },
+      "eu-015": {
+       "rank": 2
+      },
+      "il-001": {
+       "rank": null
+      },
+      "il-002": {
+       "rank": 2
+      },
+      "il-003": {
+       "rank": null
+      },
+      "il-004": {
+       "rank": null
+      },
+      "il-005": {
+       "rank": null
+      },
+      "il-006": {
+       "rank": null
+      },
+      "il-007": {
+       "rank": null
+      },
+      "il-008": {
+       "rank": null
+      },
+      "il-009": {
+       "rank": null
+      },
+      "il-010": {
+       "rank": null
+      },
+      "il-011": {
+       "rank": 1
+      },
+      "il-012": {
+       "rank": null
+      },
+      "il-013": {
+       "rank": null
+      },
+      "il-014": {
+       "rank": null
+      },
+      "il-015": {
+       "rank": 2
+      },
+      "il-016": {
+       "rank": null
+      },
+      "mh-001": {
+       "rank": 1
+      },
+      "mh-002": {
+       "rank": 2
+      },
+      "mh-003": {
+       "rank": 1
+      },
+      "mh-004": {
+       "rank": 1
+      },
+      "mh-005": {
+       "rank": 1
+      },
+      "mh-006": {
+       "rank": 1
+      },
+      "mh-007": {
+       "rank": 4
+      },
+      "mh-008": {
+       "rank": null
+      },
+      "mh-009": {
+       "rank": null
+      },
+      "mh-010": {
+       "rank": 1
+      },
+      "mh-011": {
+       "rank": 2
+      },
+      "mh-012": {
+       "rank": null
+      },
+      "mh-013": {
+       "rank": 2
+      },
+      "mh-014": {
+       "rank": 1
+      },
+      "mh-015": {
+       "rank": 1
+      },
+      "mh-016": {
+       "rank": 1
+      },
+      "mh-017": {
+       "rank": 2
+      },
+      "mh-018": {
+       "rank": 2
+      },
+      "psy-001": {
+       "rank": 1
+      },
+      "psy-002": {
+       "rank": null
+      },
+      "psy-003": {
+       "rank": null
+      },
+      "psy-004": {
+       "rank": null
+      },
+      "psy-005": {
+       "rank": null
+      },
+      "psy-006": {
+       "rank": null
+      },
+      "psy-007": {
+       "rank": 1
+      },
+      "psy-008": {
+       "rank": 1
+      },
+      "psy-009": {
+       "rank": null
+      },
+      "psy-010": {
+       "rank": 1
+      },
+      "psy-011": {
+       "rank": null
+      },
+      "psy-012": {
+       "rank": 2
+      },
+      "psy-013": {
+       "rank": 1
+      },
+      "psy-014": {
+       "rank": 2
+      },
+      "psy-015": {
+       "rank": 1
+      },
+      "psy-016": {
+       "rank": null
+      },
+      "soc-001": {
+       "rank": 1
+      },
+      "soc-002": {
+       "rank": 1
+      },
+      "soc-003": {
+       "rank": 2
+      },
+      "soc-004": {
+       "rank": 3
+      },
+      "soc-005": {
+       "rank": 1
+      },
+      "soc-006": {
+       "rank": 1
+      },
+      "soc-007": {
+       "rank": 1
+      },
+      "soc-008": {
+       "rank": null
+      },
+      "soc-009": {
+       "rank": null
+      },
+      "soc-010": {
+       "rank": 1
+      },
+      "soc-011": {
+       "rank": null
+      },
+      "soc-012": {
+       "rank": null
+      },
+      "soc-013": {
+       "rank": null
+      },
+      "soc-014": {
+       "rank": 1
+      },
+      "soc-015": {
+       "rank": null
+      },
+      "soc-016": {
+       "rank": 1
+      },
+      "tc-001": {
+       "rank": null
+      },
+      "tc-002": {
+       "rank": null
+      },
+      "tc-003": {
+       "rank": null
+      },
+      "tc-004": {
+       "rank": 7
+      },
+      "tc-005": {
+       "rank": null
+      },
+      "tc-006": {
+       "rank": null
+      },
+      "tc-007": {
+       "rank": null
+      },
+      "tc-008": {
+       "rank": null
+      },
+      "tc-009": {
+       "rank": null
+      },
+      "tc-010": {
+       "rank": 4
+      },
+      "tc-011": {
+       "rank": 3
+      },
+      "tc-012": {
+       "rank": 2
+      },
+      "tc-013": {
+       "rank": null
+      },
+      "tc-014": {
+       "rank": null
+      },
+      "tc-015": {
+       "rank": null
+      },
+      "tc-016": {
+       "rank": 2
+      },
+      "tc-017": {
+       "rank": 2
+      },
+      "zec-001": {
+       "rank": null
+      },
+      "zec-002": {
+       "rank": null
+      },
+      "zec-003": {
+       "rank": null
+      },
+      "zec-004": {
+       "rank": null
+      },
+      "zec-005": {
+       "rank": null
+      },
+      "zec-006": {
+       "rank": 1
+      },
+      "zec-007": {
+       "rank": null
+      },
+      "zec-008": {
+       "rank": null
+      },
+      "zec-009": {
+       "rank": null
+      },
+      "zec-010": {
+       "rank": null
+      },
+      "zec-011": {
+       "rank": 4
+      },
+      "zec-012": {
+       "rank": null
+      },
+      "zec-013": {
+       "rank": null
+      },
+      "zec-014": {
+       "rank": 1
+      },
+      "zec-015": {
+       "rank": 1
+      },
+      "zec-016": {
+       "rank": null
+      },
+      "zec-017": {
+       "rank": null
+      },
+      "zec-018": {
+       "rank": null
+      },
+      "zec-019": {
+       "rank": null
+      },
+      "zec-020": {
+       "rank": 4
+      }
+     }
+    },
+    "legal": {
+     "per_q": {
+      "la01": {
+       "rank": 1
+      },
+      "la02": {
+       "rank": 1
+      },
+      "la03": {
+       "rank": 1
+      },
+      "la04": {
+       "rank": null
+      },
+      "la05": {
+       "rank": null
+      },
+      "la06": {
+       "rank": null
+      }
+     }
+    },
+    "names": {
+     "per_q": {
+      "n01": {
+       "rank": null
+      },
+      "n02": {
+       "rank": 3
+      },
+      "n03": {
+       "rank": 2
+      },
+      "n04": {
+       "rank": 2
+      },
+      "n05": {
+       "rank": 2
+      },
+      "n06": {
+       "rank": null
+      },
+      "n07": {
+       "rank": 1
+      }
+     }
+    },
+    "rel_vs_trust": {
+     "per_q": {
+      "rvt-01": {
+       "rank": null
+      },
+      "rvt-02": {
+       "rank": null
+      },
+      "rvt-03": {
+       "rank": 7
+      },
+      "rvt-04": {
+       "rank": 1
+      },
+      "rvt-05": {
+       "rank": null
+      },
+      "rvt-06": {
+       "rank": null
+      },
+      "rvt-07": {
+       "rank": null
+      },
+      "rvt-08": {
+       "rank": null
+      },
+      "rvt-09": {
+       "rank": null
+      },
+      "rvt-10": {
+       "rank": 1
+      },
+      "rvt-11": {
+       "rank": 5
+      },
+      "rvt-12": {
+       "rank": null
+      },
+      "rvt-13": {
+       "rank": 5
+      },
+      "rvt-14": {
+       "rank": 1
+      },
+      "rvt-15": {
+       "rank": 6
+      },
+      "rvt-16": {
+       "rank": 2
+      },
+      "rvt-17": {
+       "rank": null
+      },
+      "rvt-18": {
+       "rank": 5
+      },
+      "rvt-19": {
+       "rank": 1
+      },
+      "rvt-20": {
+       "rank": null
+      },
+      "rvt-21": {
+       "rank": 6
+      },
+      "rvt-22": {
+       "rank": null
+      },
+      "rvt-23": {
+       "rank": null
+      },
+      "rvt-24": {
+       "rank": 1
+      },
+      "rvt-25": {
+       "rank": 1
+      },
+      "rvt-26": {
+       "rank": 8
+      },
+      "rvt-27": {
+       "rank": 7
+      },
+      "rvt-28": {
+       "rank": null
+      }
+     }
+    }
+   }
+  },
+  "rollback_settled": {
+   "cache_miss": 0,
+   "sets": {
+    "authoritative": {
+     "per_q": {
+      "ai-api-001": {
+       "rank": 1
+      },
+      "ai-api-002": {
+       "rank": 2
+      },
+      "ai-api-003": {
+       "rank": null
+      },
+      "ai-api-004": {
+       "rank": 1
+      },
+      "ai-api-005": {
+       "rank": 5
+      },
+      "ai-api-006": {
+       "rank": 1
+      },
+      "ai-api-007": {
+       "rank": 4
+      },
+      "ai-api-008": {
+       "rank": null
+      },
+      "ai-api-009": {
+       "rank": 1
+      },
+      "ai-api-010": {
+       "rank": null
+      },
+      "ai-deploy-001": {
+       "rank": null
+      },
+      "ai-deploy-002": {
+       "rank": null
+      },
+      "ai-deploy-003": {
+       "rank": 1
+      },
+      "ai-deploy-004": {
+       "rank": null
+      },
+      "ai-deploy-005": {
+       "rank": null
+      },
+      "ai-deploy-006": {
+       "rank": null
+      },
+      "ai-deploy-007": {
+       "rank": 3
+      },
+      "ai-docs-001": {
+       "rank": 1
+      },
+      "ai-docs-002": {
+       "rank": null
+      },
+      "ai-docs-003": {
+       "rank": null
+      },
+      "ai-docs-004": {
+       "rank": 2
+      },
+      "ai-docs-005": {
+       "rank": 2
+      },
+      "ai-docs-006": {
+       "rank": 1
+      },
+      "ai-docs-007": {
+       "rank": 2
+      },
+      "ai-docs-008": {
+       "rank": 1
+      },
+      "ai-docs-009": {
+       "rank": null
+      },
+      "ai-docs-010": {
+       "rank": 1
+      },
+      "ai-docs-011": {
+       "rank": null
+      },
+      "ai-docs-012": {
+       "rank": null
+      },
+      "ai-docs-013": {
+       "rank": null
+      },
+      "ai-docs-014": {
+       "rank": 1
+      },
+      "ai-docs-015": {
+       "rank": null
+      },
+      "ai-docs-016": {
+       "rank": 1
+      },
+      "ai-model-001": {
+       "rank": 1
+      },
+      "ai-model-002": {
+       "rank": 1
+      },
+      "ai-model-003": {
+       "rank": 1
+      },
+      "ai-model-004": {
+       "rank": 1
+      },
+      "ai-model-005": {
+       "rank": 4
+      },
+      "ai-model-006": {
+       "rank": 2
+      },
+      "ai-model-007": {
+       "rank": 1
+      },
+      "ai-model-008": {
+       "rank": 1
+      },
+      "ai-model-009": {
+       "rank": 1
+      },
+      "ai-model-010": {
+       "rank": 1
+      },
+      "ai-model-011": {
+       "rank": 2
+      },
+      "ai-model-012": {
+       "rank": 1
+      },
+      "ai-model-013": {
+       "rank": 1
+      },
+      "ai-model-014": {
+       "rank": 1
+      },
+      "ai-model-015": {
+       "rank": 1
+      },
+      "ai-model-016": {
+       "rank": 8
+      },
+      "ai-papers-001": {
+       "rank": 2
+      },
+      "ai-papers-002": {
+       "rank": 2
+      },
+      "ai-papers-003": {
+       "rank": 1
+      },
+      "ai-papers-004": {
+       "rank": 1
+      },
+      "ai-papers-005": {
+       "rank": 5
+      },
+      "ai-papers-006": {
+       "rank": 1
+      },
+      "ai-papers-007": {
+       "rank": null
+      },
+      "ai-papers-008": {
+       "rank": null
+      },
+      "ai-papers-009": {
+       "rank": 2
+      },
+      "ai-papers-010": {
+       "rank": 1
+      },
+      "ai-price-001": {
+       "rank": 1
+      },
+      "ai-price-002": {
+       "rank": 2
+      },
+      "ai-price-003": {
+       "rank": 1
+      },
+      "ai-price-004": {
+       "rank": null
+      },
+      "ai-price-005": {
+       "rank": null
+      },
+      "ai-reg-001": {
+       "rank": 1
+      },
+      "ai-reg-002": {
+       "rank": null
+      },
+      "ai-reg-003": {
+       "rank": 1
+      },
+      "ai-reg-004": {
+       "rank": 1
+      },
+      "ai-reg-005": {
+       "rank": null
+      },
+      "ai-reg-006": {
+       "rank": null
+      },
+      "bb-001": {
+       "rank": 1
+      },
+      "bb-002": {
+       "rank": 1
+      },
+      "bb-003": {
+       "rank": 3
+      },
+      "bb-004": {
+       "rank": 1
+      },
+      "bb-005": {
+       "rank": 1
+      },
+      "bb-006": {
+       "rank": 1
+      },
+      "bb-007": {
+       "rank": 1
+      },
+      "bb-008": {
+       "rank": 1
+      },
+      "bb-009": {
+       "rank": 1
+      },
+      "bb-010": {
+       "rank": 2
+      },
+      "bb-011": {
+       "rank": null
+      },
+      "bb-012": {
+       "rank": null
+      },
+      "bb-013": {
+       "rank": null
+      },
+      "bb-014": {
+       "rank": null
+      },
+      "bb-015": {
+       "rank": null
+      },
+      "bb-016": {
+       "rank": null
+      },
+      "bb-017": {
+       "rank": null
+      },
+      "bb-018": {
+       "rank": null
+      },
+      "bb-019": {
+       "rank": 3
+      },
+      "bb-020": {
+       "rank": 1
+      },
+      "bb-021": {
+       "rank": 5
+      },
+      "bb-022": {
+       "rank": 10
+      },
+      "bb-023": {
+       "rank": 1
+      },
+      "bb-024": {
+       "rank": 1
+      },
+      "bb-025": {
+       "rank": null
+      },
+      "bb-026": {
+       "rank": 1
+      },
+      "bb-027": {
+       "rank": null
+      },
+      "bb-028": {
+       "rank": 1
+      },
+      "bb-029": {
+       "rank": 2
+      },
+      "bb-030": {
+       "rank": 1
+      },
+      "ca-gov-001": {
+       "rank": null
+      },
+      "ca-gov-002": {
+       "rank": null
+      },
+      "ca-gov-003": {
+       "rank": 2
+      },
+      "ca-gov-004": {
+       "rank": 1
+      },
+      "ca-gov-005": {
+       "rank": 3
+      },
+      "ca-gov-006": {
+       "rank": null
+      },
+      "ca-gov-007": {
+       "rank": null
+      },
+      "ca-gov-008": {
+       "rank": null
+      },
+      "ca-gov-009": {
+       "rank": null
+      },
+      "ca-gov-010": {
+       "rank": 1
+      },
+      "ca-gov-011": {
+       "rank": null
+      },
+      "ca-gov-012": {
+       "rank": null
+      },
+      "ca-gov-013": {
+       "rank": 3
+      },
+      "ca-gov-014": {
+       "rank": 1
+      },
+      "ca-gov-015": {
+       "rank": 4
+      },
+      "ca-gov-016": {
+       "rank": 1
+      },
+      "ca-gov-017": {
+       "rank": 2
+      },
+      "ca-gov-018": {
+       "rank": 2
+      },
+      "ca-gov-019": {
+       "rank": 1
+      },
+      "ca-health-001": {
+       "rank": 1
+      },
+      "ca-law-001": {
+       "rank": null
+      },
+      "ca-law-002": {
+       "rank": null
+      },
+      "ca-law-003": {
+       "rank": null
+      },
+      "ca-law-004": {
+       "rank": null
+      },
+      "ca-law-005": {
+       "rank": 3
+      },
+      "ca-law-006": {
+       "rank": null
+      },
+      "ca-law-007": {
+       "rank": null
+      },
+      "ca-law-008": {
+       "rank": null
+      },
+      "ca-law-009": {
+       "rank": null
+      },
+      "ca-law-010": {
+       "rank": null
+      },
+      "ca-law-011": {
+       "rank": null
+      },
+      "ca-law-012": {
+       "rank": null
+      },
+      "ca-law-013": {
+       "rank": null
+      },
+      "ca-law-014": {
+       "rank": null
+      },
+      "ca-law-015": {
+       "rank": null
+      },
+      "ca-law-016": {
+       "rank": null
+      },
+      "ca-law-017": {
+       "rank": null
+      },
+      "ca-law-018": {
+       "rank": null
+      },
+      "ca-law-019": {
+       "rank": null
+      },
+      "ca-law-020": {
+       "rank": null
+      },
+      "ca-law-021": {
+       "rank": null
+      },
+      "ca-law-022": {
+       "rank": null
+      },
+      "ca-prov-001": {
+       "rank": null
+      },
+      "ca-prov-002": {
+       "rank": null
+      },
+      "ca-prov-003": {
+       "rank": null
+      },
+      "ca-prov-004": {
+       "rank": null
+      },
+      "ca-prov-005": {
+       "rank": null
+      },
+      "ca-prov-006": {
+       "rank": null
+      },
+      "ca-prov-007": {
+       "rank": null
+      },
+      "ca-prov-008": {
+       "rank": null
+      },
+      "ca-stats-001": {
+       "rank": 2
+      },
+      "ca-stats-002": {
+       "rank": null
+      },
+      "ca-stats-003": {
+       "rank": 1
+      },
+      "ca-stats-004": {
+       "rank": 1
+      },
+      "ca-stats-005": {
+       "rank": 1
+      },
+      "ca-tax-001": {
+       "rank": 1
+      },
+      "ca-tax-002": {
+       "rank": 1
+      },
+      "ca-tax-003": {
+       "rank": 1
+      },
+      "ca-tax-004": {
+       "rank": 1
+      },
+      "ca-tax-005": {
+       "rank": 1
+      },
+      "ch-biz-001": {
+       "rank": 3
+      },
+      "ch-biz-002": {
+       "rank": null
+      },
+      "ch-biz-003": {
+       "rank": 1
+      },
+      "ch-biz-004": {
+       "rank": null
+      },
+      "ch-biz-005": {
+       "rank": 3
+      },
+      "ch-biz-006": {
+       "rank": null
+      },
+      "ch-biz-007": {
+       "rank": 2
+      },
+      "ch-biz-008": {
+       "rank": 1
+      },
+      "ch-canton-001": {
+       "rank": null
+      },
+      "ch-canton-002": {
+       "rank": 2
+      },
+      "ch-canton-003": {
+       "rank": null
+      },
+      "ch-canton-004": {
+       "rank": null
+      },
+      "ch-canton-005": {
+       "rank": null
+      },
+      "ch-canton-006": {
+       "rank": null
+      },
+      "ch-canton-007": {
+       "rank": null
+      },
+      "ch-canton-008": {
+       "rank": null
+      },
+      "ch-canton-009": {
+       "rank": null
+      },
+      "ch-canton-010": {
+       "rank": null
+      },
+      "ch-canton-011": {
+       "rank": null
+      },
+      "ch-canton-012": {
+       "rank": null
+      },
+      "ch-canton-013": {
+       "rank": null
+      },
+      "ch-canton-014": {
+       "rank": null
+      },
+      "ch-canton-015": {
+       "rank": null
+      },
+      "ch-canton-016": {
+       "rank": null
+      },
+      "ch-canton-017": {
+       "rank": 7
+      },
+      "ch-canton-018": {
+       "rank": null
+      },
+      "ch-court-001": {
+       "rank": 1
+      },
+      "ch-court-002": {
+       "rank": 1
+      },
+      "ch-court-003": {
+       "rank": 1
+      },
+      "ch-court-004": {
+       "rank": null
+      },
+      "ch-court-005": {
+       "rank": 1
+      },
+      "ch-court-006": {
+       "rank": 1
+      },
+      "ch-edu-001": {
+       "rank": null
+      },
+      "ch-edu-002": {
+       "rank": null
+      },
+      "ch-edu-003": {
+       "rank": null
+      },
+      "ch-energy-001": {
+       "rank": null
+      },
+      "ch-energy-002": {
+       "rank": 2
+      },
+      "ch-gov-001": {
+       "rank": null
+      },
+      "ch-gov-002": {
+       "rank": null
+      },
+      "ch-gov-003": {
+       "rank": null
+      },
+      "ch-gov-004": {
+       "rank": null
+      },
+      "ch-gov-005": {
+       "rank": null
+      },
+      "ch-gov-006": {
+       "rank": 1
+      },
+      "ch-gov-007": {
+       "rank": 1
+      },
+      "ch-health-001": {
+       "rank": null
+      },
+      "ch-health-002": {
+       "rank": null
+      },
+      "ch-health-003": {
+       "rank": null
+      },
+      "ch-health-004": {
+       "rank": 1
+      },
+      "ch-health-005": {
+       "rank": null
+      },
+      "ch-health-006": {
+       "rank": 1
+      },
+      "ch-health-007": {
+       "rank": 1
+      },
+      "ch-health-008": {
+       "rank": null
+      },
+      "ch-law-001": {
+       "rank": 1
+      },
+      "ch-law-002": {
+       "rank": 1
+      },
+      "ch-law-003": {
+       "rank": 1
+      },
+      "ch-law-004": {
+       "rank": 1
+      },
+      "ch-law-005": {
+       "rank": 1
+      },
+      "ch-law-006": {
+       "rank": 7
+      },
+      "ch-law-007": {
+       "rank": 6
+      },
+      "ch-law-008": {
+       "rank": 5
+      },
+      "ch-law-009": {
+       "rank": null
+      },
+      "ch-law-010": {
+       "rank": null
+      },
+      "ch-law-011": {
+       "rank": null
+      },
+      "ch-law-012": {
+       "rank": null
+      },
+      "ch-law-013": {
+       "rank": 1
+      },
+      "ch-law-014": {
+       "rank": null
+      },
+      "ch-law-015": {
+       "rank": null
+      },
+      "ch-law-016": {
+       "rank": 1
+      },
+      "ch-law-017": {
+       "rank": 1
+      },
+      "ch-law-018": {
+       "rank": null
+      },
+      "ch-law-019": {
+       "rank": 6
+      },
+      "ch-law-020": {
+       "rank": 1
+      },
+      "ch-law-021": {
+       "rank": 1
+      },
+      "ch-law-022": {
+       "rank": null
+      },
+      "ch-law-023": {
+       "rank": 7
+      },
+      "ch-law-024": {
+       "rank": 4
+      },
+      "ch-law-025": {
+       "rank": null
+      },
+      "ch-mig-001": {
+       "rank": null
+      },
+      "ch-mig-002": {
+       "rank": 7
+      },
+      "ch-mig-003": {
+       "rank": 1
+      },
+      "ch-mig-004": {
+       "rank": 1
+      },
+      "ch-mig-005": {
+       "rank": null
+      },
+      "ch-mig-006": {
+       "rank": null
+      },
+      "ch-news-001": {
+       "rank": 1
+      },
+      "ch-news-002": {
+       "rank": null
+      },
+      "ch-news-003": {
+       "rank": 2
+      },
+      "ch-news-004": {
+       "rank": null
+      },
+      "ch-news-005": {
+       "rank": 1
+      },
+      "ch-stats-001": {
+       "rank": null
+      },
+      "ch-stats-002": {
+       "rank": 4
+      },
+      "ch-stats-003": {
+       "rank": null
+      },
+      "ch-stats-004": {
+       "rank": 1
+      },
+      "ch-stats-005": {
+       "rank": null
+      },
+      "ch-stats-006": {
+       "rank": 1
+      },
+      "ch-stats-007": {
+       "rank": null
+      },
+      "ch-stats-008": {
+       "rank": null
+      },
+      "ch-stats-009": {
+       "rank": 3
+      },
+      "ch-stats-010": {
+       "rank": null
+      },
+      "ch-stats-011": {
+       "rank": 3
+      },
+      "ch-tax-001": {
+       "rank": 9
+      },
+      "ch-tax-002": {
+       "rank": null
+      },
+      "ch-tax-003": {
+       "rank": 1
+      },
+      "ch-tax-004": {
+       "rank": 5
+      },
+      "ch-tax-005": {
+       "rank": 2
+      },
+      "ch-tax-006": {
+       "rank": 2
+      },
+      "ch-tax-007": {
+       "rank": 1
+      },
+      "ch-tax-008": {
+       "rank": 1
+      },
+      "ch-transport-001": {
+       "rank": 3
+      },
+      "ch-transport-002": {
+       "rank": 2
+      },
+      "ch-transport-003": {
+       "rank": 2
+      },
+      "de-court-001": {
+       "rank": null
+      },
+      "de-court-002": {
+       "rank": null
+      },
+      "de-eu-001": {
+       "rank": null
+      },
+      "de-eu-002": {
+       "rank": null
+      },
+      "de-eu-003": {
+       "rank": null
+      },
+      "de-fresh-001": {
+       "rank": 1
+      },
+      "de-fresh-002": {
+       "rank": 2
+      },
+      "de-fresh-003": {
+       "rank": 1
+      },
+      "de-fresh-004": {
+       "rank": 1
+      },
+      "de-fresh-005": {
+       "rank": null
+      },
+      "de-fresh-006": {
+       "rank": null
+      },
+      "de-fresh-007": {
+       "rank": null
+      },
+      "de-fresh-008": {
+       "rank": null
+      },
+      "de-fresh-009": {
+       "rank": null
+      },
+      "de-fresh-010": {
+       "rank": null
+      },
+      "de-fresh-011": {
+       "rank": 1
+      },
+      "de-fresh-012": {
+       "rank": 1
+      },
+      "de-fresh-013": {
+       "rank": 1
+      },
+      "de-fresh-014": {
+       "rank": 2
+      },
+      "de-fresh-015": {
+       "rank": 8
+      },
+      "de-gov-001": {
+       "rank": null
+      },
+      "de-gov-002": {
+       "rank": null
+      },
+      "de-gov-003": {
+       "rank": 9
+      },
+      "de-gov-004": {
+       "rank": 1
+      },
+      "de-gov-005": {
+       "rank": 1
+      },
+      "de-gov-006": {
+       "rank": 1
+      },
+      "de-health-001": {
+       "rank": null
+      },
+      "de-health-002": {
+       "rank": 3
+      },
+      "de-land-001": {
+       "rank": null
+      },
+      "de-land-002": {
+       "rank": null
+      },
+      "de-land-003": {
+       "rank": null
+      },
+      "de-land-004": {
+       "rank": null
+      },
+      "de-land-005": {
+       "rank": 2
+      },
+      "de-law-001": {
+       "rank": 4
+      },
+      "de-law-002": {
+       "rank": null
+      },
+      "de-law-003": {
+       "rank": 3
+      },
+      "de-law-004": {
+       "rank": null
+      },
+      "de-law-005": {
+       "rank": 4
+      },
+      "de-law-006": {
+       "rank": 3
+      },
+      "de-law-007": {
+       "rank": 1
+      },
+      "de-law-008": {
+       "rank": 1
+      },
+      "de-law-009": {
+       "rank": 3
+      },
+      "de-law-010": {
+       "rank": null
+      },
+      "de-law-011": {
+       "rank": 2
+      },
+      "de-law-012": {
+       "rank": null
+      },
+      "de-law-013": {
+       "rank": 1
+      },
+      "de-law-014": {
+       "rank": 2
+      },
+      "de-law-015": {
+       "rank": null
+      },
+      "de-law-016": {
+       "rank": null
+      },
+      "de-law-017": {
+       "rank": 1
+      },
+      "de-law-018": {
+       "rank": 7
+      },
+      "de-law-019": {
+       "rank": 2
+      },
+      "de-law-020": {
+       "rank": null
+      },
+      "de-law-021": {
+       "rank": null
+      },
+      "de-law-022": {
+       "rank": 1
+      },
+      "de-law-023": {
+       "rank": 3
+      },
+      "de-law-024": {
+       "rank": 10
+      },
+      "de-law-025": {
+       "rank": 1
+      },
+      "de-social-001": {
+       "rank": null
+      },
+      "de-social-002": {
+       "rank": null
+      },
+      "de-social-003": {
+       "rank": null
+      },
+      "de-social-004": {
+       "rank": null
+      },
+      "de-stats-001": {
+       "rank": null
+      },
+      "de-stats-002": {
+       "rank": 3
+      },
+      "de-stats-003": {
+       "rank": null
+      },
+      "de-stats-004": {
+       "rank": 4
+      },
+      "de-tax-001": {
+       "rank": 4
+      },
+      "de-tax-002": {
+       "rank": null
+      },
+      "de-tax-003": {
+       "rank": 1
+      },
+      "de-tax-004": {
+       "rank": 9
+      },
+      "fr-biz-001": {
+       "rank": null
+      },
+      "fr-biz-002": {
+       "rank": null
+      },
+      "fr-court-001": {
+       "rank": null
+      },
+      "fr-court-002": {
+       "rank": null
+      },
+      "fr-edu-001": {
+       "rank": null
+      },
+      "fr-gov-001": {
+       "rank": 1
+      },
+      "fr-gov-002": {
+       "rank": null
+      },
+      "fr-gov-003": {
+       "rank": 1
+      },
+      "fr-gov-004": {
+       "rank": 1
+      },
+      "fr-gov-005": {
+       "rank": 1
+      },
+      "fr-gov-006": {
+       "rank": 1
+      },
+      "fr-gov-007": {
+       "rank": 4
+      },
+      "fr-gov-008": {
+       "rank": 1
+      },
+      "fr-gov-009": {
+       "rank": 1
+      },
+      "fr-gov-010": {
+       "rank": 4
+      },
+      "fr-gov-011": {
+       "rank": 1
+      },
+      "fr-gov-012": {
+       "rank": 2
+      },
+      "fr-gov-013": {
+       "rank": 1
+      },
+      "fr-gov-014": {
+       "rank": null
+      },
+      "fr-gov-015": {
+       "rank": 3
+      },
+      "fr-gov-016": {
+       "rank": 1
+      },
+      "fr-gov-017": {
+       "rank": 2
+      },
+      "fr-gov-018": {
+       "rank": 1
+      },
+      "fr-gov-019": {
+       "rank": 1
+      },
+      "fr-gov-020": {
+       "rank": 1
+      },
+      "fr-gov-021": {
+       "rank": 3
+      },
+      "fr-gov-022": {
+       "rank": 1
+      },
+      "fr-gov-023": {
+       "rank": 1
+      },
+      "fr-gov-024": {
+       "rank": 2
+      },
+      "fr-gov-025": {
+       "rank": 1
+      },
+      "fr-gov-026": {
+       "rank": null
+      },
+      "fr-gov-027": {
+       "rank": 1
+      },
+      "fr-gov-028": {
+       "rank": 1
+      },
+      "fr-gov-029": {
+       "rank": null
+      },
+      "fr-gov-030": {
+       "rank": null
+      },
+      "fr-health-001": {
+       "rank": null
+      },
+      "fr-health-002": {
+       "rank": null
+      },
+      "fr-health-003": {
+       "rank": null
+      },
+      "fr-health-004": {
+       "rank": 7
+      },
+      "fr-law-001": {
+       "rank": null
+      },
+      "fr-law-002": {
+       "rank": 6
+      },
+      "fr-law-003": {
+       "rank": null
+      },
+      "fr-law-004": {
+       "rank": 1
+      },
+      "fr-law-005": {
+       "rank": 4
+      },
+      "fr-law-006": {
+       "rank": 4
+      },
+      "fr-law-007": {
+       "rank": 2
+      },
+      "fr-law-008": {
+       "rank": 8
+      },
+      "fr-law-009": {
+       "rank": 1
+      },
+      "fr-law-010": {
+       "rank": 1
+      },
+      "fr-law-011": {
+       "rank": 3
+      },
+      "fr-law-012": {
+       "rank": null
+      },
+      "fr-law-013": {
+       "rank": 7
+      },
+      "fr-law-014": {
+       "rank": 2
+      },
+      "fr-law-015": {
+       "rank": 3
+      },
+      "fr-stats-001": {
+       "rank": 2
+      },
+      "fr-stats-002": {
+       "rank": 3
+      },
+      "fr-stats-003": {
+       "rank": 1
+      },
+      "fr-stats-004": {
+       "rank": 1
+      },
+      "fr-stats-005": {
+       "rank": null
+      },
+      "fr-stats-006": {
+       "rank": 3
+      },
+      "fr-stats-007": {
+       "rank": 2
+      },
+      "fr-stats-008": {
+       "rank": 1
+      },
+      "fr-stats-009": {
+       "rank": 2
+      },
+      "fr-stats-010": {
+       "rank": 1
+      },
+      "fr-stats-011": {
+       "rank": 2
+      },
+      "fr-tax-001": {
+       "rank": null
+      },
+      "fr-tax-002": {
+       "rank": null
+      },
+      "fr-tax-003": {
+       "rank": 1
+      },
+      "sw-api-001": {
+       "rank": 1
+      },
+      "sw-api-002": {
+       "rank": 1
+      },
+      "sw-api-003": {
+       "rank": 1
+      },
+      "sw-api-004": {
+       "rank": 4
+      },
+      "sw-api-005": {
+       "rank": 1
+      },
+      "sw-api-006": {
+       "rank": 1
+      },
+      "sw-api-007": {
+       "rank": 1
+      },
+      "sw-api-008": {
+       "rank": 1
+      },
+      "sw-api-009": {
+       "rank": 7
+      },
+      "sw-api-010": {
+       "rank": 1
+      },
+      "sw-api-011": {
+       "rank": 1
+      },
+      "sw-api-012": {
+       "rank": 1
+      },
+      "sw-api-013": {
+       "rank": 1
+      },
+      "sw-api-014": {
+       "rank": 1
+      },
+      "sw-api-015": {
+       "rank": 1
+      },
+      "sw-api-016": {
+       "rank": null
+      },
+      "sw-api-017": {
+       "rank": null
+      },
+      "sw-api-018": {
+       "rank": null
+      },
+      "sw-api-019": {
+       "rank": 1
+      },
+      "sw-api-020": {
+       "rank": 1
+      },
+      "sw-api-021": {
+       "rank": 3
+      },
+      "sw-api-022": {
+       "rank": 1
+      },
+      "sw-api-023": {
+       "rank": null
+      },
+      "sw-api-024": {
+       "rank": null
+      },
+      "sw-api-025": {
+       "rank": 9
+      },
+      "sw-api-026": {
+       "rank": null
+      },
+      "sw-api-027": {
+       "rank": 1
+      },
+      "sw-api-028": {
+       "rank": 3
+      },
+      "sw-docs-001": {
+       "rank": null
+      },
+      "sw-docs-002": {
+       "rank": 2
+      },
+      "sw-docs-003": {
+       "rank": 5
+      },
+      "sw-docs-004": {
+       "rank": 6
+      },
+      "sw-docs-005": {
+       "rank": 1
+      },
+      "sw-docs-006": {
+       "rank": 3
+      },
+      "sw-docs-007": {
+       "rank": 1
+      },
+      "sw-docs-008": {
+       "rank": 1
+      },
+      "sw-docs-009": {
+       "rank": 6
+      },
+      "sw-docs-010": {
+       "rank": 1
+      },
+      "sw-docs-011": {
+       "rank": 2
+      },
+      "sw-docs-012": {
+       "rank": 5
+      },
+      "sw-docs-013": {
+       "rank": null
+      },
+      "sw-docs-014": {
+       "rank": 1
+      },
+      "sw-docs-015": {
+       "rank": 1
+      },
+      "sw-docs-016": {
+       "rank": 1
+      },
+      "sw-docs-017": {
+       "rank": 3
+      },
+      "sw-docs-018": {
+       "rank": null
+      },
+      "sw-docs-019": {
+       "rank": 1
+      },
+      "sw-docs-020": {
+       "rank": 1
+      },
+      "sw-docs-021": {
+       "rank": null
+      },
+      "sw-docs-022": {
+       "rank": 1
+      },
+      "sw-docs-023": {
+       "rank": 2
+      },
+      "sw-docs-024": {
+       "rank": 3
+      },
+      "sw-docs-025": {
+       "rank": 1
+      },
+      "sw-docs-026": {
+       "rank": null
+      },
+      "sw-docs-027": {
+       "rank": null
+      },
+      "sw-docs-028": {
+       "rank": 1
+      },
+      "sw-docs-029": {
+       "rank": 1
+      },
+      "sw-docs-030": {
+       "rank": 1
+      },
+      "sw-docs-031": {
+       "rank": 1
+      },
+      "sw-docs-032": {
+       "rank": 1
+      },
+      "sw-docs-033": {
+       "rank": 4
+      },
+      "sw-spec-001": {
+       "rank": 1
+      },
+      "sw-spec-002": {
+       "rank": 1
+      },
+      "sw-spec-003": {
+       "rank": 1
+      },
+      "sw-spec-004": {
+       "rank": 2
+      },
+      "sw-spec-005": {
+       "rank": null
+      },
+      "sw-spec-006": {
+       "rank": null
+      },
+      "sw-spec-007": {
+       "rank": 2
+      },
+      "sw-spec-008": {
+       "rank": 1
+      },
+      "sw-spec-009": {
+       "rank": null
+      }
+     }
+    },
+    "foundation": {
+     "per_q": {
+      "be-001": {
+       "rank": null
+      },
+      "be-002": {
+       "rank": null
+      },
+      "be-003": {
+       "rank": null
+      },
+      "be-004": {
+       "rank": null
+      },
+      "be-005": {
+       "rank": 9
+      },
+      "be-006": {
+       "rank": null
+      },
+      "be-007": {
+       "rank": null
+      },
+      "be-008": {
+       "rank": null
+      },
+      "be-009": {
+       "rank": 1
+      },
+      "be-010": {
+       "rank": null
+      },
+      "be-011": {
+       "rank": 6
+      },
+      "be-012": {
+       "rank": null
+      },
+      "be-013": {
+       "rank": null
+      },
+      "be-014": {
+       "rank": null
+      },
+      "be-015": {
+       "rank": 1
+      },
+      "be-016": {
+       "rank": null
+      },
+      "be-017": {
+       "rank": null
+      },
+      "be-018": {
+       "rank": 2
+      },
+      "be-019": {
+       "rank": null
+      },
+      "be-020": {
+       "rank": null
+      },
+      "dei-001": {
+       "rank": null
+      },
+      "dei-002": {
+       "rank": 1
+      },
+      "dei-003": {
+       "rank": 1
+      },
+      "dei-004": {
+       "rank": null
+      },
+      "dei-005": {
+       "rank": null
+      },
+      "dei-006": {
+       "rank": null
+      },
+      "dei-007": {
+       "rank": 1
+      },
+      "dei-008": {
+       "rank": 1
+      },
+      "dei-009": {
+       "rank": null
+      },
+      "dei-010": {
+       "rank": 1
+      },
+      "dei-011": {
+       "rank": null
+      },
+      "dei-012": {
+       "rank": null
+      },
+      "dei-013": {
+       "rank": 1
+      },
+      "dei-014": {
+       "rank": 1
+      },
+      "dei-015": {
+       "rank": 5
+      },
+      "dei-016": {
+       "rank": 1
+      },
+      "df-001": {
+       "rank": 1
+      },
+      "df-002": {
+       "rank": null
+      },
+      "df-003": {
+       "rank": null
+      },
+      "df-004": {
+       "rank": 2
+      },
+      "df-005": {
+       "rank": null
+      },
+      "df-006": {
+       "rank": null
+      },
+      "df-007": {
+       "rank": 1
+      },
+      "df-008": {
+       "rank": null
+      },
+      "df-009": {
+       "rank": null
+      },
+      "df-010": {
+       "rank": 2
+      },
+      "df-011": {
+       "rank": null
+      },
+      "df-012": {
+       "rank": null
+      },
+      "df-013": {
+       "rank": null
+      },
+      "df-014": {
+       "rank": 1
+      },
+      "df-015": {
+       "rank": 6
+      },
+      "df-016": {
+       "rank": 1
+      },
+      "df-017": {
+       "rank": 1
+      },
+      "df-018": {
+       "rank": 1
+      },
+      "eu-001": {
+       "rank": 3
+      },
+      "eu-002": {
+       "rank": null
+      },
+      "eu-003": {
+       "rank": 2
+      },
+      "eu-004": {
+       "rank": null
+      },
+      "eu-005": {
+       "rank": 1
+      },
+      "eu-006": {
+       "rank": null
+      },
+      "eu-007": {
+       "rank": null
+      },
+      "eu-008": {
+       "rank": null
+      },
+      "eu-009": {
+       "rank": null
+      },
+      "eu-010": {
+       "rank": 3
+      },
+      "eu-011": {
+       "rank": 3
+      },
+      "eu-012": {
+       "rank": null
+      },
+      "eu-013": {
+       "rank": null
+      },
+      "eu-014": {
+       "rank": 1
+      },
+      "eu-015": {
+       "rank": 2
+      },
+      "il-001": {
+       "rank": null
+      },
+      "il-002": {
+       "rank": 2
+      },
+      "il-003": {
+       "rank": null
+      },
+      "il-004": {
+       "rank": null
+      },
+      "il-005": {
+       "rank": null
+      },
+      "il-006": {
+       "rank": null
+      },
+      "il-007": {
+       "rank": null
+      },
+      "il-008": {
+       "rank": null
+      },
+      "il-009": {
+       "rank": null
+      },
+      "il-010": {
+       "rank": null
+      },
+      "il-011": {
+       "rank": 1
+      },
+      "il-012": {
+       "rank": null
+      },
+      "il-013": {
+       "rank": null
+      },
+      "il-014": {
+       "rank": null
+      },
+      "il-015": {
+       "rank": 2
+      },
+      "il-016": {
+       "rank": null
+      },
+      "mh-001": {
+       "rank": 1
+      },
+      "mh-002": {
+       "rank": 2
+      },
+      "mh-003": {
+       "rank": 1
+      },
+      "mh-004": {
+       "rank": 1
+      },
+      "mh-005": {
+       "rank": 1
+      },
+      "mh-006": {
+       "rank": 1
+      },
+      "mh-007": {
+       "rank": 4
+      },
+      "mh-008": {
+       "rank": null
+      },
+      "mh-009": {
+       "rank": null
+      },
+      "mh-010": {
+       "rank": 1
+      },
+      "mh-011": {
+       "rank": 2
+      },
+      "mh-012": {
+       "rank": null
+      },
+      "mh-013": {
+       "rank": 2
+      },
+      "mh-014": {
+       "rank": 1
+      },
+      "mh-015": {
+       "rank": 1
+      },
+      "mh-016": {
+       "rank": 1
+      },
+      "mh-017": {
+       "rank": 2
+      },
+      "mh-018": {
+       "rank": 2
+      },
+      "psy-001": {
+       "rank": 1
+      },
+      "psy-002": {
+       "rank": null
+      },
+      "psy-003": {
+       "rank": null
+      },
+      "psy-004": {
+       "rank": null
+      },
+      "psy-005": {
+       "rank": null
+      },
+      "psy-006": {
+       "rank": null
+      },
+      "psy-007": {
+       "rank": 1
+      },
+      "psy-008": {
+       "rank": 1
+      },
+      "psy-009": {
+       "rank": null
+      },
+      "psy-010": {
+       "rank": 1
+      },
+      "psy-011": {
+       "rank": null
+      },
+      "psy-012": {
+       "rank": 2
+      },
+      "psy-013": {
+       "rank": 1
+      },
+      "psy-014": {
+       "rank": 2
+      },
+      "psy-015": {
+       "rank": 1
+      },
+      "psy-016": {
+       "rank": null
+      },
+      "soc-001": {
+       "rank": 1
+      },
+      "soc-002": {
+       "rank": 1
+      },
+      "soc-003": {
+       "rank": 2
+      },
+      "soc-004": {
+       "rank": 3
+      },
+      "soc-005": {
+       "rank": 1
+      },
+      "soc-006": {
+       "rank": 1
+      },
+      "soc-007": {
+       "rank": 1
+      },
+      "soc-008": {
+       "rank": null
+      },
+      "soc-009": {
+       "rank": null
+      },
+      "soc-010": {
+       "rank": 1
+      },
+      "soc-011": {
+       "rank": null
+      },
+      "soc-012": {
+       "rank": null
+      },
+      "soc-013": {
+       "rank": null
+      },
+      "soc-014": {
+       "rank": 1
+      },
+      "soc-015": {
+       "rank": null
+      },
+      "soc-016": {
+       "rank": 1
+      },
+      "tc-001": {
+       "rank": null
+      },
+      "tc-002": {
+       "rank": null
+      },
+      "tc-003": {
+       "rank": null
+      },
+      "tc-004": {
+       "rank": 7
+      },
+      "tc-005": {
+       "rank": null
+      },
+      "tc-006": {
+       "rank": null
+      },
+      "tc-007": {
+       "rank": null
+      },
+      "tc-008": {
+       "rank": null
+      },
+      "tc-009": {
+       "rank": null
+      },
+      "tc-010": {
+       "rank": 4
+      },
+      "tc-011": {
+       "rank": 3
+      },
+      "tc-012": {
+       "rank": 2
+      },
+      "tc-013": {
+       "rank": null
+      },
+      "tc-014": {
+       "rank": null
+      },
+      "tc-015": {
+       "rank": null
+      },
+      "tc-016": {
+       "rank": 2
+      },
+      "tc-017": {
+       "rank": 2
+      },
+      "zec-001": {
+       "rank": null
+      },
+      "zec-002": {
+       "rank": null
+      },
+      "zec-003": {
+       "rank": null
+      },
+      "zec-004": {
+       "rank": null
+      },
+      "zec-005": {
+       "rank": null
+      },
+      "zec-006": {
+       "rank": 1
+      },
+      "zec-007": {
+       "rank": null
+      },
+      "zec-008": {
+       "rank": null
+      },
+      "zec-009": {
+       "rank": null
+      },
+      "zec-010": {
+       "rank": null
+      },
+      "zec-011": {
+       "rank": 4
+      },
+      "zec-012": {
+       "rank": null
+      },
+      "zec-013": {
+       "rank": null
+      },
+      "zec-014": {
+       "rank": 1
+      },
+      "zec-015": {
+       "rank": 1
+      },
+      "zec-016": {
+       "rank": null
+      },
+      "zec-017": {
+       "rank": null
+      },
+      "zec-018": {
+       "rank": null
+      },
+      "zec-019": {
+       "rank": null
+      },
+      "zec-020": {
+       "rank": 4
+      }
+     }
+    },
+    "legal": {
+     "per_q": {
+      "la01": {
+       "rank": 1
+      },
+      "la02": {
+       "rank": 1
+      },
+      "la03": {
+       "rank": 1
+      },
+      "la04": {
+       "rank": null
+      },
+      "la05": {
+       "rank": null
+      },
+      "la06": {
+       "rank": null
+      }
+     }
+    },
+    "names": {
+     "per_q": {
+      "n01": {
+       "rank": null
+      },
+      "n02": {
+       "rank": 3
+      },
+      "n03": {
+       "rank": 2
+      },
+      "n04": {
+       "rank": 2
+      },
+      "n05": {
+       "rank": 2
+      },
+      "n06": {
+       "rank": null
+      },
+      "n07": {
+       "rank": 1
+      }
+     }
+    },
+    "rel_vs_trust": {
+     "per_q": {
+      "rvt-01": {
+       "rank": null
+      },
+      "rvt-02": {
+       "rank": null
+      },
+      "rvt-03": {
+       "rank": 7
+      },
+      "rvt-04": {
+       "rank": 1
+      },
+      "rvt-05": {
+       "rank": null
+      },
+      "rvt-06": {
+       "rank": null
+      },
+      "rvt-07": {
+       "rank": null
+      },
+      "rvt-08": {
+       "rank": null
+      },
+      "rvt-09": {
+       "rank": null
+      },
+      "rvt-10": {
+       "rank": 1
+      },
+      "rvt-11": {
+       "rank": 5
+      },
+      "rvt-12": {
+       "rank": null
+      },
+      "rvt-13": {
+       "rank": 5
+      },
+      "rvt-14": {
+       "rank": 1
+      },
+      "rvt-15": {
+       "rank": 6
+      },
+      "rvt-16": {
+       "rank": 2
+      },
+      "rvt-17": {
+       "rank": null
+      },
+      "rvt-18": {
+       "rank": 5
+      },
+      "rvt-19": {
+       "rank": 1
+      },
+      "rvt-20": {
+       "rank": null
+      },
+      "rvt-21": {
+       "rank": 6
+      },
+      "rvt-22": {
+       "rank": null
+      },
+      "rvt-23": {
+       "rank": null
+      },
+      "rvt-24": {
+       "rank": 1
+      },
+      "rvt-25": {
+       "rank": 1
+      },
+      "rvt-26": {
+       "rank": 8
+      },
+      "rvt-27": {
+       "rank": 7
+      },
+      "rvt-28": {
+       "rank": null
+      }
+     }
+    }
+   }
+  },
+  "rollback_t0": {
+   "cache_miss": 0,
+   "sets": {
+    "authoritative": {
+     "per_q": {
+      "ai-api-001": {
+       "rank": 1
+      },
+      "ai-api-002": {
+       "rank": 2
+      },
+      "ai-api-003": {
+       "rank": null
+      },
+      "ai-api-004": {
+       "rank": 1
+      },
+      "ai-api-005": {
+       "rank": 5
+      },
+      "ai-api-006": {
+       "rank": 1
+      },
+      "ai-api-007": {
+       "rank": 4
+      },
+      "ai-api-008": {
+       "rank": null
+      },
+      "ai-api-009": {
+       "rank": 1
+      },
+      "ai-api-010": {
+       "rank": null
+      },
+      "ai-deploy-001": {
+       "rank": null
+      },
+      "ai-deploy-002": {
+       "rank": null
+      },
+      "ai-deploy-003": {
+       "rank": 1
+      },
+      "ai-deploy-004": {
+       "rank": null
+      },
+      "ai-deploy-005": {
+       "rank": null
+      },
+      "ai-deploy-006": {
+       "rank": null
+      },
+      "ai-deploy-007": {
+       "rank": 3
+      },
+      "ai-docs-001": {
+       "rank": 1
+      },
+      "ai-docs-002": {
+       "rank": null
+      },
+      "ai-docs-003": {
+       "rank": null
+      },
+      "ai-docs-004": {
+       "rank": 2
+      },
+      "ai-docs-005": {
+       "rank": 2
+      },
+      "ai-docs-006": {
+       "rank": 1
+      },
+      "ai-docs-007": {
+       "rank": 2
+      },
+      "ai-docs-008": {
+       "rank": 1
+      },
+      "ai-docs-009": {
+       "rank": null
+      },
+      "ai-docs-010": {
+       "rank": 1
+      },
+      "ai-docs-011": {
+       "rank": null
+      },
+      "ai-docs-012": {
+       "rank": null
+      },
+      "ai-docs-013": {
+       "rank": null
+      },
+      "ai-docs-014": {
+       "rank": 1
+      },
+      "ai-docs-015": {
+       "rank": null
+      },
+      "ai-docs-016": {
+       "rank": 1
+      },
+      "ai-model-001": {
+       "rank": 1
+      },
+      "ai-model-002": {
+       "rank": 1
+      },
+      "ai-model-003": {
+       "rank": 1
+      },
+      "ai-model-004": {
+       "rank": 1
+      },
+      "ai-model-005": {
+       "rank": 4
+      },
+      "ai-model-006": {
+       "rank": 2
+      },
+      "ai-model-007": {
+       "rank": 1
+      },
+      "ai-model-008": {
+       "rank": 1
+      },
+      "ai-model-009": {
+       "rank": 1
+      },
+      "ai-model-010": {
+       "rank": 1
+      },
+      "ai-model-011": {
+       "rank": 2
+      },
+      "ai-model-012": {
+       "rank": 1
+      },
+      "ai-model-013": {
+       "rank": 1
+      },
+      "ai-model-014": {
+       "rank": 1
+      },
+      "ai-model-015": {
+       "rank": 1
+      },
+      "ai-model-016": {
+       "rank": 8
+      },
+      "ai-papers-001": {
+       "rank": 2
+      },
+      "ai-papers-002": {
+       "rank": 2
+      },
+      "ai-papers-003": {
+       "rank": 1
+      },
+      "ai-papers-004": {
+       "rank": 1
+      },
+      "ai-papers-005": {
+       "rank": 5
+      },
+      "ai-papers-006": {
+       "rank": 1
+      },
+      "ai-papers-007": {
+       "rank": null
+      },
+      "ai-papers-008": {
+       "rank": null
+      },
+      "ai-papers-009": {
+       "rank": 2
+      },
+      "ai-papers-010": {
+       "rank": 1
+      },
+      "ai-price-001": {
+       "rank": 1
+      },
+      "ai-price-002": {
+       "rank": 2
+      },
+      "ai-price-003": {
+       "rank": 1
+      },
+      "ai-price-004": {
+       "rank": null
+      },
+      "ai-price-005": {
+       "rank": null
+      },
+      "ai-reg-001": {
+       "rank": 1
+      },
+      "ai-reg-002": {
+       "rank": null
+      },
+      "ai-reg-003": {
+       "rank": 1
+      },
+      "ai-reg-004": {
+       "rank": 1
+      },
+      "ai-reg-005": {
+       "rank": null
+      },
+      "ai-reg-006": {
+       "rank": null
+      },
+      "bb-001": {
+       "rank": 1
+      },
+      "bb-002": {
+       "rank": 1
+      },
+      "bb-003": {
+       "rank": 3
+      },
+      "bb-004": {
+       "rank": 1
+      },
+      "bb-005": {
+       "rank": 1
+      },
+      "bb-006": {
+       "rank": 1
+      },
+      "bb-007": {
+       "rank": 1
+      },
+      "bb-008": {
+       "rank": 1
+      },
+      "bb-009": {
+       "rank": 1
+      },
+      "bb-010": {
+       "rank": 2
+      },
+      "bb-011": {
+       "rank": null
+      },
+      "bb-012": {
+       "rank": null
+      },
+      "bb-013": {
+       "rank": null
+      },
+      "bb-014": {
+       "rank": null
+      },
+      "bb-015": {
+       "rank": null
+      },
+      "bb-016": {
+       "rank": null
+      },
+      "bb-017": {
+       "rank": null
+      },
+      "bb-018": {
+       "rank": null
+      },
+      "bb-019": {
+       "rank": 3
+      },
+      "bb-020": {
+       "rank": 1
+      },
+      "bb-021": {
+       "rank": 5
+      },
+      "bb-022": {
+       "rank": 10
+      },
+      "bb-023": {
+       "rank": 1
+      },
+      "bb-024": {
+       "rank": 1
+      },
+      "bb-025": {
+       "rank": null
+      },
+      "bb-026": {
+       "rank": 1
+      },
+      "bb-027": {
+       "rank": null
+      },
+      "bb-028": {
+       "rank": 1
+      },
+      "bb-029": {
+       "rank": 2
+      },
+      "bb-030": {
+       "rank": 1
+      },
+      "ca-gov-001": {
+       "rank": null
+      },
+      "ca-gov-002": {
+       "rank": null
+      },
+      "ca-gov-003": {
+       "rank": 2
+      },
+      "ca-gov-004": {
+       "rank": 1
+      },
+      "ca-gov-005": {
+       "rank": 3
+      },
+      "ca-gov-006": {
+       "rank": null
+      },
+      "ca-gov-007": {
+       "rank": null
+      },
+      "ca-gov-008": {
+       "rank": null
+      },
+      "ca-gov-009": {
+       "rank": null
+      },
+      "ca-gov-010": {
+       "rank": 1
+      },
+      "ca-gov-011": {
+       "rank": null
+      },
+      "ca-gov-012": {
+       "rank": null
+      },
+      "ca-gov-013": {
+       "rank": 3
+      },
+      "ca-gov-014": {
+       "rank": 1
+      },
+      "ca-gov-015": {
+       "rank": 4
+      },
+      "ca-gov-016": {
+       "rank": 1
+      },
+      "ca-gov-017": {
+       "rank": 2
+      },
+      "ca-gov-018": {
+       "rank": 2
+      },
+      "ca-gov-019": {
+       "rank": 1
+      },
+      "ca-health-001": {
+       "rank": 1
+      },
+      "ca-law-001": {
+       "rank": null
+      },
+      "ca-law-002": {
+       "rank": null
+      },
+      "ca-law-003": {
+       "rank": null
+      },
+      "ca-law-004": {
+       "rank": null
+      },
+      "ca-law-005": {
+       "rank": 3
+      },
+      "ca-law-006": {
+       "rank": null
+      },
+      "ca-law-007": {
+       "rank": null
+      },
+      "ca-law-008": {
+       "rank": null
+      },
+      "ca-law-009": {
+       "rank": null
+      },
+      "ca-law-010": {
+       "rank": null
+      },
+      "ca-law-011": {
+       "rank": null
+      },
+      "ca-law-012": {
+       "rank": null
+      },
+      "ca-law-013": {
+       "rank": null
+      },
+      "ca-law-014": {
+       "rank": null
+      },
+      "ca-law-015": {
+       "rank": null
+      },
+      "ca-law-016": {
+       "rank": null
+      },
+      "ca-law-017": {
+       "rank": null
+      },
+      "ca-law-018": {
+       "rank": null
+      },
+      "ca-law-019": {
+       "rank": null
+      },
+      "ca-law-020": {
+       "rank": null
+      },
+      "ca-law-021": {
+       "rank": null
+      },
+      "ca-law-022": {
+       "rank": null
+      },
+      "ca-prov-001": {
+       "rank": null
+      },
+      "ca-prov-002": {
+       "rank": null
+      },
+      "ca-prov-003": {
+       "rank": null
+      },
+      "ca-prov-004": {
+       "rank": null
+      },
+      "ca-prov-005": {
+       "rank": null
+      },
+      "ca-prov-006": {
+       "rank": null
+      },
+      "ca-prov-007": {
+       "rank": null
+      },
+      "ca-prov-008": {
+       "rank": null
+      },
+      "ca-stats-001": {
+       "rank": 2
+      },
+      "ca-stats-002": {
+       "rank": null
+      },
+      "ca-stats-003": {
+       "rank": 1
+      },
+      "ca-stats-004": {
+       "rank": 1
+      },
+      "ca-stats-005": {
+       "rank": 1
+      },
+      "ca-tax-001": {
+       "rank": 1
+      },
+      "ca-tax-002": {
+       "rank": 1
+      },
+      "ca-tax-003": {
+       "rank": 1
+      },
+      "ca-tax-004": {
+       "rank": 1
+      },
+      "ca-tax-005": {
+       "rank": 1
+      },
+      "ch-biz-001": {
+       "rank": 3
+      },
+      "ch-biz-002": {
+       "rank": null
+      },
+      "ch-biz-003": {
+       "rank": 1
+      },
+      "ch-biz-004": {
+       "rank": null
+      },
+      "ch-biz-005": {
+       "rank": 3
+      },
+      "ch-biz-006": {
+       "rank": null
+      },
+      "ch-biz-007": {
+       "rank": 2
+      },
+      "ch-biz-008": {
+       "rank": 1
+      },
+      "ch-canton-001": {
+       "rank": null
+      },
+      "ch-canton-002": {
+       "rank": 2
+      },
+      "ch-canton-003": {
+       "rank": null
+      },
+      "ch-canton-004": {
+       "rank": null
+      },
+      "ch-canton-005": {
+       "rank": null
+      },
+      "ch-canton-006": {
+       "rank": null
+      },
+      "ch-canton-007": {
+       "rank": null
+      },
+      "ch-canton-008": {
+       "rank": null
+      },
+      "ch-canton-009": {
+       "rank": null
+      },
+      "ch-canton-010": {
+       "rank": null
+      },
+      "ch-canton-011": {
+       "rank": null
+      },
+      "ch-canton-012": {
+       "rank": null
+      },
+      "ch-canton-013": {
+       "rank": null
+      },
+      "ch-canton-014": {
+       "rank": null
+      },
+      "ch-canton-015": {
+       "rank": null
+      },
+      "ch-canton-016": {
+       "rank": null
+      },
+      "ch-canton-017": {
+       "rank": 7
+      },
+      "ch-canton-018": {
+       "rank": null
+      },
+      "ch-court-001": {
+       "rank": 1
+      },
+      "ch-court-002": {
+       "rank": 1
+      },
+      "ch-court-003": {
+       "rank": 1
+      },
+      "ch-court-004": {
+       "rank": null
+      },
+      "ch-court-005": {
+       "rank": 1
+      },
+      "ch-court-006": {
+       "rank": 1
+      },
+      "ch-edu-001": {
+       "rank": null
+      },
+      "ch-edu-002": {
+       "rank": null
+      },
+      "ch-edu-003": {
+       "rank": null
+      },
+      "ch-energy-001": {
+       "rank": null
+      },
+      "ch-energy-002": {
+       "rank": 2
+      },
+      "ch-gov-001": {
+       "rank": null
+      },
+      "ch-gov-002": {
+       "rank": null
+      },
+      "ch-gov-003": {
+       "rank": null
+      },
+      "ch-gov-004": {
+       "rank": null
+      },
+      "ch-gov-005": {
+       "rank": null
+      },
+      "ch-gov-006": {
+       "rank": 1
+      },
+      "ch-gov-007": {
+       "rank": 1
+      },
+      "ch-health-001": {
+       "rank": null
+      },
+      "ch-health-002": {
+       "rank": null
+      },
+      "ch-health-003": {
+       "rank": null
+      },
+      "ch-health-004": {
+       "rank": 1
+      },
+      "ch-health-005": {
+       "rank": null
+      },
+      "ch-health-006": {
+       "rank": 1
+      },
+      "ch-health-007": {
+       "rank": 1
+      },
+      "ch-health-008": {
+       "rank": null
+      },
+      "ch-law-001": {
+       "rank": 1
+      },
+      "ch-law-002": {
+       "rank": 1
+      },
+      "ch-law-003": {
+       "rank": 1
+      },
+      "ch-law-004": {
+       "rank": 1
+      },
+      "ch-law-005": {
+       "rank": 1
+      },
+      "ch-law-006": {
+       "rank": 7
+      },
+      "ch-law-007": {
+       "rank": 6
+      },
+      "ch-law-008": {
+       "rank": 5
+      },
+      "ch-law-009": {
+       "rank": null
+      },
+      "ch-law-010": {
+       "rank": null
+      },
+      "ch-law-011": {
+       "rank": null
+      },
+      "ch-law-012": {
+       "rank": null
+      },
+      "ch-law-013": {
+       "rank": 1
+      },
+      "ch-law-014": {
+       "rank": null
+      },
+      "ch-law-015": {
+       "rank": null
+      },
+      "ch-law-016": {
+       "rank": 1
+      },
+      "ch-law-017": {
+       "rank": 1
+      },
+      "ch-law-018": {
+       "rank": null
+      },
+      "ch-law-019": {
+       "rank": 6
+      },
+      "ch-law-020": {
+       "rank": 1
+      },
+      "ch-law-021": {
+       "rank": 1
+      },
+      "ch-law-022": {
+       "rank": null
+      },
+      "ch-law-023": {
+       "rank": 7
+      },
+      "ch-law-024": {
+       "rank": 4
+      },
+      "ch-law-025": {
+       "rank": null
+      },
+      "ch-mig-001": {
+       "rank": null
+      },
+      "ch-mig-002": {
+       "rank": 7
+      },
+      "ch-mig-003": {
+       "rank": 1
+      },
+      "ch-mig-004": {
+       "rank": 1
+      },
+      "ch-mig-005": {
+       "rank": null
+      },
+      "ch-mig-006": {
+       "rank": null
+      },
+      "ch-news-001": {
+       "rank": 1
+      },
+      "ch-news-002": {
+       "rank": null
+      },
+      "ch-news-003": {
+       "rank": 2
+      },
+      "ch-news-004": {
+       "rank": null
+      },
+      "ch-news-005": {
+       "rank": 1
+      },
+      "ch-stats-001": {
+       "rank": null
+      },
+      "ch-stats-002": {
+       "rank": 4
+      },
+      "ch-stats-003": {
+       "rank": null
+      },
+      "ch-stats-004": {
+       "rank": 1
+      },
+      "ch-stats-005": {
+       "rank": null
+      },
+      "ch-stats-006": {
+       "rank": 1
+      },
+      "ch-stats-007": {
+       "rank": null
+      },
+      "ch-stats-008": {
+       "rank": null
+      },
+      "ch-stats-009": {
+       "rank": 3
+      },
+      "ch-stats-010": {
+       "rank": null
+      },
+      "ch-stats-011": {
+       "rank": 3
+      },
+      "ch-tax-001": {
+       "rank": 9
+      },
+      "ch-tax-002": {
+       "rank": null
+      },
+      "ch-tax-003": {
+       "rank": 1
+      },
+      "ch-tax-004": {
+       "rank": 5
+      },
+      "ch-tax-005": {
+       "rank": 2
+      },
+      "ch-tax-006": {
+       "rank": 2
+      },
+      "ch-tax-007": {
+       "rank": 1
+      },
+      "ch-tax-008": {
+       "rank": 1
+      },
+      "ch-transport-001": {
+       "rank": 3
+      },
+      "ch-transport-002": {
+       "rank": 2
+      },
+      "ch-transport-003": {
+       "rank": 2
+      },
+      "de-court-001": {
+       "rank": null
+      },
+      "de-court-002": {
+       "rank": null
+      },
+      "de-eu-001": {
+       "rank": null
+      },
+      "de-eu-002": {
+       "rank": null
+      },
+      "de-eu-003": {
+       "rank": null
+      },
+      "de-fresh-001": {
+       "rank": 1
+      },
+      "de-fresh-002": {
+       "rank": 2
+      },
+      "de-fresh-003": {
+       "rank": 1
+      },
+      "de-fresh-004": {
+       "rank": 1
+      },
+      "de-fresh-005": {
+       "rank": null
+      },
+      "de-fresh-006": {
+       "rank": null
+      },
+      "de-fresh-007": {
+       "rank": null
+      },
+      "de-fresh-008": {
+       "rank": null
+      },
+      "de-fresh-009": {
+       "rank": null
+      },
+      "de-fresh-010": {
+       "rank": null
+      },
+      "de-fresh-011": {
+       "rank": 1
+      },
+      "de-fresh-012": {
+       "rank": 1
+      },
+      "de-fresh-013": {
+       "rank": 1
+      },
+      "de-fresh-014": {
+       "rank": 2
+      },
+      "de-fresh-015": {
+       "rank": 8
+      },
+      "de-gov-001": {
+       "rank": null
+      },
+      "de-gov-002": {
+       "rank": null
+      },
+      "de-gov-003": {
+       "rank": 9
+      },
+      "de-gov-004": {
+       "rank": 1
+      },
+      "de-gov-005": {
+       "rank": 1
+      },
+      "de-gov-006": {
+       "rank": 1
+      },
+      "de-health-001": {
+       "rank": null
+      },
+      "de-health-002": {
+       "rank": 3
+      },
+      "de-land-001": {
+       "rank": null
+      },
+      "de-land-002": {
+       "rank": null
+      },
+      "de-land-003": {
+       "rank": null
+      },
+      "de-land-004": {
+       "rank": null
+      },
+      "de-land-005": {
+       "rank": 2
+      },
+      "de-law-001": {
+       "rank": 4
+      },
+      "de-law-002": {
+       "rank": null
+      },
+      "de-law-003": {
+       "rank": 3
+      },
+      "de-law-004": {
+       "rank": null
+      },
+      "de-law-005": {
+       "rank": 4
+      },
+      "de-law-006": {
+       "rank": 3
+      },
+      "de-law-007": {
+       "rank": 1
+      },
+      "de-law-008": {
+       "rank": 1
+      },
+      "de-law-009": {
+       "rank": 3
+      },
+      "de-law-010": {
+       "rank": null
+      },
+      "de-law-011": {
+       "rank": 2
+      },
+      "de-law-012": {
+       "rank": null
+      },
+      "de-law-013": {
+       "rank": 1
+      },
+      "de-law-014": {
+       "rank": 2
+      },
+      "de-law-015": {
+       "rank": null
+      },
+      "de-law-016": {
+       "rank": null
+      },
+      "de-law-017": {
+       "rank": 1
+      },
+      "de-law-018": {
+       "rank": 7
+      },
+      "de-law-019": {
+       "rank": 2
+      },
+      "de-law-020": {
+       "rank": null
+      },
+      "de-law-021": {
+       "rank": null
+      },
+      "de-law-022": {
+       "rank": 1
+      },
+      "de-law-023": {
+       "rank": 3
+      },
+      "de-law-024": {
+       "rank": 10
+      },
+      "de-law-025": {
+       "rank": 1
+      },
+      "de-social-001": {
+       "rank": null
+      },
+      "de-social-002": {
+       "rank": null
+      },
+      "de-social-003": {
+       "rank": null
+      },
+      "de-social-004": {
+       "rank": null
+      },
+      "de-stats-001": {
+       "rank": null
+      },
+      "de-stats-002": {
+       "rank": 3
+      },
+      "de-stats-003": {
+       "rank": null
+      },
+      "de-stats-004": {
+       "rank": 4
+      },
+      "de-tax-001": {
+       "rank": 4
+      },
+      "de-tax-002": {
+       "rank": null
+      },
+      "de-tax-003": {
+       "rank": 1
+      },
+      "de-tax-004": {
+       "rank": 9
+      },
+      "fr-biz-001": {
+       "rank": null
+      },
+      "fr-biz-002": {
+       "rank": null
+      },
+      "fr-court-001": {
+       "rank": null
+      },
+      "fr-court-002": {
+       "rank": null
+      },
+      "fr-edu-001": {
+       "rank": null
+      },
+      "fr-gov-001": {
+       "rank": 1
+      },
+      "fr-gov-002": {
+       "rank": null
+      },
+      "fr-gov-003": {
+       "rank": 1
+      },
+      "fr-gov-004": {
+       "rank": 1
+      },
+      "fr-gov-005": {
+       "rank": 1
+      },
+      "fr-gov-006": {
+       "rank": 1
+      },
+      "fr-gov-007": {
+       "rank": 4
+      },
+      "fr-gov-008": {
+       "rank": 1
+      },
+      "fr-gov-009": {
+       "rank": 1
+      },
+      "fr-gov-010": {
+       "rank": 4
+      },
+      "fr-gov-011": {
+       "rank": 1
+      },
+      "fr-gov-012": {
+       "rank": 2
+      },
+      "fr-gov-013": {
+       "rank": 1
+      },
+      "fr-gov-014": {
+       "rank": null
+      },
+      "fr-gov-015": {
+       "rank": 3
+      },
+      "fr-gov-016": {
+       "rank": 1
+      },
+      "fr-gov-017": {
+       "rank": 2
+      },
+      "fr-gov-018": {
+       "rank": 1
+      },
+      "fr-gov-019": {
+       "rank": 1
+      },
+      "fr-gov-020": {
+       "rank": 1
+      },
+      "fr-gov-021": {
+       "rank": 3
+      },
+      "fr-gov-022": {
+       "rank": 1
+      },
+      "fr-gov-023": {
+       "rank": 1
+      },
+      "fr-gov-024": {
+       "rank": 2
+      },
+      "fr-gov-025": {
+       "rank": 1
+      },
+      "fr-gov-026": {
+       "rank": null
+      },
+      "fr-gov-027": {
+       "rank": 1
+      },
+      "fr-gov-028": {
+       "rank": 1
+      },
+      "fr-gov-029": {
+       "rank": null
+      },
+      "fr-gov-030": {
+       "rank": null
+      },
+      "fr-health-001": {
+       "rank": null
+      },
+      "fr-health-002": {
+       "rank": null
+      },
+      "fr-health-003": {
+       "rank": null
+      },
+      "fr-health-004": {
+       "rank": 7
+      },
+      "fr-law-001": {
+       "rank": null
+      },
+      "fr-law-002": {
+       "rank": 6
+      },
+      "fr-law-003": {
+       "rank": null
+      },
+      "fr-law-004": {
+       "rank": 1
+      },
+      "fr-law-005": {
+       "rank": 4
+      },
+      "fr-law-006": {
+       "rank": 4
+      },
+      "fr-law-007": {
+       "rank": 2
+      },
+      "fr-law-008": {
+       "rank": 8
+      },
+      "fr-law-009": {
+       "rank": 1
+      },
+      "fr-law-010": {
+       "rank": 1
+      },
+      "fr-law-011": {
+       "rank": 3
+      },
+      "fr-law-012": {
+       "rank": null
+      },
+      "fr-law-013": {
+       "rank": 7
+      },
+      "fr-law-014": {
+       "rank": 2
+      },
+      "fr-law-015": {
+       "rank": 3
+      },
+      "fr-stats-001": {
+       "rank": 2
+      },
+      "fr-stats-002": {
+       "rank": 3
+      },
+      "fr-stats-003": {
+       "rank": 1
+      },
+      "fr-stats-004": {
+       "rank": 1
+      },
+      "fr-stats-005": {
+       "rank": null
+      },
+      "fr-stats-006": {
+       "rank": 3
+      },
+      "fr-stats-007": {
+       "rank": 2
+      },
+      "fr-stats-008": {
+       "rank": 1
+      },
+      "fr-stats-009": {
+       "rank": 2
+      },
+      "fr-stats-010": {
+       "rank": 1
+      },
+      "fr-stats-011": {
+       "rank": 2
+      },
+      "fr-tax-001": {
+       "rank": null
+      },
+      "fr-tax-002": {
+       "rank": null
+      },
+      "fr-tax-003": {
+       "rank": 1
+      },
+      "sw-api-001": {
+       "rank": 1
+      },
+      "sw-api-002": {
+       "rank": 1
+      },
+      "sw-api-003": {
+       "rank": 1
+      },
+      "sw-api-004": {
+       "rank": 4
+      },
+      "sw-api-005": {
+       "rank": 1
+      },
+      "sw-api-006": {
+       "rank": 1
+      },
+      "sw-api-007": {
+       "rank": 1
+      },
+      "sw-api-008": {
+       "rank": 1
+      },
+      "sw-api-009": {
+       "rank": 7
+      },
+      "sw-api-010": {
+       "rank": 1
+      },
+      "sw-api-011": {
+       "rank": 1
+      },
+      "sw-api-012": {
+       "rank": 1
+      },
+      "sw-api-013": {
+       "rank": 1
+      },
+      "sw-api-014": {
+       "rank": 1
+      },
+      "sw-api-015": {
+       "rank": 1
+      },
+      "sw-api-016": {
+       "rank": null
+      },
+      "sw-api-017": {
+       "rank": null
+      },
+      "sw-api-018": {
+       "rank": null
+      },
+      "sw-api-019": {
+       "rank": 1
+      },
+      "sw-api-020": {
+       "rank": 1
+      },
+      "sw-api-021": {
+       "rank": 3
+      },
+      "sw-api-022": {
+       "rank": 1
+      },
+      "sw-api-023": {
+       "rank": null
+      },
+      "sw-api-024": {
+       "rank": null
+      },
+      "sw-api-025": {
+       "rank": 9
+      },
+      "sw-api-026": {
+       "rank": null
+      },
+      "sw-api-027": {
+       "rank": 1
+      },
+      "sw-api-028": {
+       "rank": 3
+      },
+      "sw-docs-001": {
+       "rank": null
+      },
+      "sw-docs-002": {
+       "rank": 2
+      },
+      "sw-docs-003": {
+       "rank": 5
+      },
+      "sw-docs-004": {
+       "rank": 6
+      },
+      "sw-docs-005": {
+       "rank": 1
+      },
+      "sw-docs-006": {
+       "rank": 3
+      },
+      "sw-docs-007": {
+       "rank": 1
+      },
+      "sw-docs-008": {
+       "rank": 1
+      },
+      "sw-docs-009": {
+       "rank": 6
+      },
+      "sw-docs-010": {
+       "rank": 1
+      },
+      "sw-docs-011": {
+       "rank": 2
+      },
+      "sw-docs-012": {
+       "rank": 5
+      },
+      "sw-docs-013": {
+       "rank": null
+      },
+      "sw-docs-014": {
+       "rank": 1
+      },
+      "sw-docs-015": {
+       "rank": 1
+      },
+      "sw-docs-016": {
+       "rank": 1
+      },
+      "sw-docs-017": {
+       "rank": 3
+      },
+      "sw-docs-018": {
+       "rank": null
+      },
+      "sw-docs-019": {
+       "rank": 1
+      },
+      "sw-docs-020": {
+       "rank": 1
+      },
+      "sw-docs-021": {
+       "rank": null
+      },
+      "sw-docs-022": {
+       "rank": 1
+      },
+      "sw-docs-023": {
+       "rank": 2
+      },
+      "sw-docs-024": {
+       "rank": 3
+      },
+      "sw-docs-025": {
+       "rank": 1
+      },
+      "sw-docs-026": {
+       "rank": null
+      },
+      "sw-docs-027": {
+       "rank": null
+      },
+      "sw-docs-028": {
+       "rank": 1
+      },
+      "sw-docs-029": {
+       "rank": 1
+      },
+      "sw-docs-030": {
+       "rank": 1
+      },
+      "sw-docs-031": {
+       "rank": 1
+      },
+      "sw-docs-032": {
+       "rank": 1
+      },
+      "sw-docs-033": {
+       "rank": 4
+      },
+      "sw-spec-001": {
+       "rank": 1
+      },
+      "sw-spec-002": {
+       "rank": 1
+      },
+      "sw-spec-003": {
+       "rank": 1
+      },
+      "sw-spec-004": {
+       "rank": 2
+      },
+      "sw-spec-005": {
+       "rank": null
+      },
+      "sw-spec-006": {
+       "rank": null
+      },
+      "sw-spec-007": {
+       "rank": 2
+      },
+      "sw-spec-008": {
+       "rank": 1
+      },
+      "sw-spec-009": {
+       "rank": null
+      }
+     }
+    },
+    "foundation": {
+     "per_q": {
+      "be-001": {
+       "rank": null
+      },
+      "be-002": {
+       "rank": null
+      },
+      "be-003": {
+       "rank": null
+      },
+      "be-004": {
+       "rank": null
+      },
+      "be-005": {
+       "rank": 9
+      },
+      "be-006": {
+       "rank": null
+      },
+      "be-007": {
+       "rank": null
+      },
+      "be-008": {
+       "rank": null
+      },
+      "be-009": {
+       "rank": 1
+      },
+      "be-010": {
+       "rank": null
+      },
+      "be-011": {
+       "rank": 6
+      },
+      "be-012": {
+       "rank": null
+      },
+      "be-013": {
+       "rank": null
+      },
+      "be-014": {
+       "rank": null
+      },
+      "be-015": {
+       "rank": 1
+      },
+      "be-016": {
+       "rank": null
+      },
+      "be-017": {
+       "rank": null
+      },
+      "be-018": {
+       "rank": 2
+      },
+      "be-019": {
+       "rank": null
+      },
+      "be-020": {
+       "rank": null
+      },
+      "dei-001": {
+       "rank": null
+      },
+      "dei-002": {
+       "rank": 1
+      },
+      "dei-003": {
+       "rank": 1
+      },
+      "dei-004": {
+       "rank": null
+      },
+      "dei-005": {
+       "rank": null
+      },
+      "dei-006": {
+       "rank": null
+      },
+      "dei-007": {
+       "rank": 1
+      },
+      "dei-008": {
+       "rank": 1
+      },
+      "dei-009": {
+       "rank": null
+      },
+      "dei-010": {
+       "rank": 1
+      },
+      "dei-011": {
+       "rank": null
+      },
+      "dei-012": {
+       "rank": null
+      },
+      "dei-013": {
+       "rank": 1
+      },
+      "dei-014": {
+       "rank": 1
+      },
+      "dei-015": {
+       "rank": 5
+      },
+      "dei-016": {
+       "rank": 1
+      },
+      "df-001": {
+       "rank": 1
+      },
+      "df-002": {
+       "rank": null
+      },
+      "df-003": {
+       "rank": null
+      },
+      "df-004": {
+       "rank": 2
+      },
+      "df-005": {
+       "rank": null
+      },
+      "df-006": {
+       "rank": null
+      },
+      "df-007": {
+       "rank": 1
+      },
+      "df-008": {
+       "rank": null
+      },
+      "df-009": {
+       "rank": null
+      },
+      "df-010": {
+       "rank": 2
+      },
+      "df-011": {
+       "rank": null
+      },
+      "df-012": {
+       "rank": null
+      },
+      "df-013": {
+       "rank": null
+      },
+      "df-014": {
+       "rank": 1
+      },
+      "df-015": {
+       "rank": 6
+      },
+      "df-016": {
+       "rank": 1
+      },
+      "df-017": {
+       "rank": 1
+      },
+      "df-018": {
+       "rank": 1
+      },
+      "eu-001": {
+       "rank": 3
+      },
+      "eu-002": {
+       "rank": null
+      },
+      "eu-003": {
+       "rank": 2
+      },
+      "eu-004": {
+       "rank": null
+      },
+      "eu-005": {
+       "rank": 1
+      },
+      "eu-006": {
+       "rank": null
+      },
+      "eu-007": {
+       "rank": null
+      },
+      "eu-008": {
+       "rank": null
+      },
+      "eu-009": {
+       "rank": null
+      },
+      "eu-010": {
+       "rank": 3
+      },
+      "eu-011": {
+       "rank": 3
+      },
+      "eu-012": {
+       "rank": null
+      },
+      "eu-013": {
+       "rank": null
+      },
+      "eu-014": {
+       "rank": 1
+      },
+      "eu-015": {
+       "rank": 2
+      },
+      "il-001": {
+       "rank": null
+      },
+      "il-002": {
+       "rank": 2
+      },
+      "il-003": {
+       "rank": null
+      },
+      "il-004": {
+       "rank": null
+      },
+      "il-005": {
+       "rank": null
+      },
+      "il-006": {
+       "rank": null
+      },
+      "il-007": {
+       "rank": null
+      },
+      "il-008": {
+       "rank": null
+      },
+      "il-009": {
+       "rank": null
+      },
+      "il-010": {
+       "rank": null
+      },
+      "il-011": {
+       "rank": 1
+      },
+      "il-012": {
+       "rank": null
+      },
+      "il-013": {
+       "rank": null
+      },
+      "il-014": {
+       "rank": null
+      },
+      "il-015": {
+       "rank": 2
+      },
+      "il-016": {
+       "rank": null
+      },
+      "mh-001": {
+       "rank": 1
+      },
+      "mh-002": {
+       "rank": 2
+      },
+      "mh-003": {
+       "rank": 1
+      },
+      "mh-004": {
+       "rank": 1
+      },
+      "mh-005": {
+       "rank": 1
+      },
+      "mh-006": {
+       "rank": 1
+      },
+      "mh-007": {
+       "rank": 4
+      },
+      "mh-008": {
+       "rank": null
+      },
+      "mh-009": {
+       "rank": null
+      },
+      "mh-010": {
+       "rank": 1
+      },
+      "mh-011": {
+       "rank": 2
+      },
+      "mh-012": {
+       "rank": null
+      },
+      "mh-013": {
+       "rank": 2
+      },
+      "mh-014": {
+       "rank": 1
+      },
+      "mh-015": {
+       "rank": 1
+      },
+      "mh-016": {
+       "rank": 1
+      },
+      "mh-017": {
+       "rank": 2
+      },
+      "mh-018": {
+       "rank": 2
+      },
+      "psy-001": {
+       "rank": 1
+      },
+      "psy-002": {
+       "rank": null
+      },
+      "psy-003": {
+       "rank": null
+      },
+      "psy-004": {
+       "rank": null
+      },
+      "psy-005": {
+       "rank": null
+      },
+      "psy-006": {
+       "rank": null
+      },
+      "psy-007": {
+       "rank": 1
+      },
+      "psy-008": {
+       "rank": 1
+      },
+      "psy-009": {
+       "rank": null
+      },
+      "psy-010": {
+       "rank": 1
+      },
+      "psy-011": {
+       "rank": null
+      },
+      "psy-012": {
+       "rank": 2
+      },
+      "psy-013": {
+       "rank": 1
+      },
+      "psy-014": {
+       "rank": 2
+      },
+      "psy-015": {
+       "rank": 1
+      },
+      "psy-016": {
+       "rank": null
+      },
+      "soc-001": {
+       "rank": 1
+      },
+      "soc-002": {
+       "rank": 1
+      },
+      "soc-003": {
+       "rank": 2
+      },
+      "soc-004": {
+       "rank": 3
+      },
+      "soc-005": {
+       "rank": 1
+      },
+      "soc-006": {
+       "rank": 1
+      },
+      "soc-007": {
+       "rank": 1
+      },
+      "soc-008": {
+       "rank": null
+      },
+      "soc-009": {
+       "rank": null
+      },
+      "soc-010": {
+       "rank": 1
+      },
+      "soc-011": {
+       "rank": null
+      },
+      "soc-012": {
+       "rank": null
+      },
+      "soc-013": {
+       "rank": null
+      },
+      "soc-014": {
+       "rank": 1
+      },
+      "soc-015": {
+       "rank": null
+      },
+      "soc-016": {
+       "rank": 1
+      },
+      "tc-001": {
+       "rank": null
+      },
+      "tc-002": {
+       "rank": null
+      },
+      "tc-003": {
+       "rank": null
+      },
+      "tc-004": {
+       "rank": 7
+      },
+      "tc-005": {
+       "rank": null
+      },
+      "tc-006": {
+       "rank": null
+      },
+      "tc-007": {
+       "rank": null
+      },
+      "tc-008": {
+       "rank": null
+      },
+      "tc-009": {
+       "rank": null
+      },
+      "tc-010": {
+       "rank": 4
+      },
+      "tc-011": {
+       "rank": 3
+      },
+      "tc-012": {
+       "rank": 2
+      },
+      "tc-013": {
+       "rank": null
+      },
+      "tc-014": {
+       "rank": null
+      },
+      "tc-015": {
+       "rank": null
+      },
+      "tc-016": {
+       "rank": 2
+      },
+      "tc-017": {
+       "rank": 2
+      },
+      "zec-001": {
+       "rank": null
+      },
+      "zec-002": {
+       "rank": null
+      },
+      "zec-003": {
+       "rank": null
+      },
+      "zec-004": {
+       "rank": null
+      },
+      "zec-005": {
+       "rank": null
+      },
+      "zec-006": {
+       "rank": 1
+      },
+      "zec-007": {
+       "rank": null
+      },
+      "zec-008": {
+       "rank": null
+      },
+      "zec-009": {
+       "rank": null
+      },
+      "zec-010": {
+       "rank": null
+      },
+      "zec-011": {
+       "rank": 4
+      },
+      "zec-012": {
+       "rank": null
+      },
+      "zec-013": {
+       "rank": null
+      },
+      "zec-014": {
+       "rank": 1
+      },
+      "zec-015": {
+       "rank": 1
+      },
+      "zec-016": {
+       "rank": null
+      },
+      "zec-017": {
+       "rank": null
+      },
+      "zec-018": {
+       "rank": null
+      },
+      "zec-019": {
+       "rank": null
+      },
+      "zec-020": {
+       "rank": 4
+      }
+     }
+    },
+    "legal": {
+     "per_q": {
+      "la01": {
+       "rank": 1
+      },
+      "la02": {
+       "rank": 1
+      },
+      "la03": {
+       "rank": 1
+      },
+      "la04": {
+       "rank": null
+      },
+      "la05": {
+       "rank": null
+      },
+      "la06": {
+       "rank": null
+      }
+     }
+    },
+    "names": {
+     "per_q": {
+      "n01": {
+       "rank": null
+      },
+      "n02": {
+       "rank": 3
+      },
+      "n03": {
+       "rank": 2
+      },
+      "n04": {
+       "rank": 2
+      },
+      "n05": {
+       "rank": 2
+      },
+      "n06": {
+       "rank": null
+      },
+      "n07": {
+       "rank": 1
+      }
+     }
+    },
+    "rel_vs_trust": {
+     "per_q": {
+      "rvt-01": {
+       "rank": null
+      },
+      "rvt-02": {
+       "rank": null
+      },
+      "rvt-03": {
+       "rank": 7
+      },
+      "rvt-04": {
+       "rank": 1
+      },
+      "rvt-05": {
+       "rank": null
+      },
+      "rvt-06": {
+       "rank": null
+      },
+      "rvt-07": {
+       "rank": null
+      },
+      "rvt-08": {
+       "rank": null
+      },
+      "rvt-09": {
+       "rank": null
+      },
+      "rvt-10": {
+       "rank": 1
+      },
+      "rvt-11": {
+       "rank": 5
+      },
+      "rvt-12": {
+       "rank": null
+      },
+      "rvt-13": {
+       "rank": 5
+      },
+      "rvt-14": {
+       "rank": 1
+      },
+      "rvt-15": {
+       "rank": 6
+      },
+      "rvt-16": {
+       "rank": 2
+      },
+      "rvt-17": {
+       "rank": null
+      },
+      "rvt-18": {
+       "rank": 5
+      },
+      "rvt-19": {
+       "rank": 1
+      },
+      "rvt-20": {
+       "rank": null
+      },
+      "rvt-21": {
+       "rank": 6
+      },
+      "rvt-22": {
+       "rank": null
+      },
+      "rvt-23": {
+       "rank": null
+      },
+      "rvt-24": {
+       "rank": 1
+      },
+      "rvt-25": {
+       "rank": 1
+      },
+      "rvt-26": {
+       "rank": 8
+      },
+      "rvt-27": {
+       "rank": 7
+      },
+      "rvt-28": {
+       "rank": null
+      }
+     }
+    }
+   }
+  }
+ },
+ "bar_sets": [
+  "authoritative",
+  "foundation",
+  "legal",
+  "names",
+  "rel_vs_trust"
+ ],
+ "note": "Task 609's real readings of the build-box twin `aw_e8`. `applier_gate` is the ADR-043 content gate's own candidate arm, cut the instant `wait_green` returned after the 09-16 news pack landed; `applier_recut` is THE SAME SCRIPT on THE SAME collection eight minutes later. They disagree on 31 of 691 bar-set queries with nothing about the corpus changed between them, which is the measurement ADR-043 am.5 rests on. `rollback_t0` and `rollback_settled` are two readings of the rolled-back end state, three minutes apart, which agree on all 691.",
+ "schema": "aw.gate-convergence-fixture.v1",
+ "sources": {
+  "applier_gate": {
+   "path": "build-box:newsfresh_294/task609-evidence/gate/apply-armed/task370-arm.news598-20260916-candidate.e408c06b6739217734ad2c525ad9c205f90a99f08c095b088e6883bbb4117ddd.json",
+   "sha256": "e408c06b6739217734ad2c525ad9c205f90a99f08c095b088e6883bbb4117ddd"
+  },
+  "applier_recut": {
+   "path": "build-box:newsfresh_294/task609-evidence/gate/recut-settled/task370-arm.news598-20260916-recut609.80a7f81516e97c0c6d093435207b2bb036697c95627fcc5cafa8c12c65c59f2f.json",
+   "sha256": "80a7f81516e97c0c6d093435207b2bb036697c95627fcc5cafa8c12c65c59f2f"
+  },
+  "rollback_settled": {
+   "path": "/root/task609/gate/R_settled.json",
+   "sha256": "d6e9d6a36576b637088f476cf3c17d0501684b1ad26759759c0356e29cdcc35f"
+  },
+  "rollback_t0": {
+   "path": "/root/task609/gate/R_t0.json",
+   "sha256": "6354d0a1b84d0814d06e8ebd45571001f52c0f42ff7ecc05a0bc8a9091e9de5d"
+  }
+ }
+}

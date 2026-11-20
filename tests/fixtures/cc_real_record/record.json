@@ -1,0 +1,12 @@
+{
+  "body_bytes": 245736,
+  "crawl": "CC-MAIN-2026-25",
+  "digest": "JZ4ULDE6CFV7BBVAB3ARFLRXICEZ7CWN",
+  "filename": "crawl-data/CC-MAIN-2026-25/segments/1780687573283.57/warc/CC-MAIN-20260615040637-20260615070637-00348.warc.gz",
+  "length": 61031,
+  "offset": 483686586,
+  "provenance": "One range read (HTTP 206, bytes 483686586-483747616 of a 931265595-byte WARC) from data.commoncrawl.org, task 683 S7 part 2, recorded 2026-09-30. sha256 is the L0 body the chmedia583 lane stored on the private build box (2026-07-28); the parsed record body is byte-identical to it. Swiss federal news-service page (admin.ch), an official work (URG Art. 5): may ship.",
+  "sha256": "3edce8ad7d11d38fa43b878791111c65576711605fecf688542696dbc9a09b86",
+  "url": "https://www.admin.ch/de/nsb?id=89182",
+  "warc_date": "2026-06-15T05:45:08Z"
+}

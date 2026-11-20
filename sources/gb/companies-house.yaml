@@ -1,0 +1,105 @@
+# UK company register — Companies House FREE COMPANY DATA PRODUCT (bulk CSV).
+# Licence basis is NOT OGL. See license.notes: it is a statutory non-infringement
+# provision (s.47(3) CDPA 1988), which is stronger for redistribution than any
+# licence because there are no terms for a downstream recipient to accept.
+#
+# SCOPE NOTE: acquisition/card design for the company register is the company-
+# register lane's. This pack exists to record the LICENCE, CONSENT and ADMISSION
+# BASIS correctly so that "OGL-3.0" cannot drift into the ADR-039 compact dump.
+id: gb-companies-house
+name: "Companies House — UK company register (free company data product)"
+country: GB
+layer: commercial
+policy_section: "§4.9"
+adapter: registry
+acquisition_policy: aw-acquisition-v1
+outlink_policy: capture-and-receipt
+preservation_profiles: [entity_registry]
+provenance: authored
+trust_tier: 1.0
+freshness: weekly
+
+# Task 439: acquire.params gives the consent gate an attachment point. The host
+# this derives is download.companieshouse.gov.uk (ok) -- NOT
+# api.company-information.service.gov.uk, which resolves DECLINED.
+acquire:
+  route: source_owned_bulk_dump
+  rank: 2
+  params:
+    index_endpoint: "https://download.companieshouse.gov.uk/en_output.html"
+    url_template: "https://download.companieshouse.gov.uk/BasicCompanyDataAsOneFile-{yyyy-mm-dd}.zip"
+    format: csv
+
+license:
+  default: "UK public register - s.47(3) CDPA 1988 statutory permission (company data product only)"
+  notes: >
+    NOT OGL-3.0. Recording OGL here would propagate a FALSE licence into the
+    ADR-039 compact redistributable dump. The GOV.UK site-wide OGL footer covers
+    the guidance PAGE about the product, not the register data.
+
+    Companies House's own statement of public task
+    (/government/publications/companies-house-accreditation-to-information-fair-traders-scheme/public-task-copyright-and-crown-copyright,
+    HTTP 200) splits its material in two:
+      §2.1 material CH PRODUCES (guidance, website) -> Crown copyright, OGL v3.0.
+      §2.2 material ON THE PUBLIC REGISTER -> "made available by virtue of
+      approvals issued by us in accordance with section 47 of the Copyright,
+      Designs and Patents Act 1988 and Schedule 1 of the Database Regulations
+      (SI 1997/3032). Companies House imposes no rules or requirements on how
+      the information on the public register is used."
+    The bulk company data product is §2.2.
+
+    §3 re-use adds only: take your own legal advice on third-party copyright;
+    do not reproduce the Crown insignia; and credit CH as source IF using
+    guidance notes/website/publications/statistical tables. That attribution
+    condition does NOT attach to register data.
+
+    SCOPE: this basis covers the COMPANY DATA PRODUCT ONLY (company-level facts:
+    name, number, registered office, SIC, status, filing dates, previous names).
+    It expressly does NOT extend to the ACCOUNTS/XBRL data product or to filed
+    document images, where third-party copyright in filed documents is genuinely
+    arguable and unresolved.
+
+consent:
+  basis: live-resolve-mixed
+  train_ok_override: null
+  notes: >
+    Resolved live 2026-08-20 (task 440 (private tree)):
+      download.companieshouse.gov.uk            -> ok/true/true   (the bulk route)
+      find-and-update.company-information...    -> ok/true/true
+      developer.company-information...          -> ok/true/true
+      data.companieshouse.gov.uk                -> ok/true/true
+      api.company-information.service.gov.uk    -> DECLINED (robots.txt HTTP 401,
+        access-controlled -- the API sits behind a key, so robots itself is
+        auth-gated and 401 is an explicit decline under the resolver's defaults).
+    Route consequence, same shape as govinfo: the BULK host is admissible and the
+    API host is not. Acquire from download.companieshouse.gov.uk.
+
+status: planned
+
+admission:
+  channel: official-dump
+  evidence:
+    - "task 440: s.47(6) CDPA 1988 defines 'appropriate person' as 'the person required to make the material open to public inspection or, as the case may be, the person maintaining the register' -- i.e. Companies House itself. s.47(3)(a)'s authority requirement is therefore satisfied by CH's own authorisation; there is no external approval instrument to locate."
+    - "task 440: the ONLY orders made under s.47 are s.47(4) marking orders SI 1989/1099 (maps) and SI 1990/1427 (plans and drawings). Verified from legislation.gov.uk; neither applies to company register data, so no marking requirement attaches."
+    - "task 440: s.47(3)(c) commercial-availability condition satisfied -- CH's own guidance states the company data product 'is a free monthly snapshot' and, in the PAID XML-gateway section, that 'Basic company information is available for free.'"
+    - "task 440: s.47(3A)(b) 'issuing copies of the material to the public' is NOT subject to the (3)(c) condition, which bites only on (3A)(c). The compact-dump redistribution leg therefore survives even if (3)(c) were to disappoint."
+    - "task 440 consent resolve 2026-08-20: download.companieshouse.gov.uk ok/true/true; api.company-information.service.gov.uk DECLINED (401)."
+  decision: escalated
+  policy: "POLICY.md@v3 §4.9"
+  date: "2026-08-20"
+
+notes:
+  - >
+    PRIVACY. The company data product is company-level and excludes officers and
+    PSCs, so it is far lighter than the PSC product. But registered office
+    addresses are frequently RESIDENTIAL addresses of directors. Under
+    aw-gdpr-by-conviction that is a real design constraint even though the legal
+    basis permits the use, and it should shape what lands in a card.
+  - >
+    This is a documented basis, not legal advice. CH's own §3 tells every bulk
+    customer to take their own advice on third-party copyright; that instruction
+    is honoured by scoping this pack to company-level facts and excluding filed
+    documents.
+  - >
+    Acquisition and card design belong to the company-register lane. This pack
+    records licence/consent/admission only.

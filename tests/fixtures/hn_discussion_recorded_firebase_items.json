@@ -1,0 +1,98 @@
+{
+  "fixture": "recorded-official-firebase-item-response-shapes",
+  "note": "Small offline fixture set retained for task 510 tests; linked.example values are inert outlink fields.",
+  "items": {
+    "100": {
+      "by": "story_submitter",
+      "descendants": 7,
+      "id": 100,
+      "kids": [101, 102, 106],
+      "score": 88,
+      "text": "<p>Story text &amp; context.</p>",
+      "time": 1700000000,
+      "title": "Recorded &amp; ordered thread",
+      "type": "story",
+      "url": "https://linked.example/article?do-not-fetch=1"
+    },
+    "101": {
+      "by": "alpha_user",
+      "id": 101,
+      "kids": [103],
+      "parent": 100,
+      "text": "<p>first &amp; top-level</p>",
+      "time": 1700000010,
+      "type": "comment"
+    },
+    "102": {
+      "by": "beta_user",
+      "id": 102,
+      "kids": [104],
+      "parent": 100,
+      "text": "0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789TAIL",
+      "time": 1700000020,
+      "type": "comment"
+    },
+    "103": {
+      "by": "nested_user",
+      "id": 103,
+      "kids": [105],
+      "parent": 101,
+      "text": "nested under first",
+      "time": 1700000030,
+      "type": "comment"
+    },
+    "104": {
+      "by": "nested_second_user",
+      "id": 104,
+      "parent": 102,
+      "text": "nested under second",
+      "time": 1700000040,
+      "type": "comment"
+    },
+    "105": {
+      "by": "deep_user",
+      "id": 105,
+      "parent": 103,
+      "text": "depth three",
+      "time": 1700000050,
+      "type": "comment"
+    },
+    "106": {
+      "by": "deleted_user",
+      "deleted": true,
+      "id": 106,
+      "kids": [107],
+      "parent": 100,
+      "time": 1700000060,
+      "type": "comment"
+    },
+    "107": {
+      "by": "must_not_be_fetched",
+      "id": 107,
+      "parent": 106,
+      "text": "child of a skipped parent",
+      "time": 1700000070,
+      "type": "comment"
+    },
+    "200": {
+      "by": "submitter_two",
+      "descendants": 0,
+      "id": 200,
+      "score": 50,
+      "time": 1700000200,
+      "title": "Second recorded story",
+      "type": "story",
+      "url": "https://linked.example/second"
+    },
+    "300": {
+      "by": "submitter_three",
+      "descendants": 0,
+      "id": 300,
+      "score": 49,
+      "time": 1700000300,
+      "title": "Third recorded story",
+      "type": "story",
+      "url": "https://linked.example/third"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+ "id": "art257-de",
+ "query": "was regelt Artikel 257 des Schweizer Obligationenrechts zur Miete",
+ "lang": "de",
+ "country": "CH",
+ "target_url": "https://www.fedlex.admin.ch/eli/cc/27/317_321_377/de#art_257",
+ "point_id": "111ff66f-579e-5001-bc95-27898803781d",
+ "max_rank": 10,
+ "require_legs": [
+  "dense",
+  "bm25"
+ ]
+}

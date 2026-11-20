@@ -1,0 +1,78 @@
+{
+ "schema": "aw.german-parts-tripwire.v1",
+ "twin_german_rows": 10031347,
+ "self_check": {
+  "ok": true,
+  "scanned_rows": 699610,
+  "rows_in_generations": 699610,
+  "rows_in_two_generations": 0,
+  "pool_rows_total": 10031347,
+  "estimated_rows_total": 9963619,
+  "twin_german_rows": 10031347,
+  "estimate_vs_twin": 0.00675,
+  "tolerance": 0.05
+ },
+ "alarm_below": 0.5,
+ "min_generation": 1000,
+ "sample": 1000,
+ "checked_at": "2026-11-09T05:16:46Z",
+ "sealed_note": "Only the ALARM generations are kept: judge() reads nothing else. 8155 generations measured, 7 alarmed.",
+ "generations": [
+  {
+   "generation": "anmeldestelle.admin.ch|official|anmeldestelle_docs|-|chunk5|~|2026-07",
+   "est_rows": 1125,
+   "sampled": 1125,
+   "decidable": 1027,
+   "share_half_integer": 0.3155,
+   "verdict": "ALARM"
+  },
+  {
+   "generation": "bazl.admin.ch|official|bazl_docs|-|chunk5|~|2026-07",
+   "est_rows": 71333,
+   "sampled": 5595,
+   "decidable": 5304,
+   "share_half_integer": 0.4461,
+   "verdict": "ALARM"
+  },
+  {
+   "generation": "gretil.sub.uni-goettingen.de|reference|endorsement-discovery|-|chunk1|~|2026-09",
+   "est_rows": 2528,
+   "sampled": 2124,
+   "decidable": 2123,
+   "share_half_integer": 0.0108,
+   "verdict": "ALARM"
+  },
+  {
+   "generation": "healthytravel.ch|official|endorsement-discovery|ba7c57a4|chunk1|~|2026-07",
+   "est_rows": 1334,
+   "sampled": 1334,
+   "decidable": 1334,
+   "share_half_integer": 0.1184,
+   "verdict": "ALARM"
+  },
+  {
+   "generation": "ifs.tuwien.ac.at|reference|endorsement-discovery|-|chunk1|~|2026-10",
+   "est_rows": 1539,
+   "sampled": 1539,
+   "decidable": 1517,
+   "share_half_integer": 0.0547,
+   "verdict": "ALARM"
+  },
+  {
+   "generation": "kriegsfilm.philgeist.fu-berlin.de|reference|endorsement-discovery|-|chunk1|~|2026-09",
+   "est_rows": 5147,
+   "sampled": 3378,
+   "decidable": 3378,
+   "share_half_integer": 0.2741,
+   "verdict": "ALARM"
+  },
+  {
+   "generation": "outbrain.com|reference|endorsement-discovery|-|chunk1|~|2026-10",
+   "est_rows": 1471,
+   "sampled": 1471,
+   "decidable": 1461,
+   "share_half_integer": 0.2115,
+   "verdict": "ALARM"
+  }
+ ]
+}

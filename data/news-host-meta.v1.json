@@ -1,0 +1,14 @@
+{
+  "huggingface.co": {
+    "hn_low_score_admission": {
+      "kind": "path-owner",
+      "min_points": 1,
+      "owner_segment": 0,
+      "owner_policy": {
+        "list_key": "publishers",
+        "path": "../data/official_source_discovery.json",
+        "sha256": "a03ae9e4f13c7b8a087f855e7f3c152bac1f8a2ea08ca387497e7bc1c366b5f2"
+      }
+    }
+  }
+}

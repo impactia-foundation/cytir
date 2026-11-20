@@ -1,0 +1,114 @@
+[
+ {
+  "url": "https://www.extrabigassintelligence.com/",
+  "file": "101e89adb1.html.gz",
+  "bytes": 1053,
+  "content_type": "text/html",
+  "fetched_at": "2026-10-03T16:41:53Z",
+  "final_url": "https://www.extrabigassintelligence.com/",
+  "sha256": "3bcf85e85f22852ba0d712974859648d9976545bfa93011b300baba5d1c02383",
+  "hn": {
+   "objectID": "49941114",
+   "title": "Extra Big Ass Intelligence",
+   "points": 414,
+   "created_at_i": 1790997550,
+   "url": "https://www.extrabigassintelligence.com/"
+  }
+ },
+ {
+  "url": "https://github.com/ninjahawk/livenerf",
+  "file": "bf2e738d2e.html.gz",
+  "bytes": 382052,
+  "content_type": "text/html; charset=utf-8",
+  "fetched_at": "2026-10-03T16:41:35Z",
+  "final_url": "https://github.com/ninjahawk/livenerf",
+  "sha256": "387cc0e235376e3a307d90221fd5a86aa7b889b1fef0aafaedb38f78ed56bca4",
+  "hn": {
+   "objectID": "49901736",
+   "title": "Livenerf: Has Opus 5.5 been nerfed yet?",
+   "points": 920,
+   "created_at_i": 1790721374,
+   "url": "https://github.com/ninjahawk/livenerf"
+  }
+ },
+ {
+  "url": "https://blog.cloudflare.com/clef-decision-models/",
+  "file": "ebb2d7850d.html.gz",
+  "bytes": 314749,
+  "content_type": "text/html",
+  "fetched_at": "2026-10-03T16:41:42Z",
+  "final_url": "https://blog.cloudflare.com/clef-decision-models/",
+  "sha256": "453a7d9ce5126b0100328a1ba7b98da7d3502ddf9892b3d7272c7eac9ccb1fcc",
+  "hn": {
+   "objectID": "49923692",
+   "title": "Clef: Open-weight decision models, and new RL fine-tuning platform",
+   "points": 622,
+   "created_at_i": 1790871537,
+   "url": "https://blog.cloudflare.com/clef-decision-models/"
+  }
+ },
+ {
+  "url": "https://www.anthropic.com/claude-sonnet-5-5",
+  "file": "50e18c5419.html.gz",
+  "bytes": 282141,
+  "content_type": "text/html; charset=utf-8",
+  "fetched_at": "2026-10-03T16:41:35Z",
+  "final_url": "https://www.anthropic.com/claude-sonnet-5-5",
+  "sha256": "025668b4a8baf5cfc267527ffd86fab42a525cc9f327845fbecf3e51f94ffb16",
+  "hn": {
+   "objectID": "49881850",
+   "title": "Sonnet 5.5",
+   "points": 883,
+   "created_at_i": 1790618291,
+   "url": "https://www.anthropic.com/claude-sonnet-5-5"
+  }
+ },
+ {
+  "url": "https://lwn.net/Articles/1097401/",
+  "file": "381e020f7b.html.gz",
+  "bytes": 32501,
+  "content_type": "text/html; charset=utf-8",
+  "fetched_at": "2026-10-03T16:41:46Z",
+  "final_url": "https://lwn.net/Articles/1097401/",
+  "sha256": "98e77c5372165869018a7beff19bcd6258141e4237ea166a700974085d7d6883",
+  "hn": {
+   "objectID": "49928121",
+   "title": "Several vulnerabilities have been discovered in the Linux kernel",
+   "points": 564,
+   "created_at_i": 1790896244,
+   "url": "https://lwn.net/Articles/1097401/"
+  }
+ },
+ {
+  "url": "https://www.frogandtoad.ai/",
+  "file": "c69dce2def.html.gz",
+  "bytes": 3111,
+  "content_type": "text/html; charset=utf-8",
+  "fetched_at": "2026-10-03T16:41:47Z",
+  "final_url": "https://www.frogandtoad.ai/",
+  "sha256": "2ea4835a8e322168e400a8b212ee9093adc062df2ab1f9d1cfb06b847cd58897",
+  "hn": {
+   "objectID": "49927760",
+   "title": "Frog and Toad and the Increasingly Capable Machines",
+   "points": 560,
+   "created_at_i": 1790893418,
+   "url": "https://www.frogandtoad.ai/"
+  }
+ },
+ {
+  "url": "https://www.eff.org/deeplinks/2026/10/court-agrees-eff-utahs-vpn-law-demands-technical-impossibility",
+  "file": "3ac5b33606.html.gz",
+  "bytes": 67454,
+  "content_type": "text/html; charset=utf-8",
+  "fetched_at": "2026-10-03T16:41:37Z",
+  "final_url": "https://www.eff.org/deeplinks/2026/10/court-agrees-eff-utahs-vpn-law-demands-technical-impossibility",
+  "sha256": "8810e3b6060197104ea76a09b35fe932b23da9c1b62fd3227b5e980b12a20037",
+  "hn": {
+   "objectID": "49927754",
+   "title": "Court agrees with EFF: Utah's VPN law demands a technical impossibility",
+   "points": 720,
+   "created_at_i": 1790893387,
+   "url": "https://www.eff.org/deeplinks/2026/10/court-agrees-eff-utahs-vpn-law-demands-technical-impossibility"
+  }
+ }
+]

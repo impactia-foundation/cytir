@@ -1,0 +1,121 @@
+# Education & learning-science RESEARCH.
+# Deliberately narrow: task 395 §5b found the official-statistics layer already
+# serves PISA/OECD-flavoured education queries very well (edudoc.ch 38,748 pts,
+# cedefop.europa.eu 18,220). The genuine gap is research/policy content, where
+# vendor blogs currently lead.
+id: education-research
+name: "Education & learning-science research (IES/WWC, UNESCO-IIEP)"
+country: multi
+layer: statistics-data
+policy_section: "§4.5"
+adapter: sitemap
+acquisition_policy: aw-acquisition-v1
+outlink_policy: capture-and-receipt
+preservation_profiles: [web_html, web_pdf]
+extractor: cytir/sources/families/authority_packs.py
+provenance: authored
+tier: A
+trust_tier: 0.90
+density_tier: T2
+freshness: static
+theme: [education-learning-science]
+
+license:
+  default: per-route
+  notes: >
+    us-gov-public-domain (ies.ed.gov, incl. the What Works Clearinghouse);
+    unesco-cc-by-sa-igo (iiep.unesco.org). Minimum-content records only
+    (ADR-039).
+
+consent:
+  basis: live-resolve-mixed
+  train_ok_override: false
+  notes: >
+    www.iiep.unesco.org declares `Content-Signal: ai-train=no` alongside an
+    EXPLICIT `search=yes` grant — it wants to be findable and not trained on.
+    That host is therefore staged with its OWN consent stamp (train_ok=false);
+    a pack-wide train_ok=true would overwrite a publisher's stated preference.
+    ies.ed.gov resolved search_ok=true / train_ok=true.
+
+routes:
+  - host: ies.ed.gov
+    lang: [en]
+    # Moved out of license.notes prose (task 434): the pack declares
+    # `license.default: per-route` and named these two in a sentence. A licence
+    # in prose cannot be stamped on a record, and ADR-039 requires one.
+    license: us-gov-public-domain
+    route: "sitemap.xml (12,535 locs) → /ncee (incl. What Works Clearinghouse), /pubs, /rel, /use-work"
+    status: staged
+    evidence: "task 399 recon"
+    notes: "held ZERO points before this wave; the WWC is the canonical US education-evidence authority"
+    # Migrated to an executable declaration by task 434. Previously this route's
+    # real config lived in ingest_authority_packs.py::EDUCATION_HOSTS as a Python
+    # dict of lambdas; the YAML above was prose. The regex is IES_ALLOW verbatim;
+    # `deny_preset` + `min_path_segments` reproduce the shared _clean/_deep filters.
+    acquire:
+      route: source_owned_sitemap_fetch
+      rank: 5
+      params:
+        urls: ["https://ies.ed.gov/sitemap.xml"]
+      select:
+        path_regex: "(?i)^/(ncee|use-work|schoolsurvey|pubs|ncer|transfer|blogs|rel|wwc)(/|$)"
+        deny_preset: generic-apparatus
+        min_path_segments: 2
+      lang: {const: en}
+      delay_s: 2.0
+      cap: 2000
+      reason_receipt:
+        higher_priority_routes_checked: [source_owned_bulk_dump, documented_source_api, common_crawl]
+        reason_selected_route_is_needed: >
+          No bulk dump or documented API for IES publications; sitemap.xml is the
+          publisher's own declared enumeration route (12,535 locs, task 399 recon).
+        consent_and_robots_result: "robots allows our agent; no opt-out signal"
+  - host: www.iiep.unesco.org
+    lang: [en, fr]
+    license: unesco-cc-by-sa-igo
+    route: "sitemap.xml (7,556 locs) → /<lang>/publication (SINGULAR) + /articles; /es/ excluded as outside the mission languages"
+    status: staged
+    evidence: "task 399 recon"
+    notes: "train_ok=false — see consent notes"
+    # NOTE the per-host consent asymmetry preserved here: this host carries
+    # Content-Signal ai-train=no with an EXPLICIT search=yes grant, so it is
+    # search_ok / train_ok=false. It must never be staged under a pack-wide
+    # train_ok=true. The live resolve decides; this note records the expectation.
+    acquire:
+      route: source_owned_sitemap_fetch
+      rank: 5
+      params:
+        urls: ["https://www.iiep.unesco.org/sitemap.xml"]
+      select:
+        path_regex: "(?i)^/(en|fr)/(publication|articles|research|our-expertise|learning-portal)(/|$)"
+        deny_preset: generic-apparatus
+        min_path_segments: 2
+      lang:
+        by_path_segment: {fr: fr, en: en}
+        default: en
+      delay_s: 2.0
+      cap: 2000
+      reason_receipt:
+        higher_priority_routes_checked: [source_owned_bulk_dump, documented_source_api, common_crawl]
+        reason_selected_route_is_needed: >
+          No bulk dump or documented API; sitemap.xml is the publisher's own
+          declared enumeration route (7,556 locs, task 399 recon).
+        consent_and_robots_result: "search=yes granted explicitly; ai-train=no"
+  - {host: www.oecd.org, route: "—", status: deferred, evidence: "task 399 recon", notes: "403 to our UA AND to a browser UA on every path except robots.txt — an infrastructure/IP-level block, not a UA-targeted one, so NOT spoofable. Its robots.txt ALLOWS * and DECLARES a sitemap, so the site's stated policy and its edge behaviour disagree. Route is outreach, not a workaround. Holds 4 points and is named in two of the four task-399 gap themes — the highest-value unblock outstanding.", recheck_after: "2026-11-07"}
+  - {host: educationendowmentfoundation.org.uk, route: "—", status: deferred, evidence: "task 399 recon", notes: "same 403-to-both-UAs pattern as oecd.org; robots.txt itself 404s", recheck_after: "2026-11-07"}
+  - {host: www.unesco.org, route: "—", status: deferred, evidence: "task 399 recon", notes: "no sitemap at any common location; needs a bespoke route", recheck_after: "2026-11-07"}
+  - {host: uis.unesco.org, route: "—", status: deferred, evidence: "task 399 recon", notes: "robots fail-closed", recheck_after: "2026-11-07"}
+
+status: staged
+
+admission:
+  channel: demand-evidence
+  evidence:
+    - "PORTFOLIO §3b row 'education & learning-science research' — PROPOSED from demand evidence and RATIFIED ON MERGE of PR #56 (2026-08-07)"
+  decision: escalated
+  policy: "POLICY.md@v3 §4.5"
+  date: "2026-08-07"
+
+notes:
+  - "Decision 'escalated' (schema enum): escalation resolved by board — PR #56 merge = ratification (POLICY §9)."
+  - "Scope is deliberately RESEARCH/POLICY content, not general schooling statistics — the stats layer already covers those well (task 395 §5b), which makes this a smaller lift than the raw demand share suggests."

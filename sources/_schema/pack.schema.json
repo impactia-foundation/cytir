@@ -1,0 +1,561 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://websear.ch/schema/pack.schema.json",
+  "title": "AW source pack",
+  "description": "Schema for a sources/<region>/<name>.yaml declarative source pack (task 311, architecture.md §4.1). Schemas what M2 actually needed to codify the existing CH recipe honestly — not a speculative superset. A pack describes ONE source or one tight family of same-shape hosts (e.g. the 26 cantonal law platforms); admission is logged per POLICY.md@v1 §3 / index-governance.md §3.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "name",
+    "country",
+    "layer",
+    "adapter",
+    "acquisition_policy",
+    "outlink_policy",
+    "preservation_profiles",
+    "provenance",
+    "trust_tier",
+    "freshness",
+    "license",
+    "consent",
+    "status",
+    "admission"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_-]*$",
+      "description": "Stable pack id, e.g. 'ch-fedlex'. Used as the point-id/provenance namespace anchor; never renamed once admitted (I1)."
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable source name."
+    },
+    "country": {
+      "type": "string",
+      "description": "ISO 3166-1 alpha-2 jurisdiction this pack primarily serves (e.g. 'CH'), or 'multi' for a cross-jurisdiction pack (e.g. an INTL broadcaster stamped CH by policy override)."
+    },
+    "layer": {
+      "type": "string",
+      "enum": [
+        "law-government",
+        "scholarship",
+        "reference",
+        "tech-docs",
+        "statistics-data",
+        "health",
+        "news",
+        "community",
+        "commercial"
+      ],
+      "description": "POLICY.md@v1 §4.x layer this pack is admitted under (§4.1..§4.9, in that enum order)."
+    },
+    "policy_section": {
+      "type": "string",
+      "pattern": "^§4\\.[1-9]$",
+      "description": "Optional explicit POLICY.md@v1 section cite for the layer (e.g. '§4.1'), when the layer alone is ambiguous (e.g. a registry pack under §4.9 commercial vs a law pack under §4.1)."
+    },
+    "adapter": {
+      "type": "string",
+      "enum": [
+        "cc",
+        "dump",
+        "sitemap",
+        "registry",
+        "api",
+        "cards"
+      ],
+      "description": "Adapter family per architecture.md §4.1 — the closed set of six engine concepts. A pack MAY layer a bespoke extractor (see 'extractor') on top of one family; it never invents a new family."
+    },
+    "acquisition_policy": {
+      "type": "string",
+      "const": "aw-acquisition-v1",
+      "description": "Acquisition route and vantage policy pinned by data/acquisition-policy.v1.json."
+    },
+    "outlink_policy": {
+      "type": "string",
+      "const": "capture-and-receipt",
+      "description": "Every source document emits resolved external links with source/context, or a receipted empty outlink stage."
+    },
+    "preservation_profiles": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "enum": [
+          "web_html",
+          "web_pdf",
+          "wikipedia_xml",
+          "academic_dump",
+          "anchored_law",
+          "news_article",
+          "entity_registry",
+          "software_docs",
+          "community_qa",
+          "retained_wave_passage",
+          "structured_data_feed",
+          "technical_manufacturer_catalog"
+        ]
+      },
+      "description": "Allowed source-preservation profiles for this pack, defined in data/source-preservation-profiles.v1.json. A mixed-route pack declares every profile it uses; each sealed release source entry selects exactly one and carries its own L0->L1->L2 receipts."
+    },
+    "extractor": {
+      "type": "string",
+      "description": "Optional repo-relative path to a source-specific extractor plugging into the adapter family's interface (e.g. 'cytir/sources/families/fedlex.py')."
+    },
+    "provenance": {
+      "type": "string",
+      "enum": [
+        "authored",
+        "generated",
+        "demand-promoted"
+      ],
+      "description": "architecture.md §4.4 provenance class. CH packs are 'authored' (jurisdictional, hand-curated) unless explicitly noted otherwise."
+    },
+    "tier": {
+      "type": "string",
+      "enum": [
+        "A",
+        "B",
+        "C"
+      ],
+      "description": "Legacy payload content-tier letter (tier=A/B/C, as stamped on records by the existing ingesters). Optional — carried for continuity with in-index payloads; not a governance instrument."
+    },
+    "trust_tier": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Numeric trust_tier stamped on records from this pack (0-1)."
+    },
+    "density_tier": {
+      "type": "string",
+      "enum": [
+        "T0",
+        "T1",
+        "T2",
+        "T3"
+      ],
+      "description": "POLICY.md@v1 §5 density tier this pack currently holds (T0 pointer .. T3 exhaustive). Optional: only meaningful once a pack has been through a §5/§6 assessment; a grandfathered pack may leave this unset and say so in notes."
+    },
+    "repo_list": {
+      "type": "string",
+      "description": "Optional repo-relative path of a JSONL file with one repository per row (owner_repo, branch, sha, license, mode, source, in_index); the github_repo_docs refresh adapter appends the rows to the routes (task 996)."
+    },
+    "freshness": {
+      "type": "string",
+      "enum": [
+        "static",
+        "rolling-12mo",
+        "weekly",
+        "daily",
+        "amendment-driven"
+      ],
+      "description": "PORTFOLIO.md §3c freshness class."
+    },
+    "theme": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "PORTFOLIO.md §3b cross-cutting theme tags (e.g. 'zero-employee-company-ops'). Optional; most CH jurisdictional packs carry none."
+    },
+    "license": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "default"
+      ],
+      "properties": {
+        "default": {
+          "type": "string",
+          "description": "SPDX-style id or a short descriptive license string per ADR-039 (e.g. 'public-domain', 'CC0-1.0', 'Swiss public commercial register (Zefix/LINDAS, OGD)', 'permissive-or-fairuse-snippet')."
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    },
+    "consent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "basis"
+      ],
+      "properties": {
+        "basis": {
+          "type": "string",
+          "enum": [
+            "live-resolve-open",
+            "live-resolve-mixed",
+            "declined",
+            "official-no-copyright"
+          ],
+          "description": "Consent posture per ADR-009/POLICY §2 U1. 'official-no-copyright' = amtliche Werke / no robots signal needed (URG Art.5-class). Actual search_ok/train_ok are NEVER hardcoded here — they are re-resolved live at every build (architecture §5 step 2); this field documents the pack's expected/observed posture only."
+        },
+        "train_ok_override": {
+          "type": [
+            "boolean",
+            "null"
+          ],
+          "description": "If non-null, a build-time override forced on top of the live resolve (e.g. train_ok forced false for copyrighted broadcaster content per task 292/293 even though search_ok=true)."
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    },
+    "card_recipe": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Recipe id, e.g. 'adr060-two-channel-v1'."
+        },
+        "ref_adr": {
+          "type": "string",
+          "description": "ADR this recipe implements, e.g. 'ADR-060'."
+        },
+        "dense": {
+          "type": "string",
+          "description": "What the dense channel text is built from."
+        },
+        "sparse": {
+          "type": "string",
+          "description": "What the sparse/BM25 channel text is built from."
+        }
+      },
+      "description": "Only present for adapter: cards packs (or dump/registry packs whose deliverable is entity cards)."
+    },
+    "routes": {
+      "type": "array",
+      "description": "Sub-host/sub-jurisdiction entries for a pack that fans out over many same-shape hosts (e.g. 26 cantons). Optional — a single-host pack omits this.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "host",
+          "status"
+        ],
+        "properties": {
+          "host": {
+            "type": "string"
+          },
+          "canonical_domain": {
+            "type": "string"
+          },
+          "lang": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "de",
+                "fr",
+                "it",
+                "en",
+                "rm"
+              ]
+            }
+          },
+          "route": {
+            "type": "string",
+            "description": "DEPRECATED free prose (task 434). Human note on how the host is reached. Real config moved to `acquire`; this field is retained for continuity and must not be parsed by code."
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "ingested",
+              "staged",
+              "deferred",
+              "declined",
+              "not-viable",
+              "planned"
+            ]
+          },
+          "recheck_after": {
+            "type": "string",
+            "format": "date",
+            "description": "For status deferred/declined: the date after which this route's blocker must be RE-VERIFIED rather than inherited. Adopted 2026-08-07 (task 399). A reason without a date is how a temporary block silently becomes a permanent absence: sources/igo/igo-core.yaml recorded www.iea.org as 'fully bot-blocked' on 2026-07-28, and re-verification ten days later enumerated 27,692 URLs and extracted cleanly — the largest energy-authority source in that wave had been sitting behind a stale verdict. Cadence: consent DECLINES get a long horizon (the publisher stated a preference; we re-ask rarely and respect it meanwhile), technical blocks (WAF, missing route, JS-shell) a short one."
+          },
+          "evidence": {
+            "type": "string",
+            "description": "Task doc / artifact this route's claim traces to, e.g. 'task 117'."
+          },
+          "notes": {
+            "type": "string"
+          },
+          "acquire": {
+            "$ref": "#/$defs/acquire"
+          },
+          "license": {
+            "type": "string",
+            "description": "Per-route SPDX-style licence id, overriding license.default. Required when license.default is a placeholder such as 'per-route' — several packs declare that placeholder and carry the real per-host mapping only in prose `notes:`, which cannot be stamped on a record. ADR-039 requires a real per-record licence in the compact redistributable dump, so pack_loader REFUSES to stamp a placeholder."
+          },
+          "trust_tier": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1,
+            "description": "Per-route trust_tier, overriding the pack-level value. LEGISLATIVE FIELD: trust_tier is a ranking input, so this is proposed by PR and ratified by the board, not landed direct-to-main. Rationale (task 434): several packs are a family of hosts at DIFFERENT authority levels but can only declare one number. energy-climate-intl declares trust_tier 0.95 while its ingester assigns 0.95 to IPCC (the assessment body itself) and 0.90 to IEA/EIA/UBA/EC-energy (official agencies). Without this field, migrating those packs would silently promote four official-agency hosts to treaty-body trust."
+          }
+        }
+      }
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "ingested",
+        "staged",
+        "deferred",
+        "declined",
+        "planned"
+      ],
+      "description": "Pack-level status. For a multi-route pack this is the aggregate/headline status; per-route status lives in 'routes'."
+    },
+    "admission": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "channel",
+        "evidence",
+        "decision",
+        "policy",
+        "date"
+      ],
+      "properties": {
+        "channel": {
+          "type": "string",
+          "description": "Discovery channel that surfaced this source, per index-governance.md §5 channel census (e.g. 'official-dump', 'aggregator-force-multiplier', 'registry-resolve', 'endorsement-frontier')."
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "description": "Pointers to the evidence this decision rests on — task docs, ADRs, measured counts. E.g. 'task 223: CC-join+slug-live recall 18.3%'."
+        },
+        "decision": {
+          "type": "string",
+          "enum": [
+            "auto-admit",
+            "escalated",
+            "auto-reject",
+            "grandfathered-at-M2"
+          ],
+          "description": "'grandfathered-at-M2' = ingested before POLICY.md@v1 existed (2026-07-22); logged honestly rather than back-dated as auto-admit. See 'would_pass_today' for the retroactive check."
+        },
+        "policy": {
+          "type": "string",
+          "pattern": "^POLICY\\.md@v\\d+( §.+)?$",
+          "description": "Policy version [+ section] this decision is logged against, e.g. 'POLICY.md@v1 §4.1'. For grandfathered packs this cites the section they WOULD be assessed under today, per governance §3's admission-block shape."
+        },
+        "date": {
+          "type": "string",
+          "format": "date",
+          "description": "Decision date (ingest date for grandfathered packs, ratification-adjacent date for anything assessed post-POLICY)."
+        },
+        "would_pass_today": {
+          "type": "boolean",
+          "description": "For decision: grandfathered-at-M2 only — an honest self-check: does this source clear POLICY.md@v1 §2/§4/§6 as written today? false must be explained in 'notes'."
+        }
+      }
+    },
+    "notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Freeform honesty flags: gaps, ambiguities, anything that would NOT pass cleanly today, follow-ups."
+    },
+    "acquire": {
+      "$ref": "#/$defs/acquire"
+    }
+  },
+  "$defs": {
+    "acquire": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "route"
+      ],
+      "description": "HOW this pack (or this route) is acquired — task 434. Replaces the free-prose `routes[].route` string, which trapped real config in a sentence (ch-media.yaml: 'CC-S3 columnar, path-scoped (/news /sport /kultur)'). NOTE the level: acquisition shape belongs to a ROUTE, not a pack. ch-media reaches srf.ch/rsi.ch by common_crawl and rts.ch by sitemap — one pack, two shapes. A pack-level `acquire` is only a DEFAULT that routes may override. Vocabulary is NOT new: `route` is the ratified route_precedence enum from data/acquisition-policy.v1.json, and is orthogonal to `adapter` (which engine parses the bytes). Both are kept; neither is replaced.",
+      "properties": {
+        "route": {
+          "type": "string",
+          "enum": [
+            "source_owned_incremental_feed",
+            "source_owned_bulk_dump",
+            "documented_source_api",
+            "common_crawl",
+            "source_owned_sitemap_fetch",
+            "direct_origin_crawl"
+          ],
+          "description": "Acquisition route. MUST be one of data/acquisition-policy.v1.json route_precedence[].route — validate.py cross-checks this against that file so the enum has one home, not two."
+        },
+        "rank": {
+          "type": "number",
+          "minimum": 1,
+          "maximum": 6,
+          "description": "Optional, redundant-by-design: the policy rank of `route`. If present it MUST equal the rank in acquisition-policy.v1.json. Declaring it makes a silent policy re-ranking fail loudly in pack validation."
+        },
+        "params": {
+          "type": "object",
+          "description": "Route-specific parameters. Allowed/required keys per route are defined once in sources/_schema/validate.py (ROUTE_PARAMS) and imported by cytir/sources/pack_loader.py — one home for the contract."
+        },
+        "select": {
+          "type": "object",
+          "additionalProperties": false,
+          "description": "Closed predicate vocabulary replacing the Python lambdas in the HOSTS dicts. Measured over 97 predicates in the five run_pack packs: 43 were a constant lang, and the remainder reduce to exactly these four forms.",
+          "properties": {
+            "path_regex": {
+              "type": "string"
+            },
+            "path_prefix": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "path_deny_regex": {
+              "type": "string"
+            },
+            "segment1_in": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "min_path_segments": {
+              "type": "number",
+              "minimum": 0,
+              "description": "Minimum path segments for a URL to count as an ITEM rather than a section landing page. Default in data/url-select-presets.v1.json (2). Set 0 to disable."
+            },
+            "deny_preset": {
+              "type": "string",
+              "description": "Named preset from data/url-select-presets.v1.json (e.g. 'generic-apparatus'). Generic site-furniture filtering is apparatus, not source config — it is declared by name so it has one home rather than being restated per pack."
+            }
+          }
+        },
+        "lang": {
+          "type": "object",
+          "additionalProperties": false,
+          "description": "Language rule. `const` covers 43 of the 97 measured predicates; `by_path_segment` covers the multilingual CH hosts (/de/ -> de).",
+          "properties": {
+            "const": {
+              "type": "string",
+              "enum": [
+                "de",
+                "fr",
+                "it",
+                "en"
+              ]
+            },
+            "by_path_segment": {
+              "type": "object"
+            },
+            "default": {
+              "type": "string",
+              "enum": [
+                "de",
+                "fr",
+                "it",
+                "en"
+              ]
+            }
+          }
+        },
+        "delay_s": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Politeness floor. Effective delay is max(this, robots crawl-delay)."
+        },
+        "cap": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Max documents for this route."
+        },
+        "vantage": {
+          "type": "string",
+          "enum": [
+            "residential_build_host"
+          ],
+          "description": "acquisition-policy.v1 vantage_order. The orchestration host does orchestration only (policy supersedes 2026-08-14): all source retrieval runs on the build host."
+        },
+        "reason_receipt": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "higher_priority_routes_checked",
+            "reason_selected_route_is_needed"
+          ],
+          "description": "Required by acquisition-policy.v1 direct_fetch.required_reason_fields when route=direct_origin_crawl (rank 6). Enforced WARN-ONLY at first (orchestrator ruling 2026-08-20): 16 existing scripts owe one, and a validator that fails everything on day one gets disabled by the next person in a hurry.",
+          "properties": {
+            "higher_priority_routes_checked": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "minItems": 1
+            },
+            "reason_selected_route_is_needed": {
+              "type": "string"
+            },
+            "consent_and_robots_result": {
+              "type": "string"
+            },
+            "fetch_vantage": {
+              "type": "string"
+            }
+          }
+        },
+        "extractor": {
+          "type": "string",
+          "description": "Route-level override of the pack-level `extractor` — the escape hatch for genuinely bespoke dialects (DE Genesis, FR DILA, StatCan WDS), per architecture.md §4.1 'adapter honesty' (F5)."
+        },
+        "engine": {
+          "type": "string",
+          "enum": [
+            "default",
+            "extractor"
+          ],
+          "description": "Dispatch engine for this route. `default` selects the shared engine implied by `route`; `extractor` deliberately delegates even sitemap/direct-crawl enumeration to the declared extractor when that extractor implements a richer, already-proven family contract. This is explicit because the presence of a pack-level extractor alone is not enough: authority packs still use pack_fetch for their sitemap routes."
+        },
+        "config_ref": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "path",
+            "pack",
+            "source"
+          ],
+          "description": "Exact extractor-owned configuration entry backing this route. The source runner passes it through the aw.source-extractor-env.v1 contract; it is data provenance, not a second copy of the extractor config.",
+          "properties": {
+            "path": {
+              "type": "string"
+            },
+            "pack": {
+              "type": "string"
+            },
+            "source": {
+              "type": "string"
+            }
+          }
+        },
+        "notes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "no_fallback": {
+          "type": "boolean",
+          "description": "A binding commitment that this source is acquired ONLY by its declared route and is never crawled. Requested as a hard requirement by the company-register lane: the Canadian pack commits to never crawling the HTML detail pages. Enforced in TWO places, because a promise a tool cannot check is just a comment: sources/_schema/validate.py rejects a pack that sets no_fallback while declaring a crawl route, and cytir/sources/runner.py refuses at run time to dispatch such a pack to a crawl engine."
+        }
+      }
+    }
+  }
+}

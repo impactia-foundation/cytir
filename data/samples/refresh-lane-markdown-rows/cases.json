@@ -1,0 +1,123 @@
+[
+ {
+  "id": "long_doc",
+  "url": "https://example.org/docs/migrate-v1",
+  "title": "Migrate",
+  "meta": {
+   "tier": "A",
+   "source_type": "docs",
+   "trust_tier": 0.75
+  },
+  "input": "inputs/long_doc.md"
+ },
+ {
+  "id": "headings_only",
+  "url": "https://example.org/docs/outline",
+  "title": "Outline",
+  "meta": {
+   "tier": "A",
+   "source_type": "docs",
+   "trust_tier": 0.75
+  },
+  "input": "inputs/headings_only.md"
+ },
+ {
+  "id": "code_fence_heavy",
+  "url": "https://example.org/docs/commands",
+  "title": "Commands",
+  "meta": {
+   "tier": "A",
+   "source_type": "docs",
+   "trust_tier": 0.75
+  },
+  "input": "inputs/code_fence_heavy.md"
+ },
+ {
+  "id": "japanese",
+  "url": "https://example.org/ja/docs/migrate",
+  "title": "移行ガイド",
+  "meta": {
+   "tier": "A",
+   "source_type": "docs",
+   "trust_tier": 0.75
+  },
+  "input": "inputs/japanese.md"
+ },
+ {
+  "id": "russian",
+  "url": "https://example.org/ru/docs/migrate",
+  "title": "Руководство",
+  "meta": {
+   "tier": "A",
+   "source_type": "docs",
+   "trust_tier": 0.75
+  },
+  "input": "inputs/russian.md"
+ },
+ {
+  "id": "german",
+  "url": "https://example.org/de/docs/umstellung",
+  "title": "Umstellung",
+  "meta": {
+   "tier": "A",
+   "source_type": "docs",
+   "trust_tier": 0.75
+  },
+  "input": "inputs/german.md"
+ },
+ {
+  "id": "empty",
+  "url": "https://example.org/docs/empty",
+  "title": "Empty",
+  "meta": {
+   "tier": "A",
+   "source_type": "docs",
+   "trust_tier": 0.75
+  },
+  "input": "inputs/empty.md"
+ },
+ {
+  "id": "short",
+  "url": "https://example.org/docs/short",
+  "title": "Short",
+  "meta": {
+   "tier": "A",
+   "source_type": "docs",
+   "trust_tier": 0.75
+  },
+  "input": "inputs/short.md"
+ },
+ {
+  "id": "title_override",
+  "url": "https://example.org/docs/titled",
+  "title": "An Explicit Title",
+  "meta": {
+   "tier": "A",
+   "source_type": "docs",
+   "trust_tier": 0.75
+  },
+  "input": "inputs/title_override.md"
+ },
+ {
+  "id": "title_none_falls_back_to_url",
+  "url": "https://example.org/docs/untitled",
+  "title": null,
+  "meta": {
+   "tier": "A",
+   "source_type": "docs",
+   "trust_tier": 0.75
+  },
+  "input": "inputs/title_none_falls_back_to_url.md"
+ },
+ {
+  "id": "news_legacy_policy",
+  "url": "https://example.org/news/story",
+  "title": "Story",
+  "meta": {
+   "tier": "B",
+   "source_type": "news",
+   "trust_tier": 0.7
+  },
+  "input": "inputs/news_legacy_policy.md"
+ }
+]

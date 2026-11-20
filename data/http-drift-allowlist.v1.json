@@ -1,0 +1,12 @@
+{
+  "modules": {
+    "cytir/core/internal_http.py": "PUBLIC_SELF: public_self_urlopen is the ONE door to the operator's own public endpoint, any host the operator names (https, loopback http, no cross-host redirect); task 2162 replaced the flip_config_verify and promote_verify rows with this single row",
+    "cytir/core/qdrant_http.py": "moved from pipeline/ at task 1822 (census 1592: INTERNAL-SERVICE, the operator's own qdrant over urllib, kept byte-identical for the held surface-delta writer); leaves when ported to make_internal_client",
+    "cytir/news/hn_discussion_frontier.py": "moved from pipeline/ at task 2115 (EXTERNAL-WEB: HN Algolia API, byte-identical move, same as the pipeline/ original); leaves when ported to make_external_client",
+    "cytir/probe/run.py": "PUBLIC_SELF: _public_urlopen to AW's own public endpoint (websear.ch, PUBLIC_PROBE_HOSTS exact host, https only); task 2054 ruling C / task 2068. max raised by one: the file now counts as one offender.",
+    "cytir/reader/fetch.py": "USER-AGENT: the local reader fetches ONE URL for ONE user on the user's own machine (a user agent, not a crawler, so no consent choke point and no robots.txt; task 2710); refuses search engines and non-http schemes",
+    "cytir/sources/ctgov_psy/harvest.py": "pre-existing at task 1623 (census 1592: EXTERNAL-WEB lane B)",
+    "cytir/sources/run_family.py": "pre-existing at task 1623 (census 1592: EXTERNAL-WEB lane B)"
+  },
+  "max": 7
+}
