@@ -24,6 +24,7 @@ with no edits:
 
 ```bash
 python3 -m venv ~/venv-srv && ~/venv-srv/bin/pip install -r requirements.txt
+# with uv: see "Using uv instead of pip" in ../QUICKSTART.md (use `--python 3.12` and `-c constraints.txt`)
 
 AW_QDRANT_URL=http://localhost:6333 \
 AW_COLLECTION=<your-collection> \

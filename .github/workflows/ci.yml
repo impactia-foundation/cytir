@@ -59,9 +59,13 @@ jobs:
       - run: cyt --version
       - name: Host-literal and private-path scan (the cut's own check)
         run: python -m cytir.cli ops cut --check
-      - name: pytest
+      - name: pytest (parallel; no Qdrant)
         # Task 2362: serial was ~50 min against the 40-min cap; hosted runners have 4 vCPU.
-        run: python -m pytest -n 4 --dist loadfile -q -ra --timeout=300 -p no:cacheprovider
+        # Task 2991b: the tests that share the one Qdrant service race each other in parallel workers
+        # (collections and aliases are global), so they run in the next step, one process.
+        run: python -m pytest -m "not qdrant" -n 4 --dist loadfile -q -ra --timeout=300 -p no:cacheprovider
+      - name: pytest (the Qdrant-backed tests, serial)
+        run: python -m pytest -m qdrant -p no:xdist -q -ra --timeout=300 -p no:cacheprovider
       - name: Release rehearsal (dump, sign, apply, query on the sealed fixture)
         run: python -m cytir.cli rehearse run
 

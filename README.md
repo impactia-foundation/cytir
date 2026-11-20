@@ -17,9 +17,20 @@ The MCP endpoint for AI agents is **https://mcp.websear.ch**. P0 = Swiss law (DE
 
 ```bash
 git clone https://github.com/impactia-foundation/cytir.git && cd cytir
-pip install -e ".[dev]"   # the package alone is also on PyPI (`pip install cytir`); the sample data lives in this repository
+pip install -e ".[dev]"   # the sample data lives in this repository
 cyt rehearse run          # needs `minisign` on PATH; no network, no server
 ```
+
+With [uv](https://docs.astral.sh/uv/) instead of pip (same result; proven with uv 0.10.2):
+
+```bash
+uv venv && source .venv/bin/activate
+uv pip install -e ".[dev]"
+cyt rehearse run
+```
+
+The package alone (the `cyt` command and its data files, no samples) is on PyPI: `pip install cytir`, or
+`uv tool install cytir`, or one-off `uvx --from cytir cyt --version`.
 
 Anything that fetches from a host (the table below, `cyt embed models`, every source run) refuses until you say who you are,
 because Cytir will not send an anonymous User-Agent. Set these two first (your own page and your own contact; a URL or a mailbox):
@@ -30,7 +41,7 @@ export CYTIR_OPERATOR_CONTACT=you@example.org
 ```
 
 German de-compounding (ingest, the server, tuning) also needs the splitter code, which PyPI cannot carry as an extra:
-`pip install "charsplit @ https://github.com/dtuggener/CharSplit/archive/9710624ef0b0df0edd12a721c33533ff1d07b557.tar.gz"` (not the PyPI project named `charsplit`), plus the table from `cyt` / `python -m cytir.embed.fetch_models --asset charsplit-ngram`.
+`pip install "charsplit @ https://github.com/dtuggener/CharSplit/archive/9710624ef0b0df0edd12a721c33533ff1d07b557.tar.gz"` (not the PyPI project named `charsplit`; the same quoted requirement works after `uv pip install`), plus the table from `cyt` / `python -m cytir.embed.fetch_models --asset charsplit-ngram`.
 
 `cyt rehearse run` needs only that install (the `dev` extra: no torch, no model files, no tokenizer). It takes the sealed sample index through the release path:
 dump, sign, verify, tamper test, apply into a second empty collection, query. It prints one JSON

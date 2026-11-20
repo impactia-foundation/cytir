@@ -39,11 +39,17 @@ import sys  # noqa: E402
 import pytest  # noqa: E402
 
 _LOOKUP, _NAMED = "AW_TEST_OVERLAY_LOOKUP", "AW_OPERATOR_OVERLAY"
+# The crawler identity under BOTH spellings. A reader who
+# exported CYTIR_OPERATOR_* (README, the CI workflow) must not make every test that sets AW_OPERATOR_*
+# itself fail with EnvNameConflict (task 2991b). Tests that need an identity set their own.
+_IDENTITY_ENV = tuple(f"{p}OPERATOR_{k}" for p in ("CYTIR_", "AW_") for k in ("URL", "CONTACT"))
 
 
 @pytest.hookimpl(tryfirst=True)     # before the operator suite opts in with its own overlay
 def pytest_configure(config):
-    config._aw_saved_overlay_env = {k: os.environ.get(k) for k in (_LOOKUP, _NAMED)}
+    config._aw_saved_overlay_env = {k: os.environ.get(k) for k in (_LOOKUP, _NAMED) + _IDENTITY_ENV}
+    for k in _IDENTITY_ENV:
+        os.environ.pop(k, None)
     os.environ[_LOOKUP] = ""
     os.environ.pop(_NAMED, None)
     # The suite runs offline (the reach guard refuses sockets); a cached tokenizer must load without the hub's

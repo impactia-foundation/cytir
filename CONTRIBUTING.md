@@ -9,6 +9,8 @@ git clone https://github.com/impactia-foundation/cytir.git && cd cytir
 pip install -e .[dev]
 ```
 
+With uv: `uv venv && source .venv/bin/activate && uv pip install -e ".[dev]"`.
+
 This installs the `cytir` package in editable mode with all dev dependencies for testing and local development.
 
 ## Running tests

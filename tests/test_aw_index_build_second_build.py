@@ -9,6 +9,21 @@ from cytir.index import build as B  # noqa: E402
 from cytir.index import promote_queue as Q  # noqa: E402
 from test_drain_build_identity import build_run, pack, stages, url  # noqa: E402,F401
 
+@pytest.fixture(autouse=True, scope="module")
+def _leave_no_collection_behind():
+    """Task 2991b: the shared throwaway Qdrant keeps what a module builds. Left in it, these
+    collections changed the drain golden receipts of the modules that run after this one in one
+    process (the public CI's serial Qdrant step)."""
+    yield
+    from cytir.core.qdrant import qdrant_client
+    client = qdrant_client(H.qdrant_url())
+    for name in (TARGET, TARGET + "_link"):
+        try:
+            client.delete_collection(name)
+        except Exception:  # noqa: BLE001 (it may never have been made)
+            pass
+
+
 TARGET = "aw_build_second_build"        # its own name: CI runs the build tests in parallel on one Qdrant
 
 

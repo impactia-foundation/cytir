@@ -28,6 +28,7 @@ Both are session-scoped and apply only under pytest.
 from __future__ import annotations
 
 import os
+import re
 import socket
 
 import pytest
@@ -41,6 +42,27 @@ def pytest_configure(config):
     if not os.environ.get("AW_OPERATOR_URL") and not os.environ.get(_ALLOW):
         os.environ[_ALLOW] = "1"
         config._aw_set_allow = True
+
+
+_QDRANT_SOURCE = re.compile(r"throwaway_qdrant|AW_TEST_QDRANT_URL|qdrant_url\(|drain_transaction_harness")
+
+
+def pytest_collection_modifyitems(config, items):
+    """Mark every test of a module that talks to the session's throwaway Qdrant `qdrant` (task 2991b).
+
+    Those modules share ONE Qdrant (collections, aliases) and must not run in parallel workers:
+    `pytest -m "not qdrant" -n 4` then `pytest -m qdrant -p no:xdist` is the public CI's split.
+    The mark follows the module text, so a new Qdrant test needs no list to join."""
+    cache: dict = {}
+    for item in items:
+        path = str(item.fspath)
+        if path not in cache:
+            try:
+                cache[path] = bool(_QDRANT_SOURCE.search(open(path, encoding="utf-8").read()))
+            except OSError:
+                cache[path] = False
+        if cache[path]:
+            item.add_marker(pytest.mark.qdrant)
 
 
 def pytest_unconfigure(config):

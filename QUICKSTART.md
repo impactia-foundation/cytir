@@ -4,6 +4,30 @@
 
 This is deliberately **not** the production rebuild (a manifest-driven runner, currently `blocked` — see [README.md](README.md)). What follows is the *small honest path* that works today.
 
+## Using uv instead of pip
+
+Every `pip` line in this guide has a [uv](https://docs.astral.sh/uv/) form. Proven with uv 0.10.2 (task 2993). The rule, once:
+`python3 -m venv X && X/bin/pip install ...` becomes `uv venv X && uv pip install --python X/bin/python ...`.
+The arguments after `install` stay the same, including the quoting of extras and of the pinned splitter.
+
+```bash
+# editable install with extras and the pinned German splitter (section 0; not the PyPI project named `charsplit`)
+uv venv ~/venv-cytir
+uv pip install --python ~/venv-cytir/bin/python -e ".[dev]" "uvicorn==0.54.0" "charsplit @ https://github.com/dtuggener/CharSplit/archive/9710624ef0b0df0edd12a721c33533ff1d07b557.tar.gz"
+
+# the server venv (section 5): pinned requirements with constraints, then the package without dependencies.
+# The pins are the 3.12 image's: ask for 3.12, or uv may pick an older Python the pins do not resolve on.
+uv venv --python 3.12 ~/venv-srv
+uv pip install --python ~/venv-srv/bin/python -r server/requirements.txt -c server/constraints.txt
+uv pip install --python ~/venv-srv/bin/python --no-deps -e .
+# with the CPU torch index, uv needs one more flag than pip (it reads only the first index that has a package name):
+uv pip install --python ~/venv-srv/bin/python --index-strategy unsafe-best-match -r server/requirements-embed-local.txt \
+    -c server/constraints.txt --extra-index-url https://download.pytorch.org/whl/cpu
+```
+
+The package alone: `uv tool install cytir` (puts `cyt` on your PATH) or `uvx --from cytir cyt --version`.
+`requires-python` is `>=3.10`; uv takes the first Python it finds, and `--python 3.12` is the one the pinned server stack (the Docker image) uses.
+
 ## The end-to-end path with `cyt` verbs only (run 2026-10-04; re-run 2026-11-03 from a clean clone in a bare `ubuntu:24.04` container, task 2251)
 
 Make one stage from a source sample with `cyt source run`, build an index from it and two sealed

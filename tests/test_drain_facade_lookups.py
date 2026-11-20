@@ -317,6 +317,8 @@ def test_live_apply_payload_patch_rechecks_the_alias_through_the_facade_at_all_t
 
 def _pp_drain_call(tmp_path, *, manifest_over=None, apply=True, results=None):
     import json
+    root, tmp_path = tmp_path, tmp_path / "pack"           # the pack dir gets a DONE marker: keep it off the worker base temp
+    tmp_path.mkdir(exist_ok=True)
     rows = tmp_path / "rows.jsonl"
     rows.write_text(json.dumps({"id": "00000000-0000-4000-8000-000000000001", "expect": "o", "value": "n"}) + "\n")
     import hashlib
@@ -327,7 +329,7 @@ def _pp_drain_call(tmp_path, *, manifest_over=None, apply=True, results=None):
     gate = {"profile": "mechanical", "contract_path": "/x", "pr": 1}
     return record, lambda: Q._drain_payload_patch(
         pack_dir=tmp_path, manifest=manifest, record=record, gate=gate, apply=apply, twin_url="http://t.invalid",
-        prod_url="http://p.invalid", task="t", batch=1, pause_s=0, artifact_root=tmp_path / "a",
+        prod_url="http://p.invalid", task="t", batch=1, pause_s=0, artifact_root=root / "a",
         prod_collection=lambda: "aw_e9", prod_alias="aw_prod", results=[] if results is None else results)
 
 
