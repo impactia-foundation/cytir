@@ -12,6 +12,7 @@ import pathlib
 import shutil
 import subprocess
 import sys
+import time
 import types
 
 import pytest
@@ -105,16 +106,23 @@ def test_alive_pid_that_is_not_python_or_aw_is_not_the_holder_so_stale(monkeypat
 
 
 def test_old_lock_whose_live_pid_is_not_python_or_aw_is_stale(monkeypatch, tmp_path, capsys):
-    # argv0 `awk` (a symlink to sleep): contains the substring "aw" but is not a holder (fix 1).
-    link = tmp_path / "awk"
-    link.symlink_to(shutil.which("sleep"))
-    child = subprocess.Popen([str(link), "60"])
+    # argv0 `awk`: contains the substring "aw" but is not a holder (fix 1). bash is started under
+    # that argv0 (a real executable, never a coreutils multicall binary that refuses a foreign
+    # name, as uutils `sleep` does on hosted runners); /proc/<pid>/cmdline then reads "awk ...".
+    bash = shutil.which("bash")
+    child = subprocess.Popen(["awk", "-c", "read x"], executable=bash, stdin=subprocess.PIPE)
     try:
+        deadline = time.monotonic() + 5
+        while (W._cmdline(child.pid) or "").strip() != "awk -c read x" and time.monotonic() < deadline:
+            time.sleep(0.02)
+        assert child.poll() is None, "the helper process died before the check"
+        assert W._cmdline(child.pid).strip() == "awk -c read x"
         _take(monkeypatch, pid=child.pid, at=_at(dt.timedelta(seconds=-1)))
         rc, out = _run(capsys, "--max-age-min", "0")
     finally:
         child.kill()
         child.wait()
+        child.stdin.close()
     assert rc == 1 and "PROD-WRITE-LOCK: STALE" in out and "pid reused" in out
 
 

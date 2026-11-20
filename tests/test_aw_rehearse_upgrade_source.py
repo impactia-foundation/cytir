@@ -27,9 +27,11 @@ def test_explicit_client_and_names_give_the_same_report(tmp_path):
     got = R.rehearse_upgrade(other, fx, meta, tmp_path / "b", sec, pub, fresh,
                              client=mine, src_name="slice", target="upgrade")
     # local-mode renormalisation noise (`RENORM_MAX_ULP`) depends on the upsert batch, so the
-    # count of rows that moved by an ULP may differ; everything else must be identical
+    # count of rows that moved by an ULP and the largest move may differ, within the product's
+    # bound; everything else must be identical
     for rep in (base, got):
         rep["redump"].pop("dense_rows_ulp_drift")
+        assert rep["redump"].pop("max_ulp") <= R.RENORM_MAX_ULP
     assert got == base
     assert mine.collection_exists("upgrade")
     assert not mine.collection_exists(R.TARGET)

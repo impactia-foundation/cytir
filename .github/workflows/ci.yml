@@ -65,6 +65,7 @@ jobs:
         # (collections and aliases are global), so they run in the next step, one process.
         run: python -m pytest -m "not qdrant" -n 4 --dist loadfile -q -ra --timeout=300 -p no:cacheprovider
       - name: pytest (the Qdrant-backed tests, serial)
+        if: ${{ !cancelled() }}
         run: python -m pytest -m qdrant -p no:xdist -q -ra --timeout=300 -p no:cacheprovider
       - name: Release rehearsal (dump, sign, apply, query on the sealed fixture)
         run: python -m cytir.cli rehearse run

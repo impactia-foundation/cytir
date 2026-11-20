@@ -5,7 +5,7 @@
   {
    "path": ".github/workflows/ci.yml",
    "rule": "hosted-ci",
-   "sha256": "bd2ecd1f43180c38e2c131dbbad9f7f17634dc4d16a3a8a157f7e0232f5d3fd5"
+   "sha256": "19562789b10a42e11ff0cc44b3f1b65d2b9b92b531e7b7c329ecfafd699493b2"
   },
   {
    "path": ".gitleaks.toml",
@@ -7894,7 +7894,7 @@
   {
    "path": "tests/test_aw_ops_writer_locks.py",
    "rule": "tests",
-   "sha256": "1040ea70a456e8aa52b758d17c73d2448884a7861fd3356731dcfa4208cc40cc"
+   "sha256": "ffce7e1f00f6e0b1cf5775296c0be68855da439fae4c7b004d05f223d04eb5f7"
   },
   {
    "path": "tests/test_aw_pack_extractor_module.py",
@@ -8114,7 +8114,7 @@
   {
    "path": "tests/test_aw_rehearse_upgrade_source.py",
    "rule": "tests",
-   "sha256": "764905e7ead98b9628041aee1be274e1274cfe35416e84c7b7b8d9859bcb8f19"
+   "sha256": "0b8a66381a803a9d3a060b0c6a06cee4d4e843f7136d01d49e16cf4a05424871"
   },
   {
    "path": "tests/test_aw_release_rehearsal.py",
