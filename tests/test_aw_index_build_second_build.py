@@ -24,6 +24,17 @@ def _leave_no_collection_behind():
             pass
 
 
+@pytest.fixture(autouse=True)
+def _no_degraded_language_gate(monkeypatch):
+    """Task 2991d: `test_process_html.py` and `test_aw_refresh_direct_compose.py` call
+    `os.environ.setdefault("AW_LANGGATE_OPTIONAL", "1")` at IMPORT time, so in one process that also
+    collects them (the public CI's serial `-m qdrant` step collects every module, then deselects) the
+    variable is set for this module too. Degraded detection then scores both fixture rows "language
+    detection could not confidently classify" and the build is PROVED-BLOCKED. These tests are not about
+    language, so they run as a build without the variable, as when this module runs alone."""
+    monkeypatch.delenv("AW_LANGGATE_OPTIONAL", raising=False)
+
+
 TARGET = "aw_build_second_build"        # its own name: CI runs the build tests in parallel on one Qdrant
 
 

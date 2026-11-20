@@ -7439,7 +7439,7 @@
   {
    "path": "tests/test_aw_index_build_second_build.py",
    "rule": "tests",
-   "sha256": "9439a0f48b4bba298457746cff1c18fb8ae8323694181e5f3ee132bef8aafabe"
+   "sha256": "dc0c71b367dc0645d3ed2a3253b187fbbf117e5590e250aebbbde1160df58a59"
   },
   {
    "path": "tests/test_aw_index_card_guard_writers.py",
