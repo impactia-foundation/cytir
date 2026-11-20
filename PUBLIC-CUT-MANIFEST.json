@@ -5,7 +5,7 @@
   {
    "path": ".github/workflows/ci.yml",
    "rule": "hosted-ci",
-   "sha256": "37e32f252cf0b5527cf2a25e76f27c7a75caa0531469a284468145282a8d1fc6"
+   "sha256": "cfeb070a562e6643b270b3d4da1c4e04d77dd0902407026b7d7ab069811f0314"
   },
   {
    "path": ".gitleaks.toml",
@@ -45,7 +45,7 @@
   {
    "path": "README.md",
    "rule": "newcomer-docs",
-   "sha256": "2e2de0b1a6e777ebfd6724adca279a7c54c9c99d51ab396e2053b8ee8119f310"
+   "sha256": "52857bd986ab07a11cae89e083e259330e2cad79b68c640c9864098859e0cd78"
   },
   {
    "path": "SECURITY.md",
@@ -9470,6 +9470,11 @@
    "path": "tests/test_promote_sealed_pack.py",
    "rule": "tests",
    "sha256": "26f393fac9af88b74f7fd03077babc7ea600d2d65f5cec8b29166246c0b8f424"
+  },
+  {
+   "path": "tests/test_public_workflow_identity.py",
+   "rule": "tests",
+   "sha256": "0e606b8b5a7fa5ce7b8775960ba62e91462486ec0679c666098792a371e5c980"
   },
   {
    "path": "tests/test_qdrant_client_factory.py",

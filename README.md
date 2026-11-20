@@ -21,6 +21,14 @@ pip install -e ".[dev]"   # the package alone is also on PyPI (`pip install cyti
 cyt rehearse run          # needs `minisign` on PATH; no network, no server
 ```
 
+Anything that fetches from a host (the table below, `cyt embed models`, every source run) refuses until you say who you are,
+because Cytir will not send an anonymous User-Agent. Set these two first (your own page and your own contact; a URL or a mailbox):
+
+```bash
+export CYTIR_OPERATOR_URL=https://example.org/my-cytir-instance
+export CYTIR_OPERATOR_CONTACT=you@example.org
+```
+
 German de-compounding (ingest, the server, tuning) also needs the splitter code, which PyPI cannot carry as an extra:
 `pip install "charsplit @ https://github.com/dtuggener/CharSplit/archive/9710624ef0b0df0edd12a721c33533ff1d07b557.tar.gz"` (not the PyPI project named `charsplit`), plus the table from `cyt` / `python -m cytir.embed.fetch_models --asset charsplit-ngram`.
 
