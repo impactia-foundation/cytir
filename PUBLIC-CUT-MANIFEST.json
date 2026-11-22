@@ -65,7 +65,7 @@
   {
    "path": "cytir/__init__.py",
    "rule": "package",
-   "sha256": "7d31830df7e4755aa072a635aeb20421c829eddc2f0678e091d03e7a3a3982f4"
+   "sha256": "6ec88700dc9f74008015c74b86b5e751cc650186f622927bbb0f3d20eca91c4a"
   },
   {
    "path": "cytir/acquire/__init__.py",
@@ -4484,7 +4484,7 @@
   {
    "path": "pyproject.toml",
    "rule": "root-runtime",
-   "sha256": "e880e6ad6e32ceedeff8cb9dcbdf33b2ba5bf53e4117da7456f3c5a76120614c"
+   "sha256": "234be792c2d8c21b3461d7f15f9ac2bd70b7a0c4d69647e16e5cf32f7ee573bd"
   },
   {
    "path": "pytest.ini",
@@ -8879,7 +8879,7 @@
   {
    "path": "tests/test_cytir_dist_name.py",
    "rule": "tests",
-   "sha256": "9165760e6707fe9ac5c51bdd9cef55a5e71ad1192d5dac7f130adefb1043c1bd"
+   "sha256": "a3e77201a67ce761ef3c2627ff5a09aef86a41fff1b8fef1bc2c114dd5baf795"
   },
   {
    "path": "tests/test_cytir_no_old_name.py",
@@ -9895,6 +9895,11 @@
    "path": "tests/test_twin_first_apply.py",
    "rule": "tests",
    "sha256": "8e92401040b37e356256f77822147ca172f4abe18a75f8714aee402c067bcd0e"
+  },
+  {
+   "path": "tests/test_twin_sync_check.py",
+   "rule": "tests",
+   "sha256": "155eb3b275f74a9151ade9793dda4e416b3dd581dad0968314091d044902414f"
   },
   {
    "path": "tests/test_twin_write_hold_writers.py",

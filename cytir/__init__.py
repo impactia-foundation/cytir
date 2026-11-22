@@ -14,6 +14,6 @@ from cytir.core import envnames as _envnames  # stdlib only, no I/O
 
 _envnames.normalise(_os.environ)  # CYTIR_X <-> AW_X, before any reader runs (task 2964)
 
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 
 __all__ = ["__version__"]

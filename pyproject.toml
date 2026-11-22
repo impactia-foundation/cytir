@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "cytir"
-version = "0.1.0"
+version = "0.1.1"
 description = "Cytir: an open web search engine and open web search index whose primary user is an AI agent"
 readme = "README.md"
 requires-python = ">=3.10"

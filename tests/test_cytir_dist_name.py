@@ -33,5 +33,5 @@ def test_prog_name_is_cyt_whatever_started_us(monkeypatch):
 
 def test_version_is_the_release_version():
     import cytir
-    assert cytir.__version__ == "0.1.0"
-    assert re.search(r'^version = "0\.1\.0"$', _text(), re.M)
+    assert cytir.__version__ == "0.1.1"
+    assert re.search(r'^version = "0\.1\.1"$', _text(), re.M)
