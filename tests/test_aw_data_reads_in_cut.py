@@ -87,6 +87,25 @@ def test_scanner_sees_every_path_join_shape(tmp_path):
         "data/ctor.json", "data/joinpath.json", "data/osjoin.json", "data/slash.json", "data/sub/deep.jsonl"]
 
 
+def test_scanner_sees_a_path_built_through_a_data_directory_alias(tmp_path):
+    """Task 3013: `DATA = APP / "data"` then `DATA / "x.json"` has no "data" literal at the use site."""
+    (tmp_path / "cytir").mkdir()
+    (tmp_path / "cytir" / "m.py").write_text(
+        'import os, pathlib\n'
+        'APP = pathlib.Path(".")\n'
+        'DATA = os.path.join(APP, "data")\n'
+        'PROFILES = APP / "data" / "serving-profiles"\n'
+        'A = pathlib.Path(DATA) / "alias_slash.yaml"\n'
+        'B = os.path.join(DATA, "alias_osjoin.json")\n'
+        'C = PROFILES / "alias_sub.config.v1.json"\n'
+        'D = f"{PROFILES}/alias_fstr.json"\n'
+        'E = APP / "elsewhere" / "other.json"\n'
+        'F = PROFILES.glob("*.json")\n')
+    assert sorted(pc.data_literals(tmp_path)) == [
+        "data/alias_osjoin.json", "data/alias_slash.yaml",
+        "data/serving-profiles/alias_fstr.json", "data/serving-profiles/alias_sub.config.v1.json"]
+
+
 def test_scan_manifest_names_the_missing_operator_manifest(tmp_path, capsys):
     """data/refresh_manifest.json is OPTIONAL: absent -> one named reason and rc 2; present -> it is scanned."""
     from cytir.corpus import authored_text_guard as g

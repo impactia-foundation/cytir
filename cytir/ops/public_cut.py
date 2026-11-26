@@ -445,6 +445,9 @@ OPTIONAL_DATA_READS: tuple[tuple[str, str, str], ...] = (
      "operator-supplied: freshness_ingest and weekly_delta take it from a REQUIRED --manifest (no default is opened), "
      "the literal in code is a provenance label or a basename key; it holds model-authored text, which authored_text_guard "
      "refuses as page content, and one host literal, so it stays private; scan-manifest names the missing file and exits 2"),
+    ("data/public-release-record.v1.json", "degrades",
+     "operator-side fact about the release, read only by the scoreboard: a stranger's checkout has none "
+     "and the scoreboard then prints 'release record: none'"),
     ("data/assembly/assembly-plan.current.v1.json", "degrades", _ASM_BUILD),
     ("data/assembly/cancellation-track1a-retained-bind.v1.json", "degrades", _ASM_BUILD),
     ("data/assembly/claim-manifests.v1.json", "degrades", _ASM_BUILD),
@@ -555,6 +558,22 @@ _DATA_EXT = (".json", ".jsonl", ".yaml", ".yml", ".csv", ".txt", ".tsv")
 _DATA_LITERAL = re.compile(r"(?<![\w./-])data/([\w.\-/*]+\.(?:json|jsonl|yaml|yml|csv|txt|tsv))")
 
 
+def _data_aliases(tree) -> dict[str, list[str]]:
+    """{name: parts after `data`} for `NAME = <path join whose parts include "data">`, e.g.
+    `DATA = APP / "data"` -> {"DATA": []}, `FIX = ROOT / "data" / "serving-profiles"` -> {"FIX": [...]}.
+    A later join through the name (`DATA / "x.json"`) names a data file the whole-expression scan cannot see."""
+    out: dict[str, list[str]] = {}
+    for n in ast.walk(tree):
+        if isinstance(n, (ast.Assign, ast.AnnAssign)) and n.value is not None and _is_path_join(n.value):
+            ss = _const_strs(n.value)
+            if "data" in ss and not ss[-1].endswith(_DATA_EXT):
+                tg = n.targets if isinstance(n, ast.Assign) else [n.target]
+                for t in tg:
+                    if isinstance(t, ast.Name):
+                        out[t.id] = ss[ss.index("data") + 1:]
+    return out
+
+
 def data_literals(root: pathlib.Path = APP_ROOT) -> dict[str, list[str]]:
     """{`data/...` path: [cytir/ files that name it in CODE]}. Docstrings and comments are not code. A path
     is named as one literal (`"data/x.json"`), as joined parts (`ROOT / "data" / "x.json"`,
@@ -572,6 +591,7 @@ def data_literals(root: pathlib.Path = APP_ROOT) -> dict[str, list[str]]:
         docs = {id(n.body[0].value) for n in ast.walk(tree)
                 if isinstance(n, (ast.Module, ast.FunctionDef, ast.AsyncFunctionDef, ast.ClassDef)) and n.body
                 and isinstance(n.body[0], ast.Expr) and isinstance(n.body[0].value, ast.Constant)}
+        aliases = _data_aliases(tree)
         for n in ast.walk(tree):
             hits: list[str] = []
             if isinstance(n, ast.Constant) and isinstance(n.value, str) and id(n) not in docs:
@@ -581,14 +601,19 @@ def data_literals(root: pathlib.Path = APP_ROOT) -> dict[str, list[str]]:
                     if isinstance(part, ast.Constant) and isinstance(part.value, str) and i and isinstance(
                             n.values[i - 1], ast.FormattedValue):
                         fv = n.values[i - 1].value
-                        if isinstance(fv, ast.Name) and fv.id.upper() in ("DATA", "DATA_DIR"):
+                        if isinstance(fv, ast.Name) and (fv.id.upper() in ("DATA", "DATA_DIR") or fv.id in aliases):
                             m = re.match(r"/([\w.\-/]+\.(?:json|jsonl|yaml|yml|csv|txt|tsv))", part.value)
                             if m:
-                                hits.append("data/" + m.group(1))
+                                hits.append("/".join(["data", *aliases.get(fv.id, [])]) + "/" + m.group(1))
             elif _is_path_join(n):
                 ss = _const_strs(n)
                 if "data" in ss and ss.index("data") + 1 < len(ss) and ss[-1].endswith(_DATA_EXT):
                     hits.append("data/" + "/".join(ss[ss.index("data") + 1:]))
+                else:
+                    # a join through a name bound to a data directory: `DATA = APP / "data"; DATA / "x.json"`
+                    names = [x.id for x in ast.walk(n) if isinstance(x, ast.Name) and x.id in aliases]
+                    if names and ss and ss[-1].endswith(_DATA_EXT) and "data" not in ss:
+                        hits.append("/".join(["data", *aliases[names[0]], *ss]))
             for h in hits:
                 found.setdefault(h, set()).add(rel)
     return {k: sorted(v) for k, v in sorted(found.items())}

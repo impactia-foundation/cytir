@@ -631,6 +631,11 @@ def main(argv: list[str] | None = None, prog: str = "cyt rehearse") -> int:
                                          args.collection, pathlib.Path(args.fixture))))
         return 0
     if args.cmd == "run":
+        if not minisign_available():   # F3 (task 3008): one line, not a traceback
+            print("REFUSED: cyt rehearse run needs the `minisign` binary on PATH: "
+                  "sudo apt-get install -y minisign (Ubuntu/Debian), brew install minisign (macOS)",
+                  file=sys.stderr)
+            return 1
         with tempfile.TemporaryDirectory() as td:
             report = rehearse(pathlib.Path(args.fixture), pathlib.Path(td))
         print(json.dumps(report))

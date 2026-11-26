@@ -1,7 +1,7 @@
 """Cytir MCP server (`cytir-websearch`; Streamable HTTP). Thin: the `search` tool calls the
 search-api over localhost, so models load only once (in aw-api).
 
-Run: python -m cytir.serve.mcp_server   (serves /mcp on :8081)
+Run: python -m cytir.serve.mcp_server   (serves /mcp on 0.0.0.0:8081 by default; pass --host 127.0.0.1 to keep it local; --help for the flags)
 """
 from __future__ import annotations
 
@@ -111,6 +111,24 @@ def find_authority(query: str, k: int = 3, country: str | None = None) -> dict:
         raise ToolError(transport_error_message(e, "find_authority")) from e
 
 
+def main(argv: list[str] | None = None) -> int:
+    """`python -m cytir.serve.mcp_server [--host H] [--port P]`: serve `/mcp` (Streamable HTTP).
+    Default bind 0.0.0.0 (the production container relies on it); `--help` prints help and exits (F8)."""
+    import argparse
+    ap = argparse.ArgumentParser(
+        prog="python -m cytir.serve.mcp_server",
+        description="Cytir MCP server: serves /mcp (Streamable HTTP), a thin proxy to the search API "
+                    f"at {API} (set CYTIR_API_URL to change it).")
+    ap.add_argument("--host", default=_S.runtime.mcp_host,
+                    help="bind address (default %(default)s; CYTIR_MCP_HOST). 0.0.0.0 exposes the "
+                         "server on every interface")
+    ap.add_argument("--port", type=int, default=_S.runtime.mcp_port,
+                    help="port (default %(default)s; CYTIR_MCP_PORT)")
+    args = ap.parse_args(argv)
+    mcp.run(transport="streamable-http", host=args.host, port=args.port,
+            streamable_http_path=MCP_PATH)
+    return 0
+
+
 if __name__ == "__main__":
-    mcp.run(transport="streamable-http", host="0.0.0.0",
-            port=_S.runtime.mcp_port, streamable_http_path=MCP_PATH)
+    raise SystemExit(main())

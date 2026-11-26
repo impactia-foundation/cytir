@@ -1,6 +1,6 @@
 # QUICKSTART — build a tiny Cytir index from a clean clone
 
-**Last verified 2026-11-12** on a clean Ubuntu 24.04 container by task 2774: stand-in path and real-embedder path both PASS (gate `proves: ranking`). The worked example in section 5 queries the fixture collection `aw_gate_fixture` (Swiss-Austrian border-traffic agreement, SR 0.631, DE/FR).
+**Last verified 2026-11-12** on a clean Ubuntu 24.04 container by task 2774 (the clone and `cyt` verb path was re-run on a stock Ubuntu 24.04 VPS on 2026-11-26, task 3000): stand-in path and real-embedder path both PASS (gate `proves: ranking`). The worked example in section 5 queries the fixture collection `aw_gate_fixture` (Swiss-Austrian border-traffic agreement, SR 0.631, DE/FR).
 
 This is deliberately **not** the production rebuild (a manifest-driven runner, currently `blocked` — see [README.md](README.md)). What follows is the *small honest path* that works today.
 
@@ -25,8 +25,8 @@ uv pip install --python ~/venv-srv/bin/python --index-strategy unsafe-best-match
     -c server/constraints.txt --extra-index-url https://download.pytorch.org/whl/cpu
 ```
 
-The package alone: `uv tool install cytir` (puts `cyt` on your PATH) or `uvx --from cytir cyt --version`.
-`requires-python` is `>=3.10`; uv takes the first Python it finds, and `--python 3.12` is the one the pinned server stack (the Docker image) uses.
+The package alone: `uv tool install "cytir[dev]"` (puts `cyt` on your PATH; the base package has no dependencies, so without the extra only `cyt --version` and `--help` run) or `uvx --from "cytir[dev]" cyt rehearse run`.
+Install uv with `curl -LsSf https://astral.sh/uv/install.sh | sh`. `requires-python` is `>=3.10` (CI runs 3.10 to 3.12); uv takes the first Python it finds, and `--python 3.12` is the one the pinned server stack (the Docker image) uses.
 
 ## The end-to-end path with `cyt` verbs only (run 2026-10-04; re-run 2026-11-03 from a clean clone in a bare `ubuntu:24.04` container, task 2251)
 
@@ -46,6 +46,8 @@ quality (all 24 gold queries rank 1 on a 96-point index, which is also why the b
 ranking information). The gate does not leave this to you: every verdict has a `proves` field, set
 from the embedder identity the server reports (the stand-in announces itself), and `cyt gate`
 prints it. For this walkthrough it reads `plumbing-only (stand-in vectors; not a ranking claim)`. The real path is the next section (run 2026-10-13, task 911); its cost is in "CPU vs GPU" below.
+
+**Prerequisites.** On a stock Ubuntu 24.04 run the `apt-get` line and the clone of section 0 first (`git`, `curl`, `python3.12-venv`, `docker.io`), then `sudo systemctl start docker`. The shell blocks below assume you are inside the clone.
 
 ```bash
 python3 -m venv ~/venv-cytir
@@ -133,7 +135,7 @@ is another container, forward its port to the container's own loopback instead o
        --idf-table "$CYTIR_WORK_ROOT/run/bm25_idf.json" --port 18080 \
        --receipt "$CYTIR_WORK_ROOT/serve-receipt.json" &
    curl -s http://127.0.0.1:18080/health       # wait until "status":"ok" (10 to 40 s)
-   curl -s "http://127.0.0.1:18080/search?q=Art.+336+CO+Kuendigung&k=3"   # one query: JSON with `results`
+   curl -s "http://127.0.0.1:18080/search?q=Grenzverkehr+Abkommen+Schweiz+Oesterreich&k=3"   # one query: JSON with `results`; the fixture holds the Swiss-Austrian border agreement, not Art. 336 CO
    ```
 
 4. **Gate.** Scores the 24 pinned golds over HTTP with the ADR-043 per-gold scorer. It passes when
@@ -251,7 +253,7 @@ stage, 10 s to 57 s each; `cyt index build` 6 s, 0.46 GB; the server 2.5 GB RSS.
 
 ## 0. Clone and install
 
-The package alone installs with `pip install cytir` (the `cyt` command and the data files the package needs). The samples, the fixture stages and the source packs live in this repository, so every step below starts from a clone.
+The package alone installs with `pip install "cytir[dev]"` inside a virtualenv (without the extra only `cyt --version` and `--help` run; on Ubuntu 24.04 a bare `pip install` is refused by PEP 668) (the `cyt` command and the data files the package needs). The samples, the fixture stages and the source packs live in this repository, so every step below starts from a clone.
 
 ```bash
 git clone https://github.com/impactia-foundation/cytir.git && cd cytir
@@ -620,11 +622,23 @@ path, not an optional extra.
 
 ## MCP tools
 
-The public server answers MCP at `https://mcp.websear.ch` (the `/mcp` path works too). `python -m cytir.serve.mcp_server` serves `/mcp` (Streamable HTTP) with two tools, both thin wrappers over the API routes above (no second implementation):
+The public server answers MCP at `https://mcp.websear.ch` (the `/mcp` path works too). `python -m cytir.serve.mcp_server` serves `/mcp` (Streamable HTTP) on port 8081 with two tools, both thin wrappers over the API routes above (no second implementation):
 
 | Tool | Arguments | Calls | Use |
 |---|---|---|---|
 | `search` | `query`, `k`, `lang`, `country`, `site`, `exclude_site`, `source` | `GET /search` | the page that states the fact |
 | `find_authority` | `query`, `k` (3, max 10), `country` | `GET /find_authority` | which SOURCE is authoritative (an authority card with `navigate.search_url`); `weak_match` or `note` means no good authority is known, fall back to `search` |
+
+To run your own: start the search API first (the `cyt serve` of the end-to-end path), then
+`CYTIR_API_URL=http://127.0.0.1:18080 python -m cytir.serve.mcp_server --host 127.0.0.1` (flags: `--host`, `--port`; `--help` lists them).
+The default bind is `0.0.0.0` (every interface), so pass `--host 127.0.0.1` unless you run it behind your own proxy; `CYTIR_MCP_HOST` sets the same.
+`CYTIR_API_URL` defaults to `http://localhost:8080`, and the port to 8081 (`CYTIR_MCP_PORT`). Check it:
+
+```bash
+curl -s -X POST http://127.0.0.1:8081/mcp -H 'Content-Type: application/json' -H 'Accept: application/json, text/event-stream' \
+  -d '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2025-06-18","capabilities":{},"clientInfo":{"name":"curl","version":"0"}}}'
+```
+
+On a fixture index `find_authority` answers with an error that says the authority-card collection is missing (see the note in the end-to-end path); `search` works.
 
 The response is passed through unchanged. An API error becomes a tool error with the HTTP status and the API's own `error` text; a non-JSON body (proxy HTML) is never echoed, only the status.

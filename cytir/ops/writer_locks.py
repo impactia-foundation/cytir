@@ -124,6 +124,15 @@ def pid_liveness(pid_text: str, at_epoch: float | None = None) -> str:
     return "live"
 
 
+def _same_host(a: str | None, b: str | None) -> bool:
+    """Lower-cased compare. Both names dotted: full names must match. A bare short name on either side:
+    compare the short names ('Boxname.lan' and 'boxname' are one box; 'x.a' and 'x.b' are two)."""
+    a, b = (a or "").strip().lower(), (b or "").strip().lower()
+    if "." in a and "." in b:
+        return a == b
+    return a.split(".")[0] == b.split(".")[0]
+
+
 def inspect(name: str, text: str | None, *, now: dt.datetime, max_age_min: float, this_host: str) -> dict:
     if not text:
         return {"lock": name, "held": False, "status": "free"}
@@ -132,7 +141,7 @@ def inspect(name: str, text: str | None, *, now: dt.datetime, max_age_min: float
     if age_min < -FUTURE_SLACK_MIN:
         raise RecordUnreadable(f"{name}: record at= is in the future ({rec['at']}, more than "
                                f"{FUTURE_SLACK_MIN} min ahead of now): the record or the clock is wrong")
-    live = pid_liveness(rec["pid"], rec["_at"].timestamp()) if rec["host"] == this_host else "unknown"
+    live = pid_liveness(rec["pid"], rec["_at"].timestamp()) if _same_host(rec["host"], this_host) else "unknown"
     old = age_min > max_age_min
     note = None
     if live == "reused":
@@ -168,7 +177,7 @@ def check(max_age_min: float, *, now: dt.datetime | None = None, this_host: str 
     host, directory = WL.effective_location()
     out = {"lock_host": host, "lock_dir": directory, "max_age_min": max_age_min, "locks": [],
            "not_checked": NOT_CHECKED, "errors": []}
-    if host not in (WL.LOCAL_HOST, this_host):
+    if host != WL.LOCAL_HOST and not _same_host(host, this_host):
         out["errors"].append(f"the registry is on host {host!r}, this host is {this_host!r}: run the check "
                              "there (this verb opens no network connection)")
         return 2, out

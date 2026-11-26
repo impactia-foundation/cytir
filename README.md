@@ -15,22 +15,25 @@ The MCP endpoint for AI agents is **https://mcp.websear.ch**. P0 = Swiss law (DE
 
 ## Try it
 
+On a fresh Ubuntu 24.04 (or Debian 12) the system `pip` is missing and refuses installs outside a virtualenv (PEP 668),
+so use [uv](https://docs.astral.sh/uv/). It needs `git`, `curl` and `minisign` from apt:
+
 ```bash
+sudo apt-get update && sudo apt-get install -y git curl minisign
+curl -LsSf https://astral.sh/uv/install.sh | sh && export PATH="$HOME/.local/bin:$PATH"
 git clone https://github.com/impactia-foundation/cytir.git && cd cytir
-pip install -e ".[dev]"   # the sample data lives in this repository
-cyt rehearse run          # needs `minisign` on PATH; no network, no server
-```
-
-With [uv](https://docs.astral.sh/uv/) instead of pip (same result; proven with uv 0.10.2):
-
-```bash
-uv venv && source .venv/bin/activate
+uv venv && source .venv/bin/activate     # the sample data lives in this repository
 uv pip install -e ".[dev]"
-cyt rehearse run
+cyt rehearse run          # no network, no server; needs `minisign` (apt line above, `brew install minisign` on macOS)
 ```
 
-The package alone (the `cyt` command and its data files, no samples) is on PyPI: `pip install cytir`, or
-`uv tool install cytir`, or one-off `uvx --from cytir cyt --version`.
+With plain pip instead, inside a virtualenv you made (`sudo apt-get install -y python3-venv python3-pip`, then
+`python3 -m venv .venv && source .venv/bin/activate`): `pip install -e ".[dev]"`.
+
+The package alone (the `cyt` command and its data files, not the sample files of the clone) is on PyPI. The base install has no
+dependencies, so only `cyt --version` and `--help` run; a verb that needs more tells you which extra to install.
+Use the `dev` extra for the first commands: `uv tool install "cytir[dev]"` (or `pip install "cytir[dev]"` in a virtualenv),
+or one-off `uvx --from "cytir[dev]" cyt rehearse run`.
 
 Anything that fetches from a host (the table below, `cyt embed models`, every source run) refuses until you say who you are,
 because Cytir will not send an anonymous User-Agent. Set these two first (your own page and your own contact; a URL or a mailbox):

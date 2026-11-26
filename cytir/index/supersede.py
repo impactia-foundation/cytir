@@ -94,6 +94,7 @@ from __future__ import annotations
 
 import argparse
 import contextlib
+import functools
 import gzip
 import json
 import os
@@ -102,12 +103,14 @@ import socket
 import subprocess
 import time
 import urllib.parse
+import uuid
 from collections import defaultdict
 
 from cytir.core import common as AC  # noqa: E402  — THE canonicalizer (identity.md §1.2)
 from cytir.core.paths import SettingRefused, operator_settings  # noqa: E402
 from cytir.core.qdrant import qdrant_connect  # noqa: E402
 from cytir.core import twin as TWIN  # noqa: E402
+from cytir.index import change_log as CL  # noqa: E402
 from cytir.index import point_delete as PD  # noqa: E402  — the one delete-and-verify home (task 641)
 from cytir.index import prod_guard as PG  # noqa: E402  — no prod scroll without a reason (2026-10-07)
 
@@ -885,12 +888,17 @@ class Superseder:
     (observe), then reconciles every touched page group (run)."""
 
     def __init__(self, client, collection: str, *, log=print, dry_run=False,
-                url: str | None = None, prod_scroll_reason: str | None = None):
+                url: str | None = None, prod_scroll_reason: str | None = None,
+                 on_deleted=None):
         if qm is None:
             raise RuntimeError("qdrant_client not installed — Superseder "
                                "requires it (pure helpers do not)")
         self.c = client
         self.coll = collection
+        #: Called with the ids of EACH delete batch right after that batch is verified gone (task 3002,
+        #: review 3009 (1)): the live upsert logs them. None = off, the pre-3002 path byte for byte.
+        #: A callback that raises stops `run()` before the next delete batch.
+        self.on_deleted = on_deleted
         # a scroll of a PROD target is refused unless an operator names a reason (2026-10-07)
         self.prod_scroll_reason = prod_scroll_reason
         self.log = log
@@ -1125,8 +1133,15 @@ class Superseder:
             # `cytir/index/promote_queue.py`'s tombstone apply has no open
             # QdrantClient of its own and this is the one home both now use.
             try:
-                PD.delete_points_verified(self.url, self.coll, stale_ids,
-                                          batch=delete_batch, log=self.log)
+                if self.on_deleted is None:
+                    PD.delete_points_verified(self.url, self.coll, stale_ids,
+                                              batch=delete_batch, log=self.log)
+                else:
+                    for i in range(0, len(stale_ids), delete_batch):
+                        part = stale_ids[i:i + delete_batch]
+                        PD.delete_points_verified(self.url, self.coll, part,
+                                                  batch=delete_batch, log=self.log)
+                        self.on_deleted(part)
             except PD.PointDeleteError as exc:
                 raise SystemExit(f"FATAL: {exc} — do not proceed to "
                                  "gate/promote") from exc
@@ -1143,6 +1158,8 @@ class Superseder:
                         f"FATAL: {len(back)} superseded ids still present after "
                         f"delete(wait=True) — collection state untrustworthy, "
                         f"do not proceed to gate/promote")
+                if self.on_deleted is not None:
+                    self.on_deleted(ids)      # this batch is verified gone: log it before the next delete
         self.stats["superseded"] = len(stale_ids)
 
         gold_n = _gold_audit(stale_urls, self.log)
@@ -1160,6 +1177,22 @@ class Superseder:
 # --------------------------------------------------------------------------
 # CLI — after-the-fact reconcile of an already-applied dump
 # --------------------------------------------------------------------------
+def _log_deleted(state: dict, ids) -> None:
+    """Task 3020 (ruling 75): the change-log line of ONE verified delete batch of `cytir.index.supersede`
+    (`supersede-cli`, write id `<run>-<batch no>`: unique per run). The Superseder calls it after the
+    batch is read back gone. A no-op when `change_log_dir` is empty. A failure stops the run loudly."""
+    if CL.configured_dir() is None:
+        return
+    state["n"] += 1
+    wid = f"{state['run']}-{state['n']:06d}"
+    try:
+        CL.record_direct(tool="supersede-cli", write_id=wid, collection=state["collection"],
+                         verified_written=True,
+                         tombstones=[{"id": str(i), "reason": "superseded"} for i in ids])
+    except Exception as exc:  # noqa: BLE001 -- ledger it, then stop: never swallow
+        raise CL.log_failure_exit("supersede-cli", wid, exc, ledger=print) from exc
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(
         description="reconcile page groups of an already-applied wave dump")
@@ -1174,6 +1207,9 @@ def main() -> int:
     ap.add_argument("--create-url-index", action="store_true",
                     help="create the url keyword index if missing (OFFLINE "
                          "clones/scratch only — never casually on live prod)")
+    ap.add_argument("--not-the-twin", action="store_true",
+                    help="this Qdrant holds a collection NAMED like the twin but is not the twin: run unlogged "
+                         "(without it a twin-named collection on another URL is refused while the change log is on)")
     ap.add_argument("--dry-run", action="store_true")
     args = ap.parse_args()
     if not args.dry_run:
@@ -1184,8 +1220,17 @@ def main() -> int:
         except TWH.TwinWriteHeld as exc:
             raise SystemExit(str(exc)) from exc
 
+    log_it = not args.dry_run and CL.log_this_run(args.collection, args.qdrant_url, not_the_twin=args.not_the_twin)
+    if not args.dry_run and not log_it:
+        print(f"[change-log] {args.collection} is not the delta source (the twin): not logged", flush=True)
+    if log_it:
+        CL.preflight_or_abort(print)      # task 3020: a log that cannot take the record refuses BEFORE any delete
     c = qdrant_connect(args.qdrant_url, timeout=600)
-    sup = Superseder(c, args.collection, dry_run=args.dry_run)
+    log_state = {"run": uuid.uuid4().hex[:12], "n": 0, "collection": args.collection}
+    if args.dry_run or not log_it:
+        sup = Superseder(c, args.collection, dry_run=args.dry_run)   # nothing to log: a dry run, or not the delta source
+    else:
+        sup = Superseder(c, args.collection, on_deleted=functools.partial(_log_deleted, log_state))
     sup.ensure_url_index(create=args.create_url_index)
 
     opener = gzip.open if args.inp.endswith(".gz") else open

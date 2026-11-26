@@ -1525,10 +1525,14 @@ def plan(*, chunks_dir: str, vectors_dir: str, qdrant: str, collection: str,
 
     fingerprint = LAYOUT.fingerprint(qdrant, collection)
     projected = len(joined)
-    resume_present = resume_dropped = None
+    resume_present = resume_dropped = resume_rows = None
     if resume is not None:
         resume_present = resume.pop("_present")
         resume_dropped = resume.pop("_dropped")
+        # Task 3005: the pack's own rows for the ids the target already holds, kept for a row compare
+        # by the caller (what is trimmed off below is exactly what is not written).
+        resume_rows = ({pid: joined[pid] for pid in resume_present},
+                       {pid: id_index[pid] for pid in resume_present})
         # Every check above ran on the whole projection; what is handed to the write is only the
         # twin-written ids the target lacks.
         keep = resume.pop("_to_write")
@@ -1626,7 +1630,8 @@ def plan(*, chunks_dir: str, vectors_dir: str, qdrant: str, collection: str,
         "_already_served_pids": already_served_pids,
         # only a resume returns these (task 788): the twin-written ids the target already held, and
         # the projected ids the twin leg dropped (never to be on the target)
-        **({"_resume_present": resume_present, "_resume_dropped": resume_dropped}
+        **({"_resume_present": resume_present, "_resume_dropped": resume_dropped,
+            "_resume_present_rows": resume_rows}
            if resume is not None else {}),
     }
 

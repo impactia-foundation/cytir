@@ -17,6 +17,8 @@ from cytir.gates import rollback_restore_null_arm as RB
 from cytir.index import dry_run as DRY
 from cytir.index import layout as LAYOUT
 from cytir.index import manifest_rows as MR
+from cytir.index import mirror_compare as MC
+from cytir.index import point_delete as PD
 from cytir.index import prod_guard as PG
 from cytir.index import promote_sealed_pack as PSP
 from cytir.index import twin_first as TFA
@@ -26,10 +28,40 @@ from cytir.index.drain.locks import PROD_LOCK_PATH
 from cytir.index.drain.plan import LOOKUP_WORKERS
 from cytir.index.drain.queue_scope import assert_real_path, read_manifest
 from cytir.index.drain.receipts import lookup_record_scope, prod_call_receipt, prod_chunk_checkpoint
-from cytir.index.drain.verify import _revalidate_prod_collection
+from cytir.index.drain.verify import VERIFY_FORM_MAX, _revalidate_prod_collection
 
 
 # ------------------------------------------------------------- apply a side
+def _check_present_rows(pack_id, collection, url, row_check, resume_rows, matrix, mrl) -> None:
+    """Task 3005: prod row == twin row == the pack's row, for every id of `row_check`, by id (never a scroll)."""
+    ids, twin_url, twin_collection = row_check
+    ids = sorted(ids)
+    if not ids:
+        return
+    joined, id_index = resume_rows or ({}, {})
+    unknown = [i for i in ids if i not in joined]
+    if unknown:
+        raise QueueError(f"{pack_id}: row check names {len(unknown)} id(s) the pack does not project "
+                         f"(e.g. {unknown[:5]}); refusing before any write")
+    pack = {p["id"]: p for p in PSP.build_points(joined, matrix, id_index, mrl)}
+    try:
+        on_prod = PD.fetch_rows(url, collection, ids, batch=VERIFY_FORM_MAX)
+        on_twin = PD.fetch_rows(twin_url, twin_collection, ids, batch=VERIFY_FORM_MAX)
+    except Exception as exc:  # noqa: BLE001 -- an unreadable side is a refusal, whatever the transport said
+        raise QueueError(f"{pack_id}: could not read the rows of {len(ids)} id(s) already on prod for the "
+                         f"row check ({type(exc).__name__}: {exc}); refusing before any write") from exc
+    cmp = MC.Comparator(collection)
+    vs_pack = cmp.compare(ids, pack, on_prod)
+    vs_twin = cmp.compare(ids, on_twin, on_prod)
+    if vs_pack["mismatched"] or vs_twin["mismatched"]:
+        raise PSP.ResumeCollisionError(
+            f"{pack_id}: {len(ids)} id(s) are on prod and on the twin, but the row differs: "
+            f"{vs_pack['mismatched']} prod-vs-pack (e.g. {vs_pack['examples'][:3]}), "
+            f"{vs_twin['mismatched']} prod-vs-twin (e.g. {vs_twin['examples'][:3]}). The same id does not "
+            "mean the same row; not this pack's partial write. Refusing before any write.",
+            ids=frozenset(ids), present=frozenset(ids))
+
+
 @PSP.retry_leg()
 def apply_side(role: str, url: str, manifest: dict, collection: str, *, batch: int,
               pause_s: float, ids_dir: pathlib.Path,
@@ -39,7 +71,8 @@ def apply_side(role: str, url: str, manifest: dict, collection: str, *, batch: i
               write_attempt: WriteAttempt | None = None,
               persisted_check: bool = True,
               profile_collection: str | None = None,
-              resume_twin_ids: frozenset[str] | None = None) -> tuple[dict, pathlib.Path]:
+              resume_twin_ids: frozenset[str] | None = None,
+              row_check: tuple[frozenset[str], str, str] | None = None) -> tuple[dict, pathlib.Path]:
     """Plan + write one target. Returns (receipt, written-ids path).
 
     `resume_twin_ids` (task 788): passed ONLY by `resume_prod_only`, the prod leg of a sealed pack
@@ -49,6 +82,12 @@ def apply_side(role: str, url: str, manifest: dict, collection: str, *, batch: i
     started. A resume keeps NO batch record of its own (its fresh by-id lookup of prod is its
     record), and the first attempt's `write` record is deleted as soon as the resume starts, so no
     exit, a refusal included, leaves it behind. An empty remainder writes nothing. None = unchanged.
+
+    `row_check` (task 3005): `(ids, twin_url, twin_collection)`, only with `resume_twin_ids`. The ids are
+    twin-written only because a LIVE check found them on the twin (no per-pack artifact), and an id is not
+    a row (card ids are uuid5(url), b1 ids are url + anchor). Before any write, each is read by id on prod
+    and on the twin and must equal the pack's own row (`mirror_compare`, the readback's definition of
+    equal). A mismatch raises `ResumeCollisionError`, an unreadable side raises `QueueError`; no write.
 
     Mirrors `promote_sealed_pack.main()`'s apply path exactly (same plan(),
     same build_points(), same upsert()) rather than re-deriving any of it;
@@ -82,6 +121,7 @@ def apply_side(role: str, url: str, manifest: dict, collection: str, *, batch: i
             f"{manifest['pack_id']}: resume_twin_ids is for the prod leg's resume only "
             "(role prod, its own plan(), no drop_ids)")
     prod_before = PSP.PROD_STATS.mark()
+    resume_rows = None
     lookup_ck = write_ck = resume_present = resume_dropped = None
     if role == "prod" and PG.is_big_pack(MR.rows_to_write_max(manifest) or 0):
         digest = hashlib.sha256(json.dumps(manifest, sort_keys=True, default=str).encode()).hexdigest()
@@ -123,11 +163,17 @@ def apply_side(role: str, url: str, manifest: dict, collection: str, *, batch: i
         receipt.pop("_already_served_pids", None)
         resume_present = receipt.pop("_resume_present", None)
         resume_dropped = receipt.pop("_resume_dropped", None)
+        resume_rows = receipt.pop("_resume_present_rows", None)
         receipt["layout_before"] = LAYOUT.fingerprint(url, collection)
     if drop_ids:
         joined = {pid: v for pid, v in joined.items() if pid not in drop_ids}
         receipt["mechanical_content_dropped"] = len(drop_ids)
     points = PSP.build_points(joined, matrix, id_index, int(manifest["mrl"]))
+    if row_check is not None:
+        if resume_twin_ids is None or precomputed is not None:
+            raise QueueError(f"{manifest['pack_id']}: row_check is for a prod-leg resume's own plan() only")
+        _check_present_rows(manifest["pack_id"], collection, url, row_check, resume_rows, matrix,
+                            int(manifest["mrl"]))
     if resume_twin_ids is not None:
         # Review 797 M2: the write set is checked BEFORE any byte is sent, not only after: what prod
         # held plus what this leg sends must be exactly the twin's set, and nothing is sent twice.

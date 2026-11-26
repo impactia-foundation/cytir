@@ -60,6 +60,7 @@ import sys
 import time
 from typing import Any, Callable, Iterable
 
+from cytir.index import change_log as CL
 from cytir.index import dry_run as DRY
 from cytir.index import point_delete as PD
 from cytir.index import prod_guard as PG
@@ -286,6 +287,34 @@ def write(url: str, coll: str, op: str, what, ids: list[str]) -> None:
         PD._api(url, f"/collections/{coll}/points/payload/delete?wait=true", {"keys": what, "points": ids})
 
 
+def _spool_patches(coll: str, write_id: str, ids: list[str]):
+    """Before the first write: the attempted ids, in the log dir's pending folder (review 3009 (3b))."""
+    try:
+        return CL.spool_pending("twin-patch-fields", write_id, coll, {"payload_patches": ids})
+    except Exception as exc:  # noqa: BLE001
+        raise Refused(f"the change-log spool for {write_id} cannot be written ({type(exc).__name__}: "
+                      f"{exc}); nothing was written") from exc
+
+
+def _record_patches(coll: str, write_id: str, ids: list[str], pending) -> str | None:
+    """Task 3002 (ruling 75): the change-log line of the rows this run ATTEMPTED to write
+    (`twin-patch-fields`, `payload_patches`), recorded after the last write call and BEFORE the
+    read-back: a re-logged id is safe (the delta builder fetches the row again), a lost line is not.
+    None when the log is off. A failure is a `Refused` that says the segment is missing and that the
+    spool replays it: never silent."""
+    if CL.configured_dir() is None:
+        return None
+    try:
+        path = CL.record_direct(tool="twin-patch-fields", write_id=write_id, collection=coll,
+                                verified_written=True, payload_patches=ids)
+        CL.clear_pending(pending)
+    except Exception as exc:  # noqa: BLE001
+        raise Refused(f"{len(ids)} row(s) are written, but their change-log record ({write_id}) failed: "
+                      f"{type(exc).__name__}: {exc}; the segment is MISSING (run `python -m "
+                      "cytir.index.change_log replay-pending`)") from exc
+    return str(path) if path else None
+
+
 def _write_json(path: pathlib.Path, doc: Any) -> str:
     data = (json.dumps(doc, indent=1, sort_keys=True, ensure_ascii=False) + "\n").encode()
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -388,6 +417,10 @@ def run(argv: list[str], *, prog: str = "cyt ops twin-patch-fields", settings=No
                 TWH.refuse_if_held(coll, tool="cyt ops twin-patch-fields")
             except TWH.TwinWriteHeld as exc:
                 raise Refused(str(exc)) from exc
+            try:
+                CL.preflight_dir()      # review 3009 (3a): the log must be able to take the record BEFORE a write
+            except CL.ChangeLogError as exc:
+                raise Refused(str(exc)) from exc
             queue_dir = pathlib.Path(args.queue_dir or settings.queue_dir)
             pending = pending_prod_legs(queue_dir)
             if pending:
@@ -412,6 +445,8 @@ def run(argv: list[str], *, prog: str = "cyt ops twin-patch-fields", settings=No
                     written_file = receipt_dir / f"twin-patch-fields-{stamp}-{sha[:12]}-twin-written-ids.json"
                     _write_json(written_file, sorted(r["id"] for r in todo))
                     receipt["written_ids_file"] = str(written_file)
+                    wid = f"{stamp}-{sha[:12]}"
+                    pend = _spool_patches(coll, wid, [r["id"] for r in todo])
                     calls = 0
                     for op, what, chunk in write_groups(todo, args.batch, coalesce="snippet" in fields):
                         write_fn(url, coll, op, what, chunk)
@@ -419,6 +454,9 @@ def run(argv: list[str], *, prog: str = "cyt ops twin-patch-fields", settings=No
                         if args.pause:
                             sleep_fn(args.pause)
                     receipt["write_calls"] = calls
+                    seg = _record_patches(coll, wid, [r["id"] for r in todo], pend)
+                    if seg:
+                        receipt["change_log_segment"] = seg
                     back = fetch_fn(url, coll, [r["id"] for r in todo], read_keys(rows), args.batch)
                     bad = []
                     for r in todo:

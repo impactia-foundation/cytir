@@ -880,7 +880,7 @@ def assert_pages_persisted(pages, *, index: Optional[PersistedIndex] = None,
     if v["verdict"] == "PASS":
         return v
     parts = [f"[persisted-inputs] REFUSED {label or '(unlabelled)'} "
-             f"(ADR-105, require={require})"]
+             f"(require={require})"]
     if v["missing"]:
         parts.append(
             f"  {v['missing']:,} of {v['pages']:,} page(s) have no persisted "

@@ -81,6 +81,7 @@ import json
 import os
 import random
 import time
+import uuid
 import numpy as np
 
 import cytir.core.projection as PROJ  # noqa: E402
@@ -88,6 +89,7 @@ from cytir.core.common import compose_index_text  # noqa: E402
 from cytir.core.qdrant_http import api, points_count  # noqa: E402
 from cytir.core import serving_config as SC  # noqa: E402
 import cytir.corpus.persisted as PI  # noqa: E402
+from cytir.index import change_log as CL  # noqa: E402
 from cytir.index import prod_guard as PG  # noqa: E402
 from cytir.index import twin_write_hold as TWH  # noqa: E402
 
@@ -318,6 +320,20 @@ def sparse_for(rec: dict, payload: dict, field: str = "auto") -> tuple[list, lis
     return PROJ.saturated_bm25(composed, payload.get("lang"))
 
 
+def _record_vectors(collection: str, write_id: str, ids: list[str], pending) -> None:
+    """Task 3020 (ruling 75): the change-log line of ONE verified vector-update batch
+    (`surface-delta`, op `replace`: an in-place rewrite lists every id). A no-op when the log is off.
+    A failure stops the run loudly; the spool replays the line."""
+    if CL.configured_dir() is None:
+        return
+    try:
+        CL.record_direct(tool="surface-delta", write_id=write_id, collection=collection,
+                         verified_written=True, replaces=ids)
+        CL.clear_pending(pending)
+    except Exception as exc:  # noqa: BLE001 -- ledger it, then stop: never swallow
+        raise CL.log_failure_exit("surface-delta", write_id, exc, ledger=print, spooled=True) from exc
+
+
 def main(argv=None, prog: str = "cyt index surface-delta") -> int:
     ap = argparse.ArgumentParser(prog=prog)
     ap.add_argument("--stage", required=True)
@@ -390,6 +406,9 @@ def main(argv=None, prog: str = "cyt index surface-delta") -> int:
                     help="ids sampled per family for the two-surface "
                          "detector, uniformly over the written population "
                          "(never 1 batch in 20)")
+    ap.add_argument("--not-the-twin", action="store_true",
+                    help="--qdrant is not the twin but holds a collection NAMED like it: apply unlogged "
+                         "(without it a twin-named collection on another URL is refused while the change log is on)")
     ap.add_argument("--sample-seed", type=int, default=546538,
                     help="seed shared by the reverse-join URL sample and the "
                          "two-surface id sample, for a reproducible report")
@@ -400,6 +419,12 @@ def main(argv=None, prog: str = "cyt index surface-delta") -> int:
             TWH.refuse_if_held(args.collection, tool="cyt index surface-delta --apply")
         except TWH.TwinWriteHeld as exc:
             raise SystemExit(str(exc)) from exc
+    log_it = bool(args.apply) and CL.log_this_run(args.collection, args.qdrant, not_the_twin=args.not_the_twin)
+    if args.apply and not log_it:
+        print(f"[change-log] {args.collection} is not the delta source (the twin): not logged", flush=True)
+    if log_it:
+        CL.preflight_or_abort(print)    # task 3020: a log that cannot take the record refuses BEFORE any write
+    run_id = uuid.uuid4().hex[:12]
 
     # -- 0. dim guard: before ANY write, before the join-rate guard even
     # (task 563). This module's declared embedding width is `--mrl` -- the
@@ -587,9 +612,24 @@ def main(argv=None, prog: str = "cyt index surface-delta") -> int:
             updates = [u for u in updates if u["vector"]]
             written_ids.extend(u["id"] for u in updates)
             if args.apply and updates:
-                api(args.qdrant,
-                    f"/collections/{args.collection}/points/vectors?wait=true",
-                    {"points": updates}, method="PUT")
+                wid = f"{run_id}-{shard_no + 1:04d}-{batch_no:06d}"
+                done_ids = [u["id"] for u in updates]
+                pend = CL.spool_pending("surface-delta", wid, args.collection,
+                                        {"replaces": done_ids}) if log_it else None
+                try:
+                    res = api(args.qdrant,
+                              f"/collections/{args.collection}/points/vectors?wait=true",
+                              {"points": updates}, method="PUT")
+                except Exception as exc:  # noqa: BLE001 -- a timeout may have landed: keep the spool, stop
+                    if not log_it:
+                        raise
+                    raise CL.uncertain_write_exit("surface-delta", wid, f"{type(exc).__name__}: {exc}",
+                                                  ledger=print) from exc
+                if log_it and not CL.write_completed(res.get("result")):
+                    raise CL.uncertain_write_exit("surface-delta", wid, "the update did not return `completed`",
+                                                  ledger=print)
+                if log_it:
+                    _record_vectors(args.collection, wid, done_ids, pend)
             if args.sleep:
                 time.sleep(args.sleep)
             if args.limit and stats["rows"] + start + len(ids) >= args.limit:

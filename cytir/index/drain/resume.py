@@ -115,6 +115,7 @@ def resume_prod_only(*, pack_id: str, manifest: dict, twin_url: str,
                      prod_collection: str,
                      write_attempt: WriteAttempt | None = None,
                      twin_ids_override: list[str] | None = None,
+                     row_check_ids: frozenset[str] | None = None,
                      prod_alias: str = "aw_prod") -> dict:
     """Resume ONLY the prod leg of a pack whose twin leg already landed and
     verified, but whose prod leg never completed.
@@ -234,7 +235,9 @@ def resume_prod_only(*, pack_id: str, manifest: dict, twin_url: str,
                                        batch=batch, pause_s=pause_s, parallel=1,
                                        ids_dir=artifact_root,
                                        write_attempt=write_attempt,
-                                       resume_twin_ids=frozenset(twin_ids))
+                                       resume_twin_ids=frozenset(twin_ids),
+                                       **({"row_check": (frozenset(row_check_ids), twin_url, twin_collection)}
+                                          if row_check_ids else {}))
         st["resume_dropped_ids"] = receipt.pop("_resume_dropped_ids", [])    # never in a receipt
         st["prod_before"] = before
         st["prod_receipt"] = receipt

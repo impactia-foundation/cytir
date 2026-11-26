@@ -449,7 +449,7 @@ def test_no_two_runs_share_an_as_of_day_across_publishers(tmp_path):
 
 
 def _release(tmp_path, *, clamp):
-    rel = tmp_path / "rel" / "pipeline"
+    rel = tmp_path / "rel" / "cytir" / "acquire"
     rel.mkdir(parents=True)
     text = "def select_recent(): pass\n"
     if clamp:
@@ -458,7 +458,7 @@ def _release(tmp_path, *, clamp):
     else:
         text += "x = published_for_page(html, now_ref=ctx.get('now_ref'))\n"
     (rel / "sitemap_ingest.py").write_text(text)
-    return rel.parent
+    return rel.parent.parent
 
 
 def test_a_release_that_clamps_page_dates_to_the_as_of_day_is_refused(tmp_path):

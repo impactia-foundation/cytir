@@ -69,15 +69,19 @@ def _release(root: pathlib.Path, rel: str, text: str) -> pathlib.Path:
 MARKED = "def page_date_clamp_day(now_ref, today=None):\n    pass\nx = f(now_ref=page_date_clamp_day(a))\n"
 
 
-def test_clamp_check_accepts_the_layout_a_pinned_release_has(tmp_path):
-    """r22 and every release cut before the move hold the clamp in `sitemap_ingest.py`."""
+def test_clamp_check_reads_only_the_package_layout(tmp_path):
+    """Only `cytir/acquire/sitemap_ingest.py` counts; a release holding just the pre-move file is refused."""
+    new = _release(tmp_path / "new", "cytir/acquire/sitemap_ingest.py", MARKED)
+    assert NCB.release_supports_page_date_clamp(new) is True
+    NCB.require_page_date_clamp_release(new)
     old = _release(tmp_path / "old", "pipeline/sitemap_ingest.py", MARKED)
-    assert NCB.release_supports_page_date_clamp(old) is True
-    NCB.require_page_date_clamp_release(old)
+    assert NCB.release_supports_page_date_clamp(old) is False
+    with pytest.raises(SystemExit):
+        NCB.require_page_date_clamp_release(old)
 
 
 def test_clamp_check_refuses_a_release_without_the_clamp(tmp_path):
-    bare = _release(tmp_path / "bare", "pipeline/sitemap_ingest.py", "x = 1\n")
+    bare = _release(tmp_path / "bare", "cytir/acquire/sitemap_ingest.py", "x = 1\n")
     assert NCB.release_supports_page_date_clamp(bare) is False
     with pytest.raises(SystemExit):
         NCB.require_page_date_clamp_release(bare)

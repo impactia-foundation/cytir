@@ -37,7 +37,9 @@ import json
 import os
 import pathlib
 import re
+import socket
 import sys
+import time
 from collections.abc import Iterable
 
 from cytir.distribute.tombstone_vocab import TOMBSTONE_REASONS as PUBLIC_TOMBSTONE_REASONS
@@ -210,22 +212,28 @@ def record_landing(receipt: dict, plan: dict, out_dir: pathlib.Path | str | None
     build_lines(pack_id=pack_id, pack_sha="", landed_at="", plan=plan)   # refuse a bad plan BEFORE the lock makes the directory
     out = pathlib.Path(out_dir)
     with _seq_lock(out):    # one lock for the drain and direct writers: no two segments share a seq
-        existing = _find_existing(out, pack_id)
-        if existing is not None:      # a crash between segment and DONE: keep name and original landed_at
-            old = json.loads(existing.read_text().splitlines()[0])
-            landed_at, seq = old["landed_at"], old.get("seq")
-            path = existing
-            if seq is None:
-                seq = next_seq(out)
-        else:
-            landed_at = landed_at or dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
-            path = out / f"{_stamp(landed_at)}-{pack_id}.jsonl"
+        return _land_locked(out, receipt, plan, landed_at)
+
+
+def _land_locked(out: pathlib.Path, receipt: dict, plan: dict, landed_at: str | None) -> pathlib.Path:
+    """The body of `record_landing`; the caller holds `_seq_lock(out)` (flock is not re-entrant)."""
+    pack_id = receipt["pack_id"]
+    existing = _find_existing(out, pack_id)
+    if existing is not None:      # a crash between segment and DONE: keep name and original landed_at
+        old = json.loads(existing.read_text().splitlines()[0])
+        landed_at, seq = old["landed_at"], old.get("seq")
+        path = existing
+        if seq is None:
             seq = next_seq(out)
-        lines = build_lines(pack_id=pack_id, pack_sha=receipt.get("pack_sha") or "", landed_at=landed_at,
-                            plan=plan, seq=seq)
-        _write_segment(path, "".join(json.dumps(x, sort_keys=True) + "\n" for x in lines))
-        _write_seq(out, seq)
-        return path
+    else:
+        landed_at = landed_at or dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+        path = out / f"{_stamp(landed_at)}-{pack_id}.jsonl"
+        seq = next_seq(out)
+    lines = build_lines(pack_id=pack_id, pack_sha=receipt.get("pack_sha") or "", landed_at=landed_at,
+                        plan=plan, seq=seq)
+    _write_segment(path, "".join(json.dumps(x, sort_keys=True) + "\n" for x in lines))
+    _write_seq(out, seq)
+    return path
 
 
 def receipt_sha(receipt: dict | bytes) -> str:
@@ -295,14 +303,212 @@ def record_direct(*, tool: str, write_id: str, collection: str, verified_written
             "payload_patches": sorted(map(str, payload_patches)),
             "tombstones": sorted(f"{t.get('id')}|{t.get('reason')}" for t in tombstones)}
     receipt = {"pack_id": pack_id, "status": "LANDED", "pack_sha": receipt_sha(desc)}
-    held = segment_for(out, pack_id)
-    if held is not None:
-        old_sha = json.loads(held.read_text().splitlines()[0]).get("pack_sha")
-        if old_sha != receipt["pack_sha"]:
-            raise ChangeLogError(
-                f"{held.name}: this write id already has a segment with different content (pack_sha "
-                f"{old_sha} != {receipt['pack_sha']}); a write id names ONE write. Refusing to rewrite it")
-    return record_landing(receipt, {"upserts": ups, "tombstones": tombstones}, out, landed_at=landed_at)
+    plan = {"upserts": ups, "tombstones": tombstones}
+    if not (ups or tombstones):
+        return None                    # nothing to log for an empty write
+    build_lines(pack_id=pack_id, pack_sha="", landed_at="", plan=plan)   # refuse a bad plan BEFORE the lock makes the directory
+    out = pathlib.Path(out)
+    with _seq_lock(out):               # the different-content check and the write sit under ONE lock (review 2853 (a))
+        held = segment_for(out, pack_id)
+        if held is not None:
+            old_sha = json.loads(held.read_text().splitlines()[0]).get("pack_sha")
+            if old_sha != receipt["pack_sha"]:
+                raise ChangeLogError(
+                    f"{held.name}: this write id already has a segment with different content (pack_sha "
+                    f"{old_sha} != {receipt['pack_sha']}); a write id names ONE write. Refusing to rewrite it")
+        return _land_locked(out, receipt, plan, landed_at)
+
+
+PENDING_DIR = ".pending"
+
+
+def preflight_dir() -> pathlib.Path | None:
+    """Task 3002 review 3009 (3a): run BEFORE a direct writer's first write. None when the log is off.
+    Otherwise the configured directory must already exist (never `mkdir` a second log from a box whose
+    setting names a path that is not there), be writable, hold a log (a segment or the counter file),
+    have a readable counter, and hold no unrepaired pending line (`replay_pending` first). Refuses with
+    `ChangeLogError`; a refusal means NOTHING was written."""
+    out = configured_dir()
+    if out is None:
+        return None
+    if not out.is_dir():
+        raise ChangeLogError(f"{out}: the change-log directory does not exist on this box; refusing to "
+                             "write before the log can take the record (a writer must never start a "
+                             "second log at seq 1). Fix the `change_log_dir` setting or unset it")
+    if not os.access(out, os.W_OK | os.X_OK):
+        raise ChangeLogError(f"{out}: the change-log directory is not writable; refusing to write")
+    if not (out / SEQ_FILE).is_file() and next(out.glob("*.jsonl"), None) is None:
+        raise ChangeLogError(f"{out}: holds no change log (no counter file, no segment); refusing to "
+                             "start a second log from a direct writer")
+    next_seq(out)                       # raises on an unreadable counter
+    pend = out / PENDING_DIR
+    left, running = [], []
+    for f in (sorted(pend.glob("*.json")) if pend.is_dir() else []):
+        w = _spool_writer(f)
+        (running if _writer_alive(w) else left).append((f, w))
+    if left:    # a spool whose writer is still running is a write IN FLIGHT, not a lost line: ignored
+        more = (f"; {len(running)} more are in flight (writer pid "
+                f"{', '.join(str(w['pid']) for _, w in running)} still running)" if running else "")
+        raise ChangeLogError(f"{out}: {len(left)} change-log line(s) of an earlier write were never "
+                             f"recorded (e.g. {left[0][0].name}); run `python -m cytir.index.change_log "
+                             f"replay-pending` first{more}")
+    return out
+
+
+def preflight_or_abort(ledger=None) -> None:
+    """Task 3020: `preflight_dir` for a CLI writer. A refusal is ledgered (when a ledger is given) and
+    stops the run with `SystemExit` BEFORE the first write; the log being off is a no-op."""
+    try:
+        preflight_dir()
+    except ChangeLogError as exc:
+        if ledger is not None:
+            ledger(f"CHANGE-LOG-PREFLIGHT-REFUSED {str(exc)[:500]!r}")
+        raise SystemExit(f"ABORT: {exc}") from exc
+
+
+def log_failure_exit(tool: str, write_id: str, exc: BaseException, *, ledger=None,
+                     spooled: bool = False) -> SystemExit:
+    """Task 3020: the loud stop of a direct writer whose write landed but whose record did not (the
+    upsert wave's rule): the failure is ledgered and the caller RAISES the returned `SystemExit`."""
+    if ledger is not None:
+        ledger(f"CHANGE-LOG-FAILED {tool}/{write_id} {type(exc).__name__}: {str(exc)[:500]!r}")
+    return SystemExit(f"FATAL: the write {tool}/{write_id} landed but its change-log record failed "
+                      f"({type(exc).__name__}: {exc}); the segment is MISSING from the log"
+                      + (" (spooled: run `python -m cytir.index.change_log replay-pending`)" if spooled else "")
+                      + ". Stop and repair before any further write.")
+
+
+def log_this_run(collection: str, url: str, *, not_the_twin: bool = False) -> bool:
+    """Task 3020 (review 3024, third pass): the ONE decision of a CLI writer, called only by a run that WRITES
+    (a dry run is never refused: it writes nothing). True = log this run (preflight, spool, record). False = do not.
+    Fails closed like `cyt dump`: with the log on, a collection NAMED like the twin on a URL that is not the
+    configured twin URL is refused before the first write (a `localhost` spelling of the real twin would
+    otherwise write with no line, and the delta would miss it silently); `not_the_twin=True` is the operator's
+    word that it is another Qdrant, and the run proceeds unlogged. No spelling is normalised."""
+    if configured_dir() is None:
+        return False
+    from cytir.core import twin as TWIN
+    if collection != TWIN.configured_collection():
+        return False
+    if str(url).rstrip("/") == TWIN.configured_url():
+        if not_the_twin:
+            raise SystemExit(f"REFUSED: --not-the-twin was passed but {url!r} with collection {collection!r} IS "
+                             "the configured twin; the flag may only skip logging when the URL differs.")
+        return True
+    if not_the_twin:
+        return False
+    raise SystemExit(f"REFUSED: collection {collection!r} is the twin's name but --qdrant {url!r} is not the "
+                     f"configured twin URL ({TWIN.configured_url()!r}); a write here would reach the delta source "
+                     "with no change-log line. Use the configured twin URL, or pass --not-the-twin if this is a "
+                     "different Qdrant that holds a collection of the same name.")
+
+
+def uncertain_write_exit(tool: str, write_id: str, detail: str, *, ledger=None) -> SystemExit:
+    """Task 3020 (review 3024 item 4): the stop of a direct writer whose write did not return `completed`
+    (or raised): the same `CHANGE-LOG-FAILED` ledger line as `log_failure_exit`; the spool is KEPT (the write may
+    have landed) and the message names `replay-pending`. Every direct writer stays blocked at preflight
+    until that verb has run."""
+    if ledger is not None:
+        ledger(f"CHANGE-LOG-FAILED {tool}/{write_id} uncertain write: {detail[:500]!r}")
+    return SystemExit(f"FATAL: the write {tool}/{write_id} is uncertain ({detail}); it may have landed. Its "
+                      "change-log spool is kept. Every direct writer stays blocked at preflight until "
+                      "`python -m cytir.index.change_log replay-pending` has run. Stop and repair first.")
+
+
+def write_completed(status) -> bool:
+    """True when a Qdrant update result says `completed` (a `wait=True` write that was applied)."""
+    st = status.get("status") if isinstance(status, dict) else getattr(status, "status", None)
+    return str(getattr(st, "value", st)) == "completed"
+
+
+def _proc_start(pid: int) -> str | None:
+    """The process start time (clock ticks since boot, /proc/<pid>/stat field 22), or None."""
+    try:
+        raw = pathlib.Path(f"/proc/{pid}/stat").read_text()
+        return raw[raw.rindex(")") + 2:].split()[19]
+    except (OSError, ValueError, IndexError):
+        return None
+
+
+def _writer_identity() -> dict:
+    return {"pid": os.getpid(), "host": socket.gethostname(), "start": _proc_start(os.getpid())}
+
+
+def _spool_writer(path: pathlib.Path) -> dict | None:
+    try:
+        w = json.loads(path.read_text()).get("writer")
+    except (OSError, ValueError):
+        return None
+    return w if isinstance(w, dict) and isinstance(w.get("pid"), int) else None
+
+
+def _writer_alive(w: dict | None) -> bool:
+    """True only when the spool's writer runs on THIS host with the SAME pid and start time (a recycled
+    pid has another start time, so it is not alive). No record, another host, or no /proc: not alive."""
+    if not w or w.get("host") != socket.gethostname():
+        return False
+    start = _proc_start(w["pid"])
+    return start is not None and start == w.get("start")
+
+
+def spool_pending(tool: str, write_id: str, collection: str, ops: dict) -> pathlib.Path | None:
+    """Write the line a direct write is ABOUT to log, before the write (a `replace` / payload patch set
+    only: re-logging an attempted id is safe, the delta builder fetches the row again). Removed by
+    `clear_pending` once `record_direct` landed. A leftover file is a write whose line was lost:
+    `replay_pending` re-records it. None when the log is off."""
+    out = configured_dir()
+    if out is None:
+        return None
+    path = out / PENDING_DIR / f"{direct_pack_id(tool, write_id)}.json"
+    _write_segment(path, json.dumps({"tool": tool, "write_id": write_id, "collection": collection,
+                                     "writer": _writer_identity(),
+                                     "ops": {k: list(v) for k, v in ops.items()}}, sort_keys=True) + "\n")
+    return path
+
+
+@DRY.refuses_when_dry("pending-spool delete")
+def clear_pending(path: pathlib.Path | None) -> None:
+    if path is not None:
+        path.unlink(missing_ok=True)
+
+
+@DRY.refuses_when_dry("pending-spool replay")
+def replay_pending(out_dir: pathlib.Path | str | None = None) -> list[str]:
+    """Re-record every pending line (same write id: idempotent), then remove its file. Returns the
+    write ids replayed. Holds no state of its own: the leftover files ARE the lost lines.
+
+    Task 3011 (review 2309 r2, item 1): a replay during a running writer records the line before the
+    write landed and a delta cut in between ships the old row. So it REFUSES (`ChangeLogError`, nothing
+    recorded) while TWIN-WRITE-LOCK or PROD-WRITE-LOCK is held (`write_lock.assert_locks_free`, the one
+    lock protocol; a sticky lock of a dead writer needs a human first) and while any spool's writer is
+    still running on this host."""
+    out = pathlib.Path(out_dir) if out_dir else configured_dir()
+    if out is None or not (out / PENDING_DIR).is_dir():
+        return []
+    files = sorted((out / PENDING_DIR).glob("*.json"))
+    if not files:
+        return []
+    from cytir.ops import write_lock as WL     # local: the log module stays importable without the lock stack
+    try:
+        WL.assert_locks_free()
+    except WL.BatchError as exc:
+        raise ChangeLogError(f"replay-pending refused: {exc}") from exc
+    for f in files:
+        w = _spool_writer(f)
+        if _writer_alive(w):
+            raise ChangeLogError(f"replay-pending refused: writer {w['pid']} is still running "
+                                 f"({f.name}); its line is not lost, it has not landed yet")
+    done = []
+    for f in files:
+        try:
+            d = json.loads(f.read_text())
+        except FileNotFoundError:
+            continue
+        record_direct(tool=d["tool"], write_id=d["write_id"], collection=d["collection"],
+                      verified_written=True, out_dir=out, **d["ops"])
+        f.unlink(missing_ok=True)
+        done.append(d["write_id"])
+    return done
 
 
 def read_segment(path: pathlib.Path | str) -> tuple[dict, list[dict]]:
@@ -381,7 +587,10 @@ def audit(queue_dir: pathlib.Path | str, log_dir: pathlib.Path | str, *,
         if (d / "DONE").is_file():
             done[d.name] = _done_at(d / "DONE")
     checked = {k: v for k, v in done.items() if start is not None and v >= start}
+    left = sorted((logs / PENDING_DIR).glob("*.json")) if logs.is_dir() else []
+    ages = [max(0, int(time.time() - f.stat().st_mtime)) for f in left if f.exists()]
     return {"since": start, "done_checked": len(checked),
+            "pending_spools": len(ages), "oldest_pending_spool_age_s": max(ages) if ages else None,
             "done_without_segment": sorted(k for k in checked if k not in segs),
             "segment_without_done": sorted(k for k in segs if k not in done
                                            and not k.startswith("flip-"))}
@@ -397,6 +606,7 @@ def main(argv: Iterable[str] | None = None) -> int:
     a.add_argument("queue_dir", nargs="?", default=None, help="default: the queue_dir setting")
     a.add_argument("log_dir", nargs="?", default=None, help="default: the change_log_dir setting")
     a.add_argument("--since", default=None, help="ISO time; default: the oldest segment's landed_at")
+    sub.add_parser("replay-pending", help="re-record the lines of direct writes whose line was lost")
     r = sub.add_parser("rebase", help="write the rebase segment of a flip that carries no pack")
     r.add_argument("--pack-id", required=True, help="a name for the segment, e.g. flip-aw_e11")
     r.add_argument("--flip-receipt", required=True, help="the flip receipt file, or - for stdin")
@@ -418,6 +628,10 @@ def main(argv: Iterable[str] | None = None) -> int:
                                                                       "segment_without_done")}),
                   file=sys.stderr)
         return 1 if bad else 0
+    if args.cmd == "replay-pending":
+        ids = replay_pending()
+        print(json.dumps({"replayed": ids}))
+        return 0
     if args.cmd == "rebase":
         raw = (sys.stdin.buffer.read() if args.flip_receipt == "-"
                else pathlib.Path(args.flip_receipt).read_bytes())

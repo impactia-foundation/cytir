@@ -7,6 +7,12 @@ key each hit by (path, function), and compare with the declared registry
 `data/change-log-writers.v1.json`. `tests/operator/test_aw_change_log_writer_registry.py` fails on an
 unregistered site, on a stale row, and when the `direct-unlogged` count grows.
 
+TRIPWIRE, NOT A PROOF (task 3011, review 2309 r2 item 3): this scan shows that a registered writer
+mentions the change log; it does not prove the writer logs. Four mutants still pass it: an inverted
+log-off guard in `_land` (any `if` naming `configured_dir` counts as the guard), a swallowed record
+failure, `on_deleted=dlog.superseded if False else None`, and `Superseder.run` never calling
+`on_deleted`. `tests/test_change_log_direct_wiring.py` is the real safety net and catches all four.
+
 Static only: no Qdrant, no network. A hit is one of
   - an SDK call `.upsert / .set_payload / .overwrite_payload / .delete_payload / .clear_payload /
     .update_vectors / .delete_vectors / .upload_* / .batch_update_points`, or `.delete(points_selector=...)`;
@@ -32,7 +38,7 @@ import re
 APP = pathlib.Path(__file__).resolve().parents[2]
 REGISTRY = APP / "data" / "change-log-writers.v1.json"
 ROOTS = ("cytir", "server", "deploy")
-CLASSES = ("drain-logged", "direct-unlogged", "never-live")
+CLASSES = ("drain-logged", "direct-logged", "direct-unlogged", "never-live")
 
 SDK_ATTRS = frozenset({
     "upsert", "set_payload", "overwrite_payload", "delete_payload", "clear_payload", "update_vectors",
@@ -193,7 +199,7 @@ LIVE_APPLY_OF = {"apply_side": "live_apply", "live_apply": "live_apply",
 
 
 def _own_calls(fn: ast.FunctionDef) -> list[ast.Call]:
-    """Calls in `fn`'s own body: not inside a nested def / lambda / class, not in a constant-false branch."""
+    """Calls in `fn`'s own body: not inside a nested def / lambda / class, not in a constant-false branch, not after an unconditional return/raise."""
     out: list[ast.Call] = []
 
     def visit(n: ast.AST) -> None:
@@ -207,11 +213,20 @@ def _own_calls(fn: ast.FunctionDef) -> list[ast.Call]:
             return
         if isinstance(n, ast.Call):
             out.append(n)
-        for c in ast.iter_child_nodes(n):
-            visit(c)
+        for _, value in ast.iter_fields(n):
+            if isinstance(value, list):
+                for c in value:
+                    if isinstance(c, ast.AST):
+                        visit(c)
+                        if isinstance(c, (ast.Return, ast.Raise)):
+                            break  # statements after an unconditional return/raise never run
+            elif isinstance(value, ast.AST):
+                visit(value)
 
     for stmt in fn.body:
         visit(stmt)
+        if isinstance(stmt, (ast.Return, ast.Raise)):
+            break
     return out
 
 
@@ -275,3 +290,178 @@ def logged_by_problem(row: dict, root: pathlib.Path = APP) -> str | None:
     if not any(_is_landing_log(c.func) for c in calls):
         return f"{lb['function']} makes no change-log call"
     return None
+
+
+def _call_name(c: ast.Call) -> str:
+    f = c.func
+    return f.attr if isinstance(f, ast.Attribute) else getattr(f, "id", "")
+
+
+def _find_fn(path: pathlib.Path, name: str) -> ast.FunctionDef | None:
+    """The first def called `name` in the file (a method counts: classes are walked)."""
+    for n in ast.walk(ast.parse(path.read_text())):
+        if isinstance(n, (ast.FunctionDef, ast.AsyncFunctionDef)) and n.name == name:
+            return n
+    return None
+
+
+def _top_calls(stmts) -> list[tuple[str, int]]:
+    """(name, line) of the calls a function runs UNCONDITIONALLY: straight-line statements, and the
+    bodies of `try` / `with` (not an `if`, loop or handler: those may skip the call)."""
+    out: list[tuple[str, int]] = []
+    for st in stmts:
+        if isinstance(st, ast.Try):
+            out += _top_calls(st.body)
+        elif isinstance(st, ast.With):
+            out += _top_calls(st.body)
+        elif isinstance(st, (ast.Expr, ast.Assign, ast.AnnAssign, ast.AugAssign, ast.Return)):
+            out += [(_call_name(n), n.lineno) for n in ast.walk(st) if isinstance(n, ast.Call)]
+    return out
+
+
+def _early_returns(fn: ast.FunctionDef) -> list[int]:
+    """Lines of `return` statements in `fn` that are NOT the log-off guard (`if ...configured_dir()...:
+    return`). Nested defs are not entered."""
+    bad: list[int] = []
+
+    def visit(n: ast.AST, guarded: bool) -> None:
+        if isinstance(n, (ast.FunctionDef, ast.AsyncFunctionDef, ast.Lambda, ast.ClassDef)):
+            return
+        if isinstance(n, ast.Return) and not guarded:
+            bad.append(n.lineno)
+        if isinstance(n, ast.If):
+            g = guarded or "configured_dir" in ast.unparse(n.test)
+            for c in n.body:
+                visit(c, g)
+            for c in n.orelse:
+                visit(c, guarded)
+            return
+        for c in ast.iter_child_nodes(n):
+            visit(c, guarded)
+
+    for st in fn.body:
+        visit(st, False)
+    return bad
+
+
+def _reaches_record(path: pathlib.Path, name: str, depth: int = 4) -> str | None:
+    """Why the function `name` does not reach `record_direct` on every call, or None. It must call
+    `record_direct` itself or a same-file function that does, as a straight-line (unconditional) call,
+    with no `return` before it other than the log-off guard."""
+    fn = _find_fn(path, name)
+    if fn is None:
+        return f"no function {name} in {path.name}"
+    top = _top_calls(fn.body)
+    hit = [ln for nm, ln in top if nm == "record_direct"]
+    if hit:
+        early = [ln for ln in _early_returns(fn) if ln < min(hit)]
+        return f"{name}: a return at line {early[0]} comes before record_direct" if early else None
+    if depth == 0:
+        return f"{name}: record_direct not reached"
+    for nm, ln in top:
+        if nm != name and _find_fn(path, nm) is not None:
+            early = [r for r in _early_returns(fn) if r < ln]
+            if early:
+                return f"{name}: a return at line {early[0]} comes before {nm}"
+            if _reaches_record(path, nm, depth - 1) is None:
+                return None
+    return f"{name}: no unconditional call chain to record_direct"
+
+
+def direct_log_problem(row: dict, root: pathlib.Path = APP) -> str | None:
+    """Why a `direct-logged` row's claim does not hold, or None (task 3002, review 2853 (c), review
+    3009 (2)). Read from the code with `ast`:
+      * `logged_by` {path, function, writes_via, log_via[, log_param]}: that function's OWN body calls
+        the write and the log, the FIRST log call after the LAST write by line; `log_param` (the log
+        handle) must be a REQUIRED parameter (no default, so a caller cannot skip it).
+      * `log_via` must REACH `record_direct`: unconditionally, no early `return` before it except the
+        log-off guard (`if ...configured_dir()...`). A log function that returns at once is red.
+      * `logged_by` {path, function, hands_log_to}: the writer is a wrapper class (the Superseder): every
+        non-dry-run `Superseder(...)` call in that function passes `on_deleted=<...hands_log_to>`, and
+        `hands_log_to` reaches `record_direct` as above.
+      * `record_fn` {path, function}: its own body calls `record_direct`."""
+    lb, rf = row.get("logged_by"), row.get("record_fn")
+    if not lb or not rf:
+        return "a direct-logged row needs `logged_by` and `record_fn`"
+    p = root / lb["path"]
+    if not p.is_file():
+        return f"{lb['path']}: no such file"
+    fn = _find_fn(p, lb["function"])
+    if fn is None:
+        return f"{lb['path']}: no function {lb['function']}"
+    if "hands_log_to" in lb:
+        ctors = [c for c in _own_calls(fn) if _call_name(c) == "Superseder"
+                 and not any(k.arg == "dry_run" for k in c.keywords)]
+        if not ctors:
+            return f"{lb['function']} builds no Superseder"
+        for c in ctors:
+            kw = [k for k in c.keywords if k.arg == "on_deleted"]
+            if not kw or lb["hands_log_to"] not in ast.unparse(kw[0].value):
+                return f"{lb['function']}: a Superseder (line {c.lineno}) is built without on_deleted={lb['hands_log_to']}"
+        bad = _reaches_record(p, lb["hands_log_to"])
+        if bad:
+            return bad
+    else:
+        calls = _own_calls(fn)
+        writes = [c.lineno for c in calls if _call_name(c) == lb["writes_via"]]
+        logs = [c.lineno for c in calls if _call_name(c) == lb["log_via"]]
+        if not writes:
+            return f"{lb['function']} does not call {lb['writes_via']} (the write)"
+        if not logs:
+            return f"{lb['function']} does not call {lb['log_via']} (the log)"
+        if min(logs) <= max(writes):
+            return (f"{lb['function']}: the log call {lb['log_via']} (line {min(logs)}) is not after the "
+                    f"write {lb['writes_via']} (line {max(writes)}): log AFTER the verified write")
+        if "log_param" in lb:
+            a = fn.args
+            names = [x.arg for x in a.posonlyargs + a.args]
+            req = len(names) - len(a.defaults)
+            kwreq = [x.arg for x, d in zip(a.kwonlyargs, a.kw_defaults) if d is None]
+            if lb["log_param"] not in names[:req] + kwreq:
+                return f"{lb['function']}: `{lb['log_param']}` must be a required parameter (no default)"
+        bad = _reaches_record(p, lb["log_via"])
+        if bad:
+            return bad
+    rp = root / rf["path"]
+    if not rp.is_file():
+        return f"{rf['path']}: no such file"
+    rfn = _find_fn(rp, rf["function"])
+    if rfn is None:
+        return f"{rf['path']}: no function {rf['function']}"
+    if not any(_call_name(c) == "record_direct" for c in _own_calls(rfn)):
+        return f"{rf['function']} makes no `record_direct` call"
+    return None
+
+
+def code_guard_order_problem(row: dict, found: dict, root: pathlib.Path = APP) -> str | None:
+    """Why a `code-guard` never-live row's guard does not run BEFORE its write, or None (review 2853 (c)).
+
+    The guard function (last dotted name of `guard_fn`) must be called, by source line, before the
+    FIRST write hit of the row's function: in that function or one that encloses it (a nested def
+    runs after its parent's earlier lines). A guard that runs in the CALLER is declared with
+    `guard_caller: {"function": F}`: F's own body calls the guard, then the row's function, in that order."""
+    guard = row["guard_fn"].rsplit(".", 1)[1]
+    path = root / row["path"]
+    hits = [h["line"] for h in found.get((row["path"], row["function"]), ())]
+    if not hits:
+        return f"{row['function']}: no write hit to order the guard against"
+    parts = row["function"].split(".")
+    if "guard_caller" in row:
+        fn = _find_fn(path, row["guard_caller"]["function"])
+        if fn is None:
+            return f"no function {row['guard_caller']['function']} in {row['path']}"
+        calls = _own_calls(fn)
+        g = [c.lineno for c in calls if _call_name(c) == guard]
+        w = [c.lineno for c in calls if _call_name(c) == parts[-1]]
+        if not g or not w:
+            return f"{fn.name} must call {guard} and then {parts[-1]}"
+        return None if min(g) < min(w) else f"{fn.name}: {guard} is not called before {parts[-1]}"
+    first = min(hits)
+    for depth in range(len(parts), 0, -1):          # the function itself, then each enclosing def
+        fn = _find_fn(path, parts[depth - 1])
+        if fn is None:
+            continue
+        g = [c.lineno for c in _own_calls(fn) if _call_name(c) == guard]
+        if g and min(g) < first:
+            return None
+    return f"{row['function']}: {guard} is not called before the first write (line {first})"

@@ -785,6 +785,10 @@ def _rehearse_main(argv: list[str]) -> int:
 
 
 def main(argv: list[str] | None = None) -> int:
+    import warnings
+    # F10 (task 3008): two third-party notices that print on a stranger's first command and mean nothing to them.
+    warnings.filterwarnings("ignore", message=r".*doesn't match a supported version.*")   # urllib3/requests PySocks etc.
+    warnings.filterwarnings("ignore", message=r".*Payload indexes have no effect in the local Qdrant.*")
     parser = build_parser()
     # A verb owns everything after its own name -- parse only far enough to
     # find it, then hand the REST of argv to that verb's own parser (its
@@ -798,7 +802,65 @@ def main(argv: list[str] | None = None) -> int:
         # informative rather than silently doing nothing.
         parser.print_help()
         return 0
-    return verb_main(rest)
+    try:
+        return verb_main(rest)
+    except ModuleNotFoundError as e:
+        hint = missing_extra_message(args.verb, e)
+        if hint is None:
+            raise
+        print(f"REFUSED: {hint}", file=sys.stderr)
+        return 1   # the refusal code of the other precondition refusals here (`cyt torrent`); 2 is argparse usage
+
+
+#: Top-level module -> the distribution (as named in pyproject.toml) that ships it. Only a module
+#: in this table gets the "install the extra" line; any other missing module re-raises. A test checks
+#: every distribution here against the extras of pyproject.toml.
+EXTRA_MODULES = {
+    "qdrant_client": "qdrant-client", "httpx": "httpx", "yaml": "PyYAML", "fastapi": "fastapi",
+    "uvicorn": "uvicorn", "mcp": "mcp", "pyarrow": "pyarrow", "duckdb": "duckdb",
+    "sklearn": "scikit-learn", "trafilatura": "trafilatura", "bs4": "beautifulsoup4", "lxml": "lxml",
+    "jsonschema": "jsonschema", "htmldate": "htmldate", "zstandard": "zstandard", "boto3": "boto3",
+}
+#: Which extras to try, first match wins, per verb (a verb's own extra first, then the rest).
+_VERB_EXTRAS = {"read": ("reader", "dev"), "embed": ("pipeline", "serve", "dev"),
+                "chunk": ("pipeline", "dev"), "extract": ("pipeline", "dev"),
+                "news": ("pipeline", "dev"), "corpus": ("pipeline", "dev")}
+_DEFAULT_EXTRAS = ("dev", "serve", "reader", "pipeline")
+
+
+def _norm(dist_name: str) -> str:
+    return dist_name.lower().replace("_", "-")
+
+
+def _extra_dists(extra: str) -> set[str]:
+    """Normalised distribution names an extra declares, from the installed package metadata."""
+    import re
+    from importlib import metadata
+    out = set()
+    for req in metadata.requires("cytir") or []:
+        if f"extra == '{extra}'" in req.replace('"', "'"):
+            out.add(_norm(re.split(r"[\s\[<>=!~;(]", req, maxsplit=1)[0]))
+    return out
+
+
+def missing_extra_message(verb: str, exc: ModuleNotFoundError) -> str | None:
+    """One line for a verb whose DECLARED third-party module is not installed, else None (re-raise:
+    a submodule of an installed package, a module no extra declares, or Cytir's own, is a bug)."""
+    dist = EXTRA_MODULES.get(exc.name or "")   # a dotted name (`yaml.x`) never matches
+    if dist is None:
+        return None
+    extra = None
+    try:
+        for cand in _VERB_EXTRAS.get(verb, _DEFAULT_EXTRAS):
+            if _norm(dist) in _extra_dists(cand):
+                extra = cand
+                break
+    except Exception:  # noqa: BLE001  (no package metadata, e.g. a bare checkout on PYTHONPATH)
+        return None
+    if extra is None:
+        return None
+    return (f'cyt {verb} needs the "{extra}" extra (missing module: {exc.name}): '
+            f'uv tool install "cytir[{extra}]"  (or pip install "cytir[{extra}]" in a virtualenv)')
 
 
 if __name__ == "__main__":

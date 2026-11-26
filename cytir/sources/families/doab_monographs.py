@@ -36,6 +36,7 @@ import time
 import urllib.parse
 
 from cytir.core import projection
+from cytir.core.search_result_url import is_search_result_url
 from cytir.core.common import TIER_TRUST, extractive_snippet, sha1
 from cytir.sources import api_fetch as AF
 from cytir.sources.family import CHUNK_DECLARED, HttpSpec, Captured, Doc, RunContext, Unit, UnitExcluded
@@ -473,7 +474,10 @@ class DoabMonographsFamily:
         projected = projection.project_record(rec)
         if projected is None:
             # Rejected at admission (site-search result URL, task 2048): the predicate's reject counter
-            # already counted it inside project_record; the unit yields no row.
+            # already counted it inside project_record. The unit is excluded with a counted reason
+            # (task 3015), not closed as `chunk_empty`.
+            if is_search_result_url(doc.url):
+                raise UnitExcluded("search_result_url")
             return []
         rec["point_id"] = projected[0]
         return [rec]

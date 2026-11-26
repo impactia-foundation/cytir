@@ -288,8 +288,8 @@ def test_2941_a_resume_derived_from_a_live_twin_check_hands_those_ids_to_the_wri
     res = _drain_with(tmp_path, apply=True, contract_path=contract)
     assert res[0]["status"] == "LANDED" and res[0]["resumed_prod_only"] is True
     assert "duplicate of already-landed pack" in res[0]["note"]
-    assert [k["twin_ids_override"] for k in seen["resume"]] == [["b"]]
-    assert ("http://twin.invalid", ["b"]) in seen["present"]
+    assert [k["twin_ids_override"] for k in seen["resume"]] == [["a", "b"]]   # task 3005: a is on prod too
+    assert ("http://twin.invalid", ["b"]) in seen["present"] and ("http://twin.invalid", ["a"]) in seen["present"]
     assert len(seen["settle"]) == 1 and seen["settle"][0]["apply"] is True
     assert (tmp_path / "queue" / "test-pack-001" / "DONE").exists()
 
@@ -608,3 +608,12 @@ def test_2941_the_already_on_twin_receipt_lists_the_first_fifty_ids_of_a_larger_
     res = _drain_with(tmp_path, apply=True, contract_path=contract)
     a = res[0].get("already_on_twin")
     assert a is not None and a["count"] == 60 and a["ids"] == ids[:50]
+
+
+def test_3005_apply_side_runs_inside_a_retry_leg():
+    """The shared status-retry budget is the decorator `PSP.retry_leg()` on `apply_side` (review of PR 2306: a helper
+    inserted above it once took the decorator). `retry_leg` is a ContextDecorator: its wrapper sets `__wrapped__`;
+    the helper that runs inside the leg carries none."""
+    from cytir.index.drain import write_sealed as WS
+    assert hasattr(WS.apply_side, "__wrapped__")
+    assert not hasattr(WS._check_present_rows, "__wrapped__")

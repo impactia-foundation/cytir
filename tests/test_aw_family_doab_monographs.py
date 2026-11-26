@@ -95,3 +95,16 @@ def test_the_publisher_option_picks_the_other_press(tmp_path):
     with pytest.raises(run_family.RunError) as e:      # one title, no landing URL in the fixture register
         _run(tmp_path, publisher="Another Press", pointer_hosts="example.org")
     assert "'no_url': 1" in str(e.value)
+
+
+def test_a_search_result_url_is_excluded_not_closed_as_chunk_empty(tmp_path):
+    """Task 3015: an admissible fixture item whose resolved URL is a site-search page."""
+    from cytir.sources.family import Doc, RunContext, UnitExcluded
+    uuid = WORLD["search"][0]
+    meta = M.parse_item_metadata(WORLD["items"][uuid])
+    ctx = RunContext(out_dir=tmp_path, today="2026-10-01", options={})
+    doc = Doc(url="https://mitpress.mit.edu/?s=climate", text=meta["title"], title=meta["title"],
+              lang="en", extra={"meta": meta, "spdx": "CC-BY-4.0"})
+    with pytest.raises(UnitExcluded) as e:
+        M.DoabMonographsFamily().chunk(doc, ctx)
+    assert str(e.value) == "search_result_url"

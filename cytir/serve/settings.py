@@ -95,6 +95,7 @@ class Runtime:
     webapp: str = knob("AW_WEBAPP", STR, "/srv/webapp/index.html", why="the human search page")
     api_url: str = knob("AW_API_URL", STR, "http://localhost:8080", why="aw-mcp -> aw-api")
     mcp_port: int = knob("AW_MCP_PORT", INT, "8081", why="aw-mcp")
+    mcp_host: str = knob("AW_MCP_HOST", STR, "0.0.0.0", why="aw-mcp bind address; the default flips to 127.0.0.1 in a later step (task 3008, Owed)")
     fusion_weights: str = knob("AW_FUSION_WEIGHTS", STR, os.path.join(_HERE, "fusion_weights.json"),
                                why="task 522", call_time=True)
     rankhead_path: str = knob("AW_RANKHEAD_PATH", STR, os.path.join(_HERE, "rankhead.json"), why="ADR-036")

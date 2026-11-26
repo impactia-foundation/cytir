@@ -138,11 +138,10 @@ SWISSINFO_TAIL_SMOKE_ASOF = "2025-09-26"
 SWISSINFO_TAIL_FIRST, SWISSINFO_TAIL_LAST = "2026-09-19", "2026-09-29"
 SWISSINFO_TAIL_LANGS = ("ger", "fre", "ita")
 TAIL_SMOKE_URLS = 25
-#: The page-date clamp lives in the release's own `sitemap_ingest.py`: in the legacy `pipeline` dir for a release
-#: cut before the file moved into the package (task 683 S7 tranche 4; r22 on the build box is one), in
-#: `cytir/acquire/` after it, where the legacy file is only an alias shim holding no marks.
-CLAMP_FILE = "pipeline/sitemap_ingest.py"
-CLAMP_FILES = (CLAMP_FILE, "cytir/acquire/sitemap_ingest.py")
+#: The page-date clamp lives in the release's own `cytir/acquire/sitemap_ingest.py`. The pre-move `pipeline/`
+#: path is no longer listed: the news lane pins a release that has the package file (task 3017).
+CLAMP_FILE = "cytir/acquire/sitemap_ingest.py"
+CLAMP_FILES = (CLAMP_FILE,)
 CLAMP_MARKS = ("def page_date_clamp_day", "now_ref=page_date_clamp_day(")
 
 

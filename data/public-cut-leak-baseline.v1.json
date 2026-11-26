@@ -3,8 +3,8 @@
  "note": "Ratchet: `aw ops cut` refuses a leak absent from this list or above its count. It only shrinks (`aw ops cut --tighten`); the one way up is `aw ops cut --admit-moved FROM TO`, recorded in `admitted`. Zero is the real cut.",
  "totals": {
   "pipeline_ref": {
-   "files": 1,
-   "mentions": 1
+   "files": 0,
+   "mentions": 0
   },
   "tasks_ref": {
    "files": 1,
@@ -20,9 +20,7 @@
   }
  },
  "leaks": {
-  "pipeline_ref": {
-   "cytir/news/coverage_backfill.py": 1
-  },
+  "pipeline_ref": {},
   "tasks_ref": {
    "data/payload-enum-tables.v1.json": 1
   },

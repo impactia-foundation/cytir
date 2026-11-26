@@ -30,6 +30,7 @@ import pathlib
 import re
 import shutil
 import sys
+import urllib.error
 import uuid
 
 import pytest
@@ -554,24 +555,126 @@ def test_G3_held_out_cards_survive_a_prod_only_resume(tmp_path, url, monkeypatch
     assert [x for x in _ids(url, TW)] == [x for x in _ids(url, PR)]
 
 
-def test_G4c_reconstruction_resume_with_part_of_the_pack_already_on_prod_refuses_with_a_collision_and_writes_nothing(
+def test_G4c_reconstruction_resume_with_part_of_the_pack_already_on_prod_lands_the_rest_and_only_the_rest(
         tmp_path, url, monkeypatch):
-    """Task 2926 (finding 2 of review 2900), TODAY'S behaviour. The prod leg died after one of two batches (3 of 4
-    rows on prod) AND the twin-written-ids artifact is lost, so the resume RECONSTRUCTS the twin set from a live
-    twin check (`twin_ids_override`). The override holds only the id prod misses; the three the pack already put on
-    prod are then ids "prod holds that the twin leg did not write": `ResumeCollisionError`, REFUSED at
-    live-apply-preflight, nothing written, no DONE, no segment. (A fix lane may turn this into a landing; it must
-    change this test with it.) The same drain with the artifact kept lands (G2)."""
+    """Task 3005 (finding 2 of review 2900; task 2926 pinned the old refusal here). The prod leg died after one of two
+    batches (3 of 4 rows on prod) AND the twin-written-ids artifact is lost, so the resume RECONSTRUCTS the twin set
+    from a live twin check. The three ids the pack already put on prod are on the twin too, so they are twin-written
+    ids: the resume writes exactly the one missing row, no duplicate, no delete, and prod ends equal to the twin."""
     _prod_is_the_harness_prod(monkeypatch)
-    r = _crash_then_resume(tmp_path, url, monkeypatch, die_on_prod_call=2, between=_drop_artifact)
+    before = {}
+
+    def snap(u, artifacts):
+        _drop_artifact(u, artifacts)
+        before.update({i: (p, v) for i, p, v in _points(u, PR)})
+
+    r = _crash_then_resume(tmp_path, url, monkeypatch, die_on_prod_call=2, between=snap)
     f, w, rec = r["first"], r["w"], r["results"][0]
     assert len(f["prod"]) == 3 and len(f["twin"]) == 4
+    assert rec["status"] == "LANDED" and rec["resumed_prod_only"] is True, rec
+    assert w.sent("twin") == [] and sorted(w.sent("prod")) == sorted(set(f["twin"]) - set(f["prod"]))
+    res = rec["prod"]["resume"]
+    assert (res["twin_written_ids"], res["written"], res["present_after"]) == (4, 1, 4)
+    assert (r["queue"] / SEALED / "DONE").exists()
+    _assert_prod_equals_twin(url)
+    after = {i: (p, v) for i, p, v in _points(url, PR)}
+    assert all(after[k] == v for k, v in before.items())      # a served row is untouched, same payload
+
+
+def test_G4d_reconstruction_resume_still_refuses_a_prod_id_the_twin_does_not_hold(tmp_path, url, monkeypatch):
+    """Task 3005, the TRUE collision: of the three ids on prod one is NOT on the twin, so no leg of this pack wrote it
+    there. `ResumeCollisionError`, REFUSED at live-apply-preflight, nothing written, no DONE, no segment."""
+    _prod_is_the_harness_prod(monkeypatch)
+    odd = []
+
+    def lose_on_twin(u, artifacts):
+        _drop_artifact(u, artifacts)
+        odd.append(_ids(u, PR)[0])
+        H.api(u, f"/collections/{TW}/points/delete?wait=true", {"points": [odd[0]]}, method="POST")
+
+    r = _crash_then_resume(tmp_path, url, monkeypatch, die_on_prod_call=2, between=lose_on_twin)
+    f, w, rec = r["first"], r["w"], r["results"][0]
     assert rec["status"] == "REFUSED" and rec["stage"] == "live-apply-preflight", rec
     assert rec["reason"].startswith("ResumeCollisionError:"), rec["reason"]
-    assert w.log == []                                                       # nothing written, either side
-    assert _ids(url, PR) == f["prod"] and _ids(url, TW) == f["twin"]
+    assert w.log == []
+    assert _ids(url, PR) == f["prod"] and odd[0] in _ids(url, PR)
     assert not (r["queue"] / SEALED / "DONE").exists() and _segments(r["log_dir"]) == []
-    assert r["locks"] == _lock_seq("promotion-queue-resume")
+
+
+def _refused_row_check(tmp_path, url, monkeypatch, between_extra=None, fetch_fails_for=None):
+    """Artifact lost, 3 of 4 on prod; `between_extra(url)` then alters the world. Returns the run."""
+    _prod_is_the_harness_prod(monkeypatch)
+    if fetch_fails_for:
+        from cytir.index import point_delete as PD
+        real = PD.fetch_rows
+
+        def flaky(u, coll, ids, **kw):
+            if coll == fetch_fails_for and len(ids) == 3:
+                raise OSError("simulated read failure")
+            return real(u, coll, ids, **kw)
+        monkeypatch.setattr(PD, "fetch_rows", flaky)
+
+    def between(u, artifacts):
+        _drop_artifact(u, artifacts)
+        if between_extra:
+            between_extra(u)
+
+    r = _crash_then_resume(tmp_path, url, monkeypatch, die_on_prod_call=2, between=between)
+    rec, f = r["results"][0], r["first"]
+    assert rec["status"] == "REFUSED" and rec["stage"] == "live-apply-preflight", rec
+    assert r["w"].log == [] and _ids(url, PR) == f["prod"]            # nothing written, nothing deleted
+    assert not (r["queue"] / SEALED / "DONE").exists() and _segments(r["log_dir"]) == []
+    return rec
+
+
+def test_G4e_same_id_with_a_different_payload_on_prod_is_a_collision(tmp_path, url, monkeypatch):
+    """Task 3005, review 3007 finding 1: an id on prod AND on the twin is not proof that prod holds this pack's row."""
+    def alter(u):
+        pid = _ids(u, PR)[0]
+        H.api(u, f"/collections/{PR}/points/payload?wait=true",
+              {"payload": {"title": "SAME ID, OTHER ROW"}, "points": [pid]}, method="POST")
+    rec = _refused_row_check(tmp_path, url, monkeypatch, between_extra=alter)
+    assert rec["reason"].startswith("ResumeCollisionError:") and "row differs" in rec["reason"], rec["reason"]
+
+
+def test_G4f_same_id_with_a_different_payload_on_the_twin_is_a_collision(tmp_path, url, monkeypatch):
+    def alter(u):
+        pid = _ids(u, PR)[0]
+        H.api(u, f"/collections/{TW}/points/payload?wait=true",
+              {"payload": {"title": "TWIN OTHER ROW"}, "points": [pid]}, method="POST")
+    rec = _refused_row_check(tmp_path, url, monkeypatch, between_extra=alter)
+    assert rec["reason"].startswith("ResumeCollisionError:") and "row differs" in rec["reason"], rec["reason"]
+
+
+def test_G4i_a_different_dense_vector_alone_on_prod_is_a_collision(tmp_path, url, monkeypatch):
+    """Task 3005: payload and id equal, ONLY the dense vector differs on prod -> refused."""
+    def alter(u):
+        pid = _ids(u, PR)[0]
+        got = H.api(u, f"/collections/{PR}/points", {"ids": [pid], "with_vector": True}, method="POST")
+        vec = got[0]["vector"]
+        dense = vec["dense"] if isinstance(vec, dict) else vec
+        H.api(u, f"/collections/{PR}/points/vectors?wait=true",
+              {"points": [{"id": pid, "vector": {"dense": list(reversed(dense))}}]}, method="PUT")
+    rec = _refused_row_check(tmp_path, url, monkeypatch, between_extra=alter)
+    assert rec["reason"].startswith("ResumeCollisionError:") and "dense" in rec["reason"], rec["reason"]
+
+
+@pytest.mark.parametrize("side", [PR, TW])
+def test_G4g_an_unreadable_side_in_the_row_check_refuses_and_writes_nothing(tmp_path, url, monkeypatch, side):
+    rec = _refused_row_check(tmp_path, url, monkeypatch, fetch_fails_for=side)
+    assert rec["reason"].startswith("QueueError:") and "could not read the rows" in rec["reason"], rec["reason"]
+
+
+def test_G4h_a_failed_twin_lookup_of_the_ids_already_on_prod_refuses_and_writes_nothing(tmp_path, url, monkeypatch):
+    real = PSP.already_present
+
+    def flaky(u, coll, ids, **kw):
+        if coll == TW and len(ids) == 3:           # the new lookup: exactly the three ids already on prod
+            raise urllib.error.URLError("simulated twin outage")
+        return real(u, coll, ids, **kw)
+    monkeypatch.setattr(PSP, "already_present", flaky)
+    rec = _refused_row_check(tmp_path, url, monkeypatch)
+    assert rec["reason"].startswith("URLError:") and "simulated twin outage" in rec["reason"], rec["reason"]
 
 
 # ================================================================ task 2929: pins before the resume code moves
@@ -712,7 +815,7 @@ def test_2929_sealed_reconstruction_resume_records_its_live_twin_source(tmp_path
     r = _crash_then_resume(tmp_path, url, monkeypatch, between=hook)
     rec, ids = r["results"][0], r["first"]["twin"]
     assert rec["status"] == "LANDED" and rec["resumed_prod_only"] is True
-    assert rec["note"] == ("duplicate of already-landed pack(s) -- resumed via a live twin-vs-prod membership "
+    assert rec["note"] == ("duplicate of already-landed pack(s) (or a prod leg of this pack that died part-way) -- resumed via a live twin-vs-prod membership "
                            "diff, no per-pack artifact")
     led = _ledger(r["artifacts"], SEALED)
     assert [x["status"] for x in led] == LEDGER_STATUSES

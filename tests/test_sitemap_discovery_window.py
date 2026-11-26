@@ -22,10 +22,16 @@ import sys
 import pytest
 
 HERE = pathlib.Path(__file__).resolve().parent
+# A module that leaves AW_OPERATOR_* set changes what every later module in the shard sees
+# (test_promote_sealed_pack asserts none is left behind): set for the import, then restore.
+_ADDED = [n for n in ("AW_OPERATOR_URL", "AW_OPERATOR_CONTACT") if n not in os.environ]
 os.environ.setdefault("AW_OPERATOR_URL", "https://websear.ch")
 os.environ.setdefault("AW_OPERATOR_CONTACT", "bender@impactia.org")
-
-from cytir.acquire import sitemap_ingest as S  # noqa: E402
+try:
+    from cytir.acquire import sitemap_ingest as S  # noqa: E402
+finally:
+    for _n in _ADDED:
+        os.environ.pop(_n, None)
 
 NOW = dt.date(2026, 9, 29)
 

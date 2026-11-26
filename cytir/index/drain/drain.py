@@ -4,6 +4,20 @@
 Task 2957 (RULING 80, drain split step 14): moved verbatim out of `cytir/index/promote_queue.py`, which
 re-exports both names. A moved body that calls a name a test patches on the facade (or a facade-resident
 constant, or the `TFA` alias a test replaces) reads it at call time through `_Q` (the facade module).
+
+THREE REFUSAL POLICIES for a pack that cannot finish (task 3004; trace task 2912 finding F2). They are
+a choice, not an accident. A persistent cause under policy 2 blocks every later pack until someone acts.
+1. REFUSE AND CONTINUE: a sealed url-group pack whose re-plan fails (`REFUSED supersede_check`, or
+   `live-apply-preflight`). The receipt is not cached, the pass goes on to the next pack, the pack is retried
+   next hour. Visible as: the daily digest REFUSED list, and the monitor check `pack_deleting` when its state
+   file stays at `deleting` for 6 h.
+2. STOP THE DRAIN: a content pack whose prod-only resume fails (receipt ABORTED), and a payload patch whose
+   pre-write check refuses (P1). Writing more packs on top of a half-applied one is not safe, so the pass ends
+   and runs again next hour, "until someone acts". Visible as: the digest, and the 3 h "prod unchanged" watchdog.
+3. STOP ON ABORT: `ApplyAbort` (a SystemExit: the alias moved mid-drain) and any failure after the shared
+   `WriteAttempt` started stop the pass at once (`_settle_guard`, `stops = attempt.started or ...`).
+A held writer lock (`cyt ops writer-locks --check`, monitor check `writer_locks`) makes every pack refuse at
+`live-apply-preflight` while the unit exits 0: that is policy 1 for all packs together.
 """
 from __future__ import annotations
 
@@ -881,6 +895,7 @@ def drain(queue_dir: pathlib.Path, *, twin_url: str | None = None,
             #   silently dropping it.
             twin_ids_path = _Q.twin_written_ids_path(artifact_root, pack_id)
             twin_ids_override = None
+            row_check_ids = None
             if not twin_ids_path.exists():
                 try:
                     twin_confirmed = set(PSP.already_present(
@@ -924,14 +939,37 @@ def drain(queue_dir: pathlib.Path, *, twin_url: str | None = None,
                     _Q.write_pack_receipt(pack_dir, record)
                     results.append(record)
                     continue
+                # Review 2900 finding 2: a prod leg that died part-way left some of THIS pack's ids on
+                # prod. They are twin-written ids too, when the twin holds them: confirm that live, so
+                # the resume skips them. One the twin does NOT hold stays out of the set and plan()
+                # refuses it as a collision (prod holds an id the twin leg did not write).
+                on_prod_already = sorted(set(exc.ids) - set(prod_missing))
+                # An id is not a row: the ones accepted HERE are compared row by row (prod = twin =
+                # the pack's row) before any write; a difference refuses as a collision.
+                if on_prod_already:
+                    try:
+                        twin_confirmed |= set(PSP.already_present(
+                            twin_url, manifest["collection"], on_prod_already))
+                    except (*_Q.REFUSAL_EXCEPTIONS, TimeoutError, socket.timeout,
+                           urllib.error.URLError) as twin_exc:
+                        print(f"[{pack_id}] could not check twin membership of the ids already on "
+                             f"prod (retrying next drain): {type(twin_exc).__name__}: {twin_exc}")
+                        record.update(status="REFUSED", stage="live-apply-preflight",
+                                     reason=f"{type(twin_exc).__name__}: {twin_exc}")
+                        _Q.write_pack_receipt(pack_dir, record)
+                        results.append(record)
+                        continue
                 twin_ids_override = sorted(twin_confirmed)
+                row_check_ids = frozenset(twin_confirmed & set(on_prod_already))
                 print(f"[{pack_id}] {'RESUMING' if apply else 'WOULD RESUME'} "
                      f"prod-only: {len(prod_missing)} "
                      f"of {len(exc.ids)} id(s) still missing from prod, "
                      "confirmed on twin by a live check (no per-pack "
-                     "artifact -- these ids landed on twin under a "
-                     "different pack_id, e.g. an earlier split-pack landing "
-                     "this is a duplicate of; task 664 incident 2)")
+                     "artifact -- these ids are on twin because a different "
+                     "pack_id landed them there (e.g. an earlier split-pack "
+                     "landing this is a duplicate of; task 664 incident 2) "
+                     "or because this pack's own prod leg died part-way and "
+                     "its written-ids artifact is lost)")
             else:
                 print(f"[{pack_id}] {'RESUMING' if apply else 'WOULD RESUME'} "
                      f"prod-only: {len(prod_missing)} "
@@ -968,11 +1006,13 @@ def drain(queue_dir: pathlib.Path, *, twin_url: str | None = None,
                     pause_s=pause_s, artifact_root=artifact_root,
                     write_attempt=write_attempt,
                     twin_ids_override=twin_ids_override,
+                    row_check_ids=row_check_ids or None,
                     prod_collection=get_prod_collection(),
                     prod_alias=prod_alias)
                 record["status"] = "LANDED"
                 if twin_ids_override is not None:
                     record["note"] = ("duplicate of already-landed pack(s) "
+                                      "(or a prod leg of this pack that died part-way) "
                                       "-- resumed via a live twin-vs-prod "
                                       "membership diff, no per-pack "
                                       "artifact")

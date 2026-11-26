@@ -223,7 +223,11 @@ def test_the_weekly_audit_units_are_well_formed():
         parsed[name] = cp
     svc, tmr = parsed["aw-change-log-audit.service"], parsed["aw-change-log-audit.timer"]
     assert svc["Service"]["Type"] == "oneshot"
-    assert "cytir.index.change_log audit" in svc["Service"]["ExecStart"]
+    # task 2998: the unit starts a repo script through aw-run (current release); the script runs the verb.
+    assert svc["Service"]["ExecStart"] == "/usr/local/sbin/aw-run deploy/scripts/change-log-audit-run.sh"
+    script = d.parent / "scripts" / "change-log-audit-run.sh"
+    assert script.is_file()
+    assert "-m cytir.index.change_log audit" in script.read_text()
     assert tmr["Timer"]["OnCalendar"] == "Sun *-*-* 06:30:00 Europe/Zurich"
     assert tmr["Timer"]["Unit"] == "aw-change-log-audit.service"
     assert tmr["Install"]["WantedBy"] == "timers.target"

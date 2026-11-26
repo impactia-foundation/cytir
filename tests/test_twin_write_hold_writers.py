@@ -211,6 +211,14 @@ def _tracked_py(app: pathlib.Path, roots: tuple[str, ...] = _IMPORT_ROOTS) -> li
     return [p for r in roots for p in sorted((app / r).rglob("*.py"))]
 
 
+def _is_import_module_call(n) -> bool:
+    """`importlib.import_module(...)`, `import_module(...)` or `__import__(...)` with the name as first argument."""
+    import ast
+    f = n.func
+    return (isinstance(f, ast.Attribute) and f.attr == "import_module") or \
+        (isinstance(f, ast.Name) and f.id in ("import_module", "__import__"))
+
+
 def importers_of(app: pathlib.Path, module: str) -> list[str]:
     """Files (relative to `app`) that import `module` ("a.b.c"): `import a.b.c`, `from a.b.c import x`,
     `from a.b import c`, and the relative forms."""
@@ -233,6 +241,10 @@ def importers_of(app: pathlib.Path, module: str) -> list[str]:
                 if n.level:
                     base = ".".join(pkg[:len(pkg) - n.level + 1] + ([base] if base else []))
                 names = [base] + [f"{base}.{a.name}" for a in n.names]
+            if isinstance(n, ast.Call) and _is_import_module_call(n):
+                a0 = n.args[0] if n.args else None
+                if isinstance(a0, ast.Constant) and isinstance(a0.value, str):
+                    names = [a0.value]
             if any(x == module or x.startswith(module + ".") for x in names):
                 hits.append(rel)
                 break
@@ -560,3 +572,13 @@ def test_the_facade_census_skips_tests_and_the_drain_itself(tmp_path):
     (tmp_path / "cytir/ops/conftest.py").write_text(rogue)
     (tmp_path / "cytir/ops/bad.py").write_text(rogue)
     assert facade_caller_census(tmp_path) == {"cytir/ops/bad.py": (False, {"apply_side"})}
+
+
+def test_a_module_loaded_by_import_module_is_an_importer(tmp_path):
+    (tmp_path / "cytir").mkdir()
+    (tmp_path / "cytir" / "rogue.py").write_text(
+        "import importlib\nm = importlib.import_module('cytir.index.drain.apply')\n")
+    (tmp_path / "cytir" / "dyn.py").write_text("from importlib import import_module\nimport_module('cytir.index.drain')\n")
+    (tmp_path / "cytir" / "other.py").write_text("import importlib\nimportlib.import_module('cytir.index.upsert')\n")
+    assert importers_of(tmp_path, "cytir.index.drain.apply") == ["cytir/rogue.py"]
+    assert importers_of(tmp_path, "cytir.index.drain") == ["cytir/dyn.py", "cytir/rogue.py"]

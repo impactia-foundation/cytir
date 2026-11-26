@@ -193,9 +193,13 @@ def _chunk_with_built_url(monkeypatch, url):
     return M.DoabMonographsFamily().chunk(doc, SimpleNamespace(today="2026-10-31"))
 
 
-def test_chunk_yields_no_row_for_a_search_result_url_instead_of_raising(monkeypatch):
+def test_chunk_excludes_a_search_result_url_with_a_counted_reason(monkeypatch):
     # task 2048: project_record returns None for a site-search URL; chunk must not index None.
-    assert _chunk_with_built_url(monkeypatch, "https://x.ch/de/suche/?q=a") == []
+    # task 3015: the unit is excluded with a reason, not closed as chunk_empty.
+    import pytest
+    from cytir.sources.family import UnitExcluded
+    with pytest.raises(UnitExcluded, match="search_result_url"):
+        _chunk_with_built_url(monkeypatch, "https://x.ch/?s=a")
 
 
 def test_chunk_projects_a_normal_url_into_a_row_with_point_id(monkeypatch):

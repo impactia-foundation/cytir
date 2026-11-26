@@ -43,6 +43,7 @@ import random
 import sys
 import time
 import urllib.request
+from cytir.index import change_log as CL  # noqa: E402 -- every direct write is logged (task 3002)
 from cytir.index import prod_guard as PG  # noqa: E402 -- no prod scroll, no prod replay (2026-10-07)
 from cytir.index import payload_profile as PP  # noqa: E402 -- a coded twin is written coded (task 855)
 from cytir.index import row_decode as RD  # noqa: E402 -- canonical stored rows, any profile (task 855)
@@ -123,6 +124,8 @@ class _Writer:
         self.written = collections.Counter()      # rule -> ids written
         self.wrote_ids = 0
         self.rng = random.Random(684)
+        self.run_id = uuid.uuid4().hex[:12]       # write ids: `<run>-<batch no>`, unique per run
+        self.batches = 0
 
     def add(self, pid, writes: dict, rule: str):
         k = (_sig(writes), rule)
@@ -137,12 +140,15 @@ class _Writer:
         sig, rule = k
         writes = dict(sig)
         payload = self.encode(writes) if self.encode else writes
-        self.pending.append(self.pool.submit(self._send, ids, payload, writes, rule))
+        self.batches += 1                         # main thread only: the number is fixed before the submit
+        self.pending.append(self.pool.submit(self._send, ids, payload, writes, rule,
+                                             f"{self.run_id}-{self.batches:06d}"))
         self._reap(keep=4 * max(1, self.pool._max_workers))
 
-    def _send(self, ids, payload, writes, rule):
+    def _send(self, ids, payload, writes, rule, write_id=None):
         if self.guard:
             self.guard.tick()
+        spooled = self._spool(ids, write_id)      # the attempted ids, BEFORE the write (replayable)
         set_payload(self.api, self.collection, ids, payload)
         if self.readback:
             sample = self.rng.sample(ids, min(self.readback, len(ids)))
@@ -150,9 +156,31 @@ class _Writer:
             for pid in sample:
                 if got.get(str(pid)) != payload:
                     raise RuntimeError(f"readback mismatch id={pid} want={payload} have={got.get(str(pid))}")
+        self._record(ids, write_id, spooled)       # AFTER the write and its readback, never before (spec 3.3)
         if self.pause_s:
             time.sleep(self.pause_s)
         return len(ids), rule
+
+    def _spool(self, ids, write_id):
+        return CL.spool_pending("consent-backfill", write_id, self.collection,
+                                {"payload_patches": [str(i) for i in ids]})
+
+    def _record(self, ids, write_id, spooled):
+        """Task 3002 (ruling 75): the change-log line of one verified batch, `consent-backfill`,
+        `payload_patches` (an in-place rewrite lists every id). A no-op while the `change_log_dir`
+        setting is empty. A failure raises out of the worker: `drain()` re-raises it, the run stops,
+        and the batch (written, no line) is named in the error. Never swallowed."""
+        if CL.configured_dir() is None:
+            return
+        try:
+            CL.record_direct(tool="consent-backfill", write_id=write_id, collection=self.collection,
+                             verified_written=True, payload_patches=[str(i) for i in ids])
+            CL.clear_pending(spooled)
+        except Exception as exc:  # noqa: BLE001
+            raise RuntimeError(f"consent-backfill batch {write_id} ({len(ids)} ids) is written on "
+                               f"{self.collection} but its change-log record failed: "
+                               f"{type(exc).__name__}: {exc} (the spool replays it: `python -m "
+                               "cytir.index.change_log replay-pending`)") from exc
 
     def _collect(self, f):
         n, rule = f.result()
@@ -185,6 +213,11 @@ def apply_twin(api, collection: str, ctx: DeriveContext, *, page: int = 5000, ba
     DISTINCT write set once with that encoding and reports `encode_refusals`: a value a coded
     twin has no code for refuses in the dry run, not after the real run wrote earlier batches."""
     t0 = time.time()
+    if not dry:
+        try:
+            CL.preflight_dir()     # review 3009 (3a): refuse before the first write if the log cannot take it
+        except CL.ChangeLogError as exc:
+            raise RuntimeError(f"REFUSED: {exc}") from exc
     decode = RD.reader(collection)
     probe = None
     probe_note = None

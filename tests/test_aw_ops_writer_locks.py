@@ -212,3 +212,32 @@ def test_the_verb_is_registered_and_help_works():
     out = subprocess.run([sys.executable, "-m", "cytir.cli", "ops", "writer-locks", "--help"],
                          capture_output=True, text=True, timeout=60).stdout
     assert "usage: cyt ops writer-locks" in out
+
+
+def test_host_compare_ignores_case_and_domain(monkeypatch, capsys):
+    """Task 3016 (c): registry host boxname on a box that reports Boxname.lan is the same box."""
+    monkeypatch.setitem(WL.__dict__, "LOCK_HOST", "boxname")
+    monkeypatch.setattr(W, "socket", types.SimpleNamespace(gethostname=lambda: "Boxname.lan"))
+    rc, out = _run(capsys)
+    assert rc == 0 and "ERROR" not in out
+    # liveness uses the same compare: a record host BOXNAME with a dead pid is dead, not unknown
+    r = W.inspect("PROD-WRITE-LOCK", f"task=1 owner=x host=BOXNAME pid={_dead_pid()} at={OLD}",
+                  now=dt.datetime.now(dt.timezone.utc), max_age_min=1, this_host="boxname")
+    assert r["liveness"] == "dead"
+
+
+def test_a_different_host_is_still_refused(monkeypatch, capsys):
+    monkeypatch.setitem(WL.__dict__, "LOCK_HOST", "boxname2")
+    monkeypatch.setattr(W, "socket", types.SimpleNamespace(gethostname=lambda: "Boxname"))
+    rc, out = _run(capsys)
+    assert rc == 2 and "boxname2" in out
+
+
+def test_same_short_name_on_two_domains_is_two_hosts(monkeypatch, capsys):
+    monkeypatch.setitem(WL.__dict__, "LOCK_HOST", "boxname.one")
+    monkeypatch.setattr(W, "socket", types.SimpleNamespace(gethostname=lambda: "Boxname.two"))
+    rc, out = _run(capsys)
+    assert rc == 2 and "boxname.one" in out
+    r = W.inspect("PROD-WRITE-LOCK", f"task=1 owner=x host=boxname.one pid={_dead_pid()} at={OLD}",
+                  now=dt.datetime.now(dt.timezone.utc), max_age_min=1, this_host="boxname.two")
+    assert r["liveness"] == "unknown"

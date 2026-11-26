@@ -179,6 +179,16 @@ def find_authority(q: str = Query(..., min_length=1),
         cards, relaxed = authority.find_authorities_relaxed(q, k=k, country=country)
     except Exception as e:  # noqa: BLE001
         log.exception("find_authority failed for q=%r", q)
+        if authority.CARDS_COLLECTION in str(e) and (
+                getattr(e, "status_code", None) == 404 or "not found" in str(e).lower()
+                or "doesn't exist" in str(e).lower()):
+            # F9b (task 3008): a missing card collection never heals by retrying; say what is missing.
+            return JSONResponse(
+                {"error": f"this index has no authority-card collection `{authority.CARDS_COLLECTION}`, "
+                          "which find_authority needs (a fixture or fresh build does not include one); "
+                          "use search instead; /search is unaffected",
+                 "status": "not_built", "authorities": []},
+                status_code=404)
         return JSONResponse(
             {"error": f"authority lookup unavailable ({type(e).__name__}) — "
                       "try again shortly; /search is unaffected",

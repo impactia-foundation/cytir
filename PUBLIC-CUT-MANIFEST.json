@@ -40,12 +40,12 @@
   {
    "path": "QUICKSTART.md",
    "rule": "newcomer-docs",
-   "sha256": "45bdaf03be0089f1943199e518e96499d894d03797fd8226158218b5a64b895e"
+   "sha256": "6b14f8743b6adb5b77371a81b80d4d899a0a9370b592c0d7d95dd8691c50ca8d"
   },
   {
    "path": "README.md",
    "rule": "newcomer-docs",
-   "sha256": "3ea1c0b2978a65c9eb3e4f8f8dac3a6aa52e1ea25abb3fbd6f7d930b4e7ed5c7"
+   "sha256": "1d74c7233d74df1d80e96ccedaf7dbfd8ab4f731f32f3176b3f25ee6b703de07"
   },
   {
    "path": "SECURITY.md",
@@ -270,7 +270,7 @@
   {
    "path": "cytir/cli.py",
    "rule": "package",
-   "sha256": "c15a9b8526728b45e6f9999f071f111260e15f6a50d06d56e27dd06f827792a8"
+   "sha256": "156442a564d688ed21fb4c35a0964dfb0f4e395deec554abf0c10fd1938c1383"
   },
   {
    "path": "cytir/consent/__init__.py",
@@ -280,7 +280,7 @@
   {
    "path": "cytir/consent/apply.py",
    "rule": "package",
-   "sha256": "476f448b827707e92ccdbd496e90f2f2bb2e237f7007d382fac8b9bae5ba5b5b"
+   "sha256": "99b542e4cdd0b8ead91c1a1155a1f5182ccde6d1fc025874a36f8d851a21d838"
   },
   {
    "path": "cytir/consent/arxiv_licence.py",
@@ -505,7 +505,7 @@
   {
    "path": "cytir/core/twin.py",
    "rule": "package",
-   "sha256": "dea1ad8290a75929c847f2b31774c4af81d4536995ccd48140805f0f973287de"
+   "sha256": "fd67038ae0b3970dbe3ff2c40407905000f63bbac8df03484f7dcf19f41b415e"
   },
   {
    "path": "cytir/core/user_agent.py",
@@ -585,7 +585,7 @@
   {
    "path": "cytir/corpus/persisted.py",
    "rule": "package",
-   "sha256": "8cd2edbaa1798ff5b4863855a313e41bfe6203b2c8b60c6c679dd530ec184279"
+   "sha256": "10433430173b56cf016b5ad0478870c67a22f92b45d3154b7f21b23981ac11c4"
   },
   {
    "path": "cytir/corpus/persisted_build.py",
@@ -670,7 +670,7 @@
   {
    "path": "cytir/distribute/rehearsal.py",
    "rule": "package",
-   "sha256": "7a5f3dc9475779ca58da5aa2ad1658a3677c8744cab6bff40a329de59eaa11e9"
+   "sha256": "157e0628c8a3455fa20665656db80a3ac4faba55e8406c64913affadcbb58704"
   },
   {
    "path": "cytir/distribute/rehearsal_log_delta.py",
@@ -1190,7 +1190,7 @@
   {
    "path": "cytir/index/change_log.py",
    "rule": "package",
-   "sha256": "fc317b7c905d09a9056c27fbfad551c9b696f0de774eade47a3bd9db3bef496e"
+   "sha256": "13d6f552bf43ac3f4d60691d21e57b92a47d5c2225b226445c40427fe8b17b3d"
   },
   {
    "path": "cytir/index/chunk_checkpoint.py",
@@ -1240,7 +1240,7 @@
   {
    "path": "cytir/index/drain/drain.py",
    "rule": "package",
-   "sha256": "cc483b761fe5ba8a06a340fef63492e18e9bf66d45f9c127a59c52d32b05ad13"
+   "sha256": "175d2213b2f16f56fa179c96fd02f77158fae55d38873593e8f2761a8e4b4c52"
   },
   {
    "path": "cytir/index/drain/locks.py",
@@ -1270,7 +1270,7 @@
   {
    "path": "cytir/index/drain/resume.py",
    "rule": "package",
-   "sha256": "7df5529242df835608fd13a6530c12a0bdaa7e2339a36c6ffbef91e1e99fc6e1"
+   "sha256": "f5f965464d78c216381c20aa8705d2f4e26598cd5e4a7e982cd722c0d1529461"
   },
   {
    "path": "cytir/index/drain/verify.py",
@@ -1290,7 +1290,7 @@
   {
    "path": "cytir/index/drain/write_sealed.py",
    "rule": "package",
-   "sha256": "0e6d125ebb6e888f21c9c92a58fe13c6c55c18b822bd39bc3e6621e2ad804ce1"
+   "sha256": "57487ad4dff38af0324f6cb643b17d33ad40b3059722380b64fb542121c47dae"
   },
   {
    "path": "cytir/index/dry_run.py",
@@ -1460,7 +1460,7 @@
   {
    "path": "cytir/index/promote_sealed_pack.py",
    "rule": "package",
-   "sha256": "397669b690b5b33b1ad8051d2a17d039793df9f37aba322bcaa67c48037dcbfb"
+   "sha256": "b9ea61c2823e27bd8c29413e1fa8ef43f1c36354d9965578d5c94a4c43e19848"
   },
   {
    "path": "cytir/index/readiness.py",
@@ -1540,12 +1540,12 @@
   {
    "path": "cytir/index/supersede.py",
    "rule": "package",
-   "sha256": "9064b6640efa6803780e2fa8478df8b5fec88e09aebdc2fe3b58d6dd3968c4d7"
+   "sha256": "b6e5840bb8d0faa4e4caf6d07fbb05b41cf71241cbadee680d21f6bbe91c46ff"
   },
   {
    "path": "cytir/index/surface_delta.py",
    "rule": "package",
-   "sha256": "afa15f9e00214c623b9a9d7ef2e55068d4e17d0d03fe474fc80b56cfa6424889"
+   "sha256": "fea63add1e3cb54064783e861db117208dd8f4a838501ef3f96f293047b0efe9"
   },
   {
    "path": "cytir/index/twin_first.py",
@@ -1560,7 +1560,7 @@
   {
    "path": "cytir/index/upsert.py",
    "rule": "package",
-   "sha256": "e6b0631a04e6e72863b44808dc4a7dfec107afec531406c899cbd8aa7614500d"
+   "sha256": "e686f645e32a503229f1fd9f8cee593a3887190ab0afb839b49afafcf75448fe"
   },
   {
    "path": "cytir/index/url_group_supersede.py",
@@ -1590,7 +1590,7 @@
   {
    "path": "cytir/news/coverage_backfill.py",
    "rule": "package",
-   "sha256": "cd0da0a48c0c1a07643e509d25ac4b956fb2012e9019683423be7b3c02c0d091"
+   "sha256": "f42cc1bec8894bc788fb7dee3a89f4d73cc13ac573234c3b216e92f09e38f824"
   },
   {
    "path": "cytir/news/daily.py",
@@ -1850,7 +1850,7 @@
   {
    "path": "cytir/ops/change_log_writers.py",
    "rule": "package",
-   "sha256": "07d1c8cdc1d67d17ed32f5349b398097242cf3dba7c188feefef9df70a66e02c"
+   "sha256": "f0343b568ef7dfadfd1ed9d56c0f9c5a231a177dc061aae4075fed5aae97cdbc"
   },
   {
    "path": "cytir/ops/check_qdrant_temp_path.py",
@@ -1870,7 +1870,7 @@
   {
    "path": "cytir/ops/entry_doors.py",
    "rule": "package",
-   "sha256": "44cece677a0f7a634df85a45acbab779fd0029f3cfbce9d2b3a7b6842029f32a"
+   "sha256": "5174f73c8f0aca7930c1e1bcaa2099b698818e37d0287ee0400b321109d1104d"
   },
   {
    "path": "cytir/ops/eric_partition_preflight.py",
@@ -2015,7 +2015,7 @@
   {
    "path": "cytir/ops/public_cut.py",
    "rule": "package",
-   "sha256": "d20b8cb03520bf84f7d0604b440040421426b534ce321e71dc6695a16efdf9f2"
+   "sha256": "e6e3c2cdf87eb79f27f024fdf99ef21d7372f5d5f5bbc63fbf8956303f5810a0"
   },
   {
    "path": "cytir/ops/qdrant_hop_chain.py",
@@ -2115,7 +2115,7 @@
   {
    "path": "cytir/ops/twin_patch_fields.py",
    "rule": "package",
-   "sha256": "11d1f6242b32a3c7396afbbdeb14a2778acb96f9409aa73db837f03d2f10cd69"
+   "sha256": "f6bb1a76bbb326b2ab7336d0ba05fb471988ff0cc6c8e76fd475f6c29964ba5a"
   },
   {
    "path": "cytir/ops/write_lock.py",
@@ -2125,7 +2125,7 @@
   {
    "path": "cytir/ops/writer_locks.py",
    "rule": "package",
-   "sha256": "d6b4a6b3579765113caf6dc3a7ff835c8301a7ba3a4977c2d25a23f22b575bde"
+   "sha256": "efc13be59a04577f7c860354d281d90b25b9741abe2bf9401b3ae79c11c899ec"
   },
   {
    "path": "cytir/probe/__init__.py",
@@ -2270,7 +2270,7 @@
   {
    "path": "cytir/serve/app.py",
    "rule": "package",
-   "sha256": "8087bf4c69c044ef24b0ba9cf7c82d66eace84b96e20177fa5bc45b4426a501f"
+   "sha256": "734046200e916afbfb198cd1da175a9ad383c5f6e04d2f810c6f69e411c2f132"
   },
   {
    "path": "cytir/serve/article_tokens.py",
@@ -2355,7 +2355,7 @@
   {
    "path": "cytir/serve/mcp_server.py",
    "rule": "package",
-   "sha256": "0a19819cef98854dec43da859b1f4ad7b67f182a16fe3591d840d7b1f271d574"
+   "sha256": "4596684df5da265d1928f3c9c7f6112a505c8d5ed2a77cf1be43d5217b777c77"
   },
   {
    "path": "cytir/serve/models.py",
@@ -2455,7 +2455,7 @@
   {
    "path": "cytir/serve/settings.py",
    "rule": "package",
-   "sha256": "922326769908975301cccf3cb6070ebda2d2870d389f6d3ddf4b44ba32e0da01"
+   "sha256": "cf26fe06eddb5a5dcb05b4b5edd60ef7888761984e174e28a09eaf35e9b1d5d6"
   },
   {
    "path": "cytir/serve/signals.py",
@@ -2700,7 +2700,7 @@
   {
    "path": "cytir/sources/families/doab_monographs.py",
    "rule": "package",
-   "sha256": "40bae1ea9674e5f95ec565c9a7c07d2ba76c023124c3eddaf6f3446c8075b099"
+   "sha256": "a40aa801118048f01c7876b2a7651a532a9da36f4fa963dbe607e0e77a21ac9a"
   },
   {
    "path": "cytir/sources/families/entscheidsuche.py",
@@ -3748,7 +3748,7 @@
   {
    "path": "data/public-cut-leak-baseline.v1.json",
    "rule": "cut-itself",
-   "sha256": "45a9077d1a84a264ab75a797918db35e21fed3220dd9bda24b8b2ee08fceda6e"
+   "sha256": "3c32323a8ca137d3c158266f131b012d9a5127b3dd464838cfa7c3fd34cd32db"
   },
   {
    "path": "data/public-cut.v1.json",
@@ -6739,7 +6739,7 @@
   {
    "path": "tests/test_aw_data_reads_in_cut.py",
    "rule": "tests",
-   "sha256": "5fbb59dc460eceb3145fae4bc1b1e5e6e0fe78c6b6689b4e704d3a4d681f9e35"
+   "sha256": "3735f3e1fec768e587b2bf3a9e59de9b3e606daf7836d36c71a568bd5cc7ed7e"
   },
   {
    "path": "tests/test_aw_date_guard.py",
@@ -6789,7 +6789,7 @@
   {
    "path": "tests/test_aw_doab_monographs.py",
    "rule": "tests",
-   "sha256": "f827433045ba7b790c557763ef9133002419842f862423be9e8b41325f63d1b2"
+   "sha256": "292e1c07900bcdd761b432d9661b64bbf908dcb303c6635d1abacef4710fcfea"
   },
   {
    "path": "tests/test_aw_does_not_import_pipeline.py",
@@ -6984,7 +6984,7 @@
   {
    "path": "tests/test_aw_family_doab_monographs.py",
    "rule": "tests",
-   "sha256": "d18cc7ce915dcfc2d5941f2aa5e2d50f6c7aef37d4e0b9c76398291d3e7cbcad"
+   "sha256": "655516915951cc1f94a24b2fdebe1d8752010e7724d2d2b957252a8389faa35c"
   },
   {
    "path": "tests/test_aw_family_entscheidsuche.py",
@@ -7729,7 +7729,7 @@
   {
    "path": "tests/test_aw_news_t4_sitemap_characterization.py",
    "rule": "tests",
-   "sha256": "07ceee72e596cef04f5a6a4e7e8e57190f6bb2f83f9c33c063680664c2526076"
+   "sha256": "927e4d637541942bb07b64e6e5e056bcd246041b6079884662831f7d6723d4a9"
   },
   {
    "path": "tests/test_aw_news_tier2_lane_defaults.py",
@@ -7894,7 +7894,7 @@
   {
    "path": "tests/test_aw_ops_writer_locks.py",
    "rule": "tests",
-   "sha256": "ffce7e1f00f6e0b1cf5775296c0be68855da439fae4c7b004d05f223d04eb5f7"
+   "sha256": "3e48b087c69ea05e8246ad5960fc4b698e7c54a267a5b15a44ef7bd2cb408ff5"
   },
   {
    "path": "tests/test_aw_pack_extractor_module.py",
@@ -8699,12 +8699,27 @@
   {
    "path": "tests/test_change_log.py",
    "rule": "tests",
-   "sha256": "4ba616175e28146803c28a51c0ec27ebe1c10b3cb9dedc4f2ddd453683da0983"
+   "sha256": "826be3452a51b4a4c48e3da340ac6293b6532e711ecc91d848e41b3ec5eeff81"
   },
   {
    "path": "tests/test_change_log_direct.py",
    "rule": "tests",
    "sha256": "189505148fa868b4e683e04a6bf47773bc29c6ee2b329dc135c259745df11548"
+  },
+  {
+   "path": "tests/test_change_log_direct_wiring.py",
+   "rule": "tests",
+   "sha256": "8ee3a3436dc06a6dad084b364d6cf0395023aabc3aa455560dcaecf5a3d73532"
+  },
+  {
+   "path": "tests/test_change_log_direct_wiring_s4.py",
+   "rule": "tests",
+   "sha256": "da9002ed3edb18d68cf4fefb6dfbe2ef0a66d032312c3fa377c879cbd02644ec"
+  },
+  {
+   "path": "tests/test_change_log_replay_race.py",
+   "rule": "tests",
+   "sha256": "f78fc209ad2b0e1b5005a3d000a7dcf6ac6d0298f51d2b0630f02dbdfab3d89e"
   },
   {
    "path": "tests/test_chunk.py",
@@ -8877,6 +8892,11 @@
    "sha256": "ca064110b59a5336e18c4a45746bc7862e0312a08a7ae5148b1099e205fa6b4f"
   },
   {
+   "path": "tests/test_cyt_first_contact.py",
+   "rule": "tests",
+   "sha256": "b9c279e744c8f05e30e8a30a8a10a066b94887c0627f4219ca55457de3fd62ad"
+  },
+  {
    "path": "tests/test_cytir_dist_name.py",
    "rule": "tests",
    "sha256": "a3e77201a67ce761ef3c2627ff5a09aef86a41fff1b8fef1bc2c114dd5baf795"
@@ -8962,9 +8982,14 @@
    "sha256": "403f911f3d8aa9ff6c70dca07eefcd59d64c3868349ec28c5cae55ef184a8f46"
   },
   {
+   "path": "tests/test_drain_facade_lookups_rest.py",
+   "rule": "tests",
+   "sha256": "a645e8e3753ebbc7c0a66e665120db29fd6430e548e531cae1959b74f8272da3"
+  },
+  {
    "path": "tests/test_drain_pins_2941.py",
    "rule": "tests",
-   "sha256": "ca5131073a3b8bd7e094a6d7a69bce090203108234b51dac6fb838ea67c791f3"
+   "sha256": "ffa0d043a68ebeb0471c2a548719207b26c0cd7cb038d1729516d91e57a9e437"
   },
   {
    "path": "tests/test_drain_pins_2954.py",
@@ -8974,7 +8999,7 @@
   {
    "path": "tests/test_drain_resume_golden.py",
    "rule": "tests",
-   "sha256": "4510bdac28cd52f19011bd79cdb869aa4564266a512ded294cf1b872041a1b5d"
+   "sha256": "482411dfd58d9fa49426aa7f2ae2533ae51eae51314b626de2bf9f30e9cab826"
   },
   {
    "path": "tests/test_drain_single.py",
@@ -9304,7 +9329,7 @@
   {
    "path": "tests/test_news_coverage_backfill.py",
    "rule": "tests",
-   "sha256": "a3f9b10f338f27e1a66ed064115643b071d7ad48fce9cc8513b5a9b71e58653a"
+   "sha256": "357d8ae4d47ae4836ff343b95219f0cb1aa461fec197edafd98017a150397efd"
   },
   {
    "path": "tests/test_news_discovery_without_duckdb.py",
@@ -9542,6 +9567,11 @@
    "sha256": "fc4a94e7e22f133e09b21669cbe534e672970d5ca5fd74f402ea5ad43e327094"
   },
   {
+   "path": "tests/test_run_corpus_arm_path_spawn.py",
+   "rule": "tests",
+   "sha256": "f601ffb2a4091f301cdcd6fcaa12e2db776eb21328747fbc676618baa73dca9b"
+  },
+  {
    "path": "tests/test_run_observed_one_shot.py",
    "rule": "tests",
    "sha256": "936d473b0f08aa3c03f34fb9d5b33e7899ac57f3447a37503780b1b0e9b5e392"
@@ -9699,7 +9729,7 @@
   {
    "path": "tests/test_sitemap_discovery_window.py",
    "rule": "tests",
-   "sha256": "d7d4973aa5e622a3f049fd516b244bf0902cdf4ed0574641279b1ae74eb41f42"
+   "sha256": "7b63a88055149debaa8b948826bcc2e0b1418a93fd3904452d15189d4644d118"
   },
   {
    "path": "tests/test_sitemap_ingest_freshness.py",
@@ -9904,7 +9934,7 @@
   {
    "path": "tests/test_twin_write_hold_writers.py",
    "rule": "tests",
-   "sha256": "cb98bfea4d52660030efb0b20b05563af12361a2a587154dfae7a05dfcea54a3"
+   "sha256": "46911b0ce8092fe021898c15571de6ad9f7f6f974a2c26d393863558a0048298"
   },
   {
    "path": "tests/test_unified_country_query_plan.py",

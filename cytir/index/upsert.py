@@ -54,12 +54,14 @@ import gzip
 import json
 import os
 import time
+import uuid
 
 from cytir.core import internal_http as IH
 from qdrant_client import models
 
 from cytir.core.bm25_saturate import saturate_point_bm25  # noqa: E402
 from cytir.core.qdrant import qdrant_connect  # noqa: E402
+from cytir.index import change_log as CL  # noqa: E402
 from cytir.index.preservation_contract import (ContractError,
                                    verify_publish_environment)  # noqa: E402
 from cytir.index.supersede import (CardOverwriteRefused, Superseder,  # noqa: E402
@@ -69,6 +71,63 @@ from cytir.index.supersede import (CardOverwriteRefused, Superseder,  # noqa: E4
                               twin_config, verify_count_delta)
 
 LOCK = "/tmp/aw_prod_writer.lock"
+
+
+class _DirectLog:
+    """Task 3002 (ruling 75, S8 slice S3): the change-log record of this wave. The log follows the
+    PROD collection for upserts (the twin gets the same ids): one `record_direct` segment per verified
+    prod batch (`live-upsert`, write id `<run>-<batch no>`: unique per run, stable on a retry inside the
+    run). Deletes are logged per VERIFIED delete batch from inside the Superseder, with the ids deleted
+    on the collection the delta is built from (the twin; prod only under the no-twin hatch), write id
+    `<run>-supersede-<n>`. Logged AFTER the write (spec 3.3). A no-op when `change_log_dir` is empty. A
+    log failure is ledgered and stops the run loudly. Only the upsert line is spooled before the write
+    (`CL.spool_pending`), so a lost line can be replayed. Tombstones are NOT spooled (`superseded` passes
+    `spool=False`): a SIGKILL between a verified delete batch and its record loses those tombstones and
+    no tool recovers them. Owed: see the task 3002 doc."""
+
+    TOOL = "live-upsert"
+
+    def __init__(self, collection, ledger):
+        self.collection, self.ledger = collection, ledger
+        self.run_id = uuid.uuid4().hex[:12]
+        self.batches = self.sup_batches = 0
+
+    def preflight(self):
+        """Before the first write: the log dir must exist and hold the log (review 3009 (3a))."""
+        try:
+            CL.preflight_dir()
+        except CL.ChangeLogError as exc:
+            self.ledger(f"CHANGE-LOG-PREFLIGHT-REFUSED {str(exc)[:500]!r}")
+            raise SystemExit(f"ABORT: {exc}") from exc
+
+    def _land(self, suffix, *, landed=True, spool=False, **ops):
+        if CL.configured_dir() is None:
+            return
+        wid = f"{self.run_id}-{suffix}"
+        if not landed:
+            self.ledger(f"CHANGE-LOG-FAILED {self.TOOL}/{wid} the write did not return completed")
+            raise SystemExit(f"FATAL: the write {self.TOOL}/{wid} did not return `completed`; not logged")
+        try:
+            pend = CL.spool_pending(self.TOOL, wid, self.collection, ops) if spool else None
+            CL.record_direct(tool=self.TOOL, write_id=wid, collection=self.collection,
+                             verified_written=True, **ops)
+            CL.clear_pending(pend)
+        except Exception as exc:  # noqa: BLE001 -- ledger it, then stop: never swallow
+            self.ledger(f"CHANGE-LOG-FAILED {self.TOOL}/{wid} {type(exc).__name__}: {str(exc)[:500]!r}")
+            raise SystemExit(f"FATAL: the write {self.TOOL}/{wid} landed but its change-log record "
+                             f"failed ({type(exc).__name__}: {exc}); the segment is MISSING from the log"
+                             + (" (spooled: run `python -m cytir.index.change_log replay-pending`)"
+                                if spool else "") + ". Stop and repair before any further write.") from exc
+
+    def batch(self, ids, status):
+        self.batches += 1
+        self._land(f"{self.batches:06d}", landed=getattr(status, "status", None) == models.UpdateStatus.COMPLETED,
+                   upserts=[str(i) for i in ids])
+
+    def superseded(self, ids):
+        self.sup_batches += 1
+        self._land(f"supersede-{self.sup_batches:06d}", spool=False,
+                   tombstones=[{"id": str(i), "reason": "superseded"} for i in ids])
 
 
 def take_lock(purpose: str, wait_s: int = 3600, break_stale: bool = False):
@@ -270,6 +329,8 @@ def _run(args, *, ledger, twin_client, twin_coll):
     caller) — every other code path here treats the twin write as mandatory
     and gates the success report on it (task 359 / ADR-081 amendment)."""
     c = qdrant_connect(args.qdrant_url, timeout=300)
+    dlog = _DirectLog(args.collection, ledger)
+    dlog.preflight()          # task 3002: a log that cannot take the record refuses BEFORE any write
 
     # --- supersede preconditions, BEFORE the lock and any write ---
     opener = gzip.open if args.inp.endswith(".gz") else open
@@ -289,10 +350,11 @@ def _run(args, *, ledger, twin_client, twin_coll):
                 "page-complete, superseding would delete unchanged siblings. "
                 "Re-dump with the format-2 dump_netnew, or pass --no-supersede "
                 "to merge WITH the known duplicate bug.")
-        sup = Superseder(c, args.collection)
+        sup = Superseder(c, args.collection,
+                         on_deleted=dlog.superseded if twin_client is None else None)
         sup.ensure_url_index(create=args.create_url_index)
         if twin_client is not None:
-            sup_twin = Superseder(twin_client, twin_coll)
+            sup_twin = Superseder(twin_client, twin_coll, on_deleted=dlog.superseded)
             sup_twin.ensure_url_index(create=args.create_url_index)
 
     # --- card-overwrite guard, BEFORE the lock and any write (task 820) ----------------------
@@ -337,7 +399,7 @@ def _run(args, *, ledger, twin_client, twin_coll):
                 if len(batch) >= args.batch:
                     ram_guard(args.min_avail_gib)
                     _flush_batch(twin_client, twin_coll, batch, twin_batch, c,
-                                args.collection)
+                                args.collection, dlog)
                     n += len(batch); twin_n += len(twin_batch)
                     batch, twin_batch = [], []
                     if n % (args.batch * args.health_every) == 0:
@@ -355,7 +417,7 @@ def _run(args, *, ledger, twin_client, twin_coll):
         if batch or twin_batch:
             ram_guard(args.min_avail_gib)
             _flush_batch(twin_client, twin_coll, batch, twin_batch, c,
-                        args.collection)
+                        args.collection, dlog)
             n += len(batch); twin_n += len(twin_batch)
         if sup is not None:
             # reconcile touched page groups — a prod mutation, so it happens
@@ -452,7 +514,7 @@ def guard_card_overwrites_for_input(args, c, twin_client, twin_coll, ledger) -> 
     return report
 
 
-def _flush_batch(twin_client, twin_coll, batch, twin_batch, c, collection):
+def _flush_batch(twin_client, twin_coll, batch, twin_batch, c, collection, dlog):
     """TWIN FIRST, then prod — and the twin write is retrieve-verified
     present before prod is touched (task 359). If the twin write fails or a
     written id is not retrievable, this raises BEFORE prod advances past it,
@@ -468,7 +530,8 @@ def _flush_batch(twin_client, twin_coll, batch, twin_batch, c, collection):
                 f"{len(got)} retrievable — apply is NOT reportable as "
                 f"success; prod was NOT advanced past this batch.")
     if batch:
-        c.upsert(collection, points=batch, wait=True)
+        res = c.upsert(collection, points=batch, wait=True)
+        dlog.batch([p.id for p in batch], res)    # task 3002: after the prod write, never before
 
 
 if __name__ == "__main__":

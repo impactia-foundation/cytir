@@ -8,6 +8,8 @@ CHOICE: derive only what is mechanical, and declare the rest in `data/entry-door
                  the CLI dispatch table reaches it. A verb is not a registry row;
   - self_start   the module builds a command list `[sys.executable, <its own file or own module>, ...]`
                  and spawns it (a child-handler: it restarts itself as a subprocess);
+  - path_spawned_by  another file under cytir/ holds a spawn call and joins this file name onto a directory (`dir / "x.py"`): a path-spawned
+                 handler, also a child-handler (started as `python <path>/x.py`, so no import names it);
   - block_lines  lines of the `def main` + `if __name__` blocks.
 SCOPE: `cytir/**/*.py` only (files outside `cytir/` with a `__main__` block are not scanned; see the data file's `scope`).
 A door is: `def main` / `async def main`, or a `__name__ == "__main__"` compare (either side, inside `and`, `if`,
@@ -246,11 +248,25 @@ def cli_reached(cli_path: pathlib.Path) -> set[str]:
     return out
 
 
+def path_spawners(tree: ast.Module) -> set[str]:
+    """File names (`x.py`) that this module joins onto a path (`dir / "x.py"`) AND could spawn: it holds a spawn call.
+    A caller that builds `release_dir / pkg / "gates" / "x.py"` and runs it names the file this way."""
+    if not any(isinstance(c, ast.Call) and (_call_name(c) in _SPAWN or _call_name(c) in _EXEC) for c in ast.walk(tree)):
+        return set()
+    return {n.right.value.rsplit("/", 1)[-1] for n in ast.walk(tree)
+            if isinstance(n, ast.BinOp) and isinstance(n.op, ast.Div) and isinstance(n.right, ast.Constant)
+            and isinstance(n.right.value, str) and n.right.value.endswith(".py")}
+
+
 def scan_doors(app: pathlib.Path = APP) -> dict[str, dict]:
-    """{dotted module: {"path", "has_def_main", "has_name_guard", "block_lines", "is_aw_verb", "self_start"}}."""
+    """{dotted module: {"path", "has_def_main", "has_name_guard", "block_lines", "is_aw_verb", "self_start",
+    "path_spawned_by"}}. `path_spawned_by`: other files under cytir/ that spawn this one by its file name (a
+    path-spawned handler: started as `python <path>/x.py`, not as `-m`, so no import line names it)."""
     base = app / "cytir"
     reached = cli_reached(base / "cli.py") if (base / "cli.py").is_file() else set()
     out: dict[str, dict] = {}
+    parsed: list[tuple[pathlib.Path, str, str, ast.Module]] = []
+    spawners: dict[str, set[str]] = {}
     for p in sorted(base.rglob("*.py")):
         if "__pycache__" in p.parts:
             continue
@@ -260,6 +276,10 @@ def scan_doors(app: pathlib.Path = APP) -> dict[str, dict]:
             tree = ast.parse(text)
         except SyntaxError:
             raise RuntimeError(f"entry-door scan: cannot parse {rel}")
+        parsed.append((p, rel, text, tree))
+        for name in path_spawners(tree):
+            spawners.setdefault(name, set()).add(rel)
+    for p, rel, text, tree in parsed:
         blocks = block_nodes(tree)
         if not blocks and p.name != "__main__.py":     # `python -m cytir.x` runs it: a door with no guard or `def main`
             continue
@@ -272,6 +292,7 @@ def scan_doors(app: pathlib.Path = APP) -> dict[str, dict]:
             "block_lines": sum(n.end_lineno - n.lineno + 1 for n in blocks) if blocks else len(text.splitlines()),
             "is_aw_verb": mod in reached,
             "self_start": self_starts(tree, mod, rel),
+            "path_spawned_by": sorted(spawners.get(p.name, set()) - {rel}),
         }
     return out
 
@@ -372,8 +393,9 @@ def problems(app: pathlib.Path = APP, reg: dict | None = None) -> list[str]:
             if spawn and r.get("kind") != "child-handler":
                 msgs.append(f"{m}: the module starts itself as a child but the row says kind={r.get('kind')!r}: "
                             f"declare it a child-handler (a kind may not hide a self-starter).")
-            if not spawn and r.get("kind") == "child-handler":
-                msgs.append(f"{m}: row says child-handler but the scanner finds no self-start: fix the kind.")
+            if not spawn and r.get("kind") == "child-handler" and not found[m]["path_spawned_by"]:
+                msgs.append(f"{m}: row says child-handler but the scanner finds no self-start and no file that spawns it "
+                            f"by path: fix the kind.")
     msgs += _row_field_problems(app, rows, found)
     got, ceil = measures(reg), reg.get("ceilings", {})
     for k in CEILINGS:
@@ -387,7 +409,7 @@ def candidates(app: pathlib.Path = APP, reg: dict | None = None) -> list[dict]:
         path = app / "data" / "entry-doors.v1.json"
         reg = load_registry(path) if path.is_file() else {"rows": []}
     rows = registry_rows(reg)
-    return [{"module": m, "kind": "child-handler" if d["self_start"] else "operator-tool", "started_by": [],
+    return [{"module": m, "kind": "child-handler" if d["self_start"] or d["path_spawned_by"] else "operator-tool", "started_by": [],
              "reason": "FILL IN: one line, why this door exists", "test_that_starts_it": None, "verified": False}
             for m, d in sorted(non_verb_doors(app).items()) if m not in rows]
 

@@ -37,6 +37,13 @@ def configured_url() -> str:
     return url(_env_without_twin())
 
 
+def configured_collection() -> str:
+    """The twin collection from the overlay / default ONLY: `AW_TWIN_COLLECTION` is ignored (the sibling of
+    `configured_url`). For a guard that must decide what "the twin" is independently of a caller's
+    environment (the change-log scope of a direct writer)."""
+    return collection(_env_without_twin())
+
+
 def _env_without_twin() -> dict:
     """`os.environ` without the twin variables under BOTH spellings and without the mirror's marker:
     a `CYTIR_TWIN_URL` left in place would be mirrored back to `AW_TWIN_URL` by the settings loader."""
